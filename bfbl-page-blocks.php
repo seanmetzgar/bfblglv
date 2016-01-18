@@ -18,7 +18,7 @@
 		$block_title = get_sub_field("title");
 		$block_text = get_sub_field("text");
 
-		$block_class = "col-sm-12 page-block $block_type";
+		$block_class = "page-block $block_type";
 		switch($block_type) {
 			case "image-left":
 			case "image-right":
