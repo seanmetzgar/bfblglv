@@ -25,13 +25,18 @@ get_header(); ?>
 						<?php endif; ?>
 						<?php the_content(); ?>
 
-						<?php if (have_rows("downloads")): while (have_rows("downloads")): the_row();
-							echo "<pre>";
-							print_r(get_sub_field("file"));
-
-							echo "</pre>";
-
-						endwhile; endif; ?>
+						<?php if (have_rows("downloads")): 
+						echo "<h2>Downloads</h2>";
+						while (have_rows("downloads")): the_row();
+							$file = get_sub_field("file");
+							$filesize = filesize( get_attached_file( $file["ID"] ) );
+							$filesize = size_format($filesize, 2);
+						?>
+						<a href="<?php echo $file["url"]; ?>" class="download">
+							<h3><?php echo $file["filename"]; ?></h3>
+							<p class="filesize">File Size: <span><?php echo $filesize; ?></span></p>
+						</a>
+						<?php endwhile; endif; ?>
 					</section>
 
 					<?php get_template_part("bfbl", "page-blocks"); ?>
