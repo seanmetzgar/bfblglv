@@ -23,6 +23,8 @@
 	$news_posts = get_posts($news_args);
 	$events_posts = get_posts($events_args);
 
+	echo ("<pre>" . print_r($events_posts, TRUE) . "</pre>");
+
 	$news_count = (is_array($news_posts) && count($news_posts)) ? count($news_posts) : 0;
 	$events_count = (is_array($events_posts) && count($events_posts)) ? count($events_posts) : 0; ?>
 	<section class="news-events-list row">
