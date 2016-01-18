@@ -44,7 +44,15 @@ function kudu_custom_post_types() {
             "page_title"        => "News & Events Settings",
             "menu_title"        => "News & Events Settings",
             "menu_slug"         => "options_news_events",
-            "capability"        => "edit_posts"
+            "capability"        => "edit_posts",
+            "position"          => 7
+        ));
+        acf_add_options_page(array(
+            "page_title"        => "Company Details",
+            "menu_title"        => "Company Details",
+            "menu_slug"         => "options_company",
+            "capability"        => "edit_posts",
+            "position"          => 10
         ));
         acf_add_options_page(array(
             "page_title"        => "Resources Settings",
