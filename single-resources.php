@@ -26,7 +26,10 @@ get_header(); ?>
 						<?php the_content(); ?>
 
 						<?php if (have_rows("downloads")): while (have_rows("downloads")): the_row();
-							echo "<pre>" . print_r(get_sub_field("file"), TRUE) . "</pre>";
+							echo "<pre>";
+							print_r(get_sub_field("file"));
+
+							echo "</pre>";
 
 						endwhile; endif; ?>
 					</section>
