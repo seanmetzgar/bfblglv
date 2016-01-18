@@ -32,48 +32,49 @@
 				break;
 		}
 
-		$block_output .=			"\n";
-		$block_output .= 			"$indent<section class=\"$block_class\">\n";
-		if ($block_type == "image-left") {
-			$block_output .=		"$indent    <div class=\"image $block_image_class\">\n";
-			if ($block_has_button) {
-				$block_output .=	"$indent        <a href=\"$block_button_href\" title=\"$block_button_cta_attr\">\n";
+		if (!$members_only || $members_only && is_user_logged_in()):
+			$block_output .=			"\n";
+			$block_output .= 			"$indent<section class=\"$block_class\">\n";
+			if ($block_type == "image-left") {
+				$block_output .=		"$indent    <div class=\"image $block_image_class\">\n";
+				if ($block_has_button) {
+					$block_output .=	"$indent        <a href=\"$block_button_href\" title=\"$block_button_cta_attr\">\n";
+				}
+				$block_output .=		"$indent        $block_image\n";
+				if ($block_has_button) {
+					$block_output .=	"$indent        </a>\n";
+				}
+				$block_output .=		"$indent    </div>\n";
 			}
-			$block_output .=		"$indent        $block_image\n";
+
+			$block_output .=			"$indent    <div class=\"content\">\n";
+			$block_output .=			"$indent        <h2>$block_title</h2>\n";
+			$block_output .=			"$indent        $block_text\n";
 			if ($block_has_button) {
-				$block_output .=	"$indent        </a>\n";
+				$block_output .=		"$indent        <a href=\"$block_button_href\" class=\"btn\" title=\"$block_button_cta_attr\">$block_button_cta</a>\n";
 			}
-			$block_output .=		"$indent    </div>\n";
-		}
-
-		$block_output .=			"$indent    <div class=\"content\">\n";
-		$block_output .=			"$indent        <h2>$block_title</h2>\n";
-		$block_output .=			"$indent        $block_text\n";
-		if ($block_has_button) {
-			$block_output .=		"$indent        <a href=\"$block_button_href\" class=\"btn\" title=\"$block_button_cta_attr\">$block_button_cta</a>\n";
-		}
-		$block_output .=			"$indent    </div>\n";
-		
-		if ($block_type == "image-right") {
-			$block_output .=		"$indent    <div class=\"image $block_image_class\">\n";
-			if ($block_has_button) {
-				$block_output .=	"$indent        <a href=\"$block_button_href\" title=\"$block_button_cta_attr\">\n";
+			$block_output .=			"$indent    </div>\n";
+			
+			if ($block_type == "image-right") {
+				$block_output .=		"$indent    <div class=\"image $block_image_class\">\n";
+				if ($block_has_button) {
+					$block_output .=	"$indent        <a href=\"$block_button_href\" title=\"$block_button_cta_attr\">\n";
+				}
+				$block_output .=		"$indent        $block_image\n";
+				if ($block_has_button) {
+					$block_output .=	"$indent        </a>\n";
+				}
+				$block_output .=		"$indent    </div>\n";
 			}
-			$block_output .=		"$indent        $block_image\n";
-			if ($block_has_button) {
-				$block_output .=	"$indent        </a>\n";
+
+			if ($block_type == "video") {
+				$block_output .=		"$indent    <div class=\"video\">\n";
+				$block_output .=		"$indent        $block_video\n";
+				$block_output .=		"$indent    </div>\n";
 			}
-			$block_output .=		"$indent    </div>\n";
-		}
 
-		if ($block_type == "video") {
-			$block_output .=		"$indent    <div class=\"video\">\n";
-			$block_output .=		"$indent        $block_video\n";
-			$block_output .=		"$indent    </div>\n";
-		}
-
-		$block_output .=			"$indent</section>\n";  
-
+			$block_output .=			"$indent</section>\n";
+		endif;
 	endwhile; endif; 
 	echo $block_output;
 ?>
