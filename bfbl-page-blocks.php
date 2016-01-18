@@ -40,7 +40,7 @@
 			if ($block_has_button) {
 				$block_output .=	"$indent        </a>\n";
 			}
-			$block_output .=		"$indent    </div>\n"
+			$block_output .=		"$indent    </div>\n";
 		}
 
 		$block_output .=			"$indent    <div class=\"content\">\n";
@@ -60,7 +60,7 @@
 			$block_output .=		"$indent    </div>\n";
 		}
 		$block_output .=			"$indent</div>\n";  
-		
+
 	endwhile; endif; 
 	echo $block_output;
 ?>
