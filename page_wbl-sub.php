@@ -17,13 +17,13 @@ get_header(); ?>
 					<?php get_template_part("entry", "parent-header"); ?>
 
 					<section class="entry-content<?php if ($has_video) echo " has-video"; ?>">
+						<h1><?php the_title(); ?></h1>
+						<?php edit_post_link(); ?>
 						<?php if ($has_video): ?>
 						<div class="video">
 							<?php echo $video; ?>
 						</div>
 						<?php endif; ?>
-						<h1><?php the_title(); ?></h1>
-						<?php edit_post_link(); ?>
 						<?php the_content(); ?>
 					</section>
 
