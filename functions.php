@@ -26,6 +26,9 @@ function kudu_setup() {
 	register_nav_menus(array(
 		"main-menu" => 			__("Main Menu", "kudu")
 	));
+	register_nav_menus(array(
+		"footer-menu" => 		__("Footer Menu", "kudu")
+	));
 }
 
 add_action("wp_enqueue_scripts", "kudu_load_scripts");
