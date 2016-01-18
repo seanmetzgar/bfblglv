@@ -27,6 +27,9 @@
 				$block_image = wp_get_attachment_image(get_sub_field("image"), "full");
 				$block_class .= " $block_image_style";
 				break;
+			case "video":
+				$block_video = get_sub_field("video");
+				break;
 		}
 
 		$block_output .=			"\n";
@@ -45,7 +48,10 @@
 
 		$block_output .=			"$indent    <div class=\"content\">\n";
 		$block_output .=			"$indent        <h2>$block_title</h2>\n";
-		$block_output .=			"$indent        $block_text;\n";
+		$block_output .=			"$indent        $block_text\n";
+		if ($block_has_button) {
+			$block_output .=		"$indent        <a href=\"$block_button_href\" class=\"btn\" title=\"$block_button_cta_attr\">$block_button_cta</a>\n";
+		}
 		$block_output .=			"$indent    </div>\n";
 		
 		if ($block_type == "image-right") {
@@ -59,6 +65,13 @@
 			}
 			$block_output .=		"$indent    </div>\n";
 		}
+
+		if ($block_type == "video") {
+			$block_output .=		"$indent    <div class=\"video\">\n";
+			$block_output .=		"$indent        $block_video\n";
+			$block_output .=		"$indent    </div>\n";
+		}
+		
 		$block_output .=			"$indent</div>\n";  
 
 	endwhile; endif; 
