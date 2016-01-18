@@ -17,7 +17,7 @@
 		"nopaging"			=> false,
 		"posts_per_page"	=> 5,
 		"meta_key"			=> "date",
-		"order_by"			=> "meta_value_num",
+		"order_by"			=> "meta_value",
 		"order"				=> "ASC"
 	);
 	$news_posts = get_posts($news_args);
