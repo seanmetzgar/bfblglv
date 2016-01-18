@@ -39,4 +39,3 @@
 		<? endforeach; ?>
 		</div>
 	</section>
-	<? endif;
