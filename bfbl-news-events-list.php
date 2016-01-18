@@ -46,7 +46,7 @@
 					<p><a href="<?php the_permalink(); ?>" class="read-more">Read More</a></p>
 				</div>
 			</article>
-		<? endforeach; wp_reset_postdata();?>
+		<?php endforeach; wp_reset_postdata();?>
 		</div>
 
 		<div class="col-md-5 events-list">
@@ -68,6 +68,6 @@
 					<p><a href="<?php the_permalink(); ?>" class="read-more">Read More</a></p>
 				</div>
 			</article>
-		<? endforeach; wp_reset_postdata();?>
+		<?php endforeach; wp_reset_postdata();?>
 		</div>
 	</section>
