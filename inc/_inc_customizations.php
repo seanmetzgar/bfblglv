@@ -46,5 +46,13 @@ function kudu_custom_post_types() {
             "menu_slug"         => "options_news_events",
             "capability"        => "edit_posts"
         ));
+        acf_add_options_page(array(
+            "page_title"        => "Resources Settings",
+            "menu_title"        => "Resources Settings",
+            "menu_slug"         => "options_resources",
+            "capability"        => "edit_posts", 
+            "parent_slug"       => "edit.php?post_type=resources"
+        ));
     }
+
 }
