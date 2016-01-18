@@ -60,7 +60,7 @@ function home_link($echo = false) {
     }
 }
 
-function indent($tabs, $space = 0, $echo = false) {
+function indent($tabs, $spaces = 0, $echo = false) {
     $echo = (is_bool($echo)) ? $echo : false;
     $spaces = (is_int($spaces) && $spaces > 0) ? $spaces : false;
     $indent_level = (is_int($tabs)) ? $tabs : 0;
