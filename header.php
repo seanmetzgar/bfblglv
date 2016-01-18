@@ -20,4 +20,18 @@
 
     <body <?php body_class(); ?>>
         <div class="container-fluid site-wrapper">
-            
+            <header class="site-header">
+
+                <div class="home-link">
+                    <?php
+                        $header_title_tag =     ($front_page) ? "h1" : "p";
+                        $header_title =         get_bloginfo("name");
+                        $header_title_attr =    esc_attr($header_title);
+                    ?>
+                    <<?php echo $header_title_tag; ?>><a href="/" title="<?php echo $header_title_attr; ?>"><?php echo $header_title; ?></a></<?php echo $header_title_tag; ?>>
+                </div>
+
+                <nav role="navigation">
+                    <?php wp_nav_menu( array("theme_location"     => "main-menu") ); ?>
+                </nav>
+            </header>
