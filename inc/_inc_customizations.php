@@ -37,4 +37,14 @@ function kudu_custom_post_types() {
     // );
 
     // register_post_type( $adventure_type_name, $adventure_type_args );
+
+
+    if( function_exists("acf_add_options_page") ) {
+        acf_add_options_page(array(
+            "page_title"        => "News & Events Settings",
+            "menu_title"        => "News & Events Settings",
+            "menu_slug"         => "options_news_events",
+            "capability"        => "edit_posts"
+        ));
+    }
 }
