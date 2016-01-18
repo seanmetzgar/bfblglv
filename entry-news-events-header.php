@@ -1,7 +1,7 @@
 <?php 
 	$parent_id = get_field("ne_child_back_page", "option");
 	$has_post_thumbnail = ( has_post_thumbnail($parent_id) );
-	$entry_header_class = $header_image ? "page-header has-image" : "page-header";
+	$entry_header_class = $has_post_thumbnail ? "page-header has-image" : "page-header";
 	$back_button_text = get_field("ne_child_back_text", "option");
 	$back_button_text = strlen($back_button_text) > 0 ? $back_button_text : false;
 	$back_button_href = get_permalink($parent_id);
