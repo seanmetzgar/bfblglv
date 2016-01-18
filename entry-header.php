@@ -1,6 +1,6 @@
 <?php 
 	$has_post_thumbnail = ( has_post_thumbnail() );
-	$entry_header_class = $has_post_thumbnail ? "entry-header has-image jumbotron" : "entry-header";
+	$entry_header_class = $has_post_thumbnail ? "page-header has-image jumbotron" : "page-header";
 ?>
 					<header class="<?php echo $entry_header_class; ?>">
 						<h1 class="entry-title"><?php the_title(); ?></h1>
