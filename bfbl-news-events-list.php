@@ -23,19 +23,41 @@
 	$news_posts = get_posts($news_args);
 	$events_posts = get_posts($events_args);
 
-	$news_count = count($news_posts);
-	$events_count = count($events_posts); ?>
+	$news_count = (is_array($news_posts) && count($news_posts)) ? count($news_posts) : 0;
+	$events_count = (is_array($events_posts) && count($events_posts)) ? count($events_posts) : 0; ?>
 	<section class="news-events-list row">
 		<div class="col-md-8 news-list">
-		<?php foreach ($news_posts as $news_post): ?>
-			<article class="news-article">
-				<h2><a href="<?php echo get_permalink($news_post->ID); ?>"><?php echo get_the_title($news_post->ID); ?></a></h2>
-				<p class="post-meta">
-					<span class="published"><?php echo get_the_date(null, $news_post->ID); ?></span> |
-					<span class="author"></span>
-				</p>
-				<pre><?php print_r($news_post); ?></pre>
+		<?php foreach ($news_posts as $post): setup_postdata($post);?>
+			<article class="news-summary">
+				<header class="entry-header">
+					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+					<p class="post-meta">
+						<span class="published"><?php the_date(); ?></span> |
+						<span class="author"><?php the_author(); ?></span>
+					</p>
+				</header>
+				<div class="content">
+					<div class="excerpt"><?php the_excerpt(); ?></div>
+					<p><a href="<?php the_permalink(); ?>" class="read-more">Read More</a></p>
+				</div>
 			</article>
-		<? endforeach; ?>
+		<? endforeach; wp_reset_postdata();?>
+		</div>
+
+		<div class="col-md-4 events-list">
+		<?php foreach ($events_posts as $post): setup_postdata($post);?>
+			<article class="events-summary">
+				<header class="entry-header">
+					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+					<p class="post-meta">
+						<span class="date"><?php the_field("date"); ?></span>
+					</p>
+				</header>
+				<div class="content">
+					<div class="excerpt"><?php the_excerpt(); ?></div>
+					<p><a href="<?php the_permalink(); ?>" class="read-more">Read More</a></p>
+				</div>
+			</article>
+		<? endforeach; wp_reset_postdata();?>
 		</div>
 	</section>
