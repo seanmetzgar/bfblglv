@@ -31,7 +31,7 @@
 			<article class="news-summary">
 				<div class="image">
 					<a href="<?php the_permalink(); ?>">
-					<?php if (has_post_thumbnail()): the_post_thumbnail();?>
+					<?php if (has_post_thumbnail()) the_post_thumbnail(); ?>
 					</a>
 				</div>
 				<header class="entry-header">
@@ -54,7 +54,7 @@
 			<article class="events-summary">
 				<div class="image">
 					<a href="<?php the_permalink(); ?>">
-					<?php if (has_post_thumbnail()): the_post_thumbnail();?>
+					<?php if (has_post_thumbnail()) the_post_thumbnail();?>
 					</a>
 				</div>
 				<header class="entry-header">
