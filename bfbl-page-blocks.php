@@ -18,14 +18,14 @@
 		$block_title = get_sub_field("title");
 		$block_text = get_sub_field("text");
 
-		$block_class = "page-block $block_type";
+		$block_class = "col-sm-12 page-block $block_type";
 		switch($block_type) {
 			case "image-left":
 			case "image-right":
 				$block_image_style = get_sub_field("image_style");
 				$block_image_link = $block_has_button;
 				$block_image = wp_get_attachment_image(get_sub_field("image"), "full");
-				$block_class .= " $block_image_style";
+				$block_image_class = $block_image_style;
 				break;
 			case "video":
 				$block_video = get_sub_field("video");
@@ -35,7 +35,7 @@
 		$block_output .=			"\n";
 		$block_output .= 			"$indent<section class=\"$block_class\">\n";
 		if ($block_type == "image-left") {
-			$block_output .=		"$indent    <div class=\"image\">\n";
+			$block_output .=		"$indent    <div class=\"image $block_image_class\">\n";
 			if ($block_has_button) {
 				$block_output .=	"$indent        <a href=\"$block_button_href\" title=\"$block_button_cta_attr\">\n";
 			}
@@ -55,7 +55,7 @@
 		$block_output .=			"$indent    </div>\n";
 		
 		if ($block_type == "image-right") {
-			$block_output .=		"$indent    <div class=\"image\">\n";
+			$block_output .=		"$indent    <div class=\"image $block_image_class\">\n";
 			if ($block_has_button) {
 				$block_output .=	"$indent        <a href=\"$block_button_href\" title=\"$block_button_cta_attr\">\n";
 			}
@@ -71,7 +71,7 @@
 			$block_output .=		"$indent        $block_video\n";
 			$block_output .=		"$indent    </div>\n";
 		}
-		
+
 		$block_output .=			"$indent</div>\n";  
 
 	endwhile; endif; 
