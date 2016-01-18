@@ -12,9 +12,9 @@
 ?>
 					<header class="<?php echo $entry_header_class; ?>">
 						<?php if (is_single()): ?>
-						<p class="entry-title"><?php echo get_the_title($parent_id); ?></p>
+						<p class="entry-title"><?php echo $res_header_title; ?></p>
 						<?php else: ?>
-						<h1 class="entry-title"><?php echo get_the_title($parent_id); ?></h1>
+						<h1 class="entry-title"><?php echo $res_header_title; ?></h1>
 						<?php endif; ?>
 						<?php if ($res_header_image) echo $res_header_image; ?>
 					</header>
