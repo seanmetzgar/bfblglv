@@ -19,7 +19,7 @@ get_header(); ?>
 							<span class="date"><?php the_field("event_date"); ?></span>
 						</p>
 						<?php edit_post_link(); ?>
-						<?php if ($has_video): ?>
+						<?php if ($has_post_thumbnail): ?>
 						<div class="image">
 							<?php the_post_thumbnail("full", array("class" => "img-responsive")); ?>
 						</div>
