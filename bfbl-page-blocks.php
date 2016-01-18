@@ -1,4 +1,9 @@
 <?php 
+/**
+ * @package WordPress
+ * @subpackage Buy_Local_GLV
+ * @since Buy Local GLV 1.0.0
+ */
 	$indent = indent(5, false);
 	if (have_rows("page_blocks")): while(have_rows("page_blocks")): the_row(); 
 		$block_type = get_sub_field("block_type");
