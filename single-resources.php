@@ -7,7 +7,6 @@
 get_header(); ?>
 			<section class="main-content" role="main">
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
-					$has_downloads = have_rows("downloads");
 					$has_post_thumbnail = has_post_thumbnail();
 				?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -26,8 +25,8 @@ get_header(); ?>
 						<?php endif; ?>
 						<?php the_content(); ?>
 
-						<?php if ($has_downloads): while (have_rows("downloads")): the_row();
-							echo "<pre>" . get_sub_field("file") . "</pre>";
+						<?php if (have_rows("downloads")): while (have_rows("downloads")): the_row();
+							echo "<pre>" . print_r(get_sub_field("file"), TRUE) . "</pre>";
 
 						endwhile; endif; ?>
 					</section>
