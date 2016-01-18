@@ -3,9 +3,9 @@
 	$has_post_thumbnail = ( has_post_thumbnail($parent_id) );
 	$entry_header_class = $has_post_thumbnail ? "page-header has-image" : "page-header";
 	$back_button_text = get_field("child_back_text", $parent_id);
-	$back_button_text = strlen($back_button_text) > 0) ? $back_button_text : false;
+	$back_button_text = strlen($back_button_text) > 0 ? $back_button_text : false;
 	$back_button_href = get_permalink($parent_id);
-	$back_button_href = strlen($back_button_href) > 0) ? $back_button_href : false;
+	$back_button_href = strlen($back_button_href) > 0 ? $back_button_href : false;
 ?>
 					<header class="<?php echo $entry_header_class; ?>">
 						<p class="entry-title"><?php echo get_the_title($parent_id); ?></p>
