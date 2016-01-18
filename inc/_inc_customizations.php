@@ -52,7 +52,7 @@ function kudu_custom_post_types() {
             "menu_title"        => "Company Details",
             "menu_slug"         => "options_company",
             "capability"        => "edit_posts",
-            "position"          => 10
+            "position"          => 9
         ));
         acf_add_options_page(array(
             "page_title"        => "Resources Settings",
