@@ -22,8 +22,7 @@ get_header(); ?>
 						<?php endif; ?>
 						<h1><?php the_title(); ?></h1>
 						<p class="post-meta">
-							<span class="published"><?php the_date(); ?></span> |
-							<span class="author"><?php the_author(); ?></span>
+							<span class="date"><?php the_field("event_date"); ?></span>
 						</p>
 						<?php edit_post_link(); ?>
 						<?php the_content(); ?>
