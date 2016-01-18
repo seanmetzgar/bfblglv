@@ -21,7 +21,7 @@ get_header(); ?>
 						<?php edit_post_link(); ?>
 						<?php if ($has_video): ?>
 						<div class="image">
-							<?php the_post_thumbnail("full", attr("class" => "img-responsive")); ?>
+							<?php the_post_thumbnail("full", array("class" => "img-responsive")); ?>
 						</div>
 						<?php endif; ?>
 						<?php the_content(); ?>
