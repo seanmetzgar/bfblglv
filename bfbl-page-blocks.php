@@ -4,6 +4,7 @@
  * @subpackage Buy_Local_GLV
  * @since Buy Local GLV 1.0.0
  */
+	$block_output = "";
 	$indent = indent(5, false);
 	if (have_rows("page_blocks")): while(have_rows("page_blocks")): the_row(); 
 		$block_type = get_sub_field("block_type");
@@ -28,10 +29,10 @@
 				break;
 		}
 
-
-		$block_output = 			"$indent<section class=\"$block_class\">\n";
+		$block_output .=			"\n";
+		$block_output .= 			"$indent<section class=\"$block_class\">\n";
 		if ($block_type == "image-left") {
-			$block_output .=		"$indent    <div class=\"image\">\n"
+			$block_output .=		"$indent    <div class=\"image\">\n";
 			if ($block_has_button) {
 				$block_output .=	"$indent        <a href=\"$block_button_href\" title=\"$block_button_cta_attr\">\n";
 			}
@@ -48,7 +49,7 @@
 		$block_output .=			"$indent    </div>\n";
 		
 		if ($block_type == "image-right") {
-			$block_output .=		"$indent    <div class=\"image\">\n"
+			$block_output .=		"$indent    <div class=\"image\">\n";
 			if ($block_has_button) {
 				$block_output .=	"$indent        <a href=\"$block_button_href\" title=\"$block_button_cta_attr\">\n";
 			}
@@ -56,10 +57,10 @@
 			if ($block_has_button) {
 				$block_output .=	"$indent        </a>\n";
 			}
-			$block_output .=		"$indent    </div>\n"
+			$block_output .=		"$indent    </div>\n";
 		}
 		$block_output .=			"$indent</div>\n";  
-	?>
-
-
-<?php endwhile; endif; ?>
+		
+	endwhile; endif; 
+	echo $block_output;
+?>
