@@ -72,7 +72,7 @@
 			$block_output .=		"$indent    </div>\n";
 		}
 
-		$block_output .=			"$indent</div>\n";  
+		$block_output .=			"$indent</section>\n";  
 
 	endwhile; endif; 
 	echo $block_output;
