@@ -26,6 +26,8 @@ get_header(); ?>
 					<section class="entry-content">
 						<?php the_content(); ?>
 					</section>
+
+					<?php get_template_part("bfbl", "page-blocks"); ?>
 				</article>
 				<?php endwhile; endif; ?>
 			</section>
