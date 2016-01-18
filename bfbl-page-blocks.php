@@ -32,7 +32,7 @@
 				break;
 		}
 
-		if (!$members_only || $members_only && is_user_logged_in()):
+		if (!$block_members_only || ($block_members_only && is_user_logged_in())):
 			$block_output .=			"\n";
 			$block_output .= 			"$indent<section class=\"$block_class\">\n";
 			if ($block_type == "image-left") {
