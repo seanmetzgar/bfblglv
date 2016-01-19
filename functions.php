@@ -33,15 +33,17 @@ function kudu_setup() {
 
 add_action("wp_enqueue_scripts", "kudu_load_scripts");
 function kudu_load_scripts() {
-	$template_path = relative_template_path();
+//	$template_path = relative_template_path(); 
+	$template_path = get_stylesheet_directory_uri();
+	
     wp_deregister_script("jquery");
     wp_register_script("kudu-modernizr", "$template_path/scripts/vendor/modernizr/modernizr.min.js");
     wp_register_script("jquery", "$template_path/scripts/vendor/jquery/jquery.min.js");
     wp_register_script("kudu-bootstrap", "$template_path/bootstrap/js/bootstrap.min.js");
-    wp_register_script("kudu-plugins", "$template_path/scripts/plugins.min.js");
-    wp_register_script("kudu-scripts", "$template_path/scripts/scripts.min.js");
+    wp_register_script("kudu-plugins", "$template_path/scripts/plugins.js");
+    wp_register_script("kudu-scripts", "$template_path/scripts/scripts.js");
     wp_register_style("kudu-bootstrap", "$template_path/bootstrap/css/bootstrap.min.css");
-    wp_register_style("kudu-bootstrap-theme", "$template_path/bootstrap/css/bootstrap.theme.min.css");
+    wp_register_style("kudu-bootstrap-theme", "$template_path/bootstrap/css/bootstrap-theme.min.css");
     wp_register_style("kudu-css", "$template_path/css/styles.css");
 
     wp_enqueue_style("kudu-bootstrap");
@@ -99,3 +101,17 @@ function hide_admin_bar_from_front_end(){
 	$rVal = (is_blog_admin()) ? true : false;
 	return $rVal;
 }
+
+// extract a social media username from a url (assuming standard format, where the username is after the last slash)
+function bfblExtractName($url) {
+	$lastSlash = strrpos($url,'/') + 1;
+	$result = substr($url, $lastSlash, strlen($url));
+	return $result;
+} // end bfblExtractName()
+
+
+// for use during development
+function showIt($string) {
+	echo "<h1>$string</h1>";
+} // end showIt()
+
