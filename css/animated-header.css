@@ -259,19 +259,30 @@
   margin: 0;
   padding: 43px 46px;
 }
+.page-block.tan-shadow .content {
+  border-color: #fcaf17;
+  color: #fcaf17;
+}
 .page-block.image-split {
   text-align: center;
 }
 .page-block.image-split .content {
-  position: relative;
+  position: absolute;
+  top: 43px; bottom: 43px;
+  right: 46px; left: 46px;
+  border-width: 1px;
+  border-style: solid;
 }
 .page-block.image-split .image {
-  margin: 0 auto;
+  
   max-width: 33%;
 }
   .page-block.image-split .image img {
     width: 100%; height: auto;
   }
+.page-block.image-split h2 {
+  color: inherit;
+}
 .page-block.image-split h2 .right-text {
   width: 33%;
   position: absolute;
