@@ -22,7 +22,20 @@
   background-size: cover;
   transition: width 0.1s ease-in-out;
 }
-.animated-header .animated-blocks li:before {
+.animated-header .animated-blocks li a {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+}
+.animated-header .animated-blocks li a:before {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -34,24 +47,25 @@
   background: rgba(252, 175, 23, 0.79);
   transition: background 0.1s ease-in-out;
 }
-.animated-header .animated-blocks li a {
+.animated-header .animated-blocks li a:after {
   position: absolute;
-  display: block;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 5;
+  z-index: 2;
+  content: '';
   background-image: url(../images/header/animated_header_gradient.png);
   background-position: 50% bottom;
   background-repeat: repeat-x;
-  color: #fff;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: all 0.25s ease-in-out;
 }
-.animated-header .animated-blocks li a .content {
-  position: static;
+.animated-header .animated-blocks li a .content, .animated-header .animated-blocks li a .map-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
 }
 .animated-header .animated-blocks li a .content h3,
 .animated-header .animated-blocks li a .map-content .subtext {
@@ -151,15 +165,18 @@
     font-weight: 300;
     text-shadow: 0 0 12px #000;
   }
-  .animated-header .animated-blocks li a:hover .content .subtext {
-    opacity: 1;
-    bottom: 115px;
-  }
   .animated-header .animated-blocks li:first-child {
     background-position: 0 50%;
   }
   .animated-header .animated-blocks li:nth-child(4) {
     background-position: 100% 50%;
+  }
+  .animated-header .animated-blocks li.animated-link a:hover:before {
+    background: transparent;
+  }
+  .animated-header .animated-blocks li.animated-link a:hover .content .subtext {
+    opacity: 1;
+    bottom: 115px;
   }
   .animated-header .animated-blocks li.map-link {
     width: 24%;
@@ -186,6 +203,12 @@
 @media (min-width: 992px) {
   .animated-header .animated-blocks li {
     width: 16.5625%;
+  }
+  .animated-header .animated-blocks li a .content h3,
+  .animated-header .animated-blocks li a .map-content .subtext,
+  .animated-header .animated-blocks li a .content .subtext {
+    font-size: 18px;
+    line-height: 20px;
   }
   .animated-header .animated-blocks li.map-link {
     width: 33.75%;
