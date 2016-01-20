@@ -254,6 +254,37 @@
 /** Sean's Additions **/
 
 /** Page Blocks **/
+
+.page-block {
+  margin: 0;
+  padding: 43px 46px;
+}
+.page-block.image-split {
+  text-align: center;
+}
+.page-block.image-split .content {
+  position: relative;
+}
+.page-block.image-split .image {
+  margin: 0 auto;
+  max-width: 33%;
+}
+  .page-block.image-split .image img {
+    width: 100%; height: auto;
+  }
+.page-block.image-split h2 .right-text {
+  width: 33%;
+  position: absolute;
+  top: 0; bottom: 0;
+  right: 0; left: auto;
+}
+.page-block.image-split h2 .left-text {
+  width: 33%;
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0; right: auto;
+}
+
 .tan-shadow {
   box-shadow: 0px 0px 80px rgba(230, 168, 101, 60) inset;
   background: url(../images/bg/bg_tan_noise.png) 50% 50% repeat;

@@ -83,8 +83,8 @@
 				$block_output .=		"$indent    </div>\n";
 				$block_output .=		"$indent    <div class=\"content\">\n";
 				$block_output .=		"$indent        <h2>\n";
-				$block_output .=		"$indent            <span class=\"left-text\"></span>\n";
-				$block_output .=		"$indent            <span class=\"right-text\"></span>\n";
+				$block_output .=		"$indent            <span class=\"left-text\">$block_text_left</span>\n";
+				$block_output .=		"$indent            <span class=\"right-text\">$block_text_right</span>\n";
 				$block_output .=		"$indent        </h2>\n";
 				$block_output .=		"$indent    </div>\n";
 			} else {
