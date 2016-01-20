@@ -38,7 +38,7 @@ get_header(); ?>
                 		else:
                 			$block_description = get_field("{$block_prefix}_description");
                     	?>
-                        <li style="background-image: url('<?php echo $block_image; ?>');"><a href="<?php echo $block_href; ?>">
+                        <li class="animated-link" style="background-image: url('<?php echo $block_image; ?>');"><a href="<?php echo $block_href; ?>">
                             <div class="content">
                                 <h3><?php echo $block_cta; ?></h3>
                                 <div class="subtext"><p><?php echo $block_description; ?></p></div>
