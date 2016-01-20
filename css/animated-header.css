@@ -265,6 +265,7 @@
 }
 .page-block.image-split {
   text-align: center;
+  position: relative;
 }
 .page-block.image-split .content {
   position: absolute;
@@ -274,8 +275,8 @@
   border-style: solid;
 }
 .page-block.image-split .image {
-  
-  max-width: 33%;
+  margin: 30px auto;
+  max-width: 30%;
 }
   .page-block.image-split .image img {
     width: 100%; height: auto;
