@@ -255,5 +255,5 @@
 
 /** Page Blocks **/
 .tan-shadow {
-  box-shadow: 0px 0px 80px px rgba(230, 168, 101, 60) inset;
+  box-shadow: 0px 0px 80px rgba(230, 168, 101, 60) inset;
   background: url(../images/bg/bg_tan_noise.png) 50% 50% repeat;
