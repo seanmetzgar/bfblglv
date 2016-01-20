@@ -10,6 +10,8 @@
 		$block_type = get_sub_field("block_type");
 		$block_members_only = get_sub_field("members_only");
 		$block_members_only = is_bool($block_members_only) ? $block_members_only : false;
+		$block_has_link = false;
+		$block_has_button = false;
 		
 		if ($block_type != "image-split") {
 			$block_title = get_sub_field("title");
