@@ -9,7 +9,7 @@ get_header(); ?>
 			<header class="animated-header" role="complementary">
 				<nav class="inner">
                     <ul class="animated-blocks">
-                	<?php foreach ($block_counter = 1; $block_counter <= 5; $block_counter++): 
+                	<?php for ($block_counter = 1; $block_counter <= 5; $block_counter++): 
                 		$block_prefix = "block_$block_counter";
                 		$block_cta = get_field("{$block_prefix}_cta");
                 		$block_image = get_relative_file_path(get_field("{$block_prefix}_image"));
@@ -45,7 +45,7 @@ get_header(); ?>
                             </div>
                         </a></li>
                     <?php endif;
-                	endforeach; ?>
+                	endfor; ?>
                     </ul>
                 </nav>
 			</header>
