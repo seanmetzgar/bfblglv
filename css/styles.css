@@ -78,6 +78,9 @@ p {
 
 .footerAbout p {
 	text-align: left;
+	max-width: 500px; max-width: 31.25rem;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .footerNav li {
@@ -194,6 +197,14 @@ p {
 		margin-bottom: 30px; margin-bottom: 1.875rem;
 	}
 	
+	.footerAbout p {
+		padding-right: 16px; padding-right: 1rem;
+	}
+	
+	.footerSocial ul {
+		padding-left: 30px; padding-left: 1.875rem;
+	}
+	
 	.footerSocial li {
 		width: auto;
 		display: block;
@@ -202,10 +213,6 @@ p {
 	
 	.footerSocial li a {
 		display: inline-block;
-	}
-	
-	.footerSocial a span {
-		display: none; /* temptemptemp */
 	}
 	
 	.footerRowTwo {
@@ -227,7 +234,7 @@ p {
 	}
 	
 	.footerPhoneEmail span {
-		padding: 0 14px; padding: 0 0.875rem;
+		padding: 0 13px; padding: 0 0.8125rem;
 	}
 	
 	.footerPhoneEmail span.footerPhone {
@@ -249,8 +256,7 @@ p {
 	
 	.footerContact {
 		position: relative;
-	/*	padding-left: 183px; */
-		padding-left: 19.14%;
+		padding-left: 19%;
 	}
 	
 	
@@ -294,6 +300,19 @@ p {
 		padding-bottom: 60px; padding-bottom: 3.75rem;
 	}
 
+
+	.footerSocial ul {
+		padding-left: 0;
+	}
+
+	.footerSocial li {
+		margin-right: -20px; margin-right: -1.25rem;
+	}
+
+	.footerSocial a span {
+		text-indent: .5rem;
+		vertical-align: top;
+	}
 
 	
 	

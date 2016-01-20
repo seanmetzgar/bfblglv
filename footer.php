@@ -8,7 +8,7 @@
 		$bfblAboutTitle = get_field('footer_about_title', 'option');
 		$bfblAboutContent = get_field('footer_about_content', 'option');
 		
-		$bfblFooter .= "<section class='footerAbout col-xs-12 col-sm-4 col-md-5'>";
+		$bfblFooter .= "<section class='footerAbout col-xs-12 col-sm-4 col-md-4 col-lg-5'>";
 			if($bfblAboutTitle) {
 				$bfblFooter .= "<h3>$bfblAboutTitle</h3>";
 			}
@@ -62,7 +62,7 @@
 		foreach ($bfblFooterNav as $thisColumn) {
 			if($j < 3) { // ensure there are never more than two columns
 				
-				$bfblFooter .= "<section class='footerNav col-xs-12 col-sm-2 col-md-2'>";
+				$bfblFooter .= "<section class='footerNav col-xs-12 col-sm-3 col-md-3 col-lg-2'>";
 					if(isset($thisColumn['name'])) {
 						$bfblFooter .= "<h3>{$thisColumn['name']}</h3>";
 					}
@@ -91,7 +91,7 @@
 		$bfblSocInstagram = get_field('business_instagram', 'option');
 		
 
-		$bfblFooter .= "<section class='footerSocial col-xs-12 col-sm-4 col-md-3'>";
+		$bfblFooter .= "<section class='footerSocial col-xs-12 col-sm-2 col-md-2 col-lg-3'>";
 			$bfblFooter .= "<h3>Connect</h3>";
 			$bfblFooter .= "<nav>";
 				$bfblFooter .= "<ul>";
