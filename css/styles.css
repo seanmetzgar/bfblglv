@@ -1,8 +1,11 @@
 ﻿
 /* colors used:
-	white - #ffffff
-	green - #015c3c (1,92,60)
-	light green - #8cc63f
+	#ffffff - white
+	#008c5c - green (0, 140, 92)
+	#015c3c - medium green (1,92,60)
+	#003f29 - dark green (0,63,41)
+	#8cc63f - light green
+	#b7b7b7, 87% - overlay color (183,183,183,.87)
 */
 
 html {
@@ -17,6 +20,7 @@ html, body {
 	color: #000;
 }
 
+/* resets */
 ul {
 	list-style-type: none;
 	list-style-position: inside;
@@ -28,6 +32,26 @@ p {
 	margin: 0;
 }
 
+input, 
+button {
+	border: 0;
+	background: transparent;
+	outline: 0;
+	border-radius: 0;
+	font-family: inherit;
+	font-weight: normal;
+	border-radius: 0;
+}
+
+button {
+	padding: 0;
+}
+
+.screen-reader-text {
+	position: absolute;
+	clip: rect(1px, 0, 0, 1px);
+	overflow: hidden;
+}
 
 .alignright {
 	float: right;
@@ -43,6 +67,288 @@ p {
 
 .site-wrapper {
 	padding: 0;
+	overflow: hidden;
+}
+
+
+/* BUTTONLINK STYLES */
+.bfblButtonLink {
+	display: inline-block;
+	background: #008c5c;
+	border: 1px solid #ffffff;
+	outline: 0;
+	text-align: center;
+	text-transform: uppercase;
+	color: #ffffff;
+	font-size: 16px; font-size: 1rem;
+	line-height: 45px; line-height: 2.8125rem;
+	height: 47px; height: 2.9375rem;
+	min-width: 124px;
+	box-sizing: border-box;
+}
+
+.bfblButtonLink:hover, 
+.bfblButtonLink:focus {
+	background: #003f29;
+}
+
+/* HEADER */
+
+
+header.site-header {
+	background: #008c5c;
+	border-bottom: 1px solid #8cc63f;
+	height: 76px; height: 4.75rem;
+	padding-top: 14px; padding-top: 0.875rem;
+	position: relative;
+}
+
+header.site-header h1 {
+	margin: 0;
+}
+
+header.site-header .home-link a {
+	display: block;
+	width: 130px; width: 8.125rem;
+	height: 50px; height: 3.125rem;
+	background: blue; /* temptemptemp */
+	text-indent: -999999px;
+	overflow: hidden;
+	margin-left: 3.125%;
+}
+
+#bfblMenuBtn {
+	position: absolute;
+	top: 0; right: 0; bottom: 0;
+	width: 60px; width: 3.75rem;
+	background: transparent;
+	border: 0;
+	outline: 0;
+	color: #ffffff;
+	text-transform: uppercase;
+	font-size: 14px; font-size: 0.875rem;
+	line-height: 16px; line-height: 1rem;
+	padding-bottom: 42px; padding-bottom: 2.625;
+	padding-top: 16px; padding-top: 1rem;
+}
+
+#bfblMenuBtn:hover, 
+#bfblMenuBtn:focus {
+	color: #8cc63f;
+}
+
+#bfblMenuBtn::before,
+#bfblMenuBtn::after {
+	content: '';
+	display: block;
+	position: absolute;
+	height: 16px; /* cq, no rems */
+	right: 10px; right: 0.625rem;
+	bottom: 16px; bottom: 1rem;
+	left: 10px; left: 0.625rem;
+	box-sizing: border-box;
+	border-width: 0;
+	border-style: solid;
+	border-color: #ffffff;
+}
+
+#bfblMenuBtn::before {
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+}
+
+#bfblMenuBtn::after {
+	height: 0;
+	border-bottom-width: 1px;
+	margin-bottom: 7px; /* cq, no rems */
+}
+
+#bfblMenuBtn:hover::before, 
+#bfblMenuBtn:focus::before,
+#bfblMenuBtn:hover::after, 
+#bfblMenuBtn:focus::after {
+	border-color: #8cc63f;
+}
+
+/* MAIN MENU */
+#bfblMenuOverlay {
+	display: none;
+	opacity: 0;
+}
+
+#bfblMenuOverlay.menuActive {
+	display: block;
+	position: fixed;
+	top: 0; right: 0; bottom: 0; left: 0;
+	background: #b7b7b7;
+	z-index: 500;
+	opacity: .84;
+}
+
+#bfblMenuDrawer {
+	position: absolute;
+	top: 0; right: 0;
+	width: 320px;
+	max-width: 87.5%;
+	box-sizing: border-box;
+	clip: rect(0,1px,1px,0);
+/*	height: 1px; */
+	background: #008c5c;
+	z-index: 600;
+	text-align: center;
+	font-family: 'Blue Highway W00';
+	color: #ffffff;
+	overflow: hidden;
+}
+
+#bfblMenuDrawer.menuActive {
+	clip: auto;
+/*	height: auto; */
+	box-shadow: 0 0 30px 1px rgba(17,17,18,.75);
+}
+
+.drawerTop {
+	height: 88px; height: 5.5rem;
+	padding-top: 20px; padding-top: 1.25rem;
+	text-align: left;
+	position: relative;
+}
+
+a.drawerHomeLink {
+	display: block;
+	width: 130px; width: 8.125rem;
+	height: 50px; height: 3.125rem;
+	background: blue; /* temptemptemp */
+	text-indent: -999999px;
+	overflow: hidden;
+	margin-left: 10px; margin-left: 0.625rem;
+}
+
+#bfblMenuClose {
+	position: absolute;
+	top: 0; right: 0; bottom: 0;
+	width: 50px; width: 3.125rem;
+	text-indent: -9999999px;
+}
+
+#bfblMenuClose::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 50%; right: 50%;
+	width: 36px; width: 2.25rem;
+	height: 36px; height: 2.25rem;
+	margin-top: -18px; margin-top: -1.125rem;
+	margin-right: -18px; margin-right: -1.125rem;
+	background: white; /* temptemptemp */
+}
+
+.drawerNav {
+	background: #015c3c;
+	padding-top: 28px; padding-top: 1.75rem;
+	padding-bottom: 24px; padding-bottom: 1.5rem;
+}
+
+.drawerNav::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.drawerNav .menuColumn {
+	float: right;
+	width: 50%;
+}
+
+.drawerNav .menuColumn:first-child {
+	float: left;
+}
+
+
+.drawerNav a {
+	display: block;
+	padding-top: 12px; padding-top: 0.75rem;
+	padding-bottom: 12px; padding-bottom: 0.75rem;
+	line-height: 1;
+	font-size: 16px; font-size: 1rem;
+	text-transform: uppercase;
+	color: #008c5c;
+	text-decoration: none;
+}
+
+.drawerNav a:hover {
+	color: #ffffff;
+}
+
+.drawerNav a .shade {
+	display: none;
+}
+
+.drawerLogin {
+	padding-top: 32px; padding-top: 2rem;
+}
+
+.drawerNewsletter {
+	padding-top: 38px; padding-top: 2.375rem;
+	padding-bottom: 30px; padding-bottom: 1.875rem;
+} 
+
+.drawerSearch {
+	background: #015c3c;
+	padding: 36px 10px; padding: 2rem 0.625rem;
+}
+
+.searchBtnWrap {
+	display: none; /* hidden on mobile */
+}
+
+.search-form {
+	display: block;
+	border: 1px solid #008c5c;
+	border-top: 0;
+	position: relative;
+}
+
+.search-form .search-field {
+	padding: 5px; padding: 0.3125rem;
+	position: absolute;
+	top: 0; bottom: 0; left: 0;
+	width: 88.5%;
+	display: block;
+	line-height: 16px; line-height: 1rem;
+	font-size: 14px; font-size: 0.875rem;
+	font-family: 'Clear Sans';
+	color: #ffffff;
+}
+
+input.search-field::-webkit-input-placeholder {
+	color: #008c5c !important;
+	font-style: italic;
+}
+ 
+input.search-field:-moz-placeholder { /* Firefox 18- */
+	color: #008c5c !important;
+	font-style: italic;  
+}
+ 
+input.search-field::-moz-placeholder {  /* Firefox 19+ */
+	color: #008c5c !important;
+	font-style: italic; 
+}
+ 
+input.search-field:-ms-input-placeholder {  
+	color: #008c5c !important;
+	font-style: italic; 
+}
+
+
+.search-form .search-submit {
+	position: absolute;
+	top: 0; right: 0; bottom: 0;
+	width: 11.5%;
+	background: #008c5c; /* temptemptemp */ 
+	text-indent: -99999px;
+	/* NOTE: if using an iconfont, you'll probably have to add it to the parent element, b/c <input>s can't have pseudo elements */
 }
 
 
@@ -50,7 +356,6 @@ p {
 #bfblFooter {
 	background: #015c3c;
 	color: #ffffff;
-/*	font??? askaskask */
 	text-align: center;
 	font-size: 14px; font-size: 0.875rem;
 }
@@ -110,7 +415,7 @@ p {
 	display: inline-block;
 	width: 22px;
 	height: 22px;
-	background: #ffffff; /* temptemptemp */
+	background: white; /* temptemptemp */
 }
 
 .footerSocial a:hover::before {
@@ -173,6 +478,28 @@ p {
 
 /* tablet media query */
 @media (min-width: 768px) {
+
+	/* HEADER - TABLET */
+
+	header.site-header {
+		height: 82px; height: 5.125rem;
+	}
+
+	header.site-header .home-link a {
+		width: 160px; width: 10rem;
+		height: 60px; height: 3.75rem;
+		margin-left: 4%;
+	}
+
+	#bfblMenuBtn {
+		right: 4%;
+		padding-top: 20px; padding-top: 1.25rem;
+	}
+
+	#bfblMenuDrawer {
+		position: fixed;
+	}
+
 	
 	/* FOOTER - TABLET */
 
@@ -250,6 +577,93 @@ p {
 
 /* desktop media query */
 @media (min-width: 992px) {
+
+	/* HEADER - DESKTOP */
+
+	header.site-header .home-link a {
+		margin-left: 4.5%;
+	}
+
+	#bfblMenuBtn {
+		display: none;
+	}
+
+	/* MENU - DESKTOP */
+	#bfblMenuOverlay {
+		display: none!important;
+	}
+	
+	#bfblMenuDrawer {
+		position: absolute;
+		clip: auto!important;
+		box-shadow: none!important;
+		width: auto;
+		max-width: none;
+		
+		
+	}
+	
+	#bfblMenuDrawer>* {
+		display: inline-block;
+		vertical-align: top;
+	}
+	
+	#bfblMenuDrawer .drawerTop {
+		display: none;
+	}
+
+	.drawerNav {
+		padding: 0;
+		background: transparent;
+	}
+
+	.drawerNav .menuColumn {
+		float: none!important;
+		width: auto;
+		display: inline-block;
+	}
+
+	.drawerNav li {
+		display: inline-block;
+		padding-top: 12px; padding-top: 0.75rem;
+	}
+	
+
+	.drawerNav a {
+		display: inline-block;
+		color: #ffffff;
+		height: 69px; height: 4.3125rem;
+		line-height: 69px; line-height: 4.3125rem;
+		padding: 0 18px; padding: 0 1.125rem;
+		background: transparent;
+		position: relative;
+	}
+
+	.drawerNav a .shade {
+		display: none;
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		z-index: -1;
+		background: #003f29;
+	}
+
+	.drawerNav a:hover .shade,
+	.drawerNav li.currentPage a .shade {
+		display: block;
+	}
+
+	#bfblMenuDrawer .drawerLogin {
+		display: none; /* temptemptemp */
+	}
+
+	.drawerNewsletter {
+		padding: 22px 26px 0; padding: 1.375rem 1.625rem 0;  
+	}
+
+	.drawerSearch {
+	    background: transparent;
+	    padding: 0;
+	}
 
 
 	/* FOOTER - DESKTOP */

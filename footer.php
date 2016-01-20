@@ -35,7 +35,7 @@
 						$parentName = $thisObject->title;
 						
 						$bfblFooterNav[$parentID] = array(
-							'name' => $thisObject->post_title,
+							'name' => $thisObject->title,
 							'children' => array()
 						);
 	
