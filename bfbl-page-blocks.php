@@ -12,6 +12,8 @@
 		$block_members_only = is_bool($block_members_only) ? $block_members_only : false;
 		$block_has_link = false;
 		$block_has_button = false;
+		$block_color = get_sub_field("block_color");
+		$block_color = (strlen($block_color) > 0) ? $block_color : "";
 		
 		if ($block_type != "image-split") {
 			$block_title = get_sub_field("title");
@@ -24,7 +26,12 @@
 		}
 		
 
-		$block_class = "page-block $block_type";
+		$block_class = array();
+		$block_class[] = "page-block";
+		if (strlen($block_type) > 0) $block_class[] = $block_type;
+		if (strlen($block_color) > 0) $block_class[] = $block_color;
+		$block_class = implode(" ", $block_class);
+
 		switch($block_type) {
 			case "image-left":
 			case "image-right":
