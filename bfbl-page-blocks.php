@@ -36,7 +36,7 @@
 			case "full-width-badge":
 				$block_image_link = $block_has_button;
 				$block_image = wp_get_attachment_image(get_sub_field("image"), "full");
-				$block_image_class = "";
+				$block_image_class = "badge-icon";
 				break;
 			case "image-split":
 				$block_text_left = get_sub_field("text_left");
@@ -58,7 +58,7 @@
 			if ($block_has_link && $block_link_href) {
 				$block_output .=		"$indent    <a href=\"$block_link_href\">\n";
 			}
-			if ($block_type == "image-left") {
+			if ($block_type == "image-left" || $block_type == "full-width-badge") {
 				$block_output .=		"$indent    <div class=\"image $block_image_class\">\n";
 				if ($block_has_button) {
 					$block_output .=	"$indent        <a href=\"$block_button_href\" title=\"$block_button_cta_attr\">\n";
