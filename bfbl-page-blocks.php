@@ -46,8 +46,8 @@
 				$block_image_class = "badge-icon";
 				break;
 			case "image-split":
-				$block_text_left = get_sub_field("text_left");
-				$block_text_right = get_sub_field("text_right");
+				$block_text_left = get_sub_field("left_text");
+				$block_text_right = get_sub_field("right_text");
 				$block_has_link = get_sub_field("has_link");
 				$block_has_link = is_bool($block_has_link) ? $block_has_link : false;
 				$block_link_href = ($block_has_link) ? get_sub_field("link_href") : false;
