@@ -147,56 +147,58 @@
 
 	$bfblFooter .= '</div><!-- end div.footerRowOne -->';
 	$bfblFooter .= '<div class="row footerRowTwo">';
-	
-		$bfblAddr1 = get_field('business_street_address', 'option');
-		$bfblAddr2 = get_field('business_street_address_2', 'option');
-		$bfblAddrCity = get_field('business_city', 'option');
-		$bfblAddrState = get_field('business_state', 'option');	
-		$bfblAddrZip = get_field('business_zip', 'option');	
-		$bfblPhone = get_field('business_phone', 'option');	
-		$bfblEmail = get_field('business_email', 'option');
-		
+
 		$bfblFooter .= "<div class='footerContact col-xs-12 col-sm-6 col-md-6'>";
-		
-		
-		if($bfblAddr1 && $bfblAddrCity && $bfblAddrState && $bfblAddrZip) {
-			$bfblFooter .= "<div class='footerAddress'>";
-				$bfblFooter .= $bfblAddr1 . ' ';
-				if($bfblAddr2) {
-					$bfblFooter .= $bfblAddr2 . ' ';
-				}
-				$bfblFooter .= "$bfblAddrCity $bfblAddrState $bfblAddrZip";
-			$bfblFooter .= "</div>";
-		} // end the are-the-address-values-set test
-		
-		if($bfblPhone && $bfblEmail) {
-			$bfblFooter .= "<div class='footerPhoneEmail'>";
+			$bfblFooter .= '<a href="' . esc_url( home_url( '/' ) ) . '" rel="home" class="footerHomeLink">';
+				$bfblFooter .= esc_html( get_bloginfo( 'name' ) );
+			$bfblFooter .= '</a><!-- end a.footerHomeLink -->';
 			
-				$bfblFooter .= "<span class='footerPhone'>";
-					$bfblFooter .= $bfblPhone;
-				$bfblFooter .= "</span>";
+			$bfblAddr1 = get_field('business_street_address', 'option');
+			$bfblAddr2 = get_field('business_street_address_2', 'option');
+			$bfblAddrCity = get_field('business_city', 'option');
+			$bfblAddrState = get_field('business_state', 'option');	
+			$bfblAddrZip = get_field('business_zip', 'option');	
+			$bfblPhone = get_field('business_phone', 'option');	
+			$bfblEmail = get_field('business_email', 'option');
+		
+			if($bfblAddr1 && $bfblAddrCity && $bfblAddrState && $bfblAddrZip) {
+				$bfblFooter .= "<div class='footerAddress'>";
+					$bfblFooter .= $bfblAddr1 . ' ';
+					if($bfblAddr2) {
+						$bfblFooter .= $bfblAddr2 . ' ';
+					}
+					$bfblFooter .= "$bfblAddrCity $bfblAddrState $bfblAddrZip";
+				$bfblFooter .= "</div>";
+			} // end the are-the-address-values-set test
+			
+			if($bfblPhone && $bfblEmail) {
+				$bfblFooter .= "<div class='footerPhoneEmail'>";
 				
-				$bfblFooter .= "<span class='footerEmail'>";
-					$bfblFooter .= "<a href='mailto:{$bfblEmail}'>";
-						$bfblFooter .= $bfblEmail;
-					$bfblFooter .= "</a>";
-				$bfblFooter .= "</span>";
-							
-			$bfblFooter .= "</div>";
-		} // end the are-the-phone-and-email-values-set test		
+					$bfblFooter .= "<span class='footerPhone'>";
+						$bfblFooter .= $bfblPhone;
+					$bfblFooter .= "</span>";
+					
+					$bfblFooter .= "<span class='footerEmail'>";
+						$bfblFooter .= "<a href='mailto:{$bfblEmail}'>";
+							$bfblFooter .= $bfblEmail;
+						$bfblFooter .= "</a>";
+					$bfblFooter .= "</span>";
+								
+				$bfblFooter .= "</div>";
+			} // end the are-the-phone-and-email-values-set test		
 		
 		$bfblFooter .= "</div><!-- end div.footerContact -->";
 	
 		$bfblFooter .= "<div class='footerCredits col-xs-12 col-sm-6 col-md-6'>";
-			$bfblFooter .= "<div class='copyright'>&copy; " . date('Y') . ' Greater Lehigh Valley Buy Fresh Buy Local. All Rights Reserved.';
+			$bfblFooter .= "<div class='copyright'>&copy; " . date('Y') . ' Greater Lehigh Valley Buy Fresh Buy Local.';
+			$bfblFooter .= "<span class='hideBreak'><br /></span>";
+			$bfblFooter .= " All Rights Reserved.";
 			$bfblFooter .= "<div class='credit'>";
 				$bfblFooter .= "Made in the wild by ";
 				$bfblFooter .= "<a href='http://wearekudu.com/' target='_blank'>KUDU</a>";
 			$bfblFooter .= "</div>";
 		$bfblFooter .= "</div><!-- end div.footerCredits -->";
-	
-	
-	
+
 	$bfblFooter .= '</div><!-- end div.footerRowTwo -->';	
 	
 

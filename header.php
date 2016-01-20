@@ -11,11 +11,10 @@
 
         <title><?php wp_title( ' | ', true, 'right' ); ?></title>
 
-        <link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/b61b7b61-c691-48ed-9943-b6e4a68f75f1.css">
-        <link type="text/css" rel="stylesheet" href="<?php relative_template_path(true); ?>/fonts/clear_sans/font.css">
-
-        <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>">
+        <!-- begin wp_head() -->
         <?php wp_head(); ?>
+        <!-- end wp_head() -->
+        
     </head>
 
     <body <?php body_class(); ?>>
