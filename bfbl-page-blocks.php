@@ -44,6 +44,8 @@
 				$block_has_link = get_sub_field("has_link");
 				$block_has_link = is_bool($block_has_link) ? $block_has_link : false;
 				$block_link_href = ($block_has_link) ? get_sub_field("link_href") : false;
+				$block_image = wp_get_attachment_image(get_sub_field("image"), "full");
+				$block_image_class = "";
 				break;
 			case "video":
 				$block_video = get_sub_field("video");
