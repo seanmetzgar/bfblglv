@@ -25,13 +25,13 @@ get_header(); ?>
                     	<li class="map-link" style="background-image: url('<?php echo $block_image; ?>');"><a href="<?php echo $block_href; ?>">
                             <div class="map-content">
                             	<div class="inner">
-	                            	<?php if ($block_badge) echo "<div class=\"badge\"><img src=\"$block_badge\"></div>"; ?>	                                
+	                            	<?php if ($block_badge) echo "<div class=\"badge-icon\"><img src=\"$block_badge\"></div>"; ?>	                                
 	                                <h3>
 	                                	<?php if ($block_title_small) echo "<small>$block_title_small</small>"; ?>
 	                                	<?php echo $block_title; ?>
 	                                </h3>
-	                                <p class="subtext"><?php echo $block_cta; ?></p>
 	                            </div>
+	                            <p class="subtext"><?php echo $block_cta; ?></p>
                             </div>
                         </a></li>
                     	<?php 
