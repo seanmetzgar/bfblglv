@@ -135,9 +135,11 @@
     </head>
 
     <body <?php body_class(); ?>>
-    	<div id="bfblMenuDrawer" class="menuActive">
-    		<?php echo $bfblMenuDrawer; ?>
-    	</div><!-- end div.#bfblMenuDrawer -->
+    	<div id="bfblDrawerWrap" class="menuActive">
+	    	<div id="bfblMenuDrawer">
+	    		<?php echo $bfblMenuDrawer; ?>
+	    	</div><!-- end div.#bfblMenuDrawer -->
+	    </div><!-- end div.#bfblDrawerWrap -->
     	<div id="bfblMenuOverlay" class="menuActive"><!-- nothing here --></div>
     	
         <div class="container-fluid site-wrapper">
