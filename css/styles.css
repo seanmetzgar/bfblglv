@@ -127,17 +127,6 @@ header.site-header {
 	height: 76px; height: 4.75rem;
 	padding-top: 14px; padding-top: 0.875rem;
 	position: relative;
-
-	text-rendering: optimizeLegibility;
-	text-rendering: geometricPrecision;
-	font-smooth: always;
-
-	font-smoothing: antialiased;
-	-moz-font-smoothing: antialiased;
-	-webkit-font-smoothing: antialiased;
-	-webkit-font-smoothing: subpixel-antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-shadow: 0 0 0 #000;
 }
 
 header.site-header h1 {
