@@ -135,12 +135,12 @@
     </head>
 
     <body <?php body_class(); ?>>
-    	<div id="bfblDrawerWrap" class="menuActive">
+    	<div id="bfblDrawerWrap">
 	    	<div id="bfblMenuDrawer">
 	    		<?php echo $bfblMenuDrawer; ?>
 	    	</div><!-- end div.#bfblMenuDrawer -->
 	    </div><!-- end div.#bfblDrawerWrap -->
-    	<div id="bfblMenuOverlay" class="menuActive"><!-- nothing here --></div>
+    	<div id="bfblMenuOverlay"><!-- nothing here --></div>
     	
         <div class="container-fluid site-wrapper">
             <header class="site-header">

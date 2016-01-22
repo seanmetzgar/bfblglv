@@ -202,15 +202,13 @@
 	$bfblFooter .= '</div><!-- end div.footerRowTwo -->';	
 	
 
-	
-	
-	
-	
-	
-//	
-	
-	
-	
+	$loginArgs = array(
+		'echo'	=> FALSE,
+	);
+	$bfblLogin = wp_login_form($loginArgs);
+
+	// add a span to the 'remember me'
+	$bfblLogin = str_replace(' Remember Me', '<span>Remember me</span>', $bfblLogin);
 	
 	
 
@@ -220,6 +218,16 @@
             </footer>
 
         </div><!-- END: .site-wrapper -->
+        
+        <div class="bfblLightboxes">
+        	<div id="loginLB">
+        		<h3>Partner Login</h3>
+        		<?php echo $bfblLogin ?>
+        	</div><!-- end div#loginLB -->
+         	<div id="newsletterLB">
+        		<h1>Newsletter lightbox</h1>
+        	</div><!-- end div#newsletterLB -->       	
+        </div><!-- end div.bfblLightboxes -->
         <?php wp_footer(); ?>
     </body>
 </html>

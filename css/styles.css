@@ -78,7 +78,8 @@ button {
 
 
 /* BUTTONLINK STYLES */
-.bfblButtonLink {
+.bfblButtonLink,
+#wp-submit {
 	display: inline-block;
 	background: #008c5c;
 	border: 1px solid #ffffff;
@@ -95,7 +96,9 @@ button {
 }
 
 .bfblButtonLink:hover, 
-.bfblButtonLink:focus {
+.bfblButtonLink:focus,
+#wp-submit:hover,
+#wp-submit:focus {
 	background: #003f29;
 }
 
@@ -126,22 +129,26 @@ header.site-header .home-link a {
 
 #bfblMenuBtn {
 	position: absolute;
-	top: 0; right: 0; bottom: 0;
-	width: 60px; width: 3.75rem;
+	top: 12px; top: 0.75rem; 
+	right: 0; bottom: 0;
+	width: 64px; width: 4rem;
 	background: transparent;
 	border: 0;
 	outline: 0;
 	color: #ffffff;
+	font-family: 'BlueHighwayW00-Condense';
+	letter-spacing: 3px; letter-spacing: 0.1875rem;
+	text-indent: 2px; text-indent: 0.125rem;
 	text-transform: uppercase;
-	font-size: 14px; font-size: 0.875rem;
-	line-height: 16px; line-height: 1rem;
-	padding-bottom: 42px; padding-bottom: 2.625;
-	padding-top: 16px; padding-top: 1rem;
+	font-size: 18px; font-size: 1.125rem;
+	line-height: 1;
+	padding-top: 10px; padding-top: 0.625rem;
+	padding-bottom: 38px; padding-bottom: 2.375rem;
 }
 
 #bfblMenuBtn:hover, 
 #bfblMenuBtn:focus {
-	color: #8cc63f;
+	background: #003f29;
 }
 
 #bfblMenuBtn::before,
@@ -150,9 +157,9 @@ header.site-header .home-link a {
 	display: block;
 	position: absolute;
 	height: 16px; /* cq, no rems */
-	right: 10px; right: 0.625rem;
-	bottom: 16px; bottom: 1rem;
-	left: 10px; left: 0.625rem;
+	right: 12px; right: 0.75rem;
+	bottom: 12px; bottom: 0.75rem;
+	left: 12px; left: 0.75rem;
 	box-sizing: border-box;
 	border-width: 0;
 	border-style: solid;
@@ -168,13 +175,6 @@ header.site-header .home-link a {
 	height: 0;
 	border-bottom-width: 1px;
 	margin-bottom: 7px; /* cq, no rems */
-}
-
-#bfblMenuBtn:hover::before, 
-#bfblMenuBtn:focus::before,
-#bfblMenuBtn:hover::after, 
-#bfblMenuBtn:focus::after {
-	border-color: #8cc63f;
 }
 
 /* MAIN MENU */
@@ -199,6 +199,7 @@ header.site-header .home-link a {
 	position: absolute;
 	top: 0; right: 0;
 	width: 0;
+	height: 0;
 	z-index: 600;
 	overflow: hidden;
 	transition: width 0s linear 1s, height 0s linear 1s; 
@@ -207,7 +208,7 @@ header.site-header .home-link a {
 #bfblDrawerWrap.menuActive {
 	width: 100%;
 	height: 600px; height: 37.5rem;
-	transition: width 0s linear 0s, height 0s linear 0s; 
+	transition: width 0s , height 0s; 
 }
 
 #bfblMenuDrawer {
@@ -328,7 +329,7 @@ a.drawerHomeLink {
 	display: block;
 	border: 1px solid #008c5c;
 	border-top: 0;
-	height: 30px;
+	height: 30px; height: 1.875rem;
 	position: relative;
 }
 
@@ -374,6 +375,186 @@ input.search-field:-ms-input-placeholder {
 	text-indent: -99999px;
 	/* NOTE: if using an iconfont, you'll probably have to add it to the parent element, b/c <input>s can't have pseudo elements */
 }
+
+/* LIGHTBOXES */
+.bfblLightboxes {
+	display: none;
+}
+
+.ui-widget-overlay {
+	background: #b7b7b7;
+	opacity: .84;
+	transition: z-index 1s;
+}
+
+.ui-dialog {
+	box-shadow: 0 0 30px 1px rgba(17,17,18,.75);
+	outline: 0;
+	background: #008c5c;
+	color: #ffffff;
+}
+
+.ui-dialog::after {
+	/* this is needed to prop open the lightbox width, if the interior content isn't already wide enough  */
+	content: '';
+	display: block;
+	width: 320px;
+}
+
+.ui-dialog-titlebar {
+	background: transparent;
+	border: 0;
+	text-align: right;
+	padding-right: 8px; padding-right: 0.5rem;
+	height: 42px; height: 2.625rem;
+}
+
+.ui-dialog-titlebar-close {
+	color: #015c3c;
+}
+
+
+
+.ui-dialog-content {
+	padding: 0;
+}
+
+.ui-dialog h3 {
+	margin: 0;
+	padding-bottom: 2rem;
+	text-align: center;
+	font-size: 16px; font-size: 1rem;
+	text-transform: uppercase;
+	letter-spacing: 3px; letter-spacing: 0.1875rem;
+	color: #8cc63f;
+	font-family: 'Blue Highway W00';
+	background: #008c5c;
+}
+
+#loginLB {
+	background: #015c3c;
+}
+
+#loginLB p.login-username,
+#loginLB p.login-password {
+	display: block;
+	margin: 36px 12px; margin: 2rem 0.75rem;
+	border: 1px solid #008c5c;
+	border-top: 0;
+	height: 30px; height: 1.875rem;
+	position: relative;
+/*	padding-left: 11.5%; */
+}
+
+#loginLB p.login-password {
+	margin-bottom: 28px; margin-bottom: 1.75rem;
+}
+
+#loginLB p.login-username::before,
+#loginLB p.login-password::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 1.5%;
+	width: 26px;
+	height: 26px;
+	margin-top: -15px;
+	background: #008c5c; /* temptemptemp */
+}
+
+#loginLB p.login-username label,
+#loginLB p.login-password label {
+	position: absolute;
+	clip: rect(1px, 0, 0, 1px);
+	overflow: hidden;
+}
+
+#loginLB p.login-username input,
+#loginLB p.login-password input {
+	padding: 0 6px; padding: 0 0.375rem;
+	position: absolute;
+	top: 4px; top: 0.25rem;
+	bottom: 4px; bottom: 0.25rem;
+	right: 1.5%;
+	width: 86.5%;
+	display: block;
+	font-size: 14px; font-size: 0.875rem;
+	font-family: 'Clear Sans';
+	color: #ffffff;
+}
+
+#loginLB input::-webkit-input-placeholder {
+	color: #008c5c !important;
+	font-style: italic;
+}
+ 
+#loginLB input:-moz-placeholder { /* Firefox 18- */
+	color: #008c5c !important;
+	font-style: italic;
+}
+ 
+#loginLB input::-moz-placeholder {  /* Firefox 19+ */
+	color: #008c5c !important;
+	font-style: italic;
+}
+ 
+#loginLB input:-ms-input-placeholder {  
+	color: #008c5c !important;
+	font-style: italic;
+}
+
+#loginLB input:-webkit-autofill {
+   -webkit-box-shadow: 0 0 0px 1000px rgba(0, 140, 92, .75) inset;
+}
+
+#loginLB p.login-remember {
+	margin-left: 26px; margin-left: 1.625rem;
+}
+
+#loginLB p.login-remember label {
+	font-weight: normal
+}
+
+#loginLB p.login-remember input {
+	display: none;
+}
+
+#loginLB p.login-remember label span {
+	font-size: 14px; font-size: 0.875rem;
+	color: #008c5c;
+	font-style: italic;
+	position: relative;
+	display: inline-block;
+	padding-left: 28px; /* cq, not rems */
+}
+
+#loginLB p.login-remember label span::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 50%; left: 0;
+	width: 20px; /* cq, not rems */
+	height: 20px;
+	margin-top: -10px;
+	background: #008c5c; /* temptemptemp */
+}
+
+#loginLB p.login-remember label input[type=checkbox]:checked + span {
+	color: #ffffff;
+	font-style: normal;
+}
+
+#loginLB p.login-remember label input[type=checkbox]:checked + span::before {
+	background: white;
+}
+
+#loginLB p.login-submit {
+	text-align: center;
+	margin: 32px 12px; margin: 2rem 0.75rem;
+}
+
+
 
 
 /* FOOTER */
@@ -524,6 +705,10 @@ input.search-field:-ms-input-placeholder {
 		position: fixed;
 	}
 
+	.ui-dialog {
+		position: fixed!important;
+	}	
+
 	
 	/* FOOTER - TABLET */
 
@@ -628,6 +813,7 @@ input.search-field:-ms-input-placeholder {
 	}
 	
 	#bfblMenuDrawer {
+		right: 0!important;
 		box-shadow: none!important;
 		width: auto;
 		background: transparent;
@@ -741,12 +927,13 @@ input.search-field:-ms-input-placeholder {
 	}
 
 	.drawerLogin .buttonLogin:hover,
-	.drawerLogin .buttonLogin:focus,
+/*	.drawerLogin .buttonLogin:focus, */
 	.drawerLogin .buttonLogin.btnActive,
 	.drawerSearch .buttonSearch:hover,
-	.drawerSearch .buttonSearch:focus,
+/*	.drawerSearch .buttonSearch:focus, */
 	.drawerSearch .buttonSearch.btnActive {
-		background: #015c3c;
+		background: #003f29;
+		
 	}
 	
 	.drawerLogin {
