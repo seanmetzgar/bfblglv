@@ -12,7 +12,20 @@
  * 'Clear Sans'
  * 'Blue Highway W00'
  * 'BlueHighwayW00-Condense'
+ * 'fontello'
  */
+
+@font-face {
+      font-family: 'fontello';
+      src: url('../fonts/fontello/fontello.eot?58599859');
+      src: url('../fonts/fontello/fontello.eot?58599859#iefix') format('embedded-opentype'),
+           url('../fonts/fontello/fontello.woff?58599859') format('woff'),
+           url('../fonts/fontello/fontello.ttf?58599859') format('truetype'),
+           url('../fonts/fontello/fontello.svg?58599859#fontello') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+
 
 html {
 	padding: 0; margin: 0;
@@ -87,6 +100,7 @@ button {
 	text-align: center;
 	text-transform: uppercase;
 	color: #ffffff;
+	text-decoration: none;
 	font-size: 16px; font-size: 1rem;
 	line-height: 45px; line-height: 2.8125rem;
 	height: 47px; height: 2.9375rem;
@@ -100,6 +114,8 @@ button {
 #wp-submit:hover,
 #wp-submit:focus {
 	background: #003f29;
+	color: #ffffff;
+	text-decoration: none;
 }
 
 /* HEADER */
@@ -121,7 +137,10 @@ header.site-header .home-link a {
 	display: block;
 	width: 130px; width: 8.125rem;
 	height: 50px; height: 3.125rem;
-	background: blue; /* temptemptemp */
+	background-image: url('../images/bfbl_logo.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
 	text-indent: -999999px;
 	overflow: hidden;
 	margin-left: 3.125%;
@@ -241,7 +260,10 @@ a.drawerHomeLink {
 	display: block;
 	width: 130px; width: 8.125rem;
 	height: 50px; height: 3.125rem;
-	background: blue; /* temptemptemp */
+	background-image: url('../images/bfbl_logo.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
 	text-indent: -999999px;
 	overflow: hidden;
 	margin-left: 10px; margin-left: 0.625rem;
@@ -252,10 +274,12 @@ a.drawerHomeLink {
 	top: 0; right: 0; bottom: 0;
 	width: 50px; width: 3.125rem;
 	text-indent: -9999999px;
+	color: #015c3c;
 }
 
 #bfblMenuClose::before {
-	content: '';
+	font-family: 'fontello';
+	content: '\e800';
 	display: block;
 	position: absolute;
 	top: 50%; right: 50%;
@@ -263,7 +287,15 @@ a.drawerHomeLink {
 	height: 36px; height: 2.25rem;
 	margin-top: -18px; margin-top: -1.125rem;
 	margin-right: -18px; margin-right: -1.125rem;
-	background: white; /* temptemptemp */
+	font-size: 36px; font-size: 2.25rem;
+	line-height: 36px; line-height: 2.25rem;
+	text-align: center;
+	text-indent: 0;
+}
+
+#bfblMenuClose:hover, 
+#bfblMenuClose:focus {
+	color: #ffffff;
 }
 
 .drawerNav {
@@ -371,9 +403,21 @@ input.search-field:-ms-input-placeholder {
 	position: absolute;
 	top: 0; right: 0; bottom: 0;
 	width: 11.5%;
-	background: #008c5c; /* temptemptemp */ 
+	background: transparent; 
 	text-indent: -99999px;
-	/* NOTE: if using an iconfont, you'll probably have to add it to the parent element, b/c <input>s can't have pseudo elements */
+	/* NOTE: since we're using an iconfont, it must be added to the PARENT element, because b/c <input>s can't have pseudo elements */
+}
+
+.search-form::before {
+	font-family: 'fontello';
+	content: '\e805';
+	display: block;
+	position: absolute;
+	top: 0; right: 0; bottom: 0;
+	width: 11.5%;
+	font-size: 18px; font-size: 1.125rem;
+	line-height: 30px; line-height: 1.875rem;
+	color: #008c5c;
 }
 
 /* LIGHTBOXES */
@@ -405,7 +449,7 @@ input.search-field:-ms-input-placeholder {
 	background: transparent;
 	border: 0;
 	text-align: right;
-	padding-right: 8px; padding-right: 0.5rem;
+	padding-right: 10px; padding-right: 0.625rem;
 	height: 42px; height: 2.625rem;
 }
 
@@ -413,6 +457,15 @@ input.search-field:-ms-input-placeholder {
 	color: #015c3c;
 }
 
+.ui-dialog-titlebar-close:hover {
+	color: #ffffff;
+}
+
+.ui-dialog-titlebar-close:before {
+	font-family: 'fontello';
+	content: '\e808';
+	font-size: 26px; font-size: 1.625rem;
+}
 
 
 .ui-dialog-content {
@@ -452,22 +505,37 @@ input.search-field:-ms-input-placeholder {
 
 #loginLB p.login-username::before,
 #loginLB p.login-password::before {
-	content: '';
+	font-family: 'fontello';
 	display: block;
 	position: absolute;
 	top: 50%;
 	left: 1.5%;
-	width: 26px;
-	height: 26px;
-	margin-top: -15px;
-	background: #008c5c; /* temptemptemp */
+	width: 8.8%;
+	height: 26px; height: 1.625rem;
+	margin-top: -15px; margin-top: -0.8125rem;
+	font-size: 22px; font-size: 1.375rem;
+	line-height: 26px; line-height: 1.625rem;
+	text-align: center;
+	color: #008c5c;
+}
+
+#loginLB p.login-username::before {
+	content: '\e80a';
+}
+
+#loginLB p.login-password::before {
+	content: '\e807';
 }
 
 #loginLB p.login-username label,
 #loginLB p.login-password label {
 	position: absolute;
-	clip: rect(1px, 0, 0, 1px);
 	overflow: hidden;
+	text-indent: -999999px;
+	top: 1px;
+	left: 1.5%;
+	width: 8.8%;
+	height: 26px; height: 1.625rem;
 }
 
 #loginLB p.login-username input,
@@ -509,7 +577,7 @@ input.search-field:-ms-input-placeholder {
 }
 
 #loginLB p.login-remember {
-	margin-left: 26px; margin-left: 1.625rem;
+	margin-left: 20px; margin-left: 1.25rem;
 }
 
 #loginLB p.login-remember label {
@@ -526,7 +594,7 @@ input.search-field:-ms-input-placeholder {
 	font-style: italic;
 	position: relative;
 	display: inline-block;
-	padding-left: 28px; /* cq, not rems */
+	padding-left: 34px; /* cq, not rems */
 }
 
 #loginLB p.login-remember label span::before {
@@ -537,7 +605,10 @@ input.search-field:-ms-input-placeholder {
 	width: 20px; /* cq, not rems */
 	height: 20px;
 	margin-top: -10px;
-	background: #008c5c; /* temptemptemp */
+	background-image: url('../images/bfbl_sprite_checkbox.png');
+	background-repeat: no-repeat;
+	background-size: 20px 95px;
+	background-position: 0 -50px;
 }
 
 #loginLB p.login-remember label input[type=checkbox]:checked + span {
@@ -546,7 +617,7 @@ input.search-field:-ms-input-placeholder {
 }
 
 #loginLB p.login-remember label input[type=checkbox]:checked + span::before {
-	background: white;
+	background-position: 0 -75px;
 }
 
 #loginLB p.login-submit {
@@ -616,15 +687,31 @@ input.search-field:-ms-input-placeholder {
 	display: block;
 }
 .footerSocial a::before {
-	content: '';
+	font-family: 'fontello';
 	display: inline-block;
-	width: 22px;
-	height: 22px;
-	background: white; /* temptemptemp */
+	width: 22px; width: 1.375rem;
+	height: 22px; height: 1.375rem;
+	font-size: 22px;
+	line-height: 22px;
+	text-align: center;
+	position: relative;
+	top: -1px;
 }
 
-.footerSocial a:hover::before {
-	background: #8cc63f; /* temptemptemp */
+.footerSocial .twitter a::before {
+	content: '\e802';	
+}
+
+.footerSocial .facebook a::before {
+	content: '\e804';	
+}
+
+.footerSocial .youtube a::before {
+	content: '\e801';	
+}
+
+.footerSocial .instagram a::before {
+	content: '\e803';	
 }
 
 .footerSocial a span {
@@ -896,7 +983,7 @@ input.search-field:-ms-input-placeholder {
 		background: transparent;
 	} 
 	
-	.drawerLogin .buttonLogin,
+	.drawerLogin .buttonLogInOut,
 	.drawerSearch .buttonSearch {
 	/*	width: 64px; width: 4rem; */
 		width: 56px; width: 3.5rem;
@@ -908,33 +995,51 @@ input.search-field:-ms-input-placeholder {
 		letter-spacing: 1px;
 		text-transform: uppercase;
 		font-size: 16px; font-size: 1rem;
-		line-height: 1;
+		line-height: 21px; line-height: 1.3125;
 		padding-top: 10px; padding-top: 0.625rem;
 		padding-bottom: 38px; padding-bottom: 2.375rem;
 		position: relative;
 	}
 
-	.drawerLogin .buttonLogin::after,
+	.drawerLogin .buttonLogInOut::after,
 	.drawerSearch .buttonSearch::after {
-		content: '';
+		font-family: 'fontello';
 		display: block;
 		position: absolute;
-		left: 50%; bottom: 16px;
-		width: 22px;
-		height: 22px;
+		left: 50%; 
+		bottom: 16px; bottom: 1rem;
+		width: 22px; width: 1.375rem;
+		height: 22px; height: 1.375rem;
 		margin-left: -11px;
-		background: white;
+		background: transparent;
+		font-size: 18px; font-size: 1.125rem;
+		line-height: 22px; line-height: 1.375rem;
+		text-align: center;
 	}
 
-	.drawerLogin .buttonLogin:hover,
-/*	.drawerLogin .buttonLogin:focus, */
-	.drawerLogin .buttonLogin.btnActive,
+	.drawerLogin .buttonLogInOut::after {
+		content: '\e80a';
+	}
+	
+	.drawerSearch .buttonSearch::after {
+		content: '\e806';
+	}
+
+	.drawerLogin .buttonLogInOut:focus,
+	.drawerSearch .buttonSearch:focus {
+		background: inherit;
+	}
+
+	.drawerLogin .buttonLogInOut:hover,
+/*	.drawerLogin .buttonLogInOut:focus, */
+	.drawerLogin .buttonLogInOut.btnActive,
 	.drawerSearch .buttonSearch:hover,
 /*	.drawerSearch .buttonSearch:focus, */
 	.drawerSearch .buttonSearch.btnActive {
 		background: #003f29;
-		
 	}
+	
+
 	
 	.drawerLogin {
 		position: absolute;
@@ -981,7 +1086,10 @@ input.search-field:-ms-input-placeholder {
 		width: 32.92%;
 		height: 0;
 		padding-bottom: 21.05%; /* so the height scales with width */
-		background: blue; /* temptemptemp */
+		background-image: url('../images/bfbl_logo.png');
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: contain;
 		text-indent: -999999px;
 	}
 	
@@ -1018,7 +1126,7 @@ input.search-field:-ms-input-placeholder {
 	}
 
 
-	.drawerLogin .buttonLogin,
+	.drawerLogin .buttonLogInOut,
 	.drawerSearch .buttonSearch {
 		width: 64px; width: 4rem;
 	}	

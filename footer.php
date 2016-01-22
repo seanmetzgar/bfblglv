@@ -16,6 +16,8 @@
 				$bfblFooter .= "<p>$bfblAboutContent</p>";
 			}
 	
+//			$bfblFooter .= "<h1>Wholesale Link goes here</h1>";
+	
 		$bfblFooter .= "</section><!-- end section.footerAbout -->";
 		
 		// build the footer menus manually
@@ -75,6 +77,16 @@
 										$bfblFooter .= "<a href='{$thisChild['url']}'>{$thisChild['text']}</a>";
 									$bfblFooter .= "</li>";
 								}
+								
+								// ALSO: if the user is logged in, AND if this is the second column,
+								// add a 'My Account' link
+								if($j==2 && is_user_logged_in()) {
+									$bfblFooter .= "<li>";
+										$bfblFooter .= "<a href='". get_edit_user_link() . "'>My Account</a>";
+									$bfblFooter .= "</li>";
+								}
+								
+								
 							$bfblFooter .= "</ul>";
 						$bfblFooter .= "</nav>";
 					}
@@ -204,6 +216,7 @@
 
 	$loginArgs = array(
 		'echo'	=> FALSE,
+//		'redirect' => site_url('/mypage/'), // documentation: https://codex.wordpress.org/Function_Reference/wp_login_form		
 	);
 	$bfblLogin = wp_login_form($loginArgs);
 

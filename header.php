@@ -97,9 +97,19 @@
 		$bfblMenuDrawer .= "</div><!-- end div.drawerNav -->";
 	$bfblMenuDrawer .= "</nav>";
 	
+	// login / logout
+	$bfblLogin = '';
+	if(is_user_logged_in()) {
+		$bfblLogin .= '<a href="' . wp_logout_url( home_url() ) . '" class="buttonLogout buttonLogInOut bfblButtonLink">Logout</a>';
+	} else {
+		$bfblLogin = '<button class="buttonLogin buttonLogInOut bfblButtonLink">Login</button>';
+	}
+	
 	$bfblMenuDrawer .= "<div class='drawerLogin'>";	
-		$bfblMenuDrawer .= '<button class="buttonLogin bfblButtonLink">Login</button>';
+		$bfblMenuDrawer .= $bfblLogin;
 	$bfblMenuDrawer .= "</div><!-- div.drawerLogin -->";
+	
+	
 	$bfblMenuDrawer .= "<div class='drawerNewsletter'>";	
 		$bfblMenuDrawer .= '<button class="buttonNewsletter bfblButtonLink">Newsletter</button>';
 	$bfblMenuDrawer .= "</div><!-- div.drawerNewsletter -->";
