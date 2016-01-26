@@ -1,3 +1,4 @@
+/*
 .animated-header {
   overflow: hidden;
   font-family: 'Clear Sans', Helvetica, Arial, sans-serif;
@@ -246,7 +247,7 @@
     width: 33.75%;
   }
 }
-
+*/
 
 
 
@@ -254,7 +255,7 @@
 /** Sean's Additions **/
 
 /** Page Blocks **/
-
+/*
 .page-block {
   margin: 0;
   padding: 43px 46px;
@@ -305,12 +306,19 @@
   box-shadow: 0px 0px 80px rgba(230, 168, 101, 60) inset;
   background: url(../images/bg/bg_tan_noise.png) 50% 50% repeat;
 }
+*/
 
-
+/*
 body, .drawerNav, .site-header, .footer {
+  text-rendering: optimizeLegibility;
+  text-rendering: geometricPrecision;
+  font-smooth: always;
+
   font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-shadow: 0 0 0 rgba(0,0,0,1%);
+  text-shadow: 0 0 0 #000;
 }
+*/

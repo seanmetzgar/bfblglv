@@ -32,6 +32,10 @@
 		if (strlen($block_color) > 0) $block_class[] = $block_color;
 		$block_class = implode(" ", $block_class);
 
+		
+		$block_image_class = '';
+		$block_image_css = '';
+		
 		switch($block_type) {
 			case "image-left":
 			case "image-right":
@@ -42,7 +46,20 @@
 				break;
 			case "full-width-badge":
 				$block_image_link = $block_has_button;
+//				$block_image = wp_get_attachment_image(get_sub_field("image"), "full");
+				
+				// newnewnew
+				$block_image_id = get_sub_field("image");
 				$block_image = wp_get_attachment_image(get_sub_field("image"), "full");
+				
+				// second draft:
+			//	$block_image_attrs = wp_get_attachment_metadata($block_image_id);
+			//	$block_image_css = ' style="margin-top: -' . intval($block_image_attrs['height']/2) . 'px; margin-left: -' . intval($block_image_attrs['height']/2) . 'px;"';
+
+				// final draft:
+				$block_image_src = wp_get_attachment_image_src($block_image_id, 'full');
+				$block_image_css = " style='background-image: url({$block_image_src[0]})'";
+				
 				$block_image_class = "badge-icon";
 				break;
 			case "image-split":
@@ -51,7 +68,13 @@
 				$block_has_link = get_sub_field("has_link");
 				$block_has_link = is_bool($block_has_link) ? $block_has_link : false;
 				$block_link_href = ($block_has_link) ? get_sub_field("link_href") : false;
+//				$block_image = wp_get_attachment_image(get_sub_field("image"), "full");
+				// newnewnew
+				$block_image_id = get_sub_field("image");
 				$block_image = wp_get_attachment_image(get_sub_field("image"), "full");
+				$block_image_src = wp_get_attachment_image_src($block_image_id, 'full');
+				$block_image_css = " style='background-image: url({$block_image_src[0]})'";
+
 				$block_image_class = "";
 				break;
 			case "video":
@@ -66,7 +89,7 @@
 				$block_output .=		"$indent    <a href=\"$block_link_href\">\n";
 			}
 			if ($block_type == "image-left" || $block_type == "full-width-badge") {
-				$block_output .=		"$indent    <div class=\"image $block_image_class\">\n";
+				$block_output .=		"$indent    <div class=\"image $block_image_class\" $block_image_css>\n";
 				if ($block_has_button) {
 					$block_output .=	"$indent        <a href=\"$block_button_href\" title=\"$block_button_cta_attr\">\n";
 				}
@@ -78,7 +101,7 @@
 			}
 
 			if ($block_type == "image-split") {
-				$block_output .=		"$indent    <div class=\"image\">\n";
+				$block_output .=		"$indent    <div class=\"image\"  $block_image_css>\n";
 				$block_output .=		"$indent        $block_image\n";
 				$block_output .=		"$indent    </div>\n";
 				$block_output .=		"$indent    <div class=\"content\">\n";
@@ -92,7 +115,21 @@
 				$block_output .=		"$indent        <h2>$block_title</h2>\n";
 				$block_output .=		"$indent        $block_text\n";
 				if ($block_has_button) {
-					$block_output .=	"$indent        <a href=\"$block_button_href\" class=\"btn\" title=\"$block_button_cta_attr\">$block_button_cta</a>\n";
+					
+					$btn_class = 'bfblButtonLink';
+					if($block_color) {
+						switch ($block_color) {
+							case 'tan-shadow':
+								$btn_class .= ' btnBlue';
+								break;
+							case 'green':
+								$btn_class .= ' btnOrange';
+								break;
+						}
+					}
+
+					$block_output .=	"$indent        <a href=\"$block_button_href\" class=\"$btn_class\" title=\"$block_button_cta_attr\">$block_button_cta</a>\n";
+
 				}
 				$block_output .=		"$indent    </div>\n";
 			}
@@ -116,6 +153,16 @@
 			}
 
 			$block_output .=			"$indent</section>\n";
+			
+			// newnewnew -- add an arrow link, to be shown on parent pages
+			if($block_has_button && $block_button_href && $block_title) {
+				$block_output .=		"$indent<div class='blockArrow'>";
+				$block_output .=		"$indent    <a href='$block_button_href'>";
+				$block_output .=		"$indent        $block_title";
+				$block_output .=		"$indent    </a>";
+				$block_output .=		"$indent</div><!-- end div.blockArrow -->";
+			}
+			
 		endif;
 	endwhile; endif; 
 	echo $block_output;
