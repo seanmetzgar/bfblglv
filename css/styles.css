@@ -6,6 +6,7 @@
  * #8cc63f - light green
  * #1a3281 - blue accent
  * #fcaf17 - orange accent
+ * #555555 - gray text, gray accent
  * #b7b7b7, 87% - overlay color (183,183,183,.87)
 */
 
@@ -196,6 +197,18 @@ button {
 	color: #ffffff;
 }
 
+.bfblButtonLink.btnGray {
+	border-color: #555555;
+	color: #555555;
+	background: transparent;
+}
+
+.bfblButtonLink.btnGray:hover, 
+.bfblButtonLink.btnGray:focus {
+	background: #555555;
+	color: #ffffff;
+}
+
 
 
 /* HEADER */
@@ -223,7 +236,7 @@ header.site-header .home-link a {
 	background-size: contain;
 	text-indent: -999999px;
 	overflow: hidden;
-	margin-left: 3.125%;
+	margin-left: 10px; margin-left: 0.625rem;
 }
 
 #bfblMenuBtn {
@@ -737,6 +750,11 @@ input.search-field:-ms-input-placeholder {
 	margin: 40px 0 16px; margin: 2.5rem 0 1rem;
 }
 
+.footerAbout {
+	padding-left: 10px; padding-left: 0.625rem; /* matches padding on .page-block */
+	padding-right: 10px; padding-right: 0.625rem;
+}
+
 .footerAbout p {
 	text-align: left;
 	max-width: 500px; max-width: 31.25rem;
@@ -852,6 +870,7 @@ input.search-field:-ms-input-placeholder {
 /* PAGE HEADER */
 header.page-header.has-image {
 	margin: 0;
+	padding: 0;
 	height: 150px; height: 9.375rem;
 	line-height: 150px; line-height: 9.375rem; /* used to center the contents vertically */
 	background-repeat: no-repeat;
@@ -892,7 +911,112 @@ header.page-header.has-image img {
 	overflow: hidden;
 }
 
+/* PAGE CONTENT */
+.entry-content {
+	margin: 0;
+	padding: 10px; padding: 0.625rem; /* matches padding on .page-block */
+	position: relative;
+	text-align: left;
+	background: #f7ecd5;
+}
 
+.entry-content h1,
+.entry-content h2 {
+	margin: 0;
+	padding: 32px 0; padding: 2rem 0;
+	font-family: 'blue_highway_bold';
+	font-size: 40px; font-size: 2.5rem;
+	line-height: 1;
+	color: #193282;
+	text-transform: uppercase;
+}
+
+.entry-content p {
+	font-size: 16px; font-size: 1rem;
+	line-height: 24px; line-height: 1.5rem;
+	color: #555555;
+	margin-bottom: 32px; margin-bottom: 2rem;
+}
+
+/* PAGE CONTENT - SPECIAL CASES */
+body.page-template-page_why-buy-local .entry-content {
+	padding: 0;
+}
+
+
+body.page-template-page_about-parent .entry-content {
+	text-align: center;
+	background: #ffffff;
+	padding-bottom: 180px; /* this value will change if the image ever changes! */
+}
+
+body.page-template-page_about-parent .entry-content h2 {
+	font-size: 20px; font-size: 1.25rem;
+}
+
+body.page-template-page_about-parent .entry-content img {
+	position: absolute;
+	left: 50%;
+	bottom: 40px;
+	margin-left: -150px; /* this value will change if the image ever changes! */
+	width: 300px;
+	height: auto;
+}
+
+.team-section {
+	text-align: center;
+	font-size: 16px; font-size: 1rem;
+	line-height: 24px; line-height: 1.5rem;
+	color: #555555;
+}
+
+.team-section .image img {
+	width:100%;
+	height: auto;
+	/* hidden on mobile */
+	position: absolute;
+	clip: rect(0,1px,1px,0);
+	overflow: hidden;
+}
+
+.team-section h2 {
+	margin: 0;
+	padding: 28px 0 0; padding: 1.75rem 0 0;
+	font-family: 'blue_highway_bold';
+	font-size: 20px; font-size: 1.25rem;
+	line-height: 1;
+	color: #193282;
+	text-transform: uppercase;
+}
+
+.team-section .project-leads,
+.team-section .advisory-board {
+	padding: 10px; padding: 0.625rem; /* matches padding on .page-block */	
+}
+
+.team-section .project-leads {
+	background: #ffffff;
+}
+
+.team-section .advisory-board {
+	background: #f7ecd5;
+}
+
+.team-section ul {
+	padding-bottom: 40px; padding-bottom: 2.5rem;
+}
+
+.team-section li {
+	padding-top: 32px; padding-top: 2rem;
+}
+
+.team-section .name {
+	font-weight: bold;
+}
+
+.team-section .position {
+	font-style: italic;
+}
 
 /* PAGE BLOCKS */
 
@@ -900,6 +1024,10 @@ header.page-header.has-image img {
 	margin: 0;
 	padding: 10px; padding: 0.625rem;
 	position: relative;
+}
+
+.page-block .blockBG {
+	display: none; /* normally hidden, shown only in special cases */
 }
 
 .page-block .content {
@@ -912,9 +1040,17 @@ header.page-header.has-image img {
 	line-height: 18px; line-height: 1.125rem;
 }
 
+.page-block.white {
+	background: #ffffff;
+}
+
+.page-block.white .content {
+	color: #555555;
+}
+
 .page-block.tan-shadow {
 	box-shadow: 0 0 80px rgba(230, 168, 101, .6) inset;
-	background: url('../images/bg/bg_tan_noise.png') center center repeat;	
+	background: #f7ecd5 url('../images/bg/bg_tan_noise.png') center center repeat;	
 }
 
 .page-block.tan-shadow .content {
@@ -924,6 +1060,12 @@ header.page-header.has-image img {
 .page-block.tan-shadow .content p {
 	color: #555555;
 }
+
+/* special case: */
+body.page-template-page_why-buy-local .page-block.tan-shadow .content {
+	color: #555555;
+}
+
 
 .page-block.green {
 	background: #008c5c;
@@ -1008,12 +1150,14 @@ header.page-header.has-image img {
 }
 
 .page-block.image-left, 
-.page-block.image-right {
+.page-block.image-right,
+.page-block.video {
 	
 }
 
 .page-block.image-left .image, 
-.page-block.image-right .image {
+.page-block.image-right .image,
+.page-block.video .video {
 	text-align: center;
 	padding-top: 4px; padding-top: 0.25rem;
 }
@@ -1023,9 +1167,35 @@ header.page-header.has-image img {
 	display: inline-block;
 }
 
+.page-block.image-left .image a img, 
+.page-block.image-right .image a img {
+	max-width: 70%;
+	height: auto;
+}
+
 .page-block.image-left h2, 
-.page-block.image-right h2 {
+.page-block.image-right h2,
+.page-block.video h2 {
 	margin-top: 16px; margin-top: 1rem;
+}
+
+.page-block.video .video {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 550px;
+}
+
+.page-block.video .video .videoWrap {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9, for videos */
+	height: 0;
+}
+
+.page-block.video .video .videoWrap iframe {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%!important; /* override the inline height and width of the iframe */
+	height: 100%!important;
 }
 
 .blockArrow {
@@ -1043,6 +1213,114 @@ body.page-template-page_why-buy-local .page-block {
 	position: absolute;
 	clip: rect(0,1px,1px,0);
 	overflow: hidden;
+}
+
+
+.blockArrow a {
+	position: relative;
+	display: block;
+	padding: 0 3.125%;
+	height: 75px; height: 4.6875rem;
+	line-height: 75px; line-height: 4.6875rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-family: 'blue_highway_bold';
+	font-size: 20px; font-size: 1.25rem;
+	color: #555555;
+	background: #f7ecd5;
+}
+
+.blockArrow.odd a {
+	color: #ffffff;
+	background: #008c5c;
+}
+
+.blockArrow:hover a {
+	color: #ffffff;
+	background: #003f29;
+}
+
+
+
+.blockArrow a::after {
+	font-family: 'fontello';
+	content: '\e80b';
+	font-size: 24px; font-size: 1.5rem;
+	position: absolute;
+	top: 0; right: 3.125%; bottom: 0;
+}
+
+.blockArrow.has-icon a::before {
+	content: '';
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	vertical-align: middle;
+	margin-left: 1.5625%;
+	margin-right: 3.125%;
+	background-image: url('../images/bfbl_wbl_icons_sprite.png');
+	background-size: 32px;
+	background-repeat: no-repeat;
+}
+
+.blockArrow.has-icon.icon-leaf a::before {
+	background-position: 0 0;
+}
+
+.blockArrow.has-icon.icon-leaf.odd a::before {
+	background-position: 0 -32px;
+}
+
+.blockArrow.has-icon.icon-leaf:hover a::before {
+	background-position: 0 -32px;
+}
+
+.blockArrow.has-icon.icon-heart a::before {
+	background-position: 0 -64px;
+}
+
+.blockArrow.has-icon.icon-heart.odd a::before {
+	background-position: 0 -96px;
+}
+
+.blockArrow.has-icon.icon-heart:hover a::before {
+	background-position: 0 -96px;
+}
+
+.blockArrow.has-icon.icon-house a::before {
+	background-position: 0 -128px;
+}
+
+.blockArrow.has-icon.icon-house.odd a::before {
+	background-position: 0 -160px;
+}
+
+.blockArrow.has-icon.icon-house:hover a::before {
+	background-position: 0 -160px;
+}
+
+.blockArrow.has-icon.icon-hills a::before {
+	background-position: 0 -192px;
+}
+
+.blockArrow.has-icon.icon-hills.odd a::before {
+	background-position: 0 -224px;
+}
+
+.blockArrow.has-icon.icon-hills:hover a::before {
+	background-position: 0 -224px;
+}
+
+.blockArrow.has-icon.icon-pie a::before {
+	background-position: 0 -156px;
+}
+
+.blockArrow.has-icon.icon-pie.odd a::before {
+	background-position: 0 -288px;
+}
+
+.blockArrow.has-icon.icon-pie:hover a::before {
+	background-position: 0 -288px;
 }
 
 
@@ -1213,6 +1491,134 @@ body.page-template-page_why-buy-local .page-block {
     padding-left: 12px; padding-left: 0.75rem;
 }
 
+/* SPECIFIC PAGES */
+.wbl-subtitle,
+.mission-statement {
+	text-align: center;
+	padding: 0;
+	box-shadow: 0 0 80px rgba(230, 168, 101, .6) inset;
+	background: #f7ecd5 url('../images/bg/bg_tan_noise.png') center center repeat;
+	position: relative;
+	margin-top: -1px;
+}
+
+.wbl-subtitle {
+	height: 168px; height: 10.5rem;
+	line-height: 168px; line-height: 10.5rem;
+	box-shadow: none;
+}
+
+.mission-statement {
+	height: 262px; height: 16.375rem;
+	line-height: 262px; line-height: 16.375rem;
+}
+
+
+.wbl-subtitle::before,
+.mission-statement::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 10px; top: 0.625rem;
+	right: 10px; right: 0.625rem;
+	bottom: 10px; 0.625rem;
+	left: 10px; left: 0.625rem;
+	box-sizing: border-box;
+	border: 1px solid #fcaf17;
+}
+
+.wbl-subtitle .content,
+.mission-statement .content {
+	width: 80%;
+	display: inline-block;
+	vertical-align: middle;
+	color: #1a3281;
+	position: relative;
+}
+
+.wbl-subtitle .content {
+	padding: 0 60px; padding: 0 3.75rem;
+	max-width: 280px; max-width: 17.5rem;	
+}
+
+.mission-statement .content {
+	max-width: 280px; max-width: 17.5rem;	
+}
+
+.wbl-subtitle .content::before,
+.wbl-subtitle .content::after,
+.mission-statement .content::before,
+.mission-statement .content::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 50%;
+	background-repeat: no-repeat;
+}
+
+.wbl-subtitle .content::before,
+.wbl-subtitle .content::after {
+	height: 40px;
+	width: 36px;
+	margin-top: -20px; margin-top: -1.25rem;
+	background-image: url('../images/bfbl_honey.png');
+	background-size: 36px;
+}
+
+.mission-statement .content::before,
+.mission-statement .content::after {
+	top: 0;
+	height: 50px; height: 3.125rem;
+	width: 60px; width: 3.75rem;
+	background-image: url('../images/bfbl_peaches.png');
+	background-size: 60px;
+}
+
+.wbl-subtitle .content::before,
+.mission-statement .content::before {
+	background-position: top left;
+}
+
+.wbl-subtitle .content::after,
+.mission-statement .content::after {
+	background-position: bottom left;
+}
+
+
+.wbl-subtitle .content::before,
+.mission-statement .content::before {
+	left: 0;
+}
+
+.wbl-subtitle .content::after,
+.mission-statement .content::after {
+	right: 0;
+}
+
+
+.wbl-subtitle .content h2,
+.mission-statement .content h2 {
+	margin: 0;
+	font-family: 'blue_highway_bold';
+	font-size: 20px; font-size: 1.25rem;
+	line-height: 1;
+	text-transform: uppercase;
+	letter-spacing: .0625em;
+	color: inherit;
+}
+
+.mission-statement .content h2 {
+	padding: 0 60px; padding: 0 3.75rem;
+	line-height: 64px; line-height: 4rem;
+}
+
+.mission-statement .content p {
+	padding: 0 20px; padding: 0 1.25rem;
+	font-size: 16px; font-size: 1rem;
+	line-height: 20px; line-height: 1.25rem;
+	position: relative;
+	z-index: 2;
+}
 
 /* tablet media query */
 @media (min-width: 768px) {
@@ -1226,11 +1632,11 @@ body.page-template-page_why-buy-local .page-block {
 	header.site-header .home-link a {
 		width: 160px; width: 10rem;
 		height: 60px; height: 3.75rem;
-		margin-left: 4%;
+		margin-left: 44px; margin-left: 2.75rem;
 	}
 
 	#bfblMenuBtn {
-		right: 4%;
+		right: 44px; right: 2.75rem;
 		padding-top: 20px; padding-top: 1.25rem;
 	}
 
@@ -1252,8 +1658,17 @@ body.page-template-page_why-buy-local .page-block {
 	}
 	
 	#bfblFooter .row {
-		margin-left: 2.5%; /* override bootstrap left and right gutters */
-		margin-right: 2.5%;
+		/* override bootstrap left and right gutters */
+		margin-left: 22px; margin-left: 1.375rem; 
+		margin-right: 22px; margin-right: 1.375rem;
+	}
+	
+	#bfblFooter .row section:first-child {
+		padding-left: 22px; padding-left: 1.375rem; 
+	}
+
+	#bfblFooter .row section:last-child {
+		padding-right: 22px; padding-right: 1.375rem;
 	}
 	
 	#bfblFooter h3 {
@@ -1329,12 +1744,99 @@ body.page-template-page_why-buy-local .page-block {
 		padding-left: 66.6%;
 	}
 
+	/* PAGE CONTENT - TABLET */
+	.entry-content {
+		padding: 44px 42px; padding: 2.75rem 2.625rem; /* matches padding on .page-block */
+	}
+
+	/* PAGE CONTENT - SPECIAL CASES - TABLET */
+	/* ABOUT page: mostly resetting mobile style exceptions */
+	body.page-template-page_about-parent .entry-content {
+		text-align: left;
+		padding-bottom: 44px; padding-bottom: 2.75rem;
+	}
+
+	body.page-template-page_about-parent .entry-content h2 {
+		font-size: 40px; font-size: 2.5rem;
+	}
+
+	body.page-template-page_about-parent .entry-content p {
+		padding-right: 362px; /* this value will change if the image ever changes! */
+	}
+
+	body.page-template-page_about-parent .entry-content img {
+		margin-left: 0;
+		top: 162px; top: 10.125rem;
+		left: auto;
+		right: 42px;
+		bottom: auto;
+	}
+
+	.team-section {
+		font-size: 18px; font-size: 1.125rem;
+	}
+
+	.team-section .image img {
+		position: static;
+		clip: none;
+	}
+
+	.team-section .project-leads,
+	.team-section .advisory-board {
+		padding: 44px 42px; padding: 2.75rem 2.625rem; /* matches padding on .page-block */
+	}
+
+	.team-section h2 {
+		font-size: 40px; font-size: 2.5rem;
+		padding-top: 12px; padding-top: 0.75rem;
+	}
+
+	.team-section .project-leads li {
+		display: inline-block;
+		text-align: left;
+		padding-left: 22px; padding-left: 1.375rem;
+		padding-right: 22px; padding-right: 1.375rem;
+	}
+
+	.team-section .advisory-board ul {
+		-webkit-column-count: 3; /* Chrome, Safari, Opera */
+		-moz-column-count: 3; /* Firefox */
+		column-count: 3;
+		-webkit-column-width: 240px; /* Chrome, Safari, Opera */
+		-webkit-column-width: 15rem;
+		-moz-column-width: 240px; /* Firefox */
+		-moz-column-width: 15rem;
+		column-width: 240px;
+		column-width: 15rem;
+		-webkit-column-gap: 24px; /* Chrome, Safari, Opera */
+		-webkit-column-gap: 1.5rem;
+		-moz-column-gap: 24px; /* Firefox */
+		-moz-column-gap: 1.5rem;
+		column-gap: 24px;
+		column-gap: 1.5rem;
+	}
+
+	.team-section .advisory-board ul li {
+		text-align: left;
+		-webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+		page-break-inside: avoid; /* Firefox */
+		break-inside: avoid; /* IE 10+ */
+	}
+
 
 
 
 	/* PAGE BLOCKS - TABLET */
+	.blockArrow {
+		display: none!important; /* these are hidden on *all* pages on tablet and larger */
+	}
+
 	.page-block {
 		padding: 44px 42px; padding: 2.75rem 2.625rem;
+		/* show any .page-block elements that were hidden on certain pages */
+		position: relative!important;
+		clip: none!important;
+		overflow: visible!important;
 	}
 
 	.page-block .content {
@@ -1345,6 +1847,43 @@ body.page-template-page_why-buy-local .page-block {
 		font-size: 40px; font-size: 2.5rem;
 	}
 	
+	/* special case */
+	body.page-template-page_why-buy-local .page-block h2 {
+		font-size: 30px; font-size: 1.875rem;
+	}
+	
+	.page-block.has-icon h2::before {
+		content: '';
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		vertical-align: middle;
+		margin-right: 16px; margin-right: 1rem;
+		background-image: url('../images/bfbl_wbl_icons_sprite.png');
+		background-size: 40px;
+		background-repeat: no-repeat;
+	}
+	
+	.page-block.has-icon.icon-leaf h2::before {
+		background-position: 0 0;
+	}
+
+	.page-block.has-icon.icon-heart h2::before {
+		background-position: 0 -80px;
+	}	
+
+	.page-block.has-icon.icon-house h2::before {
+		background-position: 0 -160px;
+	}		
+
+	.page-block.has-icon.icon-hills h2::before {
+		background-position: 0 -240px;
+	}	
+
+	.page-block.has-icon.icon-pie h2::before {
+		background-position: 0 -320px;
+	}	
+
 	.page-block.green h2 {
 		display: inline-block;
 		height: 90px; height: 5.625rem;
@@ -1355,6 +1894,13 @@ body.page-template-page_why-buy-local .page-block {
 		width: auto;
 		margin-left: -16px; margin-left: -1rem;
 		margin-right: -16px; margin-right: -1rem;
+	}
+
+	.page-block.full-width .content p,
+	.page-block.full-width-badge .content p{
+		margin-left: auto;
+		margin-right: auto;
+		width: 86%; 
 	}
 
 	.page-block.full-width-badge .badge-icon {
@@ -1422,53 +1968,145 @@ body.page-template-page_why-buy-local .page-block {
 	}
 
 	.page-block.image-left,
-	.page-block.image-right {
+	.page-block.image-right,
+	.page-block.video {
 		padding: 0;
 	}
 
 	.page-block.image-left::after,
-	.page-block.image-right::after {
+	.page-block.image-right::after,
+	.page-block.video::after {
 		content: '';
 		display: block;
 		clear: both;
 	}
 
+	.page-block.image-left .image,
+	.page-block.image-right .image {
+		padding-top: 0;
+	}
+
+	.page-block.image-left .image a,
+	.page-block.image-right .image a {
+		display: inline;
+	}
+
 	.page-block.image-left .content,
-	.page-block.image-right .content {
+	.page-block.image-right .content,
+	.page-block.video .content {
 		padding-top: 72px; padding-top: 4.5rem;
+		text-align: left;
 	}
 
 
 	.page-block.image-left h2,
-	.page-block.image-right h2 {
+	.page-block.image-right h2,
+	.page-block.video h2 {
 		margin-top: 0;
 		text-align: inherit;
 	}
 
 	.page-block.image-left .content p,
-	.page-block.image-right .content p {
+	.page-block.image-right .content p,
+	.page-block.video .content p {
+		font-size: 16px; font-size: 1rem;
+		line-height: 24px; line-height: 1.5rem;
+	}
+
+	body.home.page .page-block.image-left .content p,
+	body.home.page .page-block.image-right .content p {
 		font-size: 20px; font-size: 1.25rem;
 		line-height: 26px; line-height: 1.625rem;
 	}
 
-	.page-block .image.overhang {
+	.page-block.image-left .bfblButtonLink,
+	.page-block.image-right .bfblButtonLink,
+	.page-block.video .bfblButtonLink {
+		margin-bottom: 16px; margin-bottom: 1rem;
+	}
+
+	.page-block.image-left .image a img, 
+	.page-block.image-right .image a img {
+		max-width: 90%;
+	}
+	
+	.page-block.image-normal .image {
+		/* have the top padding match that of .content */
+		padding-top: 72px; padding-top: 4.5rem;
+		padding-bottom: 32rem; padding-bottom: 2rem;
+	}
+	
+	.page-block.image-overhang .image {
 		margin-top: -24px; margin-top: -1.5rem;
 		margin-bottom: -24px; margin-bottom: -1.5rem;
 		position: relative;
 		z-index: 10;
 	}
 
+	/* for image-fill-side, forget the actual image. use the backup element with a background. */
+	.page-block.image-fill-side .image a img {
+		opacity: 0; /* hide using opacity, instead of display:none, because we might need the image to prop open the block if there's not much page content */
+		max-width: 100%;
+	}	
+
+	.page-block.image-fill-side .blockBG {
+		display: block;
+		position: absolute;
+		top: 0;	bottom: 0;
+		width: 35%;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
 	.page-block.image-left .image {
 		float: left;
-		width: 30%;
+		width: 35%;
 		text-align: right;
 	}
 	
 	.page-block.image-left .content {
 		float: right;
-		width: 70%;
-		text-align: left;
+		width: 65%;
 		padding-left: 4%;
+		padding-right: 42px; padding-right: 2.625rem;
+	}
+	
+	.page-block.image-right .image,
+	.page-block.video .video {
+		float: right;
+		width: 35%;
+		text-align: left;
+	}
+	
+	.page-block.image-right .content,
+	.page-block.video .content {
+		float: left;
+		width: 65%;
+		padding-right: 4%;
+		padding-left: 42px; padding-left: 2.625rem;
+	}
+
+	.page-block.image-left.image-fill-side .blockBG {
+		left: 0;
+		background-position: right center;
+	}
+
+	.page-block.image-right.image-fill-side .blockBG {
+		right: 0;
+		background-position: left center;
+	}	
+	
+	.page-block.video .content {
+		width: 44%;
+	}
+
+	.page-block.video .video {
+		width: 56%;
+		max-width: none;
+		/* have the top padding match that of .content */
+		padding-top: 72px; padding-top: 4.5rem;
+		padding-bottom: 56rem; padding-bottom: 3.5rem;
+		padding-right: 42px; padding-right: 2.625rem;
 	}
 	
 	/* ANIMATED HEADER - TABLET */
@@ -1529,16 +2167,70 @@ body.page-template-page_why-buy-local .page-block {
 	    width: 24%;
 	  }	
 
+	/* SPECIFIC PAGES - TABLET */
+	.wbl-subtitle {
+		height: 300px; height: 18.75rem;
+		line-height: 300px; line-height: 18.75rem;
+	}
+
+	.mission-statement {
+		height: 306px; height: 19.125rem;
+		line-height: 306px; line-height: 19.125rem;
+	}
+
+	.wbl-subtitle::before,
+	.mission-statement::before {
+		top: 44px; top: 2.75rem;
+		right: 42px; right: 2.625rem;
+		bottom: 44px; 2.75rem;
+		left: 42px; left: 2.625rem;
+	}
+
+	.wbl-subtitle .content {
+		padding: 0 114px; padding: 0 7.125rem;
+		max-width: 620px; max-width: 38.75rem;
+	}
+
+	.mission-statement .content {
+		max-width: 832px; max-width: 52rem;	
+	}
+
+	.wbl-subtitle .content::before,
+	.wbl-subtitle .content::after {
+		height: 100px;
+		width: 90px;
+		margin-top: -50px;
+		background-size: 90px;
+	}
+
+	.mission-statement .content::before,
+	.mission-statement .content::after {
+		width: 120px;
+		height: 100px;
+		background-size: 120px;
+	}
+
+	.wbl-subtitle .content h2 {
+		font-size: 50px; font-size: 3.125rem;
+	}
+
+	.mission-statement .content h2 {
+		font-size: 40px; font-size: 2.25rem; 
+	}
+	
+	.mission-statement .content p {
+		font-size: 20px; font-size: 1.25rem;
+		line-height: 28px; line-height: 1.75rem;
+		padding-left: 140px; padding-left: 8.75rem;
+		padding-right: 140px; padding-right: 8.75rem;
+	}
+	
 }
 
 /* desktop media query */
 @media (min-width: 992px) {
 
 	/* HEADER - DESKTOP */
-
-	header.site-header .home-link a {
-		margin-left: 4.5%;
-	}
 
 	#bfblMenuBtn {
 		display: none;
@@ -1551,8 +2243,7 @@ body.page-template-page_why-buy-local .page-block {
 	
 	#bfblDrawerWrap {
 		position: absolute;
-/*		right: 4.5%; */
-		right: 2.5%;
+		right: 44px; right: 2.75rem;
 		width: 100%!important;
 		height: auto!important;
 		overflow: visible; /* #bfblMenuDrawer actually hangs out the bottom */
@@ -1657,7 +2348,9 @@ body.page-template-page_why-buy-local .page-block {
 		font-size: 16px; font-size: 1rem;
 		line-height: 21px; line-height: 1.3125;
 		padding-top: 10px; padding-top: 0.625rem;
+		padding-right: 0;
 		padding-bottom: 38px; padding-bottom: 2.375rem;
+		padding-left: 0;
 		position: relative;
 	}
 
@@ -1762,6 +2455,27 @@ body.page-template-page_why-buy-local .page-block {
 		font-size: 70px; font-size: 4.375rem;
 		line-height: 60px; line-height: 3.75rem;
 	}
+
+	/* PAGE CONTENT - DESKTOP */
+	.entry-content,
+	body.page-template-page_about-parent .entry-content {
+		padding: 44px 46px; padding: 2.75rem 2.875rem; /* matches padding on .page-block */
+	}
+
+	/* PAGE CONTENT - SPECIAL CASES - DESKTOP */
+
+	body.page-template-page_about-parent .entry-content p {
+		padding-right: 366px; /* this value will change if the image ever changes! */
+	}
+
+	body.page-template-page_about-parent .entry-content img {
+		right: 46px;
+	}
+
+	.team-section .project-leads,
+	.team-section .advisory-board {
+		padding: 44px 46px; padding: 2.75rem 2.875rem; /* matches padding on .page-block */
+	}
 	
 	/* PAGE BLOCKS - DESKTOP */
 	.page-block {
@@ -1783,14 +2497,34 @@ body.page-template-page_why-buy-local .page-block {
 	}
 	
 	
+	.page-block.image-left .content {
+		padding-left: 8%;
+		padding-right: 46px; padding-right: 2.875rem;
+	}
+
+	.page-block.image-right .content,
+	.page-block.video .content {
+		padding-right: 8%;
+		padding-left: 46px; padding-left: 2.875rem;
+	}
+
 	.page-block.image-left .content p,
 	.page-block.image-right .content p {
 		margin-bottom: 28px; margin-bottom: 1.75rem;
+	}	
+	
+	.page-block.video .content {
+		width: 36%;
+		padding-right: 4%;
+	}
+
+	.page-block.video .video {
+		width: 64%;
+		padding-right: 46px; padding-right: 2.875rem;
 	}
 	
-	.page-block.image-left .content {
-		padding-left: 8%;
-	}
+
+
 	
 	/* ANIMATED HEADER - DESKTOP */
 	  .animated-header .animated-blocks li {
@@ -1818,6 +2552,32 @@ body.page-template-page_why-buy-local .page-block {
 	    width: 33.75%;
 	  }
 	
+	/* SPECIFIC PAGES - DESKTOP */
+	.wbl-subtitle::before,
+	.mission-statement::before {
+		top: 44px; top: 2.75rem;
+		right: 46px; right: 2.875rem;
+		bottom: 44px; 2.75rem;
+		left: 46px; left: 2.875rem;
+	}
+	
+	.mission-statement .content::before,
+	.mission-statement .content::after {
+		width: 160px; width: 10rem;
+		height: 134px; height: 8.375rem;
+		background-size: 160px;
+	}
+
+	.mission-statement .content h2 {
+		font-size: 50px; font-size: 3.125rem;
+		line-height: 80px; line-height: 5rem;
+	}
+
+	.mission-statement .content p {
+		padding-left: 224px; padding-left: 14rem;
+		padding-right: 224px; padding-right: 14rem;
+	}
+
 }
 
 /* large desktop media query */
@@ -1853,15 +2613,9 @@ body.page-template-page_why-buy-local .page-block {
 
 	/* FOOTER - LARGE DESKTOP */
 	
-	#bfblFooter .row {
-		margin-left: 3.5%; /* override bootstrap left and right gutters */
-		margin-right: 3.5%;
-	}	
-
 	.footerContact {
 		padding-left: 186px;
 	}
-	
 	
 	.footerHomeLink {
 		width: 160px; width: 10rem;
@@ -1874,7 +2628,7 @@ body.page-template-page_why-buy-local .page-block {
 	}
 
 	.footerSocial li {
-		margin-right: -20px; margin-right: -1.25rem;
+		margin-right: -32px; margin-right: -2rem;
 	}
 
 	.footerSocial a span {
