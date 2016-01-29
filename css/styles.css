@@ -890,7 +890,7 @@ header.page-header.has-image::before {
 }
 
 
-header.page-header.has-image h1.entry-title {
+header.page-header.has-image .entry-title {
 	display: inline-block;
 	vertical-align: middle;
 	font-family: 'blue_highway_bold';
@@ -920,6 +920,12 @@ header.page-header.has-image img {
 	background: #f7ecd5;
 }
 
+.entry-content::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
 .entry-content h1,
 .entry-content h2 {
 	margin: 0;
@@ -938,20 +944,73 @@ header.page-header.has-image img {
 	margin-bottom: 32px; margin-bottom: 2rem;
 }
 
+.entry-content .video {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 550px;
+	margin-bottom: 32px; margin-bottom: 2rem;
+}
+
+.entry-content .video .videoWrap {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9, for videos */
+	height: 0;
+}
+
+.entry-content .video .videoWrap iframe {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%!important; /* override the inline height and width of the iframe */
+	height: 100%!important;
+}
+
+
 /* PAGE CONTENT - SPECIAL CASES */
 body.page-template-page_why-buy-local .entry-content {
 	padding: 0;
 }
+
+body.page-template-page_wbl-sub .entry-content .entry-title {
+	color: #555555;
+}
+
+.entry-content.has-icon .entry-title::before {
+	content: '';
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	vertical-align: middle;
+	margin-right: 16px; margin-right: 1rem;
+	background-image: url('../images/bfbl_wbl_icons_sprite.png');
+	background-size: 40px;
+	background-repeat: no-repeat;
+}
+	
+.entry-content.has-icon.icon-leaf .entry-title::before {
+	background-position: 0 0;
+}
+
+.entry-content.has-icon.icon-heart .entry-title::before {
+	background-position: 0 -80px;
+}	
+
+.entry-content.has-icon.icon-house .entry-title::before {
+	background-position: 0 -160px;
+}		
+
+.entry-content.has-icon.icon-hills .entry-title::before {
+	background-position: 0 -240px;
+}	
+
+.entry-content.has-icon.icon-pie .entry-title::before {
+	background-position: 0 -320px;
+}	
 
 
 body.page-template-page_about-parent .entry-content {
 	text-align: center;
 	background: #ffffff;
 	padding-bottom: 180px; /* this value will change if the image ever changes! */
-}
-
-body.page-template-page_about-parent .entry-content h2 {
-	font-size: 20px; font-size: 1.25rem;
 }
 
 body.page-template-page_about-parent .entry-content img {
@@ -1036,8 +1095,17 @@ body.page-template-page_about-parent .entry-content img {
 }
 
 .page-block .content {
+	font-size: 16px; font-size: 1rem;
+	line-height: 24px; line-height: 1.5rem;
+}
+
+body.home.page .page-block .content {
 	font-size: 14px; font-size: 0.875rem;
 	line-height: 18px; line-height: 1.125rem;
+}
+
+body.page-template-page_wbl-sub .page-block .content {
+	text-align: left;
 }
 
 .page-block.white {
@@ -1167,8 +1235,8 @@ body.page-template-page_why-buy-local .page-block.tan-shadow .content {
 	display: inline-block;
 }
 
-.page-block.image-left .image a img, 
-.page-block.image-right .image a img {
+.page-block.image-left .image img, 
+.page-block.image-right .image img {
 	max-width: 70%;
 	height: auto;
 }
@@ -1219,7 +1287,7 @@ body.page-template-page_why-buy-local .page-block {
 .blockArrow a {
 	position: relative;
 	display: block;
-	padding: 0 3.125%;
+	padding: 0 10px; padding: 0 0.625rem;
 	height: 75px; height: 4.6875rem;
 	line-height: 75px; line-height: 4.6875rem;
 	text-transform: uppercase;
@@ -1247,7 +1315,8 @@ body.page-template-page_why-buy-local .page-block {
 	content: '\e80b';
 	font-size: 24px; font-size: 1.5rem;
 	position: absolute;
-	top: 0; right: 3.125%; bottom: 0;
+	top: 0; bottom: 0;
+	right: 10px; right: 0.625rem;
 }
 
 .blockArrow.has-icon a::before {
@@ -1321,6 +1390,36 @@ body.page-template-page_why-buy-local .page-block {
 
 .blockArrow.has-icon.icon-pie:hover a::before {
 	background-position: 0 -288px;
+}
+
+.parentArrow {
+	position: relative;
+	display: block;
+	margin-top: -1px;
+	padding: 0 10px; padding: 0 0.625rem;
+	height: 75px; height: 4.6875rem;
+	line-height: 75px; line-height: 4.6875rem;
+	text-transform: uppercase;
+	text-decoration: none!important;
+	font-family: 'blue_highway_bold';
+	font-size: 20px; font-size: 1.25rem;
+	color: #ffffff!important;
+	background: #008c5c;
+}
+
+.parentArrow::before {
+	font-family: 'fontello';
+	content: '\e80d';
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 40px; font-size: 2.5rem;
+	margin-right: 2.4%;
+	
+	
+}
+
+.parentArrow:hover {
+	background: #003f29;
 }
 
 
@@ -1620,6 +1719,16 @@ body.page-template-page_why-buy-local .page-block {
 	z-index: 2;
 }
 
+
+/* mobile exceptions - for exceptions to general rules that apply only to certain pages, only on mobile */
+@media (max-width: 767px) {
+
+	body.page-template-page_about-parent .entry-content h2 {
+		font-size: 20px; font-size: 1.25rem;
+	}
+	
+}
+
 /* tablet media query */
 @media (min-width: 768px) {
 
@@ -1632,11 +1741,11 @@ body.page-template-page_why-buy-local .page-block {
 	header.site-header .home-link a {
 		width: 160px; width: 10rem;
 		height: 60px; height: 3.75rem;
-		margin-left: 44px; margin-left: 2.75rem;
+		margin-left: 42px; margin-left: 2.625rem;
 	}
 
 	#bfblMenuBtn {
-		right: 44px; right: 2.75rem;
+		right: 42px; right: 2.625rem;
 		padding-top: 20px; padding-top: 1.25rem;
 	}
 
@@ -1659,8 +1768,8 @@ body.page-template-page_why-buy-local .page-block {
 	
 	#bfblFooter .row {
 		/* override bootstrap left and right gutters */
-		margin-left: 22px; margin-left: 1.375rem; 
-		margin-right: 22px; margin-right: 1.375rem;
+		margin-left: 20px; margin-left: 1.25rem; 
+		margin-right: 20px; margin-right: 1.25rem;
 	}
 	
 	#bfblFooter .row section:first-child {
@@ -1736,7 +1845,7 @@ body.page-template-page_why-buy-local .page-block {
 		line-height: 280px; line-height: 17.5rem;
 	}
 	
-	header.page-header.has-image h1.entry-title {
+	header.page-header.has-image .entry-title {
 		font-size: 50px; font-size: 3.125rem;
 		line-height: 1;
 		text-align: left;
@@ -1749,15 +1858,19 @@ body.page-template-page_why-buy-local .page-block {
 		padding: 44px 42px; padding: 2.75rem 2.625rem; /* matches padding on .page-block */
 	}
 
+	.entry-content .video {
+		float: right;
+		width: 56%;
+		margin-left: 2rem;
+		margin-right: 0;
+		max-width: none;
+	}
+
 	/* PAGE CONTENT - SPECIAL CASES - TABLET */
-	/* ABOUT page: mostly resetting mobile style exceptions */
+	/* ABOUT page */
 	body.page-template-page_about-parent .entry-content {
 		text-align: left;
 		padding-bottom: 44px; padding-bottom: 2.75rem;
-	}
-
-	body.page-template-page_about-parent .entry-content h2 {
-		font-size: 40px; font-size: 2.5rem;
 	}
 
 	body.page-template-page_about-parent .entry-content p {
@@ -1829,6 +1942,10 @@ body.page-template-page_why-buy-local .page-block {
 	/* PAGE BLOCKS - TABLET */
 	.blockArrow {
 		display: none!important; /* these are hidden on *all* pages on tablet and larger */
+	}
+
+	.parentArrow {
+		padding: 0 42px; padding: 0 2.625rem;
 	}
 
 	.page-block {
@@ -2025,8 +2142,8 @@ body.page-template-page_why-buy-local .page-block {
 		margin-bottom: 16px; margin-bottom: 1rem;
 	}
 
-	.page-block.image-left .image a img, 
-	.page-block.image-right .image a img {
+	.page-block.image-left .image img, 
+	.page-block.image-right .image img {
 		max-width: 90%;
 	}
 	
@@ -2232,6 +2349,10 @@ body.page-template-page_why-buy-local .page-block {
 
 	/* HEADER - DESKTOP */
 
+	header.site-header .home-link a {
+		margin-left: 46px; margin-left: 2.875rem;
+	}
+
 	#bfblMenuBtn {
 		display: none;
 	}
@@ -2243,7 +2364,7 @@ body.page-template-page_why-buy-local .page-block {
 	
 	#bfblDrawerWrap {
 		position: absolute;
-		right: 44px; right: 2.75rem;
+		right: 46px; right: 2.875rem;
 		width: 100%!important;
 		height: auto!important;
 		overflow: visible; /* #bfblMenuDrawer actually hangs out the bottom */
@@ -2425,6 +2546,11 @@ body.page-template-page_why-buy-local .page-block {
 
 	/* FOOTER - DESKTOP */
 	
+	#bfblFooter .row {
+		margin-left: 24px; margin-left: 1.5rem; 
+		margin-right: 24px; margin-right: 1.5rem;
+	}
+	
 	.footerContact {
 		position: relative;
 		padding-left: 19%;
@@ -2450,8 +2576,8 @@ body.page-template-page_why-buy-local .page-block {
 		display: none;
 	}
 
-	/* PAGE HEADER - TABLET */
-	header.page-header.has-image h1.entry-title {
+	/* PAGE HEADER - DESKTOP */
+	header.page-header.has-image .entry-title {
 		font-size: 70px; font-size: 4.375rem;
 		line-height: 60px; line-height: 3.75rem;
 	}
@@ -2462,6 +2588,10 @@ body.page-template-page_why-buy-local .page-block {
 		padding: 44px 46px; padding: 2.75rem 2.875rem; /* matches padding on .page-block */
 	}
 
+	.entry-content .video {
+		width: 64%;
+	}
+	
 	/* PAGE CONTENT - SPECIAL CASES - DESKTOP */
 
 	body.page-template-page_about-parent .entry-content p {
@@ -2480,6 +2610,10 @@ body.page-template-page_why-buy-local .page-block {
 	/* PAGE BLOCKS - DESKTOP */
 	.page-block {
 		padding: 44px 46px; padding: 2.75rem 2.875rem;
+	}
+
+	.parentArrow {
+		padding: 0 46px; padding: 0 2.875rem;
 	}
 
 	.page-block.image-split .content {
