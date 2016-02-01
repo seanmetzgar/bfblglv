@@ -26,7 +26,7 @@
 	$news_count = (is_array($news_posts) && count($news_posts)) ? count($news_posts) : 0;
 	$events_count = (is_array($events_posts) && count($events_posts)) ? count($events_posts) : 0; ?>
 	<section class="news-events-list row">
-		<div class="col-md-7 news-list">
+		<div class="col-sm-7 news-list">
 		<?php foreach ($news_posts as $post): setup_postdata($post);?>
 			<article class="news-summary">
 				<div class="image">
@@ -49,7 +49,7 @@
 		<?php endforeach; wp_reset_postdata();?>
 		</div>
 
-		<div class="col-md-5 events-list">
+		<div class="col-sm-5 events-list">
 		<?php foreach ($events_posts as $post): setup_postdata($post);?>
 			<article class="events-summary">
 				<div class="image">
@@ -60,7 +60,19 @@
 				<header class="entry-header">
 					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					<p class="post-meta">
-						<span class="date"><?php the_field("event_date"); ?></span>
+						<span class="date">
+							<?php 
+								$bfblEventDate = get_field("event_date");
+					// UNCOMMENT TO RESTORE
+					//			// insert a <br /> after the first comma
+					//			// (code based on this example: http://stackoverflow.com/a/1252710 )
+					//			$commaPos = strpos($bfblEventDate, ',');
+					//			if($commaPos !== FALSE) {
+					//				$bfblEventDate = substr_replace($bfblEventDate, ',<br/>', $commaPos,1);
+					//			}
+								echo $bfblEventDate;
+							?>
+						</span>
 					</p>
 				</header>
 				<div class="content">

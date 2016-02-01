@@ -1,6 +1,6 @@
 <?php get_header(); ?>
-			<section class="main-content" role="main">
-				<header class="header">
+			<section class="main-content archive-page" role="main">
+				<header class="header archive-header">
 					<h1 class="entry-title"><?php 
 						if ( is_day() ) { printf( __( 'Daily Archives: %s', 'kudu' ), get_the_time( get_option( 'date_format' ) ) ); }
 						elseif ( is_month() ) { printf( __( 'Monthly Archives: %s', 'kudu' ), get_the_time( 'F Y' ) ); }
@@ -9,9 +9,11 @@
 						?></h1>
 				</header>
 
-				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'entry' ); ?>
-				<?php endwhile; endif; ?>
+				<div class="archive-list">
+					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+						<?php get_template_part( 'entry' ); ?>
+					<?php endwhile; endif; ?>
+				</div><!-- end div.archive-list -->
 
 				<?php get_template_part( 'nav', 'below' ); ?>
 			</section>

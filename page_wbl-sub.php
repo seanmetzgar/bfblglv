@@ -34,6 +34,7 @@ get_header(); ?>
 					<?php get_template_part("entry", "parent-header"); ?>
 
 					<section class="<?php echo $contentClass; ?>">
+						
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 						<?php // edit_post_link(); ?>
 						

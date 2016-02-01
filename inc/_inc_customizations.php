@@ -64,3 +64,10 @@ function kudu_custom_post_types() {
     }
 
 }
+
+// remove the 'posts' and 'comments' menu items, since we're not using them
+add_action( 'admin_menu', 'remove_menus' );
+function remove_menus(){
+  remove_menu_page( 'edit.php' ); //Posts
+  remove_menu_page( 'edit-comments.php' ); //Comments
+}

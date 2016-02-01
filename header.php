@@ -13,6 +13,15 @@
 	
 		$bfblAncestry = array_merge($bfblAncestors,array($bfblPageID));
 
+	} elseif (is_singular(array('news','events'))) {
+		$bfblParentId = get_field("ne_child_back_page", "option");
+		$bfblAncestry = array($bfblParentId);
+		
+	} elseif (is_singular('resources')) {
+		$bfblAncestry = array(999999); // the flag to activate the 'resources' menu item
+		
+	} elseif (is_post_type_archive('resources')) {
+		$bfblAncestry = array(999999); // the flag to activate the 'resources' menu item
 	}
 	
 	// build the contents of the menu bar / drawer
@@ -47,17 +56,24 @@
 					if($thisObject->object == 'page') {
 						$menuPageID = $thisObject->object_id;
 					}
-						
+					
+					// SPECIAL CASE: 'Resources' is a custom link, not a page. Flag it.
+					if (strpos(strtolower($thisObject->url), 'resources') !== FALSE) {
+						$menuPageID = '999999';
+					}
+					
 					$bfblMainNav[$menuID] = array(
 						'name' => $thisObject->title,
 						'pageID' => $menuPageID,
 						'url' => $thisObject->url,
 					);
 	
+
+	
 			} // end the child-or-parent test
 		} // end the $bfblFooterMenuObjects foreach
 	} // end the does-this-menu-exist test 	
-	
+		
 	$bfblMainNavCount = count($bfblMainNav);
 	$shadeMultiplier = 1/($bfblMainNavCount+1);
 	

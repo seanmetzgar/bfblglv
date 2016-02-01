@@ -15,16 +15,20 @@ get_header(); ?>
 					<?php get_template_part("entry", "news-events-header"); ?>
 
 					<section class="entry-content<?php if ($has_video) echo " has-video"; ?>">
-						<h1><?php the_title(); ?></h1>
+						
+						<h1 class="entry-title"><?php the_title(); ?></h1>
 						<p class="post-meta">
 							<span class="published"><?php the_date(); ?></span> |
 							<span class="author"><?php the_author(); ?></span>
 						</p>
-						<?php edit_post_link(); ?>
+						<?php // edit_post_link(); ?>
+						
 						<?php if ($has_video): ?>
 						<div class="video">
-							<?php echo $video; ?>
-						</div>
+							<div class="videoWrap">
+								<?php echo $video; ?>
+							</div><!-- end div.videoWrap -->
+						</div><!-- end div.video -->
 						<?php endif; ?>
 
 						<?php the_content(); ?>

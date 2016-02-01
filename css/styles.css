@@ -125,18 +125,6 @@ button {
 	overflow: hidden;
 }
 
-.alignright {
-	float: right;
-}
-.alignleft {
-	float: left;
-}
-.aligncenter {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .site-wrapper {
 	padding: 0;
 	overflow: hidden;
@@ -147,13 +135,13 @@ button {
 .bfblButtonLink,
 #wp-submit {
 	display: inline-block;
-	background: #008c5c;
-	border: 1px solid #ffffff;
+	background: #008c5c!important;
+	border: 1px solid #ffffff!important;
 	border-radius: 0;
 	outline: 0;
 	text-align: center;
 	text-transform: uppercase;
-	color: #ffffff;
+	color: #ffffff!important;
 	text-decoration: none;
 	font-size: 16px; font-size: 1rem;
 	line-height: 45px; line-height: 2.8125rem;
@@ -168,45 +156,45 @@ button {
 .bfblButtonLink:focus,
 #wp-submit:hover,
 #wp-submit:focus {
-	background: #003f29;
-	color: #ffffff;
+	background: #003f29!important;
+	color: #ffffff!important;
 	text-decoration: none;
 }
 
 .bfblButtonLink.btnBlue {
-	border-color: #1a3281;
-	color: #1a3281;
-	background: transparent;
+	border-color: #1a3281!important;
+	color: #1a3281!important;
+	background: transparent!important;
 }
 
 .bfblButtonLink.btnBlue:hover, 
 .bfblButtonLink.btnBlue:focus {
-	background: #1a3281;
-	color: #ffffff;
+	background: #1a3281!important;
+	color: #ffffff!important;
 }
 
 .bfblButtonLink.btnOrange {
-	border-color: #fcaf17;
-	color: #fcaf17;
-	background: transparent;
+	border-color: #fcaf17!important;
+	color: #fcaf17!important;
+	background: transparent!important;
 }
 
 .bfblButtonLink.btnOrange:hover, 
 .bfblButtonLink.btnOrange:focus {
-	background: #fcaf17;
-	color: #ffffff;
+	background: #fcaf17!important;
+	color: #ffffff!important;
 }
 
 .bfblButtonLink.btnGray {
-	border-color: #555555;
-	color: #555555;
-	background: transparent;
+	border-color: #555555!important;
+	color: #555555!important;
+	background: transparent!important;
 }
 
 .bfblButtonLink.btnGray:hover, 
 .bfblButtonLink.btnGray:focus {
-	background: #555555;
-	color: #ffffff;
+	background: #555555!important;
+	color: #ffffff!important;
 }
 
 
@@ -511,6 +499,15 @@ input.search-field:-ms-input-placeholder {
 	font-size: 18px; font-size: 1.125rem;
 	line-height: 30px; line-height: 1.875rem;
 	color: #008c5c;
+}
+
+.searchFormWrap.resultsPage {
+	position: static!important;
+	clip: auto!important;
+	margin: 0 auto 32px; margin: 0 auto 2rem;
+	width: 320px; width: 20rem;
+	padding: 16px 18px; padding: 1rem 1.125rem;
+	background: #015c3c;
 }
 
 /* LIGHTBOXES */
@@ -891,6 +888,7 @@ header.page-header.has-image::before {
 
 
 header.page-header.has-image .entry-title {
+	margin: 0;
 	display: inline-block;
 	vertical-align: middle;
 	font-family: 'blue_highway_bold';
@@ -937,7 +935,14 @@ header.page-header.has-image img {
 	text-transform: uppercase;
 }
 
-.entry-content p {
+.entry-content h2.resourceSubhead {
+	font-size: 30px; font-size: 1.875rem;
+	color: #555555;
+}
+
+.entry-content p,
+.news-events-list .content p,
+.archive-list .entry-summary p {
 	font-size: 16px; font-size: 1rem;
 	line-height: 24px; line-height: 1.5rem;
 	color: #555555;
@@ -964,13 +969,78 @@ header.page-header.has-image img {
 	height: 100%!important;
 }
 
+/* may be applied to images OR to wrapper divs around images */
+.alignleft,
+.alignright,
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 550px;
+	margin-bottom: 32px; margin-bottom: 2rem;
+}
+
+/* if there's an image *inside* any of the above: */
+.alignleft img,
+.alignright img,
+.aligncenter img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* if any of the above *are* an image */
+img.alignleft,
+img.alignright,
+img.aligncenter {
+	max-width: 100%;
+	height: auto;
+}
+
+.aligncenter {
+	text-align: center;
+}
+
+.aligncenter img,
+.aligncenter>a {
+	display: inline-block;
+}
+
+.entry-content p.wp-caption-text {
+	margin-bottom: 0;
+}
+
+.entry-content .resourceImage {
+	position: absolute;
+	clip: rect(0,1px,1px,0);
+	overflow: hidden;
+}
+
+
+.entry-content a,
+.page-block .content a {
+	color: #1a3281;
+	text-decoration: none;
+	border-bottom: 1px solid #1a3281;
+}
+
+.entry-content a:hover,
+.page-block .content a:hover {
+	color: #ffffff;
+	background: #1a3281;
+}
+
 
 /* PAGE CONTENT - SPECIAL CASES */
 body.page-template-page_why-buy-local .entry-content {
 	padding: 0;
 }
 
-body.page-template-page_wbl-sub .entry-content .entry-title {
+body.page-template-page_wbl-sub .entry-content h1.entry-title,
+body.single-news .entry-content h1.entry-title,
+body.single-events .entry-content h1.entry-title,
+body.single-events .entry-content .post-meta,
+body.single-resources .entry-content h1.entry-title,
+.entry-content.no-results h2.entry-title {
 	color: #555555;
 }
 
@@ -1719,6 +1789,324 @@ body.page-template-page_why-buy-local .page-block {
 	z-index: 2;
 }
 
+/* NEWS AND EVENTS */
+.news-events-list {
+	margin: 0;
+	padding: 10px; padding: 0.625rem; /* matches padding on .page-block */
+	background: #f7ecd5;
+	position: relative;
+}
+
+.news-events-list .news-list, 
+.news-events-list .events-list {
+	padding: 0 10px; padding: 0 0.625rem;
+}
+
+.news-events-list .news-list::before, 
+.news-events-list .events-list::before {
+	content: '';
+	display: block;
+	height: 72px; height: 4.5rem;
+	line-height: 72px; line-height: 4.5rem;
+	border: 1px solid #fcaf17;
+	margin-bottom: 20px; margin-bottom: 1.25rem;
+	text-align: center;
+	color: #193282;
+	font-family: 'blue_highway_bold';
+	font-size: 20px; font-size: 1.25rem;
+	text-transform: uppercase;
+	margin-right: -10px;
+	margin-left: -10px;
+}
+
+.news-events-list .news-list::before {
+	content: 'News';
+}
+
+.news-events-list .events-list::before {
+	content: 'Events';
+}
+
+.news-events-list article {
+	margin-bottom: 40px; margin-bottom: 2.5rem;
+}
+
+.news-events-list .entry-header h2,
+.archive-list h2.entry-title {
+	display: block;
+	margin: 0 0 6px; margin: 0 0 0.375rem;
+	color: #555555;
+	font-family: 'blue_highway_bold';
+	text-transform: uppercase;
+	font-size: 20px; font-size: 1.25rem;
+	line-height: 1;
+}
+
+.news-events-list .entry-header h2 a,
+.archive-list h2.entry-title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.news-events-list .entry-header h2 a:hover,
+.archive-list h2.entry-title a:hover {
+	color: #1a3281;
+}
+
+.news-events-list .post-meta,
+.archive-list .entry-meta,
+.archive-list .entry-footer,
+body.single-news .entry-content .post-meta,
+body.single-events .entry-content .post-meta {
+	font-size: 14px; font-size: 0.875rem;
+	line-height: 1;
+	color: #555555;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-bottom: 2px; margin-bottom: .125rem;
+}
+
+
+.news-events-list .events-summary h2,
+.news-events-list .events-summary .post-meta {
+	text-align: center;
+}
+
+
+.news-events-list .content p {
+	margin-bottom: 0;
+}
+
+.news-events-list .excerpt p {
+	margin-bottom: 18px; margin-bottom: 1.125rem;
+}
+
+.news-events-list a.read-more,
+.archive-list a.read-more {
+	color: #555555;
+	font-weight: bold;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.news-events-list a.read-more::after,
+.archive-list a.read-more::after {
+    font-family: 'fontello';
+    content: '\e805';
+    display: inline-block;
+    font-size: 18px; font-size: 1.125rem;
+    padding-left: 8px; padding-left: .5rem;
+}
+
+.news-events-list a.read-more:hover,
+.archive-list a.read-more:hover {
+	color: #1a3281;
+}
+
+
+.news-events-list .image {
+	margin-bottom: 32px; margin-bottom: 2rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.news-events-list .image img {
+	width: 100%;
+	height: auto;
+}
+
+.news-events-list .news-summary .image {
+	max-width: 400px; max-width: 25rem;
+}
+
+.news-events-list .events-summary .image {
+	max-width: 160px;
+} 
+
+body.single-news .entry-content h1.entry-title,
+body.single-events .entry-content h1.entry-title {
+	padding-bottom: 0;
+}
+
+body.single-news .entry-content .post-meta,
+body.single-events .entry-content .post-meta {
+	padding-top: 0;
+	padding-bottom: 32px; padding-bottom: 2rem;
+}
+
+
+/* RESOURCES */
+.resourcesContainer {
+	padding: 10px 0; padding: 0.625rem 0;
+	background: #f7ecd5;
+	position: relative;
+	margin-top: -1px;
+}
+
+.resourcesList {
+	text-align: center;
+}
+
+.resourceLink {
+	display: inline-block;
+	vertical-align: bottom;
+	width: 100%;
+	max-width: 500px; max-width: 31.25rem;
+	height: 184px; height: 11.5rem;
+/*	line-height: 184px; line-height: 11.5rem; - needs to compensate for the height of the borders */
+	line-height: 164px; line-height: 10.25rem;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	position: relative;
+}
+
+.resourceLink h2 {
+	margin: 0;
+	line-height: inherit;
+}
+
+.resourceLink a {
+	display: block;
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	line-height: inherit;
+	font-family: 'blue_highway_bold';
+	font-size: 26px; font-size: 1.625rem;
+	text-transform: uppercase;
+	color: #ffffff;
+	text-decoration: none;
+	text-align: center;
+	text-shadow: 0 0 3px rgba(15,30,44,1);
+	background: rgba(0,140,92,.8);
+	border-style: solid;
+	border-width: 10px; border-width: 0.625rem;
+	border-color: rgba(0,140,92,1);
+}
+
+.resourceLink a:hover {
+	background: rgba(252,175,23,.79);
+	border-color: rgba(252,175,23,1);
+}
+
+.resourceLink a span {
+	display: inline-block;
+	line-height: 1;
+	vertical-align: middle;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.resourceDownload {
+	display: block;
+	width: 100%;
+	max-width: 400px;
+	line-height: 1;
+	text-align: left;
+	vertical-align: middle;
+	margin-bottom: 32px; margin-bottom: 2rem;
+	height: auto;
+	padding: 16px 12px 16px 82px; padding: 1rem 0.75rem 1rem 5.125rem;
+	position: relative;
+}
+
+.resourceDownload.btnBlue {
+	background: #ffffff!important;
+}
+
+.resourceDownload::before {
+	font-family: 'fontello';
+	content: '\e80f';
+	display: block;
+	position: absolute;
+	top: 0; bottom: 0; left: 0;
+	width: 70px; width: 4.375rem;
+	line-height: 70px; line-height: 4.375rem;
+	text-align: center;
+	font-size: 50px; font-size: 3.125rem;
+	color: #ffffff;
+	background: #1a3281;
+	border-right: 1px solid #ffffff;
+}
+
+.resourceDownload .filename {
+	font-size: 20px; font-size: 1.25rem;
+	display: block;
+	text-transform: none;
+}
+
+.resourceDownload .filesize {
+	font-size: 16px; font-size: 1rem;
+	display: block;
+}
+
+/* OTHER ARCHIVE-TYPE PAGES */
+/* other archive-type page styles are with news/events */
+/* SPECIFIC PAGES */
+.archive-header {
+	text-align: center;
+	padding: 10px; padding: 0.625rem;
+	background: #f7ecd5;
+	position: relative;
+	margin-top: -1px;
+}
+
+.archive-header::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 10px; top: 0.625rem;
+	right: 10px; right: 0.625rem;
+	bottom: 10px; 0.625rem;
+	left: 10px; left: 0.625rem;
+	box-sizing: border-box;
+	border: 1px solid #fcaf17;
+}
+
+.archive-header h1 {
+	margin: 0;
+	color: #193282;
+	font-family: 'blue_highway_bold';
+	font-size: 20px; font-size: 1.25rem;
+	text-transform: uppercase;
+	padding: 26px 16px; padding: 1.625rem 1rem;
+}
+
+.archive-header h1 small {
+	color: inherit;
+	font-family: 'Clear Sans';
+	font-size: 16px; font-size: 1rem;
+	text-transform: none;
+	display: block;
+	margin-bottom: 8px; margin-bottom: 0.5rem;
+}
+
+.archive-list {
+	margin: 0;
+	padding: 10px; padding: 0.625rem;
+	padding-top: 60px; padding-top: 3.75rem;
+	background: #f7ecd5;
+}
+
+
+.archive-list article {
+	margin-bottom: 60px; margin-bottom: 3.75rem;
+}
+
+.archive-list .entry-meta a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.archive-list .entry-meta a:hover {
+	color: #1a3281;
+}
+
+.archive-list .entry-summary p {
+	margin-bottom: 1rem;
+}
+
 
 /* mobile exceptions - for exceptions to general rules that apply only to certain pages, only on mobile */
 @media (max-width: 767px) {
@@ -1726,6 +2114,15 @@ body.page-template-page_why-buy-local .page-block {
 	body.page-template-page_about-parent .entry-content h2 {
 		font-size: 20px; font-size: 1.25rem;
 	}
+
+	.page-block.image-split.tan-shadow.news-events-top {
+		display: none;
+	}
+	
+	.news-events-list {
+		margin-top: -1px;
+	}
+	
 	
 }
 
@@ -1853,6 +2250,13 @@ body.page-template-page_why-buy-local .page-block {
 		padding-left: 66.6%;
 	}
 
+	header.page-header.resources-header.has-image .entry-title {
+		text-align: right;
+		padding-right: 42px; padding-right: 2.625rem;
+		padding-left: 0;
+	}
+
+
 	/* PAGE CONTENT - TABLET */
 	.entry-content {
 		padding: 44px 42px; padding: 2.75rem 2.625rem; /* matches padding on .page-block */
@@ -1861,9 +2265,46 @@ body.page-template-page_why-buy-local .page-block {
 	.entry-content .video {
 		float: right;
 		width: 56%;
-		margin-left: 2rem;
+		margin-left: 32px; margin-left: 2rem;
 		margin-right: 0;
 		max-width: none;
+	}
+
+	.alignleft {
+		float: left;
+		margin-left: 0;
+		margin-right: 32px; margin-right: 2rem;
+
+	}
+	
+	.alignright {
+		float: right;
+		margin-left: 32px; margin-left: 2rem;
+		margin-right: 0;
+	}
+	
+	.alignleft,
+	.alignright {
+		max-width: 56%!important;
+	}	
+
+	.aligncenter {
+		max-width: 100%!important;
+	}	
+
+	.entry-content .resourceImage {
+		position: static;
+		clip: auto;
+		float: right;
+		margin-left: 32px; margin-left: 2rem;
+		margin-bottom: 32px; margin-bottom: 2rem;
+		margin-right: 0;
+		max-width: 30%;
+	}
+
+	.entry-content .resourceImage img {
+		max-width: 100%;
+		height: auto;
 	}
 
 	/* PAGE CONTENT - SPECIAL CASES - TABLET */
@@ -1891,7 +2332,7 @@ body.page-template-page_why-buy-local .page-block {
 
 	.team-section .image img {
 		position: static;
-		clip: none;
+		clip: auto;
 	}
 
 	.team-section .project-leads,
@@ -1952,7 +2393,7 @@ body.page-template-page_why-buy-local .page-block {
 		padding: 44px 42px; padding: 2.75rem 2.625rem;
 		/* show any .page-block elements that were hidden on certain pages */
 		position: relative!important;
-		clip: none!important;
+		clip: auto!important;
 		overflow: visible!important;
 	}
 
@@ -2083,6 +2524,30 @@ body.page-template-page_why-buy-local .page-block {
 		width: 26.85%;
 		margin-left: -13.425%;
 	}
+
+	/* image split - news events page header */
+	.page-block.image-split.news-events-top {
+		margin-top: -1px;
+		box-shadow: none;
+		background-image: none;
+	}
+	.page-block.image-split.news-events-top .image {
+		background-image: url('../images/bfbl_big_logo.jpg');
+	}
+	.page-block.image-split.news-events-top .content {
+		padding: 0;
+	}
+	.page-block.image-split.news-events-top h2 {
+		font-family: 'blue_highway_bold';
+		font-size: 50px; font-size: 3.125rem;
+		color: #1a3281;
+		height: 160px; height: 10rem;
+		line-height: 160px; line-height: 10rem;
+		max-width: none!important;
+	}
+
+
+
 
 	.page-block.image-left,
 	.page-block.image-right,
@@ -2299,7 +2764,7 @@ body.page-template-page_why-buy-local .page-block {
 	.mission-statement::before {
 		top: 44px; top: 2.75rem;
 		right: 42px; right: 2.625rem;
-		bottom: 44px; 2.75rem;
+		bottom: 44px; bottom: 2.75rem;
 		left: 42px; left: 2.625rem;
 	}
 
@@ -2342,6 +2807,91 @@ body.page-template-page_why-buy-local .page-block {
 		padding-right: 140px; padding-right: 8.75rem;
 	}
 	
+	/* NEWS AND EVENTS  - TABLET */
+	.news-events-list {
+		padding: 20px 0 30px; padding: 1.25rem 0 1.875rem;
+	}
+	
+	.news-events-list .news-list::before,
+	.news-events-list .events-list::before {
+		display: none;
+	}
+	
+	.news-events-list .news-list {
+		padding-left: 42px; padding-left: 2.625rem;
+		padding-right: 16px; padding-right: 1rem;
+		position: static; /* so that .news-list::after is absolutely positioned relative to .news-events-list */  
+	}
+	
+	.news-events-list .events-list {
+		padding-left: 16px; padding-left: 1rem;
+		padding-right: 42px; padding-right: 2.625rem;
+	}
+	
+	.news-events-list .news-list::after {
+		content: '';
+		display: block;
+		position: absolute; /* relative to .news-events-list */
+		top: 20px; top: 1.25rem;
+		left: 58.33333333%;
+		bottom: 30px; bottom: 1.875rem;
+		width: 1px;
+		margin-left: -1px;
+		background: #fcaf17;
+		
+	}
+	
+	.news-events-list .news-summary .image {
+		max-width: 270px; max-width: 16.875rem;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	
+	.news-events-list .entry-header h2,
+	.archive-list h2.entry-title {
+		font-size: 30px; font-size: 1.875rem;
+	}
+
+
+	/* RESOURCES - TABLET */
+	.resourcesContainer {
+		padding: 44px 42px; padding: 2.75rem 2.625rem;
+	}
+
+	.resourceLink {
+		width: 33.33%;
+		max-width: none;
+	}
+	
+	/* OTHER ARCHIVE-TYPE PAGES - TABLET*/
+	.archive-header {
+		padding: 44px 42px; padding: 2.75rem 2.625rem;
+	}
+	
+	.archive-header::before {
+		top: 44px; top: 2.75rem;
+		right: 42px; right: 2.625rem;
+		bottom: 44px; bottom: 2.75rem;
+		left: 42px; left: 2.625rem;
+	}
+
+	.archive-header h1 {
+		font-size: 40px; font-size: 2.25rem;
+		padding-top: 40px; padding-top: 2.25rem;
+		padding-bottom: 40px; padding-bottom: 2.25rem;
+	}
+
+	.archive-header h1 small {
+		font-size: 20px; font-size: 1.25rem;
+	}
+    
+    .archive-list {
+    	padding: 44px 42px; padding: 2.75rem 2.625rem;
+    }
+    
+    .archive-list article {
+    	margin-bottom: 80px; margin-bottom: 5rem;
+    }
 }
 
 /* desktop media query */
@@ -2461,7 +3011,7 @@ body.page-template-page_why-buy-local .page-block {
 		width: 56px; width: 3.5rem;
 		min-width: 0;
 		height: 69px; height: 4.3125rem;
-		border: 0;
+		border: 0!important;
 		text-align: center;
 		font-family: 'blue_highway_condensed';
 		letter-spacing: 1px;
@@ -2543,7 +3093,6 @@ body.page-template-page_why-buy-local .page-block {
 		clip: rect(0, 320px, 62px, 0); clip: rect(0, 20rem, 3.875rem, 0);
 	}
 
-
 	/* FOOTER - DESKTOP */
 	
 	#bfblFooter .row {
@@ -2582,6 +3131,10 @@ body.page-template-page_why-buy-local .page-block {
 		line-height: 60px; line-height: 3.75rem;
 	}
 
+	header.page-header.resources-header.has-image .entry-title {
+		padding-right: 46px; padding-right: 2.875rem;
+	}
+
 	/* PAGE CONTENT - DESKTOP */
 	.entry-content,
 	body.page-template-page_about-parent .entry-content {
@@ -2591,6 +3144,11 @@ body.page-template-page_why-buy-local .page-block {
 	.entry-content .video {
 		width: 64%;
 	}
+	
+	.alignleft,
+	.alignright {
+		max-width: 64%!important;
+	}	
 	
 	/* PAGE CONTENT - SPECIAL CASES - DESKTOP */
 
@@ -2712,6 +3270,89 @@ body.page-template-page_why-buy-local .page-block {
 		padding-right: 224px; padding-right: 14rem;
 	}
 
+	/* NEWS AND EVENTS  - DESKTOP */
+
+	.news-events-list .news-list {
+		padding-left: 46px; padding-left: 2.875rem;
+	}
+
+	.news-events-list .events-list {
+		padding-right: 46px; padding-right: 2.875rem;
+	}
+
+
+	.news-events-list article {
+		position: relative;
+		margin-bottom: 100px; margin-bottom: 6.25rem;
+	}
+
+	.news-events-list .image {
+		position: absolute;
+		top: 8px; top: 0.5rem;
+		left: 0;
+	}
+
+	.news-events-list .news-summary .image {
+		width: 40.74%;
+		max-width: none;
+	}
+
+	.news-events-list .news-summary .entry-header,
+	.news-events-list .news-summary .content {
+		padding-left: 44.4444%;
+	}
+
+	.news-events-list .events-summary .image {
+		width: 42.1%;
+		max-width: none;
+	}
+	
+	.news-events-list .events-summary .entry-header,
+	.news-events-list .events-summary .content {
+		padding-left: 49.47%;
+	}
+
+	.news-events-list .events-summary .entry-header h2,
+	.news-events-list .events-summary .post-meta {
+		text-align: left;
+	}
+
+
+	/* RESOURCES - DESKTOP */
+	.resourcesContainer {
+		padding: 44px 46px; padding: 2.75rem 2.875rem;
+	}
+
+	.resourceLink {
+		height: 224px; height: 14rem;
+/*		line-height: 224px; line-height: 14rem; */
+		line-height: 204px; line-height: 12.75rem;
+	}
+
+	.resourceLink a {
+		font-size: 30px; font-size: 1.875rem;
+	}
+
+	/* OTHER ARCHIVE-TYPE PAGES - TABLET*/
+	.archive-header {
+		padding: 44px 46px; padding: 2.75rem 2.875rem;
+	}
+	
+	.archive-header::before {
+		right: 46px; right: 2.875rem;
+		left: 46px; left: 2.875rem;
+	}
+
+	.archive-header h1 {
+		font-size: 50px; font-size: 3.125rem;
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+
+    .archive-list {
+    	padding: 44px 46px; padding: 2.75rem 2.875rem;
+	}
+
 }
 
 /* large desktop media query */
@@ -2775,6 +3416,12 @@ body.page-template-page_why-buy-local .page-block {
 		padding: 60px 0; padding: 3.75rem 0;
 	}
 
+	.page-block.image-split.news-events-top h2 {
+		font-size: 70px; font-size: 4.375rem;
+		height: 214px; height: 13.375rem;
+		line-height: 214px; line-height: 13.375rem;
+	}
+
 	.page-block.image-split h2 {
 		max-width: 1156px; max-width: 72.25rem;
 	}
@@ -2814,6 +3461,31 @@ body.page-template-page_why-buy-local .page-block {
 	  .animated-header .animated-blocks.has-active li.map-link.active {
 	    width: 33.75%;
 	  }	
+	
+	/* SPECIFIC PAGES - LARGE DESKTOP */  
+
+	.news-events-list .news-summary .image {
+		width: 40.3%;
+	}
+
+	.news-events-list .news-summary .entry-header,
+	.news-events-list .news-summary .content {
+		padding-left: 44.77%;
+	}
+
+	.news-events-list .events-summary .image {
+		width: 34.8%;
+	}
+	
+	.news-events-list .events-summary .entry-header,
+	.news-events-list .events-summary .content {
+		padding-left: 41.3%;
+	}
+
+	.news-events-list .entry-header h2,
+	.archive-list h2.entry-title {
+		font-size: 40px; font-size: 2.5rem;
+	}
 }
 
 
