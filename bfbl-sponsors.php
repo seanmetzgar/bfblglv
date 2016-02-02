@@ -6,8 +6,7 @@
  */
 
 	$sponsors_args = array(
-		"post_type"			=> array( "sponsors" ),
-		"nopaging"			=> false,
+		"post_type"			=> "sponsors",
 		"posts_per_page"	=> -1
 	);
 	$sponsors_posts = get_posts($sponsors_args);
