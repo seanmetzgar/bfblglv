@@ -4,8 +4,6 @@
  * @subpackage Buy_Local_GLV
  * @since Buy Local GLV 1.0.0
  */
-	$archive_output = "";
-	$indent = indent(5, false);
 
 	$sponsors_args = array(
 		"post_type"			=> array( "sponsors" ),
