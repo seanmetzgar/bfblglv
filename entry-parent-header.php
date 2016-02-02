@@ -1,7 +1,7 @@
 <?php 
 	$parent_id = $post->post_parent;
 	$has_post_thumbnail = ( has_post_thumbnail($parent_id) );
-	$entry_header_class = $has_post_thumbnail ? "page-header has-image" : "page-header";
+	$entry_header_class = $has_post_thumbnail ? "page-header has-image" : "page-header no-image";
 
 	// newnewnew
 	$entry_header_css = '';

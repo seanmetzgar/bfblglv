@@ -216,7 +216,7 @@
 
 	$loginArgs = array(
 		'echo'	=> FALSE,
-//		'redirect' => site_url('/mypage/'), // documentation: https://codex.wordpress.org/Function_Reference/wp_login_form		
+		'redirect' => site_url('/wp-admin/profile.php'), // documentation: https://codex.wordpress.org/Function_Reference/wp_login_form		
 	);
 	$bfblLogin = wp_login_form($loginArgs);
 
@@ -238,7 +238,21 @@
         		<?php echo $bfblLogin ?>
         	</div><!-- end div#loginLB -->
          	<div id="newsletterLB">
-        		<h1>Newsletter lightbox</h1>
+        		<h3>Sign up for<br />our newsletter</h3>
+        		<form name="ccoptin" id="form-ccsignup" action="http://visitor.constantcontact.com/d.jsp" method="post" target="_blank">
+					<fieldset class="input">
+						<input type="hidden" name="m" value="1102172366972"><input type="hidden" name="p" value="oi" />
+						<div class="nlEmail">
+							<label for="ea">Enter your email address</label>
+							<input type="text" name="ea" id="ea" size="25" class="text" placeholder="Enter your email address" value="" />
+						</div><!-- end div.nlEmail -->
+						<div class="nlSubmit">
+							<input type="submit" name="Sign Up" class="bfblButtonLink" value="Sign Up" />
+						</div><!-- end div.nlSubmit -->
+					</fieldset>
+				</form>
+        		        		
+        		
         	</div><!-- end div#newsletterLB -->       	
         </div><!-- end div.bfblLightboxes -->
         <?php wp_footer(); ?>

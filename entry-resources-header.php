@@ -6,7 +6,7 @@
 	$res_header_title = strlen($res_header_title) > 0 ? $res_header_title : "Resources";
 	
 	$entry_header_class = 'page-header resources-header';
-	$entry_header_class .= $res_header_image ? " has-image" : "";
+	$entry_header_class .= $res_header_image ? " has-image" : " no-image";
 
 	$entry_header_css = '';
 	if($res_header_image_id) {
