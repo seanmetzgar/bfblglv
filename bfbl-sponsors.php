@@ -13,6 +13,8 @@
 	$sponsors_posts = get_posts($sponsors_args);
 
 	$sponsors_count = (is_array($sponsors_posts) && count($sponsors_posts)) ? count($sponsors_posts) : 0;
+	echo $sponsors_count;
+	print_r($sponsors_posts);
 	if ($sponsors_count > 0): ?>
 	<section class="sponsors-list">
 		<?php foreach ($sponsors_posts as $post): setup_postdata($post);?>
