@@ -176,7 +176,7 @@
 						// special case: turn the buttons gray on the 'why buy local' page
 						// (that is, if there is an icon value)
 						if($block_icon) {
-							$btn_class .= ' btnGray';
+							$btn_class .= ' btnBlue';
 						}
 						
 						
