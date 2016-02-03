@@ -40,11 +40,13 @@ function kudu_load_scripts() {
     wp_register_script("kudu-modernizr", "$template_path/scripts/vendor/modernizr/modernizr.min.js");
     wp_register_script("jquery", "$template_path/scripts/vendor/jquery/jquery.min.js");
     wp_register_script("kudu-bootstrap", "$template_path/bootstrap/js/bootstrap.min.js");
+	wp_register_script("kudu-slick", "$template_path/scripts/vendor/slick/slick.min.js");
     wp_register_script("kudu-plugins", "$template_path/scripts/plugins.js");
     wp_register_script("kudu-scripts", "$template_path/scripts/scripts.js");
     
     wp_register_style("kudu-bootstrap", "$template_path/bootstrap/css/bootstrap.min.css");
     wp_register_style("kudu-bootstrap-theme", "$template_path/bootstrap/css/bootstrap-theme.min.css");
+	wp_register_style("kudu-slick-style", "$template_path/scripts/vendor/slick/slick.css");
 	wp_register_style("kudu-blue-highway", "http://fast.fonts.net/cssapi/b61b7b61-c691-48ed-9943-b6e4a68f75f1.css");
 	wp_register_style("kudu-blue-hwy-cond", "http://fast.fonts.net/cssapi/e8f90dbe-0738-494a-8ef0-584ecb35f973.css");
 	wp_register_style("kudu-clear-sans", "$template_path/fonts/clear_sans/font.css");
@@ -53,6 +55,7 @@ function kudu_load_scripts() {
     wp_enqueue_style("kudu-bootstrap");
     wp_enqueue_style("kudu-bootstrap-theme", false, array("kudu-bootstrap"));
 	wp_enqueue_style("wp-jquery-ui-dialog");
+	wp_enqueue_style("kudu-slick-style", false, array(), '1.5.9');
 	wp_enqueue_style("kudu-blue-highway");
 	wp_enqueue_style("kudu-blue-hwy-cond");
 	wp_enqueue_style("kudu-clear-sans");
@@ -62,9 +65,28 @@ function kudu_load_scripts() {
     wp_enqueue_script("jquery", false, array(), false, true);
 	wp_enqueue_script("jquery-ui-dialog");
     wp_enqueue_script("kudu-bootstrap", false, array("jquery"), false, true);
+	wp_enqueue_script("kudu-slick", false, array("jquery"), '1.5.9', true);
     wp_enqueue_script("kudu-plugins", false, array("jquery"), false, true);
     wp_enqueue_script("kudu-scripts", false, array("jquery", "jquery-ui-dialog", "kudu-plugins", "wp-jquery-ui-dialog"), false, true);
 }
+
+// admin stylesheet
+add_action( 'admin_enqueue_scripts', 'kudu_load_admin_styles' );
+function kudu_load_admin_styles() {
+	$template_path = get_stylesheet_directory_uri();
+    wp_enqueue_style('kudu-admin-css', get_stylesheet_directory_uri() . '/css/admin-styles.css');
+} // end kudu_load_admin_styles()
+
+
+// add the current user's role(s) as body classes on admin
+add_filter("admin_body_class", "kudu_user_role_bodyclass");
+function kudu_user_role_bodyclass($classes) {
+	$user_ID = get_current_user_id();
+	$user_data = get_userdata($user_ID);
+	// $user_data->roles is an array of the current user's role(s)
+	$classes .= ' ' . implode(' ', $user_data->roles);
+	return $classes;
+} // end kudu_user_role_bodyclass()
 
 add_action("comment_form_before", "kudu_enqueue_comment_reply_script");
 function kudu_enqueue_comment_reply_script() {

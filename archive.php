@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php 
+if(is_post_type_archive(array('news','events','sponsors'))):
+	get_template_part( 'redirect', 'home' );
+else:
+	get_header();
+?>
 			<section class="main-content archive-page" role="main">
 				<header class="header archive-header">
 					<h1 class="entry-title"><?php 
@@ -19,4 +24,7 @@
 			</section>
 
 
-<?php get_footer(); ?>
+<?php
+	get_footer(); 
+endif;
+?>

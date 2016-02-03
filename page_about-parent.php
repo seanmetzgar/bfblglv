@@ -71,7 +71,8 @@ get_header(); ?>
 							</ul>
 						</div>
 							
-					</section>
+					</section><!-- end section.team-section -->
+					<?php get_template_part("bfbl", "sponsors"); ?>
 				</article>
 				<?php endwhile; endif; ?>
 			</section>

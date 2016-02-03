@@ -1744,6 +1744,107 @@ body.page-template-page_why-buy-local .page-block {
     padding-left: 12px; padding-left: 0.75rem;
 }
 
+/* SPONSOR BLOCK */
+.sponsors-list {
+	/* make sure this 'page block' never gets get hidden on mobile */
+	position: relative!important;
+    clip: auto!important;
+}
+
+
+.sponsors-list * {
+	outline: 0;
+}
+
+.sponsors-list.page-block h2 {
+	color: #1a3281;
+}
+
+.sponsors-list ul {
+	position: relative;
+	margin-right: 16px; margin-right: 1rem;
+	margin-left: 16px; margin-left: 1rem;
+	margin-bottom: 20px; margin-bottom: 1.25rem;
+}
+
+.sponsors-list li {
+	height: 104px!important; height: 6.5rem;
+	line-height: 104px; line-height: 6.5rem;
+	padding: 0 50px; padding: 0 3.125rem;
+	text-align: center;
+}
+
+.sponsors-list .sponsor {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.sponsors-list .sponsor a {
+	display: block;
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+}
+
+.sponsors-list .sponsor img,
+.sponsors-list .sponsor span.sponsorName {
+	position: absolute;
+	clip: rect(0,1px,1px,0);
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 10px;
+}
+
+.sponsors-list .slick-arrow {
+	position: absolute;
+	top: 0; bottom: 0;
+	width: 16px; width: 1rem;
+	display: block;
+	color: #a1a1a1;
+	text-indent: -9999999px;
+	overflow: hidden;
+}
+
+.sponsors-list .slick-arrow:hover {
+	color: #1a3281;
+}
+
+.sponsors-list .slick-arrow::before {
+	content: '\e80c';
+	font-family: 'fontello';
+	position: absolute;
+	top: 50%; right: 0; left: 0;
+	margin-top: -12px; margin-top: -0.75rem;
+	font-size: 20px; font-size: 1.25rem;
+	height: 24px; height: 1.5rem;
+	line-height: 24px; line-height: 1.5rem;
+	text-align: center;
+	text-indent: 0;
+}
+
+.sponsors-list .slick-arrow.slick-prev {
+	right: 100%;
+}
+
+.sponsors-list .slick-arrow.slick-prev::before {
+	content: '\e80c';
+}
+
+.sponsors-list .slick-arrow.slick-next {
+	left: 100%;
+}
+
+.sponsors-list .slick-arrow.slick-next::before {
+	content: '\e80b';
+}
+
+
+
 /* SPECIFIC PAGES */
 .wbl-subtitle,
 .mission-statement {
@@ -2127,7 +2228,7 @@ body.single-events .entry-content .post-meta {
 
 /* OTHER ARCHIVE-TYPE PAGES */
 /* other archive-type page styles are with news/events */
-/* SPECIFIC PAGES */
+
 .archive-header {
 	text-align: center;
 	padding: 10px; padding: 0.625rem;
@@ -2835,6 +2936,36 @@ body.single-events .entry-content .post-meta {
 	  .animated-header .animated-blocks.has-active li.map-link.active {
 	    width: 24%;
 	  }	
+
+
+	/* SPONSOR BLOCK - TABLET */
+	.sponsors-list {
+		text-align: center;
+	}
+	
+	.sponsors-list ul {
+		margin-right: 32px; margin-right: 2rem;
+		margin-left: 32px; margin-left: 2rem;
+		margin-bottom: 0;
+	}
+	
+	.sponsors-list .slick-arrow {
+		width: 32px; width: 2rem;
+	}
+
+	.sponsors-list .slick-arrow::before {
+		margin-top: -24px; margin-top: -1.5rem;
+		font-size: 40px; font-size: 2.5rem;
+		height: 48px; height: 3rem;
+		line-height: 48px; line-height: 3rem;
+	}
+
+	.sponsors-list.page-block h2 {
+		display: inline-block;
+		border-bottom: 1px solid #1a3281;
+		margin-bottom: 26px; margin-bottom: 1.625rem;
+	}
+
 
 	/* SPECIFIC PAGES - TABLET */
 	.wbl-subtitle {

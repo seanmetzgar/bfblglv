@@ -57,7 +57,23 @@ jQuery(document).ready(function($) {
 		$(this).toggleClass('btnActive');
 	}); // end close menu function
 	
+
+// SPONSOR SLIDER
+	if($('.sponsors-list').length > 0) {
 	
+		$('.sponsors-list ul').slick({
+			infinite: true,
+			speed: 250,
+			slidesToShow: 1, // with variableWidth turned on, the slides to the left and right of the center slide are shown automatically
+			centerMode: true,
+			variableWidth: true
+		}); // end slick() initialization
+		
+	} // end the is-there-a-sponsor-list test
+
+
+
+
 	
 // LIGHTBOXES / DIALOG BOXES
 
