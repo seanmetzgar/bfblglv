@@ -7,6 +7,7 @@
  * #1a3281 - blue accent
  * #fcaf17 - orange accent
  * #555555 - gray text, gray accent
+ * #f7ecd5 - tan/orange, background color
  * #b7b7b7, 87% - overlay color (183,183,183,.87)
 */
 
@@ -2292,6 +2293,65 @@ body.single-events .entry-content .post-meta {
 	margin-bottom: 1rem;
 }
 
+/* 404 PAGE */
+body.error404 .main-content {
+	position: relative;
+	height: 294px; height: 18.375rem;
+	background-color: #f7ecd5;
+	background-image: url('../images/bfbl_cow_650px.jpg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+body.error404 .main-content article {
+	position: absolute;
+	top: 86px; top: 5.375rem;
+	right: 10px; right: 0.625rem;
+	bottom: 0;
+	width: 60%;
+	max-width: 630px; max-width: 39.375rem;
+	color: #ffffff;
+}
+
+body.error404 .main-content h1, 
+body.error404 .main-content h2 {
+	font-family: 'blue_highway_bold';
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+body.error404 .main-content h1 {
+	font-size: 34px; font-size: 2.125rem;
+}
+
+body.error404 .main-content h2 {
+	font-size: 16px; font-size: 1rem;
+	margin-bottom: 20px; margin-bottom: 1.25rem;
+}
+
+body.error404 .main-content p {
+	font-size: 14px; font-size: 0.875rem;
+	line-height: 18px; line-height: 1.125rem;
+	max-width: 200px; max-width: 12.5rem;
+	margin: 0 auto;
+}
+
+body.error404 .main-content p.not-found-btn {
+	padding-top: 16px; padding-top: 1rem;
+	text-align: center;
+}
+
+p.not-found-btn .bfblButtonLink.btnBlue {
+	background: #ffffff!important;
+}
+
+p.not-found-btn .bfblButtonLink.btnBlue:hover {
+	background: #1a3281!important;
+}
+
+
 
 /* mobile exceptions - for exceptions to general rules that apply only to certain pages, only on mobile */
 @media (max-width: 767px) {
@@ -3110,6 +3170,37 @@ body.single-events .entry-content .post-meta {
     .archive-list article {
     	margin-bottom: 80px; margin-bottom: 5rem;
     }
+    
+    
+	/* 404 PAGE - TABLET */
+	body.error404 .main-content {
+		height: 960px; height: 60rem;
+		background-image: url('../images/bfbl_cow_900px.jpg');
+	}
+	
+	body.error404 .main-content article {
+		top: 392px; top: 24.5rem;
+		right: 42px; right: 2.625rem;
+	}
+    
+    body.error404 .main-content h1 {
+		font-size: 82px; font-size: 5.125rem;
+	}
+    
+    body.error404 .main-content h2 {
+		font-size: 36px; font-size: 2.25rem;
+	}
+	
+	body.error404 .main-content p {
+		font-size: 20px; font-size: 1.25rem;
+		line-height: 26px; line-height: 1.625rem;
+		max-width: 440px; max-width: 27.5rem;
+	}
+    
+    body.error404 .main-content p.not-found-btn {
+		padding-top: 32px; padding-top: 2rem;
+	}
+    
 }
 
 /* desktop media query */
@@ -3576,6 +3667,33 @@ body.single-events .entry-content .post-meta {
 
     .archive-list {
     	padding: 44px 46px; padding: 2.75rem 2.875rem;
+	}
+
+	/* 404 PAGE - DESKTOP */
+	body.error404 .main-content {
+		background-image: url('../images/bfbl_cow_1350px.jpg');
+	}
+	
+	body.error404 .main-content article {
+		right: 46px; right: 2.875rem;
+	}
+
+    body.error404 .main-content h1 {
+		font-size: 100px; font-size: 6.25rem;
+	}
+    
+    body.error404 .main-content h2 {
+		font-size: 46px; font-size: 2.875rem;
+	}
+	
+    body.error404 .main-content p {
+		font-size: 30px; font-size: 1.875rem;
+		line-height: 40px; line-height: 2.5rem;
+		max-width: 560px; max-width: 35rem;
+	}
+
+    body.error404 .main-content p.not-found-btn {
+		padding-top: 56px; padding-top: 3.5rem;
 	}
 
 }
