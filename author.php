@@ -113,17 +113,16 @@ get_header(); ?>
 									if (strlen($products[$productCategory]["name"]) < 1)
 										$products[$productCategory]["name"] = ucwords($productCategory);
 
-								} else {
-									$productCategoryUnsets[] = $productCategory;
 								}
-
-								$hasProducts = (count($products) > 0) ? true : false;
+							}	else {
+								$productCategoryUnsets[] = $productCategory;
 							}
 						}
 
 						foreach ($productCategoryUnsets as $productCategory) {
 							unset($products[$productCategory]);
 						}
+						$hasProducts = (count($products) > 0) ? true : false;
 
 						print_r($products);
 					}				
