@@ -2,6 +2,19 @@
 require_once(dirname(__FILE__) . "/inc/_inc_helpers.php");
 require_once(dirname(__FILE__) . "/inc/_inc_customizations.php");
 
+global $bfbl_custom_roles;
+$bfbl_custom_roles = array(
+	'farm',
+	'distributor',
+	'distillery',
+	'farmers-market',
+	'institution',
+	'restaurant',
+	'retail',
+	'specialty',
+	'vineyard',
+);
+
 add_action("after_setup_theme", "kudu_setup");
 function kudu_setup() {
 	load_theme_textdomain("kudu", get_template_directory() . "/languages");
@@ -80,7 +93,7 @@ function kudu_load_admin_styles() {
     wp_enqueue_style('kudu-admin-css', get_stylesheet_directory_uri() . '/css/admin-styles.css');
 } // end kudu_load_admin_styles()
 
-
+/* ORIGINAL, SIMPLIFIED VERSION (could be used on other projects):
 // add the current user's role(s) as body classes on admin
 add_filter("admin_body_class", "kudu_user_role_bodyclass");
 function kudu_user_role_bodyclass($classes) {
@@ -88,6 +101,36 @@ function kudu_user_role_bodyclass($classes) {
 	$user_data = get_userdata($user_ID);
 	// $user_data->roles is an array of the current user's role(s)
 	$classes .= ' ' . implode(' ', $user_data->roles);
+	return $classes;
+} // end kudu_user_role_bodyclass()
+*/
+
+// add the current user's role(s) as body classes on admin
+add_filter("admin_body_class", "kudu_user_role_bodyclass");
+function kudu_user_role_bodyclass($classes) {
+	$user_ID = get_current_user_id();
+	$user_data = get_userdata($user_ID);
+	// $user_data->roles is an array of the current user's role(s)
+	
+	$is_partner = FALSE;
+	$new_classes = array();
+	
+	global $bfbl_custom_roles; /* values set at the start of functions.php */
+	
+	foreach($user_data->roles as $the_role) {
+		if(in_array($the_role, $bfbl_custom_roles)) {
+			$is_partner = TRUE;
+			$new_classes[] = 'bfbl-' . $the_role;
+		} else {
+			$new_classes[] = $the_role;
+		} // end the does-the-user-have-a-custom-role test
+	} // end $user_data->roles foreach
+
+	if($is_partner) {
+		array_unshift($new_classes, 'bfbl-partner');
+	}
+
+	$classes .= ' ' . implode(' ', $new_classes);
 	return $classes;
 } // end kudu_user_role_bodyclass()
 
@@ -98,6 +141,7 @@ function kudu_enqueue_comment_reply_script() {
 
 add_filter("the_title", "kudu_title");
 function kudu_title($title) {
+		
 	$rVal = ($title === "") ? "&rarr;" : $title;
 	return $rVal;
 }
