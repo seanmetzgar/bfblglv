@@ -123,8 +123,6 @@ get_header(); ?>
 							unset($products[$productCategory]);
 						}
 						$hasProducts = (count($products) > 0) ? true : false;
-
-						print_r($products);
 					}				
 				?>
 				<article id="partner-<?php the_ID(); ?>" class="partner-profile">
