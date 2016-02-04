@@ -21,11 +21,10 @@ get_header(); ?>
 					$partner_bio = strlen($partner_bio) > 0 ? $partner_bio : false;
 
 					$hasProducts = false;
-					// $partner_category = get_user_role($current_partner_ID);
-					print_r($partner_category);
+
 
 					$products = false;
-					if (in_array("farm", $partner_category)) {
+					if (in_array("farm", $partner_category)){
 						$products = array();
 						$products["greens"] = get_field("products_greens", $acf_partner_id);
 						$products["roots"] = get_field("products_roots", $acf_partner_id);
@@ -57,10 +56,11 @@ get_header(); ?>
 
 								if (in_array("Other", $productCategoryProducts)) {
 									$products[$productCategory]["other"] = get_field("other_products_{$productCategory}", $acf_partner_id);
-									if (strlen($products[$productCategory]["other"]) < 1) {
+									
+									if (strlen($products[$productCategory]["other"]) < 1) 
 										unset($products[$productCategory]["other"]);
-									}
 								}
+
 								$productCategoryUnsets = array();
 								if (count($productCategoryProducts) > 0) {
 									switch ($productCategory) {
@@ -104,22 +104,22 @@ get_header(); ?>
 											$productCategoryName = ucwords($productCategory);
 									}
 									$products[$productCategory]["name"] = $productCategoryName;
-									if (strlen($products[$productCategory]["name"]) < 1) {
+
+									if (strlen($products[$productCategory]["name"]) < 1)
 										$products[$productCategory]["name"] = ucwords($productCategory);
-									}
+
 								} else {
 									$productCategoryUnsets[] = $productCategory;
-								}
-
-								foreach ($productCategoryUnsets as $productCategory) {
-									unset($products[$productCategory]);
 								}
 
 								$hasProducts = (count($products) > 0) ? true : false;
 							}
 						}
-					}					
-					
+
+						foreach ($productCategoryUnsets as $productCategory) {
+							unset($products[$productCategory]);
+						}
+					}				
 				?>
 				<article id="partner-<?php the_ID(); ?>" class="partner-profile">
 					<?php //get_template_part("entry", "parent-header"); ?>
