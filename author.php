@@ -50,6 +50,15 @@ get_header(); ?>
 						$products["baked"] = get_field("products_baked", $acf_partner_id);
 						$products["seeds"] = get_field("products_seeds", $acf_partner_id);
 						$products["misc"] = get_field("products_misc", $acf_partner_id);
+
+						foreach ($products as $productCategory=>$productCategoryProducts) {
+							if (is_array($productCategoryProducts) && in_array("Other", $productCategoryProducts)) {
+								$products[$productCategory]["other"] => get_field("other_products_{$productCategory}", $acf_partner_id);
+								if (strlen($products[$productCategory]["other"]) < 1) {
+									unset($products[$productCategory]["other"]);
+								}
+							}
+						}
 					}					
 					
 				?>
