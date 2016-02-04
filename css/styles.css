@@ -3834,10 +3834,12 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 
 /** ACF Map **/
-
 .acf-map {
 	width: auto;
 	height: 486px;
+}
+.acf-map img {
+   max-width: inherit !important;
 }
 
 

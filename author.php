@@ -44,6 +44,51 @@ get_header(); ?>
 
 					$partner_address = (strlen($partner_address) > 0) ? $partner_address : false;
 
+					$partner_phone = get_field("partner_phone", $acf_partner_id);
+					$partner_phone = strlen($partner_phone) > 0 ? $partner_phone : false;
+					$partner_email = get_field("partner_email", $acf_partner_id);
+					$partner_email = strlen($partner_email) > 0 ? $partner_email : false;
+					$partner_website = get_field("partner_website", $acf_partner_id);
+					$partner_website = strlen($partner_website) > 0 ? $partner_website : false;
+					$partner_facebook = get_field("partner_facebook", $acf_partner_id);
+					$partner_facebook = strlen($partner_facebook) > 0 ? $partner_facebook : false;
+					$partner_twitter = get_field("partner_twitter", $acf_partner_id);
+					$partner_twitter = strlen($partner_twitter) > 0 ? $partner_twitter : false;
+					$partner_instagram = get_field("partner_instagram", $acf_partner_id);
+					$partner_instagram = strlen($partner_instagram) > 0 ? $partner_instagram : false;
+
+					$partner_owner_name = get_field("partner_owner_name", $acf_partner_id);
+					$partner_owner_name = strlen($partner_owner_name) > 0 ? $partner_owner_name : false;
+					$partner_owner_photo = get_field("owner_photo", $acf_partner_id);
+					$partner_owner_photo = is_array($partner_owner_photo) ? $partner_owner_photo : false;
+					$partner_business_photo = get_field("business_photo", $acf_partner_id);
+					$partner_business_photo = is_array($partner_business_photo) ? $partner_business_photo : false;
+
+					$partner_hours = false;
+					if (have_rows("hours", $acf_partner_id)) {
+						$partner_hours = array();
+						while (have_rows("hours", $acf_partner_id)) {
+							the_row();
+							$tempDay = get_sub_field("day");
+							$tempOpenTime = get_sub_field("open_time");
+							$tempCloseTime = get_sub_field("close_time");
+							$tempIsSeasonal = get_sub_field("is_seasonal");
+							if ($tempIsSeasonal) {
+								$tempSeasonStartMonthPart = get_sub_field("season_start_mpart");
+								$tempSeasonStartMonth = get_sub_field("season_start_month");
+								$tempSeasonEndMonthPart = get_sub_field("season_end_mpart");
+								$tempSeasonEndMonth = get_sub_field("season_end_month");
+							}
+							$tempVendors = get_sub_field("vendors");
+							$tempVendors = (is_string($tempVendors) && strlen($tempVendors) > 0) ? $tempVendors : false;
+
+							$tempHours = "$tempDay: $tempOpenTime - $tempCloseTime";
+							$tempHours .= ($tempIsSeasonal) ? "<br><span class=\"seasonal\">$tempSeasonStartMonthPart $tempSeasonStartMonth - $tempSeasonEndMonthPart $tempSeasonEndMonth</span>" : "";
+							$tempHours .= ($tempVendors) ? "<br><span class=\"vendors\">$tempVendors Vendors</span>" : "";
+							$partner_hours[] = $tempHours;
+						}
+					}
+
 					$products = false;
 					if (in_array("farm", $partner_category)){
 						$products = array();
@@ -149,30 +194,79 @@ get_header(); ?>
 				<article id="partner-<?php the_ID(); ?>" class="partner-profile">
 					<?php //get_template_part("entry", "parent-header"); ?>
 					<?php if( !empty($partner_map) ): ?>
-					<div class="acf-map-wrapper"><div class="acf-map">
-						<div class="marker" data-lat="<?php echo $location['partner_map']; ?>" data-lng="<?php echo $partner_map['lng']; ?>"></div>
-					</div></div>
+					<div class="acf-map">
+						<div class="marker" data-lat="<?php echo $partner_map['lat']; ?>" data-lng="<?php echo $partner_map['lng']; ?>"></div>
+					</div>
 					<?php endif; ?>
 
 					<section class="entry-content">
 						
-						<div class="entry-top">
-							<h1 class="entry-title"><?php echo $partner_name; ?></h1>
-							<h2>Partner Information</h2>
-							<?php if ($partner_bio): ?>
-							<div class="partner-description">
-								<?php echo $partner_bio; ?>
+						<div class="entry-top row">
+							<div class="col-md-8 col-md-push-4">
+								<h1 class="entry-title"><?php echo $partner_name; ?></h1>
+								<h2>Partner Information</h2>
+								<?php if ($partner_bio): ?>
+								<div class="partner-description">
+									<?php echo $partner_bio; ?>
+								</div>
+								<?php endif; ?>
+
+								<?php if ($partner_address): ?>
+								<div class="partner-detail">
+									<h4>Address</h4>
+									<p><?php echo $partner_address; ?></p>
+								</div>
+								<?php endif; ?>
+
+								<?php if ($partner_hours): ?>
+								<div class="partner-detail">
+									<h4>Hours</h4>
+									<ul>
+									<?php foreach ($partner_hours as $partner_hours_day) {
+										echo "<li>$partner_hours_day</li>\n";
+									} ?>
+									</ul>
+								</div>
+								<?php endif; ?>
+
+								<?php if ($partner_phone || $partner_email || $partner_website): ?>
+								<div class="partner-detail partner-contact">
+									<h4 class="visuallyhidden">Contact Details</h4>
+									<ul>
+										<?php if ($partner_phone) echo "<li>$partner_phone</li>"; ?>
+										<?php if ($partner_email) echo "<li><a href=\"mailto:$partner_email\" target=\"_blank\">$partner_email</a></li>"; ?>
+										<?php if ($partner_website) echo "<li><a href=\"$partner_website\" target=\"_blank\">$partner_website</a></li>"; ?>
+									</ul>
+								</div>
+								<?php endif; ?>
 							</div>
-							<?php endif; ?>
 
-							<?php if ($partner_address): ?>
-							<div class="partner-detail">
-								<h3>Address</h3>
-								<p><?php echo $partner_address; ?>
+							<div class="col-md-3 col-md-pull-8">
+								<div class="partner-detail owner-details">
+									<h3 class="visuallyhidden">Owner Information</h3>
+
+									<?php 
+									if ($partner_owner_photo) {
+										echo wp_get_attachment_image($partner_owner_photo["ID"], "full", false, array("class" => "img-responsive"));
+									}
+									if ($partner_owner_name) {
+										echo "\n<h4 class=\"owner-name\">$partner_owner_name</h4>\n";
+									}
+									?>
+
+								</div>
+
+								<?php if ($partner_facebook || $partner_twitter || $partner_instagram): ?>
+								<div class="partner-detail partner-contact">
+									<h3 class="visuallyhidden">Social Media</h3>
+									<ul>
+										<?php if ($partner_facebook) echo "<li><a href=\"$partner_facebook\" target=\"_blank\">$partner_facebook</a></li>"; ?>
+										<?php if ($partner_twitter) echo "<li><a href=\"https://twitter.com/$partner_twitter\" target=\"_blank\">$partner_twitter</a></li>"; ?>
+										<?php if ($partner_instagram) echo "<li><a href=\"https://www.instagram.com/$partner_instagram\" target=\"_blank\">$partner_instagram</a></li>"; ?>
+									</ul>
+								</div>
+								<?php endif; ?>
 							</div>
-							<?php endif; ?>
-
-
 						</div>
 						
 						<?php if ($hasProducts) : ?>
@@ -187,6 +281,51 @@ get_header(); ?>
 							</ul>
 						</div>
 						<?php endif; ?>
+
+						<div class="entry-product-information">
+							<h2>Product Information</h2>
+							<div class="row">
+								<div class="col-md-3 business-photo">
+									<?php 
+									if ($partner_business_photo) {
+										echo wp_get_attachment_image($partner_business_photo["ID"], "full", false, array("class" => "img-responsive"));
+										if ($partner_name) {
+											echo "\n<p class=\"partner-name\">$partner_name</p>\n";
+										}
+									} 
+									?>
+								</div>
+
+								<div class="col-md-8 col-md-offset-1">
+									<div class="partner-detail">
+										<?php if ($hasProducts) : ?>
+										<div class="entry-product-categories">
+											<h3>Products Available</h3>
+											<?php
+											$productsAvailable = array();
+											foreach($products as $productCategory=>$productCategoryProducts) {
+												foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
+													if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
+														$productsAvailable[] = $productCategoryProduct;
+													} elseif ($productCategoryProductKey === "other") {
+														$productsAvailable[] = strip_tags($productCategoryProduct);
+													}
+												}
+											}
+											if (count($productsAvailable) > 0) { 
+												$productsAvailable = implode(", ", $productsAvailable);
+
+												echo "<p>$productsAvailable</p>";
+											}
+
+											?>
+										</div>
+										<?php endif; ?>
+
+									</div>
+								</div>
+							</div>							
+						</div>
 						
 					</section>
 

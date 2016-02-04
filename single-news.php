@@ -36,6 +36,7 @@ get_header(); ?>
 
 					<?php get_template_part("bfbl", "page-blocks"); ?>
 				</article>
+				<?php get_template_part("bfbl", "chips"); ?>
 				<?php endwhile; endif; ?>
 			</section>
 <?php get_footer(); ?>
