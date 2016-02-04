@@ -55,7 +55,12 @@ get_header(); ?>
 							if (is_array($productCategoryProducts)) {
 
 								if (in_array("Other", $productCategoryProducts)) {
-									$products[$productCategory]["other"] = get_field("other_products_{$productCategory}", $acf_partner_id);
+									while ($tempProd = current($productCategoryProducts)) {
+									    if ($tempProd === "Other") {
+									        $products[$productCategory]["other"] = get_field("other_products_{$productCategory}", $acf_partner_id);
+									    }
+									    next($productCategoryProducts);
+									}
 									
 									if (strlen($products[$productCategory]["other"]) < 1) 
 										unset($products[$productCategory]["other"]);
