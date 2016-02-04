@@ -24,7 +24,7 @@ get_header(); ?>
 					print_r($partner_category);
 
 					$products = false;
-					if (in_arry("farm", $partner_category)) {
+					if (in_array("farm", $partner_category)) {
 						$products = array();
 						$products["greens"] = get_field("products_greens", $acf_partner_id);
 						$products["roots"] = get_field("products_roots", $acf_partner_id);
