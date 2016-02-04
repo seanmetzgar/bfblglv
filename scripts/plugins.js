@@ -41,6 +41,10 @@
 		// center map
 		center_map( map );
 
+		google.maps.event.addListenerOnce(map, 'idle', function(){
+		 	google.maps.event.trigger(map, 'resize');
+			center_map(map);
+		});
 	}
 
 	/*
@@ -128,8 +132,6 @@
 			// fit to bounds
 			map.fitBounds( bounds );
 		}
-
-		resize_map(map);
 
 	}
 
