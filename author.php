@@ -9,6 +9,8 @@ get_header(); ?>
 				<?php
 					$current_partner = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 					$current_partner_ID = $current_partner->ID;
+					$current_partner_data = get_userdata($current_partner_ID);
+					$partner_category = $current_partner_data->roles;
 					$acf_partner_id = "user_{$current_partner_ID}";
 
 					$partner_map = get_field("partner_map", $acf_partner_id);
@@ -21,7 +23,8 @@ get_header(); ?>
 					// $partner_category = get_user_role($current_partner_ID);
 					print_r($current_partner->roles);
 
-					if ($partner_category === "farm") {
+					$products = false;
+					if (in_arry("farm", $partner_category)) {
 						$products = array();
 						$products["greens"] = get_field("products_greens", $acf_partner_id);
 						$products["roots"] = get_field("products_roots", $acf_partner_id);
@@ -67,12 +70,13 @@ get_header(); ?>
 						</div>
 						<?php endif; ?>
 						<?php
+						if (is_array($products)):
 						foreach($products as $productCategory=>$productCategoryProducts) {
 							echo ($productCategory);
 							echo ": ";
 							print_r($productCategoryProducts);
 							echo "<br><br>";
-						} ?>
+						} endif; ?>
 					</section>
 
 				</article>
