@@ -129,6 +129,12 @@
 			map.fitBounds( bounds );
 		}
 
+		resize_map(map);
+
+	}
+
+	function resize_map( map ) {
+		google.maps.event.trigger(map, 'resize');
 	}
 
 	/*
