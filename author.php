@@ -15,7 +15,7 @@ get_header(); ?>
 					$contentClasses[] = 'entry-content';
 					$contentClasses[] = 'partner-content'
 					
-					$contentClass = implode(' ', $contentClasses);
+					$contentClasses = implode(' ', $contentClasses);
 					
 				?>
 				<article id="partner-<?php the_ID(); ?>" <?php post_class(); ?>>
