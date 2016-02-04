@@ -11,14 +11,9 @@ get_header(); ?>
 
 					print_r($current_partner->ID);
 					
-					$contentClasses = array();
-					$contentClasses[] = 'entry-content';
-					$contentClasses[] = 'partner-content'
-					
-					$contentClasses = implode(' ', $contentClasses);
 					
 				?>
-				<article id="partner-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<article id="partner-<?php the_ID(); ?>" class="entry-content partner-content">
 					<?php //get_template_part("entry", "parent-header"); ?>
 
 					<section class="<?php echo $contentClass; ?>">
