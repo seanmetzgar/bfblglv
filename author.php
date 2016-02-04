@@ -131,8 +131,9 @@ get_header(); ?>
 
 					<section class="entry-content">
 						
-						<div class="entry-top col-xs-12<?php if ($hasProducts) echo " col-xs-push-12"; ?>" style="clear: both;">
+						<div class="entry-top">
 							<h1 class="entry-title"><?php echo $partner_name; ?></h1>
+							<h2>Partner Information</h2>
 							<?php if ($partner_bio): ?>
 							<div class="partner-description">
 								<?php echo $partner_bio; ?>
@@ -141,7 +142,8 @@ get_header(); ?>
 						</div>
 						
 						<?php if ($hasProducts) : ?>
-						<div class="entry-product-categories col-xs-12 col-xs-pull-12" style="clear: both;">
+						<div class="entry-product-categories">
+							<h2>Product Categories</h2>
 							<ul class="product-categories-list">
 							<?php
 							foreach($products as $productCategory=>$productCategoryProducts) {
