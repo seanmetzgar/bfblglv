@@ -122,10 +122,15 @@ get_header(); ?>
 
 					<section class="entry-content">
 						
-						<h1 class="entry-title"><?php echo $partner_name; ?></h1>
-						<?php if ($partner_bio): ?>
-						<div class="partner-description">
-							<?php echo $partner_bio; ?>
+						<div class="entry-top">
+							<h1 class="entry-title col-xs-12 col-xs-push-12"><?php echo $partner_name; ?></h1>
+							<?php if ($partner_bio): ?>
+							<div class="partner-description">
+								<?php echo $partner_bio; ?>
+							</div>
+						</div>
+						<div class="entry-product-categories">
+
 						</div>
 						<?php endif; ?>
 						<?php
