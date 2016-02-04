@@ -113,6 +113,7 @@ get_header(); ?>
 								}
 
 								$hasProducts = (count($products) > 0) ? true : false;
+								print_r($products);
 							}
 						}
 
