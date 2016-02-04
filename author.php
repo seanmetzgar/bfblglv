@@ -18,7 +18,8 @@ get_header(); ?>
 					$partner_bio = get_field("partner_description", $acf_partner_id);
 					$partner_bio = strlen($partner_bio) > 0 ? $partner_bio : false;
 
-					$partner_category = get_user_role($current_partner_ID);
+					// $partner_category = get_user_role($current_partner_ID);
+					print_r($current_partner->roles);
 
 					if ($partner_category === "farm") {
 						$products = array();
