@@ -8,18 +8,30 @@ get_header(); ?>
 			<section class="main-content" role="main">
 				<?php
 					$current_partner = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
+					$current_partner_ID = $current_partner->ID;
+					$acf_partner_id = "user_{$current_partner_ID}";
 
-					print_r($current_partner->ID);
+					$partner_name = get_field("partner_name", $acf_partner_id);
+					$partner_name = strlen($partner_name) > 0 ? $partner_name : $current_partner->display_name;
+
+					$partner_bio = get_field("partner_description", $acf_partner_id);
+					$partner_bio = strlen($partner_bio) > 0 ? $partner_bio : false;
 					
 					
 				?>
-				<article id="partner-<?php the_ID(); ?>" class="entry-content partner-content">
+				<article id="partner-<?php the_ID(); ?>" class="partner-profile">
 					<?php //get_template_part("entry", "parent-header"); ?>
+					<header class="map-header">
 
-					<section class="<?php echo $contentClass; ?>">
+					</header>
+					<section class="entry-content">
 						
-						<h1 class="entry-title"><?php the_title(); ?></h1>
-						<?php // edit_post_link(); ?>
+						<h1 class="entry-title"><?php echo $partner_name; ?></h1>
+						<?php if ($partner_bio): ?>
+						<div class="partner-description">
+							<?php echo $partner_bio; ?>
+						</div>
+						<?php endif; ?>
 						
 						
 						
