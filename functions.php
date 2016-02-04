@@ -38,6 +38,8 @@ function kudu_load_scripts() {
 	
     wp_deregister_script("jquery");
     wp_register_script("kudu-modernizr", "$template_path/scripts/vendor/modernizr/modernizr.min.js");
+    wp_register_script("kudu-acf-gmaps", "//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false");
+    
     wp_register_script("jquery", "$template_path/scripts/vendor/jquery/jquery.min.js");
     wp_register_script("kudu-bootstrap", "$template_path/bootstrap/js/bootstrap.min.js");
 	wp_register_script("kudu-slick", "$template_path/scripts/vendor/slick/slick.min.js");
@@ -47,8 +49,8 @@ function kudu_load_scripts() {
     wp_register_style("kudu-bootstrap", "$template_path/bootstrap/css/bootstrap.min.css");
     wp_register_style("kudu-bootstrap-theme", "$template_path/bootstrap/css/bootstrap-theme.min.css");
 	wp_register_style("kudu-slick-style", "$template_path/scripts/vendor/slick/slick.css");
-	wp_register_style("kudu-blue-highway", "http://fast.fonts.net/cssapi/b61b7b61-c691-48ed-9943-b6e4a68f75f1.css");
-	wp_register_style("kudu-blue-hwy-cond", "http://fast.fonts.net/cssapi/e8f90dbe-0738-494a-8ef0-584ecb35f973.css");
+	wp_register_style("kudu-blue-highway", "//fast.fonts.net/cssapi/b61b7b61-c691-48ed-9943-b6e4a68f75f1.css");
+	wp_register_style("kudu-blue-hwy-cond", "//fast.fonts.net/cssapi/e8f90dbe-0738-494a-8ef0-584ecb35f973.css");
 	wp_register_style("kudu-clear-sans", "$template_path/fonts/clear_sans/font.css");
     wp_register_style("kudu-css", "$template_path/css/styles.css");
 
@@ -62,6 +64,7 @@ function kudu_load_scripts() {
     wp_enqueue_style("kudu-css", false, array("kudu-bootstrap", "kudu-bootstrap", "wp-jquery-ui-dialog", "kudu-blue-highway", "kudu-blue-hwy-cond", "kudu-clear-sans"));
 
     wp_enqueue_script("kudu-modernizr");
+    wp_enqueue_script("kudu-acf-gmaps", false, array(), false, true);
     wp_enqueue_script("jquery", false, array(), false, true);
 	wp_enqueue_script("jquery-ui-dialog");
     wp_enqueue_script("kudu-bootstrap", false, array("jquery"), false, true);
