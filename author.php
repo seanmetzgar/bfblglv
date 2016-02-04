@@ -22,6 +22,27 @@ get_header(); ?>
 
 					$hasProducts = false;
 
+					$partner_street_1 = get_field("partner_street_1", $acf_partner_id);
+					$partner_street_1 = strlen($partner_street_1) > 0 ? $partner_street_1 : false;
+					$partner_street_2 = get_field("partner_street_2", $acf_partner_id);
+					$partner_street_2 = strlen($partner_street_2) > 0 ? $partner_street_2 : false;
+					$partner_city = get_field("partner_city", $acf_partner_id);
+					$partner_city = strlen($partner_city) > 0 ? $partner_city : false;
+					$partner_state = get_field("partner_state", $acf_partner_id);
+					$partner_state = strlen($partner_state) > 0 ? $partner_state : false;
+					$partner_zip = get_field("partner_zip", $acf_partner_id);
+					$partner_zip = strlen($partner_zip) > 0 ? $partner_zip : false;
+
+					$partner_address = "";
+					$partner_address .= $partner_street_1 ? "$partner_street_1<br>" : "";
+					$partner_address .= $partner_street_2 ? "$partner_street_2<br>" : "";
+					$partner_address .= $partner_city ? "$partner_city" : "";
+					$partner_address .= ($partner_city && $partner_state) ? ", $partner_state" : "";
+					$partner_address .= (!$partner_city && $partner_state) ? "$partner_state" : "";
+					$partner_address .= ($partner_zip && ($partner_city || $partner_state)) ? " $partner_zip" : "";
+					$partner_address .= ($partner_zip && !$partner_city && !$partner_state) ? $partner_zip : "";
+
+					$partner_address = (strlen($partner_address) > 0) ? $partner_address : false;
 
 					$products = false;
 					if (in_array("farm", $partner_category)){
@@ -143,6 +164,15 @@ get_header(); ?>
 								<?php echo $partner_bio; ?>
 							</div>
 							<?php endif; ?>
+
+							<?php if ($partner_address): ?>
+							<div class="partner-detail">
+								<h3>Address</h3>
+								<p><?php echo $partner_address; ?>
+							</div>
+							<?php endif; ?>
+
+
 						</div>
 						
 						<?php if ($hasProducts) : ?>
