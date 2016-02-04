@@ -22,7 +22,8 @@
 		var args = {
 			zoom		: 13,
 			center		: new google.maps.LatLng(0, 0),
-			mapTypeId	: google.maps.MapTypeId.ROADMAP
+			mapTypeId	: google.maps.MapTypeId.ROADMAP,
+			styles      : [{"stylers":[{"hue":"#baf4c4"},{"saturation":10}]},{"featureType":"water","stylers":[{"color":"#effefd"}]},{"featureType":"all","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]}]
 		};
 
 		// create map	        	

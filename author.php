@@ -204,7 +204,7 @@ get_header(); ?>
 						<div class="entry-top row">
 							<div class="col-md-8 col-md-push-4">
 								<h1 class="entry-title"><?php echo $partner_name; ?></h1>
-								<h2>Partner Information</h2>
+								<h2>Partner Information</h2> <!-- This is the Green Title Bar for this section... -->
 								<?php if ($partner_bio): ?>
 								<div class="partner-description">
 									<?php echo $partner_bio; ?>
@@ -269,7 +269,7 @@ get_header(); ?>
 							</div>
 						</div>
 						
-						<?php if ($hasProducts) : ?>
+						<?php if ($hasProducts) : // This Container should be positioned BELOW MAP when visible ?>
 						<div class="entry-product-categories">
 							<h2>Product Categories</h2>
 							<ul class="product-categories-list">
