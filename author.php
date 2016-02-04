@@ -9,7 +9,7 @@ get_header(); ?>
 				<?php
 					$current_partner = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 
-					print_r($current_partner);
+					print_r($current_partner->ID);
 					
 					$contentClasses = array();
 					$contentClasses[] = 'entry-content';
