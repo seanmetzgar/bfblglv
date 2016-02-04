@@ -118,13 +118,14 @@ get_header(); ?>
 								}
 
 								$hasProducts = (count($products) > 0) ? true : false;
-								print_r($products);
 							}
 						}
 
 						foreach ($productCategoryUnsets as $productCategory) {
 							unset($products[$productCategory]);
 						}
+
+						print_r($products);
 					}				
 				?>
 				<article id="partner-<?php the_ID(); ?>" class="partner-profile">
