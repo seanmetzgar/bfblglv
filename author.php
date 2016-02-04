@@ -21,7 +21,7 @@ get_header(); ?>
 					$partner_bio = strlen($partner_bio) > 0 ? $partner_bio : false;
 
 					// $partner_category = get_user_role($current_partner_ID);
-					print_r($current_partner->roles);
+					print_r($partner_category);
 
 					$products = false;
 					if (in_arry("farm", $partner_category)) {
