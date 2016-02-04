@@ -38,7 +38,7 @@ function kudu_load_scripts() {
 	
     wp_deregister_script("jquery");
     wp_register_script("kudu-modernizr", "$template_path/scripts/vendor/modernizr/modernizr.min.js");
-    wp_register_script("kudu-acf-gmaps", "//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false");
+    wp_register_script("kudu-acf-gmaps", "//maps.googleapis.com/maps/api/js?v=3.exp");
     
     wp_register_script("jquery", "$template_path/scripts/vendor/jquery/jquery.min.js");
     wp_register_script("kudu-bootstrap", "$template_path/bootstrap/js/bootstrap.min.js");
