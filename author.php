@@ -52,10 +52,60 @@ get_header(); ?>
 						$products["misc"] = get_field("products_misc", $acf_partner_id);
 
 						foreach ($products as $productCategory=>$productCategoryProducts) {
-							if (is_array($productCategoryProducts) && in_array("Other", $productCategoryProducts)) {
-								$products[$productCategory]["other"] => get_field("other_products_{$productCategory}", $acf_partner_id);
-								if (strlen($products[$productCategory]["other"]) < 1) {
-									unset($products[$productCategory]["other"]);
+							if (is_array($productCategoryProducts))
+
+								if (in_array("Other", $productCategoryProducts)) {
+									$products[$productCategory]["other"] = get_field("other_products_{$productCategory}", $acf_partner_id);
+									if (strlen($products[$productCategory]["other"]) < 1) {
+										unset($products[$productCategory]["other"]);
+									}
+								}
+
+								if (count($productCategoryProducts) > 0) {
+									switch ($productCategory) {
+										case "roots":
+											$productCategoryName = "Root Crops";
+											break;
+										case "seasonal":
+											$productCategoryName = "Seasonal Vegetables";
+											break;
+										case "melons":
+											$productCategoryName = "Melons & Pumpkins";
+											break;
+										case "small_fruits":
+											$productCategoryName = "Orchard & Small Fruits";
+											break;
+										case "value_added":
+											$productCategoryName = "Value-Added";
+											break;
+										case "syrups":
+											$productCategoryName = "Honey / Syrup";
+											break;
+										case "artisinal":
+											$productCategoryName = "Artisinal Products";
+											break;
+										case "liquids":
+											$productCategoryName = "Beverages";
+											break;
+										case "educational":
+											$productCategoryName = "Educational Programs";
+											break;
+										case "baked":
+											$productCategoryName = "Baked Goods";
+											break;
+										case "seeds":
+											$productCategoryName = "Nuts & Seeds";
+											break;
+										case "misc":
+											$productCategoryName = "Other Products";
+											break;
+										default:
+											$productCategoryName = ucwords($productCategory);
+									}
+									$products[$productCategory]["name"] = $productCategoryName;
+									if (strlen($products[$productCategory]["name"]) < 1) {
+										$products[$productCategory]["name"] = ucwords($productCategory);
+									}
 								}
 							}
 						}
