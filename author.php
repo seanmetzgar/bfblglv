@@ -139,16 +139,18 @@ get_header(); ?>
 							</div>
 							<?php endif; ?>
 						</div>
+						
 						<?php if ($hasProducts) : ?>
 						<div class="entry-product-categories col-xs-12 col-xs-pull-12">
 							<ul class="product-categories-list">
-						<?php
+							<?php
 							foreach($products as $productCategory=>$productCategoryProducts) {
 								echo "<li>{$productCategoryProducts["name"]}</li>\n";
 							}
-						?>
+							?>
 							</ul>
 						</div>
+						<?php endif; ?>
 						
 					</section>
 
