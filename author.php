@@ -20,6 +20,7 @@ get_header(); ?>
 					$partner_bio = get_field("partner_description", $acf_partner_id);
 					$partner_bio = strlen($partner_bio) > 0 ? $partner_bio : false;
 
+					$hasProducts = false;
 					// $partner_category = get_user_role($current_partner_ID);
 					print_r($partner_category);
 
@@ -52,7 +53,7 @@ get_header(); ?>
 						$products["misc"] = get_field("products_misc", $acf_partner_id);
 
 						foreach ($products as $productCategory=>$productCategoryProducts) {
-							if (is_array($productCategoryProducts))
+							if (is_array($productCategoryProducts)) {
 
 								if (in_array("Other", $productCategoryProducts)) {
 									$products[$productCategory]["other"] = get_field("other_products_{$productCategory}", $acf_partner_id);
@@ -60,7 +61,7 @@ get_header(); ?>
 										unset($products[$productCategory]["other"]);
 									}
 								}
-
+								$productCategoryUnsets = array();
 								if (count($productCategoryProducts) > 0) {
 									switch ($productCategory) {
 										case "roots":
@@ -106,7 +107,15 @@ get_header(); ?>
 									if (strlen($products[$productCategory]["name"]) < 1) {
 										$products[$productCategory]["name"] = ucwords($productCategory);
 									}
+								} else {
+									$productCategoryUnsets[] = $productCategory;
 								}
+
+								foreach ($productCategoryUnsets as $productCategory) {
+									unset($products[$productCategory]);
+								}
+
+								$hasProducts = (count($products) > 0) ? true : false;
 							}
 						}
 					}					
@@ -122,25 +131,25 @@ get_header(); ?>
 
 					<section class="entry-content">
 						
-						<div class="entry-top">
-							<h1 class="entry-title col-xs-12 col-xs-push-12"><?php echo $partner_name; ?></h1>
+						<div class="entry-top col-xs-12<?php if ($hasProducts) echo " col-xs-push-12"; ?>">
+							<h1 class="entry-title"><?php echo $partner_name; ?></h1>
 							<?php if ($partner_bio): ?>
 							<div class="partner-description">
 								<?php echo $partner_bio; ?>
 							</div>
+							<?php endif; ?>
 						</div>
-						<div class="entry-product-categories">
-
-						</div>
-						<?php endif; ?>
+						<?php if ($hasProducts) : ?>
+						<div class="entry-product-categories col-xs-12 col-xs-pull-12">
+							<ul class="product-categories-list">
 						<?php
-						if (is_array($products)):
-						foreach($products as $productCategory=>$productCategoryProducts) {
-							echo ($productCategory);
-							echo ": ";
-							print_r($productCategoryProducts);
-							echo "<br><br>";
-						} endif; ?>
+							foreach($products as $productCategory=>$productCategoryProducts) {
+								echo "<li>{$productCategoryProducts["name"]}</li>\n";
+							}
+						?>
+							</ul>
+						</div>
+						
 					</section>
 
 				</article>
