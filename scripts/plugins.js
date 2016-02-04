@@ -33,7 +33,7 @@
 
 		// add markers
 		$markers.each(function(){
-
+			console.log($(this));
 	    	add_marker( $(this), map );
 
 		});
