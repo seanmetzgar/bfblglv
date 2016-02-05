@@ -192,14 +192,7 @@ get_header(); ?>
 					}				
 				?>
 				<article id="partner-<?php the_ID(); ?>" class="partner-profile">
-					<?php //get_template_part("entry", "parent-header"); ?>
-					<?php if( !empty($partner_map) ): ?>
-					<div class="page-block acf-map-wrap">
-						<div class="acf-map">
-							<div class="marker" data-lat="<?php echo $partner_map['lat']; ?>" data-lng="<?php echo $partner_map['lng']; ?>"></div>
-						</div>
-					</div><!-- end div.acf-map-wrap -->
-					<?php endif; ?>
+					<?php get_template_part("entry", "flf-header"); ?>
 					
 <!-- temptemptemp - back button -->
 					<a href="#null" class="back-button parentArrow">Browse Local Food</a>
