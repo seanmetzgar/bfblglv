@@ -186,6 +186,12 @@ function hide_admin_bar_from_front_end(){
 function bfblExtractName($url) {
 	$lastSlash = strrpos($url,'/') + 1;
 	$result = substr($url, $lastSlash, strlen($url));
+	
+	// if the string is empty, put back the url as a fallback
+	if(!$result) {
+		$result = $url;
+	}
+	
 	return $result;
 } // end bfblExtractName()
 

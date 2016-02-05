@@ -120,7 +120,8 @@ button {
 	padding: 0;
 }
 
-.screen-reader-text {
+.screen-reader-text,
+.visuallyhidden {
 	position: absolute;
 	clip: rect(1px, 0, 0, 1px);
 	overflow: hidden;
@@ -1299,7 +1300,10 @@ body.page-template-page_why-buy-local .page-block.tan-shadow .content {
 	color: #ffffff;
 }
 
-.page-block h2 {
+.page-block h2,
+.partner-profile .page-block h1,
+.partner-profile .page-block h2,
+.partner-profile .page-block h3 {
 	text-transform: uppercase;
 	font-size: 20px; font-size: 1.25rem;
 	font-family: 'blue_highway_bold';
@@ -1547,10 +1551,12 @@ body.page-template-page_why-buy-local .page-block {
 	background-position: 0 -288px;
 }
 
-.parentArrow {
+.parentArrow,
+.greenHeader {
 	position: relative;
 	display: block;
 	margin-top: -1px;
+	margin-bottom: 0;
 	padding: 0 10px; padding: 0 0.625rem;
 	height: 75px; height: 4.6875rem;
 	line-height: 75px; line-height: 4.6875rem;
@@ -1569,12 +1575,113 @@ body.page-template-page_why-buy-local .page-block {
 	vertical-align: middle;
 	font-size: 40px; font-size: 2.5rem;
 	margin-right: 2.4%;
-	
-	
 }
 
 .parentArrow:hover {
 	background: #003f29;
+}
+
+.greenHeader {
+	margin-top: 0;
+}
+
+.greenHeader::before {
+	/* matches the width of .parentArrow::before */
+	content: '';
+	display: inline-block;
+	width: 19px; width: 1.1875rem;
+	margin-right: 2.4%;
+}
+
+/* PAGE CHIPS */
+.chips-block {
+	
+}
+
+.chips-block ul {
+	text-align: center;
+	margin-left: -14px; margin-left: -0.875rem;
+	margin-right: -14px; margin-right: -0.875rem;
+	position: relative;
+}
+
+.chips-block ul::before,
+.chips-block ul::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 16px; top: 1rem;
+	bottom: 0;
+	width: 1px;
+	background: #e69b2a;
+}
+
+.chips-block ul::before {
+	left: 33.33%;
+}
+
+.chips-block ul::after {
+	right: 33.33%;
+}
+
+.chip {
+	display: inline-block;
+	vertical-align: bottom;
+	width: 33.33%;
+	padding: 0 14px; padding: 0 0.875rem;
+	position: relative;
+}
+
+.chip a {
+	display: block;
+	text-decoration: none;
+}
+
+.chip .chipTitle {
+	display: block;
+	position: relative;
+	font-family: 'blue_highway_bold';
+	font-size: 30px; font-size: 1.875rem;
+	line-height: 1;
+	color: #e69b2a;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+	padding-top: 12px; padding-top: 0.75rem;
+}
+
+.chip:hover .chipTitle {
+	color: #1a3281;
+}
+
+.chip .chipTitle::after {
+	content: '';
+	display: block;
+	width: 80%;
+	margin: 22px auto 0; margin: 1.375rem auto 0; 
+	height: 1px;
+	background: #e69b2a;
+}
+
+.chip .chipDescr {
+	display: block;
+	font-size: 14px; font-size: 0.875;
+	line-height: 1;
+	color: #999999;
+	padding-top: 16px; padding-top: 1rem;
+}
+
+.chip .chipImg {
+	display: block;
+	height: 150px; height: 9.375rem;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.chip .chipImg img {
+	position: absolute;
+	clip: rect(0,1px,1px,0);
+	overflow: hidden;
 }
 
 
@@ -2293,6 +2400,216 @@ body.single-events .entry-content .post-meta {
 	margin-bottom: 1rem;
 }
 
+/* PARTNERS */
+.partner-profile .page-block {
+	background: #f7ecd5;
+}
+
+.partner-profile .entry-content {
+	padding: 0!important;
+}
+
+.acf-map {
+	width: auto;
+	height: 486px; height: 30.375rem;
+}
+
+.partner-profile .acf-map {
+	height: 240px; height: 15rem;
+}
+
+.acf-map img {
+   max-width: inherit !important;
+}
+
+.partner-profile .parentArrow {
+	margin-top: 0;
+	border-bottom: 1px solid #ffffff;
+}
+
+.partner-profile .product-categories-list {
+	background: #ffffff;
+}
+
+.product-categories-list li {
+	padding-top: 12px; padding-top: 0.75rem;
+}
+
+.product-categories-list li:first-child {
+	padding-top: 0;
+}
+
+.product-categories-list li span {
+	display: inline-block;
+	font-size: 14px; font-size: 0.875rem;
+	line-height: 1;
+	padding: 10px 12px; padding: 0.625rem 0.75rem;
+	background: #008c5c;
+	color: #ffffff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.partner-profile .page-block h1,
+.partner-profile .page-block h2,
+.partner-profile .page-block h3 {
+	color: #555555;
+}
+
+.partner-profile .page-block h1,
+.partner-profile .page-block h3.owner-name,
+.partner-profile .page-block h3.partner-name {
+	padding-top: 16px; padding-top: 1rem;
+	font-size: 26px; font-size: 1.625rem;
+}
+
+.partner-profile .page-block h4 {
+	font-family: 'blue_highway_bold';
+	text-transform: uppercase;
+	color: #008c5c;
+	margin: 0;
+	padding-bottom: 6px; padding-bottom: 0.375rem;
+	font-weight: normal;
+	letter-spacing: .05em;
+}
+
+.partner-detail {
+	color: #555555;
+	text-align: center;
+	font-size: 14px; font-size: 0.875rem;
+	line-height: 20px; line-height: 1.25rem;
+	margin-bottom: 28px; margin-bottom: 1.75rem;
+	font-weight: bold;
+}
+
+.partner-detail p {
+	margin-bottom: 0;
+}
+
+
+.partner-contact {
+	margin-top: 40px; margin-top: 2.5rem;
+}
+.partner-contact li {
+	text-align: center;
+	padding-bottom: 36px; padding-bottom: 2.25rem;
+}
+
+.partner-contact li a {
+	display: block;
+	color: #555555;
+	font-weight: bold;
+	font-size: 14px; font-size: 0.875rem;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.partner-contact li a:hover {
+	color: #1a3281;
+}
+
+.partner-contact li a::before {
+	content: '';
+	display: block;
+	height: 38px; height: 2.375rem;
+	line-height: 38px; line-height: 2.375rem;
+	font-size: 38px; font-size: 2.375rem;
+	background: #555555; /* temptemptemp */
+}
+
+.owner-image,
+.business-image {
+	width: 84%;
+	max-width: 360px; max-width: 22.5rem;
+	margin: 0 auto;
+}
+
+.business-image {
+	margin-top: 10px; margin-top: 0.625rem;
+}
+
+.owner-image img,
+.business-image img {
+	border: 3px solid #ffffff;
+}
+
+.products-detail {
+	margin-top: 48px; margin-top: 3rem;
+}
+
+.partner-social {
+	text-align: center;
+	overflow: hidden;
+	border-bottom: 1px solid #ffffff;
+	margin: 0 -10px -10px; margin: 0 -0.625rem -0.625rem;
+}
+
+.partner-social ul {
+	display: inline-block;
+	text-align: left;
+}
+
+.partner-social li {
+	display: block; /* display:block inside display:inline-block makes the parent shrink its width to match that of the widest 'grand-child' (the <a>, in this case) */
+}
+
+.partner-social li a {
+	display: inline-block;
+	padding: 18px; padding: 1.125rem;
+	padding-left: 0;
+	font-size: 16px; font-size: 1rem;
+	line-height: 1;
+	color: #ffffff;
+	text-decoration: none;
+	position: relative;
+}
+
+.partner-social li a span {
+	position: relative;
+	z-index: 10;
+}
+
+.partner-social li a::before {
+	font-family: 'fontello';
+	display: inline-block;
+	width: 22px; width: 1.375rem;
+	height: 22px; height: 1.375rem;
+	font-size: 22px;
+	line-height: 22px;
+	text-align: center;
+	vertical-align: middle;
+	margin-right: 14px; margin-right: 0.875rem;
+	position: relative;
+	z-index: 10;
+}
+
+.partner-social li.twitter a::before {
+	content: '\e802';
+}
+
+.partner-social li.facebook a::before {
+	content: '\e804';	
+}
+
+.partner-social li.instagram a::before {
+	content: '\e803';	
+}
+
+.partner-social li a::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0; right: -9999999px; bottom: 0; left: -9999999px;
+	background: #008c5c;
+	z-index: 1;
+}  
+
+.partner-social li a:hover::after {
+	background: #003f29;
+}
+
+
 /* 404 PAGE */
 body.error404 .main-content {
 	position: relative;
@@ -2368,6 +2685,11 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-top: -1px;
 	}
 	
+	.chips-block {
+		position: absolute;
+		clip: rect(0,1px,1px,0);
+		overflow: hidden;
+	}	
 	
 }
 
@@ -2649,7 +2971,10 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		padding: 0 60px 28px; padding: 0 3.75rem 1.75rem; 
 	}
 	
-	.page-block h2 {
+	.page-block h2,
+	.partner-profile .page-block h1,
+	.partner-profile .page-block h2,
+	.partner-profile .page-block h3 {
 		font-size: 40px; font-size: 2.5rem;
 	}
 	
@@ -3171,7 +3496,124 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
     	margin-bottom: 80px; margin-bottom: 5rem;
     }
     
+    /* PARTNERS - TABLET */
+	.partner-profile .page-block::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	
+	.partner-profile .page-block.acf-map-wrap {
+		padding: 0;
+	}
     
+	.partner-profile .acf-map {
+		height: 320px; height: 20rem;
+	}
+    
+    .product-categories-list {
+    	margin-bottom: -26px; margin-bottom: -1.625rem;
+    }
+    
+	.product-categories-list li {
+		display: inline-block;
+		padding: 0 26px 26px 0; padding: 0 1.625rem 1.625rem 0;
+	}
+    
+    .partner-info-right,
+    .product-info-right {
+    	float: right;
+    	width: 60%;
+    	text-align: left;
+    }
+    
+    .partner-info-left,
+    .product-info-left {
+    	float: left;
+    	width: 30%;
+    }
+    
+    .partner-info-right h1.entry-title {
+    	text-align: left;
+    	padding-top: 0;
+    	margin-bottom: 32px; margin-bottom: 2rem;
+    }
+
+	.partner-description {
+		margin-bottom: 48px; margin-bottom: 3rem;
+	}
+    
+	.partner-detail {
+		text-align: left;
+		padding-left: 100px;
+		position: relative;
+	}
+    
+	.partner-detail h4 {
+		position: absolute;
+		top: 2px; top: 0.125rem; /* accounts for the line height on the .partner-detail text, so they look aligned */
+		left: 0;
+	}
+    
+	.partner-contact ul {
+		text-align: center;
+	}
+    
+	.partner-contact li {
+		display: inline-block;
+		width: 33.33%;
+		min-width: 160px; min-width: 10rem;
+		padding-left: 4px; padding-left: 0.25rem;
+		padding-right: 4px; padding-right: 0.25rem;
+	}
+	
+	.owner-image,
+	.business-image {
+		width: 100%;
+		max-width: 270px; max-width: 16.875rem;
+		margin-left: 0;
+		margin-top: 6px; margin-top: 0.375rem;
+	}
+	
+	.partner-profile .page-block h3.owner-name,
+	.partner-profile .page-block h3.partner-name {
+		padding-top: 32px; padding-top: 2rem;
+		font-size: 40px; font-size: 2.5rem;
+		text-align: left;
+	}
+	
+	.partner-social {
+		margin: 0;
+		border: 0;
+		text-align: left;
+	}
+
+	.partner-social li a {
+		color: #008c5c;
+		padding: 16px; padding: 1rem;
+		padding-left: 0;
+	}
+	
+	.partner-social li a:hover {
+		color: #1a3281;
+	}
+	
+	.partner-social li a::before {
+		margin-right: 12px; margin-right: 0.75rem;
+	}
+	
+	.partner-social li a::after {
+		display: none;
+	}
+
+	.products-detail {
+		margin-top: 0;
+	}
+
+	.products-detail .entry-product-categories h3 {
+		text-align: left;
+	}
+
 	/* 404 PAGE - TABLET */
 	body.error404 .main-content {
 		height: 960px; height: 60rem;
@@ -3830,18 +4272,4 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		font-size: 40px; font-size: 2.5rem;
 	}
 }
-
-
-
-/** ACF Map **/
-.acf-map {
-	width: auto;
-	height: 486px;
-}
-.acf-map img {
-   max-width: inherit !important;
-}
-
-
-
 

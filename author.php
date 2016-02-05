@@ -194,112 +194,133 @@ get_header(); ?>
 				<article id="partner-<?php the_ID(); ?>" class="partner-profile">
 					<?php //get_template_part("entry", "parent-header"); ?>
 					<?php if( !empty($partner_map) ): ?>
-					<div class="acf-map">
-						<div class="marker" data-lat="<?php echo $partner_map['lat']; ?>" data-lng="<?php echo $partner_map['lng']; ?>"></div>
-					</div>
-					<?php endif; ?>
-
-					<section class="entry-content">
-						
-						<div class="entry-top row">
-							<div class="col-md-8 col-md-push-4">
-								<h1 class="entry-title"><?php echo $partner_name; ?></h1>
-								<h2>Partner Information</h2> <!-- This is the Green Title Bar for this section... -->
-								<?php if ($partner_bio): ?>
-								<div class="partner-description">
-									<?php echo $partner_bio; ?>
-								</div>
-								<?php endif; ?>
-
-								<?php if ($partner_address): ?>
-								<div class="partner-detail">
-									<h4>Address</h4>
-									<p><?php echo $partner_address; ?></p>
-								</div>
-								<?php endif; ?>
-
-								<?php if ($partner_hours): ?>
-								<div class="partner-detail">
-									<h4>Hours</h4>
-									<ul>
-									<?php foreach ($partner_hours as $partner_hours_day) {
-										echo "<li>$partner_hours_day</li>\n";
-									} ?>
-									</ul>
-								</div>
-								<?php endif; ?>
-
-								<?php if ($partner_phone || $partner_email || $partner_website): ?>
-								<div class="partner-detail partner-contact">
-									<h4 class="visuallyhidden">Contact Details</h4>
-									<ul>
-										<?php if ($partner_phone) echo "<li>$partner_phone</li>"; ?>
-										<?php if ($partner_email) echo "<li><a href=\"mailto:$partner_email\" target=\"_blank\">$partner_email</a></li>"; ?>
-										<?php if ($partner_website) echo "<li><a href=\"$partner_website\" target=\"_blank\">$partner_website</a></li>"; ?>
-									</ul>
-								</div>
-								<?php endif; ?>
-							</div>
-
-							<div class="col-md-3 col-md-pull-8">
-								<div class="partner-detail owner-details">
-									<h3 class="visuallyhidden">Owner Information</h3>
-
-									<?php 
-									if ($partner_owner_photo) {
-										echo wp_get_attachment_image($partner_owner_photo["ID"], "full", false, array("class" => "img-responsive"));
-									}
-									if ($partner_owner_name) {
-										echo "\n<h4 class=\"owner-name\">$partner_owner_name</h4>\n";
-									}
-									?>
-
-								</div>
-
-								<?php if ($partner_facebook || $partner_twitter || $partner_instagram): ?>
-								<div class="partner-detail partner-contact">
-									<h3 class="visuallyhidden">Social Media</h3>
-									<ul>
-										<?php if ($partner_facebook) echo "<li><a href=\"$partner_facebook\" target=\"_blank\">$partner_facebook</a></li>"; ?>
-										<?php if ($partner_twitter) echo "<li><a href=\"https://twitter.com/$partner_twitter\" target=\"_blank\">$partner_twitter</a></li>"; ?>
-										<?php if ($partner_instagram) echo "<li><a href=\"https://www.instagram.com/$partner_instagram\" target=\"_blank\">$partner_instagram</a></li>"; ?>
-									</ul>
-								</div>
-								<?php endif; ?>
-							</div>
+					<div class="page-block acf-map-wrap">
+						<div class="acf-map">
+							<div class="marker" data-lat="<?php echo $partner_map['lat']; ?>" data-lng="<?php echo $partner_map['lng']; ?>"></div>
 						</div>
-						
+					</div><!-- end div.acf-map-wrap -->
+					<?php endif; ?>
+					
+<!-- temptemptemp - back button -->
+					<a href="#null" class="back-button parentArrow">Browse Local Food</a>
+<!-- temptemptemp - end back button -->
+
+					<section class="partner-content">
+
 						<?php if ($hasProducts) : // This Container should be positioned BELOW MAP when visible ?>
 						<div class="entry-product-categories">
-							<h2>Product Categories</h2>
-							<ul class="product-categories-list">
-							<?php
-							foreach($products as $productCategory=>$productCategoryProducts) {
-								echo "<li>{$productCategoryProducts["name"]}</li>\n";
-							}
-							?>
+							<h2 class="greenHeader">Product Categories</h2>
+							<ul class="product-categories-list page-block">
+								<?php
+								foreach($products as $productCategory=>$productCategoryProducts) {
+									echo "<li><span>{$productCategoryProducts["name"]}</span></li>\n";
+								}
+								?>
 							</ul>
-						</div>
+						</div><!-- end div.entry-product-categories -->
 						<?php endif; ?>
 
+						<div class="entry-top">
+							<h2 class="greenHeader">Partner Information</h2>
+							
+							<div class="page-block parter-info-block">
+								<div class="partner-info-right">
+									
+									<h1 class="entry-title"><?php echo $partner_name; ?></h1>
+									
+									<?php if ($partner_bio): ?>
+									<div class="partner-description entry-content">
+										<?php echo $partner_bio; ?>
+									</div><!-- end div.partner-description -->
+									<?php endif; ?>
+	
+									<?php if ($partner_address): ?>
+									<div class="partner-detail">
+										<h4>Address</h4>
+										<p><?php echo $partner_address; ?></p>
+									</div><!-- end div.partner-detail -->
+									<?php endif; ?>
+	
+									<?php if ($partner_hours): ?>
+									<div class="partner-detail partner-hours">
+										<h4>Hours</h4>
+										<ul>
+										<?php foreach ($partner_hours as $partner_hours_day) {
+											echo "<li>$partner_hours_day</li>\n";
+										} ?>
+										</ul>
+									</div><!-- end div.partner-hours -->
+									<?php endif; ?>
+	
+									<?php if ($partner_phone || $partner_email || $partner_website): ?>
+									<div class="partner-contact">
+										<h4 class="visuallyhidden">Contact Details</h4>
+										<ul>
+											<?php 
+												if ($partner_phone) echo "<li class='partner-phone'><a href='tel:1-{$partner_phone}'>$partner_phone</a></li>";
+												if ($partner_email) echo "<li class='partner-email'><a href=\"mailto:$partner_email\" target=\"_blank\">$partner_email</a></li>";
+												if ($partner_website) echo "<li class='partner-website'><a href=\"$partner_website\" target=\"_blank\">$partner_website</a></li>";
+											?>
+										</ul>
+									</div><!-- end div.partner-contact -->
+									<?php endif; ?>
+								</div><!-- end div.partner-info-right -->
+	
+								<div class="partner-info-left">
+									<div class="owner-details">
+										<h3 class="visuallyhidden">Owner Information</h3>
+	
+										<?php 
+										if ($partner_owner_photo) {
+											echo '<div class="owner-image">';
+												echo wp_get_attachment_image($partner_owner_photo["ID"], "full", false, array("class" => "img-responsive"));
+											echo '</div><!-- end div.owner-image -->';
+										}
+										if ($partner_owner_name) {
+											echo "\n<h3 class=\"owner-name\">$partner_owner_name</h3>\n";
+										}
+										?>
+	
+									</div><!-- end div.owner-details -->
+	
+									<?php if ($partner_facebook || $partner_twitter || $partner_instagram): ?>
+									<div class="partner-social">
+										<h3 class="visuallyhidden">Social Media</h3>
+										<ul>
+											<?php 
+												if ($partner_twitter) echo "<li class='twitter'><a href=\"https://twitter.com/$partner_twitter\" target=\"_blank\"><span>@$partner_twitter</span></a></li>";
+												if ($partner_facebook) echo "<li class='facebook'><a href=\"$partner_facebook\" target=\"_blank\"><span>" . bfblExtractName($partner_facebook) ."</span></a></li>";
+												if ($partner_instagram) echo "<li class='instagram'><a href=\"https://www.instagram.com/$partner_instagram\" target=\"_blank\"><span>@$partner_instagram</span></a></li>"; 
+											?>
+										</ul>
+									</div><!-- end div.partner-social -->
+									<?php endif; ?>
+								</div><!-- end div.partner-info-left; -->
+								
+							</div><!-- end div.parter-info-block -->
+						</div><!-- end div.entry-top -->
+						
 						<div class="entry-product-information">
-							<h2>Product Information</h2>
-							<div class="row">
-								<div class="col-md-3 business-photo">
+							<h2 class="greenHeader">Product Information</h2>
+							
+							<div class="page-block product-info-contents">
+								<div class="product-info-left">
 									<?php 
 									if ($partner_business_photo) {
-										echo wp_get_attachment_image($partner_business_photo["ID"], "full", false, array("class" => "img-responsive"));
+										echo '<div class="business-image">';
+											echo wp_get_attachment_image($partner_business_photo["ID"], "full", false, array("class" => "img-responsive"));
+										echo '</div><!-- end div.business-image -->';
 										if ($partner_name) {
-											echo "\n<p class=\"partner-name\">$partner_name</p>\n";
+											echo "\n<h3 class=\"partner-name\">$partner_name</h3>\n";
 										}
 									} 
 									?>
-								</div>
+								</div><!-- end div.product-info-left -->
 
-								<div class="col-md-8 col-md-offset-1">
-									<div class="partner-detail">
+								<div class="product-info-right">
+									<div class="products-detail">
 										<?php if ($hasProducts) : ?>
-										<div class="entry-product-categories">
+										<div class="entry-product-categories entry-content">
 											<h3>Products Available</h3>
 											<?php
 											$productsAvailable = array();
@@ -319,16 +340,18 @@ get_header(); ?>
 											}
 
 											?>
-										</div>
+										</div><!-- end div.entry-product-categories -->
 										<?php endif; ?>
 
-									</div>
-								</div>
-							</div>							
-						</div>
+									</div><!-- end div.products-detail -->
+								</div><!-- end div.product-info-right -->
+								
+							</div><!-- end div.product-info-contents -->						
+						</div><!-- end div.entry-product-information -->
 						
-					</section>
+					</section><!-- end section.partner-content -->
 
-				</article>
-			</section>
+				</article><!-- end article.partner-profile -->
+				<?php get_template_part("bfbl", "chips"); ?>
+			</section><!-- end section.main-content -->
 <?php get_footer(); ?>
