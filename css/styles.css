@@ -1625,14 +1625,19 @@ body.page-template-page_why-buy-local .page-block {
 }
 
 .chip {
-	display: inline-block;
-	vertical-align: bottom;
-	width: 33.33%;
+	display: block;
 	padding: 0 14px; padding: 0 0.875rem;
 	position: relative;
+	text-align: center;
 }
 
-.chip a {
+li.chip {
+	display: inline-block;
+	vertical-align: bottom;
+	width: 33.33%;	
+}
+
+.chip a.chipLink {
 	display: block;
 	text-decoration: none;
 }
@@ -1649,7 +1654,7 @@ body.page-template-page_why-buy-local .page-block {
 	padding-top: 12px; padding-top: 0.75rem;
 }
 
-.chip:hover .chipTitle {
+.chip a.chipLink:hover .chipTitle {
 	color: #1a3281;
 }
 
@@ -1684,6 +1689,10 @@ body.page-template-page_why-buy-local .page-block {
 	overflow: hidden;
 }
 
+.chip .chipBtnWrap {
+	display: block;
+	margin-top: 40px; margin-top: 2.5rem;
+}
 
 /* ANIMATED HEADER */
 .animated-header {
@@ -2409,12 +2418,13 @@ body.single-events .entry-content .post-meta {
 	padding: 0!important;
 }
 
-.acf-map {
-	width: auto;
-	height: 486px; height: 30.375rem;
+.acf-map-wrap {
+	background: #f7ecd5;
 }
 
-.partner-profile .acf-map {
+.acf-map {
+	width: auto;
+/*	height: 486px; height: 30.375rem; */
 	height: 240px; height: 15rem;
 }
 
@@ -2464,7 +2474,8 @@ body.single-events .entry-content .post-meta {
 	font-size: 26px; font-size: 1.625rem;
 }
 
-.partner-profile .page-block h4 {
+.partner-profile .page-block h4,
+.map-subhead {
 	font-family: 'blue_highway_bold';
 	text-transform: uppercase;
 	color: #008c5c;
@@ -2609,6 +2620,167 @@ body.single-events .entry-content .post-meta {
 	background: #003f29;
 }
 
+/* FIND LOCAL FOOD - MAP PAGE */
+.map-subhead {
+	/* picks up some styles from the partner pages */
+	font-size: 16px; font-size: 1rem;
+	line-height: 18px; line-height: 1.125rem;
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+
+.map-checkboxes label {
+	display: block;
+	font-weight: normal;
+	max-width: 360px;
+	margin: 0 auto;
+	cursor: pointer;
+}
+
+.map-checkboxes label input {
+	display: none;
+}
+
+.map-checkboxes label span {
+	display: block;
+	color: #555555;
+	font-size: 14px; font-size: 0.875rem;
+	line-height: 1;
+	padding-left: 34px;
+	padding-top: 14px; padding-top: 0.875rem;
+	padding-bottom: 14px; padding-bottom: 0.875rem;
+	position: relative;	
+}
+
+
+.map-checkboxes label span::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 50%; left: 0;
+	width: 20px; /* cq, not rems */
+	height: 20px;
+	margin-top: -11px;
+	background-image: url('../images/bfbl_sprite_checkbox.png');
+	background-repeat: no-repeat;
+	background-size: 20px 95px;
+	background-position: 0 0;
+}
+
+.map-checkboxes label input[type=checkbox]:checked + span::before {
+	background-position: 0 -25px;
+}
+
+.map-specific-prods .map-subhead {
+	margin-bottom: 16px; margin-bottom: 1rem;
+}
+
+.map-specific-prods label {
+	/* this is a *parent* element for the whole .chosen dropdown */
+	display: block;
+	font-weight: normal;
+	max-width: 540px; max-width: 33.75rem;
+}
+
+.map-specific-prods .chosen-container {
+	width: 100%!important;
+	font-size: 14px; font-size: 0.875rem;
+}
+
+.map-specific-prods .chosen-container-multi .chosen-choices {
+	border: 1px solid #999999;
+	box-shadow: none;
+	background: #ffffff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	padding: 8px 18px; padding: 0.5rem 1.125rem;
+}
+
+.map-specific-prods .chosen-container-multi .chosen-choices li.search-field {
+	margin: 6px 0; margin: 0.375rem 0;
+	padding: 4px 0;
+}
+
+.map-specific-prods .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+	color: #999999; /* PLACEHOLDER COLOR */
+	font-family: 'Clear Sans';
+	font-size: 14px; font-size: 0.875rem;
+	margin: 0;
+	height: 26px; height: 1.625rem;
+}
+
+.map-specific-prods .chosen-container-active .chosen-choices li.search-field input[type="text"] {
+	color: #555555!important; /* INPUT COLOR */
+}
+
+.map-specific-prods .chosen-container .chosen-drop {
+	width: 94%;
+	border: 1px solid #999999;
+}
+
+.map-specific-prods .chosen-container.chosen-with-drop .chosen-drop {
+	left: 3%;
+	margin-top: -1px;
+}
+
+.map-specific-prods .chosen-container .chosen-results li {
+	 padding: 12px 14px; padding: 0.75rem 0.875rem;
+	 border-top: 1px solid #e5e5e5;
+}
+
+.map-specific-prods .chosen-container .chosen-results li:first-child {
+	border-top: 0;
+}
+
+
+.map-specific-prods .chosen-container .chosen-results li.active-result {
+	color: #555555;
+}
+
+.map-specific-prods .chosen-container-multi .chosen-drop .result-selected {
+	color: #999999;
+}
+
+.map-specific-prods .chosen-container .chosen-results li.highlighted {
+	color: #ffffff;
+	background: #008b5c;	
+}
+
+.map-specific-prods .chosen-container-multi .chosen-choices li.search-choice {
+	font-size: 14px; font-size: 0.875rem;
+	line-height: 1;
+	margin: 6px 12px 6px 0; margin: 0.375rem 0.75rem 0.375rem 0;
+	padding: 10px 38px 10px 12px; padding: 0.625rem 2.375rem 0.625rem 0.75rem;
+	background: #008c5c;
+	color: #ffffff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;	
+	border: 0;
+}
+
+.map-specific-prods .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
+	top: 1px; right: 0; bottom: 1px;
+	width: 26px; width: 1.625rem;
+	height: auto;
+	border-left: 1px solid #007c51;
+	background: transparent;
+	color: #015c3c;
+	
+/*
+  position: absolute;
+  top: 4px;
+  right: 3px;
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: url('chosen-sprite.png') -42px 1px no-repeat;
+  font-size: 1px;
+ */	
+}
+
 
 /* 404 PAGE */
 body.error404 .main-content {
@@ -2685,7 +2857,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-top: -1px;
 	}
 	
-	.chips-block {
+	.chips-block,
+	.map-chip {
 		position: absolute;
 		clip: rect(0,1px,1px,0);
 		overflow: hidden;
@@ -3503,11 +3676,11 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		clear: both;
 	}
 	
-	.partner-profile .page-block.acf-map-wrap {
+	.page-block.acf-map-wrap {
 		padding: 0;
 	}
     
-	.partner-profile .acf-map {
+	.acf-map {
 		height: 320px; height: 20rem;
 	}
     
@@ -3613,6 +3786,41 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.products-detail .entry-product-categories h3 {
 		text-align: left;
 	}
+
+	/* FIND LOCAL FOOD - MAP PAGE - TABLET */
+	
+	.map-checkboxes label {
+		display: inline-block;
+		width: 200px; width: 12.5rem;
+		margin-right: 16px; margin-right: 1rem;
+		margin-bottom: 8px; margin-bottom: 0.5rem;
+	}
+
+	.page-block.map-specific-prods {
+		padding-top: 0;
+	}
+
+	
+	.map-page-middle::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	
+	.finder-search-results {
+		float: left;
+		width: 66%;
+		padding-right: 12px; padding-right: 0.75rem;
+	}
+
+	.map-chip {
+		float: right;
+		width: 33%;
+		padding-right: 12px; padding-right: 0.75rem;
+		padding-left: 12px; padding-left: 0.75rem;
+	}
+	
+
 
 	/* 404 PAGE - TABLET */
 	body.error404 .main-content {

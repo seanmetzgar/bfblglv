@@ -4,11 +4,14 @@
  * @subpackage Buy_Local_GLV
  * @since Buy Local GLV 1.0.0
  */
- 	$page_object = get_queried_object();
-	$page_id     = get_queried_object_id();
-	$page_template = get_post_meta($page_id, "_wp_page_template");
-	$page_template = is_array($page_template) ? $page_template[0] : false;
-	$chipLoader = ($page_template === "page_find-local-food.php") ? $page_id : "option";
+ 
+ //	$page_object = get_queried_object();
+//	$page_id     = get_queried_object_id();
+//	$page_template = get_post_meta($page_id, "_wp_page_template");
+//	$page_template = is_array($page_template) ? $page_template[0] : false;
+//	$chipLoader = ($page_template === "page_find-local-food.php") ? $page_id : "option";
+
+	$chipLoader = 'option';
 	$chipsOutput = "";
 	
 	if(have_rows('chips', $chipLoader)):
@@ -24,7 +27,7 @@
 						$chipLink = get_sub_field('chip_page');
 						
 						$chipsOutput .= "<li class='chip'>";
-							$chipsOutput .= "<a href='$chipLink'>";
+							$chipsOutput .= "<a href='$chipLink' class='chipLink'>";
 								$chipsOutput .= "<span class='chipImg' style='background-image: url(" . $chipImg['sizes']['medium'] . ")'>";
 									$chipsOutput .= "<img src='" . $chipImg['sizes']['thumbnail'] . "' alt='' />";
 								$chipsOutput .= "</span>";
@@ -38,16 +41,6 @@
 			$chipsOutput .= '</nav>';
 		$chipsOutput .= '</section><!-- end section.chips-block -->';
 	endif; // end the have_rows() test
-
-
-
-$chipsOutput .= "";
-
-
-
-
-
-
 
 	echo $chipsOutput;
 ?>
