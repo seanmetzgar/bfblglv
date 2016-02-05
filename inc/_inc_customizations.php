@@ -41,25 +41,11 @@ function kudu_custom_post_types() {
 
     if( function_exists("acf_add_options_page") ) {
         acf_add_options_page(array(
-            "page_title"        => "News & Events Settings",
-            "menu_title"        => "News & Events Settings",
-            "menu_slug"         => "options_news_events",
-            "capability"        => "edit_posts",
-            "position"          => 7
-        ));
-        acf_add_options_page(array(
             "page_title"        => "BFBL Settings",
             "menu_title"        => "BFBL Settings",
             "menu_slug"         => "options_company",
             "capability"        => "edit_posts",
             "position"          => 9
-        ));
-        acf_add_options_page(array(
-            "page_title"        => "Resources Settings",
-            "menu_title"        => "Resources Settings",
-            "menu_slug"         => "options_resources",
-            "capability"        => "edit_posts", 
-            "parent_slug"       => "edit.php?post_type=resources"
         ));
     }
 
