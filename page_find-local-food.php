@@ -8,6 +8,7 @@
  */
 get_header();
 ?>
+			<?php get_template_part("entry", "partner-header"); ?>
 			<div class="acf-map results-map"></div>
 			<section class="main-content" role="main">
 				<form id="find-local-food-form">
