@@ -192,7 +192,7 @@ get_header(); ?>
 					}				
 				?>
 				<article id="partner-<?php the_ID(); ?>" class="partner-profile">
-					<?php get_template_part("entry", "flf-header"); ?>
+					<?php get_template_part("entry", "partner-header"); ?>
 					
 <!-- temptemptemp - back button -->
 					<a href="#null" class="back-button parentArrow">Browse Local Food</a>
