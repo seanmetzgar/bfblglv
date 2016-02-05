@@ -202,8 +202,52 @@
 	$(document).ready(function(){
 		$('.acf-map').each(function(){
 			render_map( $(this) );
-		});
+		}).on("re-render", function() {
+			render_map( $(this) );
+		})
 	});
 
 })(jQuery);
 // END ACF Map
+
+
+//XHR Stuff
+
+function xhrGetPartnersHandler(data) {
+	var mapHTML = "",
+		resultsHTML = "",
+		resultsTotal = 0;
+	if (typeof data === "object") {
+		resultsTotal = data.length;
+		resultsTotal = (isNaN(resultsTotal)) ? 0 : resultsTotal;
+		console.log(data);
+		$(data).each(function () {
+			var tempName = false,
+				tempURL = false,
+				tempLat = false,
+				tempLng = false;
+
+			tempName = (this.name.length > 0) ? this.name : false;
+			tempURL = (this.url.length > 0) ? this.url : false;
+			tempLat = (this.lat.length > 0) ? this.lat : false;
+			tempLng = (this.lng.length > 0) ? this.lng : false;
+			
+			if (tempName && tempURL && tempLat && tempLng) {
+				tempHTML = "<div class=\"marker\" data-lat=\"" + tempLat + "\" data-lng=\"" + tempLng + "\">";
+				tempHTML = tempHTML + "<h4><a href=\"" + tempURL + "\">" + tempName + "</a></h4>";
+				tempHTML = tempHTML + "</div>";
+				mapHTML = mapHTML + tempHTML;
+				tempHTML = "";
+			}
+			if (tempName && tempURL) {
+				tempResultHTML = "<li><a href=\"" + tempURL + "\">" + tempName + "</a></li>";
+				resultsHTML = resultsHTML + tempResultHTML;
+			}
+		});
+	}
+	$(".acf-map").empty().html(mapHTML).each(function () {
+		$(this).trigger("re-render");
+	});
+	$(".finder-search-results").find(".results-list").empty().html(resultsHTML);
+	$(".finder-search-results").find(".results-total .count").empty().html(resultsTotal);
+}
