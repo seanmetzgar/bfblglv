@@ -1,4 +1,12 @@
 <?php 
+	$current_partner = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
+	$current_partner_ID = $current_partner->ID;
+	$current_partner_data = get_userdata($current_partner_ID);
+	$partner_category = $current_partner_data->roles;
+	$acf_partner_id = "user_{$current_partner_ID}";
+
+	$partner_map = get_field("partner_map", $acf_partner_id);
+	
 	$parent_id = get_field("flf_parent_page", "option");
 	$has_post_thumbnail = ( has_post_thumbnail($parent_id) );
 	$entry_header_class = $has_post_thumbnail ? "page-header has-image" : "page-header no-image";
