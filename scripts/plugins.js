@@ -23,53 +23,54 @@
 			zoom		: 13,
 			center		: new google.maps.LatLng(0, 0),
 			mapTypeId	: google.maps.MapTypeId.ROADMAP,
+			scrollwheel : false,
 			styles      : [
-    {
-        "featureType": "all",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "on"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "transit",
-        "elementType": "all",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "all",
-        "stylers": [
-            {
-                "color": "#effefd"
-            }
-        ]
-    }
-]
+			    {
+			        "featureType": "all",
+			        "elementType": "labels",
+			        "stylers": [
+			            {
+			                "visibility": "off"
+			            }
+			        ]
+			    },
+			    {
+			        "featureType": "administrative",
+			        "elementType": "labels",
+			        "stylers": [
+			            {
+			                "visibility": "on"
+			            }
+			        ]
+			    },
+			    {
+			        "featureType": "road",
+			        "elementType": "all",
+			        "stylers": [
+			            {
+			                "visibility": "on"
+			            }
+			        ]
+			    },
+			    {
+			        "featureType": "transit",
+			        "elementType": "all",
+			        "stylers": [
+			            {
+			                "visibility": "off"
+			            }
+			        ]
+			    },
+			    {
+			        "featureType": "water",
+			        "elementType": "all",
+			        "stylers": [
+			            {
+			                "color": "#effefd"
+			            }
+			        ]
+			    }
+			]
 		};
 
 		// create map	        	
