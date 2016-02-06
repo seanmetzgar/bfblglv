@@ -66,7 +66,7 @@ function xhrGetPartners() {
 
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 		header('Content-Type: application/json');
-    	echo $result;
+    	echo "hello";
    	} else {
       	header("Location: ".$_SERVER["HTTP_REFERER"]);
    	}
