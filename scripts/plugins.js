@@ -50,7 +50,7 @@
 			        "elementType": "all",
 			        "stylers": [
 			            {
-			                "visibility": "on"
+			                "visibility": "off"
 			            }
 			        ]
 			    },
