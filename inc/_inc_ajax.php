@@ -10,9 +10,6 @@ class MapPartner {
 add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
 
 function xhrGetPartners() {
-	// if ( !wp_verify_nonce( $_REQUEST['nonce'], "my_user_vote_nonce")) {
- //      exit("No naughty business please");
- //   	}
    	$tempPartners = array();
    	$returnPartners = array();
 	$farmPartners = get_users(array(
@@ -64,12 +61,9 @@ function xhrGetPartners() {
 	});
 	$result = json_encode($returnPartners);
 
-	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-		header('Content-Type: application/json');
+	header('Content-Type: application/json');
     	echo "hello";
-   	} else {
-      	header("Location: ".$_SERVER["HTTP_REFERER"]);
-   	}
+    	
 
    	die();
 }
