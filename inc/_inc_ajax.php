@@ -8,7 +8,7 @@ class MapPartner {
 }
 
 add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
-add_action("wp_ajax_noaction_xhrGetPartners", "xhrGetPartners");
+add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
 
 function xhrGetPartners() {
    	$tempPartners = array();
