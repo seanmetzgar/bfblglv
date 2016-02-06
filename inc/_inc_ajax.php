@@ -7,6 +7,7 @@ class MapPartner {
 	public $lng = false;
 }
 
+add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
 
 function xhrGetPartners() {
@@ -63,7 +64,7 @@ function xhrGetPartners() {
 
 	header('Content-Type: application/json');
     	echo "hello";
-    	
+
 
    	die();
 }
