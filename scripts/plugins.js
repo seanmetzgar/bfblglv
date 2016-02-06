@@ -26,6 +26,8 @@
 			scrollwheel : false,
 			streetViewControl : false,
 			mapTypeControl : false,
+			mizZoom 	: 3, 
+			maxZoom 	: 16,
 			styles      : [
 			    {
 			        "featureType": "all",
