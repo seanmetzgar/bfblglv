@@ -24,6 +24,8 @@
 			center		: new google.maps.LatLng(0, 0),
 			mapTypeId	: google.maps.MapTypeId.ROADMAP,
 			scrollwheel : false,
+			streetViewControl : false,
+			mapTypeControl : false,
 			styles      : [
 			    {
 			        "featureType": "all",
