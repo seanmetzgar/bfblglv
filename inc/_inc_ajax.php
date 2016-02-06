@@ -7,12 +7,12 @@ class MapPartner {
 	public $lng = false;
 }
 
-add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
 
 function xhrGetPartners() {
    	$tempPartners = array();
    	$returnPartners = array();
+
 	$farmPartners = get_users(array(
 		"role" => "farm"
 	));
@@ -40,7 +40,9 @@ function xhrGetPartners() {
 	$retailPartners = get_users(array(
 		"role" => "retail"
 	));
+	
 	$tempPartners = array_merge($farmPartners, $fmPartners, $restaurantPartners, $vineyardPartners, $distilleryPartners, $institutionPartners, $distributorPartners, $specialtyPartners, $retailPartners);
+	
 	foreach ($tempPartners as $partnerKey=>$partner) {
 		$tempObj = new MapPartner;
 		$tempObj->id = $partner->ID;
@@ -57,14 +59,22 @@ function xhrGetPartners() {
 		$tempName = null;
 		$tempMap = null;
 	}
+
 	usort($returnPartners, function($a, $b) {
 	    return $a->name - $b->name;
 	});
+
 	$result = json_encode($returnPartners);
 
-	header('Content-Type: application/json');
-    	echo "hello";
+// 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+// 		header('Content-Type: application/json');
+//    	echo $result;
+//   } else {
+//      header("Location: ".$_SERVER["HTTP_REFERER"]);
+//   }
 
+	header('Content-Type: application/json');
+	echo $result;
 
    	die();
 }
