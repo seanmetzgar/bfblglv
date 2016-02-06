@@ -8,6 +8,7 @@ class MapPartner {
 }
 
 add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
+add_action("wp_ajax_noaction_xhrGetPartners", "xhrGetPartners");
 
 function xhrGetPartners() {
    	$tempPartners = array();
@@ -40,7 +41,7 @@ function xhrGetPartners() {
 	$retailPartners = get_users(array(
 		"role" => "retail"
 	));
-	
+
 	$tempPartners = array_merge($farmPartners, $fmPartners, $restaurantPartners, $vineyardPartners, $distilleryPartners, $institutionPartners, $distributorPartners, $specialtyPartners, $retailPartners);
 	
 	foreach ($tempPartners as $partnerKey=>$partner) {
