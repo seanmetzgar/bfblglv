@@ -49,7 +49,7 @@ function xhrGetPartners() {
    	$tempPartners = array();
    	$returnPartners = array();
 
-	$farmPartners = get_users(array(
+	$tempPartners = get_users(array(
 		"role" => "farm",
 		"meta_key" => "products_greens",
 		"meta_value" => "Arugula"
