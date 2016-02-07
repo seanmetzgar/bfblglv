@@ -11,38 +11,75 @@ add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
 
 function xhrGetPartners() {
+	$allLocationTypes = array(
+		"farm", "farmers-market",
+		"restaurant", "vineyard",
+		"distillery", "institution",
+		"distributor", "specialty",
+		"retail"
+	);
+
+	$allProductTypes = array(
+		"greens", "roots", "seasonal", 
+		"melons", "herbs", "berries", 
+		"small_fruits", "grains", "value_added", 
+		"flowers", "plants", "ornamentals", 
+		"syrups", "dairy", "meat", 
+		"poultry", "agritourism", "fibers", 
+		"artisinal", "liquids", "educational", 
+		"baked", "seeds", "misc"
+	);
+
+	$locationTypes = (isset($_POST["location_type"])
+		&& is_array($_POST["location_type"])
+		&& count($_POST["location_type"] > 0)) ? 
+			$_POST["location_type"] : 
+			$allLocationTypes;
+
+	$productTypes = (isset($_POST["product_type"])
+		&& is_array($_POST["product_type"])
+		&& count($_POST["product_type"] > 0)) ? 
+			$_POST["product_type"] : 
+			$allLocationTypes;
+
+	//These will be fun to search for if FARM is not checked...
+	$isCSA = isset($_POST["is_csa"]) && $_POST["is_csa"] === "1" ? true : false;
+	$isFarmShare = isset($_POST["is_farm_share"]) && $_POST["is_farm_share"] === "1" ? true : false;
+
    	$tempPartners = array();
    	$returnPartners = array();
 
 	$farmPartners = get_users(array(
-		"role" => "farm"
+		"role" => "farm",
+		"meta_key" => "products_greens",
+		"meta_value" => "Arugula"
 	));
-	$fmPartners = get_users(array(
-		"role" => "farmers-market"
-	));
-	$restaurantPartners = get_users(array(
-		"role" => "restaurant"
-	));
-	$vineyardPartners = get_users(array(
-		"role" => "vineyard"
-	));
-	$distilleryPartners = get_users(array(
-		"role" => "distillery"
-	));
-	$institutionPartners = get_users(array(
-		"role" => "institution"
-	));
-	$distributorPartners = get_users(array(
-		"role" => "distributor"
-	));
-	$specialtyPartners = get_users(array(
-		"role" => "specialty"
-	));
-	$retailPartners = get_users(array(
-		"role" => "retail"
-	));
+	// $fmPartners = get_users(array(
+	// 	"role" => "farmers-market"
+	// ));
+	// $restaurantPartners = get_users(array(
+	// 	"role" => "restaurant"
+	// ));
+	// $vineyardPartners = get_users(array(
+	// 	"role" => "vineyard"
+	// ));
+	// $distilleryPartners = get_users(array(
+	// 	"role" => "distillery"
+	// ));
+	// $institutionPartners = get_users(array(
+	// 	"role" => "institution"
+	// ));
+	// $distributorPartners = get_users(array(
+	// 	"role" => "distributor"
+	// ));
+	// $specialtyPartners = get_users(array(
+	// 	"role" => "specialty"
+	// ));
+	// $retailPartners = get_users(array(
+	// 	"role" => "retail"
+	// ));
 
-	$tempPartners = array_merge($farmPartners, $fmPartners, $restaurantPartners, $vineyardPartners, $distilleryPartners, $institutionPartners, $distributorPartners, $specialtyPartners, $retailPartners);
+	//$tempPartners = array_merge($farmPartners, $fmPartners, $restaurantPartners, $vineyardPartners, $distilleryPartners, $institutionPartners, $distributorPartners, $specialtyPartners, $retailPartners);
 	
 	foreach ($tempPartners as $partnerKey=>$partner) {
 		$tempObj = new MapPartner;
