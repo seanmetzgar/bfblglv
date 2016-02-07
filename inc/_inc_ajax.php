@@ -51,8 +51,11 @@ function xhrGetPartners() {
 
 	$tempPartners = get_users(array(
 		"role" => "farm",
-		"meta_key" => "products_greens",
-		"meta_value" => "Arugula"
+		"meta_query" => array(array( 
+			"key" => "products_greens",
+			"value" => "Arugula",
+			"compare" => "IN"
+		))
 	));
 	// $fmPartners = get_users(array(
 	// 	"role" => "farmers-market"
