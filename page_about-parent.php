@@ -26,6 +26,7 @@ get_header(); ?>
 
 					<section class="entry-content">
 						<?php the_content(); ?>
+						<?php get_template_part("bfbl", "gallery"); ?>
 					</section>
 
 					<?php get_template_part("bfbl", "page-blocks"); ?>

@@ -6,7 +6,7 @@
  */
 get_header(); ?>
 			<section class="main-content" role="main">
-				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
+				<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 					$has_post_thumbnail = has_post_thumbnail();
 				?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -14,13 +14,7 @@ get_header(); ?>
 
 					<section class="entry-content<?php if ($has_post_thumbnail) echo " has-image"; ?>">
 						<h1 class="entry-title"><?php the_title(); ?></h1>
-<?php
-/* NOT IN USE:
-						<p class="post-meta">
-							<span class="date"><?php the_field("event_date"); ?></span>
-						</p>
-*/
-?>
+
 						<?php // edit_post_link(); ?>
 						<?php if ($has_post_thumbnail): ?>
 						<div class="image resourceImage">
@@ -29,7 +23,7 @@ get_header(); ?>
 						<?php endif; ?>
 						<?php the_content(); ?>
 
-						<?php if (have_rows("downloads")): 
+						<?php if (have_rows("downloads")):
 						echo "<h2 class='resourceSubhead'>Downloads</h2>";
 						while (have_rows("downloads")): the_row();
 							$file = get_sub_field("file");

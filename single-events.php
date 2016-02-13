@@ -6,7 +6,7 @@
  */
 get_header(); ?>
 			<section class="main-content" role="main">
-				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
+				<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 					$has_video = get_field("has_video");
 					$has_video = is_bool($has_video) ? $has_video : false;
 					$video = $has_video ? get_field("video") : false;
@@ -15,13 +15,13 @@ get_header(); ?>
 					<?php get_template_part("entry", "news-events-header"); ?>
 
 					<section class="entry-content<?php if ($has_video) echo " has-video"; ?>">
-						
+
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 						<p class="post-meta">
 							<span class="date"><?php the_field("event_date"); ?></span>
 						</p>
 						<?php // edit_post_link(); ?>
-						
+
 						<?php if ($has_video): ?>
 						<div class="video">
 							<div class="videoWrap">
@@ -29,8 +29,9 @@ get_header(); ?>
 							</div><!-- end div.videoWrap -->
 						</div><!-- end div.video -->
 						<?php endif; ?>
-						
+
 						<?php the_content(); ?>
+						<?php get_template_part("bfbl", "gallery"); ?>
 					</section>
 
 					<?php get_template_part("bfbl", "page-blocks"); ?>

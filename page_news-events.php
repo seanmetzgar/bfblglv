@@ -27,6 +27,7 @@ get_header(); ?>
 						if($bfblPageContent) {
 							echo '<section class="entry-content">';
 								the_content();
+								get_template_part("bfbl", "gallery");
 							echo '</section>';
 						}
 					?>

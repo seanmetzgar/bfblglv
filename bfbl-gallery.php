@@ -1,4 +1,10 @@
 <?php
+/**
+ * @package WordPress
+ * @subpackage Buy_Local_GLV
+ * @since Buy Local GLV 1.0.0
+ */
+
 	$galleryOutput = "";
 	$galleryID = 0;
 
