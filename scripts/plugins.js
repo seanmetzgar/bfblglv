@@ -20,14 +20,14 @@
 
 		// vars
 		var args = {
-			zoom		: 13,
-			center		: new google.maps.LatLng(0, 0),
+			zoom		: 6,
+			center		: new google.maps.LatLng(40.6906001,-75.2158619),
 			mapTypeId	: google.maps.MapTypeId.ROADMAP,
 			scrollwheel : false,
 			streetViewControl : false,
 			mapTypeControl : false,
-			mizZoom 	: 3, 
-			maxZoom 	: 16,
+			minZoom 	: 6, 
+			maxZoom 	: 18,
 			styles      : [
 			    {
 			        "featureType": "all",
@@ -364,6 +364,16 @@
 }));
 
 //XHR Stuff
+function xhrGetPartners(formObject) {
+	$.ajax({
+		type : "post",
+		dataType : "json",
+		url : KuduAJAX.ajaxUrl,
+		data : formObject,
+		success: xhrGetPartnersHandler
+  	});
+}
+
 function xhrGetPartnersHandler(data) {
 	var mapHTML = "",
 		resultsHTML = "",

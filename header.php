@@ -13,9 +13,13 @@
 	
 		$bfblAncestry = array_merge($bfblAncestors,array($bfblPageID));
 
+	} elseif (is_author()) {
+		$bfblParentId = get_field("flf_parent_page", "option");
+		if($bfblParentId) $bfblAncestry = array($bfblParentId);
+		
 	} elseif (is_singular(array('news','events'))) {
 		$bfblParentId = get_field("ne_child_back_page", "option");
-		$bfblAncestry = array($bfblParentId);
+		if($bfblParentId) $bfblAncestry = array($bfblParentId);
 		
 	} elseif (is_singular('resources')) {
 		$bfblAncestry = array(999999); // the flag to activate the 'resources' menu item
@@ -133,10 +137,10 @@
 	$bfblMenuDrawer .= "<div class='drawerSearch'>";
 		$bfblMenuDrawer .= "<div class='searchBtnWrap'>";
 			$bfblMenuDrawer .= '<button class="buttonSearch">Find</button>';
-		$bfblMenuDrawer .= "</div><!- end div.searchBtnWrap -->";
+		$bfblMenuDrawer .= "</div><!-- end div.searchBtnWrap -->";
 		$bfblMenuDrawer .= "<div class='searchFormWrap'>";
 			$bfblMenuDrawer .= get_search_form(FALSE);
-		$bfblMenuDrawer .= "</div><!- end div.searchBtnWrap -->";
+		$bfblMenuDrawer .= "</div><!-- end div.searchBtnWrap -->";
 	$bfblMenuDrawer .= "</div><!-- div.drawerSearch -->";
 	
 	

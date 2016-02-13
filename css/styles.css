@@ -90,7 +90,7 @@ body, .drawerNav, .site-header, .footer {
   -webkit-font-smoothing: antialiased;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-shadow: 0 0 0 #000;
+/*  text-shadow: 0 0 0 #000; - turning this off, because it makes all the fonts darker */
 }
 
 /* resets */
@@ -121,7 +121,8 @@ button {
 }
 
 .screen-reader-text,
-.visuallyhidden {
+.visuallyhidden,
+.bfblSlider.initialClosed .bfblSlideWrap {
 	position: absolute;
 	clip: rect(1px, 0, 0, 1px);
 	overflow: hidden;
@@ -1568,29 +1569,50 @@ body.page-template-page_why-buy-local .page-block {
 	background: #008c5c;
 }
 
-.parentArrow::before {
+.parentArrow::before,
+.bfblSlider .greenHeader::before,
+label.greenHeader::before {
 	font-family: 'fontello';
-	content: '\e80d';
+	content: '';
 	display: inline-block;
 	vertical-align: middle;
 	font-size: 40px; font-size: 2.5rem;
-	margin-right: 2.4%;
+	width: 36px; width: 2.25rem;
+	margin-right: 3.4%;
+	text-align: center;
 }
 
-.parentArrow:hover {
+.parentArrow::before {
+	content: '\e80d';
+}
+
+.bfblSlider.sliderOpen .greenHeader::before {
+	content: '\e812';
+}
+
+.bfblSlider.sliderClosed .greenHeader::before {
+	content: '\e811';
+}
+
+.parentArrow:hover,
+.bfblSlider .greenHeader:hover,
+label.greenHeader:hover {
 	background: #003f29;
+	cursor: pointer;
 }
 
 .greenHeader {
 	margin-top: 0;
 }
 
-.greenHeader::before {
-	/* matches the width of .parentArrow::before */
-	content: '';
-	display: inline-block;
-	width: 19px; width: 1.1875rem;
-	margin-right: 2.4%;
+.bfblSlider {
+	border-style: solid;
+	border-color: #ffffff;
+	border-width: 0;	
+}
+
+.bfblSlider.sliderClosed {
+	border-bottom-width: 1px;
 }
 
 /* PAGE CHIPS */
@@ -1669,7 +1691,7 @@ li.chip {
 
 .chip .chipDescr {
 	display: block;
-	font-size: 14px; font-size: 0.875;
+	font-size: 14px; font-size: 0.875rem;
 	line-height: 1;
 	color: #999999;
 	padding-top: 16px; padding-top: 1rem;
@@ -2486,7 +2508,7 @@ body.single-events .entry-content .post-meta {
 }
 
 .partner-detail {
-	color: #555555;
+	color: #72706b;
 	text-align: center;
 	font-size: 14px; font-size: 0.875rem;
 	line-height: 20px; line-height: 1.25rem;
@@ -2509,25 +2531,71 @@ body.single-events .entry-content .post-meta {
 
 .partner-contact li a {
 	display: block;
-	color: #555555;
+	color: #72706b;
 	font-weight: bold;
 	font-size: 14px; font-size: 0.875rem;
 	line-height: 1;
 	text-decoration: none;
+	padding-top: 50px; padding-top: 3.125rem;
+	position: relative;
 }
 
 .partner-contact li a:hover {
 	color: #1a3281;
 }
 
-.partner-contact li a::before {
+.partner-contact li a::before, 
+.partner-contact li a::after {
 	content: '';
 	display: block;
-	height: 38px; height: 2.375rem;
-	line-height: 38px; line-height: 2.375rem;
-	font-size: 38px; font-size: 2.375rem;
-	background: #555555; /* temptemptemp */
+	width: 36px; width: 2.25rem;
+	height: 36px; height: 2.25rem;
+	line-height: 36px; line-height: 2.25rem;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -18px; margin-left: -1.125rem;
 }
+
+
+.partner-contact li a::before {
+	background: #72706b;	
+	-webkit-border-radius: 20px; -webkit-border-radius: 1.25rem;
+	-moz-border-radius: 20px; -moz-border-radius: 1.25rem;
+	border-radius: 20px; border-radius: 1.25rem;
+
+}
+
+.partner-contact li a:hover::before {
+	background: #1a3281;
+}
+
+.partner-contact li a::after {
+	font-family: 'fontello';
+	font-weight: normal;
+	color: #f7ecd5;
+	font-size:24px; font-size: 1.5rem;
+}
+
+.partner-contact li.partner-phone a::after {
+	content: '\e813';
+	margin-top: 1px;
+}
+
+
+.partner-contact li.partner-email a::after {
+	content: '\e810';
+	font-size: 18px; font-size: 1.125rem;
+}
+
+.partner-contact li.partner-website a::after {
+	content: '\e815';	
+}
+
+
+
+
+
 
 .owner-image,
 .business-image {
@@ -2620,10 +2688,16 @@ body.single-events .entry-content .post-meta {
 	background: #003f29;
 }
 
+.product-info-contents .entry-product-categories,
+.product-info-contents .entry-product-wheretobuy,
+.product-info-contents .entry-product-hours {
+	margin-bottom: 40px; margin-bottom: 2.5rem;
+}
+
 /* FIND LOCAL FOOD - MAP PAGE */
 .map-subhead {
 	/* picks up some styles from the partner pages */
-	font-size: 16px; font-size: 1rem;
+	font-size: 16px!important; font-size: 1rem!important;
 	line-height: 18px; line-height: 1.125rem;
 	margin: 0;
 	padding: 0;
@@ -2671,6 +2745,194 @@ body.single-events .entry-content .post-meta {
 .map-checkboxes label input[type=checkbox]:checked + span::before {
 	background-position: 0 -25px;
 }
+
+
+.map-county-zip {
+}
+
+.map-county-zip .county-select-wrap,
+.map-county-zip>span,
+.map-county-zip .zip-input-group {
+	display: block;
+	width: 170px; width: 10.625rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+	
+.map-county-zip>span {
+	margin-top: 6px; margin-top: 0.375rem;
+	margin-bottom: 6px; margin-bottom; 0.375rem;
+	line-height: 34px; line-height: 2.125rem;
+	font-size: 14px; font-size: 0.875rem;
+	text-align: center;
+	color: #999999;
+	text-transform: uppercase;
+}
+
+.zip-input-group {
+	position: relative;
+	border: 1px solid #999999;
+	padding: 6px 50px 6px 12px; padding: 0.375rem 3.125rem 0.375rem 0.75rem;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	margin-bottom: 12px; margin-bottom: 0.75rem;
+}
+
+.zip-input-group .zip-input {
+	font-size: 14px; font-size: 0.875rem;
+	color: #555555;
+	padding: 0;
+	width: 106px; width: 6.625rem;
+}
+
+
+.zip-input-group .zip-input::-webkit-input-placeholder {
+	color: #999999 !important;
+}
+ 
+.zip-input-group .zip-input:-moz-placeholder { /* Firefox 18- */
+	color: #999999 !important;
+}
+ 
+.zip-input-group .zip-input::-moz-placeholder {  /* Firefox 19+ */
+	color: #999999 !important;
+}
+ 
+.zip-input-group .zip-input:-ms-input-placeholder {  
+	color: #999999 !important;
+}
+
+.zip-input-group .zip-btn {
+	position: absolute;
+	top: 0; right: 0; bottom: 0;
+	width: 38px; width: 2.375rem;
+	border-left: 1px solid #999999;
+}
+
+.zip-input-group .zip-btn::after {
+	font-family: 'fontello';
+	content: '\e806';
+	color: #999999;
+	display: block;
+	position: absolute;
+	top: 50%; right: 0; left: 0;
+	text-align: center;
+	margin-top: -11px; margin-top: -0.6875rem;
+	height: 22px; height: 1.375rem;
+	font-size: 18px; font-size: 1.125rem;
+	line-height: 22px; line-height: 1.375rem;
+}
+
+.county-select-wrap {
+	margin-top: 12px; margin-top: 0.75rem;
+}
+
+.county-select-wrap .chosen-container {
+	width: 100%!important;
+	font-size: 14px; font-size: 0.875rem;
+}
+
+.county-select-wrap .chosen-container-single .chosen-single {
+	border: 0;
+	background: #008c5c;
+	box-shadow: none;
+	border-radius: 3px;
+	height: 34px; height: 2.125rem;
+	line-height: 34px; line-height: 2.125rem;
+	color: #ffffff;
+	padding-left: 14px; padding-left: 0.875rem;
+}
+
+.county-select-wrap .chosen-container-single .chosen-default {
+	color: #ffffff;
+}
+
+.county-select-wrap .chosen-container-active .chosen-single {
+	color: #ffffff;
+}
+
+.county-select-wrap .chosen-container-active.chosen-with-drop .chosen-single {
+	color: #ffffff;
+}
+
+/* for the drop-down arrow */
+.county-select-wrap .chosen-single div {
+	bottom: 0;
+	width: 30px; width: 1.875rem;
+	border-left: 1px solid #007c51!important;
+}
+
+.county-select-wrap .chosen-single div::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	margin-top: -2px; margin-top: -0.125rem;
+	margin-right: -4px; margin-right: -0.25rem;
+	/* triangle base: border-left-width + border-right-width */
+	/* triangle height: border-top-width */
+	border-top-width: 4px; border-top-width: 0.25rem;
+	border-top-style: solid;
+	border-top-color: #ffffff;
+	border-right-width: 4px; border-right-width: 0.25rem;
+	border-right-style: solid;
+	border-right-color: transparent;	
+	border-left-width: 4px; border-left-width: 0.25rem;
+	border-left-style: solid;
+	border-left-color: transparent;
+
+	border-bottom-width: 0;
+	border-bottom-style: solid;
+	border-bottom-color: #ffffff;
+}
+
+/* active state */
+.county-select-wrap .chosen-container-active.chosen-with-drop .chosen-single div::before {
+	border-bottom-width: 4px; border-bottom-width: 0.25rem;
+	border-top-width: 0;
+	margin-top: -3px; margin-top: -0.1875rem;
+}
+
+.county-select-wrap .chosen-container-single .chosen-single div b {
+	display: none;
+}
+
+.county-select-wrap .chosen-container .chosen-drop {
+	border: 1px solid #999999;
+	border-top-color: #ffffff;
+	border-radius: 0;
+}
+
+.county-select-wrap .chosen-container .chosen-results {
+	margin:0;
+	padding: 0;
+}
+
+
+.county-select-wrap .chosen-container .chosen-results li {
+	 padding: 12px 14px; padding: 0.75rem 0.875rem;
+	 border-top: 1px solid #e5e5e5;
+}
+
+.county-select-wrap .chosen-container .chosen-results li:first-child {
+	border-top: 0;
+}
+
+.county-select-wrap .chosen-container .chosen-results li.active-result {
+	color: #555555;
+}
+
+.county-select-wrap .chosen-container-multi .chosen-drop .result-selected {
+	color: #999999;
+}
+
+.county-select-wrap .chosen-container .chosen-results li.highlighted {
+	color: #ffffff;
+	background: #008b5c;	
+}
+
 
 .map-specific-prods .map-subhead {
 	margin-bottom: 16px; margin-bottom: 1rem;
@@ -2759,6 +3021,7 @@ body.single-events .entry-content .post-meta {
 	-moz-border-radius: 3px;
 	border-radius: 3px;	
 	border: 0;
+	box-shadow: none;
 }
 
 .map-specific-prods .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
@@ -2767,20 +3030,128 @@ body.single-events .entry-content .post-meta {
 	height: auto;
 	border-left: 1px solid #007c51;
 	background: transparent;
-	color: #015c3c;
-	
-/*
-  position: absolute;
-  top: 4px;
-  right: 3px;
-  display: block;
-  width: 12px;
-  height: 12px;
-  background: url('chosen-sprite.png') -42px 1px no-repeat;
-  font-size: 1px;
- */	
+	color: #016c47;
+	text-shadow: none;
 }
 
+.map-specific-prods .chosen-container-multi .chosen-choices li.search-choice .search-choice-close:hover {
+	color: #ffffff;
+}
+
+.map-specific-prods .chosen-container-multi .chosen-choices li.search-choice .search-choice-close::before {
+	font-family: 'fontello';
+	content: '\e809';
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	line-height: 30px; line-height: 1.875rem;
+	text-align: center;
+	font-size: 14px; font-size: 0.875rem;
+}
+
+
+.wholesale-section label {
+	/* also has .greenHeader styles, including position:relative */
+	margin-bottom: 0;
+	font-weight: inherit;
+	cursor: pointer;
+}
+
+.wholesale-section label span::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 10px; right: 0.625rem;
+/*	margin-right: 10px; margin-right: 0.625rem; */
+	width: 50px; /* cq, px only */
+	height: 50px;
+	margin-top: -25px;
+	background-image: url('../images/bfbl_sprite_giant_checkbox.png');
+	background-repeat: no-repeat;
+	background-size: 50px;
+	background-position: top left;
+}
+
+.wholesale-section label input[type=checkbox]:checked + span::after {
+	background-position: bottom left;
+}
+
+.wholesale-section label input[type=checkbox] {
+	display: none;
+}
+
+.finder-search-results .map-subhead {
+	padding-top: 24px; padding-top: 1.5rem;
+	margin-bottom: 12px; margin-bottom: 0.75rem;
+	text-align: left;
+}
+
+.finder-search-results .results-total {
+	color: #999999;
+	font-size: 14px; font-size: 0.875rem;
+	margin-bottom: 28px; margin-bottom: 1.75rem;
+}
+
+.finder-search-results .results-total .count {
+	display: inline;
+	background: #008c5c;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	padding: 2px 6px; padding: 0.125rem 0.375rem;
+	color: #ffffff;
+	margin-left: 8px; margin-left: 0.5rem;
+}
+
+.finder-search-results .results-list {
+	margin-left: -10px; margin-left: -0.625rem;
+	margin-right: -10px; margin-right: -0.625rem;
+}
+
+.finder-search-results .results-list li {
+	display: block;
+	border-style: solid;
+	border-color: #e5e5e5;
+	border-width: 0;
+	border-bottom-width: 1px;
+}
+
+.finder-search-results .results-list li:first-child {
+	border-top-width: 1px;
+}
+
+.finder-search-results .results-list li a {
+	display: block;
+	font-size: 14px; font-size: 0.875rem;
+	text-decoration: none;
+	padding: 10px; padding: 0.625rem;
+	color: #555555;
+	position: relative;
+}
+
+.finder-search-results .results-list li a:hover {
+	background: #008b5c;
+	color: #ffffff;
+}
+
+.finder-search-results .results-list li a::after {
+	font-family: 'fontello';
+	content: '\e80b';
+	display: block;
+	position: absolute;
+	top: 50%;
+	right: 10px; right: 0.625rem;
+	width: 16px; width: 1rem;
+	height: 20px; height: 1.25rem;
+	line-height: 20px; height: 1.25rem;
+	font-size: 20px; font-size: 1.25rem;
+	margin-top: -10px; margin-top: -0.625rem;
+	text-align: right;
+	color: #a1a1a1;
+}
+
+.finder-search-results .results-list li a:hover::after {
+	color: #ffffff;
+}
 
 /* 404 PAGE */
 body.error404 .main-content {
@@ -2863,6 +3234,10 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		clip: rect(0,1px,1px,0);
 		overflow: hidden;
 	}	
+	
+	.map-page-middle-bg {
+		display: none;
+	}
 	
 }
 
@@ -3128,7 +3503,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		display: none!important; /* these are hidden on *all* pages on tablet and larger */
 	}
 
-	.parentArrow {
+	.parentArrow,
+	.greenHeader {
 		padding: 0 42px; padding: 0 2.625rem;
 	}
 
@@ -3716,13 +4092,13 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-bottom: 48px; margin-bottom: 3rem;
 	}
     
-	.partner-detail {
+	.partner-info-block .partner-detail {
 		text-align: left;
 		padding-left: 100px;
 		position: relative;
 	}
     
-	.partner-detail h4 {
+	.partner-info-block .partner-detail h4 {
 		position: absolute;
 		top: 2px; top: 0.125rem; /* accounts for the line height on the .partner-detail text, so they look aligned */
 		left: 0;
@@ -3783,11 +4159,27 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-top: 0;
 	}
 
-	.products-detail .entry-product-categories h3 {
+	.product-info-contents.page-block h3, 
+	.product-info-contents .entry-product-categories,
+	.product-info-contents .entry-product-wheretobuy,
+	.product-info-contents .entry-product-hours {
 		text-align: left;
 	}
 
+	.product-info-contents .entry-product-categories {
+		margin-bottom: 64px; margin-bottom: 4rem;
+	}
+
+	.product-info-contents .entry-product-hours {
+		margin-bottom: 0;
+	}
+
+
 	/* FIND LOCAL FOOD - MAP PAGE - TABLET */
+	.map-subhead {
+		font-size: 20px!important; font-size: 1.25rem!important;
+	}
+
 	
 	.map-checkboxes label {
 		display: inline-block;
@@ -3796,10 +4188,33 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-bottom: 8px; margin-bottom: 0.5rem;
 	}
 
+	.map-county-zip .county-select-wrap,
+	.map-county-zip>span,
+	.map-county-zip .zip-input-group {
+		display: inline-block;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.map-county-zip>span {
+		width: 128rem; width: 8rem;
+	}
+
 	.page-block.map-specific-prods {
 		padding-top: 0;
 	}
 
+	.map-specific-prods .map-subhead br {
+		display: none;
+	}
+	
+	.wholesale-section label span::after {
+		right: 42px; right: 2.625rem;
+	}	
+	
+	.map-page-middle{
+		position: relative;
+	}
 	
 	.map-page-middle::after {
 		content: '';
@@ -3813,14 +4228,42 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		padding-right: 12px; padding-right: 0.75rem;
 	}
 
+	.finder-search-results .results-list {
+		margin-left: 0;
+		margin-right: 0;
+		max-width: 670px; max-width: 41.875rem;
+	}
+	
+	.finder-search-results .results-list li {
+		border-left-width: 1px;
+		border-right-width: 1px;
+	}
+
+
 	.map-chip {
 		float: right;
 		width: 33%;
 		padding-right: 12px; padding-right: 0.75rem;
 		padding-left: 12px; padding-left: 0.75rem;
+		
+		background: transparent!important;
+		box-shadow: none!important;
 	}
 	
-
+	.map-page-middle-bg {
+		/* this serves as the background of the .map-chip, 
+		 * because the chip needs to be able to expand vertically to match 
+		 * the height of the search results -- and the floated .map-chip can't do that.
+		 * (.map-chip itself needs to be floated to prop open the .map-page-middle, 
+		 * in case there's only one search result)
+		 */
+		
+		position: absolute!important;
+		top: 0; right: 0; bottom: 0;
+		width: 33%;
+		z-index: -1;
+		 
+	}
 
 	/* 404 PAGE - TABLET */
 	body.error404 .main-content {
@@ -4136,7 +4579,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		padding: 44px 46px; padding: 2.75rem 2.875rem;
 	}
 
-	.parentArrow {
+	.parentArrow,
+	.greenHeader {
 		padding: 0 46px; padding: 0 2.875rem;
 	}
 
@@ -4318,6 +4762,11 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
     .archive-list {
     	padding: 44px 46px; padding: 2.75rem 2.875rem;
 	}
+
+	/* FIND LOCAL FOOD - MAP PAGE - DESKTOP */
+	.wholesale-section label span::after {
+		right: 46px; right: 2.875rem;
+	}	
 
 	/* 404 PAGE - DESKTOP */
 	body.error404 .main-content {

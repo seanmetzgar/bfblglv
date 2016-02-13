@@ -203,8 +203,8 @@
 	
 		$bfblFooter .= "<div class='footerCredits col-xs-12 col-sm-6 col-md-6'>";
 			$bfblFooter .= "<div class='copyright'>&copy; " . date('Y') . ' Greater Lehigh Valley Buy Fresh Buy Local.';
-			$bfblFooter .= "<span class='hideBreak'><br /></span>";
-			$bfblFooter .= " All Rights Reserved.";
+				$bfblFooter .= "<span class='hideBreak'><br /></span>";
+			$bfblFooter .= " All Rights Reserved.</div>";
 			$bfblFooter .= "<div class='credit'>";
 				$bfblFooter .= "Made in the wild by ";
 				$bfblFooter .= "<a href='http://wearekudu.com/' target='_blank'>KUDU</a>";

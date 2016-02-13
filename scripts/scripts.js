@@ -1,9 +1,12 @@
+//SEAN
 var $animatedHeader = null,
 	$findLocalFoodForm = null;
 
 //jQuery time
-$(function () {
-    "use strict";
+// $(function () {
+//     "use strict";
+jQuery(document).ready(function($) { // make sure all our jQuery runs after the page initializes, *and* use strict
+
     $animatedHeader = $(".animated-blocks");
     $animatedHeader.find("li").hover(function (e) {
         var $this = $(this);
@@ -21,8 +24,13 @@ $(function () {
 
     //Initialise Chosen
     $(".chosen-specific-products").chosen({
-    	placeholder_text_multiple: "Select Products"
-    });						
+    	"placeholder_text_multiple": "Select Products"
+    });
+
+    $(".county-select").chosen({
+    	"disable_search": true,
+    	"placeholder_text_single": "County"
+    });					
 
 
 	// mobile menu button
@@ -178,24 +186,41 @@ $(function () {
 
 	} // end fluidDialog()
 
-
+	// bfbl slider (used on partner pages and the find local food form)
+	$('.bfblSlider .greenHeader').click(function(e) {
+		e.preventDefault(); // clicking on these should never do anything anyway, but just in case ...
+		
+		var $slider = $(this).parent('.bfblSlider');
+		var $slideContents = $slider.children('.bfblSlideWrap');
+		
+		// deal with any sliders that were visually hidden on page load
+		if($slider.hasClass('initialClosed')) {
+			$slider.removeClass('initialClosed');
+			$slideContents.css('display', 'none');
+		}
+		
+		if($slider.hasClass('sliderOpen')) {
+			// if it's open, close it
+			$slideContents.slideUp(750);
+			$slider.removeClass('sliderOpen');
+			$slider.addClass('sliderClosed');
+		} else {
+			// if it's closed, open it
+			$slideContents.slideDown(750);
+			$slider.removeClass('sliderClosed');
+			$slider.addClass('sliderOpen');			
+		}
+		
+		
+	}); // end the .greenHeader click function
 
 	//Find Local Food Form
 	$findLocalFoodForm = $("#find-local-food-form").eq(0);
-	$findLocalFoodForm.on("blur change", "[name^=product_type]", function() {
-		var productTypes = "";
-		productTypes = $findLocalFoodForm.find("[name^=product_type]:checked").serialize();
-		productTypes = productTypes.length > 0 ? productTypes : "";
-	}).trigger("blur");
+	$findLocalFoodForm.on("blur change", "input, textarea, select", function () {
+		var formObject = $findLocalFoodForm.serializeObject();
+		formObject.action = "xhrGetPartners";
 
-	$(document).ready( function () {
-		$.ajax({
-			type : "post",
-			dataType : "json",
-			url : KuduAJAX.ajaxUrl,
-			data : {action: "xhrGetPartners"},
-			success: xhrGetPartnersHandler
-	  	});
-	});
+		xhrGetPartners(formObject);
+	}).find("input").eq(0).trigger("blur");
 
 }); // end document ready

@@ -10,6 +10,37 @@ class MapPartner {
 add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
 
+function buildProductsQuery($productTypes) {
+	$metaQueryArray = false;
+	
+	if (is_array($productTypes) && count($productTypes) > 0) {
+		$metaQueryArray = array(
+			"relation" => "OR"
+		);
+		foreach ($productTypes as $productType) {
+			$tempProductTypeField = "products_{$productType}";
+			$tempProductTypeOtherField = "other_{$tempProductTypeField}";
+			$tempMetaQuery = array(
+				"relation" => "OR",
+				array(
+					"key" => $tempProductTypeField,
+					"value" => "",
+					"compare" => "!="
+				),
+				array(
+					"key" => $tempProductTypeOtherField,
+					"value" => "",
+					"compare" => "!="
+				)
+			);
+
+			$metaQueryArray[] = $tempMetaQuery;
+		}
+	}
+
+	return $metaQueryArray;
+}
+
 function xhrGetPartners() {
 	$allLocationTypes = array(
 		"farm", "farmers-market",
@@ -30,67 +61,49 @@ function xhrGetPartners() {
 		"baked", "seeds", "misc"
 	);
 
-	$locationTypes = (isset($_POST["location_type"])
-		&& is_array($_POST["location_type"])
-		&& count($_POST["location_type"] > 0)) ? 
-			$_POST["location_type"] : 
-			$allLocationTypes;
+	$locationTypes = (isset($_REQUEST["location_type"])
+		&& is_array($_REQUEST["location_type"])
+		&& count($_REQUEST["location_type"] > 0)) ? 
+			$_REQUEST["location_type"] : 
+			false;
 
-	$productTypes = (isset($_POST["product_type"])
-		&& is_array($_POST["product_type"])
-		&& count($_POST["product_type"] > 0)) ? 
-			$_POST["product_type"] : 
-			$allLocationTypes;
+	$productTypes = (isset($_REQUEST["product_type"])
+		&& is_array($_REQUEST["product_type"])
+		&& count($_REQUEST["product_type"] > 0)) ? 
+			$_REQUEST["product_type"] : 
+			false;
 
 	//These will be fun to search for if FARM is not checked...
-	$isCSA = isset($_POST["is_csa"]) && $_POST["is_csa"] === "1" ? true : false;
-	$isFarmShare = isset($_POST["is_farm_share"]) && $_POST["is_farm_share"] === "1" ? true : false;
+	$isCSA = isset($_REQUEST["is_csa"]) && $_REQUEST["is_csa"] === "1" ? true : false;
+	$isFarmShare = isset($_REQUEST["is_farm_share"]) && $_REQUEST["is_farm_share"] === "1" ? true : false;
 
    	$tempPartners = array();
    	$returnPartners = array();
 
-	$tempPartners = get_users(array(
-		"role" => "farm",
-		"meta_query" => array(
-			array(
-				"key" => "products_greens",
-				"value" => "Arugula",
-				"compare" => "IN"
-			),
-			array(
-				"key" => "products_greens",
-				"value" => "Escarole",
-				"compare" => "IN"
-			)
-		)
-	));
-	// $fmPartners = get_users(array(
-	// 	"role" => "farmers-market"
-	// ));
-	// $restaurantPartners = get_users(array(
-	// 	"role" => "restaurant"
-	// ));
-	// $vineyardPartners = get_users(array(
-	// 	"role" => "vineyard"
-	// ));
-	// $distilleryPartners = get_users(array(
-	// 	"role" => "distillery"
-	// ));
-	// $institutionPartners = get_users(array(
-	// 	"role" => "institution"
-	// ));
-	// $distributorPartners = get_users(array(
-	// 	"role" => "distributor"
-	// ));
-	// $specialtyPartners = get_users(array(
-	// 	"role" => "specialty"
-	// ));
-	// $retailPartners = get_users(array(
-	// 	"role" => "retail"
-	// ));
+   	if ($locationTypes === false) {
+   		$locationTypes = ($productTypes) ? array("farm") : $allLocationTypes;
+   	} else {
+   		$productTypes = (in_array("farm", $locationTypes)) ? $productTypes : false;
+   	}
 
-	//$tempPartners = array_merge($farmPartners, $fmPartners, $restaurantPartners, $vineyardPartners, $distilleryPartners, $institutionPartners, $distributorPartners, $specialtyPartners, $retailPartners);
-	
+	foreach ($locationTypes as $locationType) {
+		$locationTypePartners = null;
+		$locationTypeQueryArgs = array(
+			"role" => $locationType
+		);
+		if ($locationType === "farm") {
+			$productsQuery = buildProductsQuery($productTypes);
+			if ($productsQuery) {
+				$locationTypeQueryArgs["meta_query"] = $productsQuery;
+			}
+		}
+
+		$locationTypePartners = get_users($locationTypeQueryArgs);
+		if (is_array($locationTypePartners) && count($locationTypePartners) > 0) {
+			$tempPartners = array_merge($locationTypePartners, $tempPartners);
+		}
+	}
+
 	foreach ($tempPartners as $partnerKey=>$partner) {
 		$tempObj = new MapPartner;
 		$tempObj->id = $partner->ID;

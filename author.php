@@ -33,6 +33,11 @@ get_header(); ?>
 					$partner_zip = get_field("partner_zip", $acf_partner_id);
 					$partner_zip = strlen($partner_zip) > 0 ? $partner_zip : false;
 
+					// NEWNEWNEW - TEMPTEMPTEMP
+					// Need to store and extract county value from database
+					$partner_county = '';
+					$partner_county = 'TEMPORARY County Value';
+
 					$partner_address = "";
 					$partner_address .= $partner_street_1 ? "$partner_street_1<br>" : "";
 					$partner_address .= $partner_street_2 ? "$partner_street_2<br>" : "";
@@ -189,7 +194,41 @@ get_header(); ?>
 							unset($products[$productCategory]);
 						}
 						$hasProducts = (count($products) > 0) ? true : false;
-					}				
+					}	
+
+					// NEWNEWNEW
+					// turn the user role (that is, provider category) into something we can use
+					$partner_category_string = '';
+					
+					global $bfbl_custom_roles;
+					foreach($partner_category as $this_role) {
+						if(in_array($this_role, $bfbl_custom_roles)) {
+							// we're going to take only the *first* matching role, so proceed only if $partner_category_string is still empty
+							if($partner_category_string == '') {
+								$partner_category_string = ucwords($this_role);
+							}
+						} // end the is-this-a-bfbl-custom-role test
+					} // end the $partner_category foreach
+
+
+					// NEWNEWNEW - TEMPTEMPTEMP
+					$whereToBuy = '';
+					$productHours = '';
+					
+
+					// temporarily setting these values manually; they can later be extracted from the database
+					$whereToBuy = '<b>STRING IS SET MANUALLY</b>, needs to be hooked up to the database. Lorem ipsum dolor sit amet.';
+
+				//
+					if(count($partner_hours) > 0) {
+						$prodHoursArray = $partner_hours;
+						array_unshift($prodHoursArray, 'STRING IS SET MANUALLY');
+					}
+				//
+					
+					$productHours = '<li>' . implode('</li><li>', $prodHoursArray) . '</li>';
+			
+			
 				?>
 				<article id="partner-<?php the_ID(); ?>" class="partner-profile">
 					<?php get_template_part("entry", "partner-header"); ?>
@@ -201,152 +240,184 @@ get_header(); ?>
 					</div><!-- end div.acf-map-wrap -->
 					<?php endif; ?>
 					
-<!-- temptemptemp - back button -->
 					<?php get_template_part("entry", "partner-back"); ?>
-<!-- temptemptemp - end back button -->
 
 					<section class="partner-content">
 
 						<?php if ($hasProducts) : // This Container should be positioned BELOW MAP when visible ?>
-						<div class="entry-product-categories">
+						<div class="entry-product-categories bfblSlider sliderClosed initialClosed">
 							<h2 class="greenHeader">Product Categories</h2>
-							<ul class="product-categories-list page-block">
-								<?php
-								foreach($products as $productCategory=>$productCategoryProducts) {
-									echo "<li><span>{$productCategoryProducts["name"]}</span></li>\n";
-								}
-								?>
-							</ul>
+							<div class="bfblSlideWrap">
+								<ul class="product-categories-list page-block">
+									<?php
+									foreach($products as $productCategory=>$productCategoryProducts) {
+										echo "<li><span>{$productCategoryProducts["name"]}</span></li>\n";
+									}
+									?>
+								</ul>
+							</div><!-- end div.bfblSlideWrap -->
 						</div><!-- end div.entry-product-categories -->
 						<?php endif; ?>
 
-						<div class="entry-top">
+						<div class="entry-top bfblSlider sliderOpen">
 							<h2 class="greenHeader">Partner Information</h2>
 							
-							<div class="page-block parter-info-block">
-								<div class="partner-info-right">
-									
-									<h1 class="entry-title"><?php echo $partner_name; ?></h1>
-									
-									<?php if ($partner_bio): ?>
-									<div class="partner-description entry-content">
-										<?php echo $partner_bio; ?>
-									</div><!-- end div.partner-description -->
-									<?php endif; ?>
-	
-									<?php if ($partner_address): ?>
-									<div class="partner-detail">
-										<h4>Address</h4>
-										<p><?php echo $partner_address; ?></p>
-									</div><!-- end div.partner-detail -->
-									<?php endif; ?>
-	
-									<?php if ($partner_hours): ?>
-									<div class="partner-detail partner-hours">
-										<h4>Hours</h4>
-										<ul>
-										<?php foreach ($partner_hours as $partner_hours_day) {
-											echo "<li>$partner_hours_day</li>\n";
-										} ?>
-										</ul>
-									</div><!-- end div.partner-hours -->
-									<?php endif; ?>
-	
-									<?php if ($partner_phone || $partner_email || $partner_website): ?>
-									<div class="partner-contact">
-										<h4 class="visuallyhidden">Contact Details</h4>
-										<ul>
+							<div class="bfblSlideWrap">
+								<div class="page-block partner-info-block">
+									<div class="partner-info-right">
+										
+										<h1 class="entry-title"><?php echo $partner_name; ?></h1>
+										
+										<?php if ($partner_bio): ?>
+										<div class="partner-description entry-content">
+											<?php echo $partner_bio; ?>
+										</div><!-- end div.partner-description -->
+										<?php endif; ?>
+		
+										<?php if ($partner_address): ?>
+										<div class="partner-detail">
+											<h4>Address</h4>
+											<p><?php echo $partner_address; ?></p>
+										</div><!-- end div.partner-detail -->
+										<?php endif; ?>
+										
+										<?php if ($partner_county): ?>
+										<div class="partner-detail">
+											<h4>County</h4>
+											<p><?php echo $partner_county; ?></p>
+										</div><!-- end div.partner-detail -->
+										<?php endif; ?>											
+											
+										<?php if ($partner_hours): ?>
+										<div class="partner-detail partner-hours">
+											<h4>Hours</h4>
+											<ul>
+											<?php foreach ($partner_hours as $partner_hours_day) {
+												echo "<li>$partner_hours_day</li>\n";
+											} ?>
+											</ul>
+										</div><!-- end div.partner-hours -->
+										<?php endif; ?>
+		
+										<?php if ($partner_phone || $partner_email || $partner_website): ?>
+										<div class="partner-contact">
+											<h4 class="visuallyhidden">Contact Details</h4>
+											<ul>
+												<?php 
+													if ($partner_phone) echo "<li class='partner-phone'><a href='tel:1-{$partner_phone}'>$partner_phone</a></li>";
+													if ($partner_email) echo "<li class='partner-email'><a href=\"mailto:$partner_email\" target=\"_blank\">$partner_email</a></li>";
+													if ($partner_website) echo "<li class='partner-website'><a href=\"$partner_website\" target=\"_blank\">$partner_website</a></li>";
+												?>
+											</ul>
+										</div><!-- end div.partner-contact -->
+										<?php endif; ?>
+									</div><!-- end div.partner-info-right -->
+		
+									<div class="partner-info-left">
+										<div class="owner-details">
+											<h3 class="visuallyhidden">Owner Information</h3>
+		
 											<?php 
-												if ($partner_phone) echo "<li class='partner-phone'><a href='tel:1-{$partner_phone}'>$partner_phone</a></li>";
-												if ($partner_email) echo "<li class='partner-email'><a href=\"mailto:$partner_email\" target=\"_blank\">$partner_email</a></li>";
-												if ($partner_website) echo "<li class='partner-website'><a href=\"$partner_website\" target=\"_blank\">$partner_website</a></li>";
+											if ($partner_owner_photo) {
+												echo '<div class="owner-image">';
+													echo wp_get_attachment_image($partner_owner_photo["ID"], "full", false, array("class" => "img-responsive"));
+												echo '</div><!-- end div.owner-image -->';
+											}
+											if ($partner_owner_name) {
+												echo "\n<h3 class=\"owner-name\">$partner_owner_name</h3>\n";
+											}
 											?>
-										</ul>
-									</div><!-- end div.partner-contact -->
-									<?php endif; ?>
-								</div><!-- end div.partner-info-right -->
-	
-								<div class="partner-info-left">
-									<div class="owner-details">
-										<h3 class="visuallyhidden">Owner Information</h3>
-	
-										<?php 
-										if ($partner_owner_photo) {
-											echo '<div class="owner-image">';
-												echo wp_get_attachment_image($partner_owner_photo["ID"], "full", false, array("class" => "img-responsive"));
-											echo '</div><!-- end div.owner-image -->';
-										}
-										if ($partner_owner_name) {
-											echo "\n<h3 class=\"owner-name\">$partner_owner_name</h3>\n";
-										}
-										?>
-	
-									</div><!-- end div.owner-details -->
-	
-									<?php if ($partner_facebook || $partner_twitter || $partner_instagram): ?>
-									<div class="partner-social">
-										<h3 class="visuallyhidden">Social Media</h3>
-										<ul>
-											<?php 
-												if ($partner_twitter) echo "<li class='twitter'><a href=\"https://twitter.com/$partner_twitter\" target=\"_blank\"><span>@$partner_twitter</span></a></li>";
-												if ($partner_facebook) echo "<li class='facebook'><a href=\"$partner_facebook\" target=\"_blank\"><span>" . bfblExtractName($partner_facebook) ."</span></a></li>";
-												if ($partner_instagram) echo "<li class='instagram'><a href=\"https://www.instagram.com/$partner_instagram\" target=\"_blank\"><span>@$partner_instagram</span></a></li>"; 
-											?>
-										</ul>
-									</div><!-- end div.partner-social -->
-									<?php endif; ?>
-								</div><!-- end div.partner-info-left; -->
-								
-							</div><!-- end div.parter-info-block -->
+		
+										</div><!-- end div.owner-details -->
+		
+										<?php if ($partner_facebook || $partner_twitter || $partner_instagram): ?>
+										<div class="partner-social">
+											<h3 class="visuallyhidden">Social Media</h3>
+											<ul>
+												<?php 
+													if ($partner_twitter) echo "<li class='twitter'><a href=\"https://twitter.com/$partner_twitter\" target=\"_blank\"><span>@$partner_twitter</span></a></li>";
+													if ($partner_facebook) echo "<li class='facebook'><a href=\"$partner_facebook\" target=\"_blank\"><span>" . bfblExtractName($partner_facebook) ."</span></a></li>";
+													if ($partner_instagram) echo "<li class='instagram'><a href=\"https://www.instagram.com/$partner_instagram\" target=\"_blank\"><span>@$partner_instagram</span></a></li>"; 
+												?>
+											</ul>
+										</div><!-- end div.partner-social -->
+										<?php endif; ?>
+									</div><!-- end div.partner-info-left; -->
+									
+								</div><!-- end div.parter-info-block -->
+							</div><!-- end div.bfblSlideWrap -->
 						</div><!-- end div.entry-top -->
 						
-						<div class="entry-product-information">
+						<div class="entry-product-information bfblSlider sliderOpen">
 							<h2 class="greenHeader">Product Information</h2>
 							
-							<div class="page-block product-info-contents">
-								<div class="product-info-left">
-									<?php 
-									if ($partner_business_photo) {
-										echo '<div class="business-image">';
-											echo wp_get_attachment_image($partner_business_photo["ID"], "full", false, array("class" => "img-responsive"));
-										echo '</div><!-- end div.business-image -->';
-										if ($partner_name) {
-											echo "\n<h3 class=\"partner-name\">$partner_name</h3>\n";
-										}
-									} 
-									?>
-								</div><!-- end div.product-info-left -->
-
-								<div class="product-info-right">
-									<div class="products-detail">
-										<?php if ($hasProducts) : ?>
-										<div class="entry-product-categories entry-content">
-											<h3>Products Available</h3>
-											<?php
-											$productsAvailable = array();
-											foreach($products as $productCategory=>$productCategoryProducts) {
-												foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
-													if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
-														$productsAvailable[] = $productCategoryProduct;
-													} elseif ($productCategoryProductKey === "other") {
-														$productsAvailable[] = strip_tags($productCategoryProduct);
+							<div class="bfblSlideWrap">
+								<div class="page-block product-info-contents">
+									<div class="product-info-left">
+										<?php 
+										if ($partner_business_photo) {
+											echo '<div class="business-image">';
+												echo wp_get_attachment_image($partner_business_photo["ID"], "full", false, array("class" => "img-responsive"));
+											echo '</div><!-- end div.business-image -->';
+											if ($partner_name) {
+												echo "\n<h3 class=\"partner-name\">$partner_name</h3>\n";
+											}
+										} 
+										?>
+									</div><!-- end div.product-info-left -->
+	
+									<div class="product-info-right">
+										<div class="products-detail">
+											<?php if ($hasProducts) : ?>
+											<div class="entry-product-categories entry-content">
+												<h3>Products Available</h3>
+												<?php
+												$productsAvailable = array();
+												foreach($products as $productCategory=>$productCategoryProducts) {
+													foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
+														if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
+															$productsAvailable[] = $productCategoryProduct;
+														} elseif ($productCategoryProductKey === "other") {
+															$productsAvailable[] = strip_tags($productCategoryProduct);
+														}
 													}
 												}
-											}
-											if (count($productsAvailable) > 0) { 
-												$productsAvailable = implode(", ", $productsAvailable);
-
-												echo "<p>$productsAvailable</p>";
-											}
-
+												if (count($productsAvailable) > 0) { 
+													$productsAvailable = implode(", ", $productsAvailable);
+	
+													echo "<p>$productsAvailable</p>";
+												}
+												
+												?>
+											</div><!-- end div.entry-product-categories -->
+											<?php endif; ?>
+	
+	
+											<?php
+											
+											// NEWNEWNEW
+												if($whereToBuy) {
+													echo '<div class="entry-product-wheretobuy entry-content">';
+														echo '<h3>Where to Buy Local</h3>';
+														echo "<p>$whereToBuy</p>";
+													echo '</div><!-- end div.entry-product-wheretobuy -->';
+												} // end $whereToBuy test
+											
+												if($productHours && $partner_category_string) {
+													
+													echo '<div class="entry-product-hours partner-detail partner-hours">';
+														echo "<h4>$partner_category_string Hours</h4>";
+														echo "<ul>$productHours</ul>";
+													echo '</div><!-- end div.entry-product-wheretobuy -->';
+												} // end $productHours test
+											
 											?>
-										</div><!-- end div.entry-product-categories -->
-										<?php endif; ?>
-
-									</div><!-- end div.products-detail -->
-								</div><!-- end div.product-info-right -->
-								
-							</div><!-- end div.product-info-contents -->						
+	
+										</div><!-- end div.products-detail -->
+									</div><!-- end div.product-info-right -->
+									
+								</div><!-- end div.product-info-contents -->
+							</div><!-- end div.bfblSlideWrap -->					
 						</div><!-- end div.entry-product-information -->
 						
 					</section><!-- end section.partner-content -->

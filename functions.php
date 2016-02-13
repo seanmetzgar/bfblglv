@@ -60,7 +60,7 @@ function kudu_load_scripts() {
 	wp_register_script("kudu-chosen", "$template_path/scripts/vendor/chosen/chosen.jquery.min.js");
     wp_register_script("kudu-plugins", "$template_path/scripts/plugins.js");
     wp_register_script("kudu-scripts", "$template_path/scripts/scripts.js");
-    wp_localize_script("kudu-scripts", "KuduAJAX", array( "ajaxUrl" => admin_url("admin-ajax.php")));
+    wp_localize_script("kudu-plugins", "KuduAJAX", array( "ajaxUrl" => admin_url("admin-ajax.php")));
     
     wp_register_style("kudu-bootstrap", "$template_path/bootstrap/css/bootstrap.min.css");
     wp_register_style("kudu-bootstrap-theme", "$template_path/bootstrap/css/bootstrap-theme.min.css");
