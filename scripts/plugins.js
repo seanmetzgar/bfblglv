@@ -1,218 +1,295 @@
+//Fluid Dialog Function
+function fluidDialog() {
+    "use strict";
+    var $visible = $(".ui-dialog:visible");
+    // each open dialog
+    $visible.each(function () {
+        var $this = $(this);
+        var dialog = $this.find(".ui-dialog-content").data("ui-dialog");
+        // if fluid option == true
+        if (dialog.options.fluid) {
+            var wWidth = $(window).width();
+            // check window width against dialog max width
+            if (wWidth < (parseInt(dialog.options.maxWidth) + 50)) {
+                // keep dialog from filling entire screen
+                $this.css("max-width", "87.5%");
+            } else {
+                // fix maxWidth bug
+                $this.css("max-width", dialog.options.maxWidth + "px");
+            }
+            //reposition dialog
+            dialog.option("position", dialog.options.position);
+        }
+    });
+} // end fluidDialog()
+
+//XHR Stuff
+function xhrGetPartnersHandler(data) {
+    "use strict";
+    var mapHTML = "";
+    var resultsHTML = "";
+    var resultsTotal = 0;
+    if (typeof data === "object") {
+        resultsTotal = data.length;
+        resultsTotal = (isNaN(resultsTotal)) ? 0 : resultsTotal;
+
+        $(data).each(function () {
+            var tempName = false;
+            var tempURL = false;
+            var tempLat = false;
+            var tempLng = false;
+
+            tempName = (this.name.length > 0) ? this.name : false;
+            tempURL = (this.url.length > 0) ? this.url : false;
+            tempLat = (this.lat.length > 0) ? this.lat : false;
+            tempLng = (this.lng.length > 0) ? this.lng : false;
+
+            if (tempName && tempURL && tempLat && tempLng) {
+                tempHTML = "<div class=\"marker\" data-lat=\"" + tempLat + "\" data-lng=\"" + tempLng + "\">";
+                tempHTML = tempHTML + "<h4><a href=\"" + tempURL + "\">" + tempName + "</a></h4>";
+                tempHTML = tempHTML + "</div>";
+                mapHTML = mapHTML + tempHTML;
+                tempHTML = "";
+            }
+            if (tempName && tempURL) {
+                tempResultHTML = "<li><a href=\"" + tempURL + "\">" + tempName + "</a></li>";
+                resultsHTML = resultsHTML + tempResultHTML;
+            }
+        });
+    }
+    $(".acf-map").empty().html(mapHTML).each(function () {
+        $(this).trigger("re-render");
+    });
+    $(".finder-search-results").find(".results-list").empty().html(resultsHTML);
+    $(".finder-search-results").find(".results-total .count").empty().html(resultsTotal);
+}
+
+function xhrGetPartners(formObject) {
+    "use strict";
+    $.ajax({
+        type: "post",
+        dataType: "json",
+        url: KuduAJAX.ajaxUrl,
+        data: formObject,
+        success: xhrGetPartnersHandler
+    });
+}
+
 // ACF MAP
-(function($) {
-	/*
-	*  render_map
-	*
-	*  This function will render a Google Map onto the selected jQuery element
-	*
-	*  @type	function
-	*  @date	8/11/2013
-	*  @since	4.3.0
-	*
-	*  @param	$el (jQuery element)
-	*  @return	n/a
-	*/
+(function ($) {
+    "use strict";
+    /*
+    *  render_map
+    *
+    *  This function will render a Google Map onto the selected jQuery element
+    *
+    *  @type    function
+    *  @date    8/11/2013
+    *  @since   4.3.0
+    *
+    *  @param   $el (jQuery element)
+    *  @return  n/a
+    */
 
-	function render_map( $el ) {
+    function render_map( $el ) {
+        // var
+        var $markers = $el.find('.marker');
 
-		// var
-		var $markers = $el.find('.marker');
+        // vars
+        var args = {
+            zoom        : 6,
+            center      : new google.maps.LatLng(40.6906001,-75.2158619),
+            mapTypeId   : google.maps.MapTypeId.ROADMAP,
+            scrollwheel : false,
+            streetViewControl : false,
+            mapTypeControl : false,
+            minZoom     : 6,
+            maxZoom     : 18,
+            styles      : [
+                {
+                    "featureType": "all",
+                    "elementType": "labels",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative",
+                    "elementType": "labels",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "color": "#effefd"
+                        }
+                    ]
+                }
+            ]
+        };
 
-		// vars
-		var args = {
-			zoom		: 6,
-			center		: new google.maps.LatLng(40.6906001,-75.2158619),
-			mapTypeId	: google.maps.MapTypeId.ROADMAP,
-			scrollwheel : false,
-			streetViewControl : false,
-			mapTypeControl : false,
-			minZoom 	: 6, 
-			maxZoom 	: 18,
-			styles      : [
-			    {
-			        "featureType": "all",
-			        "elementType": "labels",
-			        "stylers": [
-			            {
-			                "visibility": "off"
-			            }
-			        ]
-			    },
-			    {
-			        "featureType": "administrative",
-			        "elementType": "labels",
-			        "stylers": [
-			            {
-			                "visibility": "on"
-			            }
-			        ]
-			    },
-			    {
-			        "featureType": "road",
-			        "elementType": "all",
-			        "stylers": [
-			            {
-			                "visibility": "off"
-			            }
-			        ]
-			    },
-			    {
-			        "featureType": "transit",
-			        "elementType": "all",
-			        "stylers": [
-			            {
-			                "visibility": "off"
-			            }
-			        ]
-			    },
-			    {
-			        "featureType": "water",
-			        "elementType": "all",
-			        "stylers": [
-			            {
-			                "color": "#effefd"
-			            }
-			        ]
-			    }
-			]
-		};
+        // create map
+        var map = new google.maps.Map( $el[0], args);
 
-		// create map	        	
-		var map = new google.maps.Map( $el[0], args);
+        // add a markers reference
+        map.markers = [];
 
-		// add a markers reference
-		map.markers = [];
+        // add markers
+        $markers.each(function(){
+            console.log($(this));
+            add_marker( $(this), map );
 
-		// add markers
-		$markers.each(function(){
-			console.log($(this));
-	    	add_marker( $(this), map );
+        });
 
-		});
+        // center map
+        center_map( map );
 
-		// center map
-		center_map( map );
+        google.maps.event.addListenerOnce(map, 'idle', function(){
+            google.maps.event.trigger(map, 'resize');
+            center_map(map);
+        });
+    }
 
-		google.maps.event.addListenerOnce(map, 'idle', function(){
-		 	google.maps.event.trigger(map, 'resize');
-			center_map(map);
-		});
-	}
+    /*
+    *  add_marker
+    *
+    *  This function will add a marker to the selected Google Map
+    *
+    *  @type    function
+    *  @date    8/11/2013
+    *  @since   4.3.0
+    *
+    *  @param   $marker (jQuery element)
+    *  @param   map (Google Map object)
+    *  @return  n/a
+    */
 
-	/*
-	*  add_marker
-	*
-	*  This function will add a marker to the selected Google Map
-	*
-	*  @type	function
-	*  @date	8/11/2013
-	*  @since	4.3.0
-	*
-	*  @param	$marker (jQuery element)
-	*  @param	map (Google Map object)
-	*  @return	n/a
-	*/
+    function add_marker( $marker, map ) {
 
-	function add_marker( $marker, map ) {
+        // var
+        var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
+        var zoom = $marker.attr('data-zoom');
 
-		// var
-		var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
-		var zoom = $marker.attr('data-zoom');
+        // create marker
+        var marker = new google.maps.Marker({
+            position    : latlng,
+            map         : map
+        });
 
-		// create marker
-		var marker = new google.maps.Marker({
-			position	: latlng,
-			map			: map
-		});
+        // add to array
+        map.markers.push( marker );
 
-		// add to array
-		map.markers.push( marker );
+        // if marker contains HTML, add it to an infoWindow
+        if( $marker.html() )
+        {
+            // create info window
+            var infowindow = new google.maps.InfoWindow({
+                content     : $marker.html()
+            });
 
-		// if marker contains HTML, add it to an infoWindow
-		if( $marker.html() )
-		{
-			// create info window
-			var infowindow = new google.maps.InfoWindow({
-				content		: $marker.html()
-			});
+            // show info window when marker is clicked
+            google.maps.event.addListener(marker, 'click', function() {
 
-			// show info window when marker is clicked
-			google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open( map, marker );
 
-				infowindow.open( map, marker );
+            });
+        }
+    }
 
-			});
-		}
-	}
+    /*
+    *  center_map
+    *
+    *  This function will center the map, showing all markers attached to this map
+    *
+    *  @type    function
+    *  @date    8/11/2013
+    *  @since   4.3.0
+    *
+    *  @param   map (Google Map object)
+    *  @return  n/a
+    */
 
-	/*
-	*  center_map
-	*
-	*  This function will center the map, showing all markers attached to this map
-	*
-	*  @type	function
-	*  @date	8/11/2013
-	*  @since	4.3.0
-	*
-	*  @param	map (Google Map object)
-	*  @return	n/a
-	*/
+    function center_map( map ) {
 
-	function center_map( map ) {
+        // vars
+        var bounds = new google.maps.LatLngBounds();
 
-		// vars
-		var bounds = new google.maps.LatLngBounds();
+        // loop through all markers and create bounds
+        $.each( map.markers, function( i, marker ){
 
-		// loop through all markers and create bounds
-		$.each( map.markers, function( i, marker ){
+            var latlng = new google.maps.LatLng( marker.position.lat(), marker.position.lng() );
 
-			var latlng = new google.maps.LatLng( marker.position.lat(), marker.position.lng() );
+            bounds.extend( latlng );
 
-			bounds.extend( latlng );
+        });
 
-		});
+        // only 1 marker?
+        if( map.markers.length == 1 )
+        {
+            // set center of map
+            map.setCenter( bounds.getCenter() );
+            map.setZoom( 13 );
+        }
+        else
+        {
+            // fit to bounds
+            map.fitBounds( bounds );
+        }
 
-		// only 1 marker?
-		if( map.markers.length == 1 )
-		{
-			// set center of map
-		    map.setCenter( bounds.getCenter() );
-		    map.setZoom( 13 );
-		}
-		else
-		{
-			// fit to bounds
-			map.fitBounds( bounds );
-		}
+    }
 
-	}
+    function resize_map( map ) {
+        google.maps.event.trigger(map, 'resize');
+    }
 
-	function resize_map( map ) {
-		google.maps.event.trigger(map, 'resize');
-	}
+    /*
+    *  document ready
+    *
+    *  This function will render each map when the document is ready (page has loaded)
+    *
+    *  @type    function
+    *  @date    8/11/2013
+    *  @since   5.0.0
+    *
+    *  @param   n/a
+    *  @return  n/a
+    */
 
-	/*
-	*  document ready
-	*
-	*  This function will render each map when the document is ready (page has loaded)
-	*
-	*  @type	function
-	*  @date	8/11/2013
-	*  @since	5.0.0
-	*
-	*  @param	n/a
-	*  @return	n/a
-	*/
+    $(document).ready(function(){
+        $('.acf-map').each(function(){
+            render_map( $(this) );
+        }).on("re-render", function() {
+            render_map( $(this) );
+        });
+    });
 
-	$(document).ready(function(){
-		$('.acf-map').each(function(){
-			render_map( $(this) );
-		}).on("re-render", function() {
-			render_map( $(this) );
-		})
-	});
-
-})(jQuery);
+}(jQuery));
 // END ACF Map
 
 //jQuery serializeObject
@@ -224,191 +301,141 @@
  * @version 2.5.0
  */
 (function(root, factory) {
+        "use strict";
+    // AMD
+    if (typeof define === "function" && define.amd) {
+        define(["exports", "jquery"], function(exports, $) {
+            return factory(exports, $);
+        });
+    }
 
-  // AMD
-  if (typeof define === "function" && define.amd) {
-    define(["exports", "jquery"], function(exports, $) {
-      return factory(exports, $);
-    });
-  }
+    // CommonJS
+    else if (typeof exports !== "undefined") {
+        var $ = require("jquery");
+        factory(exports, $);
+    }
 
-  // CommonJS
-  else if (typeof exports !== "undefined") {
-    var $ = require("jquery");
-    factory(exports, $);
-  }
-
-  // Browser
-  else {
-    factory(root, (root.jQuery || root.Zepto || root.ender || root.$));
-  }
+    // Browser
+    else {
+        factory(root, (root.jQuery || root.Zepto || root.ender || root.$));
+    }
 
 }(this, function(exports, $) {
 
-  var patterns = {
-    validate: /^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,
-    key:      /[a-z0-9_]+|(?=\[\])/gi,
-    push:     /^$/,
-    fixed:    /^\d+$/,
-    named:    /^[a-z0-9_]+$/i
-  };
+    var patterns = {
+        validate: /^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,
+        key:      /[a-z0-9_]+|(?=\[\])/gi,
+        push:     /^$/,
+        fixed:    /^\d+$/,
+        named:    /^[a-z0-9_]+$/i
+    };
 
-  function FormSerializer(helper, $form) {
+    function FormSerializer(helper, $form) {
 
-    // private variables
-    var data     = {},
-        pushes   = {};
+        // private variables
+        var data     = {},
+                pushes   = {};
 
-    // private API
-    function build(base, key, value) {
-      base[key] = value;
-      return base;
-    }
-
-    function makeObject(root, value) {
-
-      var keys = root.match(patterns.key), k;
-
-      // nest, nest, ..., nest
-      while ((k = keys.pop()) !== undefined) {
-        // foo[]
-        if (patterns.push.test(k)) {
-          var idx = incrementPush(root.replace(/\[\]$/, ''));
-          value = build([], idx, value);
+        // private API
+        function build(base, key, value) {
+            base[key] = value;
+            return base;
         }
 
-        // foo[n]
-        else if (patterns.fixed.test(k)) {
-          value = build([], k, value);
+        function makeObject(root, value) {
+
+            var keys = root.match(patterns.key), k;
+
+            // nest, nest, ..., nest
+            while ((k = keys.pop()) !== undefined) {
+                // foo[]
+                if (patterns.push.test(k)) {
+                    var idx = incrementPush(root.replace(/\[\]$/, ''));
+                    value = build([], idx, value);
+                }
+
+                // foo[n]
+                else if (patterns.fixed.test(k)) {
+                    value = build([], k, value);
+                }
+
+                // foo; foo[bar]
+                else if (patterns.named.test(k)) {
+                    value = build({}, k, value);
+                }
+            }
+
+            return value;
         }
 
-        // foo; foo[bar]
-        else if (patterns.named.test(k)) {
-          value = build({}, k, value);
+        function incrementPush(key) {
+            if (pushes[key] === undefined) {
+                pushes[key] = 0;
+            }
+            return pushes[key]++;
         }
-      }
 
-      return value;
+        function encode(pair) {
+            switch ($('[name="' + pair.name + '"]', $form).attr("type")) {
+                case "checkbox":
+                    return pair.value === "on" ? true : pair.value;
+                default:
+                    return pair.value;
+            }
+        }
+
+        function addPair(pair) {
+            if (!patterns.validate.test(pair.name)) return this;
+            var obj = makeObject(pair.name, encode(pair));
+            data = helper.extend(true, data, obj);
+            return this;
+        }
+
+        function addPairs(pairs) {
+            if (!helper.isArray(pairs)) {
+                throw new Error("formSerializer.addPairs expects an Array");
+            }
+            for (var i=0, len=pairs.length; i<len; i++) {
+                this.addPair(pairs[i]);
+            }
+            return this;
+        }
+
+        function serialize() {
+            return data;
+        }
+
+        function serializeJSON() {
+            return JSON.stringify(serialize());
+        }
+
+        // public API
+        this.addPair = addPair;
+        this.addPairs = addPairs;
+        this.serialize = serialize;
+        this.serializeJSON = serializeJSON;
     }
 
-    function incrementPush(key) {
-      if (pushes[key] === undefined) {
-        pushes[key] = 0;
-      }
-      return pushes[key]++;
+    FormSerializer.patterns = patterns;
+
+    FormSerializer.serializeObject = function serializeObject() {
+        return new FormSerializer($, this).
+            addPairs(this.serializeArray()).
+            serialize();
+    };
+
+    FormSerializer.serializeJSON = function serializeJSON() {
+        return new FormSerializer($, this).
+            addPairs(this.serializeArray()).
+            serializeJSON();
+    };
+
+    if (typeof $.fn !== "undefined") {
+        $.fn.serializeObject = FormSerializer.serializeObject;
+        $.fn.serializeJSON   = FormSerializer.serializeJSON;
     }
 
-    function encode(pair) {
-      switch ($('[name="' + pair.name + '"]', $form).attr("type")) {
-        case "checkbox":
-          return pair.value === "on" ? true : pair.value;
-        default:
-          return pair.value;
-      }
-    }
+    exports.FormSerializer = FormSerializer;
 
-    function addPair(pair) {
-      if (!patterns.validate.test(pair.name)) return this;
-      var obj = makeObject(pair.name, encode(pair));
-      data = helper.extend(true, data, obj);
-      return this;
-    }
-
-    function addPairs(pairs) {
-      if (!helper.isArray(pairs)) {
-        throw new Error("formSerializer.addPairs expects an Array");
-      }
-      for (var i=0, len=pairs.length; i<len; i++) {
-        this.addPair(pairs[i]);
-      }
-      return this;
-    }
-
-    function serialize() {
-      return data;
-    }
-
-    function serializeJSON() {
-      return JSON.stringify(serialize());
-    }
-
-    // public API
-    this.addPair = addPair;
-    this.addPairs = addPairs;
-    this.serialize = serialize;
-    this.serializeJSON = serializeJSON;
-  }
-
-  FormSerializer.patterns = patterns;
-
-  FormSerializer.serializeObject = function serializeObject() {
-    return new FormSerializer($, this).
-      addPairs(this.serializeArray()).
-      serialize();
-  };
-
-  FormSerializer.serializeJSON = function serializeJSON() {
-    return new FormSerializer($, this).
-      addPairs(this.serializeArray()).
-      serializeJSON();
-  };
-
-  if (typeof $.fn !== "undefined") {
-    $.fn.serializeObject = FormSerializer.serializeObject;
-    $.fn.serializeJSON   = FormSerializer.serializeJSON;
-  }
-
-  exports.FormSerializer = FormSerializer;
-
-  return FormSerializer;
+    return FormSerializer;
 }));
-
-//XHR Stuff
-function xhrGetPartners(formObject) {
-	$.ajax({
-		type : "post",
-		dataType : "json",
-		url : KuduAJAX.ajaxUrl,
-		data : formObject,
-		success: xhrGetPartnersHandler
-  	});
-}
-
-function xhrGetPartnersHandler(data) {
-	var mapHTML = "",
-		resultsHTML = "",
-		resultsTotal = 0;
-	if (typeof data === "object") {
-		resultsTotal = data.length;
-		resultsTotal = (isNaN(resultsTotal)) ? 0 : resultsTotal;
-		console.log(data);
-		$(data).each(function () {
-			var tempName = false,
-				tempURL = false,
-				tempLat = false,
-				tempLng = false;
-
-			tempName = (this.name.length > 0) ? this.name : false;
-			tempURL = (this.url.length > 0) ? this.url : false;
-			tempLat = (this.lat.length > 0) ? this.lat : false;
-			tempLng = (this.lng.length > 0) ? this.lng : false;
-			
-			if (tempName && tempURL && tempLat && tempLng) {
-				tempHTML = "<div class=\"marker\" data-lat=\"" + tempLat + "\" data-lng=\"" + tempLng + "\">";
-				tempHTML = tempHTML + "<h4><a href=\"" + tempURL + "\">" + tempName + "</a></h4>";
-				tempHTML = tempHTML + "</div>";
-				mapHTML = mapHTML + tempHTML;
-				tempHTML = "";
-			}
-			if (tempName && tempURL) {
-				tempResultHTML = "<li><a href=\"" + tempURL + "\">" + tempName + "</a></li>";
-				resultsHTML = resultsHTML + tempResultHTML;
-			}
-		});
-	}
-	$(".acf-map").empty().html(mapHTML).each(function () {
-		$(this).trigger("re-render");
-	});
-	$(".finder-search-results").find(".results-list").empty().html(resultsHTML);
-	$(".finder-search-results").find(".results-total .count").empty().html(resultsTotal);
-}

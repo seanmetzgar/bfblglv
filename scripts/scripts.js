@@ -1,12 +1,8 @@
-//SEAN
-var $animatedHeader = null,
-	$findLocalFoodForm = null;
+var $animatedHeader = null;
+var $findLocalFoodForm = null;
 
-//jQuery time
-// $(function () {
-//     "use strict";
-jQuery(document).ready(function($) { // make sure all our jQuery runs after the page initializes, *and* use strict
-
+jQuery(document).ready(function ($) {
+    "use strict";
     $animatedHeader = $(".animated-blocks");
     $animatedHeader.find("li").hover(function (e) {
         var $this = $(this);
@@ -24,203 +20,164 @@ jQuery(document).ready(function($) { // make sure all our jQuery runs after the 
 
     //Initialise Chosen
     $(".chosen-specific-products").chosen({
-    	"placeholder_text_multiple": "Select Products"
+        "placeholder_text_multiple": "Select Products"
     });
 
     $(".county-select").chosen({
-    	"disable_search": true,
-    	"placeholder_text_single": "County"
-    });					
+        "disable_search": true,
+        "placeholder_text_single": "County"
+    });
 
+    // mobile menu button
+    // (the menu button *only* opens the menu! It's covered up when the menu is already open)
+    $('#bfblMenuBtn').click(function (e) {
+        e.preventDefault(); // just in case ...
+        $('#bfblDrawerWrap').addClass('menuActive');
+        $('#bfblMenuOverlay').addClass('menuActive');
+    }); // end #bfblMenuBtn click function
 
-	// mobile menu button
-	// (the menu button *only* opens the menu! It's covered up when the menu is already open)
-	$('#bfblMenuBtn').click(function(e) {
-		e.preventDefault(); // just in case ...
-		$('#bfblDrawerWrap').addClass('menuActive');
-		$('#bfblMenuOverlay').addClass('menuActive');
-	}); // end #bfblMenuBtn click function
+    function bfblCloseMenu() {
+        $('#bfblDrawerWrap').removeClass('menuActive');
+        $('#bfblMenuOverlay').removeClass('menuActive');
+    } // end bfblCloseMenu()
 
-	function bfblCloseMenu() {
-		$('#bfblDrawerWrap').removeClass('menuActive');
-		$('#bfblMenuOverlay').removeClass('menuActive');		
-	} // end bfblCloseMenu()
+    // close the mobile menu when the 'close' button is clicked, *or* if the overlay is clicked
+    $('#bfblMenuClose, #bfblMenuOverlay, #bfblDrawerWrap').click(function (e) {
+        e.preventDefault();
+        bfblCloseMenu();
+    }); // end close menu function
 
-	// close the mobile menu when the 'close' button is clicked, *or* if the overlay is clicked
-	$('#bfblMenuClose, #bfblMenuOverlay, #bfblDrawerWrap').click(function(e) {
-		e.preventDefault();
-		bfblCloseMenu();
-	}); // end close menu function
-	
-	// prevent clicks inside #bfblMenuDrawer from propegating up to #bfblDrawerWrap and closing the menu
-	$('#bfblMenuDrawer').click(function(e) {
-		e.stopPropagation();
-	});
-		
-	
-	// show/hide the search box on desktop
-	$('.buttonSearch').click(function(e) {
-		e.preventDefault();
-		$('.searchFormWrap').toggleClass('searchActive');
-		$(this).toggleClass('btnActive');
-	}); // end close menu function
-	
+    // prevent clicks inside #bfblMenuDrawer from propegating up to #bfblDrawerWrap and closing the menu
+    $('#bfblMenuDrawer').click(function (e) {
+        e.stopPropagation();
+    });
+
+    // show/hide the search box on desktop
+    $('.buttonSearch').click(function (e) {
+        e.preventDefault();
+        $('.searchFormWrap').toggleClass('searchActive');
+        $(this).toggleClass('btnActive');
+    }); // end close menu function
 
 // SPONSOR SLIDER
-	if($('.sponsors-list').length > 0) {
-	
-		$('.sponsors-list ul').slick({
-			infinite: true,
-			speed: 250,
-			slidesToShow: 1, // with variableWidth turned on, the slides to the left and right of the center slide are shown automatically
-			centerMode: true,
-			variableWidth: true
-		}); // end slick() initialization
-		
-	} // end the is-there-a-sponsor-list test
+    if ($('.sponsors-list').length > 0) {
 
+        $('.sponsors-list ul').slick({
+            infinite: true,
+            speed: 250,
+            slidesToShow: 1, // with variableWidth turned on, the slides to the left and right of the center slide are shown automatically
+            centerMode: true,
+            variableWidth: true
+        }); // end slick() initialization
 
+    } // end the is-there-a-sponsor-list test
 
-
-	
 // LIGHTBOXES / DIALOG BOXES
 
-	// add input placeholders to the login inputs
-	var labelUser = $("label[for='user_login']").text();
-	$("#user_login").attr("placeholder", labelUser);
-	
-	var labelPass = $("label[for='user_pass']").text();
-	$("#user_pass").attr("placeholder", labelPass);
+    // add input placeholders to the login inputs
+    var labelUser = $("label[for='user_login']").text();
+    $("#user_login").attr("placeholder", labelUser);
 
+    var labelPass = $("label[for='user_pass']").text();
+    $("#user_pass").attr("placeholder", labelPass);
 
-	// show/hide the login lightbox
-	var $loginLB = $( "#loginLB" );		
-			
-	// initialize the dialog box, with options
-	$loginLB.dialog({
-		autoOpen: false,
-		modal: true,
-		draggable: false,
-		closeOnEscape: true,
-		show: 400,
-		hide: 0,
-		fluid: true, //new option; see dynamic width notes below
-		width: 'auto',
-		maxWidth: 320,
-	}); 
-			
-	// open the dialog box on click
-	$('.buttonLogin').click(function(e) {
-		e.preventDefault(); 
-		$loginLB.dialog('open');
-		// also, close the menu
-		bfblCloseMenu();
-	}); // end the .buttonLogin-click function
+    // show/hide the login lightbox
+    var $loginLB = $("#loginLB");
 
-	// show/hide the newsletter lightbox
-	var $newsletterLB = $( "#newsletterLB" );
-		
-	// initialize the dialog box, with options
-	$newsletterLB.dialog({
-		autoOpen: false,
-		modal: true,
-		draggable: false,
-		closeOnEscape: true,
-		show: 400,
-		hide: 0,
-		fluid: true, //new option; see dynamic width notes below
-		width: 'auto',
-		maxWidth: 320,
-	}); 
+    // initialize the dialog box, with options
+    $loginLB.dialog({
+        autoOpen: false,
+        modal: true,
+        draggable: false,
+        closeOnEscape: true,
+        show: 400,
+        hide: 0,
+        fluid: true, //new option; see dynamic width notes below
+        width: 'auto',
+        maxWidth: 320
+    });
 
-	// open the dialog box on click
-	$('.buttonNewsletter').click(function(e) {
-		e.preventDefault(); 
-		$newsletterLB.dialog('open');
-		// also, close the menu
-		bfblCloseMenu();
-	}); // end the .buttonLogin-click function
+    // open the dialog box on click
+    $('.buttonLogin').click(function (e) {
+        e.preventDefault();
+        $loginLB.dialog('open');
+        // also, close the menu
+        bfblCloseMenu();
+    }); // end the .buttonLogin-click function
 
+    // show/hide the newsletter lightbox
+    var $newsletterLB = $("#newsletterLB");
 
-	// clicking outside the lightbox closes it
-	$('body').on('click', '.ui-widget-overlay', function(e) {
-		$loginLB.dialog('close');
-		$newsletterLB.dialog('close');
-	}) // end the overlay click function
+    // initialize the dialog box, with options
+    $newsletterLB.dialog({
+        autoOpen: false,
+        modal: true,
+        draggable: false,
+        closeOnEscape: true,
+        show: 400,
+        hide: 0,
+        fluid: true, //new option; see dynamic width notes below
+        width: 'auto',
+        maxWidth: 320
+    });
 
+    // open the dialog box on click
+    $('.buttonNewsletter').click(function (e) {
+        e.preventDefault();
+        $newsletterLB.dialog('open');
+        // also, close the menu
+        bfblCloseMenu();
+    }); // end the .buttonLogin-click function
 
-	// lightbox dynamic width!
-	// source: http://stackoverflow.com/questions/16471890/responsive-jquery-ui-dialog-and-a-fix-for-maxwidth-bug
+    // clicking outside the lightbox closes it
+    $('body').on('click', '.ui-widget-overlay', function (e) {
+        e.preventDefault();
+        $loginLB.dialog('close');
+        $newsletterLB.dialog('close');
+    }); // end the overlay click function
 
-	// on window resize run function
-	$(window).resize(function () {
-	    fluidDialog();
-	});
+    // lightbox dynamic width!
+    // source: http://stackoverflow.com/questions/16471890/responsive-jquery-ui-dialog-and-a-fix-for-maxwidth-bug
 
-	// catch dialog if opened within a viewport smaller than the dialog width
-	$(document).on("dialogopen", ".ui-dialog", function (event, ui) {
-	    fluidDialog();
-	});
+    // on window resize run function
+    $(window).resize(fluidDialog); //function in plugins.js
 
-	function fluidDialog() {
-	    var $visible = $(".ui-dialog:visible");
-	    // each open dialog
-	    $visible.each(function () {
-	        var $this = $(this);
-	        var dialog = $this.find(".ui-dialog-content").data("ui-dialog");
-	        // if fluid option == true
-	        if (dialog.options.fluid) {
-	            var wWidth = $(window).width();
-	            // check window width against dialog max width
-	            if (wWidth < (parseInt(dialog.options.maxWidth) + 50))  {
-	                // keep dialog from filling entire screen
-	                $this.css("max-width", "87.5%");
-	            } else {
-	                // fix maxWidth bug
-	                $this.css("max-width", dialog.options.maxWidth + "px");
-	            }
-	            //reposition dialog
-	            dialog.option("position", dialog.options.position);
-	        }
-	    });
+    // catch dialog if opened within a viewport smaller than the dialog width
+    $(document).on("dialogopen", ".ui-dialog", fluidDialog); //function in plugins.js
 
-	} // end fluidDialog()
+    // bfbl slider (used on partner pages and the find local food form)
+    $('.bfblSlider .greenHeader').click(function (e) {
+        e.preventDefault(); // clicking on these should never do anything anyway, but just in case ...
 
-	// bfbl slider (used on partner pages and the find local food form)
-	$('.bfblSlider .greenHeader').click(function(e) {
-		e.preventDefault(); // clicking on these should never do anything anyway, but just in case ...
-		
-		var $slider = $(this).parent('.bfblSlider');
-		var $slideContents = $slider.children('.bfblSlideWrap');
-		
-		// deal with any sliders that were visually hidden on page load
-		if($slider.hasClass('initialClosed')) {
-			$slider.removeClass('initialClosed');
-			$slideContents.css('display', 'none');
-		}
-		
-		if($slider.hasClass('sliderOpen')) {
-			// if it's open, close it
-			$slideContents.slideUp(750);
-			$slider.removeClass('sliderOpen');
-			$slider.addClass('sliderClosed');
-		} else {
-			// if it's closed, open it
-			$slideContents.slideDown(750);
-			$slider.removeClass('sliderClosed');
-			$slider.addClass('sliderOpen');			
-		}
-		
-		
-	}); // end the .greenHeader click function
+        var $slider = $(this).parent('.bfblSlider');
+        var $slideContents = $slider.children('.bfblSlideWrap');
 
-	//Find Local Food Form
-	$findLocalFoodForm = $("#find-local-food-form").eq(0);
-	$findLocalFoodForm.on("blur change", "input, textarea, select", function () {
-		var formObject = $findLocalFoodForm.serializeObject();
-		formObject.action = "xhrGetPartners";
+        // deal with any sliders that were visually hidden on page load
+        if ($slider.hasClass('initialClosed')) {
+            $slider.removeClass('initialClosed');
+            $slideContents.css('display', 'none');
+        }
 
-		xhrGetPartners(formObject);
-	}).find("input").eq(0).trigger("blur");
+        if ($slider.hasClass('sliderOpen')) {
+            // if it's open, close it
+            $slideContents.slideUp(750);
+            $slider.removeClass('sliderOpen');
+            $slider.addClass('sliderClosed');
+        } else {
+            // if it's closed, open it
+            $slideContents.slideDown(750);
+            $slider.removeClass('sliderClosed');
+            $slider.addClass('sliderOpen');
+        }
+    }); // end the .greenHeader click function
+
+    //Find Local Food Form
+    $findLocalFoodForm = $("#find-local-food-form").eq(0);
+    $findLocalFoodForm.on("blur change", "input, textarea, select", function () {
+        var formObject = $findLocalFoodForm.serializeObject();
+        formObject.action = "xhrGetPartners";
+
+        xhrGetPartners(formObject);
+    }).find("input").eq(0).trigger("blur");
 
 }); // end document ready
