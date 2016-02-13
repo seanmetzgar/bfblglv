@@ -4945,15 +4945,16 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	font-size: 14px;
 	font-style: italic;
 	margin: 10px 0 0;
-	&:empty { display: none; }
 }
+.photo-gallery-wrapper .gallery-caption:empty { display: none; }
+
 .photo-gallery-wrapper .cycle-caption {
 	background-color: #eee;
 	font-size: 14px;
 	margin: 0;
 	padding: 10px;
-	&:empty { display: none !important; }
 }
+.photo-gallery-wrapper .cycle-caption:empty { display: none !important; }
 
 .photo-gallery-wrapper .photo-gallery {
 	display: block;
@@ -4963,8 +4964,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	margin: 0;
 }
 
-.photo-gallery-wrapper .cycle-prev,
-.photo-gallery-wrapper .cycle-next, {
+.photo-gallery-wrapper .photo-gallery .cycle-prev,
+.photo-gallery-wrapper .photo-gallery .cycle-next, {
 	width: 82px; height: 90px;
 	background-color: rgba(255, 255, 255, 0.85);
 	background-repeat: no-repeat;
@@ -4983,18 +4984,18 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	-webkit-transition: opacity 0.1s ease-in-out;
 	-moz-transition: opacity 0.1s ease-in-out;
 }
-.photo-gallery-wrapper .cycle-prev:hover,
-.photo-gallery-wrapper .cycle-next:hover {
+.photo-gallery-wrapper .photo-gallery .cycle-prev:hover,
+.photo-gallery-wrapper .photo-gallery .cycle-next:hover {
 	opacity: 1;
 }
-.photo-gallery-wrapper .cycle-slideshow {
+.photo-gallery-wrapper .photo-gallery .cycle-slideshow {
 	background-color: #333;
 }
-.photo-gallery-wrapper .cycle-prev {
+.photo-gallery-wrapper .photo-gallery .cycle-prev {
 	background-image: url(../images/gallery/gallery_prev_lg.png);
 	left: 0;
 }
-.photo-gallery-wrapper .cycle-next {
+.photo-gallery-wrapper .photo-gallery .cycle-next {
 	background-image: url(../images/gallery/gallery_next_lg.png);
 	right: 0;
 }
