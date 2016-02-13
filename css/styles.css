@@ -3736,8 +3736,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	
 	.page-block.image-normal .image {
 		/* have the top padding match that of .content */
-		padding-top: 72px; padding-top: 4.5rem;
-		padding-bottom: 32rem; padding-bottom: 2rem;
+		padding-top: 4rem;
+		padding-bottom: 4rem;
 	}
 	
 	.page-block.image-overhang .image {
