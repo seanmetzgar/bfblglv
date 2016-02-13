@@ -72,8 +72,8 @@ get_header();
 									<label><input type="checkbox" name="location_type[]" value="retail"><span>Stores / Retail</span></label>
 									<label><input type="checkbox" name="location_type[]" value="vineyard"><span>Vineyards</span></label>
 									<label><input type="checkbox" name="location_type[]" value="distillery"><span>Distilleries</span></label>
-									<label><input type="checkbox" name="location_type[]" value="institution"><span>Institution</span></label>
-									<label><input type="checkbox" name="location_type[]" value="distributor"><span>Distributor</span></label>
+									<label><input type="checkbox" name="location_type[]" value="institution"><span>Institutions</span></label>
+									<label><input type="checkbox" name="location_type[]" value="distributor"><span>Distributors</span></label>
 									<label><input type="checkbox" name="location_type[]" value="specialty"><span>Specialty Products</span></label>
 									<label><input type="checkbox" name="location_type[]" value="farmers-market"><span>Farmers' Markets</span></label>
 								</div><!-- end div.map-checkboxes -->
@@ -97,7 +97,7 @@ get_header();
 									<label><input type="checkbox" name="product_type[]" value="flowers"><span>Flowers</span></label>
 									<label><input type="checkbox" name="product_type[]" value="plants"><span>Plants</span></label>
 									<label><input type="checkbox" name="product_type[]" value="ornamentals"><span>Ornamentals</span></label>
-									<label><input type="checkbox" name="product_type[]" value="syrups"><span>Honey / Syrup</span></label>
+									<label><input type="checkbox" name="product_type[]" value="syrups"><span>Honey / Syrups</span></label>
 									<label><input type="checkbox" name="product_type[]" value="dairy"><span>Dairy</span></label>
 									<label><input type="checkbox" name="product_type[]" value="meat"><span>Meat</span></label>
 									<label><input type="checkbox" name="product_type[]" value="poultry"><span>Poultry</span></label>
