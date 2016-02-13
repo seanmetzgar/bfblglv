@@ -4965,7 +4965,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 }
 
 .photo-gallery-wrapper .photo-gallery .cycle-prev,
-.photo-gallery-wrapper .photo-gallery .cycle-next, {
+.photo-gallery-wrapper .photo-gallery .cycle-next {
 	width: 82px; height: 90px;
 	background-color: rgba(255, 255, 255, 0.85);
 	background-repeat: no-repeat;
