@@ -38,6 +38,7 @@ function xhrGetPartnersHandler(data) {
             var tempURL = false;
             var tempLat = false;
             var tempLng = false;
+            var tempHTML = "";
 
             tempName = (this.name.length > 0) ? this.name : false;
             tempURL = (this.url.length > 0) ? this.url : false;
