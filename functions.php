@@ -19,7 +19,7 @@ $bfbl_custom_roles = array(
 add_action("after_setup_theme", "kudu_setup");
 function kudu_setup() {
 	load_theme_textdomain("kudu", get_template_directory() . "/languages");
-	
+
 	$custom_header_args = array(
         "flex-width"        => true,
         "width"             => 1280,
@@ -33,10 +33,10 @@ function kudu_setup() {
     add_theme_support("post-thumbnails");
     add_theme_support("html5");
     add_theme_support("custom-header", $custom_header_args );
-    
+
 	global $content_width;
 	if (!isset($content_width)) $content_width = 640;
-	
+
 	register_nav_menus(array(
 		"main-menu" => 			__("Main Menu", "kudu")
 	));
@@ -47,21 +47,22 @@ function kudu_setup() {
 
 add_action("wp_enqueue_scripts", "kudu_load_scripts");
 function kudu_load_scripts() {
-//	$template_path = relative_template_path(); 
+//	$template_path = relative_template_path();
 	$template_path = get_stylesheet_directory_uri();
-	
+
     wp_deregister_script("jquery");
     wp_register_script("kudu-modernizr", "$template_path/scripts/vendor/modernizr/modernizr.min.js");
     wp_register_script("kudu-acf-gmaps", "//maps.googleapis.com/maps/api/js?v=3.exp");
-    
+
     wp_register_script("jquery", "$template_path/scripts/vendor/jquery/jquery.min.js");
     wp_register_script("kudu-bootstrap", "$template_path/bootstrap/js/bootstrap.min.js");
 	wp_register_script("kudu-slick", "$template_path/scripts/vendor/slick/slick.min.js");
 	wp_register_script("kudu-chosen", "$template_path/scripts/vendor/chosen/chosen.jquery.min.js");
+	wp_register_script("kudu-cycle", "$template_path/scripts/vendor/cycle/jquery.cycle.js");
     wp_register_script("kudu-plugins", "$template_path/scripts/plugins.js");
     wp_register_script("kudu-scripts", "$template_path/scripts/scripts.js");
     wp_localize_script("kudu-plugins", "KuduAJAX", array( "ajaxUrl" => admin_url("admin-ajax.php")));
-    
+
     wp_register_style("kudu-bootstrap", "$template_path/bootstrap/css/bootstrap.min.css");
     wp_register_style("kudu-bootstrap-theme", "$template_path/bootstrap/css/bootstrap-theme.min.css");
 	wp_register_style("kudu-slick-style", "$template_path/scripts/vendor/slick/slick.css");
@@ -79,7 +80,7 @@ function kudu_load_scripts() {
 	wp_enqueue_style("kudu-blue-highway");
 	wp_enqueue_style("kudu-blue-hwy-cond");
 	wp_enqueue_style("kudu-chosen-style");
-	wp_enqueue_style("kudu-clear-sans"); 
+	wp_enqueue_style("kudu-clear-sans");
 	wp_enqueue_style("kudu-sean-css", false, array("kudu-bootstrap", "kudu-bootstrap", "wp-jquery-ui-dialog", "kudu-blue-highway", "kudu-blue-hwy-cond", "kudu-clear-sans"));
     wp_enqueue_style("kudu-css", false, array("kudu-bootstrap", "kudu-bootstrap", "wp-jquery-ui-dialog", "kudu-blue-highway", "kudu-blue-hwy-cond", "kudu-clear-sans", "kudu-sean-css"));
 
@@ -90,6 +91,7 @@ function kudu_load_scripts() {
     wp_enqueue_script("kudu-bootstrap", false, array("jquery"), false, true);
 	wp_enqueue_script("kudu-slick", false, array("jquery"), '1.5.9', true);
 	wp_enqueue_script("kudu-chosen", false, array("jquery"), '1.4.2', true);
+	wp_enqueue_script("kudu-cycle", false, array("jquery"), '2.1.6', true);
     wp_enqueue_script("kudu-plugins", false, array("jquery"), false, true);
     wp_enqueue_script("kudu-scripts", false, array("jquery", "jquery-ui-dialog", "kudu-plugins", "wp-jquery-ui-dialog"), false, true);
 }
@@ -119,12 +121,12 @@ function kudu_user_role_bodyclass($classes) {
 	$user_ID = get_current_user_id();
 	$user_data = get_userdata($user_ID);
 	// $user_data->roles is an array of the current user's role(s)
-	
+
 	$is_partner = FALSE;
 	$new_classes = array();
-	
+
 	global $bfbl_custom_roles; /* values set at the start of functions.php */
-	
+
 	foreach($user_data->roles as $the_role) {
 		if(in_array($the_role, $bfbl_custom_roles)) {
 			$is_partner = TRUE;
@@ -149,7 +151,7 @@ function kudu_enqueue_comment_reply_script() {
 
 add_filter("the_title", "kudu_title");
 function kudu_title($title) {
-		
+
 	$rVal = ($title === "") ? "&rarr;" : $title;
 	return $rVal;
 }
@@ -192,12 +194,12 @@ function hide_admin_bar_from_front_end(){
 function bfblExtractName($url) {
 	$lastSlash = strrpos($url,'/') + 1;
 	$result = substr($url, $lastSlash, strlen($url));
-	
+
 	// if the string is empty, put back the url as a fallback
 	if(!$result) {
 		$result = $url;
 	}
-	
+
 	return $result;
 } // end bfblExtractName()
 
