@@ -291,13 +291,13 @@ header.site-header .home-link a {
 	background: #b7b7b7;
 	z-index: 500;
 	opacity: 0;
-	transition: opacity 1s, bottom 0s linear 1s;
+	transition: opacity .25s, bottom 0s linear .25s;
 }
 
 #bfblMenuOverlay.menuActive {
 	bottom: 0;
 	opacity: .84;
-	transition: opacity 1s, bottom 0s;
+	transition: opacity .25s, bottom 0s;
 }
 
 
@@ -308,7 +308,7 @@ header.site-header .home-link a {
 	height: 0;
 	z-index: 600;
 	overflow: hidden;
-	transition: width 0s linear 1s, height 0s linear 1s;
+	transition: width 0s linear .25s, height 0s linear .25s;
 }
 
 #bfblDrawerWrap.menuActive {
@@ -328,7 +328,7 @@ header.site-header .home-link a {
 	font-family: 'blue_highway_regular';
 	color: #ffffff;
 	overflow: hidden;
-	transition: right 1s, box-shadow 1s;
+	transition: right .25s, box-shadow .25s;
 }
 
 #bfblDrawerWrap.menuActive #bfblMenuDrawer {
@@ -524,7 +524,7 @@ input.search-field:-ms-input-placeholder {
 .ui-widget-overlay {
 	background: #b7b7b7;
 	opacity: .84;
-	transition: z-index 1s;
+	transition: z-index .25s;
 }
 
 .ui-dialog {
