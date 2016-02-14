@@ -1029,17 +1029,9 @@ header.page-header.no-image .entry-title {
 }
 
 .entry-content ul li::before {
-	content: '';
-	display: block;
-	position: absolute;
-	top: 0; left: -10px;
-	width: 6px;
-	height: 6px;
-	margin-top: -3px;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	border-radius: 50%;
-	background: #008c5c;
+	content: '=';
+	margin-left: -10px;
+	color: #008c5c;
 }
 
 
