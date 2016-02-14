@@ -3111,7 +3111,7 @@ body.single-events .entry-content .post-meta {
 	content: '';
 	position: absolute;
 	top: 50%;
-	left: 0;
+	left: 3px; left: 0.1875rem;
 /*	margin-right: 10px; margin-right: 0.625rem; */
 	width: 50px; /* cq, px only */
 	height: 50px;
