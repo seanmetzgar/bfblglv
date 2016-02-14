@@ -998,6 +998,8 @@ header.page-header.no-image .entry-title {
 	text-transform: uppercase;
 }
 
+.resourcesContainer h2 { text-align: center; }
+
 .entry-content h2.resourceSubhead {
 	font-size: 30px; font-size: 1.875rem;
 	color: #555555;
@@ -2308,10 +2310,11 @@ body.single-events .entry-content .post-meta {
 }
 
 .resourcesList {
-	text-align: center;
+	/*text-align: center; */
 }
 
 .resourceLink {
+	text-align: center;
 	display: inline-block;
 	vertical-align: bottom;
 	width: 100%;
