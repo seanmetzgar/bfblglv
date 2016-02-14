@@ -3,12 +3,6 @@
 				<?php get_template_part("entry", "resources-header"); ?>
 
 				<div class="resourcesContainer">
-					<div class="resourcesList">
-						<!-- <?php
-							if ( have_posts() ) : while ( have_posts() ) : the_post();
-								get_template_part( "entry", "resources-summary" );
-							endwhile; endif;
-						?> -->
 						<?php $findResourcesQuery = new WP_Query( array (
 							'post_type'              => array( 'resources' ),
 							'tax_query' => array(
@@ -36,16 +30,20 @@
 							'orderby'                => 'title'
 						));
 						if ($findResourcesQuery->have_posts()):
-							echo "<h2>Find Locally Grown Foods</h2>";
+							echo "<h2>Find Locally Grown Foods</h2>\n";
+							echo "<div class=\"resourcesList\">\n";
 							while ($findResourcesQuery->have_posts()): $findResourcesQuery->the_post();
 								get_template_part( "entry", "resources-summary" );
 							endwhile;
+							echo "</div>\n";
 						endif;
 						if ($publicationsResourcesQuery->have_posts()):
 							echo "<h2>Publications</h2>";
+							echo "<div class=\"resourcesList\">\n";
 							while ($publicationsResourcesQuery->have_posts()): $publicationsResourcesQuery->the_post();
 								get_template_part( "entry", "resources-summary" );
 							endwhile;
+							echo "</div>\n";
 						endif;
 						?>
 

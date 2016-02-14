@@ -987,7 +987,8 @@ header.page-header.no-image .entry-title {
 }
 
 .entry-content h1,
-.entry-content h2 {
+.entry-content h2,
+.resourcesContainer h2 {
 	margin: 0;
 	padding: 24px 0; padding: 1.5rem 0;
 	font-family: 'blue_highway_bold';
