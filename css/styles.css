@@ -3507,9 +3507,9 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-right: 0;
 	}
 
-	.alignleft,
+	img.alignleft,
 	.alignleft img,
-	.alignright,
+	img.alignright,
 	.alignright img {
 		max-width: 56%!important;
 	}
@@ -4674,9 +4674,9 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		font-size: 1.25rem;
 	}
 
-	.alignleft,
+	img.alignleft,
 	.alignleft img,
-	.alignright,
+	img.alignright,
 	.alignright img {
 		max-width: 50%!important;
 	}
