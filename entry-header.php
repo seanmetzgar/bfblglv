@@ -1,7 +1,7 @@
-<?php 
+<?php
 	$has_post_thumbnail = ( has_post_thumbnail() );
 	$entry_header_class = $has_post_thumbnail ? "page-header has-image" : "page-header no-image";
-	
+
 	// newnewnew
 	$entry_header_css = '';
 	if($has_post_thumbnail) {
@@ -10,12 +10,11 @@
 		$thumbnail_src = wp_get_attachment_image_src($thumbnail_id, 'full');
 		$entry_header_css = "style='background-image: url({$thumbnail_src[0]});'";
 	} // end the is-there-a-post-thumbnail test
-	
+
 	$bfblPageTitle = get_the_title();
 	$bfblPageTitle = str_replace(' ', '<br>', $bfblPageTitle); // force line breaks between each word
-	$bfblPageTitle = str_replace('<br>/<br>', " /<br>", $bfblPageTitle); //replace slash line break;
-	$bfblPageTitle = str_replace('<br>&<br>', " &<br>", $bfblPageTitle); //replace slash line break;
-	
+	$bfblPageTitle = preg_replace("/<br>([&\/\\])<br>/i", " $1<br>", $bfblPageTitle); //replace short breaks;
+
 ?>
 					<header class="<?php echo $entry_header_class; ?>" <?php echo $entry_header_css?>>
 						<h1 class="entry-title"><?php echo $bfblPageTitle; ?></h1>
