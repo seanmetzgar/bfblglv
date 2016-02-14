@@ -1,6 +1,7 @@
 <?php
 
 $resourceLinkCSS = '';
+$resourceTaxonomyTerms = wp_get_post_terms(get_the_ID(), "resource_type");
 
 // UNCOMMENT TO RESTORE
 /*
@@ -20,6 +21,13 @@ echo "<article class='resourceLink' $resourceLinkCSS >";
 			echo "<span>";
 				the_title();
 			echo "</span>";
+			if (is_array($resourceTaxonomyTerms) && count($resourceTaxonomyTerms) > 0) {
+			echo "<span class='categories'>";
+				foreach ($resourceTaxonomyTerms as $resourceTaxonomyTerm) {
+					print_r($resourceTaxonomyTerm);
+				}
+			echo "</span>";
+			}
 		echo "</a>";
 	echo "</h2>";
 echo "</article>";
