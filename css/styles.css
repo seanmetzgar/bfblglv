@@ -1118,6 +1118,10 @@ img.aligncenter {
 .aligncenter>a {
 	display: inline-block;
 }
+.wp-caption-text {
+	font-size: .85em;
+	font-style: italic;
+}
 
 .entry-content p.wp-caption-text {
 	margin-bottom: 0;
