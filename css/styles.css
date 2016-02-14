@@ -3264,7 +3264,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	cursor: pointer;
 	text-indent: -9999em;
 
-	opacity: .5;
+	opacity: .25;
 	transition: opacity 0.1s ease-in-out;
 	-webkit-transition: opacity 0.1s ease-in-out;
 	-moz-transition: opacity 0.1s ease-in-out;
