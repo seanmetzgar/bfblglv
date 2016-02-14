@@ -142,8 +142,9 @@ get_header();
 						</section>
                         
 						<section class="form-section wholesale-section">
-                            <?php if (is_user_logged_in()): ?>
-							<label class='greenHeader'><input type="checkbox" name="wholesale" value="1"><span>Wholesale</span></label>
+                            <?php if (is_user_logged_in()):
+                                $wholesaleChecked = ($_REQUEST["wholesale"] === "true" || $_REQUEST["wholesale" === "1"]) ? true : false; ?>
+							<label class='greenHeader'><input type="checkbox" name="wholesale" value="1"<?php if ($wholesaleChecked) { echo " checked"; } ?>><span>Wholesale</span></label>
                             <?php else: ?>
 							<a href="/become-a-partner" class='greenHeader'><span>Wholesale</span></a>
                             <?php endif; ?>
