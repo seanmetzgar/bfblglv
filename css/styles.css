@@ -1647,6 +1647,10 @@ label.greenHeader:hover {
 	border-style: solid;
 	border-color: #ffffff;
 	border-width: 0;
+    -webkit-transition: height 0.25s ease-in-out;
+    -moz-transition: height 0.25s ease-in-out;
+    -o-transition: height 0.25s ease-in-out;
+    transition: height 0.25s ease-in-out;
 }
 
 .bfblSlider.sliderClosed {
@@ -1657,10 +1661,6 @@ label.greenHeader:hover {
     display: block;
     height: 0;
     overflow: hidden;
-    -webkit-transition: height 0.25s ease-in-out;
-    -moz-transition: height 0.25s ease-in-out;
-    -o-transition: height 0.25s ease-in-out;
-    transition: height 0.25s ease-in-out;
 }
 .bfblSlider.sliderOpen .bfblSlideWrap { height: auto; }
 
