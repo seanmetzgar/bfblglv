@@ -9,6 +9,7 @@
  * #555555 - gray text, gray accent
  * #f7ecd5 - tan/orange, background color
  * #b7b7b7, 87% - overlay color (183,183,183,.87)
+ * #fdfbf7, #fff @ 80% - blockquote bg
 */
 
 /* fonts:
@@ -1021,7 +1022,8 @@ header.page-header.no-image .entry-title {
 .entry-content blockquote {
 	clear: both;
 	font-size: 1.25rem;
-	background-color: #fff;
+	background-color: #fdfbf7;
+	background-color: rgba(255, 255, 255, 0.80);
 	border: 0;
 	border-left: 5px solid #008c5c;
 	padding: 20px; padding: 1.25rem;
@@ -3475,6 +3477,11 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		padding: 44px 42px; padding: 2.75rem 2.625rem; /* matches padding on .page-block */
 	}
 
+	.entry-content blockquote {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+
 	.entry-content .video {
 		float: right;
 		width: 50%;
@@ -4650,6 +4657,11 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 	.entry-content .video {
 		width: 50%;
+	}
+
+	.entry-content blockquote {
+		margin-left: 40px;
+		margin-right: 40px;
 	}
 
 	.alignleft,
