@@ -3459,7 +3459,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	header.page-header.has-image .entry-title {
-		font-size: 50px; font-size: 3.125rem;
+		font-size: 44px; font-size: 2.75rem;
 		line-height: 1;
 		text-align: left;
 		min-width: 33.33%;
@@ -3471,7 +3471,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	header.page-header.no-image .entry-title {
-		font-size: 50px; font-size: 3.125rem;
+		font-size: 44px; font-size: 2.75rem;
 		line-height: 1;
 	}
 
@@ -4637,8 +4637,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 	/* PAGE HEADER - DESKTOP */
 	header.page-header.has-image .entry-title {
-		font-size: 70px; font-size: 4.375rem;
-		line-height: 60px; line-height: 3.75rem;
+		font-size: 50px; font-size: 3.125rem;
+		line-height: 46px; line-height: 2.875rem;
 		padding-right: 46px; padding-right: 2.875rem;
 	}
 
@@ -4647,8 +4647,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	header.page-header.no-image .entry-title {
-		font-size: 70px; font-size: 4.375rem;
-		line-height: 60px; line-height: 3.75rem;
+		font-size: 50px; font-size: 3.125rem;
+		line-height: 46px; line-height: 2.875rem;
 	}
 
 
