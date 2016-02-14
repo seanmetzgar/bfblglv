@@ -1029,6 +1029,7 @@ header.page-header.no-image .entry-title {
 }
 
 .entry-content ul li::before {
+	font-family: Webdings;
 	content: '=';
 	margin-left: -10px;
 	color: #008c5c;
