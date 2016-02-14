@@ -61,7 +61,7 @@ get_header();
 								<div class="form-inline page-block map-checkboxes">
 									<label><input type="checkbox" name="location_type[]" value="farm"><span>Farms</span></label>
 									<label><input type="checkbox" name="is_csa" value="1"><span>CSAs</span></label>
-									<label><input type="checkbox" name="is_farm_share" value="1"><span>Farm Shares</span></label
+									<label><input type="checkbox" name="is_farm_share" value="1"><span>Farm Shares</span></label>
 									<label><input type="checkbox" name="location_type[]" value="restaurant"><span>Restaurants / Caterers</span></label>
 									<label><input type="checkbox" name="location_type[]" value="retail"><span>Stores / Retail</span></label>
 									<label><input type="checkbox" name="location_type[]" value="vineyard"><span>Vineyards</span></label>
