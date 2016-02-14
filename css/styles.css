@@ -1,4 +1,4 @@
-﻿/* colors used:
+/* colors used:
  * #ffffff - white
  * #008c5c - green (0, 140, 92)
  * #015c3c - medium green (1,92,60)
@@ -1623,11 +1623,11 @@ label.greenHeader::before {
 }
 
 .bfblSlider.sliderOpen .greenHeader::before {
-	content: '\e812';
+	content: '\e811';
 }
 
 .bfblSlider.sliderClosed .greenHeader::before {
-	content: '\e811';
+	content: '\e80e';
 }
 
 .parentArrow:hover,
