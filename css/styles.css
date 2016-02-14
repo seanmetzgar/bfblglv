@@ -1028,7 +1028,6 @@ header.page-header.no-image .entry-title {
 	padding: 20px; padding: 1.25rem;
 }
 .entry-content blockquote p {
-	font-size: 1.25rem;
 	margin: .5em 0;
 }
 
@@ -3484,6 +3483,9 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-left: 40px;
 		margin-right: 40px;
 	}
+	.entry-content blockquote p {
+		font-size: 1.125rem;
+	}
 
 	.entry-content .video {
 		float: right;
@@ -4665,6 +4667,9 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.entry-content blockquote {
 		margin-left: 80px;
 		margin-right: 80px;
+	}
+	.entry-content blockquote p {
+		font-size: 1.25rem;
 	}
 
 	.alignleft,
