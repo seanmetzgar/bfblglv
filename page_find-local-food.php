@@ -140,9 +140,13 @@ get_header();
 								</div><!-- end div.map-specific-prods -->
 							</div><!-- end div.bfblSlideWrap -->
 						</section>
-
+                        
 						<section class="form-section wholesale-section">
+                            <?php if (is_user_logged_in()): ?>
 							<label class='greenHeader'><input type="checkbox" name="wholesale" value="1"><span>Wholesale</span></label>
+                            <?php else: ?>
+							<a href="/become-a-partner" class='greenHeader'><span>Wholesale</span></a>
+                            <?php endif; ?>
 						</section>
 					</form>
 				</section><!-- end section.map-form -->
