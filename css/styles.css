@@ -1647,12 +1647,13 @@ label.greenHeader:hover {
 	border-style: solid;
 	border-color: #ffffff;
 	border-width: 0;
+}
+.bfblSlider .bfblSlideWrap {
     -webkit-transition: height 0.25s ease-in-out;
     -moz-transition: height 0.25s ease-in-out;
     -o-transition: height 0.25s ease-in-out;
     transition: height 0.25s ease-in-out;
 }
-
 .bfblSlider.sliderClosed {
 	border-bottom-width: 1px;
 }
