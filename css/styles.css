@@ -2352,6 +2352,10 @@ body.single-events .entry-content .post-meta {
 	padding-left: 8px;
 	padding-right: 8px;
 }
+.resourceLink a span .categories {
+	font-size: 1.125rem;
+	display:  block;
+}
 
 .resourceDownload {
 	display: block;
