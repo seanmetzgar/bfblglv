@@ -1619,19 +1619,22 @@ a.greenHeader::before {
 	text-align: center;
 }
 
-.parentArrow::before,
-a.greenHeader::before {
+.parentArrow::before {
+	content: '\e80d';
+}
+.parentArrow::before {
 	content: '\e80d';
 }
 
 .bfblSlider.sliderOpen .greenHeader::before,
-.bfblSlider.sliderClosed .greenHeader::before {
-	content: '\e811';
+.bfblSlider.sliderClosed .greenHeader::before,
+a.greenHeader::before {
+	content: '\e80e';
     transition: transform 0.1s ease-in-out;
 }
 
-.bfblSlider.sliderClosed .greenHeader::before {
-	transform: rotate(-90deg);
+.bfblSlider.slideOpen .greenHeader::before {
+	transform: rotate(90deg);
 }
 
 .parentArrow:hover,
