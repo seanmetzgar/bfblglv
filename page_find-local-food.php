@@ -74,7 +74,7 @@ get_header();
 							</div><!-- end div.bfblSlideWrap -->
 						</section>
 
-						<section class="form-section bfblSlider sliderClosed initialClosed" data-active-category="farm">
+						<section class="form-section bfblSlider sliderClosed initialClosed product-types-section">
 							<h2 class="greenHeader">Product Type</h2>
 							<div class="bfblSlideWrap">
 
