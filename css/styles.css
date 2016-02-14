@@ -1652,6 +1652,16 @@ label.greenHeader:hover {
 .bfblSlider.sliderClosed {
 	border-bottom-width: 1px;
 }
+.bfblSlider.sliderOpen .bfblSlideWrap,
+.bfblSlider.sliderClosed .bfblSlideWrap {
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: height 0.25s ease-in-out;
+    -moz-transition: height 0.25s ease-in-out;
+    -o-transition: height 0.25s ease-in-out;
+    transition: height 0.25s ease-in-out;
+}
+.bfblSlider.sliderOpen .bfblSlideWrap { height: auto; }
 
 /* PAGE CHIPS */
 .chips-block {
