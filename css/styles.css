@@ -1622,12 +1622,14 @@ label.greenHeader::before {
 	content: '\e80d';
 }
 
-.bfblSlider.sliderOpen .greenHeader::before {
+.bfblSlider.sliderOpen .greenHeader::before,
+.bfblSlider.sliderClosed .greenHeader::before {
 	content: '\e811';
+    transition: transform 0.25s ease-in-out;
 }
 
 .bfblSlider.sliderClosed .greenHeader::before {
-	content: '\e80e';
+	transform: rotate(90deg);
 }
 
 .parentArrow:hover,
