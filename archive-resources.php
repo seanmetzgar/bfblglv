@@ -13,7 +13,7 @@
 							'post_type'              => array( 'resources' ),
 							'tax_query' => array(
 								array(
-									'taxonomy' => 'resource-type',
+									'taxonomy' => 'resource_type',
 									'field'    => 'slug',
 									'terms'    => 'find-locally-grown-foods'
 								)
@@ -23,11 +23,12 @@
 							'order'                  => 'ASC',
 							'orderby'                => 'title'
 						));
+						print_r($findResourcesQuery);
 						$publicationsResourcesQuery = new WP_Query( array (
 							'post_type'              => array( 'resources' ),
 							'tax_query' => array(
 								array(
-									'taxonomy' => 'resource-type',
+									'taxonomy' => 'resource_type',
 									'field'    => 'slug',
 									'terms'    => 'publications'
 								)
