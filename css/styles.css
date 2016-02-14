@@ -11,7 +11,7 @@
  * #b7b7b7, 87% - overlay color (183,183,183,.87)
 */
 
-/* fonts: 
+/* fonts:
  * 'Clear Sans'
  * 'blue_highway_regular' ---------- 'BlueHighwayW00-Regular' (formerly 'Blue Highway W00')
  * 'blue_highway_bold' ---------- 'Blue Highway W00 Bold'
@@ -105,7 +105,7 @@ p {
 	margin: 0;
 }
 
-input, 
+input,
 button {
 	border: 0;
 	background: transparent;
@@ -155,7 +155,7 @@ button {
 	font-family: 'blue_highway_regular';
 }
 
-.bfblButtonLink:hover, 
+.bfblButtonLink:hover,
 .bfblButtonLink:focus,
 #wp-submit:hover,
 #wp-submit:focus {
@@ -170,7 +170,7 @@ button {
 	background: transparent!important;
 }
 
-.bfblButtonLink.btnBlue:hover, 
+.bfblButtonLink.btnBlue:hover,
 .bfblButtonLink.btnBlue:focus {
 	background: #1a3281!important;
 	color: #ffffff!important;
@@ -182,7 +182,7 @@ button {
 	background: transparent!important;
 }
 
-.bfblButtonLink.btnOrange:hover, 
+.bfblButtonLink.btnOrange:hover,
 .bfblButtonLink.btnOrange:focus {
 	background: #fcaf17!important;
 	color: #ffffff!important;
@@ -194,7 +194,7 @@ button {
 	background: transparent!important;
 }
 
-.bfblButtonLink.btnGray:hover, 
+.bfblButtonLink.btnGray:hover,
 .bfblButtonLink.btnGray:focus {
 	background: #555555!important;
 	color: #ffffff!important;
@@ -232,7 +232,7 @@ header.site-header .home-link a {
 
 #bfblMenuBtn {
 	position: absolute;
-	top: 12px; top: 0.75rem; 
+	top: 12px; top: 0.75rem;
 	right: 0; bottom: 0;
 	width: 64px; width: 4rem;
 	background: transparent;
@@ -249,7 +249,7 @@ header.site-header .home-link a {
 	padding-bottom: 38px; padding-bottom: 2.375rem;
 }
 
-#bfblMenuBtn:hover, 
+#bfblMenuBtn:hover,
 #bfblMenuBtn:focus {
 	background: #003f29;
 }
@@ -305,13 +305,13 @@ header.site-header .home-link a {
 	height: 0;
 	z-index: 600;
 	overflow: hidden;
-	transition: width 0s linear 1s, height 0s linear 1s; 
+	transition: width 0s linear 1s, height 0s linear 1s;
 }
 
 #bfblDrawerWrap.menuActive {
 	width: 100%;
 	height: 600px; height: 37.5rem;
-	transition: width 0s , height 0s; 
+	transition: width 0s , height 0s;
 }
 
 #bfblMenuDrawer {
@@ -377,7 +377,7 @@ a.drawerHomeLink {
 	text-indent: 0;
 }
 
-#bfblMenuClose:hover, 
+#bfblMenuClose:hover,
 #bfblMenuClose:focus {
 	color: #ffffff;
 }
@@ -430,7 +430,7 @@ a.drawerHomeLink {
 .drawerNewsletter {
 	padding-top: 38px; padding-top: 2.375rem;
 	padding-bottom: 30px; padding-bottom: 1.875rem;
-} 
+}
 
 .drawerSearch {
 	background: #015c3c;
@@ -466,18 +466,18 @@ input.search-field::-webkit-input-placeholder {
 	color: #008c5c !important;
 	font-style: italic;
 }
- 
+
 input.search-field:-moz-placeholder { /* Firefox 18- */
 	color: #008c5c !important;
 	font-style: italic;
 }
- 
+
 input.search-field::-moz-placeholder {  /* Firefox 19+ */
 	color: #008c5c !important;
 	font-style: italic;
 }
- 
-input.search-field:-ms-input-placeholder {  
+
+input.search-field:-ms-input-placeholder {
 	color: #008c5c !important;
 	font-style: italic;
 }
@@ -487,7 +487,7 @@ input.search-field:-ms-input-placeholder {
 	position: absolute;
 	top: 0; right: 0; bottom: 0;
 	width: 11.5%;
-	background: transparent; 
+	background: transparent;
 	text-indent: -99999px;
 	/* NOTE: since we're using an iconfont, it must be added to the PARENT element, because b/c <input>s can't have pseudo elements */
 }
@@ -660,18 +660,18 @@ input.search-field:-ms-input-placeholder {
 	color: #008c5c !important;
 	font-style: italic;
 }
- 
+
 #loginLB input:-moz-placeholder { /* Firefox 18- */
 	color: #008c5c !important;
 	font-style: italic;
 }
- 
+
 #loginLB input::-moz-placeholder {  /* Firefox 19+ */
 	color: #008c5c !important;
 	font-style: italic;
 }
- 
-#loginLB input:-ms-input-placeholder {  
+
+#loginLB input:-ms-input-placeholder {
 	color: #008c5c !important;
 	font-style: italic;
 }
@@ -684,18 +684,18 @@ input.search-field:-ms-input-placeholder {
 	color: #008c5c !important;
 	font-style: italic;
 }
- 
+
 #newsletterLB input:-moz-placeholder { /* Firefox 18- */
 	color: #008c5c !important;
 	font-style: italic;
 }
- 
+
 #newsletterLB input::-moz-placeholder {  /* Firefox 19+ */
 	color: #008c5c !important;
 	font-style: italic;
 }
- 
-#newsletterLB input:-ms-input-placeholder {  
+
+#newsletterLB input:-ms-input-placeholder {
 	color: #008c5c !important;
 	font-style: italic;
 }
@@ -834,19 +834,19 @@ input.search-field:-ms-input-placeholder {
 }
 
 .footerSocial .twitter a::before {
-	content: '\e802';	
+	content: '\e802';
 }
 
 .footerSocial .facebook a::before {
-	content: '\e804';	
+	content: '\e804';
 }
 
 .footerSocial .youtube a::before {
-	content: '\e801';	
+	content: '\e801';
 }
 
 .footerSocial .instagram a::before {
-	content: '\e803';	
+	content: '\e803';
 }
 
 .footerSocial a span {
@@ -885,7 +885,7 @@ input.search-field:-ms-input-placeholder {
 	position: absolute;
 	clip: rect(1px, 0, 0, 1px);
 	overflow: hidden;
-	
+
 	text-align: right;
 	color: #8cc63f;
 	font-size: 13px; font-size: 0.8125rem;
@@ -1042,7 +1042,7 @@ header.page-header.no-image .entry-title {
 	display: block;
 	position: absolute;
 	top: 50%; left: -10px;
-	width: 6px;  not rems, because of cross-browser issues 
+	width: 6px;  not rems, because of cross-browser issues
 	height: 6px;
 	margin-top: -3px;
 	-webkit-border-radius: 4px;
@@ -1158,26 +1158,26 @@ body.single-resources .entry-content h1.entry-title,
 	background-size: 40px;
 	background-repeat: no-repeat;
 }
-	
+
 .entry-content.has-icon.icon-leaf .entry-title::before {
 	background-position: 0 0;
 }
 
 .entry-content.has-icon.icon-heart .entry-title::before {
 	background-position: 0 -80px;
-}	
+}
 
 .entry-content.has-icon.icon-house .entry-title::before {
 	background-position: 0 -160px;
-}		
+}
 
 .entry-content.has-icon.icon-hills .entry-title::before {
 	background-position: 0 -240px;
-}	
+}
 
 .entry-content.has-icon.icon-pie .entry-title::before {
 	background-position: 0 -320px;
-}	
+}
 
 
 body.page-template-page_about-parent .entry-content {
@@ -1223,7 +1223,7 @@ body.page-template-page_about-parent .entry-content img {
 
 .team-section .project-leads,
 .team-section .advisory-board {
-	padding: 10px; padding: 0.625rem; /* matches padding on .page-block */	
+	padding: 10px; padding: 0.625rem; /* matches padding on .page-block */
 }
 
 .team-section .project-leads {
@@ -1291,7 +1291,7 @@ body.page-template-page_wbl-sub .page-block .content {
 
 .page-block.tan-shadow {
 	box-shadow: 0 0 80px rgba(230, 168, 101, .6) inset;
-	background: #f7ecd5 url('../images/bg/bg_tan_noise.png') center center repeat;	
+	background: #f7ecd5 url('../images/bg/bg_tan_noise.png') center center repeat;
 }
 
 .page-block.tan-shadow .content {
@@ -1348,7 +1348,7 @@ body.page-template-page_why-buy-local .page-block.tan-shadow .content {
 }
 
 .page-block.full-width-badge {
-	
+
 }
 
 .page-block.full-width-badge .badge-icon a img{
@@ -1359,7 +1359,7 @@ body.page-template-page_why-buy-local .page-block.tan-shadow .content {
 }
 
 .page-block.image-split {
-	
+
 }
 
 .page-block.image-split .content {
@@ -1393,31 +1393,31 @@ body.page-template-page_why-buy-local .page-block.tan-shadow .content {
 	display: none;
 }
 
-.page-block.image-left, 
+.page-block.image-left,
 .page-block.image-right,
 .page-block.video {
-	
+
 }
 
-.page-block.image-left .image, 
+.page-block.image-left .image,
 .page-block.image-right .image,
 .page-block.video .video {
 	text-align: center;
 	padding-top: 4px; padding-top: 0.25rem;
 }
 
-.page-block.image-left .image a, 
+.page-block.image-left .image a,
 .page-block.image-right .image a {
 	display: inline-block;
 }
 
-.page-block.image-left .image img, 
+.page-block.image-left .image img,
 .page-block.image-right .image img {
 	max-width: 70%;
 	height: auto;
 }
 
-.page-block.image-left h2, 
+.page-block.image-left h2,
 .page-block.image-right h2,
 .page-block.video h2 {
 	margin-top: 16px; margin-top: 1rem;
@@ -1624,7 +1624,7 @@ label.greenHeader:hover {
 .bfblSlider {
 	border-style: solid;
 	border-color: #ffffff;
-	border-width: 0;	
+	border-width: 0;
 }
 
 .bfblSlider.sliderClosed {
@@ -1633,7 +1633,7 @@ label.greenHeader:hover {
 
 /* PAGE CHIPS */
 .chips-block {
-	
+
 }
 
 .chips-block ul {
@@ -1672,7 +1672,7 @@ label.greenHeader:hover {
 li.chip {
 	display: inline-block;
 	vertical-align: bottom;
-	width: 33.33%;	
+	width: 33.33%;
 }
 
 .chip a.chipLink {
@@ -1700,7 +1700,7 @@ li.chip {
 	content: '';
 	display: block;
 	width: 80%;
-	margin: 22px auto 0; margin: 1.375rem auto 0; 
+	margin: 22px auto 0; margin: 1.375rem auto 0;
 	height: 1px;
 	background: #e69b2a;
 }
@@ -2047,11 +2047,11 @@ li.chip {
 
 .wbl-subtitle .content {
 	padding: 0 60px; padding: 0 3.75rem;
-	max-width: 280px; max-width: 17.5rem;	
+	max-width: 280px; max-width: 17.5rem;
 }
 
 .mission-statement .content {
-	max-width: 280px; max-width: 17.5rem;	
+	max-width: 280px; max-width: 17.5rem;
 }
 
 .wbl-subtitle .content::before,
@@ -2137,12 +2137,12 @@ li.chip {
 	position: relative;
 }
 
-.news-events-list .news-list, 
+.news-events-list .news-list,
 .news-events-list .events-list {
 	padding: 0 10px; padding: 0 0.625rem;
 }
 
-.news-events-list .news-list::before, 
+.news-events-list .news-list::before,
 .news-events-list .events-list::before {
 	content: '';
 	display: block;
@@ -2261,7 +2261,7 @@ body.single-events .entry-content .post-meta {
 
 .news-events-list .events-summary .image {
 	max-width: 160px;
-} 
+}
 
 body.single-news .entry-content h1.entry-title,
 body.single-events .entry-content h1.entry-title {
@@ -2560,7 +2560,7 @@ body.single-events .entry-content .post-meta {
 	color: #1a3281;
 }
 
-.partner-contact li a::before, 
+.partner-contact li a::before,
 .partner-contact li a::after {
 	content: '';
 	display: block;
@@ -2575,7 +2575,7 @@ body.single-events .entry-content .post-meta {
 
 
 .partner-contact li a::before {
-	background: #72706b;	
+	background: #72706b;
 	-webkit-border-radius: 20px; -webkit-border-radius: 1.25rem;
 	-moz-border-radius: 20px; -moz-border-radius: 1.25rem;
 	border-radius: 20px; border-radius: 1.25rem;
@@ -2605,7 +2605,7 @@ body.single-events .entry-content .post-meta {
 }
 
 .partner-contact li.partner-website a::after {
-	content: '\e815';	
+	content: '\e815';
 }
 
 
@@ -2684,11 +2684,11 @@ body.single-events .entry-content .post-meta {
 }
 
 .partner-social li.facebook a::before {
-	content: '\e804';	
+	content: '\e804';
 }
 
 .partner-social li.instagram a::before {
-	content: '\e803';	
+	content: '\e803';
 }
 
 .partner-social li a::after {
@@ -2698,7 +2698,7 @@ body.single-events .entry-content .post-meta {
 	top: 0; right: -9999999px; bottom: 0; left: -9999999px;
 	background: #008c5c;
 	z-index: 1;
-}  
+}
 
 .partner-social li a:hover::after {
 	background: #003f29;
@@ -2740,7 +2740,7 @@ body.single-events .entry-content .post-meta {
 	padding-left: 34px;
 	padding-top: 14px; padding-top: 0.875rem;
 	padding-bottom: 14px; padding-bottom: 0.875rem;
-	position: relative;	
+	position: relative;
 }
 
 
@@ -2774,7 +2774,7 @@ body.single-events .entry-content .post-meta {
 	margin-left: auto;
 	margin-right: auto;
 }
-	
+
 .map-county-zip>span {
 	margin-top: 6px; margin-top: 0.375rem;
 	margin-bottom: 6px; margin-bottom; 0.375rem;
@@ -2806,16 +2806,16 @@ body.single-events .entry-content .post-meta {
 .zip-input-group .zip-input::-webkit-input-placeholder {
 	color: #999999 !important;
 }
- 
+
 .zip-input-group .zip-input:-moz-placeholder { /* Firefox 18- */
 	color: #999999 !important;
 }
- 
+
 .zip-input-group .zip-input::-moz-placeholder {  /* Firefox 19+ */
 	color: #999999 !important;
 }
- 
-.zip-input-group .zip-input:-ms-input-placeholder {  
+
+.zip-input-group .zip-input:-ms-input-placeholder {
 	color: #999999 !important;
 }
 
@@ -2894,7 +2894,7 @@ body.single-events .entry-content .post-meta {
 	border-top-color: #ffffff;
 	border-right-width: 4px; border-right-width: 0.25rem;
 	border-right-style: solid;
-	border-right-color: transparent;	
+	border-right-color: transparent;
 	border-left-width: 4px; border-left-width: 0.25rem;
 	border-left-style: solid;
 	border-left-color: transparent;
@@ -2946,7 +2946,7 @@ body.single-events .entry-content .post-meta {
 
 .county-select-wrap .chosen-container .chosen-results li.highlighted {
 	color: #ffffff;
-	background: #008b5c;	
+	background: #008b5c;
 }
 
 
@@ -3023,7 +3023,7 @@ body.single-events .entry-content .post-meta {
 
 .map-specific-prods .chosen-container .chosen-results li.highlighted {
 	color: #ffffff;
-	background: #008b5c;	
+	background: #008b5c;
 }
 
 .map-specific-prods .chosen-container-multi .chosen-choices li.search-choice {
@@ -3035,7 +3035,7 @@ body.single-events .entry-content .post-meta {
 	color: #ffffff;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
-	border-radius: 3px;	
+	border-radius: 3px;
 	border: 0;
 	box-shadow: none;
 }
@@ -3190,7 +3190,7 @@ body.error404 .main-content article {
 	color: #ffffff;
 }
 
-body.error404 .main-content h1, 
+body.error404 .main-content h1,
 body.error404 .main-content h2 {
 	font-family: 'blue_highway_bold';
 	text-align: center;
@@ -3239,22 +3239,22 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.page-block.image-split.tan-shadow.news-events-top {
 		display: none;
 	}
-	
+
 	.news-events-list {
 		margin-top: -1px;
 	}
-	
+
 	.chips-block,
 	.map-chip {
 		position: absolute;
 		clip: rect(0,1px,1px,0);
 		overflow: hidden;
-	}	
-	
+	}
+
 	.map-page-middle-bg {
 		display: none;
 	}
-	
+
 }
 
 /* tablet media query */
@@ -3283,9 +3283,9 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 	.ui-dialog {
 		position: fixed!important;
-	}	
+	}
 
-	
+
 	/* FOOTER - TABLET */
 
 	#bfblFooter {
@@ -3293,53 +3293,53 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		padding-left: 0; /* override bootstrap left and right gutters */
 		padding-right: 0;
 	}
-	
+
 	#bfblFooter .row {
 		/* override bootstrap left and right gutters */
-		margin-left: 20px; margin-left: 1.25rem; 
+		margin-left: 20px; margin-left: 1.25rem;
 		margin-right: 20px; margin-right: 1.25rem;
 	}
-	
+
 	#bfblFooter .row section:first-child {
-		padding-left: 22px; padding-left: 1.375rem; 
+		padding-left: 22px; padding-left: 1.375rem;
 	}
 
 	#bfblFooter .row section:last-child {
 		padding-right: 22px; padding-right: 1.375rem;
 	}
-	
+
 	#bfblFooter h3 {
 		margin: 50px 0 20px; margin: 3.125rem 0 1.25rem;
 	}
-	
-	.footerAbout p, 
+
+	.footerAbout p,
 	.footerNav li {
 		margin-top: 0;
 		margin-bottom: 30px; margin-bottom: 1.875rem;
 	}
-	
+
 	.footerAbout p {
 		padding-right: 16px; padding-right: 1rem;
 	}
-	
+
 	.footerSocial ul {
 		padding-left: 30px; padding-left: 1.875rem;
 	}
-	
+
 	.footerSocial li {
 		width: auto;
 		display: block;
 		margin-bottom: 12px;
 	}
-	
+
 	.footerSocial li a {
 		display: inline-block;
 	}
-	
+
 	.footerRowTwo {
 		padding-bottom: 50px; padding-bottom: 3.125rem;
 	}
-	
+
 	.footerRowTwo::before {
 		content: '';
 		display: block;
@@ -3349,15 +3349,15 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		max-width: 800px; max-width: 50rem;
 		margin: 0 auto;
 	}
-	
+
 	.footerAddress {
 		margin-bottom: 8px; margin-bottom: 0.5rem;
 	}
-	
+
 	.footerPhoneEmail span {
 		padding: 0 13px; padding: 0 0.8125rem;
 	}
-	
+
 	.footerPhoneEmail span.footerPhone {
 		padding-left: 4px; padding-left: 0.25rem;
 	}
@@ -3373,7 +3373,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		line-height: 280px; line-height: 17.5rem;
 		text-align: right;
 	}
-	
+
 	header.page-header.has-image .entry-title {
 		font-size: 50px; font-size: 3.125rem;
 		line-height: 1;
@@ -3410,21 +3410,21 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-right: 32px; margin-right: 2rem;
 
 	}
-	
+
 	.alignright {
 		float: right;
 		margin-left: 32px; margin-left: 2rem;
 		margin-right: 0;
 	}
-	
+
 	.alignleft,
 	.alignright {
 		max-width: 56%!important;
-	}	
+	}
 
 	.aligncenter {
 		max-width: 100%!important;
-	}	
+	}
 
 	.entry-content .resourceImage {
 		position: static;
@@ -3533,21 +3533,21 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	.page-block .content {
-		padding: 0 60px 28px; padding: 0 3.75rem 1.75rem; 
+		padding: 0 60px 28px; padding: 0 3.75rem 1.75rem;
 	}
-	
+
 	.page-block h2,
 	.partner-profile .page-block h1,
 	.partner-profile .page-block h2,
 	.partner-profile .page-block h3 {
 		font-size: 40px; font-size: 2.5rem;
 	}
-	
+
 	/* special case */
 	body.page-template-page_why-buy-local .page-block h2 {
 		font-size: 30px; font-size: 1.875rem;
 	}
-	
+
 	.page-block.has-icon h2::before {
 		content: '';
 		display: inline-block;
@@ -3559,33 +3559,33 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		background-size: 40px;
 		background-repeat: no-repeat;
 	}
-	
+
 	.page-block.has-icon.icon-leaf h2::before {
 		background-position: 0 0;
 	}
 
 	.page-block.has-icon.icon-heart h2::before {
 		background-position: 0 -80px;
-	}	
+	}
 
 	.page-block.has-icon.icon-house h2::before {
 		background-position: 0 -160px;
-	}		
+	}
 
 	.page-block.has-icon.icon-hills h2::before {
 		background-position: 0 -240px;
-	}	
+	}
 
 	.page-block.has-icon.icon-pie h2::before {
 		background-position: 0 -320px;
-	}	
+	}
 
 	.page-block.green h2 {
 		display: inline-block;
 		height: 90px; height: 5.625rem;
 		line-height: 90px; line-height: 5.625rem;
 	}
-	
+
 	.page-block.green h2::after {
 		width: auto;
 		margin-left: -16px; margin-left: -1rem;
@@ -3596,7 +3596,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.page-block.full-width-badge .content p{
 		margin-left: auto;
 		margin-right: auto;
-		width: 86%; 
+		width: 86%;
 	}
 
 	.page-block.full-width-badge .badge-icon {
@@ -3745,17 +3745,17 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-bottom: 16px; margin-bottom: 1rem;
 	}
 
-	.page-block.image-left .image img, 
+	.page-block.image-left .image img,
 	.page-block.image-right .image img {
 		max-width: 90%;
 	}
-	
+
 	.page-block.image-normal .image {
 		/* have the top padding match that of .content */
 		padding-top: 4rem;
 		padding-bottom: 4rem;
 	}
-	
+
 	.page-block.image-overhang .image {
 		margin-top: -24px; margin-top: -1.5rem;
 		margin-bottom: -24px; margin-bottom: -1.5rem;
@@ -3767,7 +3767,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.page-block.image-fill-side .image a img {
 		opacity: 0; /* hide using opacity, instead of display:none, because we might need the image to prop open the block if there's not much page content */
 		max-width: 100%;
-	}	
+	}
 
 	.page-block.image-fill-side .blockBG {
 		display: block;
@@ -3783,21 +3783,21 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		width: 35%;
 		text-align: right;
 	}
-	
+
 	.page-block.image-left .content {
 		float: right;
 		width: 65%;
 		padding-left: 4%;
 		padding-right: 42px; padding-right: 2.625rem;
 	}
-	
+
 	.page-block.image-right .image,
 	.page-block.video .video {
 		float: right;
 		width: 35%;
 		text-align: left;
 	}
-	
+
 	.page-block.image-right .content,
 	.page-block.video .content {
 		float: left;
@@ -3814,8 +3814,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.page-block.image-right.image-fill-side .blockBG {
 		right: 0;
 		background-position: left center;
-	}	
-	
+	}
+
 	.page-block.video .content {
 		width: 44%;
 	}
@@ -3828,7 +3828,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		padding-bottom: 56rem; padding-bottom: 3.5rem;
 		padding-right: 42px; padding-right: 2.625rem;
 	}
-	
+
 	/* ANIMATED HEADER - TABLET */
 	  .animated-header .animated-blocks li {
 	    display: block;
@@ -3847,8 +3847,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	    text-shadow: 0 0 3px rgba(15,30,44,1);
 	    letter-spacing: .1em;
 	  }
-	  
-	  
+
+
 	  .animated-header .animated-blocks li:first-child {
 	    background-position: 0 50%;
 	  }
@@ -3885,20 +3885,20 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	  }
 	  .animated-header .animated-blocks.has-active li.map-link.active {
 	    width: 24%;
-	  }	
+	  }
 
 
 	/* SPONSOR BLOCK - TABLET */
 	.sponsors-list {
 		text-align: center;
 	}
-	
+
 	.sponsors-list ul {
 		margin-right: 32px; margin-right: 2rem;
 		margin-left: 32px; margin-left: 2rem;
 		margin-bottom: 0;
 	}
-	
+
 	.sponsors-list .slick-arrow {
 		width: 32px; width: 2rem;
 	}
@@ -3942,7 +3942,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	.mission-statement .content {
-		max-width: 832px; max-width: 52rem;	
+		max-width: 832px; max-width: 52rem;
 	}
 
 	.wbl-subtitle .content::before,
@@ -3965,37 +3965,37 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	.mission-statement .content h2 {
-		font-size: 40px; font-size: 2.25rem; 
+		font-size: 40px; font-size: 2.25rem;
 	}
-	
+
 	.mission-statement .content p {
 		font-size: 20px; font-size: 1.25rem;
 		line-height: 28px; line-height: 1.75rem;
 		padding-left: 140px; padding-left: 8.75rem;
 		padding-right: 140px; padding-right: 8.75rem;
 	}
-	
+
 	/* NEWS AND EVENTS  - TABLET */
 	.news-events-list {
 		padding: 20px 0 30px; padding: 1.25rem 0 1.875rem;
 	}
-	
+
 	.news-events-list .news-list::before,
 	.news-events-list .events-list::before {
 		display: none;
 	}
-	
+
 	.news-events-list .news-list {
 		padding-left: 42px; padding-left: 2.625rem;
 		padding-right: 16px; padding-right: 1rem;
-		position: static; /* so that .news-list::after is absolutely positioned relative to .news-events-list */  
+		position: static; /* so that .news-list::after is absolutely positioned relative to .news-events-list */
 	}
-	
+
 	.news-events-list .events-list {
 		padding-left: 16px; padding-left: 1rem;
 		padding-right: 42px; padding-right: 2.625rem;
 	}
-	
+
 	.news-events-list .news-list::after {
 		content: '';
 		display: block;
@@ -4006,15 +4006,15 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		width: 1px;
 		margin-left: -1px;
 		background: #fcaf17;
-		
+
 	}
-	
+
 	.news-events-list .news-summary .image {
 		max-width: 270px; max-width: 16.875rem;
 		margin-left: 0;
 		margin-right: 0;
 	}
-	
+
 	.news-events-list .entry-header h2,
 	.archive-list h2.entry-title {
 		font-size: 30px; font-size: 1.875rem;
@@ -4030,12 +4030,12 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		width: 33.33%;
 		max-width: none;
 	}
-	
+
 	/* OTHER ARCHIVE-TYPE PAGES - TABLET*/
 	.archive-header {
 		padding: 44px 42px; padding: 2.75rem 2.625rem;
 	}
-	
+
 	.archive-header::before {
 		top: 44px; top: 2.75rem;
 		right: 42px; right: 2.625rem;
@@ -4052,52 +4052,52 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.archive-header h1 small {
 		font-size: 20px; font-size: 1.25rem;
 	}
-    
+
     .archive-list {
     	padding: 44px 42px; padding: 2.75rem 2.625rem;
     }
-    
+
     .archive-list article {
     	margin-bottom: 80px; margin-bottom: 5rem;
     }
-    
+
     /* PARTNERS - TABLET */
 	.partner-profile .page-block::after {
 		content: '';
 		display: block;
 		clear: both;
 	}
-	
+
 	.page-block.acf-map-wrap {
 		padding: 0;
 	}
-    
+
 	.acf-map {
 		height: 320px; height: 20rem;
 	}
-    
+
     .product-categories-list {
     	margin-bottom: -26px; margin-bottom: -1.625rem;
     }
-    
+
 	.product-categories-list li {
 		display: inline-block;
 		padding: 0 26px 26px 0; padding: 0 1.625rem 1.625rem 0;
 	}
-    
+
     .partner-info-right,
     .product-info-right {
     	float: right;
     	width: 60%;
     	text-align: left;
     }
-    
+
     .partner-info-left,
     .product-info-left {
     	float: left;
     	width: 30%;
     }
-    
+
     .partner-info-right h1.entry-title {
     	text-align: left;
     	padding-top: 0;
@@ -4107,23 +4107,23 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.partner-description {
 		margin-bottom: 48px; margin-bottom: 3rem;
 	}
-    
+
 	.partner-info-block .partner-detail {
 		text-align: left;
 		padding-left: 100px;
 		position: relative;
 	}
-    
+
 	.partner-info-block .partner-detail h4 {
 		position: absolute;
 		top: 2px; top: 0.125rem; /* accounts for the line height on the .partner-detail text, so they look aligned */
 		left: 0;
 	}
-    
+
 	.partner-contact ul {
 		text-align: center;
 	}
-    
+
 	.partner-contact li {
 		display: inline-block;
 		width: 33.33%;
@@ -4131,7 +4131,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		padding-left: 4px; padding-left: 0.25rem;
 		padding-right: 4px; padding-right: 0.25rem;
 	}
-	
+
 	.owner-image,
 	.business-image {
 		width: 100%;
@@ -4139,14 +4139,14 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-left: 0;
 		margin-top: 6px; margin-top: 0.375rem;
 	}
-	
+
 	.partner-profile .page-block h3.owner-name,
 	.partner-profile .page-block h3.partner-name {
 		padding-top: 32px; padding-top: 2rem;
 		font-size: 40px; font-size: 2.5rem;
 		text-align: left;
 	}
-	
+
 	.partner-social {
 		margin: 0;
 		border: 0;
@@ -4158,15 +4158,15 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		padding: 16px; padding: 1rem;
 		padding-left: 0;
 	}
-	
+
 	.partner-social li a:hover {
 		color: #1a3281;
 	}
-	
+
 	.partner-social li a::before {
 		margin-right: 12px; margin-right: 0.75rem;
 	}
-	
+
 	.partner-social li a::after {
 		display: none;
 	}
@@ -4175,7 +4175,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-top: 0;
 	}
 
-	.product-info-contents.page-block h3, 
+	.product-info-contents.page-block h3,
 	.product-info-contents .entry-product-categories,
 	.product-info-contents .entry-product-wheretobuy,
 	.product-info-contents .entry-product-hours {
@@ -4196,7 +4196,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		font-size: 20px!important; font-size: 1.25rem!important;
 	}
 
-	
+
 	.map-checkboxes label {
 		display: inline-block;
 		width: 200px; width: 12.5rem;
@@ -4223,21 +4223,21 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.map-specific-prods .map-subhead br {
 		display: none;
 	}
-	
+
 	.wholesale-section label span::after {
 		right: 42px; right: 2.625rem;
-	}	
-	
+	}
+
 	.map-page-middle{
 		position: relative;
 	}
-	
+
 	.map-page-middle::after {
 		content: '';
 		display: block;
 		clear: both;
 	}
-	
+
 	.finder-search-results {
 		float: left;
 		width: 66%;
@@ -4249,7 +4249,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-right: 0;
 		max-width: 670px; max-width: 41.875rem;
 	}
-	
+
 	.finder-search-results .results-list li {
 		border-left-width: 1px;
 		border-right-width: 1px;
@@ -4261,24 +4261,24 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		width: 33%;
 		padding-right: 12px; padding-right: 0.75rem;
 		padding-left: 12px; padding-left: 0.75rem;
-		
+
 		background: transparent!important;
 		box-shadow: none!important;
 	}
-	
+
 	.map-page-middle-bg {
-		/* this serves as the background of the .map-chip, 
-		 * because the chip needs to be able to expand vertically to match 
+		/* this serves as the background of the .map-chip,
+		 * because the chip needs to be able to expand vertically to match
 		 * the height of the search results -- and the floated .map-chip can't do that.
-		 * (.map-chip itself needs to be floated to prop open the .map-page-middle, 
+		 * (.map-chip itself needs to be floated to prop open the .map-page-middle,
 		 * in case there's only one search result)
 		 */
-		
+
 		position: absolute!important;
 		top: 0; right: 0; bottom: 0;
 		width: 33%;
 		z-index: -1;
-		 
+
 	}
 
 	/* 404 PAGE - TABLET */
@@ -4286,30 +4286,30 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		height: 960px; height: 60rem;
 		background-image: url('../images/bfbl_cow_900px.jpg');
 	}
-	
+
 	body.error404 .main-content article {
 		top: 392px; top: 24.5rem;
 		right: 42px; right: 2.625rem;
 	}
-    
+
     body.error404 .main-content h1 {
 		font-size: 82px; font-size: 5.125rem;
 	}
-    
+
     body.error404 .main-content h2 {
 		font-size: 36px; font-size: 2.25rem;
 	}
-	
+
 	body.error404 .main-content p {
 		font-size: 20px; font-size: 1.25rem;
 		line-height: 26px; line-height: 1.625rem;
 		max-width: 440px; max-width: 27.5rem;
 	}
-    
+
     body.error404 .main-content p.not-found-btn {
 		padding-top: 32px; padding-top: 2rem;
 	}
-    
+
 }
 
 /* desktop media query */
@@ -4329,7 +4329,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	#bfblMenuOverlay {
 		display: none!important;
 	}
-	
+
 	#bfblDrawerWrap {
 		position: absolute;
 		right: 46px; right: 2.875rem;
@@ -4338,7 +4338,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		overflow: visible; /* #bfblMenuDrawer actually hangs out the bottom */
 		transition: width 0s, height 0s;
 	}
-	
+
 	#bfblMenuDrawer {
 		right: 0!important;
 		box-shadow: none!important;
@@ -4350,12 +4350,12 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 /*		padding-right: 64px; padding-right: 4rem; /* accomodates the login button, which is absolutely positioned */
 		padding-right: 56px; padding-right: 3.5rem; /* accomodates the login button, which is absolutely positioned */
 	}
-	
+
 	#bfblMenuDrawer>* {
 		display: inline-block;
 		vertical-align: top;
 	}
-	
+
 	#bfblMenuDrawer .drawerTop {
 		display: none;
 	}
@@ -4375,7 +4375,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		display: inline-block;
 		padding-top: 12px; padding-top: 0.75rem;
 	}
-	
+
 
 	.drawerNav a {
 		display: inline-block;
@@ -4386,7 +4386,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		letter-spacing: 1px;
 /*		padding: 0 18px; padding: 0 1.125rem; */
 		padding: 0 8px; padding: 0 0.5rem;
-		padding: 
+		padding:
 		background: transparent;
 		position: relative;
 	}
@@ -4421,8 +4421,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.drawerSearch {
 		padding: 12px 0 0; padding: 0.75rem 0 0;
 		background: transparent;
-	} 
-	
+	}
+
 	.drawerLogin .buttonLogInOut,
 	.drawerSearch .buttonSearch {
 	/*	width: 64px; width: 4rem; */
@@ -4448,7 +4448,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		font-family: 'fontello';
 		display: block;
 		position: absolute;
-		left: 50%; 
+		left: 50%;
 		bottom: 16px; bottom: 1rem;
 		width: 22px; width: 1.375rem;
 		height: 22px; height: 1.375rem;
@@ -4462,7 +4462,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.drawerLogin .buttonLogInOut::after {
 		content: '\e80a';
 	}
-	
+
 	.drawerSearch .buttonSearch::after {
 		content: '\e806';
 	}
@@ -4480,14 +4480,14 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.drawerSearch .buttonSearch.btnActive {
 		background: #003f29;
 	}
-	
 
-	
+
+
 	.drawerLogin {
 		position: absolute;
 		top: 0; right: 0;
 	}
-	
+
 	.drawerSearch {
 	    position: relative;
 	}
@@ -4506,24 +4506,24 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		clip: rect(0, 320px, 0, 0); clip: rect(0, 20rem, 0, 0);
 		transition: clip 0.5s;
 	}
-	
+
 	.searchFormWrap.searchActive {
 		clip: rect(0, 320px, 62px, 0); clip: rect(0, 20rem, 3.875rem, 0);
 	}
 
 	/* FOOTER - DESKTOP */
-	
+
 	#bfblFooter .row {
-		margin-left: 24px; margin-left: 1.5rem; 
+		margin-left: 24px; margin-left: 1.5rem;
 		margin-right: 24px; margin-right: 1.5rem;
 	}
-	
+
 	.footerContact {
 		position: relative;
 		padding-left: 19%;
 	}
-	
-	
+
+
 	.footerHomeLink {
 		display: block;
 		clip: auto;
@@ -4538,7 +4538,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		background-size: contain;
 		text-indent: -999999px;
 	}
-	
+
 	.footerCredits .hideBreak {
 		display: none;
 	}
@@ -4569,12 +4569,12 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.entry-content .video {
 		width: 64%;
 	}
-	
+
 	.alignleft,
 	.alignright {
 		max-width: 64%!important;
-	}	
-	
+	}
+
 	/* PAGE CONTENT - SPECIAL CASES - DESKTOP */
 
 	body.page-template-page_about-parent .entry-content p {
@@ -4589,7 +4589,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.team-section .advisory-board {
 		padding: 44px 46px; padding: 2.75rem 2.875rem; /* matches padding on .page-block */
 	}
-	
+
 	/* PAGE BLOCKS - DESKTOP */
 	.page-block {
 		padding: 44px 46px; padding: 2.75rem 2.875rem;
@@ -4605,7 +4605,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	.page-block.image-split h2 {
-		margin: 0 auto; 
+		margin: 0 auto;
 		max-width: 910px; max-width: 56.875rem;
 	}
 
@@ -4613,8 +4613,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		width: 230px; width: 14.375rem;
 		margin-left: -115px; margin-left: -7.1875rem;
 	}
-	
-	
+
+
 	.page-block.image-left .content {
 		padding-left: 8%;
 		padding-right: 46px; padding-right: 2.875rem;
@@ -4629,8 +4629,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.page-block.image-left .content p,
 	.page-block.image-right .content p {
 		margin-bottom: 28px; margin-bottom: 1.75rem;
-	}	
-	
+	}
+
 	.page-block.video .content {
 		width: 36%;
 		padding-right: 4%;
@@ -4640,10 +4640,10 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		width: 64%;
 		padding-right: 46px; padding-right: 2.875rem;
 	}
-	
 
 
-	
+
+
 	/* ANIMATED HEADER - DESKTOP */
 	  .animated-header .animated-blocks li {
 	    width: 16.5625%;
@@ -4669,7 +4669,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	  .animated-header .animated-blocks.has-active li.map-link.active {
 	    width: 33.75%;
 	  }
-	
+
 	/* SPECIFIC PAGES - DESKTOP */
 	.wbl-subtitle::before,
 	.mission-statement::before {
@@ -4678,7 +4678,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		bottom: 44px; 2.75rem;
 		left: 46px; left: 2.875rem;
 	}
-	
+
 	.mission-statement .content::before,
 	.mission-statement .content::after {
 		width: 160px; width: 10rem;
@@ -4732,7 +4732,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		width: 42.1%;
 		max-width: none;
 	}
-	
+
 	.news-events-list .events-summary .entry-header,
 	.news-events-list .events-summary .content {
 		padding-left: 49.47%;
@@ -4763,7 +4763,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.archive-header {
 		padding: 44px 46px; padding: 2.75rem 2.875rem;
 	}
-	
+
 	.archive-header::before {
 		right: 46px; right: 2.875rem;
 		left: 46px; left: 2.875rem;
@@ -4782,13 +4782,13 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	/* FIND LOCAL FOOD - MAP PAGE - DESKTOP */
 	.wholesale-section label span::after {
 		right: 46px; right: 2.875rem;
-	}	
+	}
 
 	/* 404 PAGE - DESKTOP */
 	body.error404 .main-content {
 		background-image: url('../images/bfbl_cow_1350px.jpg');
 	}
-	
+
 	body.error404 .main-content article {
 		right: 46px; right: 2.875rem;
 	}
@@ -4796,11 +4796,11 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
     body.error404 .main-content h1 {
 		font-size: 100px; font-size: 6.25rem;
 	}
-    
+
     body.error404 .main-content h2 {
 		font-size: 46px; font-size: 2.875rem;
 	}
-	
+
     body.error404 .main-content p {
 		font-size: 30px; font-size: 1.875rem;
 		line-height: 40px; line-height: 2.5rem;
@@ -4824,7 +4824,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	#bfblMenuDrawer {
 		padding-right: 64px; padding-right: 4rem; /* accomodates the login button, which is absolutely positioned */
 	}
-	
+
 	.drawerNav a {
 		padding: 0 16px; padding: 0 1rem;
 	}
@@ -4842,14 +4842,14 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.drawerLogin .buttonLogInOut,
 	.drawerSearch .buttonSearch {
 		width: 64px; width: 4rem;
-	}	
+	}
 
 	/* FOOTER - LARGE DESKTOP */
-	
+
 	.footerContact {
 		padding-left: 186px;
 	}
-	
+
 	.footerHomeLink {
 		width: 160px; width: 10rem;
 		padding-bottom: 60px; padding-bottom: 3.75rem;
@@ -4883,23 +4883,23 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.page-block.image-split h2 {
 		max-width: 1156px; max-width: 72.25rem;
 	}
-	
+
 	.page-block.image-split h2 span {
 		padding-left: 8.5%;
 		padding-right: 18.8%;
 	}
-	
+
 	.page-block.image-split h2 span.right-text {
 		padding-left: 18.8%;
-		padding-right: 8.5%;	
+		padding-right: 8.5%;
 	}
-	
+
 	.page-block.image-split .image {
 		width: 280px; width: 17.5rem;
 		margin-left: -140px; margin-left: -8.75rem;
 	}
-	
-	
+
+
 	/* ANIMATED HEADER - LARGE DESKTOP */
 	  .animated-header .animated-blocks li {
 	    width: 16.5625%;
@@ -4918,9 +4918,9 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	  }
 	  .animated-header .animated-blocks.has-active li.map-link.active {
 	    width: 33.75%;
-	  }	
-	
-	/* SPECIFIC PAGES - LARGE DESKTOP */  
+	  }
+
+	/* SPECIFIC PAGES - LARGE DESKTOP */
 
 	.news-events-list .news-summary .image {
 		width: 40.3%;
@@ -4934,7 +4934,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.news-events-list .events-summary .image {
 		width: 34.8%;
 	}
-	
+
 	.news-events-list .events-summary .entry-header,
 	.news-events-list .events-summary .content {
 		padding-left: 41.3%;
