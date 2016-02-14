@@ -1649,10 +1649,10 @@ label.greenHeader:hover {
 	border-width: 0;
 }
 .bfblSlider .bfblSlideWrap {
-    -webkit-transition: margin-top 0.25s ease-in-out;
-    -moz-transition: margin-top 0.25s ease-in-out;
-    -o-transition: margin-top 0.25s ease-in-out;
-    transition: margin-top 0.25s ease-in-out;
+    -webkit-transition: max-height 0.25s ease-in-out;
+    -moz-transition: max-height 0.25s ease-in-out;
+    -o-transition: max-height 0.25s ease-in-out;
+    transition: max-height 0.25s ease-in-out;
 }
 .bfblSlider.sliderClosed {
 	border-bottom-width: 1px;
@@ -1660,10 +1660,11 @@ label.greenHeader:hover {
 .bfblSlider.sliderOpen .bfblSlideWrap,
 .bfblSlider.sliderClosed .bfblSlideWrap {
     display: block;
-    position: relative;
-    margin-top: -100%;
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
 }
-.bfblSlider.sliderOpen .bfblSlideWrap { margin-top: 0; }
+.bfblSlider.sliderOpen .bfblSlideWrap { max-height: none; }
 
 /* PAGE CHIPS */
 .chips-block {
