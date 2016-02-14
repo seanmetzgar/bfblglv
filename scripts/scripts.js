@@ -180,4 +180,15 @@ jQuery(document).ready(function ($) {
         xhrGetPartners(formObject);
     }).find("input").eq(0).trigger("blur");
 
+    $(".entry-content,.entry-header").find("h1, h2, h3").filter(function () {
+        var testRegex = /\bcsas\b/ig;
+        return testRegex.test($(this).text());
+    }).each(function () {
+        var tempText = $(this).text();
+        var testRegex = /\bcsas\b/ig;
+
+        tempText = tempText.replace(testRegex, "CSA<span class=\"lower-case\">s</span>");
+        tempText = $(this).text(tempText);
+    })
+
 }); // end document ready
