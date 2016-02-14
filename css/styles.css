@@ -3495,11 +3495,10 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		max-width: none;
 	}
 
-	.alignleft {
+	.alignleft, {
 		float: left;
 		margin-left: 0;
 		margin-right: 32px; margin-right: 2rem;
-
 	}
 
 	.alignright {
@@ -3509,11 +3508,14 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	.alignleft,
-	.alignright {
+	.alignleft img,
+	.alignright,
+	.alignright img {
 		max-width: 56%!important;
 	}
 
-	.aligncenter {
+	.aligncenter,
+	.aligncenter img {
 		max-width: 100%!important;
 	}
 
@@ -4673,7 +4675,9 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	.alignleft,
-	.alignright {
+	.alignleft img,
+	.alignright,
+	.alignright img {
 		max-width: 50%!important;
 	}
 
