@@ -1031,6 +1031,12 @@ header.page-header.no-image .entry-title {
 .entry-content blockquote p {
 	margin: .5em 0;
 }
+.entry-content blockquote .alignleft,
+.entry-content blockquote .alignright {
+	max-width: 125px;
+	margin-bottom: 0;
+	margin-top: 0;
+}
 
 .entry-content ul,
 .entry-content ol {
