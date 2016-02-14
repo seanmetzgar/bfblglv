@@ -2354,9 +2354,11 @@ body.single-events .entry-content .post-meta {
 }
 .resourceLink a span .categories {
 	font-size: 1rem;
-	display:  block;
+	display: block;
 	font-family: 'Clear Sans';
 	font-weight: normal;
+	font-style: italic;
+	text-transform: none;
 }
 
 .resourceDownload {
