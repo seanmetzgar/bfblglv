@@ -17,7 +17,10 @@
 									'field'    => 'slug',
 									'terms'    => 'find-locally-grown-foods'
 								)
-							)
+							),
+							'posts_per_page'         => -1,
+							'order'                  => 'ASC',
+							'orderby'                => 'title'
 						));
 						$publicationsResourcesQuery = new WP_Query( array (
 							'post_type'              => array( 'resources' ),
@@ -28,20 +31,19 @@
 									'terms'    => 'publications'
 								)
 							),
-							'nopaging'               => false,
-							'posts_per_page'         => '-1',
+							'posts_per_page'         => -1,
 							'order'                  => 'ASC',
 							'orderby'                => 'title'
 						));
 						if ($findResourcesQuery->have_posts()):
 							echo "<h2>Find Locally Grown Foods</h2>";
-							while ($findResourcesQuery->have_posts): $findResourcesQuery->the_post();
+							while ($findResourcesQuery->have_posts()): $findResourcesQuery->the_post();
 								get_template_part( "entry", "resources-summary" );
 							endwhile;
 						endif;
 						if ($publicationsResourcesQuery->have_posts()):
 							echo "<h2>Publications</h2>";
-							while ($publicationsResourcesQuery->have_posts): $publicationsResourcesQuery->the_post();
+							while ($publicationsResourcesQuery->have_posts()): $publicationsResourcesQuery->the_post();
 								get_template_part( "entry", "resources-summary" );
 							endwhile;
 						endif;
