@@ -3100,14 +3100,16 @@ body.single-events .entry-content .post-meta {
 }
 
 
-.wholesale-section label {
+.wholesale-section label,
+.wholesale-section a {
 	/* also has .greenHeader styles, including position:relative */
 	margin-bottom: 0;
 	font-weight: inherit;
 	cursor: pointer;
 }
 
-.wholesale-section label span::after {
+.wholesale-section label span::after,
+.wholesale-section a span::after {
 	content: '';
 	position: absolute;
 	top: 50%;
@@ -4354,7 +4356,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		display: none;
 	}
 
-	.wholesale-section label span::after {
+	.wholesale-section label span::after,
+    .wholesale-section a span::after {
         left: 36px; left: 2.25rem;
 	}
 
@@ -4915,7 +4918,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	/* FIND LOCAL FOOD - MAP PAGE - DESKTOP */
-	.wholesale-section label span::after {
+	.wholesale-section label span::after,
+    .wholesale-section a span::after {
 		left: 36px; left: 2.25rem;
 	}
 
