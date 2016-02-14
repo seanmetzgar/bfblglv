@@ -3514,12 +3514,6 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		float: right !important;
 		display: block;
 	}
-	.entry-content blockquote .alignleft ~ p {
-		margin-left: 140px;
-	}
-	.entry-content blockquote .alignright ~ p {
-		margin-right: 140px;
-	}
 
 	.entry-content .video {
 		float: right;
