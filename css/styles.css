@@ -989,7 +989,7 @@ header.page-header.no-image .entry-title {
 .entry-content h1,
 .entry-content h2 {
 	margin: 0;
-	padding: 32px 0; padding: 2rem 0;
+	padding: 24px 0; padding: 1.5rem 0;
 	font-family: 'blue_highway_bold';
 	font-size: 40px; font-size: 2.5rem;
 	line-height: 1;
