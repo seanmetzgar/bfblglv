@@ -1654,6 +1654,7 @@ label.greenHeader:hover {
 }
 .bfblSlider.sliderOpen .bfblSlideWrap,
 .bfblSlider.sliderClosed .bfblSlideWrap {
+    display: block;
     height: 0;
     overflow: hidden;
     -webkit-transition: height 0.25s ease-in-out;
