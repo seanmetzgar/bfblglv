@@ -19,12 +19,12 @@ get_header();
 						<section class="form-section bfblSlider sliderOpen">
 							<h2 class="greenHeader">Location</h2>
 							<div class="bfblSlideWrap">
-								
+
 							<!-- <div class="form-inline page-block"> -->
 								<div class="form-inline page-block map-county-zip">
-									
-									<div class="county-select-wrap">	
-								
+
+									<div class="county-select-wrap">
+
 								<!-- <select name="county" aria-label="County" class="form-control"> -->
 									<select name="county" aria-label="County" class="county-select">
 									<!-- <option value="" default>County</option> -->
@@ -44,9 +44,9 @@ get_header();
 										<option value="Warren">Warren</option>
 									</select>
 									</div><!-- end div.county-select-wrap -->
-									
+
 									<span>or</span>
-		
+
 									<div class="zip-input-group">
 										<input class="zip-input" name="zip" placeholder="Zip Code" aria-label="Zip Code">
 								    	<button class="zip-btn" type="button"><span class="screen-reader-text">Search</span></button>
@@ -54,20 +54,14 @@ get_header();
 								</div><!-- end div.form-inline -->
 							</div><!-- end div.bfblSlideWrap -->
 						</section>
-	
+
 						<section class="form-section bfblSlider sliderClosed initialClosed">
 							<h2 class="greenHeader">Location Type</h2>
 							<div class="bfblSlideWrap">
 								<div class="form-inline page-block map-checkboxes">
 									<label><input type="checkbox" name="location_type[]" value="farm"><span>Farms</span></label>
-	<!--
 									<label><input type="checkbox" name="is_csa" value="1"><span>CSAs</span></label>
-									<label><input type="checkbox" name="is_farm_share" value="1"><span>Farm Shares</span></label>
-	-->
-									<label><input type="checkbox" name="location_type[]" value="csa"><span>CSAs</span></label>
-									<label><input type="checkbox" name="location_type[]" value="farm_share"><span>Farm Shares</span></label>
-	
-	
+									<label><input type="checkbox" name="is_farm_share" value="1"><span>Farm Shares</span></label
 									<label><input type="checkbox" name="location_type[]" value="restaurant"><span>Restaurants / Caterers</span></label>
 									<label><input type="checkbox" name="location_type[]" value="retail"><span>Stores / Retail</span></label>
 									<label><input type="checkbox" name="location_type[]" value="vineyard"><span>Vineyards</span></label>
@@ -79,11 +73,11 @@ get_header();
 								</div><!-- end div.map-checkboxes -->
 							</div><!-- end div.bfblSlideWrap -->
 						</section>
-	
+
 						<section class="form-section bfblSlider sliderClosed initialClosed" data-active-category="farm">
 							<h2 class="greenHeader">Product Type</h2>
 							<div class="bfblSlideWrap">
-								
+
 								<div class="form-inline page-block map-checkboxes">
 									<label><input type="checkbox" name="product_type[]" value="greens"><span>Greens</span></label>
 									<label><input type="checkbox" name="product_type[]" value="roots"><span>Root Crops</span></label>
@@ -110,7 +104,7 @@ get_header();
 									<label><input type="checkbox" name="product_type[]" value="seeds"><span>Nuts / Seeds</span></label>
 									<label><input type="checkbox" name="product_type[]" value="misc"><span>Miscellaneous</span></label>
 								</div><!-- end div.map-checkboxes -->
-		
+
 								<div class="map-specific-prods page-block">
 									<label>
 										<span class="map-subhead">Looking for a <br />specific product?</span>
@@ -146,13 +140,13 @@ get_header();
 								</div><!-- end div.map-specific-prods -->
 							</div><!-- end div.bfblSlideWrap -->
 						</section>
-						
+
 						<section class="form-section wholesale-section">
 							<label class='greenHeader'><input type="checkbox" name="wholesale" value="1"><span>Wholesale</span></label>
 						</section>
 					</form>
 				</section><!-- end section.map-form -->
-				
+
 				<div class="map-page-middle">
 					<section class="finder-search-results page-block">
 						<h2 class="map-subhead">Search Results</h2>
@@ -162,16 +156,16 @@ get_header();
 					<div class="map-chip page-block tan-shadow">
 						<?php
 							$mapChip = '';
-							
+
 							if(have_rows('chips', 'option')):
 								while ( have_rows('chips', 'option') ) : the_row();
-									
+
 									$chipTitle = get_sub_field('chip_title');
 									$chipDescr = get_sub_field('chip_description');
 									$chipImg = get_sub_field('chip_image');
 									$chipLink = get_sub_field('chip_page');
 									$chipShow = get_sub_field('chip_map');
-									
+
 									if($chipShow) {
 										$mapChip = ''; // clear out the variable; only one chip should be shown, even if multiple ones are checked off.
 
@@ -187,16 +181,16 @@ get_header();
 												$mapChip .= "</a>";
 											$mapChip .= "</span>";
 										$mapChip .= '</div><!-- end div.chip -->';
-										
+
 									} // end the do-we-show-this-chip test
-								endwhile;						
+								endwhile;
 							endif;
 							echo $mapChip;
 						?>
 					</div><!-- end div.map-chip -->
-					
+
 					<div class="map-page-middle-bg page-block tan-shadow"><!-- NO CONTENT, used only for a background at certain break points --></div>
-					
+
 				</div><!-- end div.map-page-middle -->
 				<?php get_template_part("bfbl", "page-blocks"); ?>
 			</section>
