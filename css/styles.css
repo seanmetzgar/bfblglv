@@ -1212,9 +1212,9 @@ body.page-template-page_about-parent .entry-content img {
 	line-height: 24px; line-height: 1.5rem;
 	color: #555555;
 }
-
+.team-section .image {display: none;}
 .team-section .image img {
-	width:100%;
+	width: 100%;
 	height: auto;
 	/* hidden on mobile */
 	position: absolute;
@@ -3552,7 +3552,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.team-section {
 		font-size: 18px; font-size: 1.125rem;
 	}
-
+	.team-section .image { display: block; }
 	.team-section .image img {
 		position: static;
 		clip: auto;
