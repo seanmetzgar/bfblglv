@@ -1625,7 +1625,7 @@ label.greenHeader::before {
 .bfblSlider.sliderOpen .greenHeader::before,
 .bfblSlider.sliderClosed .greenHeader::before {
 	content: '\e811';
-    transition: transform 0.25s ease-in-out;
+    transition: transform 0.1s ease-in-out;
 }
 
 .bfblSlider.sliderClosed .greenHeader::before {
