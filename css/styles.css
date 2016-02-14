@@ -3507,16 +3507,21 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-right: 0;
 	}
 
-	img.alignleft,
-	.alignleft img,
-	img.alignright,
-	.alignright img {
+	.alignleft,
+	.alignright {
 		max-width: 56%!important;
 	}
 
-	.aligncenter,
-	.aligncenter img {
+	.alignleft img,
+	.alignright img {
+		width: 100%; height: auto;
+	}
+
+	.aligncenter {
 		max-width: 100%!important;
+	}
+	.aligncenter img {
+		width: 100%; height: auto;
 	}
 
 	.entry-content .resourceImage {
@@ -4674,11 +4679,13 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		font-size: 1.25rem;
 	}
 
-	img.alignleft,
-	.alignleft img,
-	img.alignright,
-	.alignright img {
+	.alignleft,
+	.alignright {
 		max-width: 50%!important;
+	}
+	.alignleft img,
+	.alignright img {
+		width: 100%; height: auto;
 	}
 
 	/* PAGE CONTENT - SPECIAL CASES - DESKTOP */
