@@ -2326,6 +2326,8 @@ body.single-events .entry-content .post-meta {
 	background-position: center center;
 	background-size: cover;
 	position: relative;
+
+	margin: 0 auto;
 }
 
 .resourceLink h2 {
