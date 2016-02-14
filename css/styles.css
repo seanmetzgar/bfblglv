@@ -1018,6 +1018,15 @@ header.page-header.no-image .entry-title {
 	margin-bottom: 32px; margin-bottom: 2rem;
 }
 
+.entry-content blockquote {
+	clear: both;
+	font-size: 1.25rem;
+	background-color: #fff;
+	border: 0;
+	border-left: 5px solid #008c5c;
+	padding: 20px; padding: 1.25rem;
+}
+
 .entry-content ul,
 .entry-content ol {
 	padding-left: 46px; padding-left: 2.875rem;
