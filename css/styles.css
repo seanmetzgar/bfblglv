@@ -2307,9 +2307,8 @@ body.single-events .entry-content .post-meta {
 	vertical-align: bottom;
 	width: 100%;
 	max-width: 500px; max-width: 31.25rem;
-	height: 184px; height: 11.5rem;
-/*	line-height: 184px; line-height: 11.5rem; - needs to compensate for the height of the borders */
-	line-height: 164px; line-height: 10.25rem;
+	height: 200px; height: 12.5rem;
+	line-height: 180px; line-height: 11.25rem;
 	overflow: hidden;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -4864,9 +4863,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	.resourceLink {
-		height: 224px; height: 14rem;
-/*		line-height: 224px; line-height: 14rem; */
-		line-height: 204px; line-height: 12.75rem;
+		height: 260px; height: 16.25rem;
+		line-height: 240px; line-height: 15rem;
 	}
 
 	.resourceLink a {
