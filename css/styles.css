@@ -1036,6 +1036,7 @@ header.page-header.no-image .entry-title {
 	max-width: 125px !important;
 	margin-bottom: .5em;
 	margin-top: 0;
+	display: none;
 }
 
 .entry-content ul,
@@ -3507,9 +3508,11 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 	.entry-content blockquote .alignleft {
 		float: left !important;
+		display: block;
 	}
 	.entry-content blockquote .alignright {
 		float: right !important;
+		display: block;
 	}
 
 	.entry-content .video {
