@@ -4131,6 +4131,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.resourceLink {
 		width: 33.33%;
 		max-width: none;
+		height: 260px; height: 16.25rem;
+		line-height: 240px; line-height: 15rem;
 	}
 
 	/* OTHER ARCHIVE-TYPE PAGES - TABLET*/
@@ -4860,11 +4862,6 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	/* RESOURCES - DESKTOP */
 	.resourcesContainer {
 		padding: 44px 46px; padding: 2.75rem 2.875rem;
-	}
-
-	.resourceLink {
-		height: 260px; height: 16.25rem;
-		line-height: 240px; line-height: 15rem;
 	}
 
 	.resourceLink a {
