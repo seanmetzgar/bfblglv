@@ -3215,6 +3215,78 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 }
 
 
+/**GALLERY **/
+.photo-gallery-wrapper {
+	margin: 30px auto;
+}
+
+.photo-gallery-wrapper .gallery-title {
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0 0 10px;
+	text-transform: uppercase;
+}
+.photo-gallery-wrapper .gallery-caption {
+	font-size: 14px;
+	font-style: italic;
+	margin: 10px 0 0;
+}
+.photo-gallery-wrapper .gallery-caption:empty { display: none; }
+
+.photo-gallery-wrapper .cycle-caption {
+	background-color: #eee;
+	font-size: 14px;
+	margin: 0;
+	padding: 10px;
+}
+.photo-gallery-wrapper .cycle-caption:empty { display: none !important; }
+
+.photo-gallery-wrapper .photo-gallery {
+	display: block;
+	overflow: hidden;
+	position: relative;
+	z-index: 2;
+	margin: 0;
+}
+
+.photo-gallery-wrapper .photo-gallery .cycle-prev,
+.photo-gallery-wrapper .photo-gallery .cycle-next {
+	width: 82px; height: 90px;
+	background-color: rgba(255, 255, 255, 0.85);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	z-index: 1000;
+	cursor: pointer;
+	text-indent: -9999em;
+
+	opacity: .5;
+	transition: opacity 0.1s ease-in-out;
+	-webkit-transition: opacity 0.1s ease-in-out;
+	-moz-transition: opacity 0.1s ease-in-out;
+}
+.photo-gallery-wrapper .photo-gallery .cycle-prev:hover,
+.photo-gallery-wrapper .photo-gallery .cycle-next:hover {
+	opacity: 1;
+}
+.photo-gallery-wrapper .photo-gallery .cycle-slideshow {
+	background-color: #333;
+}
+.photo-gallery-wrapper .photo-gallery .cycle-prev {
+	background-image: url(../images/gallery/gallery_prev_lg.png);
+	left: 0;
+}
+.photo-gallery-wrapper .photo-gallery .cycle-next {
+	background-image: url(../images/gallery/gallery_next_lg.png);
+	right: 0;
+}
+.photo-gallery-wrapper .photo-gallery img {
+	width: 100%; height: auto;
+}
 
 /* mobile exceptions - for exceptions to general rules that apply only to certain pages, only on mobile */
 @media (max-width: 767px) {
@@ -4297,6 +4369,9 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		padding-top: 32px; padding-top: 2rem;
 	}
 
+	.photo-gallery-wrapper {
+		width: 60%;
+	}
 }
 
 /* desktop media query */
@@ -4798,6 +4873,11 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		padding-top: 56px; padding-top: 3.5rem;
 	}
 
+	.photo-gallery-wrapper {
+		width: 50%;
+		max-width: 500px;
+	}
+
 }
 
 /* large desktop media query */
@@ -4931,78 +5011,4 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.archive-list h2.entry-title {
 		font-size: 40px; font-size: 2.5rem;
 	}
-}
-
-/**GALLERY **/
-.photo-gallery-wrapper {
-	margin: 30px auto;
-	width: 40%;
-}
-
-.photo-gallery-wrapper .gallery-title {
-	font-size: 20px;
-	font-weight: bold;
-	margin: 0 0 10px;
-	text-transform: uppercase;
-}
-.photo-gallery-wrapper .gallery-caption {
-	font-size: 14px;
-	font-style: italic;
-	margin: 10px 0 0;
-}
-.photo-gallery-wrapper .gallery-caption:empty { display: none; }
-
-.photo-gallery-wrapper .cycle-caption {
-	background-color: #eee;
-	font-size: 14px;
-	margin: 0;
-	padding: 10px;
-}
-.photo-gallery-wrapper .cycle-caption:empty { display: none !important; }
-
-.photo-gallery-wrapper .photo-gallery {
-	display: block;
-	overflow: hidden;
-	position: relative;
-	z-index: 2;
-	margin: 0;
-}
-
-.photo-gallery-wrapper .photo-gallery .cycle-prev,
-.photo-gallery-wrapper .photo-gallery .cycle-next {
-	width: 82px; height: 90px;
-	background-color: rgba(255, 255, 255, 0.85);
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	-webkit-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	z-index: 1000;
-	cursor: pointer;
-	text-indent: -9999em;
-
-	opacity: .5;
-	transition: opacity 0.1s ease-in-out;
-	-webkit-transition: opacity 0.1s ease-in-out;
-	-moz-transition: opacity 0.1s ease-in-out;
-}
-.photo-gallery-wrapper .photo-gallery .cycle-prev:hover,
-.photo-gallery-wrapper .photo-gallery .cycle-next:hover {
-	opacity: 1;
-}
-.photo-gallery-wrapper .photo-gallery .cycle-slideshow {
-	background-color: #333;
-}
-.photo-gallery-wrapper .photo-gallery .cycle-prev {
-	background-image: url(../images/gallery/gallery_prev_lg.png);
-	left: 0;
-}
-.photo-gallery-wrapper .photo-gallery .cycle-next {
-	background-image: url(../images/gallery/gallery_next_lg.png);
-	right: 0;
-}
-.photo-gallery-wrapper .photo-gallery img {
-	width: 100%; height: auto;
 }
