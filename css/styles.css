@@ -999,6 +999,14 @@ header.page-header.no-image .entry-title {
 	color: #555555;
 }
 
+.entry-content h3 {
+	font-family: 'blue_highway_bold';
+	font-size: 30px; font-size: 1.875rem;
+	line-height: 1;
+	color: #193282;
+	text-transform: uppercase;
+}
+
 .entry-content p,
 .news-events-list .content p,
 .archive-list .entry-summary p {
