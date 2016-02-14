@@ -1657,14 +1657,6 @@ label.greenHeader:hover {
 .bfblSlider.sliderClosed {
 	border-bottom-width: 1px;
 }
-.bfblSlider.sliderOpen .bfblSlideWrap,
-.bfblSlider.sliderClosed .bfblSlideWrap {
-    display: block;
-    height: auto;
-    max-height: 0;
-    overflow: hidden;
-}
-.bfblSlider.sliderOpen .bfblSlideWrap { max-height: none; }
 
 /* PAGE CHIPS */
 .chips-block {
