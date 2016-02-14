@@ -27,9 +27,9 @@ echo "<article class='resourceLink' $resourceLinkCSS >";
 		echo "'>";
 			echo "<span>";
 				the_title();
-				if (is_string($resourceTaxonomyTerms) && strlen($resourceTaxonomyTerms) > 0) {
-				echo "<span class='categories'>$resourceTaxonomyTerms</span>";
-				}
+				// if (is_string($resourceTaxonomyTerms) && strlen($resourceTaxonomyTerms) > 0) {
+				// echo "<span class='categories'>$resourceTaxonomyTerms</span>";
+				// }
 			echo "</span>";
 		echo "</a>";
 	echo "</h2>";
