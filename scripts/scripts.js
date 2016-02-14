@@ -182,13 +182,13 @@ jQuery(document).ready(function ($) {
 
     $(".entry-content,.entry-header").find("h1, h2, h3").filter(function () {
         var testRegex = /\bcsas\b/ig;
-        return testRegex.test($(this).text());
+        return testRegex.test($(this).html());
     }).each(function () {
-        var tempText = $(this).text();
+        var tempText = $(this).html();
         var testRegex = /\bcsas\b/ig;
 
         tempText = tempText.replace(testRegex, "CSA<span class=\"lower-case\">s</span>");
-        tempText = $(this).text(tempText);
+        tempText = $(this).html(tempText);
     })
 
 }); // end document ready
