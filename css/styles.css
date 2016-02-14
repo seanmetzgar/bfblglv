@@ -2355,6 +2355,8 @@ body.single-events .entry-content .post-meta {
 .resourceLink a span .categories {
 	font-size: 1.125rem;
 	display:  block;
+	font-family: 'Clear Sans';
+	font-weight: normal;
 }
 
 .resourceDownload {
