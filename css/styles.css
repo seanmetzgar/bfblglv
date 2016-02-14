@@ -4355,7 +4355,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	.wholesale-section label span::after {
-		right: 42px; right: 2.625rem;
+        left: 36px; left: 2.25rem;
 	}
 
 	.map-page-middle{
@@ -4916,7 +4916,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 	/* FIND LOCAL FOOD - MAP PAGE - DESKTOP */
 	.wholesale-section label span::after {
-		right: 46px; right: 2.875rem;
+		left: 36px; left: 2.25rem;
 	}
 
 	/* 404 PAGE - DESKTOP */
