@@ -154,8 +154,7 @@ jQuery(document).ready(function ($) {
 
         // deal with any sliders that were visually hidden on page load
         if ($slider.hasClass('initialClosed')) {
-            $slider.removeClass('initialClosed');
-            $slideContents.css('display', 'none');
+            $slider.addClass("sliderClosed").removeClass('initialClosed');
         }
 
         if ($slider.hasClass('sliderOpen')) {
