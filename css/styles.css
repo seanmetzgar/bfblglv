@@ -1014,20 +1014,11 @@ header.page-header.no-image .entry-title {
 	margin-bottom: 32px; margin-bottom: 2rem;
 }
 .entry-content ul {
-	list-style-type: disc;
-	list-style-position: outside;
-	color: #008c5c;
-}
-.entry-content ul ul {
-	list-style-type: circle;
-}
-.entry-content ul ul ul {
-	list-style-type: square;
+	list-style-type: none;
 }
 .entry-content ol {
 	list-style-type: decimal;
 	list-style-position: outside;
-	color: #008c5c;
 }
 
 .entry-content li {
@@ -1037,19 +1028,19 @@ header.page-header.no-image .entry-title {
 	position: relative;
 }
 
-/*.entry-content ul li::before {
+.entry-content ul li::before {
 	content: '';
 	display: block;
 	position: absolute;
-	top: 50%; left: -10px;
-	width: 6px;  not rems, because of cross-browser issues
+	top: 0; left: -10px;
+	width: 6px;
 	height: 6px;
 	margin-top: -3px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
 	background: #008c5c;
-}*/
+}
 
 
 .entry-content .video {
