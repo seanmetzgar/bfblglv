@@ -56,7 +56,7 @@ get_header(); ?>
 						</div>
 
 						<div class="advisory-board">
-							<h2><?php the_field("project_leads_title"); ?></h2>
+							<h2><?php the_field("advisory_board_title"); ?></h2>
 							<ul>
 								<?php while (have_rows("advisory_board")) : the_row(); ?>
 								<li>
