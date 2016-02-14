@@ -1033,8 +1033,8 @@ header.page-header.no-image .entry-title {
 }
 .entry-content blockquote .alignleft,
 .entry-content blockquote .alignright {
-	max-width: 125px;
-	margin-bottom: 0;
+	max-width: 125px !important;
+	margin-bottom: .5em;
 	margin-top: 0;
 }
 
