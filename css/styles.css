@@ -2310,7 +2310,7 @@ body.single-events .entry-content .post-meta {
 }
 
 .resourcesList {
-	/*text-align: center; */
+	text-align: center;
 }
 
 .resourceLink {
@@ -2326,8 +2326,6 @@ body.single-events .entry-content .post-meta {
 	background-position: center center;
 	background-size: cover;
 	position: relative;
-
-	margin: 0 auto;
 }
 
 .resourceLink h2 {
@@ -4148,6 +4146,10 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	/* RESOURCES - TABLET */
 	.resourcesContainer {
 		padding: 44px 42px; padding: 2.75rem 2.625rem;
+	}
+
+	.resourceList {
+		text-align: left;
 	}
 
 	.resourceLink {
