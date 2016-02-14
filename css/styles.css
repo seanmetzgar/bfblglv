@@ -1314,6 +1314,9 @@ body.page-template-page_wbl-sub .page-block .content {
 .page-block.white .content {
 	color: #555555;
 }
+.page-block.white .content h2 {
+	color: #1a3281;
+}
 
 .page-block.tan-shadow {
 	box-shadow: 0 0 80px rgba(230, 168, 101, .6) inset;
