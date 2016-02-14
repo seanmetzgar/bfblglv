@@ -1607,7 +1607,8 @@ body.page-template-page_why-buy-local .page-block {
 
 .parentArrow::before,
 .bfblSlider .greenHeader::before,
-label.greenHeader::before {
+label.greenHeader::before,
+a.greenHeader::before {
 	font-family: 'fontello';
 	content: '';
 	display: inline-block;
@@ -1618,7 +1619,8 @@ label.greenHeader::before {
 	text-align: center;
 }
 
-.parentArrow::before {
+.parentArrow::before,
+a.greenHeader::before {
 	content: '\e80d';
 }
 
@@ -3108,8 +3110,7 @@ body.single-events .entry-content .post-meta {
 	cursor: pointer;
 }
 
-.wholesale-section label span::after,
-.wholesale-section a span::after {
+.wholesale-section label span::after {
 	content: '';
 	position: absolute;
 	top: 50%;
@@ -4356,8 +4357,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		display: none;
 	}
 
-	.wholesale-section label span::after,
-    .wholesale-section a span::after {
+	.wholesale-section label span::after {
         left: 36px; left: 2.25rem;
 	}
 
@@ -4918,8 +4918,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	/* FIND LOCAL FOOD - MAP PAGE - DESKTOP */
-	.wholesale-section label span::after,
-    .wholesale-section a span::after {
+	.wholesale-section label span::after {
 		left: 36px; left: 2.25rem;
 	}
 
