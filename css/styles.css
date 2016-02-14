@@ -1021,12 +1021,14 @@ header.page-header.no-image .entry-title {
 
 .entry-content blockquote {
 	clear: both;
-	font-size: 1.5rem;
 	background-color: #fdfbf7;
 	background-color: rgba(255, 255, 255, 0.80);
 	border: 0;
 	border-left: 5px solid #008c5c;
 	padding: 20px; padding: 1.25rem;
+}
+.entry-content blockquote p {
+	font-size: 1.25rem;
 }
 
 .entry-content ul,
