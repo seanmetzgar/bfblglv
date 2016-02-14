@@ -3228,6 +3228,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 /**GALLERY **/
 .photo-gallery-wrapper {
 	margin: 30px auto;
+	clear: both;
 }
 
 .photo-gallery-wrapper .gallery-title {
