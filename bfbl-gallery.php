@@ -32,7 +32,7 @@
 		}
 		echo "<!-- \n";
 		print_r($galleryImage);
-		echo "\n-->"
+		echo "\n-->";
 		$galleryOutput .=		"        </div>\n";
 		$galleryOutput .= 		"    </div>\n";
 		$galleryOutput .= 		"    <p class=\"cycle-caption\"></p>\n";
