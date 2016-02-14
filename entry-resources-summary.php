@@ -1,7 +1,14 @@
 <?php
 
 $resourceLinkCSS = '';
-$resourceTaxonomyTerms = wp_get_post_terms(get_the_ID(), "resource-type");
+$resourceTaxonomyTermsArray = wp_get_post_terms(get_the_ID(), "resource-type");
+$resourceTaxonomyTerms = array();
+if (is_array($resourceTaxonomyTermsArray) && count($resourceTaxonomyTermsArray) > 0) {
+	foreach ($resourceTaxonomyTermsArray as $resourceTaxonomyTerm) {
+		$resourceTaxonomyTerms[] = $resourceTaxonomyTerm->name;
+	}
+	$resourceTaxonomyTerms = implode(", ", $resourceTaxonomyTerms);
+}
 
 // UNCOMMENT TO RESTORE
 /*
@@ -21,12 +28,8 @@ echo "<article class='resourceLink' $resourceLinkCSS >";
 			echo "<span>";
 				the_title();
 			echo "</span>";
-			if (is_array($resourceTaxonomyTerms) && count($resourceTaxonomyTerms) > 0) {
-			echo "<span class='categories'>";
-				foreach ($resourceTaxonomyTerms as $resourceTaxonomyTerm) {
-					print_r($resourceTaxonomyTerm);
-				}
-			echo "</span>";
+			if (is_string($resourceTaxonomyTerms) && strlen($resourceTaxonomyTerms) > 0) {
+			echo "<span class='categories'>$resourceTaxonomyTerms</span>";
 			}
 		echo "</a>";
 	echo "</h2>";
