@@ -128,6 +128,8 @@ button {
 	overflow: hidden;
 }
 
+.lower-case { text-transform: lowercase !important; }
+
 .site-wrapper {
 	padding: 0;
 	overflow: hidden;
