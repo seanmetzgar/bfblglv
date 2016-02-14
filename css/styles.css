@@ -1042,8 +1042,7 @@ header.page-header.no-image .entry-title {
 .entry-content .video {
 	margin-left: auto;
 	margin-right: auto;
-	width: 50%;
-	max-width: 400px;
+	max-width: 550px;
 	margin-bottom: 32px; margin-bottom: 2rem;
 }
 
@@ -3386,7 +3385,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 	.entry-content .video {
 		float: right;
-		width: 56%;
+		width: 50%;
 		margin-left: 32px; margin-left: 2rem;
 		margin-right: 0;
 		max-width: none;
@@ -4555,12 +4554,12 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	.entry-content .video {
-		width: 64%;
+		width: 50%;
 	}
 
 	.alignleft,
 	.alignright {
-		max-width: 64%!important;
+		max-width: 50%!important;
 	}
 
 	/* PAGE CONTENT - SPECIAL CASES - DESKTOP */
