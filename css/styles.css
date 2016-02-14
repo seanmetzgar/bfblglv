@@ -1029,6 +1029,7 @@ header.page-header.no-image .entry-title {
 }
 .entry-content blockquote p {
 	font-size: 1.25rem;
+	margin: .5em 0;
 }
 
 .entry-content ul,
