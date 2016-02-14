@@ -11,19 +11,31 @@
 						?> -->
 						<?php $findResourcesQuery = new WP_Query( array (
 							'post_type'              => array( 'resources' ),
-							'resource-type'          => 'find-locally-grown-foods',
+							'tax_query' => array(
+								array(
+									'taxonomy' => 'resource-type',
+									'field'    => 'slug',
+									'terms'    => 'find-locally-grown-foods'
+								)
+							),
 							'nopaging'               => false,
 							'posts_per_page'         => '-1',
 							'order'                  => 'ASC',
-							'orderby'                => 'title',
+							'orderby'                => 'title'
 						));
 						$publicationsResourcesQuery = new WP_Query( array (
 							'post_type'              => array( 'resources' ),
-							'resource-type'          => 'publications',
+							'tax_query' => array(
+								array(
+									'taxonomy' => 'resource-type',
+									'field'    => 'slug',
+									'terms'    => 'publications'
+								)
+							),
 							'nopaging'               => false,
 							'posts_per_page'         => '-1',
 							'order'                  => 'ASC',
-							'orderby'                => 'title',
+							'orderby'                => 'title'
 						));
 						if ($findResourcesQuery->have_posts()): 
 							echo "<h2>Find Locally Grown Foods</h2>";
