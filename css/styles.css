@@ -3107,15 +3107,16 @@ body.single-events .entry-content .post-meta {
 	cursor: pointer;
 }
 
-.wholesale-section label span::after {
+.wholesale-section label span::before {
 	content: '';
 	position: absolute;
 	top: 50%;
-	right: 10px; right: 0.625rem;
+	left: 10px; left: 0.625rem;
 /*	margin-right: 10px; margin-right: 0.625rem; */
 	width: 50px; /* cq, px only */
 	height: 50px;
 	margin-top: -25px;
+    margin-left: 3.4%;
 	background-image: url('../images/bfbl_sprite_giant_checkbox.png');
 	background-repeat: no-repeat;
 	background-size: 50px;
