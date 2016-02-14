@@ -160,12 +160,12 @@ jQuery(document).ready(function ($) {
 
         if ($slider.hasClass('sliderOpen')) {
             // if it's open, close it
-            $slideContents.slideUp(750);
+            $slideContents.slideUp(250);
             $slider.removeClass('sliderOpen');
             $slider.addClass('sliderClosed');
         } else {
             // if it's closed, open it
-            $slideContents.slideDown(750);
+            $slideContents.slideDown(250);
             $slider.removeClass('sliderClosed');
             $slider.addClass('sliderOpen');
         }
