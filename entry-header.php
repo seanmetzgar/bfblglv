@@ -13,8 +13,8 @@
 	
 	$bfblPageTitle = get_the_title();
 	$bfblPageTitle = str_replace(' ', '<br>', $bfblPageTitle); // force line breaks between each word
-	$bfblPageTitle = str_replace('<br>/</br>', " /<br>", $bfblPageTitle); //replace slash line break;
-	$bfblPageTitle = str_replace('<br>&</br>', " &<br>", $bfblPageTitle); //replace slash line break;
+	$bfblPageTitle = str_replace('<br>/<br>', " /<br>", $bfblPageTitle); //replace slash line break;
+	$bfblPageTitle = str_replace('<br>&<br>', " &<br>", $bfblPageTitle); //replace slash line break;
 	
 ?>
 					<header class="<?php echo $entry_header_class; ?>" <?php echo $entry_header_css?>>
