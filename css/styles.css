@@ -3671,6 +3671,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	/* special case */
 	body.page-template-page_why-buy-local .page-block h2 {
 		font-size: 30px; font-size: 1.875rem;
+		color: #1a3281;
 	}
 
 	.page-block.has-icon h2::before {
