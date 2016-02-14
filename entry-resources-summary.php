@@ -1,7 +1,7 @@
 <?php
 
 $resourceLinkCSS = '';
-$resourceTaxonomyTerms = wp_get_post_terms(get_the_ID(), "resource_type");
+$resourceTaxonomyTerms = wp_get_post_terms(get_the_ID(), "resource-type");
 
 // UNCOMMENT TO RESTORE
 /*
