@@ -30,6 +30,9 @@
 			$galleryImageCaption = $galleryImage["caption"];
 			$galleryOutput .= 	"            <img src=\"$galleryImageSrc\" data-cycle-title=\"$galleryImageCaption\" nopin=\"nopin\">\n";
 		}
+		echo "<!-- \n";
+		print_r($galleryImage);
+		echo "\n-->"
 		$galleryOutput .=		"        </div>\n";
 		$galleryOutput .= 		"    </div>\n";
 		$galleryOutput .= 		"    <p class=\"cycle-caption\"></p>\n";
