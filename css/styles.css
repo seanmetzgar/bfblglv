@@ -3506,10 +3506,10 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		font-size: 1.125rem;
 	}
 	.entry-content blockquote .alignleft {
-		float: left;
+		float: left !important;
 	}
 	.entry-content blockquote .alignright {
-		float: right;
+		float: right !important;
 	}
 
 	.entry-content .video {
