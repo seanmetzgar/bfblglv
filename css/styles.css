@@ -1018,15 +1018,22 @@ header.page-header.no-image .entry-title {
 	list-style-position: outside;
 	color: #008c5c;
 }
+.entry-content ul ul {
+	list-style-type: circle;
+}
+.entry-content ul ul ul {
+	list-style-type: square;
+}
 .entry-content ol {
 	list-style-type: decimal;
 	list-style-position: outside;
+	color: #008c5c;
 }
 
 .entry-content li {
 	color: #555555;
 	margin-bottom: 8px; margin-bottom: 0.5rem;
-	font-weight: bold;
+	font-weight: normal;
 	position: relative;
 }
 
