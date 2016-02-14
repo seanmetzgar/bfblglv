@@ -26,16 +26,15 @@
 			$galleryOutput .= 	"            <a href=\"#\" class=\"cycle-prev\">Previous</a><a href=\"#\" class=\"cycle-next\">Next</a>\n";
 		}
 		foreach ($galleryImages as $galleryImage) {
-			$galleryImageSrc = $galleryImage["url"];
-			$galleryImageCaption = $galleryImage["caption"];
-			$galleryOutput .= 	"            <img src=\"$galleryImageSrc\" data-cycle-title=\"$galleryImageCaption\" nopin=\"nopin\">\n";
+			$galleryImageSrc = $galleryImage["sizes"]["medium_large"];
+			$galleryImageSrc = (is_string($galleryImageSrc) && strlen($galleryImageSrc) > 0) ? $galleryImageSrc : $galleryImage["sizes"]["large"];
+			$galleryImageSrc = (is_string($galleryImageSrc) && strlen($galleryImageSrc) > 0) ? $galleryImageSrc : $galleryImage["url"];
+			//$galleryOutput .= 	"            <img src=\"$galleryImageSrc\" data-cycle-title=\"$galleryImageCaption\" nopin=\"nopin\">\n";
+			$galleryOutput .= 	"            <img src=\"$galleryImageSrc\" nopin=\"nopin\">\n";
 		}
-		echo "<!-- \n";
-		print_r($galleryImage);
-		echo "\n-->";
 		$galleryOutput .=		"        </div>\n";
 		$galleryOutput .= 		"    </div>\n";
-		$galleryOutput .= 		"    <p class=\"cycle-caption\"></p>\n";
+		// $galleryOutput .= 		"    <p class=\"cycle-caption\"></p>\n";
 		$galleryOutput .=		"</div>\n";
 	}
 	echo $galleryOutput;
