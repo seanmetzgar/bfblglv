@@ -1030,8 +1030,11 @@ header.page-header.no-image .entry-title {
 
 .entry-content ul li::before {
 	content: '\2022';
-	font-size: 20px;
+	font-size: 25px;
+	line-height: 1;
 	margin-left: -13px;
+	float: left;
+	display: inline-block;
 	color: #008c5c;
 }
 
