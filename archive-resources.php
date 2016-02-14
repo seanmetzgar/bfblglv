@@ -9,9 +9,9 @@
 								get_template_part( "entry", "resources-summary" );
 							endwhile; endif; 
 						?> -->
-						<?php $communityResourcesQuery = new WP_Query( array (
+						<?php $findResourcesQuery = new WP_Query( array (
 							'post_type'              => array( 'resources' ),
-							'tag'                    => 'community',
+							'resource-type'          => 'find-locally-grown-foods',
 							'nopaging'               => false,
 							'posts_per_page'         => '-1',
 							'order'                  => 'ASC',
@@ -19,15 +19,15 @@
 						));
 						$publicationsResourcesQuery = new WP_Query( array (
 							'post_type'              => array( 'resources' ),
-							'tag'                    => 'reports',
+							'resource-type'          => 'publications',
 							'nopaging'               => false,
 							'posts_per_page'         => '-1',
 							'order'                  => 'ASC',
 							'orderby'                => 'title',
 						));
-						if ($communityResourcesQuery->have_posts()): 
+						if ($findResourcesQuery->have_posts()): 
 							echo "<h2>Find Locally Grown Foods</h2>";
-							while ($communityResourcesQuery->have_posts): $communityResourcesQuery->the_post();
+							while ($findResourcesQuery->have_posts): $findResourcesQuery->the_post();
 								get_template_part( "entry", "resources-summary" );
 							endwhile;
 						endif;
