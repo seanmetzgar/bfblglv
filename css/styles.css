@@ -1164,14 +1164,14 @@ body.page-template-page_why-buy-local .entry-content {
 	padding: 0;
 }
 
-body.page-template-page_wbl-sub .entry-content h1.entry-title,
+/*body.page-template-page_wbl-sub .entry-content h1.entry-title,
 body.single-news .entry-content h1.entry-title,
 body.single-events .entry-content h1.entry-title,
 body.single-events .entry-content .post-meta,
 body.single-resources .entry-content h1.entry-title,
 .entry-content.no-results h2.entry-title {
-	color: #555555;
-}
+	color: #1a3281;
+}*/
 
 .entry-content.has-icon .entry-title::before {
 	content: '';
