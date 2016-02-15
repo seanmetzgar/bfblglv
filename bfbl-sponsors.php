@@ -14,7 +14,7 @@
 ?>
 		<section class="sponsors-list page-block white row">
 			<h2>Sponsors</h2>
-			<ul>
+			<ul class="container-fluid constrained">
 <?php
 		while ($sponsors_posts->have_posts()): $sponsors_posts->the_post();
 			$sponsor_id = get_the_ID();

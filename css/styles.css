@@ -136,6 +136,12 @@ button {
 	overflow: hidden;
 }
 
+.container-fluid.constrained {
+	max-width: 1170px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 
 /* BUTTONLINK STYLES */
 .bfblButtonLink,
