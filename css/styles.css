@@ -1958,11 +1958,14 @@ li.chip {
     max-width: 1170px;
     margin-left: auto;
     margin-right: auto;
+    overflow: hidden;
 }
 .sponsors-list .sponsor {
 	width: 25%;
 	height: 0;
 	padding: 25% 0 0;
+	float: left;
+	position: relative;
 }
 
 .sponsors-list .sponsor .sponsor-logo {
