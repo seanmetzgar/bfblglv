@@ -994,7 +994,7 @@ header.page-header.no-image .entry-title {
 
 .entry-content h1,
 .entry-content h2,
-.resourcesContainer h2 {
+.resources-container h2 {
 	margin: 0;
 	padding: 24px 0; padding: 1.5rem 0;
 	font-family: 'blue_highway_bold';
@@ -1004,7 +1004,7 @@ header.page-header.no-image .entry-title {
 	text-transform: uppercase;
 }
 
-.resourcesContainer h2 { text-align: center; }
+.resources-container h2 { text-align: center; }
 
 .entry-content h2.resourceSubhead {
 	font-size: 30px; font-size: 1.875rem;
