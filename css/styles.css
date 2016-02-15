@@ -1961,9 +1961,9 @@ li.chip {
     overflow: hidden;
 }
 .sponsors-list .sponsor {
-	width: 25%;
+	width: 50%;
 	height: 0;
-	padding: 25% 0 0;
+	padding: 50% 0 0;
 	float: left;
 	position: relative;
 }
@@ -3975,6 +3975,10 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.sponsors-list.page-block h2 {
 		margin-bottom: 26px; margin-bottom: 1.625rem;
 	}
+	.sponsors-list .sponsor {
+		width: 25%;
+		padding: 25% 0 0;
+	}
 
 
 	/* SPECIFIC PAGES - TABLET */
@@ -4746,6 +4750,15 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	  .animated-header .animated-blocks.has-active li.map-link.active {
 	    width: 33.75%;
 	  }
+
+	/* SPONSOR BLOCK - TABLET */
+	.sponsors-list.page-block h2 {
+		margin-bottom: 26px; margin-bottom: 1.625rem;
+	}
+	.sponsors-list .sponsor {
+		width: 20%;
+		padding: 20% 0 0;
+	}
 
 	/* SPECIFIC PAGES - DESKTOP */
 	.wbl-subtitle::before,
