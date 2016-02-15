@@ -121,10 +121,11 @@ function xhrGetPartners() {
 
 		$locationTypePartners = get_users($locationTypeQueryArgs);
 		if (is_array($locationTypePartners) && count($locationTypePartners) > 0) {
-			$tempPartners = array_unique(array_merge($locationTypePartners, $tempPartners));
+			$tempPartners = array_merge($locationTypePartners, $tempPartners);
 		}
 	}
 
+	$tempPartners = array_unique($tempPartners);
 	foreach ($tempPartners as $partnerKey=>$partner) {
 		$tempObj = new MapPartner;
 		$tempObj->id = $partner->ID;
