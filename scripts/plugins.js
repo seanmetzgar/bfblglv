@@ -1,3 +1,4 @@
+var $currentXhrGetPartners = null;
 //Fluid Dialog Function
 function fluidDialog() {
     "use strict";
@@ -68,7 +69,10 @@ function xhrGetPartnersHandler(data) {
 
 function xhrGetPartners(formObject) {
     "use strict";
-    $.ajax({
+    if ($currentXhrGetPartners && $currentXhrGetPartners.readyState !== 4){
+        $currentXhrGetPartners.abort();
+    }
+    $currentXhrGetPartners = $.ajax({
         type: "post",
         dataType: "json",
         url: KuduAJAX.ajaxUrl,
