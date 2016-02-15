@@ -141,6 +141,8 @@ function xhrGetPartners() {
 		$tempMap = null;
 	}
 
+	$returnPartners = array_unique($returnPartners, SORT_REGULAR);
+
 	usort($returnPartners, function($a, $b) {
 	    return $a->name - $b->name;
 	});
