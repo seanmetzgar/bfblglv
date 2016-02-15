@@ -116,17 +116,11 @@ function xhrGetPartners() {
             }
 
         }
-        echo "<pre>";
-        print_r($locationTypeQueryArgs);
-        echo "</pre>";
 
 		$locationTypePartners = get_users($locationTypeQueryArgs);
-		
+
 		if (is_array($locationTypePartners) && count($locationTypePartners) > 0) {
 			$tempPartners = array_merge($locationTypePartners, $tempPartners);
-			echo "<pre>";
-			print_r($locationTypePartners);
-			echo "</pre>";
 		}
 	}
 
