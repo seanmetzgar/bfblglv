@@ -3318,6 +3318,15 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 }
 
+/* large mobile media query */
+@media (min-width: 600px) {
+	/* SPONSOR BLOCK - TABLET */
+	.sponsors-list .sponsor {
+		width: 33%;
+		padding: 33% 0 0;
+	}
+}
+
 /* tablet media query */
 @media (min-width: 768px) {
 
