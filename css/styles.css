@@ -1955,12 +1955,12 @@ li.chip {
 	text-align: center;
 }
 
-.sponsors-list li {
+/*.sponsors-list li {
 	height: 104px!important; height: 6.5rem;
 	line-height: 104px; line-height: 6.5rem;
 	padding: 0 50px; padding: 0 3.125rem;
 	text-align: center;
-}
+}*/
 
 .sponsors-list .sponsor {
 	height: auto;
