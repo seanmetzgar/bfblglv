@@ -5,13 +5,10 @@
  * @since Buy Local GLV 1.0.0
  */
 
- 	$sponsors = '';
-
-	$sponsors_args = array(
+	$sponsors_posts = new WP_Query(array(
 		"post_type"			=> "sponsors",
 		"posts_per_page"	=> -1
-	);
-	$sponsors_posts = WP_Query($sponsors_args);
+	));
 
 	if ($sponsors_posts->have_posts()):
 ?>
