@@ -1970,7 +1970,12 @@ li.chip {
 	padding: 50% 0 0;
 	position: relative;
 }
-
+.sponsors-list .sponsor .sponsor-image-wrapper {
+	position: absolute;
+	top: 15px; bottom: 15px;
+	left: 15px; right: 15px;
+	border: 1px solid #eee;
+}
 .sponsors-list .sponsor .sponsor-image {
 	position: absolute;
 	top: 15px; bottom: 15px;
