@@ -2266,7 +2266,6 @@ body.single-events .entry-content .post-meta {
 /* RESOURCES */
 .resources-container {
 	padding: 10px 0; padding: 0.625rem 0;
-	background: #f7ecd5;
 	position: relative;
 }
 
@@ -2275,6 +2274,24 @@ body.single-events .entry-content .post-meta {
 }
 
 .resource-link {
+	display: block;
+	background-color: #f7ecd5;
+}
+.resource-link:nth-child(odd) {
+	background-color: #008c5c;
+}
+.resource-link h3 {
+	color: #1a3281;
+	font-size: 20px; font-size: 1.25rem;
+}
+.resource-link:nth-child(odd) h3 {
+	color: #fff;
+}
+
+
+
+
+/*.resource-link {
 	text-align: center;
 	display: inline-block;
 	vertical-align: bottom;
@@ -2323,7 +2340,7 @@ body.single-events .entry-content .post-meta {
 	vertical-align: middle;
 	padding-left: 8px;
 	padding-right: 8px;
-}
+}*/
 
 .resourceDownload {
 	display: block;
