@@ -202,7 +202,7 @@
 		$bfblFooter .= "</div><!-- end div.footerContact -->";
 
 		$bfblFooter .= "<div class='footerCredits col-xs-12 col-sm-6 col-md-6'>";
-			$bfblFooter .= "<div class='copyright'>&copy; " . date('Y') . ' 2016 Buy Fresh Buy Local of the Greater Lehigh Valley.';
+			$bfblFooter .= "<div class='copyright'>&copy; " . date('Y') . ' Buy Fresh Buy Local of the Greater Lehigh Valley.';
 			$bfblFooter .= "<span class='hideBreak'><br /></span>";
 			$bfblFooter .= "All Rights Reserved.</div>";
 			$bfblFooter .= "<div class='credit'>";
