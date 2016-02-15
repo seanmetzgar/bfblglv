@@ -31,16 +31,6 @@
 				?>
 
 				<div class="resources-container">
-					<section class="page-block image-split tan-shadow news-events-top">
-						<div class="image"><!-- nothing here --></div>
-						<div class="content">
-							<h2>
-								<span class="left-text">Find Locally Grown Foods</span>
-								<span class="right-text">Publications</span>
-							</h2>
-						</div>
-					</section>
-
 					<div class="resources-list row">
 						<div class="col-sm-6 resource-category-list">
 							<?php  if ($findResourcesQuery->have_posts()):
