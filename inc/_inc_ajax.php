@@ -12,11 +12,9 @@ add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
 
 function buildProductsQuery($productTypes) {
 	$metaQueryArray = false;
-	
+
 	if (is_array($productTypes) && count($productTypes) > 0) {
-		$metaQueryArray = array(
-			"relation" => "OR"
-		);
+		$metaQueryArray = array();
 		foreach ($productTypes as $productType) {
 			$tempProductTypeField = "products_{$productType}";
 			$tempProductTypeOtherField = "other_{$tempProductTypeField}";
@@ -42,6 +40,7 @@ function buildProductsQuery($productTypes) {
 }
 
 function xhrGetPartners() {
+    $pseudoFarmSearch = false;
 	$allLocationTypes = array(
 		"farm", "farmers-market",
 		"restaurant", "vineyard",
@@ -51,56 +50,76 @@ function xhrGetPartners() {
 	);
 
 	$allProductTypes = array(
-		"greens", "roots", "seasonal", 
-		"melons", "herbs", "berries", 
-		"small_fruits", "grains", "value_added", 
-		"flowers", "plants", "ornamentals", 
-		"syrups", "dairy", "meat", 
-		"poultry", "agritourism", "fibers", 
-		"artisinal", "liquids", "educational", 
+		"greens", "roots", "seasonal",
+		"melons", "herbs", "berries",
+		"small_fruits", "grains", "value_added",
+		"flowers", "plants", "ornamentals",
+		"syrups", "dairy", "meat",
+		"poultry", "agritourism", "fibers",
+		"artisinal", "liquids", "educational",
 		"baked", "seeds", "misc"
 	);
 
 	$locationTypes = (isset($_REQUEST["location_type"])
 		&& is_array($_REQUEST["location_type"])
-		&& count($_REQUEST["location_type"] > 0)) ? 
-			$_REQUEST["location_type"] : 
+		&& count($_REQUEST["location_type"] > 0)) ?
+			$_REQUEST["location_type"] :
 			false;
 
 	$productTypes = (isset($_REQUEST["product_type"])
 		&& is_array($_REQUEST["product_type"])
-		&& count($_REQUEST["product_type"] > 0)) ? 
-			$_REQUEST["product_type"] : 
+		&& count($_REQUEST["product_type"] > 0)) ?
+			$_REQUEST["product_type"] :
 			false;
-
-	//These will be fun to search for if FARM is not checked...
-	$isCSA = isset($_REQUEST["is_csa"]) && $_REQUEST["is_csa"] === "1" ? true : false;
-	$isFarmShare = isset($_REQUEST["is_farm_share"]) && $_REQUEST["is_farm_share"] === "1" ? true : false;
 
    	$tempPartners = array();
    	$returnPartners = array();
 
    	if ($locationTypes === false) {
-   		$locationTypes = ($productTypes) ? array("farm") : $allLocationTypes;
+   		$locationTypes = ($productTypes || $pseudoFarmSearch) ? array("farm") : $allLocationTypes;
    	} else {
+        //Clear $productTypes if not a farm search
    		$productTypes = (in_array("farm", $locationTypes)) ? $productTypes : false;
    	}
 
 	foreach ($locationTypes as $locationType) {
-		$locationTypePartners = null;
-		$locationTypeQueryArgs = array(
-			"role" => $locationType
-		);
-		if ($locationType === "farm") {
-			$productsQuery = buildProductsQuery($productTypes);
-			if ($productsQuery) {
-				$locationTypeQueryArgs["meta_query"] = $productsQuery;
-			}
-		}
+		if (!in_array($locationType, array("farm-share", "csa"))) {
+            $locationTypePartners = null;
+            $pseudoLocationType = ($locationType === "farm-share") ? "is_farm_share" : "is_csa";
+            $locationTypeQueryArgs = array(
+                "role" => "farm",
+                "meta_query" => array(
+                    "relation" => "AND",
+                    array(
+                        "key" => $pseudoLocationType,
+                        "value" => 1,
+                        "compare" => "="
+                    )
+                )
+            );
+            $productsQuery = buildProductsQuery($productTypes);
+            if ($productsQuery) {
+                $locationTypeQueryArgs["meta_query"][] = $productsQuery;
+            }
+        } else {
+            $locationTypePartners = null;
+            $locationTypeQueryArgs = array(
+                "role" => $locationType
+            );
+
+            if ($locationType === "farm") {
+                $productsQuery = buildProductsQuery($productTypes);
+
+                if ($productsQuery) {
+                    $locationTypeQueryArgs["meta_query"] = array($productsQuery);
+                }
+            }
+
+        }
 
 		$locationTypePartners = get_users($locationTypeQueryArgs);
 		if (is_array($locationTypePartners) && count($locationTypePartners) > 0) {
-			$tempPartners = array_merge($locationTypePartners, $tempPartners);
+			$tempPartners = array_unique(array_merge($locationTypePartners, $tempPartners));
 		}
 	}
 

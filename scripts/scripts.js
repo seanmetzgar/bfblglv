@@ -1,5 +1,6 @@
 var $animatedHeader = null;
 var $findLocalFoodForm = null;
+var $currentSearchXHR = null;
 
 jQuery(document).ready(function ($) {
     "use strict";
