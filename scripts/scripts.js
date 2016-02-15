@@ -194,7 +194,7 @@ jQuery(document).ready(function ($) {
             (locationTypeValues.indexOf("farm") !== -1 ||
             locationTypeValues.indexOf("csa") !== -1 ||
             locationTypeValues.indexOf("farm-share") !== -1)) {
-            $productTypesSection.show().find("input,select,textarea").removeProp("disabled");
+            $productTypesSection.show().find("input,select,textarea").prop("disabled", false).removeProp("disabled");
         } else {
             $productTypesSection.hide().find("input,select,textarea").prop("disabled", true);
         }
