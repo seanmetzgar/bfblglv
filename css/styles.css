@@ -1971,7 +1971,7 @@ li.chip {
 	position: absolute;
 	top: 0; right: 0; bottom: 0; left: 0;
 }
-.sponsor-list .sponsor .sponsor-logo {
+.sponsors-list .sponsor .sponsor-logo {
 	display: block;
 	margin: 10px;
 	width: auto;
