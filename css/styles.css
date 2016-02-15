@@ -1831,10 +1831,6 @@ li.chip {
   background-position: 50% bottom;
   background-repeat: repeat-x;
 }
-.animated-header .animated-blocks li.map-link a::before {
-  background: none;
-  content: none;
-}
 .animated-header .animated-blocks li a .content,
 .animated-header .animated-blocks li a .map-content {
   position: absolute;
