@@ -3998,7 +3998,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	    width: 24%;
 	  }
 	  .animated-header .animated-blocks li.map-link .map-content h3 {
-	  	text-shadow: 0 0 15px rgba(252,175,23,.5);
+	  	text-shadow: 0 0 35px rgb(252,175,23);
 	  }
 	  .animated-header .animated-blocks li.map-link .map-content .subtext {
 	  	text-shadow: 0 0 3px rgba(15,30,44,1);
