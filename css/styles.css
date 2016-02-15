@@ -1952,6 +1952,7 @@ li.chip {
 .sponsors-list.page-block h2 {
 	color: #1a3281;
 	border-bottom: 0;
+	text-align: center;
 }
 
 .sponsors-list li {
@@ -3977,8 +3978,6 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	/* SPONSOR BLOCK - TABLET */
 
 	.sponsors-list.page-block h2 {
-		display: inline-block;
-		text-align: center;
 		margin-bottom: 26px; margin-bottom: 1.625rem;
 	}
 
