@@ -1967,11 +1967,6 @@ li.chip {
 	position: relative;
 }
 
-.sponsors-list .sponsor a {
-	display: block;
-	position: absolute;
-	top: 0; right: 0; bottom: 0; left: 0;
-}
 .sponsors-list .sponsor .sponsor-logo {
 	display: block;
 	margin: 5%;
