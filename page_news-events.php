@@ -11,7 +11,7 @@ get_header(); ?>
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<?php get_template_part("entry", "header"); ?>
-					
+
 					<section class="page-block image-split tan-shadow news-events-top">
 						<div class="image"><!-- nothing here --></div>
 						<div class="content">
@@ -21,8 +21,8 @@ get_header(); ?>
 							</h2>
 						</div>
 					</section>
-					
-					<?php	
+
+					<?php
 						$bfblPageContent = get_the_content();
 						if($bfblPageContent) {
 							echo '<section class="entry-content">';
