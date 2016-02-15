@@ -196,7 +196,7 @@ jQuery(document).ready(function ($) {
             locationTypeValues.indexOf("farm-share") !== -1)) {
             $productTypesSection.show().find("input,select,textarea").removeProp("disabled");
         } else {
-            $productTypesSection.hide().find("input,select,textarea").prop("disabled");
+            $productTypesSection.hide().find("input,select,textarea").prop("disabled", true);
         }
         formObject = $findLocalFoodForm.serializeObject();
         console.log(formObject);
