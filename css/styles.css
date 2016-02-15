@@ -1955,20 +1955,16 @@ li.chip {
 	text-align: center;
 }
 
-.sponsors-list li {
-	height: 0;
-	padding-bottom: 100%;
-}
-
 .sponsors-list .sponsor {
-	height: auto;
-	position: relative;
+	width: 25%;
+	height: 0;
+	padding: 100% 0 0;
 }
 
 .sponsors-list .sponsor .sponsor-logo {
 	position: absolute;
-	top: 0; bottom: 0;
-	left: 0; right: 0;
+	top: 5px; bottom: 5px;
+	left: 5px; right: 5px;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-size: contain;

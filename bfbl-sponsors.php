@@ -12,9 +12,9 @@
 
 	if ($sponsors_posts->have_posts()):
 ?>
-		<section class="sponsors-list page-block white row">
+		<section class="sponsors-list page-block white">
 			<h2>Sponsors</h2>
-			<ul class="container-fluid constrained">
+			<ul>
 <?php
 		while ($sponsors_posts->have_posts()): $sponsors_posts->the_post();
 			$sponsor_id = get_the_ID();
@@ -25,7 +25,7 @@
 				$sponsor_name_attr = the_title_attribute(array("echo" => false));
 				$sponsor_link = get_field('url', $sponsor_id);
 ?>
-				<li class="col-md-3 col-xs-6 sponsor">
+				<li class="sponsor">
 			<?php if ($sponsor_link) echo "<a href=\"$sponsor_link\" title=\"$sponsor_name_attr\">"; ?>
 					<div class="sponsor-logo" style="background-image: url('<?php echo $sponsor_img_src; ?>')">
 						<span class="visuallyhidden"><?php the_title(); ?></span>
