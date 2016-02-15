@@ -925,8 +925,8 @@ header.page-header.has-image::before {
 	display: block;
 	position: absolute;
 	top: 0; right: 0; bottom: 0; left: 0;
-	background: #fcaf17;
-	opacity: .29;
+	background: url('../images/header/animated_header_yellow.png');
+  	background: rgba(252, 175, 23, 0.29);
 }
 
 
@@ -1815,7 +1815,7 @@ li.chip {
   z-index: 1;
   content: '';
   background: url('../images/header/animated_header_yellow.png');
-  background: rgba(252, 175, 23, 0.79);
+  background: rgba(252, 175, 23, 0.29);
 /*  transition: background 0.1s ease-in-out; */
   transition: background 0.25s ease-in-out;
 }
