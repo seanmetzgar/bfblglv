@@ -12,7 +12,9 @@
 
 	if ($sponsors_posts->have_posts()):
 ?>
-		<section class="sponsors-list page-block white row"><ul>
+		<section class="sponsors-list page-block white row">
+			<h2>Sponsors</h2>
+			<ul>
 <?php
 		while ($sponsors_posts->have_posts()): $sponsors_posts->the_post();
 			$sponsor_id = get_the_ID();
@@ -23,14 +25,15 @@
 				$spons_name_attr = esc_attr($sponsor_name);
 				$sponsor_link = get_field('url', $sponsor_id);
 ?>
-			<li class="col-md-3 col-xs-6 sponsor">
+				<li class="col-md-3 col-xs-6 sponsor">
 			<?php if ($sponsor_link) echo "<a href=\"$sponsor_link\" title=\"$sponsor_name_attr\">"; ?>
-				<div class="content" style="background-image: url('<?php echo $sponsor_img_src; ?>')">
-					<span class="visuallyhidden"><?php echo $sponsor_name; ?></span>
-				</div>
+					<div class="content" style="background-image: url('<?php echo $sponsor_img_src; ?>')">
+						<span class="visuallyhidden"><?php echo $sponsor_name; ?></span>
+					</div>
 			<?php if ($sponsor_link) echo "</a>"; ?>
-			</li>
+				</li>
 <?php 	endif; endwhile; ?>
-		</ul></section>
+			</ul>
+		</section>
 <?php endif;
 wp_reset_postdata();
