@@ -174,9 +174,32 @@ jQuery(document).ready(function ($) {
     $findLocalFoodForm = $("#find-local-food-form").eq(0);
     $findLocalFoodForm.on("blur change", "input, textarea, select", function () {
         var formObject = false;
+        var $productTypesSection = $findLocalFoodForm.find(".product-types-section");
         var locationTypes = $findLocalFoodForm.find("[name='location_type[]'],[name=is_csa],[name=is_farm_share]").filter(":checked").serializeArray();
-        console.log(locationTypes);
+        var locationTypeValues = Array();
+        for (var i = 0; i < locationTypes.length; i = i + 1) {
+            switch(locationTypes[i].name) {
+                case "is_csa":
+                    locationTypeValues.push("csa");
+                    break;
+                case "is_farm_share":
+                    locationTypeValues.push("farm-share");
+                    break;
+                case "location_type[]":
+                default:
+                    locationTypeValues.push(locationTypes[i].value);
+            }
+        }
+        if (locationTypeValues.length === 0 ||
+            (locationTypeValues.indexOf("farm") !== -1 ||
+            locationTypeValues.indexOf("csa") !== -1 ||
+            locationTypeValues.indexOf("farm-share") !== -1)) {
+            $productTypesSection.show().find("input,select,textarea").removeProp("disabled");
+        } else {
+            $productTypesSection.hide().find("input,select,textarea").prop("disabled");
+        }
         formObject = $findLocalFoodForm.serializeObject();
+        console.log(formObject);
         formObject.action = "xhrGetPartners";
         
         xhrGetPartners(formObject);
