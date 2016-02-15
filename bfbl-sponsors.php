@@ -27,7 +27,7 @@
 ?>
 				<li class="sponsor">
 			<?php if ($sponsor_link) echo "<a href=\"$sponsor_link\" title=\"$sponsor_name_attr\">"; ?>
-					<div class="sponsor-logo" style="background-image: url('<?php echo $sponsor_img_src; ?>')">
+					<div class="sponsor-image" style="background-image: url('<?php echo $sponsor_img_src; ?>')">
 						<span class="visuallyhidden"><?php the_title(); ?></span>
 					</div>
 			<?php if ($sponsor_link) echo "</a>"; ?>
