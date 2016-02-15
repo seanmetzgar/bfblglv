@@ -130,7 +130,6 @@ function xhrGetPartners() {
 		}
 	}
 
-	$tempPartners = array_unique($tempPartners);
 	foreach ($tempPartners as $partnerKey=>$partner) {
 		$tempObj = new MapPartner;
 		$tempObj->id = $partner->ID;
