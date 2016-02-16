@@ -193,11 +193,16 @@ function xhrAddPartner() {
 		$slug = "{$slug}-{$slug_sfx}";
 	}
 
+	//USER Last Name
+	$user_last_name = "[" . niceCategoryName($category) . "]";
+
 	//Insert User
 	$new_user_args = array(
 		"role" => $category,
 		"user_login" => $username,
 		"user_pass" => "password",
+		"first_name" => $partner_name,
+		"last_name" => $user_last_name,
 		"user_nicename" => $slug,
 		"display_name" => $partner->partner_name,
 		"user_email" => "sean.metzgar+{$slug}@gmail.com",

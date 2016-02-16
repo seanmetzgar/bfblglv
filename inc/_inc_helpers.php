@@ -1,5 +1,22 @@
 <?php
 /** Helpers **/
+function niceCategoryName($slug) {
+    switch($slug) {
+        case "farmers-market":
+            $rVal = "Producer-Only Farmers' Market";
+            break;
+        case "retail":
+            $rVal = "Retail Operations";
+            break;
+        case "specialty":
+            $rVal = "Specialty Products";
+            break;
+        default:
+            $rVal = ucwords($slug);
+    }
+    return $rVal;
+}
+
 function kudu_custom_pings($comment) {
     $GLOBALS["comment"] = $comment;
     $comment_class = comment_class("", null, null, false);
