@@ -184,7 +184,7 @@ function xhrAddPartner() {
 		while (username_exists("{$username}_{$username_sfx}")) { $username_sfx++; }
 		$username = "{$username}_{$username_sfx}";
 	}
-	
+
 	//Prep Slug
 	$slug = sanitize_title($partner->partner_name);
 	if (get_user_by("slug", $slug)) {
@@ -198,7 +198,7 @@ function xhrAddPartner() {
 		"role" => $category,
 		"user_login" => $username,
 		"user_nice" => $slug,
-		"user_pass" = "password",
+		"user_pass" => "password",
 		"display_name" => $partner->partner_name,
 		"user_email" => "sean.metzgar+{$slug}@gmail.com",
 		"user_registered" => $member_since
