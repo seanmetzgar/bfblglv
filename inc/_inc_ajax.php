@@ -197,8 +197,8 @@ function xhrAddPartner() {
 	$new_user_args = array(
 		"role" => $category,
 		"user_login" => $username,
-		"user_nice" => $slug,
 		"user_pass" => "password",
+		"user_nicename" => $slug,
 		"display_name" => $partner->partner_name,
 		"user_email" => "sean.metzgar+{$slug}@gmail.com",
 		"user_registered" => $member_since
