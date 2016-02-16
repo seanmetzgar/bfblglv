@@ -166,15 +166,38 @@ function xhrGetPartners() {
 
 function xhrAddPartner() {
 	$data = file_get_contents("php://input"); //read the HTTP body.
-	$data = json_decode($data);
+	$partner = json_decode($data);
 
-    // $partner_name = isset($_REQUEST["partner_name"]) ? $_REQUEST["partner_name"] : "No name found";
+	$category = $partner->category;
+	//Prep Username
+	$username = $partner->requested_username;
+	if (username_exists($username)) {
+		$username_sfx = 1;
+		while (username_exists("{$username}_{$username_sfx}")) { $username_sfx++; }
+		$username = "{$username}_{$username_sfx}";
+	}
+	//Prep Slug
+	$slug = sanitize_title($partner->partner_name);
+	if (get_user_by("slug", $slug)) {
+		$slug_sfx = 2;
+		while (get_user_by("slug", "{$slug}-{$slug_sfx}")) { $slug_sfx++; }
+		$slug = "{$slug}-{$slug_sfx}";
+	}
 
-	// header('Content-Type: application/json');
-	// echo $partner_name;
+	//Insert User
+	$new_user_args = array(
+		"role" => $category,
+		"user_login" => $username,
+		"user_nice" => $slug,
+		"user_pass" = "password",
+		"display_name" => $partner->partner_name,
+		"user_email" => "sean.metzgar+{$slug}@gmail.com"
+	);
+	//$user_id = wp_insert_user($new_user_args);
 
 	echo "<pre>";
-	print_r($data["partner_name"]);
+	echo "New User Args:\n";
+	print_r($new_user_args);
 	echo "</pre>";
 
    	die();
