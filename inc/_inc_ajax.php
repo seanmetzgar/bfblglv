@@ -9,8 +9,8 @@ class MapPartner {
 
 add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
-add_action("wp_ajax_xhrGetPartners", "xhrAddPartner");
-add_action("wp_ajax_nopriv_xhrGetPartners", "xhrAddPartner");
+add_action("wp_ajax_xhrAddPartner", "xhrAddPartner");
+add_action("wp_ajax_nopriv_xhrAddPartner", "xhrAddPartner");
 
 function buildProductsQuery($productTypes) {
 	$metaQueryArray = false;
