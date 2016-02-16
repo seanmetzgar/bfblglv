@@ -165,10 +165,14 @@ function xhrGetPartners() {
 }
 
 function xhrAddPartner() {
-    $partner_name = isset($_REQUEST["partner_name"]) ? $_REQUEST["partner_name"] : "No name found";
+    // $partner_name = isset($_REQUEST["partner_name"]) ? $_REQUEST["partner_name"] : "No name found";
 
 	// header('Content-Type: application/json');
-	echo $partner_name;
+	// echo $partner_name;
+
+	echo "<pre>";
+	print_r($_POST);
+	echo "</pre>";
 
    	die();
 }
