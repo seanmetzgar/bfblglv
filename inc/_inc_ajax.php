@@ -171,8 +171,7 @@ function xhrAddPartner() {
 	$category = $partner->category;
 
 	//Member Since
-	$member_since = strtotime($partner_member_since);
-	print_r($member_since);
+	$member_since = strtotime($partner->member_since);
 	if ($member_since) {
 		$member_since = date("Y-m-d H:i:s", $member_since);
 	} else {
