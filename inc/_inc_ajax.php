@@ -211,6 +211,7 @@ function xhrAddPartner() {
 	//$user_id = wp_insert_user($new_user_args);
 
 	echo "<pre>";
+	echo $partner->member_since . "\n\n";
 	echo "New User Args:\n";
 	print_r($new_user_args);
 	echo "</pre>";
