@@ -167,14 +167,14 @@ function xhrGetPartners() {
 function xhrAddPartner() {
 	$data = file_get_contents("php://input"); //read the HTTP body.
 	$data = json_decode($data);
-	
+
     // $partner_name = isset($_REQUEST["partner_name"]) ? $_REQUEST["partner_name"] : "No name found";
 
 	// header('Content-Type: application/json');
 	// echo $partner_name;
 
 	echo "<pre>";
-	print_r($data);
+	print_r($data["partner_name"]);
 	echo "</pre>";
 
    	die();
