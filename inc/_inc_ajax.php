@@ -210,12 +210,14 @@ function xhrAddPartner() {
 		"user_email" => "sean.metzgar+{$slug}@gmail.com",
 		"user_registered" => $member_since
 	);
-	//$user_id = wp_insert_user($new_user_args);
+	$user_id = wp_insert_user($new_user_args);
 
 	echo "<pre>";
-	echo $partner->member_since . "\n\n";
-	echo "New User Args:\n";
+	echo "Args:\n";
 	print_r($new_user_args);
+	echo "\n\n";
+	echo "New User ID Field:\n";
+	print_r($user_id);
 	echo "</pre>";
 
    	die();
