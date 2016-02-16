@@ -169,6 +169,14 @@ function xhrAddPartner() {
 	$partner = json_decode($data);
 
 	$category = $partner->category;
+
+	//Member Since
+	if (is_numeric($partner->member_since) && (int)$partner->member_since == $partner->member_since) {
+		$member_since = date("Y-m-d H:i:s", (int)$partner->member_since);
+	} else {
+		$member_since = date("Y-m-d H:i:s");
+	}
+
 	//Prep Username
 	$username = $partner->requested_username;
 	if (username_exists($username)) {
@@ -176,6 +184,7 @@ function xhrAddPartner() {
 		while (username_exists("{$username}_{$username_sfx}")) { $username_sfx++; }
 		$username = "{$username}_{$username_sfx}";
 	}
+	
 	//Prep Slug
 	$slug = sanitize_title($partner->partner_name);
 	if (get_user_by("slug", $slug)) {
@@ -191,7 +200,8 @@ function xhrAddPartner() {
 		"user_nice" => $slug,
 		"user_pass" = "password",
 		"display_name" => $partner->partner_name,
-		"user_email" => "sean.metzgar+{$slug}@gmail.com"
+		"user_email" => "sean.metzgar+{$slug}@gmail.com",
+		"user_registered" => $member_since
 	);
 	//$user_id = wp_insert_user($new_user_args);
 
