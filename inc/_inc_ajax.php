@@ -172,11 +172,13 @@ function xhrAddPartner() {
 
 	//Member Since
 	$member_since = strtotime($partner_member_since);
+	print_r($member_since);
 	if ($member_since) {
 		$member_since = date("Y-m-d H:i:s", $member_since);
 	} else {
 		$member_since = date("Y-m-d H:i:s");
 	}
+
 
 	//Prep Username
 	$username = $partner->requested_username;
