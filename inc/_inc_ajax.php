@@ -401,7 +401,76 @@ function addPartnerData($user_id, $partner) {
 			update_field("field_56c18fd292dc3", $partner->other_ws_products_misc, $user_id);
 		}
 		//END Products
+
+		//Farming Practices
+		if ($partner->certified_organic) {
+			update_field("field_56b304c580e32", true, $user_id);
+			update_field("field_56b304d580e33", $partner->certified_organic_since, $user_id);
+			update_field("field_56b304f080e34", $partner->certified_organic_by, $user_id);
+		}
+		if ($partner->certified_naturally_grown) {
+			update_field("field_56b3052e80e36", true, $user_id);
+			update_field("field_56b3054780e37", $partner->certified_naturally_grown_since, $user_id);
+		}
+		if ($partner->certified_biodynamic) {
+			update_field("field_56b305bd80e3b", true, $user_id);
+			update_field("field_56b3057b80e39", $partner->certified_biodynamic_since, $user_id);
+			update_field("field_56b3057d80e3a", $partner->certified_biodynamic_by, $user_id);
+		}
+		update_field("field_56b30645c9a0c", (bool)$partner->only_organic, $user_id);
+		update_field("field_56b30664c9a0d", (bool)$partner->intergrated_pest_management, $user_id);
+		update_field("field_56b30672c9a0e", (bool)$partner->non_gmo, $user_id);
+		update_field("field_56b30683c9a0f", (bool)$partner->antibiotic_harmone_free, $user_id);
+		update_field("field_56b306b7c9a10", (bool)$partner->pastured, $user_id);
+		update_field("field_56b306cbc9a11", (bool)$partner->grass_fed, $user_id);
+		update_field("field_56b306d9c9a12", (bool)$partner->extended_growing_season, $user_id);
+		if ($partner->other_practices) {
+			update_field("field_56b306e1c9a13", true, $user_id);
+			update_field("field_56b306f2c9a14", $partner->other_practices, $user_id);
+		}
+		update_field("field_56b3073a9241a", (bool)$partner->accept_snap, $user_id);
+		update_field("field_56b3075f9241b", (bool)$partner->accept_fmnp, $user_id);
+
+		//Product Availability
+		update_field("field_56c456f460041", (bool)$partner->appointments, $user_id);
+		update_field("field_56b2c7a3c3a50", $partner->products_available_at_other, $user_id);
+		if ($partner->farm_type === "Farm Market") {
+			update_field("field_56b2c8a3b38cd", "Farm Market");
+			update_field("field_56b2c7a3cc6e1", $partner->products_available_from_other, $user_id);
+		} else { update_field("field_56b2c8a3b38cd", "Farm Stand"); }
 	}
+
+	if ($partner->category === "specialty") {
+		update_field("field_56b2c52e3db8a", $partner->source_from_other, $user_id);
+		update_field("field_56b2c62183261", $partner->products_available_at_other, $user_id);
+	}
+
+	if ($partner->category === "retail" || $partner->category === "distributor") {
+		update_field("field_56b2c4dec3e76", $partner->source_from_other, $user_id);
+	}
+
+	if ($partner->category === "distillery" || $partner->category === "vineyard") {
+		update_field("field_56b2c0b155003", $partner->products_available_at_other, $user_id);
+		update_field("field_56b2c28de1a81", $partner->products_available_from_other, $user_id);
+	}
+
+	if ($partner->category === "institution" || $partner->category === "restaurant") {
+		update_field("field_56b2d80b12906", $partner->source_from_other, $user_id);
+		update_field("field_56b2d8ffd4302", $partner->local_stock_freq, $user_id);
+		update_field("field_56b2d9ddd4304", $partner->local_stock_freq, $user_id);
+	}
+
+	if ($partner->category === "farmers-market") {
+		update_field("field_56b2cb6239d12", $partner->number_of_vendors, $user_id);
+		update_field("field_56b2cc4c00cb7", $partner->vendor_list_other, $user_id);
+		update_field("field_56b2ccb800cb9", $partner->market_manager, $user_id);
+		update_field("field_56b2ccda00cba", $partner->market_manager_email, $user_id);
+		update_field("field_56b2ccf100cbb", $partner->market_manager_phone, $user_id);
+		update_field("field_56c2bbece7441", $partner->market_ebt, $user_id);
+		update_field("field_56c2bc73e7442", (bool)$partner->market_double_snap, $user_id);
+		update_field("field_56c2bcade7443", (bool)$partner->market_fmnp, $user_id);
+	}
+
 }
 
 function xhrGetPartners() {
