@@ -66,6 +66,14 @@ function splitHours($hours) {
 	//$hours = explode("\n", $hours);
 }
 
+function breakSeason($season) {
+	$season_array = preg_split("/\s+(?=\S*+$)/", $input_line);
+	if (is_array($season_array) && count($season_array) === 2) {
+		$season_array = ("mpart" => $season_array[0], "month" => $season_array[1]);
+	} else {$season_array = false; }
+	return $season_array;
+}
+
 function buildProductsQuery($productTypes) {
 	$metaQueryArray = false;
 
@@ -193,7 +201,34 @@ function addPartnerData($user_id, $partner) {
 
 	//FARM Details
 	if ($partner->category === "farm") {
-		
+
+		//Acres
+		update_field("field_56b2db3a86583", $partner->acres_owned, $user_id);
+		update_field("field_56b2dc1186584", $partner->acres_rented, $user_id);
+		update_field("field_56b2dc3286585", $partner->acres_production, $user_id);
+
+		//CSA Details
+		if ($partner->is_csa || $partner->is_farm_share) {
+			update_field("field_56b2ea7bcf4fb", $partner->is_csa, $user_id);
+			update_field("field_56b2ea91cf4fc", $partner->is_farm_share, $user_id);
+
+			$csa_details_array = array();
+			if ($partner->season_start_combined && $partner->season_end_combined) {
+				$seasonStart = breakSeason($partner->season_start_combined);
+				$seasonEnd = breakSeason($partner->season_end_combined);
+				if (is_array($seasonStart) && is_array($seasonEnd)) {
+					$csa_details_array["season_start_mpart"] = $seasonStart["mpart"];
+					$csa_details_array["season_start_month"] = $seasonStart["month"];
+					$csa_details_array["season_end_mpart"] = $seasonEnd["mpart"];
+					$csa_details_array["season_end_month"] = $seasonEnd["month"];
+				}
+			}
+			$csa_details_array["season_weeks"] = $partner->season_weeks;
+			add_row("field_56b2ddf73a3c0", $csa_details_array, $user_id);
+			if (have_rows("csa_details", $user_id)): while(have_rows("csa_details", $user_id)): the_row();
+				update_sub_field()
+			endwhile; endif;
+		}
 	}
 }
 
