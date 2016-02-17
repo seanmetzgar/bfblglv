@@ -225,9 +225,6 @@ function addPartnerData($user_id, $partner) {
 			}
 			$csa_details_array["season_weeks"] = $partner->season_weeks;
 			add_row("field_56b2ddf73a3c0", $csa_details_array, $user_id);
-			if (have_rows("csa_details", $user_id)): while(have_rows("csa_details", $user_id)): the_row();
-				update_sub_field()
-			endwhile; endif;
 		}
 	}
 }
