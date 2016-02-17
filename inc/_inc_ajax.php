@@ -28,6 +28,10 @@ function geocodeAddress($address) {
 	$data = curl_exec($ch);
 	curl_close($ch);
 
+	echo "<pre>";
+	echo "$data";
+	echo "</pre>";
+	
     $data = json_decode($data);
 
     $rVal = (is_object($data) &&
