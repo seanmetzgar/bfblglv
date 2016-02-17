@@ -112,8 +112,6 @@ function xhrGetPartners(formObject) {
             scrollwheel : false,
             streetViewControl : false,
             mapTypeControl : false,
-            minZoom     : 6,
-            maxZoom     : 18,
             styles      : [
                 {
                     "featureType": "all",
