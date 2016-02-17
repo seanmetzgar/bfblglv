@@ -98,9 +98,7 @@ function addPartnerData($user_id, $partner) {
 	echo "Executing addPartnerData()\n";
 	//General Details
 	$partner_map_array = geocodeAddress($partner->partner_street_1, $partner->partner_city, $partner->partner_state, $partner->partner_zip);
-	echo "Partner Map Array:\n";
-	print_r($partner_map_array);
-	echo "\n";
+
 	$user_id = "user_{$user_id}";
 		//Business Details
 	update_field("field_56b352249daf2", $partner->partner_name, $user_id);
@@ -115,7 +113,7 @@ function addPartnerData($user_id, $partner) {
 		}
 	}
 	update_field("field_566e64a8b39ae", $partner->partner_email, $user_id);
-	echo "Added Business Details\n";
+
 		//Owner Details (Not gathering this data???)
 	// update_field("field_566e6376b39ab", $partner->partner_owner_name, $user_id);
 	// update_field("field_566ef79524f87", $partner->partner_owner_phone, $user_id);
@@ -125,7 +123,7 @@ function addPartnerData($user_id, $partner) {
 	update_field("field_566e6a150417f", $partner->partner_contact_position, $user_id);
 	update_field("field_566ef86424f8c", $partner->partner_contact_phone, $user_id);
 	update_field("field_566ef87524f8d", $partner->partner_contact_email, $user_id);
-	echo "Added Contact Details\n";
+
 		//Social Media
 	if ($partner->partner_facebook) {
 		$facebookURL = $partner->partner_facebook;
@@ -153,7 +151,7 @@ function addPartnerData($user_id, $partner) {
 			update_field("field_56b218e201749", $instagramName, $user_id);
 		}
 	}
-	echo "Added Social Details\n";
+
 		//Location Details
 	if ($partner->partner_county) {
 		update_field("field_56b4057b10d7e", $partner->partner_county, $user_id);
@@ -168,12 +166,22 @@ function addPartnerData($user_id, $partner) {
 	if (is_array($partner_map_array)) {
 		update_field("field_56b34850dbdb6", $partner_map_array, $user_id);
 	}
-	echo "Added Location Details\n";
+
 		//Short Description
 	update_field("field_56b34d967dae0", $partner->partner_description, $user_id);
-	echo "Added Short Description\n";
 
 		//PHOTOS GO HERE
+	if ($partner->owner_photo || $partner->business_photo) {
+		update_field("field_56c42f4c04680", false, $user_id);
+		if ($partner->owner_photo) {
+			$photoURL = "http://register.buylocalglv.org/images/owners/{$partner->owner_photo}";
+			update_field("field_56c42fd404682", $photoURL, $user_id);
+		}
+		if ($partner->business_photo) {
+			$photoURL = "http://register.buylocalglv.org/images/partners/{$partner->business_photo}";
+			update_field("field_56c42fba04681", $photoURL, $user_id);
+		}
+	}
 	//END General Details
 }
 
@@ -351,7 +359,6 @@ function xhrAddPartner() {
 	if (is_int($user_id) && $user_id > 0) {
 		echo "New Partner Created: $user_id\n";
 		addPartnerData($user_id, $partner);
-
 	}
 	echo "Execution complete\n";
 	echo "</pre>";
