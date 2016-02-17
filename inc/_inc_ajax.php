@@ -87,7 +87,7 @@ function buildProductsQuery($productTypes) {
 				array(
 					"key" => $tempProductTypeField,
 					"value" => array(""),
-					"compare" => "!="
+					"compare" => "LIKE"
 				),
 				array(
 					"key" => $tempProductTypeOtherField,
