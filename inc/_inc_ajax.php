@@ -34,21 +34,21 @@ function geocodeAddress($address) {
     curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
 
     //execute post
-    $result = curl_exec($ch);
+    $data = curl_exec($ch);
 
     //close connection
     curl_close($ch);
 
-    $result = json_decode($result);
+    $data = json_decode($data);
 
-    $rVal = (is_object($result) &&
-        property_exists($result, "results") &&
-        is_array($result->results) &&
-        count($result->results) > 0) ?
-            $result->results[0] :
+    $rVal = (is_object($data) &&
+        property_exists($data, "results") &&
+        is_array($data->results) &&
+        count($data->results) > 0) ?
+            $data->results[0] :
             false;
 
-    return $rVal;
+    return $data;
 }
 
 function buildProductsQuery($productTypes) {
