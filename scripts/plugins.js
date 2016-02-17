@@ -30,6 +30,8 @@ function xhrGetPartnersHandler(data) {
     var mapHTML = "";
     var resultsHTML = "";
     var resultsTotal = 0;
+
+    console.log(data);
     if (typeof data === "object") {
         resultsTotal = data.length;
         resultsTotal = (isNaN(resultsTotal)) ? 0 : resultsTotal;
