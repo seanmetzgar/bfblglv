@@ -194,10 +194,7 @@ function addPartnerData($user_id, $partner) {
 	}
 	//END General Details
 
-	//Hours of Operation
-	// if ($partner->hours) {
-	// 	$splitHours = splitHours($partner->hours);
-	// }
+	//TODO: Hours
 
 	//FARM Details
 	if ($partner->category === "farm") {
@@ -211,7 +208,7 @@ function addPartnerData($user_id, $partner) {
 		if ($partner->is_csa || $partner->is_farm_share) {
 			update_field("field_56b2ea7bcf4fb", $partner->is_csa, $user_id);
 			update_field("field_56b2ea91cf4fc", $partner->is_farm_share, $user_id);
-
+			//Season
 			$csa_details_array = array();
 			if ($partner->season_start_combined && $partner->season_end_combined) {
 				$seasonStart = breakSeason($partner->season_start_combined);
@@ -224,6 +221,23 @@ function addPartnerData($user_id, $partner) {
 				}
 			}
 			$csa_details_array["season_weeks"] = $partner->season_weeks;
+			//Shares
+			$csa_details_array["full_shares"] = $partner->full_shares;
+			$csa_details_array["cost_full_shares"] = $partner->cost_full_shares;
+			$csa_details_array["size_full_shares"] = $partner->size_full_shares;
+			$csa_details_array["size_full_shares_type"] = $partner->size_full_shares_type;
+			$csa_details_array["half_shares"] = $partner->half_shares;
+			$csa_details_array["cost_half_shares"] = $partner->cost_half_shares;
+			$csa_details_array["size_half_shares"] = $partner->size_half_shares;
+			$csa_details_array["size_half_shares_type"] = $partner->size_half_shares_type;
+			//Addons
+			$csa_details_array["possible_addons"] = $partner->possible_addons;
+
+			//TODO:  PICKUP LOCATIONS
+
+
+
+
 			add_row("field_56b2ddf73a3c0", $csa_details_array, $user_id);
 		}
 	}
