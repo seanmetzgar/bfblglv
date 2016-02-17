@@ -132,8 +132,8 @@ get_header(); ?>
 									    }
 									    next($productCategoryProducts);
 									}
-									
-									if (strlen($products[$productCategory]["other"]) < 1) 
+
+									if (strlen($products[$productCategory]["other"]) < 1)
 										unset($products[$productCategory]["other"]);
 								}
 
@@ -194,12 +194,12 @@ get_header(); ?>
 							unset($products[$productCategory]);
 						}
 						$hasProducts = (count($products) > 0) ? true : false;
-					}	
+					}
 
 					// NEWNEWNEW
 					// turn the user role (that is, provider category) into something we can use
 					$partner_category_string = '';
-					
+
 					global $bfbl_custom_roles;
 					foreach($partner_category as $this_role) {
 						if(in_array($this_role, $bfbl_custom_roles)) {
@@ -214,21 +214,21 @@ get_header(); ?>
 					// NEWNEWNEW - TEMPTEMPTEMP
 					$whereToBuy = '';
 					$productHours = '';
-					
+
 
 					// temporarily setting these values manually; they can later be extracted from the database
-					$whereToBuy = '<b>STRING IS SET MANUALLY</b>, needs to be hooked up to the database. Lorem ipsum dolor sit amet.';
+					// $whereToBuy = '<b>STRING IS SET MANUALLY</b>, needs to be hooked up to the database. Lorem ipsum dolor sit amet.';
 
 				//
-					if(count($partner_hours) > 0) {
-						$prodHoursArray = $partner_hours;
-						array_unshift($prodHoursArray, 'STRING IS SET MANUALLY');
-					}
+					// if(count($partner_hours) > 0) {
+					// 	$prodHoursArray = $partner_hours;
+					// 	array_unshift($prodHoursArray, 'STRING IS SET MANUALLY');
+					// }
 				//
-					
-					$productHours = '<li>' . implode('</li><li>', $prodHoursArray) . '</li>';
-			
-			
+
+					// $productHours = '<li>' . implode('</li><li>', $prodHoursArray) . '</li>';
+
+
 				?>
 				<article id="partner-<?php the_ID(); ?>" class="partner-profile">
 					<?php get_template_part("entry", "partner-header"); ?>
@@ -239,7 +239,7 @@ get_header(); ?>
 						</div>
 					</div><!-- end div.acf-map-wrap -->
 					<?php endif; ?>
-					
+
 					<?php get_template_part("entry", "partner-back"); ?>
 
 					<section class="partner-content">
@@ -261,33 +261,33 @@ get_header(); ?>
 
 						<div class="entry-top bfblSlider sliderOpen">
 							<h2 class="greenHeader">Partner Information</h2>
-							
+
 							<div class="bfblSlideWrap">
 								<div class="page-block partner-info-block">
 									<div class="partner-info-right">
-										
+
 										<h1 class="entry-title"><?php echo $partner_name; ?></h1>
-										
+
 										<?php if ($partner_bio): ?>
 										<div class="partner-description entry-content">
 											<?php echo $partner_bio; ?>
 										</div><!-- end div.partner-description -->
 										<?php endif; ?>
-		
+
 										<?php if ($partner_address): ?>
 										<div class="partner-detail">
 											<h4>Address</h4>
 											<p><?php echo $partner_address; ?></p>
 										</div><!-- end div.partner-detail -->
 										<?php endif; ?>
-										
+
 										<?php if ($partner_county): ?>
 										<div class="partner-detail">
 											<h4>County</h4>
 											<p><?php echo $partner_county; ?></p>
 										</div><!-- end div.partner-detail -->
-										<?php endif; ?>											
-											
+										<?php endif; ?>
+
 										<?php if ($partner_hours): ?>
 										<div class="partner-detail partner-hours">
 											<h4>Hours</h4>
@@ -298,12 +298,12 @@ get_header(); ?>
 											</ul>
 										</div><!-- end div.partner-hours -->
 										<?php endif; ?>
-		
+
 										<?php if ($partner_phone || $partner_email || $partner_website): ?>
 										<div class="partner-contact">
 											<h4 class="visuallyhidden">Contact Details</h4>
 											<ul>
-												<?php 
+												<?php
 													if ($partner_phone) echo "<li class='partner-phone'><a href='tel:1-{$partner_phone}'>$partner_phone</a></li>";
 													if ($partner_email) echo "<li class='partner-email'><a href=\"mailto:$partner_email\" target=\"_blank\">$partner_email</a></li>";
 													if ($partner_website) echo "<li class='partner-website'><a href=\"$partner_website\" target=\"_blank\">$partner_website</a></li>";
@@ -312,12 +312,12 @@ get_header(); ?>
 										</div><!-- end div.partner-contact -->
 										<?php endif; ?>
 									</div><!-- end div.partner-info-right -->
-		
+
 									<div class="partner-info-left">
 										<div class="owner-details">
 											<h3 class="visuallyhidden">Owner Information</h3>
-		
-											<?php 
+
+											<?php
 											if ($partner_owner_photo) {
 												echo '<div class="owner-image">';
 													echo wp_get_attachment_image($partner_owner_photo["ID"], "full", false, array("class" => "img-responsive"));
@@ -327,34 +327,34 @@ get_header(); ?>
 												echo "\n<h3 class=\"owner-name\">$partner_owner_name</h3>\n";
 											}
 											?>
-		
+
 										</div><!-- end div.owner-details -->
-		
+
 										<?php if ($partner_facebook || $partner_twitter || $partner_instagram): ?>
 										<div class="partner-social">
 											<h3 class="visuallyhidden">Social Media</h3>
 											<ul>
-												<?php 
+												<?php
 													if ($partner_twitter) echo "<li class='twitter'><a href=\"https://twitter.com/$partner_twitter\" target=\"_blank\"><span>@$partner_twitter</span></a></li>";
 													if ($partner_facebook) echo "<li class='facebook'><a href=\"$partner_facebook\" target=\"_blank\"><span>" . bfblExtractName($partner_facebook) ."</span></a></li>";
-													if ($partner_instagram) echo "<li class='instagram'><a href=\"https://www.instagram.com/$partner_instagram\" target=\"_blank\"><span>@$partner_instagram</span></a></li>"; 
+													if ($partner_instagram) echo "<li class='instagram'><a href=\"https://www.instagram.com/$partner_instagram\" target=\"_blank\"><span>@$partner_instagram</span></a></li>";
 												?>
 											</ul>
 										</div><!-- end div.partner-social -->
 										<?php endif; ?>
 									</div><!-- end div.partner-info-left; -->
-									
+
 								</div><!-- end div.parter-info-block -->
 							</div><!-- end div.bfblSlideWrap -->
 						</div><!-- end div.entry-top -->
-						
+
 						<div class="entry-product-information bfblSlider sliderOpen">
 							<h2 class="greenHeader">Product Information</h2>
-							
+
 							<div class="bfblSlideWrap">
 								<div class="page-block product-info-contents">
 									<div class="product-info-left">
-										<?php 
+										<?php
 										if ($partner_business_photo) {
 											echo '<div class="business-image">';
 												echo wp_get_attachment_image($partner_business_photo["ID"], "full", false, array("class" => "img-responsive"));
@@ -362,10 +362,10 @@ get_header(); ?>
 											if ($partner_name) {
 												echo "\n<h3 class=\"partner-name\">$partner_name</h3>\n";
 											}
-										} 
+										}
 										?>
 									</div><!-- end div.product-info-left -->
-	
+
 									<div class="product-info-right">
 										<div class="products-detail">
 											<?php if ($hasProducts) : ?>
@@ -382,19 +382,19 @@ get_header(); ?>
 														}
 													}
 												}
-												if (count($productsAvailable) > 0) { 
+												if (count($productsAvailable) > 0) {
 													$productsAvailable = implode(", ", $productsAvailable);
-	
+
 													echo "<p>$productsAvailable</p>";
 												}
-												
+
 												?>
 											</div><!-- end div.entry-product-categories -->
 											<?php endif; ?>
-	
-	
+
+
 											<?php
-											
+
 											// NEWNEWNEW
 												if($whereToBuy) {
 													echo '<div class="entry-product-wheretobuy entry-content">';
@@ -402,24 +402,24 @@ get_header(); ?>
 														echo "<p>$whereToBuy</p>";
 													echo '</div><!-- end div.entry-product-wheretobuy -->';
 												} // end $whereToBuy test
-											
+
 												if($productHours && $partner_category_string) {
-													
+
 													echo '<div class="entry-product-hours partner-detail partner-hours">';
 														echo "<h4>$partner_category_string Hours</h4>";
 														echo "<ul>$productHours</ul>";
 													echo '</div><!-- end div.entry-product-wheretobuy -->';
 												} // end $productHours test
-											
+
 											?>
-	
+
 										</div><!-- end div.products-detail -->
 									</div><!-- end div.product-info-right -->
-									
+
 								</div><!-- end div.product-info-contents -->
-							</div><!-- end div.bfblSlideWrap -->					
+							</div><!-- end div.bfblSlideWrap -->
 						</div><!-- end div.entry-product-information -->
-						
+
 					</section><!-- end section.partner-content -->
 
 				</article><!-- end article.partner-profile -->
