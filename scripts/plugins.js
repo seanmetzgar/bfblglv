@@ -53,6 +53,7 @@ function xhrGetPartnersHandler(data) {
                 tempHTML = tempHTML + "<h4><a href=\"" + tempURL + "\">" + tempName + "</a></h4>";
                 tempHTML = tempHTML + "</div>";
                 mapHTML = mapHTML + tempHTML;
+                console.log(tempHTML);
                 tempHTML = "";
             }
             if (tempName && tempURL) {
