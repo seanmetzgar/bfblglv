@@ -45,10 +45,10 @@ function geocodeAddress($street = "", $city = "", $state = "", $zip = "") {
 				$mapAddress = $locationData->formatted_address;
 				$mapZoom = 15;
 			}
-			if (property_exists($locationData, "geometry") {
+			if (property_exists($locationData, "geometry")) {
 				if (is_object($locationData->geometry)
 					&& property_exists($locationData->geometry, "location")
-					&& is_object($locationData->geometry->location) {
+					&& is_object($locationData->geometry->location)) {
 					$mapLat = $locationData->geometry->location->lat;
 					$mapLng = $locationData->geometry->location->lng;
 
