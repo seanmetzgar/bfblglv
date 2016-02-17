@@ -61,9 +61,9 @@ function xhrGetPartnersHandler(data) {
             }
         });
     }
-    $(".acf-map-wrap").empty();
-    $("<div></div>").appendTo(".acf-map-wrap").addClass("acf-map").html(mapHTML).each(function () {
-        //$(this).trigger("re-render");
+    console.log(mapHTML);
+    $(".acf-map").empty().html(mapHTML).each(function () {
+        $(this).trigger("re-render");
     });
     $(".finder-search-results").find(".results-list").empty().html(resultsHTML);
     $(".finder-search-results").find(".results-total .count").empty().html(resultsTotal);
