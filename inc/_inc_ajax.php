@@ -249,13 +249,36 @@ function xhrAddPartner() {
 	// 	addPartnerData($user_id, $partner);
 	// }
 
-	$geoAddress = ($partner->partner_street_1) ? $partner->partner_street_1 : "";
-	$geoAddress .= ($partner->partner_city && $partner->partner_state) ? ", {$partner->partner_city}, {$partner->partner_state}" : "";
-	$geoAddress .= ($partner->zip_code) ? " {$partner->partner_zip}" : "";
+	$mapAddress = false;
+	$mapLat = false;
+	$mapLng = false;
+	$mapZoom = false;
 
-	echo ("<pre>");
-	print_r(geocodeAddress($geoAddress));
-	echo ("</pre>");
+	if ($partner->partner_street_1 && (($partner->partner_city && $partner->partner_state) || ($partner->partner_zip))) {
+		$geoAddress = ($partner->partner_street_1) ? $partner->partner_street_1 : "";
+		$geoAddress .= ($partner->partner_city && $partner->partner_state) ? ", {$partner->partner_city}, {$partner->partner_state}" : "";
+		$geoAddress .= ($partner->zip_code) ? " {$partner->partner_zip}" : "";
+		$geocodeLocation = geocodeAddress($geoAddress);
 
+		if (is_object($geocodeLocation)) {
+			if (property_exists($geocodeLocation, "formatted_address") {
+				$mapAddress = $geocodeLocation->formatted_address;
+				$mapZoom = 15;
+			}
+			if (property_exists($geocodeLocation, "geometry") {
+				if (is_object($geocodeLocation->geometry)
+					&& property_exists($geocodeLocation->geometry, "location")
+					&& is_object($geocodeLocation->geometry->location) {
+					$mapLat = $geocodeLocation->geometry->location->lat;
+					$mapLng = $geocodeLocation->geometry->location->lng;
+				}
+			}
+		}
+		if ($mapAddress && $mapLat && $mapLng && $mapZoom) {
+			
+		}
+	}
+
+	echo "$mapAddress\n$mapLat, $mapLng\n$mapZoom";
    	die();
 }
