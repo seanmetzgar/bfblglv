@@ -646,7 +646,12 @@ function xhrAddPartner() {
 	$response = array();
 	if (is_int($user_id) && $user_id > 0) {
 		addPartnerData($user_id, $partner);
-	}
+		$response["status"] = "success";
+	} else { $response["status"] = "fail"; }
+	$response = json_encode($response);
+
+	header('Content-Type: application/json');
+	echo $response;
 
    	die();
 }
