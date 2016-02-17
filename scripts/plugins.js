@@ -43,6 +43,8 @@ function xhrGetPartnersHandler(data) {
             var tempHTML = "";
             var tempResultHTML = "";
 
+            console.log(this);
+            
             tempName = (this.name.length > 0) ? this.name : false;
             tempURL = (this.url.length > 0) ? this.url : false;
             tempLat = (this.lat.length > 0) ? this.lat : false;
