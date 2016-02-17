@@ -105,7 +105,15 @@ function addPartnerData($user_id, $partner) {
 		//Business Details
 	update_field("field_56b352249daf2", $partner->partner_name, $user_id);
 	update_field("field_566e63d7b39ac", $partner->partner_phone, $user_id);
-	update_field("field_566e6435b39ad", $partner->partner_website, $user_id);
+	if ($partner->partner_website) {
+		$partnerURL = $partner->partner_website;
+		if (!preg_match("/^https?:\/\//i", $partnerURL)) {
+			$partnerURL = "http://{$partnerURL}";
+		}
+		if (filter_var($partnerURL, FILTER_VALIDATE_URL)) {
+			update_field("field_566e6435b39ad", $partnerURL, $user_id);
+		}
+	}
 	update_field("field_566e64a8b39ae", $partner->partner_email, $user_id);
 	echo "Added Business Details\n";
 		//Owner Details (Not gathering this data???)
@@ -121,8 +129,12 @@ function addPartnerData($user_id, $partner) {
 		//Social Media
 	if ($partner->partner_facebook) {
 		$facebookURL = $partner->partner_facebook;
-		if (filter_var($facebookURL, FILTER_VALIDATE_URL)) {
-			update_field("field_566e64f7b39af", $facebookURL, $user_id);
+		preg_match("/^.*?facebook.com\/(.*?)$/", $facebookURL, $facebookArray);
+		if (is_array($facebookArray) && count($facebookArray) > 0) {
+			$facebookURL = "https://www.facebook.com/{$facebookArray[1]}";
+			if (filter_var($facebookURL, FILTER_VALIDATE_URL)) {
+				update_field("field_566e64f7b39af", $facebookURL, $user_id);
+			}
 		}
 	}
 	if ($partner->twitter) {
