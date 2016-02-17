@@ -119,7 +119,7 @@ get_header(); ?>
 						$products["misc"] = get_field("products_misc", $acf_partner_id);
 
 						foreach ($products as $productCategory=>$productCategoryProducts) {
-							if (is_array($productCategoryProducts)) {
+							if (is_array($productCategoryProducts) && count($productCategoryProducts) > 0 && !in_array("", $productCategoryProducts)) {
 
 								if (in_array("Other", $productCategoryProducts)) {
 									while ($tempProd = current($productCategoryProducts)) {
@@ -134,7 +134,7 @@ get_header(); ?>
 								}
 
 								$productCategoryUnsets = array();
-								if (count($productCategoryProducts) > 0 && strlen($productCategoryProducts[0]) > 0) {
+								if (count($productCategoryProducts) > 0) {
 									switch ($productCategory) {
 										case "roots":
 											$productCategoryName = "Root Crops";
