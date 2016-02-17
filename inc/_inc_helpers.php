@@ -95,7 +95,7 @@ function indent($tabs, $spaces = 0, $echo = false) {
     for ($indent_count = 1; $indent_count <= $indent_level; $indent_count++) {
         $indent .= $indent_chars;
     }
-    
+
     if ($echo) {
         echo $indent;
     } else { return $indent; }

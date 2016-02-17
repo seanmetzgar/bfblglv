@@ -1,4 +1,7 @@
 <?php
+putenv("GOOGLEMAPS_API_KEY=AIzaSyDKE4fWvF7yMWBqptpIbpV6msOiG1H_k-c");
+putenv("GOOGLEMAPS_GEOLOCATE_URL=https://maps.googleapis.com/maps/api/geocode/json");
+
 class MapPartner {
 	public $id = false;
 	public $name = false;
@@ -11,6 +14,42 @@ add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_xhrAddPartner", "xhrAddPartner");
 add_action("wp_ajax_nopriv_xhrAddPartner", "xhrAddPartner");
+
+function geolocateAddress($address) {
+    $fields = array(
+        "key" => GOOGLEMAPS_API_KEY,
+        "address" => urlencode($address)
+    );
+
+    //url-ify the data for the POST
+    foreach($fields as $key=>$value) { $fields .= $key.'='.$value.'&'; }
+    $fields_string = rtrim($fields_string, '&');
+
+    //open connection
+    $ch = curl_init();
+
+    //set the url, number of POST vars, POST data
+    curl_setopt($ch,CURLOPT_URL, GOOGLEMAPS_GEOLOCATE_URL);
+    curl_setopt($ch,CURLOPT_POST, count($fields));
+    curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+
+    //execute post
+    $result = curl_exec($ch);
+
+    //close connection
+    curl_close($ch);
+
+    $result = json_decode($result);
+
+    $rVal = (is_object($result) &&
+        property_exists($result, "results") &&
+        is_array($result->results) &&
+        count($result->results) > 0) ?
+            $result->results[0] :
+            false;
+
+    return $rVal;
+}
 
 function buildProductsQuery($productTypes) {
 	$metaQueryArray = false;
@@ -39,6 +78,14 @@ function buildProductsQuery($productTypes) {
 	}
 
 	return $metaQueryArray;
+}
+
+function addPartnerData($user_id, $partner) {
+	//General Details
+
+
+
+
 }
 
 function xhrGetPartners() {
@@ -210,15 +257,19 @@ function xhrAddPartner() {
 		"user_email" => "sean.metzgar+{$slug}@gmail.com",
 		"user_registered" => $member_since
 	);
-	$user_id = wp_insert_user($new_user_args);
+	//$user_id = wp_insert_user($new_user_args);
 
-	echo "<pre>";
-	echo "Args:\n";
-	print_r($new_user_args);
-	echo "\n\n";
-	echo "New User ID Field:\n";
-	print_r($user_id);
-	echo "</pre>";
+	// if (is_int($user_id) && $user_id > 0) {
+	// 	addPartnerData($user_id, $partner);
+	// }
+
+	$geoAddress = ($partner->partner_street_1) ? $partner->partner_street_1 : "";
+	$geoAddress .= ($partner->partner_city && $partner->partner_state) ? ", {$partner->partner_city}, {$partner->partner_state}" : "";
+	$geoAddress .= ($partner->zip_code) ? " {$partner->partner_zip}" : "";
+
+	echo ("<pre>");
+	print_r(geolocateAddress($geoAddress));
+	echo ("</pre>");
 
    	die();
 }
