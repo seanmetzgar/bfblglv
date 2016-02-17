@@ -16,12 +16,11 @@ add_action("wp_ajax_xhrAddPartner", "xhrAddPartner");
 add_action("wp_ajax_nopriv_xhrAddPartner", "xhrAddPartner");
 
 function geocodeAddress($address) {
-    $fields = "key=" . urlencode("AIzaSyDKE4fWvF7yMWBqptpIbpV6msOiG1H_k-c");
+    $fields = "key=AIzaSyDKE4fWvF7yMWBqptpIbpV6msOiG1H_k-c";
     $fields .= "&address=" . urlencode($address);
 
-	$ch = curl_init("https://maps.googleapis.com/maps/api/geocode/json");
+	$ch = curl_init("https://maps.googleapis.com/maps/api/geocode/json?{$fields}");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
 
 	$data = curl_exec($ch);
 	curl_close($ch);
