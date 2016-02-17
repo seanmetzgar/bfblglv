@@ -43,8 +43,6 @@ function xhrGetPartnersHandler(data) {
             var tempHTML = "";
             var tempResultHTML = "";
 
-            console.log(this.name);
-
             tempName = (this.name.length > 0) ? this.name : false;
             tempURL = (this.url.length > 0) ? this.url : false;
             tempLat = (this.lat.length > 0) ? this.lat : false;
@@ -63,7 +61,8 @@ function xhrGetPartnersHandler(data) {
             }
         });
     }
-    $(".acf-map").empty().html(mapHTML).each(function () {
+    $(".acf-map-wrap").empty();
+    $("<div></div>").appendTo(".acf-map-wrap").addClass("acf-map").html(mapHTML).each(function () {
         //$(this).trigger("re-render");
     });
     $(".finder-search-results").find(".results-list").empty().html(resultsHTML);
