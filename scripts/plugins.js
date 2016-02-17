@@ -31,7 +31,6 @@ function xhrGetPartnersHandler(data) {
     var resultsHTML = "";
     var resultsTotal = 0;
 
-    console.log(data);
     if (typeof data === "object") {
         resultsTotal = data.length;
         resultsTotal = (isNaN(resultsTotal)) ? 0 : resultsTotal;
@@ -43,6 +42,8 @@ function xhrGetPartnersHandler(data) {
             var tempLng = false;
             var tempHTML = "";
             var tempResultHTML = "";
+
+            console.log(this.name);
 
             tempName = (this.name.length > 0) ? this.name : false;
             tempURL = (this.url.length > 0) ? this.url : false;
@@ -63,7 +64,7 @@ function xhrGetPartnersHandler(data) {
         });
     }
     $(".acf-map").empty().html(mapHTML).each(function () {
-        $(this).trigger("re-render");
+        //$(this).trigger("re-render");
     });
     $(".finder-search-results").find(".results-list").empty().html(resultsHTML);
     $(".finder-search-results").find(".results-total .count").empty().html(resultsTotal);
