@@ -21,23 +21,12 @@ function geocodeAddress($address) {
         "address" => $address
     );
 
-    //url-ify the data for the POST
-    foreach($fields as $key=>$value) { $fields .= $key.'='.$value.'&'; }
-    $fields_string = rtrim($fields_string, '&');
+	$ch = curl_init("https://maps.googleapis.com/maps/api/geocode/json");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 
-    //open connection
-    $ch = curl_init();
-
-    //set the url, number of POST vars, POST data
-    curl_setopt($ch,CURLOPT_URL, "https://maps.googleapis.com/maps/api/geocode/json");
-    curl_setopt($ch,CURLOPT_POST, count($fields));
-    curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
-
-    //execute post
-    $data = curl_exec($ch);
-
-    //close connection
-    curl_close($ch);
+	$data = curl_exec($ch);
+	curl_close($ch);
 
     $data = json_decode($data);
 
