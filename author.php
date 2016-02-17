@@ -134,7 +134,7 @@ get_header(); ?>
 								}
 
 								$productCategoryUnsets = array();
-								if (count($productCategoryProducts) > 0) {
+								if (count($productCategoryProducts) > 0 && strlen($productCategoryProducts[0]) > 0) {
 									switch ($productCategory) {
 										case "roots":
 											$productCategoryName = "Root Crops";
