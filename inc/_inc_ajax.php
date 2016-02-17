@@ -97,8 +97,63 @@ function buildProductsQuery($productTypes) {
 function addPartnerData($user_id, $partner) {
 	//General Details
 	$partner_map_array = geocodeAddress($partner->partner_street_1, $partner->partner_city, $partner->partner_state, $partner->partner_zip);
+	$user_id = "user_{$user_id}";
+		//Business Details
+	update_field("field_56b352249daf2", $partner->partner_name, $user_id);
+	update_field("field_566e63d7b39ac", $partner->partner_phone, $user_id);
+	update_field("field_566e6435b39ad", $partner->partner_website, $user_id);
+	update_field("field_566e64a8b39ae", $partner->partner_email, $user_id);
+		//Owner Details (Not gathering this data???)
+	// update_field("field_566e6376b39ab", $partner->partner_owner_name, $user_id);
+	// update_field("field_566ef79524f87", $partner->partner_owner_phone, $user_id);
+	// update_field("field_566ef7e824f89", $partner->partner_owner_email, $user_id);
+	//Contact Details
+	update_field("field_566ef83924f8b", $partner->partner_contact_name, $user_id);
+	update_field("field_566e6a150417f", $partner->partner_contact_position, $user_id);
+	update_field("field_566ef86424f8c", $partner->partner_contact_phone, $user_id);
+	update_field("field_566ef87524f8d", $partner->partner_contact_email, $user_id);
+		//Social Media
+	if ($partner->partner_facebook) {
+		$facebookURL = $partner->partner_facebook;
+		if (filter_var($facebookURL, FILTER_VALIDATE_URL)) {
+			update_field("field_566e64f7b39af", $facebookURL, $user_id);
+		}
+	}
+	if ($partner->twitter) {
+		$twitterName = $partner->twitter;
+		$twitterName = trim($twitterName);
+		$twitterName = trim($twitterName, "@");
+		if (preg_match("/^[\w]{1,15}$/", $twitterName)) {
+			update_field("field_566e6512b39b0", $twitterName, $user_id);
+		}
+	}
+	if ($partner->instagram) {
+		$instagramName = $partner->instagram;
+		$instagramName = trim($instagramName);
+		$instagramName = trim($instagramName, "@");
+		if (preg_match("/^[\w-.]{1,30}$/", $instagramName)) {
+			update_field("field_56b218e201749", $instagramName, $user_id);
+		}
+	}
+		//Location Details
+	if ($partner->partner_county) {
+		update_field("field_56b4057b10d7e", $partner->partner_county, $user_id);
+	}
+	update_field("field_56b22479b725c", $partner->partner_street_1, $user_id);
+	update_field("field_56b224d3b725d", $partner->partner_street_2, $user_id);
+	update_field("field_56b225f3b725f", $partner->partner_city, $user_id);
+	if ($partner->partner_state) {
+		update_field("field_56b22601b7260", $partner->partner_state, $user_id);
+	}
+	update_field("field_56b22639b7261", $partner->partner_zip, $user_id);
+	if (is_array($partner_map_array)) {
+		update_field("field_56b34850dbdb6", $partner_map_array, $user_id);
+	}
+		//Short Description
+	update_field("field_56b34d967dae0", $partner->partner_description, $user_id);
 
-	print_r($partner_map_array);
+		//PHOTOS GO HERE
+	//END General Details
 }
 
 function xhrGetPartners() {
@@ -270,15 +325,11 @@ function xhrAddPartner() {
 		"user_email" => "sean.metzgar+{$slug}@gmail.com",
 		"user_registered" => $member_since
 	);
-	//$user_id = wp_insert_user($new_user_args);
+	$user_id = wp_insert_user($new_user_args);
 
-	// if (is_int($user_id) && $user_id > 0) {
-	// 	addPartnerData($user_id, $partner);
-	// }
+	if (is_int($user_id) && $user_id > 0) {
+		addPartnerData($user_id, $partner);
 
-	addPartnerData(1, $partner);
-
-
-	echo "$mapAddress\n$mapLat, $mapLng\n$mapZoom";
+	}
    	die();
 }
