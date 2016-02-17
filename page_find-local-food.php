@@ -57,7 +57,7 @@ get_header();
 						</section>
 						<?php endif; ?>
 
-						<section class="form-section bfblSlider sliderClosed sliderOpen">
+						<section class="form-section bfblSlider sliderOpen">
 							<h2 class="greenHeader">Location Type</h2>
 							<div class="bfblSlideWrap">
 								<div class="form-inline page-block map-checkboxes">
