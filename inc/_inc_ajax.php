@@ -20,6 +20,9 @@ function geocodeAddress($address) {
         "key" => GOOGLEMAPS_API_KEY,
         "address" => urlencode($address)
     );
+    echo "<pre>";
+    print_r($fields);
+    echo "</pre>";
 
     //url-ify the data for the POST
     foreach($fields as $key=>$value) { $fields .= $key.'='.$value.'&'; }
