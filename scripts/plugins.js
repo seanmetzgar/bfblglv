@@ -44,11 +44,11 @@ function xhrGetPartnersHandler(data) {
             var tempResultHTML = "";
 
             console.log(this);
-            
+
             tempName = (this.name.length > 0) ? this.name : false;
             tempURL = (this.url.length > 0) ? this.url : false;
-            tempLat = (this.lat.length > 0) ? this.lat : false;
-            tempLng = (this.lng.length > 0) ? this.lng : false;
+            tempLat = !isNaN(this.lat) ? "" + this.lat : false;
+            tempLng = !isNaN(this.lng) ? "" + this.lng : false;
 
             if (tempName && tempURL && tempLat && tempLng) {
                 tempHTML = "<div class=\"marker\" data-lat=\"" + tempLat + "\" data-lng=\"" + tempLng + "\">";
