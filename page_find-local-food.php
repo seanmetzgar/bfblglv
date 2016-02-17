@@ -16,6 +16,7 @@ get_header();
 
 				<section class="map-form">
 					<form id="find-local-food-form">
+						<?php if (false): ?>
 						<section class="form-section bfblSlider sliderOpen">
 							<h2 class="greenHeader">Location</h2>
 							<div class="bfblSlideWrap">
@@ -54,8 +55,9 @@ get_header();
 								</div><!-- end div.form-inline -->
 							</div><!-- end div.bfblSlideWrap -->
 						</section>
+						<?php endif; ?>
 
-						<section class="form-section bfblSlider sliderClosed initialClosed">
+						<section class="form-section bfblSlider sliderClosed sliderOpen">
 							<h2 class="greenHeader">Location Type</h2>
 							<div class="bfblSlideWrap">
 								<div class="form-inline page-block map-checkboxes">
@@ -105,7 +107,7 @@ get_header();
 									<label><input type="checkbox" name="product_type[]" value="misc"><span>Miscellaneous</span></label>
 								</div><!-- end div.map-checkboxes -->
 
-								<div class="map-specific-prods page-block">
+								<!-- <div class="map-specific-prods page-block">
 									<label>
 										<span class="map-subhead">Looking for a <br />specific product?</span>
 										<select name="specific_products" multiple class="chosen-specific-products">
@@ -137,7 +139,7 @@ get_header();
 											<option value="Product Z">Product Z</option>
 										</select>
 									</label>
-								</div><!-- end div.map-specific-prods -->
+								</div> --><!-- end div.map-specific-prods -->
 							</div><!-- end div.bfblSlideWrap -->
 						</section>
 
