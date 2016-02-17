@@ -15,26 +15,54 @@ add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_xhrAddPartner", "xhrAddPartner");
 add_action("wp_ajax_nopriv_xhrAddPartner", "xhrAddPartner");
 
-function geocodeAddress($address) {
-    $fields = "key=AIzaSyDKE4fWvF7yMWBqptpIbpV6msOiG1H_k-c";
-    $fields .= "&address=" . urlencode($address);
+function geocodeAddress($street = "", $city = "", $state = "", $zip = "") {
+    $rVal = false;
+    if ($street && (($city && $state) || ($zip))) {
+		$address = $street;
+		$address .= ($city && $state) ? ", {$city}, {$state}" : "";
+		$address .= ($zip) ? " {$zip}" : "";
 
-	$ch = curl_init("https://maps.googleapis.com/maps/api/geocode/json?{$fields}");
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$fields = "key=AIzaSyDKE4fWvF7yMWBqptpIbpV6msOiG1H_k-c";
+	    $fields .= "&address=" . urlencode($address);
 
-	$data = curl_exec($ch);
-	curl_close($ch);
+		$ch = curl_init("https://maps.googleapis.com/maps/api/geocode/json?{$fields}");
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-    $data = json_decode($data);
+		$data = curl_exec($ch);
+		curl_close($ch);
 
-    $rVal = (is_object($data) &&
-        property_exists($data, "results") &&
-        is_array($data->results) &&
-        count($data->results) > 0) ?
-            $data->results[0] :
-            false;
+	    $data = json_decode($data);
 
-    return $rVal;
+	    $locationData = (is_object($data) &&
+	        property_exists($data, "results") &&
+	        is_array($data->results) &&
+	        count($data->results) > 0) ?
+	            $data->results[0] :
+	            false;
+
+	    if ($locationData !== false && is_object($locationData)) {
+	    	if (property_exists($locationData, "formatted_address") {
+				$mapAddress = $locationData->formatted_address;
+				$mapZoom = 15;
+			}
+			if (property_exists($locationData, "geometry") {
+				if (is_object($locationData->geometry)
+					&& property_exists($locationData->geometry, "location")
+					&& is_object($locationData->geometry->location) {
+					$mapLat = $locationData->geometry->location->lat;
+					$mapLng = $locationData->geometry->location->lng;
+
+					$rVal = array(
+						"address" => $mapAddress,
+						"lat" => $mapLat,
+						"lng" => $mapLng,
+						"zoom" => $mapZoom
+					);
+				}
+			}
+	    }
+	}
+	return $rVal;
 }
 
 function buildProductsQuery($productTypes) {
@@ -68,10 +96,9 @@ function buildProductsQuery($productTypes) {
 
 function addPartnerData($user_id, $partner) {
 	//General Details
+	$partner_map_array = geocodeAddress($partner->partner_street_1, $partner->partner_city, $partner->partner_state, $partner->partner_zip);
 
-
-
-
+	print_r($partner_map_array);
 }
 
 function xhrGetPartners() {
@@ -249,35 +276,8 @@ function xhrAddPartner() {
 	// 	addPartnerData($user_id, $partner);
 	// }
 
-	$mapAddress = false;
-	$mapLat = false;
-	$mapLng = false;
-	$mapZoom = false;
+	addPartnerData(1, $partner);
 
-	if ($partner->partner_street_1 && (($partner->partner_city && $partner->partner_state) || ($partner->partner_zip))) {
-		$geoAddress = ($partner->partner_street_1) ? $partner->partner_street_1 : "";
-		$geoAddress .= ($partner->partner_city && $partner->partner_state) ? ", {$partner->partner_city}, {$partner->partner_state}" : "";
-		$geoAddress .= ($partner->zip_code) ? " {$partner->partner_zip}" : "";
-		$geocodeLocation = geocodeAddress($geoAddress);
-
-		if (is_object($geocodeLocation)) {
-			if (property_exists($geocodeLocation, "formatted_address") {
-				$mapAddress = $geocodeLocation->formatted_address;
-				$mapZoom = 15;
-			}
-			if (property_exists($geocodeLocation, "geometry") {
-				if (is_object($geocodeLocation->geometry)
-					&& property_exists($geocodeLocation->geometry, "location")
-					&& is_object($geocodeLocation->geometry->location) {
-					$mapLat = $geocodeLocation->geometry->location->lat;
-					$mapLng = $geocodeLocation->geometry->location->lng;
-				}
-			}
-		}
-		if ($mapAddress && $mapLat && $mapLng && $mapZoom) {
-			
-		}
-	}
 
 	echo "$mapAddress\n$mapLat, $mapLng\n$mapZoom";
    	die();
