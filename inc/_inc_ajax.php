@@ -268,6 +268,7 @@ function xhrAddPartner() {
 	$geoAddress .= ($partner->zip_code) ? " {$partner->partner_zip}" : "";
 
 	echo ("<pre>");
+	print_r($geoAddress);
 	print_r(geocodeAddress($geoAddress));
 	echo ("</pre>");
 
