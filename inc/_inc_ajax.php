@@ -41,7 +41,7 @@ function geocodeAddress($street = "", $city = "", $state = "", $zip = "") {
 	            false;
 
 	    if ($locationData !== false && is_object($locationData)) {
-	    	if (property_exists($locationData, "formatted_address") {
+	    	if (property_exists($locationData, "formatted_address")) {
 				$mapAddress = $locationData->formatted_address;
 				$mapZoom = 15;
 			}
