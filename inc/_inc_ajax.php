@@ -86,7 +86,7 @@ function buildProductsQuery($productTypes) {
 				"relation" => "OR",
 				array(
 					"key" => $tempProductTypeField,
-					"value" => "",
+					"value" => array(),
 					"compare" => "!="
 				),
 				array(
