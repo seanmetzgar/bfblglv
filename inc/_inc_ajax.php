@@ -23,7 +23,7 @@ function geocodeAddress($address) {
 
 	$ch = curl_init("https://maps.googleapis.com/maps/api/geocode/json");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
 
 	$data = curl_exec($ch);
 	curl_close($ch);
