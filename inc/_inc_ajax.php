@@ -15,7 +15,7 @@ add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_xhrAddPartner", "xhrAddPartner");
 add_action("wp_ajax_nopriv_xhrAddPartner", "xhrAddPartner");
 
-function geolocateAddress($address) {
+function geocodeAddress($address) {
     $fields = array(
         "key" => GOOGLEMAPS_API_KEY,
         "address" => urlencode($address)
@@ -268,7 +268,7 @@ function xhrAddPartner() {
 	$geoAddress .= ($partner->zip_code) ? " {$partner->partner_zip}" : "";
 
 	echo ("<pre>");
-	print_r(geolocateAddress($geoAddress));
+	print_r(geocodeAddress($geoAddress));
 	echo ("</pre>");
 
    	die();
