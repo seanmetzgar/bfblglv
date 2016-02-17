@@ -67,7 +67,7 @@ function splitHours($hours) {
 }
 
 function breakSeason($season) {
-	$season_array = preg_split("/\s+(?=\S*+$)/", $input_line);
+	$season_array = preg_split("/\s+(?=\S*+$)/", $season);
 	if (is_array($season_array) && count($season_array) === 2) {
 		$season_array = array("mpart" => $season_array[0], "month" => $season_array[1]);
 	} else {$season_array = false; }
