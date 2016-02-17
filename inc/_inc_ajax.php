@@ -1,7 +1,4 @@
 <?php
-putenv("GOOGLEMAPS_API_KEY=AIzaSyDKE4fWvF7yMWBqptpIbpV6msOiG1H_k-c");
-putenv("GOOGLEMAPS_GEOLOCATE_URL=https://maps.googleapis.com/maps/api/geocode/json");
-
 class MapPartner {
 	public $id = false;
 	public $name = false;
@@ -65,6 +62,10 @@ function geocodeAddress($street = "", $city = "", $state = "", $zip = "") {
 	return $rVal;
 }
 
+function splitHours($hours) {
+	//$hours = explode("\n", $hours);
+}
+
 function buildProductsQuery($productTypes) {
 	$metaQueryArray = false;
 
@@ -118,7 +119,8 @@ function addPartnerData($user_id, $partner) {
 	// update_field("field_566e6376b39ab", $partner->partner_owner_name, $user_id);
 	// update_field("field_566ef79524f87", $partner->partner_owner_phone, $user_id);
 	// update_field("field_566ef7e824f89", $partner->partner_owner_email, $user_id);
-	//Contact Details
+
+		//Contact Details
 	update_field("field_566ef83924f8b", $partner->partner_contact_name, $user_id);
 	update_field("field_566e6a150417f", $partner->partner_contact_position, $user_id);
 	update_field("field_566ef86424f8c", $partner->partner_contact_phone, $user_id);
@@ -172,17 +174,27 @@ function addPartnerData($user_id, $partner) {
 
 		//PHOTOS GO HERE
 	if ($partner->owner_photo || $partner->business_photo) {
-		update_field("field_56c42f4c04680", false, $user_id);
+		update_field("field_56c438ddfe81e", false, $user_id);
 		if ($partner->owner_photo) {
-			$photoURL = "http://register.buylocalglv.org/images/owners/{$partner->owner_photo}";
-			update_field("field_56c42fd404682", $photoURL, $user_id);
+			$photoURL = "http://register.buylocalglv.org/{$partner->owner_photo}";
+			update_field("field_56c4392cfe820", $photoURL, $user_id);
 		}
 		if ($partner->business_photo) {
-			$photoURL = "http://register.buylocalglv.org/images/partners/{$partner->business_photo}";
-			update_field("field_56c42fba04681", $photoURL, $user_id);
+			$photoURL = "http://register.buylocalglv.org/{$partner->business_photo}";
+			update_field("field_56c43906fe81f", $photoURL, $user_id);
 		}
 	}
 	//END General Details
+
+	//Hours of Operation
+	// if ($partner->hours) {
+	// 	$splitHours = splitHours($partner->hours);
+	// }
+
+	//FARM Details
+	if ($partner->category === "farm") {
+		
+	}
 }
 
 function xhrGetPartners() {
