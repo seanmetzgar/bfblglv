@@ -18,7 +18,7 @@ add_action("wp_ajax_nopriv_xhrAddPartner", "xhrAddPartner");
 function geocodeAddress($address) {
     $fields = array(
         "key" => "AIzaSyDKE4fWvF7yMWBqptpIbpV6msOiG1H_k-c",
-        "address" => urlencode($address)
+        "address" => $address
     );
 
     //url-ify the data for the POST
