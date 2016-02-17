@@ -104,7 +104,6 @@ function buildProductsQuery($productTypes) {
 }
 
 function addPartnerData($user_id, $partner) {
-	echo "Executing addPartnerData()\n";
 	//General Details
 	$partner_map_array = geocodeAddress($partner->partner_street_1, $partner->partner_city, $partner->partner_state, $partner->partner_zip);
 
@@ -643,12 +642,11 @@ function xhrAddPartner() {
 		"user_registered" => $member_since
 	);
 	$user_id = wp_insert_user($new_user_args);
-	echo "<pre>";
+
+	$response = array();
 	if (is_int($user_id) && $user_id > 0) {
-		echo "New Partner Created: $user_id\n";
 		addPartnerData($user_id, $partner);
 	}
-	echo "Execution complete\n";
-	echo "</pre>";
+
    	die();
 }
