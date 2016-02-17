@@ -85,9 +85,7 @@ function buildProductsQuery($productTypes) {
 			$tempMetaQuery = array(
 				"relation" => "OR",
 				array(
-					"key" => $tempProductTypeField,
-					// "value" => array(),
-					"compare" => "NOT EXIST"
+					"key" => $tempProductTypeField
 				),
 				array(
 					"key" => $tempProductTypeOtherField,
