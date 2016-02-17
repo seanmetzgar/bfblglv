@@ -32,11 +32,7 @@ get_header(); ?>
 					$partner_state = strlen($partner_state) > 0 ? $partner_state : false;
 					$partner_zip = get_field("partner_zip", $acf_partner_id);
 					$partner_zip = strlen($partner_zip) > 0 ? $partner_zip : false;
-
-					// NEWNEWNEW - TEMPTEMPTEMP
-					// Need to store and extract county value from database
-					$partner_county = '';
-					$partner_county = 'TEMPORARY County Value';
+					$partner_county = get_field("partner_county", $acf_partner_id);
 
 					$partner_address = "";
 					$partner_address .= $partner_street_1 ? "$partner_street_1<br>" : "";
