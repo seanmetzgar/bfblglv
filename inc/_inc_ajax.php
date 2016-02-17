@@ -17,12 +17,9 @@ add_action("wp_ajax_nopriv_xhrAddPartner", "xhrAddPartner");
 
 function geocodeAddress($address) {
     $fields = array(
-        "key" => GOOGLEMAPS_API_KEY,
+        "key" => "AIzaSyDKE4fWvF7yMWBqptpIbpV6msOiG1H_k-c",
         "address" => urlencode($address)
     );
-    echo "<pre>";
-    print_r($fields);
-    echo "</pre>";
 
     //url-ify the data for the POST
     foreach($fields as $key=>$value) { $fields .= $key.'='.$value.'&'; }
@@ -32,7 +29,7 @@ function geocodeAddress($address) {
     $ch = curl_init();
 
     //set the url, number of POST vars, POST data
-    curl_setopt($ch,CURLOPT_URL, GOOGLEMAPS_GEOLOCATE_URL);
+    curl_setopt($ch,CURLOPT_URL, "https://maps.googleapis.com/maps/api/geocode/json");
     curl_setopt($ch,CURLOPT_POST, count($fields));
     curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
 
@@ -51,7 +48,7 @@ function geocodeAddress($address) {
             $data->results[0] :
             false;
 
-    return $data;
+    return $rVal;
 }
 
 function buildProductsQuery($productTypes) {
