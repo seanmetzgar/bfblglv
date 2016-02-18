@@ -5,6 +5,7 @@ class MapPartner {
 	public $url = false;
 	public $lat = false;
 	public $lng = false;
+	public $city = false;
 }
 
 add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
@@ -561,6 +562,7 @@ function xhrGetPartners() {
 		$tempObj = new MapPartner;
 		$tempObj->id = $partner->ID;
 		$tempName = get_field("partner_name", "user_{$partner->ID}");
+		$tempCity = get_field("partner_city", "user_{$partner->ID}");
 		$tempObj->name = strlen($tempName) > 0 ? $tempName : $partner->display_name;
 		$tempMap = get_field("partner_map", "user_{$partner->ID}");
 		if (!empty($tempMap)) {
@@ -568,9 +570,11 @@ function xhrGetPartners() {
 			$tempObj->lng = $tempMap["lng"];
 		}
 		$tempObj->url = get_author_posts_url($partner->ID);
+		$tempObj->city = $tempCity;
 		$returnPartners[] = $tempObj;
 		$tempObj = null;
 		$tempName = null;
+		$tempCity = null;
 		$tempMap = null;
 	}
 

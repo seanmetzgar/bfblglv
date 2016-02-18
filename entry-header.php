@@ -12,8 +12,9 @@
 	} // end the is-there-a-post-thumbnail test
 
 	$bfblPageTitle = get_the_title();
-	$bfblPageTitle = str_replace(' ', '<br>', $bfblPageTitle); // force line breaks between each word
-	$bfblPageTitle = preg_replace('/<br>([&\/\\\])<br>/i', " $1<br>", $bfblPageTitle); //replace short breaks;
+	$bfblPageTitle = str_replace(" ", "<br>", $bfblPageTitle); // force line breaks between each word
+	$bfblPageTitle = preg_replace("/<br>([&\/\\\])<br>/i", " $1<br>", $bfblPageTitle); //replace short breaks;
+
 
 ?>
 					<header class="<?php echo $entry_header_class; ?>" <?php echo $entry_header_css?>>
