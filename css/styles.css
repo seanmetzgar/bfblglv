@@ -2305,11 +2305,6 @@ body.single-events .entry-content .post-meta {
 }
 .resource-link .image ~ .details {
 	margin: 0 30px 0 80px;
-	display: table;
-}
-.resource-link .image ~ .details h3 {
-	display: table-cell;
-	vertical-align: middle;
 }
 .resource-link h3 {
 	color: #1a3281;
