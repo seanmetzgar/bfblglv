@@ -2290,8 +2290,10 @@ body.single-events .entry-content .post-meta {
 	font-family:'fontello';
 	font-size: 1.5rem;
 	position: absolute;
-	top: 0; bottom: 0;
+	top: 50%;
 	right: 10px;
+	transform: translateY(-50%);
+
 }
 .resource-link .image {
 	margin: 0;
