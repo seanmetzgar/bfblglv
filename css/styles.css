@@ -2268,7 +2268,7 @@ body.single-events .entry-content .post-meta {
 	padding: 0 30px 30px;
 	position: relative;
 }
-
+.resource-link, .resource-link:hover { text-decoration: none; }
 .resource-link article {
 	display: block;
 	background-color: #f7ecd5;
