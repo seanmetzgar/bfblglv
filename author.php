@@ -61,9 +61,17 @@ get_header(); ?>
 					$partner_owner_name = get_field("partner_owner_name", $acf_partner_id);
 					$partner_owner_name = strlen($partner_owner_name) > 0 ? $partner_owner_name : false;
 					$partner_owner_photo = get_field("owner_photo", $acf_partner_id);
-					$partner_owner_photo = is_array($partner_owner_photo) ? $partner_owner_photo : false;
+					if (is_array($partner_owner_photo)) {
+						$partner_owner_photo = wp_get_attachment_image($partner_owner_photo["ID"], "full", false, array("class" => "img-responsive"));
+					} elseif (is_string($partner_owner_photo) && strlen($partner_owner_photo) > 0) {
+						$partner_owner_photo = "<img src=\"$partner_owner_photo\" class=\"img-responsive\">";
+					} else { $partner_owner_photo = false; }
 					$partner_business_photo = get_field("business_photo", $acf_partner_id);
-					$partner_business_photo = is_array($partner_business_photo) ? $partner_business_photo : false;
+					if (is_array($partner_business_photo)) {
+						$partner_business_photo = wp_get_attachment_image($partner_business_photo["ID"], "full", false, array("class" => "img-responsive"));
+					} elseif (is_string($partner_business_photo) && strlen($partner_business_photo) > 0) {
+						$partner_business_photo = "<img src=\"$partner_business_photo\" class=\"img-responsive\">";
+					} else { $partner_business_photo = false; }
 
 					$partner_hours = false;
 					if (have_rows("hours", $acf_partner_id)) {
@@ -318,7 +326,7 @@ get_header(); ?>
 											<?php
 											if ($partner_owner_photo) {
 												echo '<div class="owner-image">';
-													echo wp_get_attachment_image($partner_owner_photo["ID"], "full", false, array("class" => "img-responsive"));
+													echo $partner_owner_photo;
 												echo '</div><!-- end div.owner-image -->';
 											}
 											if ($partner_owner_name) {
@@ -355,7 +363,7 @@ get_header(); ?>
 										<?php
 										if ($partner_business_photo) {
 											echo '<div class="business-image">';
-												echo wp_get_attachment_image($partner_business_photo["ID"], "full", false, array("class" => "img-responsive"));
+												echo $partner_business_photo;
 											echo '</div><!-- end div.business-image -->';
 											if ($partner_name) {
 												echo "\n<h3 class=\"partner-name\">$partner_name</h3>\n";
