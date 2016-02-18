@@ -40,6 +40,7 @@ function xhrGetPartnersHandler(data) {
             var tempURL = false;
             var tempLat = false;
             var tempLng = false;
+            var tempCity = false;
             var tempHTML = "";
             var tempResultHTML = "";
 
