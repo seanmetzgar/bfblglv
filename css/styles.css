@@ -2279,9 +2279,19 @@ body.single-events .entry-content .post-meta {
 	position: relative;
 	padding: 10px;
 	overflow: hidden;
+	color: #1a3281;
 }
 .resource-link:nth-child(odd) article {
 	background-color: #008c5c;
+	color: #fff;
+}
+.resource-link article::after {
+	content:'\e80b';
+	font-family:'fontello';
+	font-size: 1.5rem;
+	position: absolute;
+	top: 0; bottom: 0;
+	right: 10px;
 }
 .resource-link .image {
 	margin: 0;
@@ -2298,6 +2308,7 @@ body.single-events .entry-content .post-meta {
 
 .resource-link .details {
 	margin: 0 30px 0 0;
+	text-align: left;
 }
 .resource-link .image ~ .details {
 	margin: 0 30px 0 80px;
@@ -2309,6 +2320,7 @@ body.single-events .entry-content .post-meta {
 	text-decoration: none;
 	margin: 0;
 	display: inline-block;
+	text-align: left;
 }
 .resource-link:nth-child(odd) h3 {
 	color: #fff;
