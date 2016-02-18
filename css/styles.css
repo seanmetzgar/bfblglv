@@ -4109,11 +4109,12 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		text-align: left;
 	}
 
-	.resourceLink {
-		width: 33.33%;
-		max-width: none;
-		height: 260px; height: 16.25rem;
-		line-height: 240px; line-height: 15rem;
+	.resource-link .details {
+		line-height: 70px;
+		height: 70px;
+	}
+	.resource-link .details h3 {
+		display: inline-block;
 	}
 
 	/* OTHER ARCHIVE-TYPE PAGES - TABLET*/
