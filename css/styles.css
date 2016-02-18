@@ -2276,13 +2276,37 @@ body.single-events .entry-content .post-meta {
 .resource-link {
 	display: block;
 	background-color: #f7ecd5;
+	position: relative;
+	padding: 10px;
+}
+.resource-link a {
+	display: block;
+	text-decoration: none;
 }
 .resource-link:nth-child(odd) {
 	background-color: #008c5c;
 }
+.resource-link .image {
+	margin: 10px 0;
+	display: block;
+	width: 50px;
+	float: left;
+}
+.resource-link .image img {
+	display: block;
+	width: 100%; height: auto;
+	padding: 0; margin: 0;
+}
+.resource-link .image + .details {
+	margin-left: 60px;
+}
+.resource-link .details {
+	margin-right: 30px;
+}
 .resource-link h3 {
 	color: #1a3281;
 	font-size: 20px; font-size: 1.25rem;
+	text-decoration: none;
 }
 .resource-link:nth-child(odd) h3 {
 	color: #fff;
