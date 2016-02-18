@@ -3315,7 +3315,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		display: none;
 	}
 
-	.resource-container { padding: 0; }
+	.resources-container { padding: 0; }
 	.resource-link .image { display: none; }
 	.resource-link .image ~ .details { margin: 0 30px 0 0; }
 
