@@ -1,25 +1,25 @@
 <?php
-
-$resourceLinkCSS = '';
-$resourceTaxonomyTermsArray = wp_get_post_terms(get_the_ID(), "resource-type");
-$resourceTaxonomyTerms = array();
-if (is_array($resourceTaxonomyTermsArray) && count($resourceTaxonomyTermsArray) > 0) {
-	foreach ($resourceTaxonomyTermsArray as $resourceTaxonomyTerm) {
-		$resourceTaxonomyTerms[] = $resourceTaxonomyTerm->name;
+/**
+ * @package WordPress
+ * @subpackage Buy_Local_GLV
+ * @since Buy Local GLV 1.0.0
+ */
+	$resourceTitle = get_the_title();
+	$resourceTitleAttr = get_the_title_attr();
+	$resourceLink = get_the_permalink();
+	$resourceImage = (has_post_thumbnail()) ? get_the_post_thumbnail(null, "thumbnail") : false;
+	$resourceLinkOutput = "";
+	$resourceLinkOutput .= 			"<article class=\"resource-link\">\n";
+	$resourceLinkOutput .=			"    <a href=\"$resourceLink\"  title=\"$resourceTitleAttr\">\n";
+	if ($resourceImage) {
+		$resourceLinkOutput .=		"        <figure class=\"image\">\n";
+		$resourceLinkOutput .=		"            $resourceImage\n";
+		$resourceLinkOutput .= 		"        </figure>";
 	}
-	$resourceTaxonomyTerms = implode(", ", $resourceTaxonomyTerms);
-}
-
-echo "<article class='resource-link' $resourceLinkCSS >";
-	echo "<h3>";
-		echo "<a href='";
-			the_permalink();
-		echo "'>";
-			echo "<span>";
-				the_title();
-			echo "</span>";
-		echo "</a>";
-	echo "</h3>";
-	if (has_post_thumbnail()) { the_post_thumbnail(); }
-echo "</article>";
+	$resourceLinkOutput .=			"        <div class=\"details\">\n";
+	$resourceLinkOutput .=			"            <h3>$resourceTitle</h3>\n";
+	$resourceLinkOutput .=			"        </div>\n";
+	$resourceLinkOutput .=			"    </a>\n";
+	$resourceLinkOutput .=			"</article>\n";
+	echo $resourceLinkOutput;
 ?>
