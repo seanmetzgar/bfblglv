@@ -373,10 +373,12 @@ get_header(); ?>
 												$productsAvailable = array();
 												foreach($products as $productCategory=>$productCategoryProducts) {
 													foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
-														if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
-															$productsAvailable[] = $productCategoryProduct;
-														} elseif ($productCategoryProductKey === "other") {
-															$productsAvailable[] = strip_tags($productCategoryProduct);
+														if ($productCategoryProduct) {
+															if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
+																$productsAvailable[] = $productCategoryProduct;
+															} elseif ($productCategoryProductKey === "other") {
+																$productsAvailable[] = strip_tags($productCategoryProduct);
+															}
 														}
 													}
 												}
