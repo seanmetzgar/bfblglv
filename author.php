@@ -247,7 +247,9 @@ get_header(); ?>
 								<ul class="product-categories-list page-block">
 									<?php
 									foreach($products as $productCategory=>$productCategoryProducts) {
+										if (array_key_exists("name", $productCategoryProducts)) {
 										echo "<li><span>{$productCategoryProducts["name"]}</span></li>\n";
+										}
 									}
 									?>
 								</ul>
