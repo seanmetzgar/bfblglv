@@ -2320,6 +2320,10 @@ body.single-events .entry-content .post-meta {
 	display: inline-block;
 	text-align: left;
 }
+.resource-link:hover h3 {
+	text-decoration: none;
+	border-bottom: 0;
+}
 .resource-link:nth-child(odd) h3 {
 	color: #fff;
 }
