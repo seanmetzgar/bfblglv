@@ -5,7 +5,7 @@
  * @since Buy Local GLV 1.0.0
  */
 	$resourceTitle = get_the_title();
-	$resourceTitleAttr = get_the_title_attr();
+	$resourceTitleAttr = esc_attr($resourceTitle);
 	$resourceLink = get_the_permalink();
 	$resourceImage = (has_post_thumbnail()) ? get_the_post_thumbnail(null, "thumbnail") : false;
 	$resourceLinkOutput = "";
