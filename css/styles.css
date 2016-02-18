@@ -2273,14 +2273,14 @@ body.single-events .entry-content .post-meta {
 	text-align: center;
 }
 
-.resource-link {
+.resource-link article {
 	display: block;
 	background-color: #f7ecd5;
 	position: relative;
 	padding: 10px;
 	overflow: hidden;
 }
-.resource-link:nth-child(odd) {
+.resource-link:nth-child(odd) article {
 	background-color: #008c5c;
 }
 .resource-link .image {
