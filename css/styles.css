@@ -4102,12 +4102,19 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 
 	/* RESOURCES - TABLET */
-	.resourcesContainer {
-		padding: 44px 42px; padding: 2.75rem 2.625rem;
+	.resources-list.alt .resource-link {
+		background-color: #008c5c;
+		color: #fff;
 	}
-
-	.resourcesList {
-		text-align: left;
+	.resources-list.alt .resource-link h3 {
+		color: #fff;
+	}
+	.resources-list.alt:nth-child(odd) .resource-link {
+		background-color: #f7ecd5;
+		color: #1a3281;
+	}
+	.resources-list.alt:nth-child(odd) .resource-link h3 {
+		color: #1a3281;
 	}
 
 	.resource-link .details {
