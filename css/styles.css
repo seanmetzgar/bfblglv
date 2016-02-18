@@ -2265,12 +2265,8 @@ body.single-events .entry-content .post-meta {
 
 /* RESOURCES */
 .resources-container {
-	padding: 10px 0; padding: 0.625rem 0;
+	padding: 0 30px 30px;
 	position: relative;
-}
-
-.resources-list {
-	text-align: center;
 }
 
 .resource-link article {
@@ -3319,6 +3315,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		display: none;
 	}
 
+	.resource-container { padding: 0; }
 	.resource-link .image { display: none; }
 	.resource-link .image ~ .details { margin: 0 30px 0 0; }
 
@@ -4101,6 +4098,14 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 
 	/* RESOURCES - TABLET */
+	.resourcesContainer {
+		padding: 44px 42px; padding: 2.75rem 2.625rem;
+	}
+
+	.resourcesList {
+		text-align: left;
+	}
+
 	.resource-link .details {
 		line-height: 70px;
 		height: 70px;
