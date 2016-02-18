@@ -2278,6 +2278,7 @@ body.single-events .entry-content .post-meta {
 	background-color: #f7ecd5;
 	position: relative;
 	padding: 10px;
+	overflow: hidden;
 }
 .resource-link a {
 	display: block;
@@ -2290,7 +2291,7 @@ body.single-events .entry-content .post-meta {
 	margin: 0;
 	padding: 0;
 	display: block;
-	width: 50px;
+	width: 64px;
 	float: left;
 }
 .resource-link .image img {
@@ -2303,10 +2304,14 @@ body.single-events .entry-content .post-meta {
 }
 .resource-link .details {
 	margin-right: 30px;
+	display: inline;
+	line-height: 64px;
+	font-size: 1px;
 }
 .resource-link h3 {
 	color: #1a3281;
 	font-size: 20px; font-size: 1.25rem;
+	text-transform: uppercase;
 	text-decoration: none;
 	margin: 0;
 }
