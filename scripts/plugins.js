@@ -43,9 +43,8 @@ function xhrGetPartnersHandler(data) {
             var tempHTML = "";
             var tempResultHTML = "";
 
-            console.log(this);
-
             tempName = (this.name.length > 0) ? this.name : false;
+            tempCity = (this.city.length > 0) ? ", " + this.city : "";
             tempURL = (this.url.length > 0) ? this.url : false;
             tempLat = !isNaN(this.lat) ? "" + this.lat : false;
             tempLng = !isNaN(this.lng) ? "" + this.lng : false;
@@ -55,16 +54,14 @@ function xhrGetPartnersHandler(data) {
                 tempHTML = tempHTML + "<h4><a href=\"" + tempURL + "\">" + tempName + "</a></h4>";
                 tempHTML = tempHTML + "</div>";
                 mapHTML = mapHTML + tempHTML;
-                console.log(tempHTML);
                 tempHTML = "";
             }
             if (tempName && tempURL) {
-                tempResultHTML = "<li><a href=\"" + tempURL + "\">" + tempName + "</a></li>";
+                tempResultHTML = "<li><a href=\"" + tempURL + "\" target=\"_blank\">" + tempName + tempCity + "</a></li>";
                 resultsHTML = resultsHTML + tempResultHTML;
             }
         });
     }
-    console.log(mapHTML);
     $(".acf-map").empty().html(mapHTML).each(function () {
         $(this).trigger("re-render");
     });
