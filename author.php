@@ -241,7 +241,7 @@ get_header(); ?>
 					<section class="partner-content">
 
 						<?php if ($hasProducts) : // This Container should be positioned BELOW MAP when visible ?>
-						<div class="entry-product-categories bfblSlider sliderClosed initialClosed">
+						<div class="entry-product-categories bfblSlider sliderOpen">
 							<h2 class="greenHeader">Product Categories</h2>
 							<div class="bfblSlideWrap">
 								<ul class="product-categories-list page-block">
