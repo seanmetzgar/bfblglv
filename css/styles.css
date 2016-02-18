@@ -4103,18 +4103,18 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 	/* RESOURCES - TABLET */
 	.resources-list.alt .resource-link {
-		background-color: #008c5c;
-		color: #fff;
-	}
-	.resources-list.alt .resource-link h3 {
-		color: #fff;
-	}
-	.resources-list.alt:nth-child(odd) .resource-link {
 		background-color: #f7ecd5;
 		color: #1a3281;
 	}
-	.resources-list.alt:nth-child(odd) .resource-link h3 {
+	.resources-list.alt .resource-link h3 {
 		color: #1a3281;
+	}
+	.resources-list.alt:nth-child(odd) .resource-link {
+		background-color: #008c5c;
+		color: #fff;
+	}
+	.resources-list.alt:nth-child(odd) .resource-link h3 {
+		color: #fff;
 	}
 
 	.resource-link .details {
