@@ -2280,10 +2280,6 @@ body.single-events .entry-content .post-meta {
 	padding: 10px;
 	overflow: hidden;
 }
-.resource-link a {
-	display: block;
-	text-decoration: none;
-}
 .resource-link:nth-child(odd) {
 	background-color: #008c5c;
 }

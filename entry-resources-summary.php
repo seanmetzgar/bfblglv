@@ -9,8 +9,8 @@
 	$resourceLink = get_the_permalink();
 	$resourceImage = (has_post_thumbnail()) ? get_the_post_thumbnail(null, "thumbnail") : false;
 	$resourceLinkOutput = "";
-	$resourceLinkOutput .= 			"<article class=\"resource-link\">\n";
-	$resourceLinkOutput .=			"    <a href=\"$resourceLink\"  title=\"$resourceTitleAttr\">\n";
+	$resourceLinkOutput .= 			"<a href=\"$resourceLink\"  title=\"$resourceTitleAttr\">\n";
+	$resourceLinkOutput .=			"    <article class=\"resource-link\">\n";
 	if ($resourceImage) {
 		$resourceLinkOutput .=		"        <figure class=\"image\">\n";
 		$resourceLinkOutput .=		"            $resourceImage\n";
@@ -19,7 +19,7 @@
 	$resourceLinkOutput .=			"        <div class=\"details\">\n";
 	$resourceLinkOutput .=			"            <h3>$resourceTitle</h3>\n";
 	$resourceLinkOutput .=			"        </div>\n";
-	$resourceLinkOutput .=			"    </a>\n";
-	$resourceLinkOutput .=			"</article>\n";
+	$resourceLinkOutput .=			"    </article>\n";
+	$resourceLinkOutput .=			"</a>\n";
 	echo $resourceLinkOutput;
 ?>
