@@ -2314,60 +2314,6 @@ body.single-events .entry-content .post-meta {
 	color: #fff;
 }
 
-
-
-
-/*.resource-link {
-	text-align: center;
-	display: inline-block;
-	vertical-align: bottom;
-	width: 100%;
-	max-width: 500px; max-width: 31.25rem;
-	height: 200px; height: 12.5rem;
-	line-height: 180px; line-height: 11.25rem;
-	overflow: hidden;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	position: relative;
-}
-
-.resource-link h2 {
-	margin: 0;
-	line-height: inherit;
-}
-
-.resource-link a {
-	display: block;
-	position: absolute;
-	top: 0; right: 0; bottom: 0; left: 0;
-	line-height: inherit;
-	font-family: 'blue_highway_bold';
-	font-size: 26px; font-size: 1.625rem;
-	text-transform: uppercase;
-	color: #ffffff;
-	text-decoration: none;
-	text-align: center;
-	text-shadow: 0 0 3px rgba(15,30,44,1);
-	background: rgba(0,140,92,.8);
-	border-style: solid;
-	border-width: 10px; border-width: 0.625rem;
-	border-color: rgba(0,140,92,1);
-}
-
-.resource-link a:hover {
-	background: rgba(252,175,23,.79);
-	border-color: rgba(252,175,23,1);
-}
-
-.resource-link a span {
-	display: inline-block;
-	line-height: 1;
-	vertical-align: middle;
-	padding-left: 8px;
-	padding-right: 8px;
-}*/
-
 .resourceDownload {
 	display: block;
 	width: 100%;
@@ -3358,6 +3304,9 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.map-page-middle-bg {
 		display: none;
 	}
+
+	.resource-link .image { display: none; }
+	.resource-link .image ~ .details { margin: 0 30px 0 0; }
 
 }
 
