@@ -2304,9 +2304,6 @@ body.single-events .entry-content .post-meta {
 }
 .resource-link .details {
 	margin-right: 30px;
-	display: inline;
-	line-height: 64px;
-	font-size: 1px;
 }
 .resource-link h3 {
 	color: #1a3281;
