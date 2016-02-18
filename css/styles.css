@@ -2299,18 +2299,22 @@ body.single-events .entry-content .post-meta {
 	width: 100%; height: auto;
 	padding: 0; margin: 0;
 }
-.resource-link .image + .details {
+.resource-link .image ~ .details {
 	margin-left: 60px;
 }
 .resource-link .details {
 	margin-right: 30px;
+	min-height: 64px;
+	line-height: 64px;
 }
 .resource-link h3 {
 	color: #1a3281;
 	font-size: 20px; font-size: 1.25rem;
+	line-height: 1.3;
 	text-transform: uppercase;
 	text-decoration: none;
 	margin: 0;
+	display: inline-block;
 }
 .resource-link:nth-child(odd) h3 {
 	color: #fff;
