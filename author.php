@@ -22,6 +22,9 @@ get_header(); ?>
 
 					$hasProducts = false;
 					$hasWsProducts = false;
+					$productsText = false;
+					$wsProductsText = false;
+					
 					$is_wholesaler = get_field("is_wholesaler", $acf_partner_id);
 					$quasi_wholesale = get_field("quasi_wholesale", $acf_partner_id);
 					$small_wholesale = get_field("small_wholesale", $acf_partner_id);
@@ -306,6 +309,9 @@ get_header(); ?>
 							unset($ws_products[$productCategory]);
 						}
 						$hasWsProducts = (count($ws_products) > 0) ? true : false;
+					} else {
+						$productsText = get_field("products_text", $acf_partner_id);
+						$wsProductsText = get_field("ws_products_text", $acf_partner_id);
 					}
 
 
