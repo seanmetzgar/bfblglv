@@ -11,7 +11,6 @@
 		$entry_header_css = "style='background-image: url({$thumbnail_src[0]});'";
 	} // end the is-there-a-post-thumbnail test
 
-	$bfblPageTitle = get_the_title();
 	$bfblPageTitle = get_field("formatted_title");
 	$bfblPageTitle = ($bfblPageTitle) ? $bfblPageTitle : str_replace(" ", "<br>", get_the_title());
 
