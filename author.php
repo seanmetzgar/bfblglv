@@ -24,7 +24,7 @@ get_header(); ?>
 					$hasWsProducts = false;
 					$productsText = false;
 					$wsProductsText = false;
-					
+
 					$is_wholesaler = get_field("is_wholesaler", $acf_partner_id);
 					$quasi_wholesale = get_field("quasi_wholesale", $acf_partner_id);
 					$small_wholesale = get_field("small_wholesale", $acf_partner_id);
@@ -497,28 +497,31 @@ get_header(); ?>
 
 									<?php if ($partner_business_photo): ?><div class="product-info-right"><?php endif; ?>
 										<div class="products-detail">
-											<?php if ($hasProducts) : ?>
+											<?php if ($hasProducts || $productsText) : ?>
 											<div class="entry-product-categories entry-content">
 												<h3>Products Available</h3>
 												<?php
-												$productsAvailable = array();
-												foreach($products as $productCategory=>$productCategoryProducts) {
-													foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
-														if ($productCategoryProduct) {
-															if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
-																$productsAvailable[] = $productCategoryProduct;
-															} elseif ($productCategoryProductKey === "other") {
-																$productsAvailable[] = strip_tags($productCategoryProduct);
+												if ($hasProducts) {
+													$productsAvailable = array();
+													foreach($products as $productCategory=>$productCategoryProducts) {
+														foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
+															if ($productCategoryProduct) {
+																if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
+																	$productsAvailable[] = $productCategoryProduct;
+																} elseif ($productCategoryProductKey === "other") {
+																	$productsAvailable[] = strip_tags($productCategoryProduct);
+																}
 															}
 														}
 													}
-												}
-												if (count($productsAvailable) > 0) {
-													$productsAvailable = implode(", ", $productsAvailable);
+													if (count($productsAvailable) > 0) {
+														$productsAvailable = implode(", ", $productsAvailable);
 
-													echo "<p>$productsAvailable</p>";
+														echo "<p>$productsAvailable</p>";
+													}
+												} elseif ($productsText) {
+													echo "<p>$productsText</p>";
 												}
-
 												?>
 											</div><!-- end div.entry-product-categories -->
 											<?php endif; ?>
@@ -570,28 +573,31 @@ get_header(); ?>
 
 									<div class="product-info-right">
 										<div class="products-detail">
-											<?php if ($hasProducts) : ?>
+											<?php if ($hasWsProducts || $wsProductsText) : ?>
 											<div class="entry-product-categories entry-content">
 												<h3>Wholesale Products</h3>
 												<?php
-												$ws_productsAvailable = array();
-												foreach($ws_products as $productCategory=>$productCategoryProducts) {
-													foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
-														if ($productCategoryProduct) {
-															if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
-																$ws_productsAvailable[] = $productCategoryProduct;
-															} elseif ($productCategoryProductKey === "other") {
-																$ws_productsAvailable[] = strip_tags($productCategoryProduct);
+												if ($hasWsProducts) {
+													$ws_productsAvailable = array();
+													foreach($ws_products as $productCategory=>$productCategoryProducts) {
+														foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
+															if ($productCategoryProduct) {
+																if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
+																	$ws_productsAvailable[] = $productCategoryProduct;
+																} elseif ($productCategoryProductKey === "other") {
+																	$ws_productsAvailable[] = strip_tags($productCategoryProduct);
+																}
 															}
 														}
 													}
-												}
-												if (count($ws_productsAvailable) > 0) {
-													$ws_productsAvailable = implode(", ", $ws_productsAvailable);
+													if (count($ws_productsAvailable) > 0) {
+														$ws_productsAvailable = implode(", ", $ws_productsAvailable);
 
-													echo "<p>$ws_productsAvailable</p>";
+														echo "<p>$ws_productsAvailable</p>";
+													}
+												} elseif ($wsProductsText) {
+													echo "<p>$wsProductsText</p>";
 												}
-
 												?>
 											</div><!-- end div.entry-product-categories -->
 											<?php endif; ?>
