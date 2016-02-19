@@ -75,6 +75,7 @@ function shortcode_getPartners( $atts ) {
 			}
 		}
 	}
+	print_r($listItems);
 	$rVal = "";
 	if (count($listItems) > 0) {
 		$rVal = "<ul>";
@@ -85,6 +86,6 @@ function shortcode_getPartners( $atts ) {
 		$rVal .= "</ul>";
 	}
 
-	echo $rVal;
+	return $rVal;
 }
 add_shortcode( 'partners-list', 'shortcode_getPartners' );
