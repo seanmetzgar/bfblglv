@@ -94,20 +94,20 @@ function splitHours($hours) {
 					print_r($tempMatch);
 					echo "</pre>";
 					if (count($tempMatch) == 5) {
-						$tempStart = $tempMatch[1];
-						$tempStartMeridian = $tempMatch[2];
-						$tempEnd = $tempMatch[3];
-						$tempEndMeridian = $tempMatch[4];
+						$tempStart = $tempMatch[1][0];
+						$tempStartMeridian = $tempMatch[2][0];
+						$tempEnd = $tempMatch[3][0];
+						$tempEndMeridian = $tempMatch[4][0];
 						$hoursString = preg_split($dayRegex, $hoursString);
 						$hoursString = $hoursString[1];
 					}
 					$seasonRegex = "/\(?(Beginning of|Middle of|End of)?\s*\b(\w*)\b to (Beginning of|Middle of|End of)?\s?\b(\w*)\b\)\s*/i";
 					preg_match($seasonRegex, $hoursString, $tempMatch);
 					if (count($tempMatch) == 5) {
-						$tempSeasonStartMpart = $tempMatch[1];
-						$tempSeasonStartMonth = $tempMatch[2];
-						$tempSeasonEndMpart = $tempMatch[3];
-						$tempSeasonEndMonth = $tempMatch[4];
+						$tempSeasonStartMpart = $tempMatch[1][0];
+						$tempSeasonStartMonth = $tempMatch[2][0];
+						$tempSeasonEndMpart = $tempMatch[3][0];
+						$tempSeasonEndMonth = $tempMatch[4][0];
 					}
 					$vendorsRegex = "/\[(.*?) Vendors\]/i";
 					preg_match($vendorsRegex, $input_line, $output_array);
