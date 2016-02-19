@@ -627,6 +627,10 @@ function xhrAddPartner() {
 		$member_since = date("Y-m-d H:i:s");
 	}
 
+	//Get Emails
+	$partner_email = is_string($partner->partner_email) ? $partner->partner_email : false;
+	$contact_email = is_string($partner->contact_email) ? $partner->contact_email : false;
+	$new_user_email = ($contact_email) ? $contact_email : $partner_email;
 
 	//Prep Username
 	$username = $partner->requested_username;
@@ -648,18 +652,21 @@ function xhrAddPartner() {
 	$user_last_name = "[" . niceCategoryName($category) . "]";
 
 	//Insert User
+	$new_user_pass = wp_generate_password(12, true);
 	$new_user_args = array(
 		"role" => $category,
 		"user_login" => $username,
-		"user_pass" => "password",
+		"user_pass" => $new_user_pass,
 		"first_name" => $partner->partner_name,
 		"last_name" => $user_last_name,
 		"user_nicename" => $slug,
 		"display_name" => $partner->partner_name,
+		/*"user_email" => $new_user_email*/
 		"user_email" => "sean.metzgar+{$slug}@gmail.com",
 		"user_registered" => $member_since
 	);
 	$user_id = wp_insert_user($new_user_args);
+	wp_new_user_notification($user_id);
 
 	$response = array();
 	if (is_int($user_id) && $user_id > 0) {
