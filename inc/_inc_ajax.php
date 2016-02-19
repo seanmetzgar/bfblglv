@@ -399,6 +399,9 @@ function addPartnerData($user_id, $partner) {
 			$partner->ws_products_misc = explode("|", $partner->ws_products_misc);
 			update_field("field_56c18fd392dc4", $partner->ws_products_misc, $user_id);
 			update_field("field_56c18fd292dc3", $partner->other_ws_products_misc, $user_id);
+			if ($partner->textWsProducts) {
+				update_field("field_56b2ef08c7596", $partner->textWsProducts, $user_id);
+			}
 		}
 		//END Products
 
@@ -470,6 +473,10 @@ function addPartnerData($user_id, $partner) {
 		update_field("field_56c2bc73e7442", (bool)$partner->market_double_snap, $user_id);
 		update_field("field_56c2bcade7443", (bool)$partner->market_fmnp, $user_id);
 	}
+	if ($partner->textProducts) {
+		update_field("field_56b2ed22c758e", $partner->textProducts, $user_id);
+	}
+
 
 }
 
