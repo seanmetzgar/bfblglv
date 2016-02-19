@@ -80,7 +80,7 @@ function splitHours($hours) {
 	$hoursReturn = array();
 	if (is_array($hours)) {
 		foreach($hours as $hoursString) {
-			$dayRegex = "/^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday):\s*/i"
+			$dayRegex = "/^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday):\s*/i";
 			preg_match($dayRegex, $hoursString, $tempMatch);
 			if (count($tempMatch) == 2) {
 				$tempDay = $tempMatch[1];
