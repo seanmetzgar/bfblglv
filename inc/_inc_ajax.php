@@ -77,7 +77,6 @@ function geocodeAddress($street = "", $city = "", $state = "", $zip = "") {
 
 function splitHours($hours) {
 	$hours = explode("\n", $hours);
-	print_r($hours);
 	$hoursReturn = array();
 	if (is_array($hours)) {
 		foreach($hours as $hoursString) {
@@ -769,8 +768,8 @@ function xhrAddPartner() {
 	//$user_id = wp_insert_user($new_user_args);
 	//wp_new_user_notification($user_id, null, "both");
 
-	$partner->hours = splitHours($partnerHours);
-	print_r($partner->hours);
+	print_r(splitHours($partner->hours));
+
 	// $response = array();
 	// if (is_int($user_id) && $user_id > 0) {
 	// 	addPartnerData($user_id, $partner);
