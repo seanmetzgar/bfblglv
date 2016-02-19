@@ -127,6 +127,33 @@ get_header(); ?>
 						$products["seeds"] = get_field("products_seeds", $acf_partner_id);
 						$products["misc"] = get_field("products_misc", $acf_partner_id);
 
+						$ws_products = array();
+						$ws_products["greens"] = get_field("ws_products_greens", $acf_partner_id);
+						$ws_products["roots"] = get_field("ws_products_roots", $acf_partner_id);
+						$ws_products["seasonal"] = get_field("ws_products_seasonal", $acf_partner_id);
+						$ws_products["melons"] = get_field("ws_products_melons", $acf_partner_id);
+						$ws_products["herbs"] = get_field("ws_products_herbs", $acf_partner_id);
+						$ws_products["berries"] = get_field("ws_products_berries", $acf_partner_id);
+						$ws_products["small_fruits"] = get_field("ws_products_small_fruits", $acf_partner_id);
+						$ws_products["grains"] = get_field("ws_products_grains", $acf_partner_id);
+						$ws_products["value_added"] = get_field("ws_products_value_added", $acf_partner_id);
+						$ws_products["flowers"] = get_field("ws_products_flowers", $acf_partner_id);
+						$ws_products["plants"] = get_field("ws_products_plants", $acf_partner_id);
+						$ws_products["ornamentals"] = get_field("ws_products_ornamentals", $acf_partner_id);
+						$ws_products["syrups"] = get_field("ws_products_syrups", $acf_partner_id);
+						$ws_products["dairy"] = get_field("ws_products_dairy", $acf_partner_id);
+						$ws_products["meat"] = get_field("ws_products_meat", $acf_partner_id);
+						$ws_products["poultry"] = get_field("ws_products_poultry", $acf_partner_id);
+						$ws_products["agritourism"] = get_field("ws_products_agritourism", $acf_partner_id);
+						$ws_products["fibers"] = get_field("ws_products_fibers", $acf_partner_id);
+						$ws_products["artisinal"] = get_field("ws_products_artisinal", $acf_partner_id);
+						$ws_products["liquids"] = get_field("ws_products_liquids", $acf_partner_id);
+						$ws_products["educational"] = get_field("ws_products_educational", $acf_partner_id);
+						$ws_products["baked"] = get_field("ws_products_baked", $acf_partner_id);
+						$ws_products["seeds"] = get_field("ws_products_seeds", $acf_partner_id);
+						$ws_products["misc"] = get_field("ws_products_misc", $acf_partner_id);
+
+						$productCategoryUnsets = array();
 						foreach ($products as $productCategory=>$productCategoryProducts) {
 							if (is_array($productCategoryProducts) && count($productCategoryProducts) > 0 && !in_array("", $productCategoryProducts)) {
 
@@ -142,7 +169,6 @@ get_header(); ?>
 										unset($products[$productCategory]["other"]);
 								}
 
-								$productCategoryUnsets = array();
 								if (count($productCategoryProducts) > 0) {
 									switch ($productCategory) {
 										case "roots":
@@ -199,7 +225,83 @@ get_header(); ?>
 							unset($products[$productCategory]);
 						}
 						$hasProducts = (count($products) > 0) ? true : false;
+
+						$productCategoryUnsets = array();
+						foreach ($ws_products as $productCategory=>$productCategoryProducts) {
+							if (is_array($productCategoryProducts) && count($productCategoryProducts) > 0 && !in_array("", $productCategoryProducts)) {
+
+								if (in_array("Other", $productCategoryProducts)) {
+									while ($tempProd = current($productCategoryProducts)) {
+									    if ($tempProd === "Other") {
+									        $ws_products[$productCategory]["other"] = get_field("other_ws_products_{$productCategory}", $acf_partner_id);
+									    }
+									    next($productCategoryProducts);
+									}
+
+									if (strlen($ws_products[$productCategory]["other"]) < 1)
+										unset($ws_products[$productCategory]["other"]);
+								}
+
+								$productCategoryUnsets = array();
+								if (count($productCategoryProducts) > 0) {
+									switch ($productCategory) {
+										case "roots":
+											$productCategoryName = "Root Crops";
+											break;
+										case "seasonal":
+											$productCategoryName = "Seasonal Vegetables";
+											break;
+										case "melons":
+											$productCategoryName = "Melons & Pumpkins";
+											break;
+										case "small_fruits":
+											$productCategoryName = "Orchard & Small Fruits";
+											break;
+										case "value_added":
+											$productCategoryName = "Value-Added";
+											break;
+										case "syrups":
+											$productCategoryName = "Honey / Syrup";
+											break;
+										case "artisinal":
+											$productCategoryName = "Artisinal Products";
+											break;
+										case "liquids":
+											$productCategoryName = "Beverages";
+											break;
+										case "educational":
+											$productCategoryName = "Educational Programs";
+											break;
+										case "baked":
+											$productCategoryName = "Baked Goods";
+											break;
+										case "seeds":
+											$productCategoryName = "Nuts & Seeds";
+											break;
+										case "misc":
+											$productCategoryName = "Other Products";
+											break;
+										default:
+											$productCategoryName = ucwords($productCategory);
+									}
+									$ws_products[$productCategory]["name"] = $productCategoryName;
+
+									if (strlen($ws_products[$productCategory]["name"]) < 1)
+										$ws_products[$productCategory]["name"] = ucwords($productCategory);
+
+								}
+							}	else {
+								$productCategoryUnsets[] = $productCategory;
+							}
+						}
+
+						foreach ($productCategoryUnsets as $productCategory) {
+							unset($ws_products[$productCategory]);
+						}
+						$hasWsProducts = (count($ws_products) > 0) ? true : false;
 					}
+
+
 
 					// NEWNEWNEW
 					// turn the user role (that is, provider category) into something we can use
@@ -434,6 +536,48 @@ get_header(); ?>
 								</div><!-- end div.product-info-contents -->
 							</div><!-- end div -->
 						</div><!-- end div.entry-product-information -->
+
+						<div class="entry-product-information">
+							<h2 class="greenHeader">Wholesale Information</h2>
+
+							<div>
+								<div class="page-block product-info-contents">
+									<div class="product-info-left">
+										<!-- Wholesale Details -->
+									</div><!-- end div.product-info-left -->
+
+									<div class="product-info-right">
+										<div class="products-detail">
+											<?php if ($hasProducts) : ?>
+											<div class="entry-product-categories entry-content">
+												<h3>Products Available</h3>
+												<?php
+												$ws_productsAvailable = array();
+												foreach($ws_products as $productCategory=>$productCategoryProducts) {
+													foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
+														if ($productCategoryProduct) {
+															if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
+																$ws_productsAvailable[] = $productCategoryProduct;
+															} elseif ($productCategoryProductKey === "other") {
+																$ws_productsAvailable[] = strip_tags($productCategoryProduct);
+															}
+														}
+													}
+												}
+												if (count($ws_productsAvailable) > 0) {
+													$ws_productsAvailable = implode(", ", $ws_productsAvailable);
+
+													echo "<p>$ws_productsAvailable</p>";
+												}
+
+												?>
+											</div><!-- end div.entry-product-categories -->
+											<?php endif; ?>
+										</div><!-- end div.products-detail -->
+									</div><!-- end div.product-info-right -->
+								</div><!-- end div.product-info-contents -->
+							</div><!-- end div -->
+						</div><!-- end div.entry-wholesale-information -->
 
 					</section><!-- end section.partner-content -->
 
