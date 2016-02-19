@@ -541,7 +541,7 @@ function addPartnerData($user_id, $partner) {
 	}
 
 	//Hours
-	if ($partner->hours) {
+	if ($partner->hours_combined) {
 		$partnerHours = splitHours($partner->hours_combined);
 		$fieldKey = ($partner->category === "farmers-market") ? "field_56b2d6a20cc4e" : "field_56b2cddb6bd77";
 
