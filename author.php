@@ -21,6 +21,13 @@ get_header(); ?>
 					$partner_bio = strlen($partner_bio) > 0 ? $partner_bio : false;
 
 					$hasProducts = false;
+					$hasWsProducts = false;
+					$is_wholesaler = get_field("is_wholesaler", $acf_partner_id);
+					$quasi_wholesale = get_field("quasi_wholesale", $acf_partner_id);
+					$small_wholesale = get_field("small_wholesale", $acf_partner_id);
+					$large_wholesale = get_field("large_wholesale", $acf_partner_id);
+					$gap_certification = get_field("gap_certification", $acf_partner_id);
+					$gap_certified_since = get_field("gap_certified_since", $acf_partner_id);
 
 					$partner_street_1 = get_field("partner_street_1", $acf_partner_id);
 					$partner_street_1 = strlen($partner_street_1) > 0 ? $partner_street_1 : false;
@@ -537,13 +544,27 @@ get_header(); ?>
 							</div><!-- end div -->
 						</div><!-- end div.entry-product-information -->
 
+						<?php if (is_user_logged_in() && $is_wholesaler): ?>
 						<div class="entry-product-information">
 							<h2 class="greenHeader">Wholesale Information</h2>
 
 							<div>
 								<div class="page-block product-info-contents">
 									<div class="product-info-left">
-										<!-- Wholesale Details -->
+										<h4>Wholesale Information</h4>
+										<ul>
+											<?php if ($quasi_wholesale) echo "<li>Quasi-Wholesale<br><em>(Restaurants)</em></li>"; ?>
+											<?php if ($small_wholesale) echo "<li>Small Wholesale Accounts<br><em>(Boxes weekly)</em></li>"; ?>
+											<?php if ($large_wholesale) echo "<li>Large Wholesale Accounts<br><em>(Pallets weekly)</em></li>"; ?>
+											<?php if ($gap_certification === "Yes") {
+												echo "<li>GAP Certified";
+												if ($gap_certified_since) {
+													echo "<br><em>(Since $gap_certified_since)</em></li>";
+												} else { echo "</li>";}
+											} elseif ($gap_certification === "Pending") {
+												echo "<li>Working towards GAP Certification</li>"; 
+											} ?>
+										</ul>
 									</div><!-- end div.product-info-left -->
 
 									<div class="product-info-right">
@@ -578,6 +599,7 @@ get_header(); ?>
 								</div><!-- end div.product-info-contents -->
 							</div><!-- end div -->
 						</div><!-- end div.entry-wholesale-information -->
+						<?php endif; ?>
 
 					</section><!-- end section.partner-content -->
 
