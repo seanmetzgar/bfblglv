@@ -85,6 +85,6 @@ function shortcode_getPartners( $atts ) {
 		$rVal .= "</ul>";
 	}
 
-	return $rVal;
+	echo $rVal;
 }
 add_shortcode( 'partners-list', 'shortcode_getPartners' );
