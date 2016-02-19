@@ -550,7 +550,7 @@ get_header(); ?>
 										<div class="products-detail">
 											<?php if ($hasProducts) : ?>
 											<div class="entry-product-categories entry-content">
-												<h3>Products Available</h3>
+												<h3>Wholesale Products</h3>
 												<?php
 												$ws_productsAvailable = array();
 												foreach($ws_products as $productCategory=>$productCategoryProducts) {
