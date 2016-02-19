@@ -542,7 +542,7 @@ function addPartnerData($user_id, $partner) {
 
 	//Hours
 	if ($partner->hours) {
-		$partnerHours = splitHours($partner->hours);
+		$partnerHours = splitHours($partner->hours_combined);
 		$fieldKey = ($partner->category === "farmers-market") ? "field_56b2d6a20cc4e" : "field_56b2cddb6bd77";
 
 		if (is_array($partnerHours)) {
@@ -765,20 +765,18 @@ function xhrAddPartner() {
 		"user_email" => "sean.metzgar+{$slug}@gmail.com",
 		"user_registered" => $member_since
 	);
-	//$user_id = wp_insert_user($new_user_args);
+	$user_id = wp_insert_user($new_user_args);
 	//wp_new_user_notification($user_id, null, "both");
 
-	print_r($partner);
+	$response = array();
+	if (is_int($user_id) && $user_id > 0) {
+		addPartnerData($user_id, $partner);
+		$response["status"] = "success";
+	} else { $response["status"] = "fail"; }
+	$response = json_encode($response);
 
-	// $response = array();
-	// if (is_int($user_id) && $user_id > 0) {
-	// 	addPartnerData($user_id, $partner);
-	// 	$response["status"] = "success";
-	// } else { $response["status"] = "fail"; }
-	// $response = json_encode($response);
-
-	// header('Content-Type: application/json');
-	// echo $response;
+	header('Content-Type: application/json');
+	echo $response;
 
    	die();
 }
