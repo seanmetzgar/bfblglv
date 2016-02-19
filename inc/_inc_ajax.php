@@ -126,6 +126,7 @@ function splitHours($hours) {
 			}
 			$hoursReturn[] = $tempObj;
 		}
+		print_r($hoursReturn);
 	}
 	return $hoursReturn;
 }
