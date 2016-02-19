@@ -17,7 +17,7 @@ function shortcode_getPartners( $atts ) {
 		"retail"
 	);
     $category = $a["category"];
-    print_r($category);
+
     $locationTypeQueryArgs = false;
 	if (in_array($category, $allLocationTypes)) {
 		$locationTypeQueryArgs = array(
@@ -48,6 +48,7 @@ function shortcode_getPartners( $atts ) {
             )
         );
 	}
+	print_r($locationTypeQueryArgs);
 
 	$listItems = array();
 
