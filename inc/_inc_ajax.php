@@ -506,7 +506,7 @@ function xhrGetPartners() {
 			$_REQUEST["product_type"] :
 			false;
 
-	$wholesale = (isset($_REQUEST["wholesale"]) && $_REQUEST["wholesale"] === 1) ? true : false;
+	$wholesale = (isset($_REQUEST["wholesale"]) && is_int($_REQUEST["wholesale"]) && (int)$_REQUEST["wholesale"] === 1) ? true : false;
 
    	$tempPartners = array();
    	$returnPartners = array();
