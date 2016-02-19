@@ -7,6 +7,18 @@ class MapPartner {
 	public $lng = false;
 	public $city = false;
 }
+class Hours {
+	public $day = false;
+	public $startTime = false;
+	public $startMeridian = false;
+	public $endTime = false;
+	public $endMeridian = false;
+	public $vendors = false;
+	public $season_start_mpart = false;
+	public $season_start_month = false;
+	public $season_end_mpart = false;
+	public $season_end_month = false;
+}
 
 add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
@@ -64,7 +76,58 @@ function geocodeAddress($street = "", $city = "", $state = "", $zip = "") {
 }
 
 function splitHours($hours) {
-	//$hours = explode("\n", $hours);
+	$hours = explode("\n", $hours);
+	$hoursReturn = array();
+	if (is_array($hours)) {
+		foreach($hours as $hoursString) {
+			$dayRegex = "/^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday):\s*/i"
+			preg_match($dayRegex, $hoursString, $tempMatch);
+			if (count($tempMatch) == 2) {
+				$tempDay = $tempMatch[1];
+				$hoursString = preg_split($dayRegex, $hoursString);
+				$hoursString = $hoursString[1];
+
+				if (strlen($hoursString) > 0) {
+					$hoursRegex = "/(\d{1,2}:\d{2})(\w{2})-(\d{1,2}:\d{2})(\w{2})\s*/i";
+					preg_match_all($hoursRegex, $hoursString, $tempMatch);
+					if (count($tempMatch) == 5) {
+						$tempStart = $tempMatch[1];
+						$tempStartMeridian = $tempMatch[2];
+						$tempEnd = $tempMatch[3];
+						$tempEndMeridian = $tempMatch[4];
+						$hoursString = preg_split($dayRegex, $hoursString);
+						$hoursString = $hoursString[1];
+					}
+					$seasonRegex = "/\(?(Beginning of|Middle of|End of)?\s*\b(\w*)\b to (Beginning of|Middle of|End of)?\s?\b(\w*)\b\)\s*/i";
+					preg_match($seasonRegex, $hoursString, $tempMatch);
+					if (count($tempMatch) == 5) {
+						$tempSeasonStartMpart = $tempMatch[1];
+						$tempSeasonStartMonth = $tempMatch[2];
+						$tempSeasonEndMpart = $tempMatch[3];
+						$tempSeasonEndMonth = $tempMatch[4];
+					}
+					$vendorsRegex = "/\[(.*?) Vendors\]/i";
+					preg_match($vendorsRegex, $input_line, $output_array);
+					if (count($tempMatch) == 2) {
+						$tempVendors[1];
+					}
+				}
+				$tempObj = new Hours;
+				$tempObj->day = $tempDay;
+				$tempObj->startTime = $tempStart;
+				$tempObj->startTimeMeridian = $tempStartMeridian;
+				$tempObj->endTime = $tempEnd;
+				$tempObj->endTimeMeridian = $tempEndMeridian;
+				$tempObj->season_start_mpart = $tempSeasonStartMpart;
+				$tempObj->season_start_month = $tempSeasonStartMonth;
+				$tempObj->season_end_mpart = $tempSeasonEndMpart;
+				$tempObj->season_end_month = $tempSeasonEndMonth;
+				$tempObj->vendors = $tempVendors;
+			}
+			$hoursReturn[] = $tempObj;
+		}
+	}
+	return $hoursReturn;
 }
 
 function breakSeason($season) {
@@ -475,6 +538,43 @@ function addPartnerData($user_id, $partner) {
 	}
 	if ($partner->textProducts) {
 		update_field("field_56b2ed22c758e", $partner->textProducts, $user_id);
+	}
+
+	//Hours
+	if ($partner->hours) {
+		$partnerHours = splitHours($partner->hours);
+		$fieldKey = ($partner->category === "farmers-market") ? "field_56b2d6a20cc4e" : "field_56b2cddb6bd77";
+
+		if (is_array($partnerHours)) {
+			foreach($partnerHours as $partnerHoursObj) {
+				$row_array = array();
+				if ($partnerHoursObj->day) $row_array["day"] = $partnerHoursObj->day;
+				if ($partnerHoursObj->startTime && $partnerHoursObj->startMeridian) $row_array["open_time"] = "{$partnerHoursObj->startTime} {$partnerHoursObj->startMeridian}";
+				if ($partnerHoursObj->endTime && $partnerHoursObj->endMeridian) $row_array["close_time"] = "{$partnerHoursObj->endTime} {$partnerHoursObj->endMeridian}";
+				if ($partnerHoursObj->season_start_mpart) {
+					$row_array["season_start_mpart"] = $partnerHoursObj->season_start_mpart;
+					$row_array["is_seasonal"] = true;
+				}
+				if ($partnerHoursObj->season_start_month) {
+					$row_array["season_start_month"] = $partnerHoursObj->season_start_month;
+				}
+				if ($partnerHoursObj->season_end_mpart) {
+					$row_array["season_end_mpart"] = $partnerHoursObj->season_end_mpart;
+				}
+				if ($partnerHoursObj->season_end_month) {
+					$row_array["season_end_month"] = $partnerHoursObj->season_end_month;
+				}
+				if ($partner->category === "farmers-market") {
+					if ($vendors) {
+						$row_array["vendors"] = $partnerHoursObj->season_end_month;
+					}
+				}
+				if (count($row_array) > 0) {
+					add_row($fieldKey, $row_array, $user_id);
+				}
+			}
+		}
+
 	}
 
 
