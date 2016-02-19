@@ -2707,6 +2707,7 @@ body.single-events .entry-content .post-meta {
 .farming-practices-list {
 	display: block;
 	overflow: hidden;
+	list-style-type: disc;
 }
 
 /* FIND LOCAL FOOD - MAP PAGE */
