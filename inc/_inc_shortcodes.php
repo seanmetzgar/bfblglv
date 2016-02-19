@@ -18,7 +18,7 @@ function shortcode_getPartners( $atts ) {
 	);
     $category = $a["category"];
     $locationTypeQueryArgs = false;
-	if (in_array($category, $allLocationTypes) {
+	if (in_array($category, $allLocationTypes)) {
 		$locationTypeQueryArgs = array(
             "role" => $category
         );
