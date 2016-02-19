@@ -25,7 +25,7 @@ function shortcode_getPartners( $atts ) {
         );
 	} elseif ($category === "csa") {
 		$locationTypeQueryArgs = array(
-            "role" => $category,
+            "role" => "farm",
             "meta_query" => array(
                 "relation" => "AND",
                 array(
@@ -37,7 +37,7 @@ function shortcode_getPartners( $atts ) {
         );
 	} elseif ($category === "farm-share") {
 		$locationTypeQueryArgs = array(
-            "role" => $category,
+            "role" => "farm",
             "meta_query" => array(
                 "relation" => "AND",
                 array(
@@ -48,7 +48,6 @@ function shortcode_getPartners( $atts ) {
             )
         );
 	}
-	print_r($locationTypeQueryArgs);
 
 	$listItems = array();
 
