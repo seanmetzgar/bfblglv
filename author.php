@@ -250,9 +250,9 @@ get_header(); ?>
 					<section class="partner-content">
 
 						<?php if ($hasProducts) : // This Container should be positioned BELOW MAP when visible ?>
-						<div class="entry-product-categories bfblSlider sliderOpen">
+						<div class="entry-product-categories">
 							<h2 class="greenHeader">Product Categories</h2>
-							<div class="bfblSlideWrap">
+							<div>
 								<ul class="product-categories-list page-block">
 									<?php
 									foreach($products as $productCategory=>$productCategoryProducts) {
@@ -262,14 +262,14 @@ get_header(); ?>
 									}
 									?>
 								</ul>
-							</div><!-- end div.bfblSlideWrap -->
+							</div><!-- end div -->
 						</div><!-- end div.entry-product-categories -->
 						<?php endif; ?>
 
-						<div class="entry-top bfblSlider sliderOpen">
+						<div class="entry-top">
 							<h2 class="greenHeader">Partner Information</h2>
 
-							<div class="bfblSlideWrap">
+							<div>
 								<div class="page-block partner-info-block">
 									<?php if ($partner_owner_photo): ?><div class="partner-info-right"><?php endif; ?>
 
@@ -360,13 +360,13 @@ get_header(); ?>
 									</div><!-- end div.partner-info-left; -->
 									<?php endif; ?>
 								</div><!-- end div.parter-info-block -->
-							</div><!-- end div.bfblSlideWrap -->
+							</div><!-- end div -->
 						</div><!-- end div.entry-top -->
 
-						<div class="entry-product-information bfblSlider sliderOpen">
+						<div class="entry-product-information">
 							<h2 class="greenHeader">Product Information</h2>
 
-							<div class="bfblSlideWrap">
+							<div>
 								<div class="page-block product-info-contents">
 									<?php if ($partner_business_photo): ?>
 									<div class="product-info-left">
@@ -432,7 +432,7 @@ get_header(); ?>
 										</div><!-- end div.products-detail -->
 									<?php if ($partner_business_photo): ?></div><!-- end div.product-info-right --><?php endif; ?>
 								</div><!-- end div.product-info-contents -->
-							</div><!-- end div.bfblSlideWrap -->
+							</div><!-- end div -->
 						</div><!-- end div.entry-product-information -->
 
 					</section><!-- end section.partner-content -->
