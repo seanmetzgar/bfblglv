@@ -537,7 +537,7 @@ function xhrGetPartners() {
             	$locationTypeQueryArgs["meta_query"][] = array(
             		"key" => "is_wholesaler",
             		"value" => 1,
-            		"compare" = "="
+            		"compare" => "="
             	);
             }
             $productsQuery = buildProductsQuery($productTypes);
@@ -553,7 +553,7 @@ function xhrGetPartners() {
             	$locationTypeQueryArgs["meta_query"][] = array(
             		"key" => "is_wholesaler",
             		"value" => 1,
-            		"compare" = "="
+            		"compare" => "="
             	);
             }
             if ($locationType === "farm") {
