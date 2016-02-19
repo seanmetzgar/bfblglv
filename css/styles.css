@@ -2707,7 +2707,6 @@ body.single-events .entry-content .post-meta {
 .farming-practices-list {
 	display: block;
 	overflow: hidden;
-	list-style-type: disc;
 }
 
 /* FIND LOCAL FOOD - MAP PAGE */
@@ -4295,13 +4294,20 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-bottom: 0;
 	}
 
-
+	.farming-practices-list {
+		color: #003f29;
+		list-style-type: disc;
+	}
 	.farming-practices-list li {
 		width: 33%;
 		float: left;
 	}
 	.farming-practices-list li:nth-child(3n+1) {
 		clear: left;
+	}
+	.farming-ptractices-list li em {
+		color: #555555;
+		font-style: italic;
 	}
 
 
