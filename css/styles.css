@@ -3462,7 +3462,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	header.page-header.has-image .entry-title {
-		font-size: 50px; font-size: 3.125rem;
+		font-size: 60px; font-size: 3.75rem;
 		line-height: 1;
 		text-align: left;
 		min-width: 33.33%;
@@ -3474,7 +3474,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	header.page-header.no-image .entry-title {
-		font-size: 50px; font-size: 3.125rem;
+		font-size: 60px; font-size: 3.75rem;
 		line-height: 1;
 	}
 
