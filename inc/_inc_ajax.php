@@ -127,6 +127,7 @@ function splitHours($hours) {
 			$hoursReturn[] = $tempObj;
 		}
 	}
+	print_r($hoursReturn);
 	return $hoursReturn;
 }
 
@@ -765,7 +766,7 @@ function xhrAddPartner() {
 		"user_email" => "sean.metzgar+{$slug}@gmail.com",
 		"user_registered" => $member_since
 	);
-	$user_id = wp_insert_user($new_user_args);
+	//$user_id = wp_insert_user($new_user_args);
 	//wp_new_user_notification($user_id, null, "both");
 
 	$response = array();
