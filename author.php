@@ -551,20 +551,15 @@ get_header(); ?>
 							<div>
 								<div class="page-block product-info-contents">
 									<div class="product-info-left">
-										<h4>Wholesale Information</h4>
-										<ul class="green-bullets">
-											<?php if ($quasi_wholesale) echo "<li>Quasi-Wholesale<br><em>(Restaurants)</em></li>"; ?>
-											<?php if ($small_wholesale) echo "<li>Small Wholesale Accounts<br><em>(Boxes weekly)</em></li>"; ?>
-											<?php if ($large_wholesale) echo "<li>Large Wholesale Accounts<br><em>(Pallets weekly)</em></li>"; ?>
-											<?php if ($gap_certification === "Yes") {
-												echo "<li>GAP Certified";
-												if ($gap_certified_since) {
-													echo "<br><em>(Since $gap_certified_since)</em></li>";
-												} else { echo "</li>";}
-											} elseif ($gap_certification === "Pending") {
-												echo "<li>Working towards GAP Certification</li>"; 
-											} ?>
-										</ul>
+										<h3>Details</h3>
+										<?php if ($quasi_wholesale) echo "<h4>Quasi-Wholesale</h4>"; ?>
+										<?php if ($small_wholesale) echo "<h4>Small Wholesale Accounts</h4>"; ?>
+										<?php if ($large_wholesale) echo "<h4>Large Wholesale Accounts</h4>"; ?>
+										<?php if ($gap_certification === "Yes") {
+											echo "<h4>GAP Certified</h4>";
+										} elseif ($gap_certification === "Pending") {
+											echo "<h4>Working towards GAP Certification</h4>"; 
+										} ?>
 									</div><!-- end div.product-info-left -->
 
 									<div class="product-info-right">
