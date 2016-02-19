@@ -3468,7 +3468,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		text-align: left;
 		min-width: 33.33%;
 		padding-right: 42px; padding-right: 2.625rem;
-		text-shadow: 0 0 10px #ffffff;
+		text-shadow: 0 0 20px #ffffff;
 	}
 
 	header.page-header.no-image {
@@ -4685,7 +4685,6 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		font-size: 70px; font-size: 4.375rem;
 		line-height: 60px; line-height: 3.75rem;
 		padding-right: 46px; padding-right: 2.875rem;
-		text-shadow: 0 0 10px #ffffff;
 	}
 
 	header.page-header.no-image {
