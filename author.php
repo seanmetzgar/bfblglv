@@ -706,7 +706,7 @@ get_header(); ?>
 										<?php if ($other_farming_practices_text): ?>
 									<h4>Other Farming Practices</h4>
 										<?php endif;
-									endif
+									endif;
 
 									if ($other_farming_practices_text): ?>
 									<p><?php echo $other_farming_practices_text; ?></p>
