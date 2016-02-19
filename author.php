@@ -484,6 +484,7 @@ get_header(); ?>
 							</div><!-- end div -->
 						</div><!-- end div.entry-top -->
 
+						<?php if (!in_array("farmers-market", $partner_category)): ?>
 						<div class="entry-product-information">
 							<h2 class="greenHeader">Product Information</h2>
 
@@ -592,6 +593,7 @@ get_header(); ?>
 								</div><!-- end div.product-info-contents -->
 							</div><!-- end div -->
 						</div><!-- end div.entry-product-information -->
+						<?php endif; ?>
 
 						<?php if (is_user_logged_in() && $is_wholesaler): ?>
 						<div class="entry-product-information">
