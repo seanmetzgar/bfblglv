@@ -57,8 +57,8 @@ function shortcode_getPartners( $atts ) {
 		if (is_array($locationQuery) && count($locationQuery) > 0) {
 			foreach ($locationQuery as $location) {
 				$locationID = $location->ID;
-				$locationName = get_field("partner_name", "user_{$partner->ID}");
-				$locationCity = get_field("partner_city", "user_{$partner->ID}");
+				$locationName = get_field("partner_name", "user_{$locationID}");
+				$locationCity = get_field("partner_city", "user_{$locationID}");
 				$locationName = strlen($locationName) > 0 ? $locationName : $location->display_name;
 				$locationHref = get_author_posts_url($location->ID);
 
