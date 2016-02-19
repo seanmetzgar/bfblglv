@@ -769,15 +769,17 @@ function xhrAddPartner() {
 	//$user_id = wp_insert_user($new_user_args);
 	//wp_new_user_notification($user_id, null, "both");
 
-	$response = array();
-	if (is_int($user_id) && $user_id > 0) {
-		addPartnerData($user_id, $partner);
-		$response["status"] = "success";
-	} else { $response["status"] = "fail"; }
-	$response = json_encode($response);
+	$partner->hours = splitHours($partnerHours);
+	print_r($partner->hours);
+	// $response = array();
+	// if (is_int($user_id) && $user_id > 0) {
+	// 	addPartnerData($user_id, $partner);
+	// 	$response["status"] = "success";
+	// } else { $response["status"] = "fail"; }
+	// $response = json_encode($response);
 
-	header('Content-Type: application/json');
-	echo $response;
+	// header('Content-Type: application/json');
+	// echo $response;
 
    	die();
 }
