@@ -77,6 +77,7 @@ function geocodeAddress($street = "", $city = "", $state = "", $zip = "") {
 
 function splitHours($hours) {
 	$hours = explode("\n", $hours);
+	print_r($hours);
 	$hoursReturn = array();
 	if (is_array($hours)) {
 		foreach($hours as $hoursString) {
@@ -127,7 +128,6 @@ function splitHours($hours) {
 			$hoursReturn[] = $tempObj;
 		}
 	}
-	print_r($hoursReturn);
 	return $hoursReturn;
 }
 
