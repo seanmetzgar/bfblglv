@@ -2704,6 +2704,11 @@ body.single-events .entry-content .post-meta {
 	margin-bottom: 40px; margin-bottom: 2.5rem;
 }
 
+.farming-practices-list {
+	display: block;
+	overflow: hidden;
+}
+
 /* FIND LOCAL FOOD - MAP PAGE */
 .map-subhead {
 	/* picks up some styles from the partner pages */
@@ -4287,6 +4292,15 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 	.product-info-contents .entry-product-hours {
 		margin-bottom: 0;
+	}
+
+
+	.farming-practices-list li {
+		width: 33%;
+		float: left;
+	}
+	.farming-practices-list li:nth-child(3n+1) {
+		clear: left;
 	}
 
 

@@ -716,8 +716,8 @@ get_header(); ?>
 									<h3>Benefits Acceptance</h3>
 									<ul class="farming-practices-list">
 									<?php
-										if ($accept_snap) { echo "<li><h4>accept_snap</h4></li>"; }
-										if ($accept_fmnp) { echo "<li><h4>accept_fmnp</h4></li>"; }
+										if ($accept_snap) { echo "<li><h4>Accept SNAP</h4></li>"; }
+										if ($accept_fmnp) { echo "<li><h4>Accept FMNP</h4></li>"; }
 									?>
 									</ul>
 									<?php endif; ?>
