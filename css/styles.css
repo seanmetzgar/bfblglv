@@ -1049,11 +1049,13 @@ header.page-header.no-image .entry-title {
 }
 
 .entry-content ul,
+ul.green-bullets,
 .entry-content ol {
 	padding-left: 46px; padding-left: 2.875rem;
 	margin-bottom: 32px; margin-bottom: 2rem;
 }
-.entry-content ul {
+.entry-content ul,
+ul.green-bullets {
 	list-style-type: none;
 }
 .entry-content ol {
@@ -1061,14 +1063,16 @@ header.page-header.no-image .entry-title {
 	list-style-position: outside;
 }
 
-.entry-content li {
+.entry-content li,
+ul.green-bullets li {
 	color: #555555;
 	margin-bottom: 8px; margin-bottom: 0.5rem;
 	font-weight: normal;
 	position: relative;
 }
 
-.entry-content ul li::before {
+.entry-content ul li::before,
+ul.green-bullets li::before {
 	content: '\2022';
 	font-size: 25px;
 	line-height: 1;

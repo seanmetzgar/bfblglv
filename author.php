@@ -552,7 +552,7 @@ get_header(); ?>
 								<div class="page-block product-info-contents">
 									<div class="product-info-left">
 										<h4>Wholesale Information</h4>
-										<ul>
+										<ul class="green-bullets">
 											<?php if ($quasi_wholesale) echo "<li>Quasi-Wholesale<br><em>(Restaurants)</em></li>"; ?>
 											<?php if ($small_wholesale) echo "<li>Small Wholesale Accounts<br><em>(Boxes weekly)</em></li>"; ?>
 											<?php if ($large_wholesale) echo "<li>Large Wholesale Accounts<br><em>(Pallets weekly)</em></li>"; ?>
