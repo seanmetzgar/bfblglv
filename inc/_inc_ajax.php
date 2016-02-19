@@ -115,9 +115,9 @@ function splitHours($hours) {
 				$tempObj = new Hours;
 				$tempObj->day = $tempDay;
 				$tempObj->startTime = $tempStart;
-				$tempObj->startTimeMeridian = $tempStartMeridian;
+				$tempObj->startMeridian = $tempStartMeridian;
 				$tempObj->endTime = $tempEnd;
-				$tempObj->endTimeMeridian = $tempEndMeridian;
+				$tempObj->endMeridian = $tempEndMeridian;
 				$tempObj->season_start_mpart = $tempSeasonStartMpart;
 				$tempObj->season_start_month = $tempSeasonStartMonth;
 				$tempObj->season_end_mpart = $tempSeasonEndMpart;
