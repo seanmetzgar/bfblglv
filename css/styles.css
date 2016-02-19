@@ -949,6 +949,7 @@ header.page-header.has-image .entry-title {
 	text-transform: uppercase;
 	position: relative;
 	z-index: 10;
+	text-shadow: 0 0 15px rgb(252,175,23);
 }
 
 header.page-header.has-image img {
