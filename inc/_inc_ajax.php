@@ -90,6 +90,9 @@ function splitHours($hours) {
 				if (strlen($hoursString) > 0) {
 					$hoursRegex = "/(\d{1,2}:\d{2})(\w{2})-(\d{1,2}:\d{2})(\w{2})\s*/i";
 					preg_match_all($hoursRegex, $hoursString, $tempMatch);
+					echo "<pre>";
+					print_r($tempMatch);
+					echo "</pre>";
 					if (count($tempMatch) == 5) {
 						$tempStart = $tempMatch[1];
 						$tempStartMeridian = $tempMatch[2];
