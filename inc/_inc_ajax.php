@@ -666,7 +666,7 @@ function xhrAddPartner() {
 		"user_registered" => $member_since
 	);
 	$user_id = wp_insert_user($new_user_args);
-	wp_new_user_notification($user_id);
+	wp_new_user_notification($user_id, null, "both");
 
 	$response = array();
 	if (is_int($user_id) && $user_id > 0) {
