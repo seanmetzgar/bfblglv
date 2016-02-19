@@ -271,7 +271,7 @@ get_header(); ?>
 
 							<div class="bfblSlideWrap">
 								<div class="page-block partner-info-block">
-									<div class="partner-info-right">
+									<?php if ($partner_owner_photo): ?><div class="partner-info-right"><?php endif; ?>
 
 										<h1 class="entry-title"><?php echo $partner_name; ?></h1>
 
@@ -306,6 +306,13 @@ get_header(); ?>
 										</div><!-- end div.partner-hours -->
 										<?php endif; ?>
 
+										<?php if (!$partner_owner_photo && $partner_owner_name): ?>
+										<div class="partner-detail partner-owner">
+											<h4>Owner</h4>
+											<p><?php echo $partner_owner_name; ?></p>
+										</div><!-- end div.partner-owner -->
+										<?php endif; ?>
+
 										<?php if ($partner_phone || $partner_email || $partner_website): ?>
 										<div class="partner-contact">
 											<h4 class="visuallyhidden">Contact Details</h4>
@@ -318,8 +325,9 @@ get_header(); ?>
 											</ul>
 										</div><!-- end div.partner-contact -->
 										<?php endif; ?>
-									</div><!-- end div.partner-info-right -->
+									<?php if ($partner_owner_photo): ?></div><!-- end div.partner-info-right --><?php endif; ?>
 
+									<?php if ($partner_owner_photo): ?>
 									<div class="partner-info-left">
 										<div class="owner-details">
 											<h3 class="visuallyhidden">Owner Information</h3>
@@ -339,7 +347,7 @@ get_header(); ?>
 
 										<?php if ($partner_facebook || $partner_twitter || $partner_instagram): ?>
 										<div class="partner-social">
-											<h3 class="visuallyhidden">Social Media</h3>
+											<h4>Social Media</h4>
 											<ul>
 												<?php
 													if ($partner_twitter) echo "<li class='twitter'><a href=\"https://twitter.com/$partner_twitter\" target=\"_blank\"><span>@$partner_twitter</span></a></li>";
@@ -350,7 +358,7 @@ get_header(); ?>
 										</div><!-- end div.partner-social -->
 										<?php endif; ?>
 									</div><!-- end div.partner-info-left; -->
-
+									<?php endif; ?>
 								</div><!-- end div.parter-info-block -->
 							</div><!-- end div.bfblSlideWrap -->
 						</div><!-- end div.entry-top -->
@@ -360,20 +368,19 @@ get_header(); ?>
 
 							<div class="bfblSlideWrap">
 								<div class="page-block product-info-contents">
+									<?php if ($partner_business_photo): ?>
 									<div class="product-info-left">
 										<?php
 										if ($partner_business_photo) {
 											echo '<div class="business-image">';
 												echo $partner_business_photo;
 											echo '</div><!-- end div.business-image -->';
-											if ($partner_name) {
-												echo "\n<h3 class=\"partner-name\">$partner_name</h3>\n";
-											}
 										}
 										?>
 									</div><!-- end div.product-info-left -->
+									<?php endif; ?>
 
-									<div class="product-info-right">
+									<?php if ($partner_business_photo): ?><div class="product-info-right"><?php endif; ?>
 										<div class="products-detail">
 											<?php if ($hasProducts) : ?>
 											<div class="entry-product-categories entry-content">
@@ -423,8 +430,7 @@ get_header(); ?>
 											?>
 
 										</div><!-- end div.products-detail -->
-									</div><!-- end div.product-info-right -->
-
+									<?php if ($partner_business_photo): ?></div><!-- end div.product-info-right --><?php endif; ?>
 								</div><!-- end div.product-info-contents -->
 							</div><!-- end div.bfblSlideWrap -->
 						</div><!-- end div.entry-product-information -->
