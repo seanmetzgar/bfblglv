@@ -6,7 +6,7 @@ class SimplePartner {
 }
 function shortcode_getPartners( $atts ) {
     $a = shortcode_atts( array(
-        "category" => false
+        "category" => ""
     ), $atts );
 
     $allLocationTypes = array(
