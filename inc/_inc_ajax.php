@@ -768,7 +768,7 @@ function xhrAddPartner() {
 	//$user_id = wp_insert_user($new_user_args);
 	//wp_new_user_notification($user_id, null, "both");
 
-	print_r($partner->hours);
+	print_r($partner);
 
 	// $response = array();
 	// if (is_int($user_id) && $user_id > 0) {
