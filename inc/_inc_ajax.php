@@ -565,7 +565,7 @@ function xhrGetPartners() {
             }
 
         }
-
+        print_r($locationTypeQueryArgs);
 		$locationTypePartners = get_users($locationTypeQueryArgs);
 
 		if (is_array($locationTypePartners) && count($locationTypePartners) > 0) {
