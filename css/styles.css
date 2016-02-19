@@ -4296,13 +4296,21 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 	.farming-practices-list {
 		color: #003f29;
-		list-style-type: disc;
-		list-style-position: outside;
 	}
 	.farming-practices-list li {
-		width: 29%;
-		margin-left: 4%;
+		box-sizing: border-box;
+		width: 33%;
+		padding-left: 15px;
+	}
+	.farming-practices-list li::before {
+		content: '\2022';
+		font-size: 25px;
+		line-height: 1;
+		margin-left: -13px;
+		margin-top: -2px;
 		float: left;
+		display: inline-block;
+		color: #008c5c;
 	}
 	.farming-practices-list li:nth-child(3n+1) {
 		clear: left;
