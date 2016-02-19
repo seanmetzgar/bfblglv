@@ -552,12 +552,12 @@ function xhrGetPartners() {
 
         }
         if ($wholesale) {
-            	$locationTypeQueryArgs["meta_query"][] = array(
-            		"key" => "is_wholesaler",
-            		"value" => 1,
-            		"compare" => "="
-            	);
-            }
+        	$locationTypeQueryArgs["meta_query"][] = array(
+        		"key" => "is_wholesaler",
+        		"value" => 1,
+        		"compare" => "="
+        	);
+        }
 		$locationTypePartners = get_users($locationTypeQueryArgs);
 
 		if (is_array($locationTypePartners) && count($locationTypePartners) > 0) {
