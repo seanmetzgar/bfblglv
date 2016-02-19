@@ -506,6 +506,8 @@ function xhrGetPartners() {
 			$_REQUEST["product_type"] :
 			false;
 
+	$wholesale = (isset($_REQUEST["wholesale"]) && $_REQUEST["wholesale"] === 1) ? true : false;
+
    	$tempPartners = array();
    	$returnPartners = array();
 
@@ -531,6 +533,13 @@ function xhrGetPartners() {
                     )
                 )
             );
+            if ($wholesale) {
+            	$locationTypeQueryArgs["meta_query"][] = array(
+            		"key" => "is_wholesaler",
+            		"value" => 1,
+            		"compare" = "="
+            	)
+            }
             $productsQuery = buildProductsQuery($productTypes);
             if ($productsQuery) {
                 $locationTypeQueryArgs["meta_query"][] = $productsQuery;
@@ -540,7 +549,13 @@ function xhrGetPartners() {
             $locationTypeQueryArgs = array(
                 "role" => $locationType
             );
-
+            if ($wholesale) {
+            	$locationTypeQueryArgs["meta_query"][] = array(
+            		"key" => "is_wholesaler",
+            		"value" => 1,
+            		"compare" = "="
+            	)
+            }
             if ($locationType === "farm") {
                 $productsQuery = buildProductsQuery($productTypes);
 
