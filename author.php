@@ -646,9 +646,9 @@ get_header(); ?>
 									<ul class="farming-practices-list">
 										<?php 
 										if ($certified_organic) {
-											echo "<li>Certified Organic";
+											echo "<li><h4>Certified Organic</h4>";
 											if ($certified_organic_by || $certified_organic_since) {
-												echo "<br><em>(";
+												echo "<em>(";
 												if ($certified_organic_since) {
 													echo "Since: $certified_organic_since";
 												}
@@ -663,16 +663,16 @@ get_header(); ?>
 											echo "</li>";
 										}
 										if ($certified_naturally_grown) {
-											echo "<li>Certified Naturally Grown";
+											echo "<li><h4>Certified Naturally Grown</h4>";
 											if ($certified_naturally_grown_since) {
-												echo "<br><em>(Since: $certified_naturally_grown_since)</em>";
+												echo "<em>(Since: $certified_naturally_grown_since)</em>";
 											}
 											echo "</li>";
 										}
 										if ($certified_biodynamic) {
-											echo "<li>Certified Biodynamic";
+											echo "<li><h4>Certified Biodynamic</h4>";
 											if ($certified_biodynamic_by || $certified_biodynamic_since) {
-												echo "<br><em>(";
+												echo "<em>(";
 												if ($certified_biodynamic_since) {
 													echo "Since: $certified_biodynamic_since";
 												}
@@ -694,13 +694,13 @@ get_header(); ?>
 									<h3>Farm Practices</h3>
 									<ul class="farming-practices-list">
 										<?php
-										if ($only_organic) { echo "<li>Use Only Organic Materials</li>"; }
-										if ($integrated_pest_management) { echo "<li>Intergrated Pest Management (IPM)</li>"; }
-										if ($non_gmo) { echo "<li>Non-GMO</li>"; }
-										if ($antibiotic_harmone_free) { echo "<li>Antibiotic and Hormone Free</li>"; }
-										if ($pastured) { echo "<li>Pastured</li>"; }
-										if ($grass_fed) { echo "<li>100% Grass Fed</li>"; }
-										if ($extended_growing_season) { echo "<li>Extended Growing Season</li>"; }
+										if ($only_organic) { echo "<li><h4>Use Only Organic Materials</h4></li>"; }
+										if ($integrated_pest_management) { echo "<li><h4>Intergrated Pest Management (IPM)</h4></li>"; }
+										if ($non_gmo) { echo "<li><h4>Non-GMO</h4></li>"; }
+										if ($antibiotic_harmone_free) { echo "<li><h4>Antibiotic and Hormone Free</h4></li>"; }
+										if ($pastured) { echo "<li><h4>Pastured</h4></li>"; }
+										if ($grass_fed) { echo "<li><h4>100% Grass Fed</h4></li>"; }
+										if ($extended_growing_season) { echo "<li><h4>Extended Growing Season</h4></li>"; }
 										?>
 									</ul>
 										<?php if ($other_farming_practices_text): ?>
@@ -716,8 +716,8 @@ get_header(); ?>
 									<h3>Benefits Acceptance</h3>
 									<ul class="farming-practices-list">
 									<?php
-										if ($accept_snap) { echo "<li>accept_snap</li>"; }
-										if ($accept_fmnp) { echo "<li>accept_fmnp</li>"; }
+										if ($accept_snap) { echo "<li><h4>accept_snap</h4></li>"; }
+										if ($accept_fmnp) { echo "<li><h4>accept_fmnp</h4></li>"; }
 									?>
 									</ul>
 									<?php endif; ?>
