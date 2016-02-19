@@ -2477,6 +2477,7 @@ body.single-events .entry-content .post-meta {
 
 .product-categories-list li {
 	padding-top: 12px; padding-top: 0.75rem;
+	padding-left: 10px;
 	display: inline-block;
 }
 
