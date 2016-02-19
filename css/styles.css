@@ -1863,6 +1863,7 @@ li.chip {
   text-align: center;
   margin: 0;
   padding: 20px 0 53px; padding: 1.25rem 0 3.3125rem;
+  font-family: 'Clear Sans', Helvetica, Arial, sans-serif;
 }
 .animated-header .animated-blocks li a .content h3::before,
 .animated-header .animated-blocks li a .map-content .subtext::before {
