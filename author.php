@@ -109,6 +109,12 @@ get_header(); ?>
 						}
 					}
 
+					$products_available_at = get_field("products_available_at", $acf_partner_id);
+					$products_available_from = get_field("products_available_from", $acf_partner_id);
+					$source_from = get_field("source_from", $acf_partner_id);
+					$local_stock_freq = get_field("local_stock_freq", $acf_partner_id);
+					$local_stock_qty = get_field("local_stock_qty", $acf_partner_id);
+
 					$products = false;
 					if (in_array("farm", $partner_category)){
 						$products = array();
@@ -528,24 +534,58 @@ get_header(); ?>
 
 
 											<?php
+											if (is_array($products_available_at) && count($products_available_at) > 0): ?>
+											<h4>Buy our our products at these BFBLGLV partners</h4>
+											<ul class="vendor-list">
+												<?php foreach ($products_available_at as $vendor): 
+													if (is_object($vendor)):
+														$vendor_id = "user_{$vendor->ID}";
+														$vendor_url = get_author_posts_url($vendor_id);
+														$vendor_name = get_field("partner_name", "user_{$vendor_id}");
+														$vendor_city = get_field("partner_city", "user_{$vendor_id}");
+														$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
+														echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+													endif;
+												endforeach; ?>
+											</ul>
+											<?php endif; ?>
 
-											// NEWNEWNEW
-												if($whereToBuy) {
-													echo '<div class="entry-product-wheretobuy entry-content">';
-														echo '<h3>Where to Buy Local</h3>';
-														echo "<p>$whereToBuy</p>";
-													echo '</div><!-- end div.entry-product-wheretobuy -->';
-												} // end $whereToBuy test
+											<?php
+											if (is_array($products_available_from) && count($products_available_from) > 0): ?>
+											<h4>We also offer products from these BFBLGLV partners</h4>
+											<ul class="vendor-list">
+												<?php foreach ($products_available_from as $vendor): 
+													if (is_object($vendor)):
+														$vendor_id = "user_{$vendor->ID}";
+														$vendor_url = get_author_posts_url($vendor_id);
+														$vendor_name = get_field("partner_name", "user_{$vendor_id}");
+														$vendor_city = get_field("partner_city", "user_{$vendor_id}");
+														$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
+														echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+													endif;
+												endforeach; ?>
+											</ul>
+											<?php endif; ?>
 
-												if($productHours && $partner_category_string) {
+											<?php
+											if (is_array($source_from) && count($source_from) > 0): ?>
+											<h4>We source from these BFBLGLV partners</h4>
+											<ul class="vendor-list">
+												<?php foreach ($source_from as $vendor): 
+													if (is_object($vendor)):
+														$vendor_id = "user_{$vendor->ID}";
+														$vendor_url = get_author_posts_url($vendor_id);
+														$vendor_name = get_field("partner_name", "user_{$vendor_id}");
+														$vendor_city = get_field("partner_city", "user_{$vendor_id}");
+														$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
+														echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+													endif;
+												endforeach; ?>
+											</ul>
+											<?php endif; ?>
 
-													echo '<div class="entry-product-hours partner-detail partner-hours">';
-														echo "<h4>$partner_category_string Hours</h4>";
-														echo "<ul>$productHours</ul>";
-													echo '</div><!-- end div.entry-product-wheretobuy -->';
-												} // end $productHours test
-
-											?>
+											<?php if ($local_stock_freq && $local_stock_qty)
+												echo "<p><em>We $local_stock_freq have $local_stock_qty locally grown ingredients in our menu items.</em></p>"; ?>
 
 										</div><!-- end div.products-detail -->
 									<?php if ($partner_business_photo): ?></div><!-- end div.product-info-right --><?php endif; ?>
