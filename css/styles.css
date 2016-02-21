@@ -21,51 +21,51 @@
  */
 
 @font-face {
-    font-family: 'blue_highway_regular';
-    src: url('../fonts/blue_highway/bluehigh-webfont.eot');
-    src: url('../fonts/blue_highway/bluehigh-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/blue_highway/bluehigh-webfont.woff2') format('woff2'),
-         url('../fonts/blue_highway/bluehigh-webfont.woff') format('woff'),
-         url('../fonts/blue_highway/Bluehigh.ttf') format('truetype'),
-         url('../fonts/blue_highway/bluehigh-webfont.svg#blue_highwayregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'blue_highway_regular';
+	src: url('../fonts/blue_highway/bluehigh-webfont.eot');
+	src: url('../fonts/blue_highway/bluehigh-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/blue_highway/bluehigh-webfont.woff2') format('woff2'),
+		 url('../fonts/blue_highway/bluehigh-webfont.woff') format('woff'),
+		 url('../fonts/blue_highway/Bluehigh.ttf') format('truetype'),
+		 url('../fonts/blue_highway/bluehigh-webfont.svg#blue_highwayregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'blue_highway_bold';
-    src: url('../fonts/blue_highway/bluehigb-webfont.eot');
-    src: url('../fonts/blue_highway/bluehigb-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/blue_highway/bluehigb-webfont.woff2') format('woff2'),
-         url('../fonts/blue_highway/bluehigb-webfont.woff') format('woff'),
-         url('../fonts/blue_highway/Bluehigb.ttf') format('truetype'),
-         url('../fonts/blue_highway/bluehigb-webfont.svg#blue_highway__bold') format('svg');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'blue_highway_bold';
+	src: url('../fonts/blue_highway/bluehigb-webfont.eot');
+	src: url('../fonts/blue_highway/bluehigb-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/blue_highway/bluehigb-webfont.woff2') format('woff2'),
+		 url('../fonts/blue_highway/bluehigb-webfont.woff') format('woff'),
+		 url('../fonts/blue_highway/Bluehigb.ttf') format('truetype'),
+		 url('../fonts/blue_highway/bluehigb-webfont.svg#blue_highway__bold') format('svg');
+	font-weight: normal;
+	font-style: normal;
 
 }
 
 @font-face {
-    font-family: 'blue_highway_condensed';
-    src: url('../fonts/blue_highway/bluehigc-webfont.eot');
-    src: url('../fonts/blue_highway/bluehigc-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/blue_highway/bluehigc-webfont.woff2') format('woff2'),
-         url('../fonts/blue_highway/bluehigc-webfont.woff') format('woff'),
-         url('../fonts/blue_highway/Bluehigc.ttf') format('truetype'),
-         url('../fonts/blue_highway/bluehigc-webfont.svg#blue_highway_condensedregular') format('svg');
-    font-weight: normal;
+	font-family: 'blue_highway_condensed';
+	src: url('../fonts/blue_highway/bluehigc-webfont.eot');
+	src: url('../fonts/blue_highway/bluehigc-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/blue_highway/bluehigc-webfont.woff2') format('woff2'),
+		 url('../fonts/blue_highway/bluehigc-webfont.woff') format('woff'),
+		 url('../fonts/blue_highway/Bluehigc.ttf') format('truetype'),
+		 url('../fonts/blue_highway/bluehigc-webfont.svg#blue_highway_condensedregular') format('svg');
+	font-weight: normal;
 }
 
 @font-face {
-      font-family: 'fontello';
-      src: url('../fonts/fontello/fontello.eot?58599859');
-      src: url('../fonts/fontello/fontello.eot?58599859#iefix') format('embedded-opentype'),
-           url('../fonts/fontello/fontello.woff?58599859') format('woff'),
-           url('../fonts/fontello/fontello.ttf?58599859') format('truetype'),
-           url('../fonts/fontello/fontello.svg?58599859#fontello') format('svg');
-      font-weight: normal;
-      font-style: normal;
-    }
+	  font-family: 'fontello';
+	  src: url('../fonts/fontello/fontello.eot?58599859');
+	  src: url('../fonts/fontello/fontello.eot?58599859#iefix') format('embedded-opentype'),
+		   url('../fonts/fontello/fontello.woff?58599859') format('woff'),
+		   url('../fonts/fontello/fontello.ttf?58599859') format('truetype'),
+		   url('../fonts/fontello/fontello.svg?58599859#fontello') format('svg');
+	  font-weight: normal;
+	  font-style: normal;
+	}
 
 
 html {
@@ -930,9 +930,9 @@ header.page-header.has-image::before {
 	content: '';
 	display: block;
 	position: absolute;
-	top: 0; right: 0; bottom: 0; left: 0;
+	top: 0; right: 0; bottom: 0; left: 0;/*
 	background: url('../images/header/animated_header_yellow.png');
-  	background: rgba(252, 175, 23, 0.29);
+	background: rgba(252, 175, 23, 0.29);*/
 }
 
 
@@ -1641,7 +1641,7 @@ a.greenHeader::before {
 .bfblSlider.sliderClosed .greenHeader::before,
 a.greenHeader::before {
 	content: '\e80e';
-    transition: transform 0.1s ease-in-out;
+	transition: transform 0.1s ease-in-out;
 }
 
 .bfblSlider.slideOpen .greenHeader::before {
@@ -1665,10 +1665,10 @@ label.greenHeader:hover {
 	border-width: 0;
 }
 .bfblSlider .bfblSlideWrap {
-    -webkit-transition: max-height 0.25s ease-in-out;
-    -moz-transition: max-height 0.25s ease-in-out;
-    -o-transition: max-height 0.25s ease-in-out;
-    transition: max-height 0.25s ease-in-out;
+	-webkit-transition: max-height 0.25s ease-in-out;
+	-moz-transition: max-height 0.25s ease-in-out;
+	-o-transition: max-height 0.25s ease-in-out;
+	transition: max-height 0.25s ease-in-out;
 }
 .bfblSlider.sliderClosed {
 	border-bottom-width: 1px;
@@ -1777,177 +1777,177 @@ li.chip {
 
 /* ANIMATED HEADER */
 .animated-header {
-  overflow: hidden;
-  font-family: 'Clear Sans', Helvetica, Arial, sans-serif;
-  font-size: 18px; font-size: 1.125rem;
-  line-height: 20px; line-height: 1.25rem;
-  font-weight: normal;
+	overflow: hidden;
+	font-family: 'Clear Sans', Helvetica, Arial, sans-serif;
+	font-size: 18px; font-size: 1.125rem;
+	line-height: 20px; line-height: 1.25rem;
+	font-weight: normal;
 }
 .animated-header .animated-blocks {
-  display: block;
-  width: auto;
-  height: auto;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-  text-align: center;
+	display: block;
+	width: auto;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	text-align: center;
 }
 /* NOTE: most of the hover/active styles are added in the tablet media query */
 
 .animated-header .animated-blocks li {
-  display: none; /* hidden on mobile */
-  position: relative;
-  height: 418px; height: 26.125rem;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: cover;
-/*  transition: width 0.1s ease-in-out; */
-  transition: width 0.25s ease-in-out;
+	display: none; /* hidden on mobile */
+	position: relative;
+	height: 418px; height: 26.125rem;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	/*transition: width 0.1s ease-in-out;*/
+	transition: width 0.25s ease-in-out;
 }
 .animated-header .animated-blocks li a {
-  position: absolute;
-  display: block;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 5;
-  color: #fff;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: all 0.25s ease-in-out;
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 5;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: all 0.25s ease-in-out;
 }
 .animated-header .animated-blocks li a::before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  content: '';
-  background: url('../images/header/animated_header_yellow.png');
-  background: rgba(252, 175, 23, 0.29);
-/*  transition: background 0.1s ease-in-out; */
-  transition: background 0.25s ease-in-out;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	content: '';
+	/*background: url('../images/header/animated_header_yellow.png');
+	background: rgba(252, 175, 23, 0.29);
+	transition: background 0.1s ease-in-out;
+	transition: background 0.25s ease-in-out;*/
 }
 .animated-header .animated-blocks li a::after {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  content: '';
-  background-image: url('../images/header/animated_header_gradient.png');
-  background-position: 50% bottom;
-  background-repeat: repeat-x;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	content: '';
+	background-image: url('../images/header/animated_header_gradient.png');
+	background-position: 50% bottom;
+	background-repeat: repeat-x;
 }
 .animated-header .animated-blocks li a .content,
 .animated-header .animated-blocks li a .map-content {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 3;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 3;
 }
 .animated-header .animated-blocks li a .content h3,
 .animated-header .animated-blocks li a .map-content .subtext {
-  font-size: 18px; font-size: 1.125rem;
-  line-height: 20px; line-height: 1.25rem;
-  font-weight: normal;
-  position: absolute;
-  top: auto;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  margin: 0;
-  padding: 20px 0 53px; padding: 1.25rem 0 3.3125rem;
-  font-family: 'Clear Sans', Helvetica, Arial, sans-serif;
+	font-size: 18px; font-size: 1.125rem;
+	line-height: 20px; line-height: 1.25rem;
+	font-weight: normal;
+	position: absolute;
+	top: auto;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	margin: 0;
+	padding: 20px 0 53px; padding: 1.25rem 0 3.3125rem;
+	font-family: 'Clear Sans', Helvetica, Arial, sans-serif;
 }
 .animated-header .animated-blocks li a .content h3::before,
 .animated-header .animated-blocks li a .map-content .subtext::before {
-  display: block;
-  width: 77px;
-  height: 1px;
-  margin: 0 auto;
-  padding: 0;
-  background-color: #ffffff;
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: auto;
-  left: 0;
-  right: 0;
-  background: url('../images/header/animated_header_line.png') 50% 50% no-repeat;
+	display: block;
+	width: 77px;
+	height: 1px;
+	margin: 0 auto;
+	padding: 0;
+	background-color: #ffffff;
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: auto;
+	left: 0;
+	right: 0;
+	background: url('../images/header/animated_header_line.png') 50% 50% no-repeat;
 }
 .animated-header .animated-blocks li a .content .subtext {
-  position: absolute;
-  top: auto;
-  bottom: -100px;
-  left: 0;
-  right: 0;
+	position: absolute;
+	top: auto;
+	bottom: -100px;
+	left: 0;
+	right: 0;
 /*  transition: bottom 0.15s ease-in-out, opacity 0.25s ease-in-out; */
-  transition: bottom 0.25s ease-in-out, opacity 0.125s ease-in-out;
-  opacity: 0;
+	transition: bottom 0.25s ease-in-out, opacity 0.125s ease-in-out;
+	opacity: 0;
 }
 .animated-header .animated-blocks li a .content .subtext p {
-  max-width: 200px; max-width: 12.5rem;
-  margin: 0 auto;
+	max-width: 200px; max-width: 12.5rem;
+	margin: 0 auto;
 }
 .animated-header .animated-blocks li.map-link {
-  display: block;
-  font-family: 'blue_highway_bold';
+	display: block;
+	font-family: 'blue_highway_bold';
 }
 .animated-header .animated-blocks li.map-link .map-content .inner {
-  width: 180px;
-  text-align: left;
-  margin: 70px auto 0; margin: 4.375 auto 0;
+	width: 180px;
+	text-align: left;
+	margin: 70px auto 0; margin: 4.375 auto 0;
 }
 .csstransforms .animated-header .animated-blocks li.map-link .map-content .inner {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -65%);
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -65%);
 }
 .animated-header .animated-blocks li.map-link .map-content .inner .badge-icon {
 	/* tomato */
-  margin: 0 0 5px 14px; margin: 0 0 0.3125rem 0.875rem;
-  width: 80px; width: 5rem;
-  height: auto;
+	margin: 0 0 5px 14px; margin: 0 0 0.3125rem 0.875rem;
+	width: 80px; width: 5rem;
+	height: auto;
 }
 .animated-header .animated-blocks li.map-link .map-content .inner .badge-icon img {
-  width: 100%;
-  height: auto;
+	width: 100%;
+	height: auto;
 }
 .animated-header .animated-blocks li.map-link .map-content .inner h3 {
-  font-family: 'blue_highway_bold';
-  color: #193282;
-  font-size: 50px; font-size: 3.125rem;
-  line-height: 40px; line-height: 2.5rem;
-  margin: 0;
+	font-family: 'blue_highway_bold';
+	color: #193282;
+	font-size: 50px; font-size: 3.125rem;
+	line-height: 40px; line-height: 2.5rem;
+	margin: 0;
 }
 .animated-header .animated-blocks li.map-link .map-content .inner h3 small {
-  font-size: 18px; font-size: 1.125rem;
-  line-height: 15px; line-height: 0.9375rem;
-  color: #d7453a;
-  display: block;
+	font-size: 18px; font-size: 1.125rem;
+	line-height: 15px; line-height: 0.9375rem;
+	color: #d7453a;
+	display: block;
 }
 
 .animated-header .animated-blocks li a .map-content .subtext::after {
 	font-family: 'fontello';
-    content: '\e805';
-    display: inline-block;
-    padding-left: 12px; padding-left: 0.75rem;
+	content: '\e805';
+	display: inline-block;
+	padding-left: 12px; padding-left: 0.75rem;
 }
 
 /* SPONSOR BLOCK */
 .sponsors-list {
 	/* make sure this 'page block' never gets get hidden on mobile */
 	position: relative!important;
-    clip: auto!important;
+	clip: auto!important;
 }
 
 
@@ -1961,12 +1961,12 @@ li.chip {
 	text-align: center;
 }
 .sponsors-list ul {
-    max-width: 1170px;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-    font-size: 0;
-    text-align: center;
+	max-width: 1170px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	font-size: 0;
+	text-align: center;
 }
 .sponsors-list .sponsor {
 	display: inline-block;
@@ -2225,11 +2225,11 @@ body.single-events .entry-content .post-meta {
 
 .news-events-list a.read-more::after,
 .archive-list a.read-more::after {
-    font-family: 'fontello';
-    content: '\e805';
-    display: inline-block;
-    font-size: 18px; font-size: 1.125rem;
-    padding-left: 8px; padding-left: .5rem;
+	font-family: 'fontello';
+	content: '\e805';
+	display: inline-block;
+	font-size: 18px; font-size: 1.125rem;
+	padding-left: 8px; padding-left: .5rem;
 }
 
 .news-events-list a.read-more:hover,
@@ -3938,65 +3938,65 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 	/* ANIMATED HEADER - TABLET */
 	  .animated-header .animated-blocks li {
-	    display: block;
-	    height: 556px; height: 34.75rem;
-	    width: 19%;
-	    float: left;
+		display: block;
+		height: 556px; height: 34.75rem;
+		width: 19%;
+		float: left;
 	  }
 	  .animated-header .animated-blocks li a .content h3,
 	  .animated-header .animated-blocks li a .map-content .subtext,
 	  .animated-header .animated-blocks li a .content .subtext {
-	    font-size: 15px; font-size: 0.9375rem;
-	    line-height: 20px; line-height: 1.25rem;
+		font-size: 15px; font-size: 0.9375rem;
+		line-height: 20px; line-height: 1.25rem;
 	  }
 	  .animated-header .animated-blocks li a .content h3,
 	  .animated-header .animated-blocks li a .content .subtext {
-	    text-shadow: 0 0 3px rgba(15,30,44,1);
-	    letter-spacing: .1em;
+		text-shadow: 0 0 3px rgba(15,30,44,1);
+		letter-spacing: .1em;
 	  }
 
 	  .animated-header .animated-blocks li:first-child {
-	    background-position: 0 50%;
+		background-position: 0 50%;
 	  }
 	  .animated-header .animated-blocks li:nth-child(4) {
-	    background-position: 100% 50%;
+		background-position: 100% 50%;
 	  }
 	  /* turn the yellow overlay off */
 	  .animated-header .animated-blocks li.animated-link a:hover::before {
-	    background: transparent;
+		background: transparent;
 	  }
 	  /* move the subtext block into postion */
 	  .animated-header .animated-blocks li.animated-link a:hover .content .subtext {
-	    opacity: 1;
-	    bottom: 115px; bottom: 7.1875rem;
-	    transition: bottom 0.375s ease-in-out, opacity 0.5s ease-in-out 0.125s;
+		opacity: 1;
+		bottom: 115px; bottom: 7.1875rem;
+		transition: bottom 0.375s ease-in-out, opacity 0.5s ease-in-out 0.125s;
 	  }
 	  .animated-header .animated-blocks li.map-link {
-	    width: 24%;
+		width: 24%;
 	  }
 	  .animated-header .animated-blocks li.map-link .map-content h3 {
-	  	text-shadow: 0 0 35px rgb(252,175,23);
+		text-shadow: 0 0 35px rgb(252,175,23);
 	  }
 	  .animated-header .animated-blocks li.map-link .map-content .subtext {
-	  	text-shadow: 0 0 3px rgba(15,30,44,1);
+		text-shadow: 0 0 3px rgba(15,30,44,1);
 	  }
 	  .animated-header .animated-blocks li.map-link .map-content .inner .badge-icon {
-	    width: 113px; width: 7.0625rem;
+		width: 113px; width: 7.0625rem;
 	  }
 	  .animated-header .animated-blocks.has-active li {
-	    width: 17%;
+		width: 17%;
 	  }
 	  .animated-header .animated-blocks.has-active li.active {
-	    width: 25%;
+		width: 25%;
 	  }
 	  .animated-header .animated-blocks.has-active li.active:before {
-	    background: transparent;
+		background: transparent;
 	  }
 	  .animated-header .animated-blocks.has-active li.map-link {
-	    width: 24%;
+		width: 24%;
 	  }
 	  .animated-header .animated-blocks.has-active li.map-link.active {
-	    width: 24%;
+		width: 24%;
 	  }
 
 
@@ -4162,15 +4162,15 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		font-size: 20px; font-size: 1.25rem;
 	}
 
-    .archive-list {
-    	padding: 44px 42px; padding: 2.75rem 2.625rem;
-    }
+	.archive-list {
+		padding: 44px 42px; padding: 2.75rem 2.625rem;
+	}
 
-    .archive-list article {
-    	margin-bottom: 80px; margin-bottom: 5rem;
-    }
+	.archive-list article {
+		margin-bottom: 80px; margin-bottom: 5rem;
+	}
 
-    /* PARTNERS - TABLET */
+	/* PARTNERS - TABLET */
 	.partner-profile .page-block::after {
 		content: '';
 		display: block;
@@ -4185,33 +4185,33 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		height: 320px; height: 20rem;
 	}
 
-    .product-categories-list {
-    	margin-bottom: -26px; margin-bottom: -1.625rem;
-    }
+	.product-categories-list {
+		margin-bottom: -26px; margin-bottom: -1.625rem;
+	}
 
 	.product-categories-list li {
 		display: inline-block;
 		padding: 0 26px 26px 0; padding: 0 1.625rem 1.625rem 0;
 	}
 
-    .partner-info-right,
-    .product-info-right {
-    	float: right;
-    	width: 60%;
-    	text-align: left;
-    }
+	.partner-info-right,
+	.product-info-right {
+		float: right;
+		width: 60%;
+		text-align: left;
+	}
 
-    .partner-info-left,
-    .product-info-left {
-    	float: left;
-    	width: 30%;
-    }
+	.partner-info-left,
+	.product-info-left {
+		float: left;
+		width: 30%;
+	}
 
-    .partner-info-right h1.entry-title {
-    	text-align: left;
-    	padding-top: 0;
-    	margin-bottom: 32px; margin-bottom: 2rem;
-    }
+	.partner-info-right h1.entry-title {
+		text-align: left;
+		padding-top: 0;
+		margin-bottom: 32px; margin-bottom: 2rem;
+	}
 
 	.partner-description {
 		margin-bottom: 48px; margin-bottom: 3rem;
@@ -4361,7 +4361,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	.wholesale-section label span::after {
-        left: 36px; left: 2.25rem;
+		left: 36px; left: 2.25rem;
 	}
 
 	.map-page-middle{
@@ -4428,11 +4428,11 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		right: 42px; right: 2.625rem;
 	}
 
-    body.error404 .main-content h1 {
+	body.error404 .main-content h1 {
 		font-size: 82px; font-size: 5.125rem;
 	}
 
-    body.error404 .main-content h2 {
+	body.error404 .main-content h2 {
 		font-size: 36px; font-size: 2.25rem;
 	}
 
@@ -4442,7 +4442,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		max-width: 440px; max-width: 27.5rem;
 	}
 
-    body.error404 .main-content p.not-found-btn {
+	body.error404 .main-content p.not-found-btn {
 		padding-top: 32px; padding-top: 2rem;
 	}
 
@@ -4628,7 +4628,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	.drawerSearch {
-	    position: relative;
+		position: relative;
 	}
 
 	.searchBtnWrap {
@@ -4636,11 +4636,11 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	.searchFormWrap {
-	    background: #015c3c;
-	    position: absolute;
-	    top: 100%;
-	    right: -16px; right: -1rem;
-	    width: 320px; width: 20rem;
+		background: #015c3c;
+		position: absolute;
+		top: 100%;
+		right: -16px; right: -1rem;
+		width: 320px; width: 20rem;
 		padding: 16px 18px; padding: 1rem 1.125rem;
 		clip: rect(0, 320px, 0, 0); clip: rect(0, 20rem, 0, 0);
 		transition: clip 0.5s;
@@ -4793,28 +4793,28 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 	/* ANIMATED HEADER - DESKTOP */
 	  .animated-header .animated-blocks li {
-	    width: 16.5625%;
+		width: 16.5625%;
 	  }
 	  .animated-header .animated-blocks li a .content h3,
 	  .animated-header .animated-blocks li a .map-content .subtext,
 	  .animated-header .animated-blocks li a .content .subtext {
-	    font-size: 18px; font-size: 1.125rem;
-	    line-height: 20px; line-height: 1.25rem;
+		font-size: 18px; font-size: 1.125rem;
+		line-height: 20px; line-height: 1.25rem;
 	  }
 	  .animated-header .animated-blocks li.map-link {
-	    width: 33.75%;
+		width: 33.75%;
 	  }
 	  .animated-header .animated-blocks.has-active li {
-	    width: 15%;
+		width: 15%;
 	  }
 	  .animated-header .animated-blocks.has-active li.active {
-	    width: 21.25%;
+		width: 21.25%;
 	  }
 	  .animated-header .animated-blocks.has-active li.map-link {
-	    width: 33.75%;
+		width: 33.75%;
 	  }
 	  .animated-header .animated-blocks.has-active li.map-link.active {
-	    width: 33.75%;
+		width: 33.75%;
 	  }
 
 	/* SPONSOR BLOCK - TABLET */
@@ -4925,8 +4925,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		padding-bottom: 40px;
 	}
 
-    .archive-list {
-    	padding: 44px 46px; padding: 2.75rem 2.875rem;
+	.archive-list {
+		padding: 44px 46px; padding: 2.75rem 2.875rem;
 	}
 
 	/* FIND LOCAL FOOD - MAP PAGE - DESKTOP */
@@ -4943,21 +4943,21 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		right: 46px; right: 2.875rem;
 	}
 
-    body.error404 .main-content h1 {
+	body.error404 .main-content h1 {
 		font-size: 100px; font-size: 6.25rem;
 	}
 
-    body.error404 .main-content h2 {
+	body.error404 .main-content h2 {
 		font-size: 46px; font-size: 2.875rem;
 	}
 
-    body.error404 .main-content p {
+	body.error404 .main-content p {
 		font-size: 30px; font-size: 1.875rem;
 		line-height: 40px; line-height: 2.5rem;
 		max-width: 560px; max-width: 35rem;
 	}
 
-    body.error404 .main-content p.not-found-btn {
+	body.error404 .main-content p.not-found-btn {
 		padding-top: 56px; padding-top: 3.5rem;
 	}
 
@@ -5057,22 +5057,22 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 	/* ANIMATED HEADER - LARGE DESKTOP */
 	  .animated-header .animated-blocks li {
-	    width: 16.5625%;
+		width: 16.5625%;
 	  }
 	  .animated-header .animated-blocks li.map-link {
-	    width: 33.75%;
+		width: 33.75%;
 	  }
 	  .animated-header .animated-blocks.has-active li {
-	    width: 15%;
+		width: 15%;
 	  }
 	  .animated-header .animated-blocks.has-active li.active {
-	    width: 21.25%;
+		width: 21.25%;
 	  }
 	  .animated-header .animated-blocks.has-active li.map-link {
-	    width: 33.75%;
+		width: 33.75%;
 	  }
 	  .animated-header .animated-blocks.has-active li.map-link.active {
-	    width: 33.75%;
+		width: 33.75%;
 	  }
 
 	/* SPECIFIC PAGES - LARGE DESKTOP */
