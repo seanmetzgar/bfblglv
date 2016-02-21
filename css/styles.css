@@ -2104,7 +2104,6 @@ li.chip {
 	font-size: 20px; font-size: 1.25rem;
 	line-height: 1;
 	text-transform: uppercase;
-	letter-spacing: .0625em;
 	color: inherit;
 }
 
@@ -2516,7 +2515,6 @@ body.single-events .entry-content .post-meta {
 	margin: 0;
 	padding-bottom: 6px; padding-bottom: 0.375rem;
 	font-weight: normal;
-	letter-spacing: .05em;
 }
 
 .partner-detail {
