@@ -3471,10 +3471,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	header.page-header.no-image {
-		padding: 44px 42px; padding: 2.75rem 2.625rem; /* matches padding on .page-block */
-	}
-
-	header.page-header.no-image .entry-title {
+		padding: 32px 42px 0; padding: 2rem 2.625rem 0; /* matches padding on .page-block */
 	}
 
 	/* PAGE CONTENT - TABLET */
@@ -4684,7 +4681,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	header.page-header.no-image {
-		padding: 44px 46px; padding: 2.75rem 2.875rem; /* matches padding on .page-block */
+		padding: 32px 46px 0; padding: 2rem 2.875rem 0;
 	}
 
 	header.page-header.no-image .entry-title {
