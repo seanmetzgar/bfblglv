@@ -967,11 +967,13 @@ header.page-header.no-image {
 header.page-header.no-image .entry-title {
 	font-family: 'blue_highway_bold';
 	font-size: 30px; font-size: 1.875rem;
-	line-height: 22px; line-height: 1.375rem;
 	color: #1a3281;
-	text-align: center;
+	text-align: left;
 	text-transform: uppercase;
 	margin: 0;
+}
+header.page-header.no-image .entry-title br {
+	display: none;
 }
 
 
@@ -997,7 +999,7 @@ header.page-header.no-image .entry-title {
 	margin: 0;
 	padding: 24px 0; padding: 1.5rem 0;
 	font-family: 'blue_highway_bold';
-	font-size: 40px; font-size: 2.5rem;
+	font-size: 30px; font-size: 1.875rem;
 	line-height: 1;
 	color: #193282;
 	text-transform: uppercase;
@@ -1006,7 +1008,7 @@ header.page-header.no-image .entry-title {
 .resources-container h2 { text-align: center; }
 
 .entry-content h2.resourceSubhead {
-	font-size: 30px; font-size: 1.875rem;
+	font-size: 24px; font-size: 1.5rem;
 	color: #555555;
 }
 
@@ -3473,7 +3475,6 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	header.page-header.no-image .entry-title {
-		font-size: 60px; font-size: 3.75rem;
 		line-height: 1;
 	}
 
@@ -4688,8 +4689,6 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	header.page-header.no-image .entry-title {
-		font-size: 70px; font-size: 4.375rem;
-		line-height: 60px; line-height: 3.75rem;
 	}
 
 
