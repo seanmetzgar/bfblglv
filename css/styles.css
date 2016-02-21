@@ -3417,7 +3417,9 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	#bfblFooter h3 {
 		margin: 50px 0 20px; margin: 3.125rem 0 1.25rem;
 	}
-
+	.footerNav-1 {
+		padding-left: 30px; padding-left: 1.875rem;
+	}
 	.footerAbout p,
 	.footerNav li {
 		margin-top: 0;

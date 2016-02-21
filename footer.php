@@ -64,7 +64,7 @@
 		foreach ($bfblFooterNav as $thisColumn) {
 			if($j < 3) { // ensure there are never more than two columns
 
-				$bfblFooter .= "<section class='footerNav col-xs-12 col-sm-3 col-md-3 col-lg-2'>";
+				$bfblFooter .= "<section class='footerNav footerNav-$j col-xs-12 col-sm-3 col-md-3 col-lg-2'>";
 					if(isset($thisColumn['name'])) {
 						$bfblFooter .= "<h3>{$thisColumn['name']}</h3>";
 					}
