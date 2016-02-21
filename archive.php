@@ -7,7 +7,7 @@ else:
 			<section class="main-content archive-page" role="main">
 				<header class="header page-header no-image">
 					<h1 class="entry-title"><?php 
-						printf( __( '%s Archives', 'kudu' ), $post_type );
+						printf( __( '%s Archives', 'kudu' ), get_post_type_name("", false) );
 						?></h1>
 				</header>
 
