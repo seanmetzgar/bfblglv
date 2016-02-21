@@ -1934,6 +1934,7 @@ li.chip {
 	font-size: 18px; font-size: 1.125rem;
 	line-height: 15px; line-height: 0.9375rem;
 	display: block;
+	color: #ffffff;
 }
 
 .animated-header .animated-blocks li a .map-content .subtext::after {
