@@ -23,7 +23,7 @@
 		$galleryOutput .= 		"    <div class=\"photo-gallery\">\n";
 		$galleryOutput .= 		"        <div class=\"cycle-slideshow\" $galleryDataSet>\n";
 		if ($galleryCount > 1) {
-			$galleryOutput .= 	"            <a href=\"#\" class=\"cycle-prev\">Previous</a><a href=\"#\" class=\"cycle-next\">Next</a>\n";
+			$galleryOutput .= 	"            <a href=\"#\" class=\"cycle-prev\"><span>Previous</span></a><a href=\"#\" class=\"cycle-next\"><span>Next</span></a>\n";
 		}
 		foreach ($galleryImages as $galleryImage) {
 			$galleryImageSrc = $galleryImage["sizes"]["medium_large"];

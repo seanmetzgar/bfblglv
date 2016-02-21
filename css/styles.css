@@ -3268,23 +3268,32 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 .photo-gallery-wrapper .photo-gallery .cycle-prev,
 .photo-gallery-wrapper .photo-gallery .cycle-next {
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	z-index: 1000;
+	cursor: pointer;
+	text-indent: -9999em;
+	outline: 0;
+}
+.photo-gallery-wrapper .photo-gallery .cycle-prev span,
+.photo-gallery-wrapper .photo-gallery .cycle-next span {
+	display: block;
 	width: 82px; height: 90px;
 	background-color: rgba(255, 255, 255, 0.85);
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	position: absolute;
-	top: 50px;
-	z-index: 1000;
-	cursor: pointer;
-	text-indent: -9999em;
-
+	top: 105px;
 	opacity: .25;
 	transition: opacity 0.1s ease-in-out;
 	-webkit-transition: opacity 0.1s ease-in-out;
 	-moz-transition: opacity 0.1s ease-in-out;
 }
-.photo-gallery-wrapper .photo-gallery .cycle-prev:hover,
-.photo-gallery-wrapper .photo-gallery .cycle-next:hover {
+
+.photo-gallery-wrapper .photo-gallery .cycle-prev:hover span,
+.photo-gallery-wrapper .photo-gallery .cycle-next:hover span {
 	opacity: 1;
 }
 .photo-gallery-wrapper .photo-gallery .cycle-slideshow {
@@ -3292,11 +3301,11 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 }
 .photo-gallery-wrapper .photo-gallery .cycle-prev {
 	background-image: url(../images/gallery/gallery_prev_lg.png);
-	left: 0;
+	left: 0; right: 50%;
 }
 .photo-gallery-wrapper .photo-gallery .cycle-next {
 	background-image: url(../images/gallery/gallery_next_lg.png);
-	right: 0;
+	right: 0; left: 50%;
 }
 .photo-gallery-wrapper .photo-gallery img {
 	width: 100%; height: auto;
