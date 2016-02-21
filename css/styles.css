@@ -943,12 +943,12 @@ header.page-header.has-image .entry-title {
 	font-family: 'blue_highway_bold';
 	font-size: 36px; font-size: 2.25rem;
 	line-height: 30px; line-height: 1.875rem;
-	color: #1a3281;
+	color: #FFFFFF;
 	text-align: center;
 	text-transform: uppercase;
 	position: relative;
 	z-index: 10;
-	text-shadow: 0 0 10px #ffffff;
+	text-shadow: 0 0 10px #000000;
 }
 
 header.page-header.has-image img {
@@ -3468,7 +3468,6 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		text-align: left;
 		min-width: 33.33%;
 		padding-right: 42px; padding-right: 2.625rem;
-		text-shadow: 0 0 20px #ffffff;
 	}
 
 	header.page-header.no-image {
