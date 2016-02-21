@@ -1929,6 +1929,7 @@ li.chip {
 	font-size: 50px; font-size: 3.125rem;
 	line-height: 40px; line-height: 2.5rem;
 	margin: 0;
+	text-shadow: 0 0 15px #000000;
 }
 .animated-header .animated-blocks li.map-link .map-content .inner h3 small {
 	font-size: 18px; font-size: 1.125rem;
