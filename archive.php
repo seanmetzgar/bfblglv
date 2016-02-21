@@ -3,11 +3,13 @@ if(is_post_type_archive(array('sponsors'))):
 	get_template_part( 'redirect', 'home' );
 else:
 	get_header();
+	$post_type_object = get_post_type_object( $post_type );
+	$post_type_name = $post_type_object->labels->name;
 ?>
 			<section class="main-content archive-page" role="main">
 				<header class="header page-header no-image">
 					<h1 class="entry-title"><?php 
-						printf( __( '%s Archives', 'kudu' ), get_post_type_name("", false) );
+						printf( __( '%s Archives', 'kudu' ), $post_type_name );
 						?></h1>
 				</header>
 
