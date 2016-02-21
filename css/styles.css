@@ -3947,7 +3947,6 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	  .animated-header .animated-blocks li a .content h3,
 	  .animated-header .animated-blocks li a .content .subtext {
 		text-shadow: 0 0 3px rgba(15,30,44,1);
-		letter-spacing: .1em;
 	  }
 
 	  .animated-header .animated-blocks li:first-child {
