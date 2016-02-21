@@ -3296,13 +3296,17 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 .photo-gallery-wrapper .photo-gallery .cycle-next:hover span {
 	opacity: 1;
 }
+.photo-gallery-wrapper .photo-gallery .cycle-prev {
+	left: 0; right: 50%;
+}
 .photo-gallery-wrapper .photo-gallery .cycle-prev span{
 	background-image: url(../images/gallery/gallery_prev_lg.png);
-	left: 0; right: 50%;
+}
+.photo-gallery-wrapper .photo-gallery .cycle-next {
+	right: 0; left: 50%;
 }
 .photo-gallery-wrapper .photo-gallery .cycle-next span{
 	background-image: url(../images/gallery/gallery_next_lg.png);
-	right: 0; left: 50%;
 }
 .photo-gallery-wrapper .photo-gallery .cycle-slideshow {
 	background-color: #333;
