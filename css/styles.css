@@ -3273,10 +3273,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	-webkit-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
+	top: 50px;
 	z-index: 1000;
 	cursor: pointer;
 	text-indent: -9999em;
