@@ -1925,7 +1925,7 @@ li.chip {
 }
 .animated-header .animated-blocks li.map-link .map-content .inner h3 {
 	font-family: 'blue_highway_bold';
-	color: #1a3281;
+	color: #ffffff;
 	font-size: 50px; font-size: 3.125rem;
 	line-height: 40px; line-height: 2.5rem;
 	margin: 0;
@@ -1934,7 +1934,7 @@ li.chip {
 	font-size: 18px; font-size: 1.125rem;
 	line-height: 15px; line-height: 0.9375rem;
 	display: block;
-	color: #1a3281;
+	color: #ffffff;
 }
 
 .animated-header .animated-blocks li a .map-content .subtext::after {
