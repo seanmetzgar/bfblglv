@@ -1,5 +1,5 @@
 <?php 
-if(is_post_type_archive(array('news','events','sponsors'))):
+if(is_post_type_archive(array('sponsors'))):
 	get_template_part( 'redirect', 'home' );
 else:
 	get_header();
