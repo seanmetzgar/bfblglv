@@ -5,12 +5,9 @@ else:
 	get_header();
 ?>
 			<section class="main-content archive-page" role="main">
-				<header class="header archive-header">
+				<header class="header page-header no-image">
 					<h1 class="entry-title"><?php 
-						if ( is_day() ) { printf( __( 'Daily Archives: %s', 'kudu' ), get_the_time( get_option( 'date_format' ) ) ); }
-						elseif ( is_month() ) { printf( __( 'Monthly Archives: %s', 'kudu' ), get_the_time( 'F Y' ) ); }
-						elseif ( is_year() ) { printf( __( 'Yearly Archives: %s', 'kudu' ), get_the_time( 'Y' ) ); }
-						else { _e( 'Archives', 'kudu' ); }
+						printf( __( '%s Archives', 'kudu' ), $post_type );
 						?></h1>
 				</header>
 
