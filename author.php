@@ -465,9 +465,9 @@ get_header(); ?>
 												}
 											} else {
 												if ($partner_business_photo) {
-													echo '<div class="owner-image">';
+													echo '<div class="business-image">';
 														echo $partner_business_photo;
-													echo '</div><!-- end div.owner-image -->';
+													echo '</div><!-- end div.business-image -->';
 												}
 											}
 											?>
