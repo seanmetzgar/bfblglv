@@ -76,9 +76,11 @@ function shortcode_getPartners( $atts ) {
 			}
 		}
 	}
-
 	$rVal = "";
 	if (count($listItems) > 0) {
+		usort($listItems, function($a, $b) {
+		    return strnatcmp($a->name, $b->name);
+		});
 		$rVal = "<ul>";
 		foreach ($listItems as $item) {
 			$rVal .= "<li><a href=\"{$item->href}\">{$item->name}";

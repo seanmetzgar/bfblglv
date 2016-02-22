@@ -761,8 +761,8 @@ function xhrAddPartner() {
 		"last_name" => $user_last_name,
 		"user_nicename" => $slug,
 		"display_name" => $partner->partner_name,
-		/*"user_email" => $new_user_email*/
-		"user_email" => "sean.metzgar+{$slug}@gmail.com",
+		"user_email" => $new_user_email
+		// "user_email" => "sean.metzgar+{$slug}@gmail.com",
 		"user_registered" => $member_since
 	);
 	$user_id = wp_insert_user($new_user_args);
