@@ -99,10 +99,10 @@ function kudu_load_scripts() {
 }
 
 // admin stylesheet
-add_action( 'admin_enqueue_scripts', 'kudu_load_admin_styles' );
+add_action( "admin_enqueue_scripts", "kudu_load_admin_styles" );
 function kudu_load_admin_styles() {
 	$template_path = relative_template_path();
-	wp_register_style("kudu-amdin-css", "$template_path/css/admin-styles.css");
+	wp_register_style("kudu-amdin-css", "{$template_path}/css/admin-style.css");
     wp_enqueue_style("kudu-admin-css");
 } // end kudu_load_admin_styles()
 
