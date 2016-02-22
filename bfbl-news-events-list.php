@@ -47,7 +47,7 @@
 				</div>
 			</article>
 		<?php endforeach; wp_reset_postdata();?>
-			<p class="archive-link"><a href="<?php echo get_post_type_archive_link("news"); ?>" class="bfblButtonLink btnOrange">View all news...</a></p>
+			<p class="archive-link"><a href="<?php echo get_post_type_archive_link("news"); ?>" class="bfblButtonLink btnBlue">View all news...</a></p>
 		<?php else: ?>
 			<h3 class="not-found">No news articles found...</h3>
 		<?php endif; ?>
@@ -79,7 +79,7 @@
 				</div>
 			</article>
 		<?php endforeach; wp_reset_postdata();?>
-			<p class="archive-link"><a href="<?php echo get_post_type_archive_link("events"); ?>" class="bfblButtonLink btnOrange">View all events...</a></p>
+			<p class="archive-link"><a href="<?php echo get_post_type_archive_link("events"); ?>" class="bfblButtonLink btnBlue">View all events...</a></p>
 		<?php else: ?>
 			<h3 class="not-found">No events found...</h3>
 		<?php endif; ?>
