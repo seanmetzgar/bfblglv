@@ -114,17 +114,26 @@ function xhrGetPartners(formObject) {
             mapTypeControl : false,
             styles      : [
                 {
-                    "featureType": "all",
-                    "elementType": "labels",
+                    "featureType": "landscape",
+                    "elementType": "all",
                     "stylers": [
                         {
-                            "visibility": "off"
+                            "hue": "#FFBB00"
+                        },
+                        {
+                            "saturation": 43.400000000000006
+                        },
+                        {
+                            "lightness": 37.599999999999994
+                        },
+                        {
+                            "gamma": 1
                         }
                     ]
                 },
                 {
-                    "featureType": "administrative",
-                    "elementType": "labels",
+                    "featureType": "landscape.man_made",
+                    "elementType": "all",
                     "stylers": [
                         {
                             "visibility": "on"
@@ -132,8 +141,29 @@ function xhrGetPartners(formObject) {
                     ]
                 },
                 {
-                    "featureType": "road",
+                    "featureType": "poi",
                     "elementType": "all",
+                    "stylers": [
+                        {
+                            "hue": "#00ff6a"
+                        },
+                        {
+                            "saturation": -1.0989010989011234
+                        },
+                        {
+                            "lightness": 11.200000000000017
+                        },
+                        {
+                            "gamma": 1
+                        },
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "labels",
                     "stylers": [
                         {
                             "visibility": "off"
@@ -141,8 +171,71 @@ function xhrGetPartners(formObject) {
                     ]
                 },
                 {
-                    "featureType": "transit",
+                    "featureType": "road.highway",
                     "elementType": "all",
+                    "stylers": [
+                        {
+                            "hue": "#FFC200"
+                        },
+                        {
+                            "saturation": -61.8
+                        },
+                        {
+                            "lightness": 45.599999999999994
+                        },
+                        {
+                            "gamma": 1
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "hue": "#FF0300"
+                        },
+                        {
+                            "saturation": -100
+                        },
+                        {
+                            "lightness": 51.19999999999999
+                        },
+                        {
+                            "gamma": 1
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.local",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "hue": "#FF0300"
+                        },
+                        {
+                            "saturation": -100
+                        },
+                        {
+                            "lightness": 52
+                        },
+                        {
+                            "gamma": 1
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit.line",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit.line",
+                    "elementType": "labels.text",
                     "stylers": [
                         {
                             "visibility": "off"
@@ -154,7 +247,16 @@ function xhrGetPartners(formObject) {
                     "elementType": "all",
                     "stylers": [
                         {
-                            "color": "#effefd"
+                            "hue": "#0078FF"
+                        },
+                        {
+                            "saturation": -13.200000000000003
+                        },
+                        {
+                            "lightness": 2.4000000000000057
+                        },
+                        {
+                            "gamma": 1
                         }
                     ]
                 }
