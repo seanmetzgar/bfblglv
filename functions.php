@@ -98,13 +98,12 @@ function kudu_load_scripts() {
     wp_enqueue_script("kudu-scripts", false, array("jquery", "jquery-ui-dialog", "kudu-plugins", "wp-jquery-ui-dialog"), false, true);
 }
 
-// admin stylesheet
 add_action( "admin_enqueue_scripts", "kudu_load_admin_styles" );
 function kudu_load_admin_styles() {
 	$template_path = relative_template_path();
-	wp_register_style("kudu-amdin-css", "{$template_path}/css/admin-style.css");
+	wp_register_style("kudu-amdin-css", "{$template_path}/css/admin-styles.css");
     wp_enqueue_style("kudu-admin-css");
-} // end kudu_load_admin_styles()
+}
 
 /* ORIGINAL, SIMPLIFIED VERSION (could be used on other projects):
 // add the current user's role(s) as body classes on admin

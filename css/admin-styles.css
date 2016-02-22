@@ -1,0 +1,33 @@
+body.bfbl-partner #your-profile h2,
+body.bfbl-partner #your-profile .user-rich-editing-wrap,
+body.bfbl-partner #your-profile .user-admin-color-wrap,
+body.bfbl-partner #your-profile .user-comment-shortcuts-wrap,
+body.bfbl-partner #your-profile .user-admin-bar-front-wrap,
+body.bfbl-partner #your-profile .user-user-login-wrap,
+body.bfbl-partner #your-profile .user-role-wrap,
+body.bfbl-partner #your-profile .user-first-name-wrap,
+body.bfbl-partner #your-profile .user-last-name-wrap,
+body.bfbl-partner #your-profile .user-nickname-wrap,
+body.bfbl-partner #your-profile .user-display-name-wrap,
+body.bfbl-partner #your-profile .user-email-wrap,
+body.bfbl-partner #your-profile .user-url-wrap,
+body.bfbl-partner #your-profile .user-description-wrap,
+body.bfbl-partner #your-profile .user-profile-picture,
+body.bfbl-partner #your-profile .user-capabilities-wrap {
+	display: none;
+}
+
+body.user-edit-php #your-profile h2,
+body.user-edit-php #your-profile .user-rich-editing-wrap,
+body.user-edit-php #your-profile .user-admin-color-wrap,
+body.user-edit-php #your-profile .user-comment-shortcuts-wrap,
+body.user-edit-php #your-profile .user-admin-bar-front-wrap,
+body.user-edit-php #your-profile .user-first-name-wrap,
+body.user-edit-php #your-profile .user-last-name-wrap,
+body.user-edit-php #your-profile .user-nickname-wrap,
+body.user-edit-php #your-profile .user-display-name-wrap,
+body.user-edit-php #your-profile .user-url-wrap,
+body.user-edit-php #your-profile .user-description-wrap,
+body.user-edit-php #your-profile .user-profile-picture {
+	display: none;
+}
