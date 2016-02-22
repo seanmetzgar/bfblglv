@@ -213,15 +213,3 @@ function bfblExtractName($url) {
 function showIt($string) {
 	echo "<h1>$string</h1>";
 } // end showIt()
-
-if ( function_exists( 'add_image_size' ) ) {
-	add_image_size( 'tiny', 100, 9999 ); //(cropped)
-}
-add_filter('image_size_names_choose', 'custom_image_sizes');
-function custom_image_sizes($sizes) {
-	$addsizes = array(
-		"tiny" => __( "Tiny")
-	);
-	$newsizes = array_merge($sizes, $addsizes);
-	return $newsizes;
-}
