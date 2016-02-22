@@ -514,12 +514,14 @@ get_header(); ?>
 												if ($hasProducts) {
 													$productsAvailable = array();
 													foreach($products as $productCategory=>$productCategoryProducts) {
-														foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
-															if ($productCategoryProduct) {
-																if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
-																	$productsAvailable[] = $productCategoryProduct;
-																} elseif ($productCategoryProductKey === "other") {
-																	$productsAvailable[] = strip_tags($productCategoryProduct);
+														if (is_array($productCategoryProducts) && count($productCategoryProducts) > 0) {
+															foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
+																if ($productCategoryProduct) {
+																	if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
+																		$productsAvailable[] = $productCategoryProduct;
+																	} elseif ($productCategoryProductKey === "other") {
+																		$productsAvailable[] = strip_tags($productCategoryProduct);
+																	}
 																}
 															}
 														}
@@ -625,12 +627,14 @@ get_header(); ?>
 												if ($hasWsProducts) {
 													$ws_productsAvailable = array();
 													foreach($ws_products as $productCategory=>$productCategoryProducts) {
-														foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
-															if ($productCategoryProduct) {
-																if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
-																	$ws_productsAvailable[] = $productCategoryProduct;
-																} elseif ($productCategoryProductKey === "other") {
-																	$ws_productsAvailable[] = strip_tags($productCategoryProduct);
+														if (is_array($productCategoryProducts) && count($productCategoryProducts) > 0) {
+															foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
+																if ($productCategoryProduct) {
+																	if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
+																		$ws_productsAvailable[] = $productCategoryProduct;
+																	} elseif ($productCategoryProductKey === "other") {
+																		$ws_productsAvailable[] = strip_tags($productCategoryProduct);
+																	}
 																}
 															}
 														}
