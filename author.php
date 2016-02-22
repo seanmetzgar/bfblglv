@@ -974,21 +974,16 @@ get_header(); ?>
 											</ul>
 										</div>
 										<?php endif; ?>
-									</div>
-									<?php endif; ?>
 
-									<?php if ($possible_addons): ?>
-									<div class="row">
-										<div class="practices-wrap">
+										<?php if ($possible_addons): ?>
+										<div class="col-sm-4 practices-wrap">
 											<h4 class="col-xs-12">Possible Addons</h4>
-											<div class="col-xs-12">
-												<p><?php echo $possible_addons; ?></p>
-											</div>
+											<p><?php echo $possible_addons; ?></p>
 										</div>
-									</div>>
-									<?php endif; ?>
+										<?php endif; ?>
+									</div>
 
-									<?php if ($has_farm_pickup ||$has_other_pickup): ?>
+										<?php if ($has_farm_pickup ||$has_other_pickup): ?>
 									<div class="row">
 										<h3 class="col-xs-12">Pickup Locations</h3>
 
@@ -1009,6 +1004,7 @@ get_header(); ?>
 										<?php endforeach;
 										endif; ?>
 									</div>
+										<?php endif; ?>
 									<?php endif; ?>
 								</div><!-- end div.product-info-contents -->
 							</div><!-- end div -->
