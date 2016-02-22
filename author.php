@@ -707,7 +707,7 @@ get_header(); ?>
 							}
 
 							if ($is_csa || $is_farm_share) {
-								$season_weeks = get_field("season_weels", $acf_partner_id);
+								$season_weeks = get_field("season_weeks", $acf_partner_id);
 								$season_start_mpart = get_field("season_start_mpart", $acf_partner_id);
 								$season_start = get_field("season_start_month", $acf_partner_id);
 								$season_end_mpart = get_field("season_end_mpart", $acf_partner_id);
@@ -745,6 +745,7 @@ get_header(); ?>
 								$possible_addons = get_field("possible_addons", $acf_partner_id);
 
 								//Farm Pickup
+								$has_farm_pickup = false;
 								$has_farm_pickup = get_field("farm_pickup", $acf_partner_id);
 								if ($has_farm_pickup) {
 									$farm_pickup_hours = false;
@@ -763,6 +764,7 @@ get_header(); ?>
 									}
 								}
 								//Other Pickup Locations
+								$has_other_pickup = false;
 								$has_other_pickup = get_field("other_pickup", $acf_partner_id);
 								if ($has_other_pickup) {
 									$other_pickup_locations = false;
@@ -944,7 +946,7 @@ get_header(); ?>
 									</div>
 									<?php endif; ?>
 
-									<?php if ($possible_addons): ?>
+									<?php if (isset($possible_addons) && $possible_addons): ?>
 									<div class="row">
 										<h4 class="col-xs-12">Possible Addons</h4>
 										<div class="col-xs-12">
@@ -953,18 +955,18 @@ get_header(); ?>
 									</div>>
 									<?php endif; ?>
 
-									<?php if ($has_farm_pickup || $has_other_pickup): ?>
+									<?php if ((isset($has_farm_pickup) && $has_farm_pickup) || (isset($has_other_pickup) && $has_other_pickup)): ?>
 									<div class="row">
 										<h3 class="col-xs-12">Pickup Locations</h3>
 
-										<?php if ($has_farm_pickup && $farm_pickup_hours): ?>
+										<?php if (isset($has_farm_pickup) && $has_farm_pickup && $farm_pickup_hours): ?>
 										<div class="col-md-4">
 											<h4>Farm Pickup</h4>
 											<p><?php echo $farm_pickup_hours; ?></p>
 										</div>
 										<?php endif; ?>
 
-										<?php if ($has_other_pickup && is_array($other_pickup_locations)):
+										<?php if (isset($has_other_pickup) && $has_other_pickup && is_array($other_pickup_locations)):
 											foreach($other_pickup_locations as $other_pickup_location): ?>
 										<div class="col-md-4">
 											<h4><?php echo $other_pickup_location["name"]; ?></h4>
