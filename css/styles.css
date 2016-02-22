@@ -974,7 +974,10 @@ header.page-header.no-image .entry-title {
 	margin: 0;
 }
 header.page-header.no-image .entry-title br {
-	display: none;
+	content: ' ';
+}
+header.page-header.no-image .entry-title br::after {
+	content: ' ';
 }
 
 
