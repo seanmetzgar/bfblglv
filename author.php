@@ -718,127 +718,127 @@ get_header(); ?>
 							echo "\n-->";
 
 							if ($is_csa || $is_farm_share) {
-								if (have_rows("csa_details", $acf_partner_id)): the_row();
+								if (have_rows("csa_details", $acf_partner_id)) { the_row();
 
-								$season_weeks = get_field("season_weeks", $acf_partner_id);
+									$season_weeks = get_field("season_weeks", $acf_partner_id);
 
-								$season_start_mpart = get_sub_field("season_start_mpart");
-								$season_start_month = get_sub_field("season_start_month");
-								$season_end_mpart = get_sub_field("season_end_mpart");
-								$season_end_month = get_sub_field("season_end_month");
+									$season_start_mpart = get_sub_field("season_start_mpart");
+									$season_start_month = get_sub_field("season_start_month");
+									$season_end_mpart = get_sub_field("season_end_mpart");
+									$season_end_month = get_sub_field("season_end_month");
 
-								if ($season_start_month && $season_start_mpart) {
-									$season_start = "$season_start_mpart $season_start_month";
-								} elseif ($season_start_month) {
-									$season_start = "$season_start_month";
-								} else { $season_start = false; }
+									if ($season_start_month && $season_start_mpart) {
+										$season_start = "$season_start_mpart $season_start_month";
+									} elseif ($season_start_month) {
+										$season_start = "$season_start_month";
+									} else { $season_start = false; }
 
-								if ($season_end_month && $season_end_mpart) {
-									$season_end = "$season_end_mpart $season_end_month";
-								} elseif ($season_end_month) {
-									$season_end = "$season_end_month";
-								} else { $season_end = false; }
+									if ($season_end_month && $season_end_mpart) {
+										$season_end = "$season_end_mpart $season_end_month";
+									} elseif ($season_end_month) {
+										$season_end = "$season_end_month";
+									} else { $season_end = false; }
 
-								if ($season_start) {
-									$season_string = $season_start;
-									if ($season_end) {
-										$season_string = " - $season_end";
+									if ($season_start) {
+										$season_string = $season_start;
+										if ($season_end) {
+											$season_string = " - $season_end";
+										}
+									} else { $season_string = false; }
+
+									$has_season = ($season_weeks || $season_string) ? true : false;
+
+									//Full Shares
+									$has_full_shares = false;
+									$full_shares = get_sub_field("full_shares");
+									$cost_full_shares = get_sub_field("cost_full_shares");
+									$size_full_shares = get_sub_field("size_full_shares");
+									$size_full_shares_type = get_sub_field("size_full_shares_type");
+									if ($full_shares || $cost_full_shares || $size_full_shares) {
+										$has_full_shares = true;
+										if ($size_full_shares) {
+											if ($size_full_shares_type) {
+												$size_full_shares .= " $size_full_shares_type";
+											}
+										} else { $size_full_shares = false; }
 									}
-								} else { $season_string = false; }
 
-								$has_season = ($season_weeks || $season_string) ? true : false;
-
-								//Full Shares
-								$has_full_shares = false;
-								$full_shares = get_sub_field("full_shares");
-								$cost_full_shares = get_sub_field("cost_full_shares");
-								$size_full_shares = get_sub_field("size_full_shares");
-								$size_full_shares_type = get_sub_field("size_full_shares_type");
-								if ($full_shares || $cost_full_shares || $size_full_shares) {
-									$has_full_shares = true;
-									if ($size_full_shares) {
-										if ($size_full_shares_type) {
-											$size_full_shares .= " $size_full_shares_type";
-										}
-									} else { $size_full_shares = false; }
-								}
-
-								//Half Shares
-								$has_half_shares = false;
-								$half_shares = get_sub_field("half_shares");
-								$cost_half_shares = get_sub_field("cost_half_shares");
-								$size_half_shares = get_sub_field("size_half_shares");
-								$size_half_shares_type = get_sub_field("size_half_shares_type");
-								if ($half_shares || $cost_half_shares || $size_half_shares) {
-									$has_half_shares = true;
-									if ($size_half_shares) {
-										if ($size_half_shares_type) {
-											$size_half_shares .= " $size_half_shares_type";
-										}
-									} else { $size_half_shares = false; }
-								}
-
-								//Possible Add-ons
-								$possible_addons = get_sub_field("possible_addons");
-
-								//Farm Pickup
-								$has_farm_pickup = false;
-								$has_farm_pickup = get_sub_field("farm_pickup");
-								if ($has_farm_pickup) {
-									$farm_pickup_hours = false;
-									if (have_rows("farm_pickup_hours")) {
-										$farm_pickup_hours = array();
-										while (have_rows("farm_pickup_hours")) {
-											the_row();
-											$tempDay = get_sub_field("day");
-											$tempOpenTime = get_sub_field("open_time");
-											$tempCloseTime = get_sub_field("close_time");
-
-											$tempHours = "$tempDay: $tempOpenTime - $tempCloseTime";
-											$farm_pickup_hours[] = $tempHours;
-										}
-										$farm_pickup_hours = (count($farm_pickup_hours) > 0) ? implode("<br>", $farm_pickup_hours) : false;
+									//Half Shares
+									$has_half_shares = false;
+									$half_shares = get_sub_field("half_shares");
+									$cost_half_shares = get_sub_field("cost_half_shares");
+									$size_half_shares = get_sub_field("size_half_shares");
+									$size_half_shares_type = get_sub_field("size_half_shares_type");
+									if ($half_shares || $cost_half_shares || $size_half_shares) {
+										$has_half_shares = true;
+										if ($size_half_shares) {
+											if ($size_half_shares_type) {
+												$size_half_shares .= " $size_half_shares_type";
+											}
+										} else { $size_half_shares = false; }
 									}
-								}
-								//Other Pickup Locations
-								$has_other_pickup = false;
-								$has_other_pickup = get_sub_field("other_pickup");
-								if ($has_other_pickup) {
-									$other_pickup_locations = false;
-									if (have_rows("other_pickup_locations")) {
-										$other_pickup_locations = array();
-										while (have_rows("other_pickup_locations")){
-											the_row();
-											$tempLocation = array();
-											$tempLName = get_sub_field("name");
-											$tempLAddress = get_sub_field("address");
-											$tempLHours = false;
-											if (have_rows("hours")) {
-												$tempLHours = array();
-												while (have_rows("hours")) {
-													the_row();
-													$tempDay = get_sub_field("day");
-													$tempOpenTime = get_sub_field("open_time");
-													$tempCloseTime = get_sub_field("close_time");
 
-													$tempHours = "$tempDay: $tempOpenTime - $tempCloseTime";
-													$tempLHours[] = $tempHours;
+									//Possible Add-ons
+									$possible_addons = get_sub_field("possible_addons");
+
+									//Farm Pickup
+									$has_farm_pickup = false;
+									$has_farm_pickup = get_sub_field("farm_pickup");
+									if ($has_farm_pickup) {
+										$farm_pickup_hours = false;
+										if (have_rows("farm_pickup_hours")) {
+											$farm_pickup_hours = array();
+											while (have_rows("farm_pickup_hours")) {
+												the_row();
+												$tempDay = get_sub_field("day");
+												$tempOpenTime = get_sub_field("open_time");
+												$tempCloseTime = get_sub_field("close_time");
+
+												$tempHours = "$tempDay: $tempOpenTime - $tempCloseTime";
+												$farm_pickup_hours[] = $tempHours;
+											}
+											$farm_pickup_hours = (count($farm_pickup_hours) > 0) ? implode("<br>", $farm_pickup_hours) : false;
+										}
+									}
+									//Other Pickup Locations
+									$has_other_pickup = false;
+									$has_other_pickup = get_sub_field("other_pickup");
+									if ($has_other_pickup) {
+										$other_pickup_locations = false;
+										if (have_rows("other_pickup_locations")) {
+											$other_pickup_locations = array();
+											while (have_rows("other_pickup_locations")){
+												the_row();
+												$tempLocation = array();
+												$tempLName = get_sub_field("name");
+												$tempLAddress = get_sub_field("address");
+												$tempLHours = false;
+												if (have_rows("hours")) {
+													$tempLHours = array();
+													while (have_rows("hours")) {
+														the_row();
+														$tempDay = get_sub_field("day");
+														$tempOpenTime = get_sub_field("open_time");
+														$tempCloseTime = get_sub_field("close_time");
+
+														$tempHours = "$tempDay: $tempOpenTime - $tempCloseTime";
+														$tempLHours[] = $tempHours;
+													}
+													$tempLHours = (count($farm_pickup_hours) > 0) ? implode("<br>", $tempLHours) : false;
 												}
-												$tempLHours = (count($farm_pickup_hours) > 0) ? implode("<br>", $tempLHours) : false;
-											}
-											if ($tempLHours && $tempLName) {
-												$tempLocation["hours"] = $tempLHours;
-												$tempLocation["name"] = $tempLName;
-												$tempLocation["address"] = ($tempLAddress) ? $tempLAddress : false;
-												$other_pickup_locations[] = $tempLocation;
+												if ($tempLHours && $tempLName) {
+													$tempLocation["hours"] = $tempLHours;
+													$tempLocation["name"] = $tempLName;
+													$tempLocation["address"] = ($tempLAddress) ? $tempLAddress : false;
+													$other_pickup_locations[] = $tempLocation;
+												}
 											}
 										}
 									}
-								}
-								else:
+								} else {
 									$is_csa = false;
 									$is_farm_share = false;
-								endif;
+								}
 							}
 						?>
 						<?php if ($certifications || $practices || $benefits || (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $has_farm_pickup || $has_other_pickup))): ?>
