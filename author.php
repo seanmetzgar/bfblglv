@@ -516,11 +516,9 @@ get_header(); ?>
 												<h3>Products Available</h3>
 												<?php
 												if ($hasProducts) {
-													$productsAvailable = array();
 													foreach($products as $productCategory=>$productCategoryProducts) {
 														if (is_array($productCategoryProducts) && count($productCategoryProducts) > 0) {
 															$tempProductsList = array();
-															echo "<h4>{$productCategoryProducts["name"]}</h4>";
 															foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
 																if ($productCategoryProduct) {
 																	if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
@@ -532,8 +530,10 @@ get_header(); ?>
 															}
 															if (count($tempProductsList) > 0) {
 																$tempProductsList = implode(", ", $tempProductsList);
+																echo "<div class=\"product-group\">";
 																echo "<h4>{$productCategoryProducts["name"]}</h4>";
 																echo "<p>$tempProductsList</p>";
+																echo "</div>";
 															}
 															$tempProductsList = null;
 														}
@@ -635,7 +635,6 @@ get_header(); ?>
 													foreach($ws_products as $productCategory=>$productCategoryProducts) {
 														if (is_array($productCategoryProducts) && count($productCategoryProducts) > 0) {
 															$tempProductsList = array();
-															echo "<h4>{$productCategoryProducts["name"]}</h4>";
 															foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
 																if ($productCategoryProduct) {
 																	if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
@@ -647,8 +646,10 @@ get_header(); ?>
 															}
 															if (count($tempProductsList) > 0) {
 																$tempProductsList = implode(", ", $tempProductsList);
+																echo "<div class=\"product-group\">";
 																echo "<h4>{$productCategoryProducts["name"]}</h4>";
 																echo "<p>$tempProductsList</p>";
+																echo "</div>";
 															}
 															$tempProductsList = null;
 														}
