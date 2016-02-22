@@ -711,8 +711,8 @@ get_header(); ?>
 								$season_start = get_field("season_start_month", $acf_partner_id);
 								$season_end_mpart = get_field("season_end_mpart", $acf_partner_id);
 								$season_end = get_field("season_end_month", $acf_partner_id);
-								$season_start = ($season_start_mpart && $season_start) ? $ "$season_start_mpart $season_start" : $season_start;
-								$season_end = ($season_end_mpart && $season_end) ? $ "$season_end_mpart $season_end" : $season_end;
+								$season_start = ($season_start_mpart && $season_start) ? "$season_start_mpart $season_start" : $season_start;
+								$season_end = ($season_end_mpart && $season_end) ? "$season_end_mpart $season_end" : $season_end;
 								$season_string = ($season_start) ? $season_string : "";
 								$season_string .= ($season_start && $season_end) ? " $season_end" : "";
 								$season_string .= ($season_end && !$season_start) ? $season_end : "";
