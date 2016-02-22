@@ -701,9 +701,9 @@ get_header(); ?>
 							$benefits = ($accept_fmnp || $accept_snap) ? true : false;
 
 							$is_csa = get_field("is_csa", $acf_partner_id);
-							if (is_bool($is_csa)) ? $is_csa : false;
+							$is_csa = (is_bool($is_csa)) ? $is_csa : false;
 							$is_farm_share = get_field("is_farm_share", $acf_partner_id);
-							if (is_bool($is_farm_share)) ? $is_farm_share : false;
+							$is_farm_share = (is_bool($is_farm_share)) ? $is_farm_share : false;
 
 							$csa_heading = false;
 							if ($is_csa && $is_farm_share) {
