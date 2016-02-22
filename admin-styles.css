@@ -26,8 +26,8 @@ body.bfbl-partner #your-profile .user-description-wrap,
 body.user-edit-php #your-profile .user-description-wrap,
 body.bfbl-partner #your-profile .user-profile-picture,
 body.user-edit-php #your-profile .user-profile-picture,
-body.bfbl-partner #your-profile .user-capabilities-wrap
-body.user-edit-php #your-profile .user-capabilities-wrap, {
+body.bfbl-partner #your-profile .user-capabilities-wrap,
+body.user-edit-php #your-profile .user-capabilities-wrap {
 	display: none;
 }
 
