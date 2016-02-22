@@ -894,7 +894,7 @@ get_header(); ?>
 									<?php endif; ?>
 
 
-									<?php if ($csa_heading): ?>
+									<?php if (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $has_farm_pickup || $has_other_pickup)): ?>
 									<div class="row">
 										<h3 class="col-xs-12"><?php echo $csa_heading; ?></h3>
 										<?php if ($has_season): ?>
