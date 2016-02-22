@@ -62,7 +62,7 @@ get_header(); ?>
 								<li>
 									<?php 
 										echo "<span class=\"name\">" . get_sub_field("name") . "</span>";
-										echo ", ";
+										echo "<br>";
 										echo "<span class=\"position\">" . get_sub_field("position") . "</span>";
 										echo "<br>";
 										echo "<span class=\"organization\">" . get_sub_field("organization") . "</span>";

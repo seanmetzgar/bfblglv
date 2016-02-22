@@ -1293,6 +1293,10 @@ body.page-template-page_about-parent .entry-content img {
 .team-section .position {
 	font-style: italic;
 }
+.team-section .position,
+.team-section .organization {
+	font-size: .9em;
+}
 
 /* PAGE BLOCKS */
 
