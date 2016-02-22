@@ -2674,6 +2674,14 @@ body.single-events .entry-content .post-meta {
 .products-detail {
 	margin-top: 48px; margin-top: 3rem;
 }
+.product-group {
+	display: block;
+	margin: 0 0 1em;
+}
+.product-group h4,
+.product-group p {
+	display: inline; margin: 0; padding: 0;
+}
 
 .partner-social {
 	text-align: center;
