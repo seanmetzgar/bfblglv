@@ -74,7 +74,7 @@ get_header(); ?>
 					$partner_owner_name = (!$partner_owner_name && $partner_contact_name) ? $partner_contact_name : false;
 
 					$partner_owner_photo = get_field("owner_photo", $acf_partner_id);
-					
+
 					if (is_array($partner_owner_photo)) {
 						$partner_owner_photo = wp_get_attachment_image($partner_owner_photo["ID"], "full", false, array("class" => "img-responsive"));
 					} elseif (is_string($partner_owner_photo) && strlen($partner_owner_photo) > 0) {
@@ -678,93 +678,107 @@ get_header(); ?>
 							$grass_fed = get_field("grass_fed", $acf_partner_id);
 							$extended_growing_season = get_field("extended_growing_season", $acf_partner_id);
 							$other_farming_practices_text = get_field("other_farming_practices_text", $acf_partner_id);
+							
 							$accept_snap = get_field("accept_snap", $acf_partner_id);
 							$accept_fmnp = get_field("accept_fmnp", $acf_partner_id);
+
+							$certifications = ($certified_organic || $certified_naturally_grown || $certified_biodynamic) ? true : false;
+							$practices = ($only_organic || $integrated_pest_management || $non_gmo || $antibiotic_harmone_free || $pastured || $grass_fed || $extended_growing_season || $other_farming_practices_text) ? true : false;
+							$benefits = ($accept_fmnp || $accept_snap) ? true : false;
 						?>
 						<div class="entry-farm-practices">
 							<h2 class="greenHeader">Farm Details</h2>
 
 							<div>
 								<div class="page-block product-info-contents">
-									<?php if ($certified_organic || $certified_naturally_grown || $certified_biodynamic): ?>
-									<h3>Certifications</h3>
-									<ul class="farming-practices-list">
-										<?php
-										if ($certified_organic) {
-											echo "<li><h4>Certified Organic</h4>";
-											if ($certified_organic_by || $certified_organic_since) {
-												echo "<em>(";
-												if ($certified_organic_since) {
-													echo "Since: $certified_organic_since";
+									<?php ($certifications || $practices || $benefits): ?>
+									<div class="row">
+										<?php if ($certifications): ?>
+										<h3>Farming Practices</h3>
+										<div class="col-md-4">
+											<h4>Certifications</h4>
+											<ul class="farming-practices-list">
+												<?php
+												if ($certified_organic) {
+													echo "<li><h4>Certified Organic</h4>";
+													if ($certified_organic_by || $certified_organic_since) {
+														echo "<br><em>(";
+														if ($certified_organic_since) {
+															echo "Since: $certified_organic_since";
+														}
+														if ($certified_organic_since && $certified_organic_by) {
+															echo " | ";
+														}
+														if ($certified_organic_by) {
+															echo "By: $certified_organic_by";
+														}
+														echo ")</em>";
+													}
+													echo "</li>";
 												}
-												if ($certified_organic_since && $certified_organic_by) {
-													echo " | ";
+												if ($certified_naturally_grown) {
+													echo "<li>Certified Naturally Grown";
+													if ($certified_naturally_grown_since) {
+														echo "<br><em>(Since: $certified_naturally_grown_since)</em>";
+													}
+													echo "</li>";
 												}
-												if ($certified_organic_by) {
-													echo "By: $certified_organic_by";
+												if ($certified_biodynamic) {
+													echo "<li>Certified Biodynamic";
+													if ($certified_biodynamic_by || $certified_biodynamic_since) {
+														echo "<br><em>(";
+														if ($certified_biodynamic_since) {
+															echo "Since: $certified_biodynamic_since";
+														}
+														if ($certified_biodynamic_since && $certified_biodynamic_by) {
+															echo " | ";
+														}
+														if ($certified_biodynamic_by) {
+															echo "By: $certified_biodynamic_by";
+														}
+														echo ")</em>";
+													}
+													echo "</li>";
 												}
-												echo ")</em>";
-											}
-											echo "</li>";
-										}
-										if ($certified_naturally_grown) {
-											echo "<li><h4>Certified Naturally Grown</h4>";
-											if ($certified_naturally_grown_since) {
-												echo "<em>(Since: $certified_naturally_grown_since)</em>";
-											}
-											echo "</li>";
-										}
-										if ($certified_biodynamic) {
-											echo "<li><h4>Certified Biodynamic</h4>";
-											if ($certified_biodynamic_by || $certified_biodynamic_since) {
-												echo "<em>(";
-												if ($certified_biodynamic_since) {
-													echo "Since: $certified_biodynamic_since";
-												}
-												if ($certified_biodynamic_since && $certified_biodynamic_by) {
-													echo " | ";
-												}
-												if ($certified_biodynamic_by) {
-													echo "By: $certified_biodynamic_by";
-												}
-												echo ")</em>";
-											}
-											echo "</li>";
-										}
-										?>
-									</ul>
-									<?php endif;
-
-									if ($only_organic || $integrated_pest_management || $non_gmo || $antibiotic_harmone_free || $pastured || $grass_fed || $extended_growing_season || $other_farming_practices_text): ?>
-									<h3>Farm Practices</h3>
-									<ul class="farming-practices-list">
-										<?php
-										if ($only_organic) { echo "<li><h4>Use Only Organic Materials</h4></li>"; }
-										if ($integrated_pest_management) { echo "<li><h4>Intergrated Pest Management (IPM)</h4></li>"; }
-										if ($non_gmo) { echo "<li><h4>Non-GMO</h4></li>"; }
-										if ($antibiotic_harmone_free) { echo "<li><h4>Antibiotic and Hormone Free</h4></li>"; }
-										if ($pastured) { echo "<li><h4>Pastured</h4></li>"; }
-										if ($grass_fed) { echo "<li><h4>100% Grass Fed</h4></li>"; }
-										if ($extended_growing_season) { echo "<li><h4>Extended Growing Season</h4></li>"; }
-										?>
-									</ul>
-										<?php if ($other_farming_practices_text): ?>
-									<h4>Other Farming Practices</h4>
+												?>
+											</ul>
+										</div>
 										<?php endif;
-									endif;
 
-									if ($other_farming_practices_text): ?>
-									<p><?php echo $other_farming_practices_text; ?></p>
-									<?php endif;
+										if ($practices): ?>
+										<div class="col-md-4">
+											<h4>Practices</h4>
+											<ul class="farming-practices-list">
+												<?php
+												if ($only_organic) { echo "<li>Use Only Organic Materials</li>"; }
+												if ($integrated_pest_management) { echo "<li>Intergrated Pest Management (IPM)</li>"; }
+												if ($non_gmo) { echo "<li>Non-GMO</li>"; }
+												if ($antibiotic_harmone_free) { echo "<li>Antibiotic and Hormone Free</li>"; }
+												if ($pastured) { echo "<li>Pastured</li>"; }
+												if ($grass_fed) { echo "<li>100% Grass Fed</li>"; }
+												if ($extended_growing_season) { echo "<li>Extended Growing Season</li>"; }
+												?>
+											</ul>
+												<?php if ($other_farming_practices_text): ?>
+											<p><strong>Other Practices</strong><br>
+											<?php echo $other_farming_practices_text; ?>
+											</p>
+												<?php endif; ?>
+										</div>
+										<?php endif;
 
-									if ($accept_snap || $accept_fmnp): ?>
-									<h3>Benefits Acceptance</h3>
-									<ul class="farming-practices-list">
-									<?php
-										if ($accept_snap) { echo "<li><h4>Accept SNAP</h4></li>"; }
-										if ($accept_fmnp) { echo "<li><h4>Accept FMNP</h4></li>"; }
-									?>
-									</ul>
+										if ($benefits): ?>
+										<div class="col-md-4">
+											<h4>Benefits Acceptance</h4>
+											<ul class="farming-practices-list">
+											<?php
+												if ($accept_snap) { echo "<li>Accept SNAP</li>"; }
+												if ($accept_fmnp) { echo "<li>Accept FMNP</li>"; }
+											?>
+											</ul>
+										</div>
+										<?php endif; ?>
+									</div>
 									<?php endif; ?>
 								</div><!-- end div.product-info-contents -->
 							</div><!-- end div -->
