@@ -70,6 +70,9 @@ get_header(); ?>
 
 					$partner_owner_name = get_field("partner_owner_name", $acf_partner_id);
 					$partner_owner_name = strlen($partner_owner_name) > 0 ? $partner_owner_name : false;
+					$partner_contact_name = get_field("partner_contact_name", $acf_partner_id);
+					$partner_owner_name = (!$partner_owner_name && $partner_contact_name) ? $partner_contact_name : false;
+
 					$partner_owner_photo = get_field("owner_photo", $acf_partner_id);
 					print_r($partner_owner_photo);
 					if (is_array($partner_owner_photo)) {
@@ -538,7 +541,7 @@ get_header(); ?>
 											if (is_array($products_available_at) && count($products_available_at) > 0): ?>
 											<h4>Buy our our products at these BFBLGLV partners</h4>
 											<ul class="vendor-list">
-												<?php foreach ($products_available_at as $vendor): 
+												<?php foreach ($products_available_at as $vendor):
 													if (is_object($vendor)):
 														$vendor_id = "user_{$vendor->ID}";
 														$vendor_url = get_author_posts_url($vendor_id);
@@ -555,7 +558,7 @@ get_header(); ?>
 											if (is_array($products_available_from) && count($products_available_from) > 0): ?>
 											<h4>We also offer products from these BFBLGLV partners</h4>
 											<ul class="vendor-list">
-												<?php foreach ($products_available_from as $vendor): 
+												<?php foreach ($products_available_from as $vendor):
 													if (is_object($vendor)):
 														$vendor_id = "user_{$vendor->ID}";
 														$vendor_url = get_author_posts_url($vendor_id);
@@ -572,7 +575,7 @@ get_header(); ?>
 											if (is_array($source_from) && count($source_from) > 0): ?>
 											<h4>We source from these BFBLGLV partners</h4>
 											<ul class="vendor-list">
-												<?php foreach ($source_from as $vendor): 
+												<?php foreach ($source_from as $vendor):
 													if (is_object($vendor)):
 														$vendor_id = "user_{$vendor->ID}";
 														$vendor_url = get_author_posts_url($vendor_id);
@@ -609,7 +612,7 @@ get_header(); ?>
 										<?php if ($gap_certification === "Yes") {
 											echo "<h4>GAP Certified</h4>";
 										} elseif ($gap_certification === "Pending") {
-											echo "<h4>Working towards GAP Certification</h4>"; 
+											echo "<h4>Working towards GAP Certification</h4>";
 										} ?>
 									</div><!-- end div.product-info-left -->
 
@@ -650,7 +653,7 @@ get_header(); ?>
 						</div><!-- end div.entry-wholesale-information -->
 						<?php endif; ?>
 
-						<?php if (in_array("farm", $partner_category)): 
+						<?php if (in_array("farm", $partner_category)):
 							$certified_organic = get_field("certified_organic", $acf_partner_id);
 							$certified_naturally_grown = get_field("certified_naturally_grown", $acf_partner_id);
 							$certified_biodynamic = get_field("certified_biodynamic", $acf_partner_id);
@@ -686,7 +689,7 @@ get_header(); ?>
 									<?php if ($certified_organic || $certified_naturally_grown || $certified_biodynamic): ?>
 									<h3>Certifications</h3>
 									<ul class="farming-practices-list">
-										<?php 
+										<?php
 										if ($certified_organic) {
 											echo "<li><h4>Certified Organic</h4>";
 											if ($certified_organic_by || $certified_organic_since) {
