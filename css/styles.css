@@ -4341,10 +4341,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		color: #003f29;
 	}
 	.farming-practices-list li {
-		box-sizing: border-box;
-		width: 33%;
+		display: block;
 		padding-left: 15px;
-		float: left;
 	}
 	.farming-practices-list li::before {
 		content: '\2022';
