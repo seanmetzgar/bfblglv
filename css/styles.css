@@ -1038,6 +1038,12 @@ header.page-header.no-image .entry-title br::after {
 	width: 75%;
 	margin: 0 auto;
 }
+.not-found {
+	color: #1a3281;
+	font-style: italic;
+	text-align: center;
+	text-transform: uppercase;
+}
 
 .entry-content blockquote {
 	clear: both;
