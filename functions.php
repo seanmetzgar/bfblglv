@@ -196,6 +196,7 @@ function bfblExtractName($url) {
 	$splitUrl = explode("facebook.com/", $url);
 	$result = $splitUrl[1];
 	$result = chop($result, "/?fref=ts");
+	$result = chop($result, "/");
 
 	// if the string is empty, put back the url as a fallback
 	if(!$result) {
