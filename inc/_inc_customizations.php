@@ -48,12 +48,6 @@ function kudu_custom_post_types() {
             "position"          => 9
         ));
     }
-
-    if ( function_exists( 'add_image_size' ) ) {
-        add_image_size( "tiny", 100, 9999 ); //(cropped)
-    }
-
-
 }
 
 // remove the 'posts' and 'comments' menu items, since we're not using them
@@ -61,12 +55,4 @@ add_action( 'admin_menu', 'remove_menus' );
 function remove_menus(){
   remove_menu_page( 'edit.php' ); //Posts
   remove_menu_page( 'edit-comments.php' ); //Comments
-}
-add_filter('image_size_names_choose', 'custom_image_sizes');
-function custom_image_sizes($sizes) {
-    $addsizes = array(
-        "tiny" => __( "Tiny")
-    );
-    $newsizes = array_merge($sizes, $addsizes);
-    return $newsizes;
 }

@@ -44,6 +44,10 @@ function kudu_setup() {
 	register_nav_menus(array(
 		"footer-menu" => 		__("Footer Menu", "kudu")
 	));
+
+	if ( function_exists( 'add_image_size' ) ) {
+        add_image_size( "tiny", 100, 9999 ); //(cropped)
+    }
 }
 
 add_action("wp_enqueue_scripts", "kudu_load_scripts");
@@ -189,6 +193,15 @@ add_filter( 'show_admin_bar', 'hide_admin_bar_from_front_end' );
 function hide_admin_bar_from_front_end(){
 	$rVal = (is_blog_admin()) ? true : false;
 	return $rVal;
+}
+
+add_filter('image_size_names_choose', 'custom_image_sizes');
+function custom_image_sizes($sizes) {
+    $addsizes = array(
+        "tiny" => __( "Tiny")
+    );
+    $newsizes = array_merge($sizes, $addsizes);
+    return $newsizes;
 }
 
 // extract a social media username from a url (assuming standard format, where the username is after the last slash)
