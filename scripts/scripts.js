@@ -218,7 +218,7 @@ jQuery(document).ready(function ($) {
         tempText = $(this).html(tempText);
     });
 
-    $chips = $("chips-block").find(".chip");
+    $chips = $(".chips-block").find(".chip");
     if ($chips.length > 1) {
         $(window).on("resize", function () {
             var maxTextHeight = 0;
@@ -228,7 +228,7 @@ jQuery(document).ready(function ($) {
                 maxTextHeight = ($this.height() > maxTextHeight) ? $this.height() : maxTextHeight;
             });
             if (maxTextHeight > 0) { $chipsDescr.height(maxTextHeight); }
-        })
+        }).trigger("resize");
     }
 
 }); // end document ready
