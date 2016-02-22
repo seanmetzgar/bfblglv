@@ -4421,7 +4421,6 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.finder-search-results .results-list {
 		margin-left: 0;
 		margin-right: 0;
-		max-width: 670px; max-width: 41.875rem;
 	}
 
 	.finder-search-results .results-list li {
