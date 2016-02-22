@@ -810,7 +810,7 @@ get_header(); ?>
 									<div class="row">
 										<h3 class="col-xs-12">Farming Practices</h3>
 										<?php if ($certifications): ?>
-										<div class="col-md-4 practices-wrap">
+										<div class="col-sm-4 practices-wrap">
 											<h4>Certifications</h4>
 											<ul class="farming-practices-list">
 												<?php
@@ -861,7 +861,7 @@ get_header(); ?>
 										<?php endif;
 
 										if ($practices): ?>
-										<div class="col-md-4 practices-wrap">
+										<div class="col-sm-4 practices-wrap">
 											<h4>Practices</h4>
 											<ul class="farming-practices-list">
 												<?php
@@ -883,7 +883,7 @@ get_header(); ?>
 										<?php endif;
 
 										if ($benefits): ?>
-										<div class="col-md-4 practices-wrap">
+										<div class="col-sm-4 practices-wrap">
 											<h4>Benefits Acceptance</h4>
 											<ul class="farming-practices-list">
 											<?php
@@ -901,7 +901,7 @@ get_header(); ?>
 									<div class="row">
 										<h3 class="col-xs-12"><?php echo $csa_heading; ?></h3>
 										<?php if ($has_season): ?>
-										<div class="col-md-4 practices-wrap">
+										<div class="col-sm-4 practices-wrap">
 											<h4>Season Details</h4>
 											<ul class="farming-practices-list">
 												<?php
@@ -914,7 +914,7 @@ get_header(); ?>
 										<?php endif;
 
 										if ($has_full_shares): ?>
-										<div class="col-md-4 practices-wrap">
+										<div class="col-sm-4 practices-wrap">
 											<h4>Full Shares</h4>
 											<ul class="farming-practices-list">
 												<?php
@@ -932,7 +932,7 @@ get_header(); ?>
 										<?php endif;
 
 										if ($has_half_shares): ?>
-										<div class="col-md-4 practices-wrap">
+										<div class="col-sm-4 practices-wrap">
 											<h4>Half Shares</h4>
 											<ul class="farming-practices-list">
 												<?php
@@ -962,7 +962,7 @@ get_header(); ?>
 										<h3 class="col-xs-12">Pickup Locations</h3>
 
 										<?php if (isset($has_farm_pickup) && $has_farm_pickup && $farm_pickup_hours): ?>
-										<div class="col-md-4 practices-wrap">
+										<div class="col-sm-4 practices-wrap">
 											<h4>Farm Pickup</h4>
 											<p><?php echo $farm_pickup_hours; ?></p>
 										</div>
@@ -970,7 +970,7 @@ get_header(); ?>
 
 										<?php if (isset($has_other_pickup) && $has_other_pickup && is_array($other_pickup_locations)):
 											foreach($other_pickup_locations as $other_pickup_location): ?>
-										<div class="col-md-4 practices-wrap">
+										<div class="col-sm-4 practices-wrap">
 											<h4><?php echo $other_pickup_location["name"]; ?></h4>
 											<?php if ($other_pickup_location["address"]) echo "<p>{$other_pickup_location["address"]}</p>"; ?>
 											<p><?php echo $other_pickup_location["hours"]; ?></p>
