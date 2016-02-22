@@ -517,6 +517,9 @@ get_header(); ?>
 												<?php
 												if ($hasProducts) {
 													$productsAvailable = array();
+													echo "<!--\n"
+													print_r($products);
+													echo "\n-->";
 													foreach($products as $productCategory=>$productCategoryProducts) {
 														if (is_array($productCategoryProducts) && count($productCategoryProducts) > 0) {
 															foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
