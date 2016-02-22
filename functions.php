@@ -50,8 +50,7 @@ function kudu_setup() {
 
 add_action("wp_enqueue_scripts", "kudu_load_scripts");
 function kudu_load_scripts() {
-//	$template_path = relative_template_path();
-	$template_path = get_stylesheet_directory_uri();
+	$template_path = relative_template_path();
 
     wp_deregister_script("jquery");
     wp_register_script("kudu-modernizr", "$template_path/scripts/vendor/modernizr/modernizr.min.js");
@@ -102,8 +101,9 @@ function kudu_load_scripts() {
 // admin stylesheet
 add_action( 'admin_enqueue_scripts', 'kudu_load_admin_styles' );
 function kudu_load_admin_styles() {
-	$template_path = get_stylesheet_directory_uri();
-    wp_enqueue_style('kudu-admin-css', get_stylesheet_directory_uri() . '/admin-styles.css');
+	$template_path = relative_template_path();
+	wp_register_style("kudu-amdin-css", "$template_path/css/admin-styles.css");
+    wp_enqueue_style("kudu-admin-css");
 } // end kudu_load_admin_styles()
 
 /* ORIGINAL, SIMPLIFIED VERSION (could be used on other projects):
