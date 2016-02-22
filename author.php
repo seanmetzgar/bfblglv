@@ -701,7 +701,9 @@ get_header(); ?>
 							$benefits = ($accept_fmnp || $accept_snap) ? true : false;
 
 							$is_csa = get_field("is_csa", $acf_partner_id);
+							if (is_bool($is_csa)) ? $is_csa : false;
 							$is_farm_share = get_field("is_farm_share", $acf_partner_id);
+							if (is_bool($is_farm_share)) ? $is_farm_share : false;
 
 							$csa_heading = false;
 							if ($is_csa && $is_farm_share) {
@@ -714,15 +716,31 @@ get_header(); ?>
 
 							if ($is_csa || $is_farm_share) {
 								$season_weeks = get_field("season_weeks", $acf_partner_id);
+								
 								$season_start_mpart = get_field("season_start_mpart", $acf_partner_id);
-								$season_start = get_field("season_start_month", $acf_partner_id);
+								$season_start_month = get_field("season_start_month", $acf_partner_id);
 								$season_end_mpart = get_field("season_end_mpart", $acf_partner_id);
-								$season_end = get_field("season_end_month", $acf_partner_id);
-								$season_start = ($season_start_mpart && $season_start) ? "$season_start_mpart $season_start" : $season_start;
-								$season_end = ($season_end_mpart && $season_end) ? "$season_end_mpart $season_end" : $season_end;
-								$season_string = ($season_start) ? $season_string : "";
-								$season_string .= ($season_start && $season_end) ? " $season_end" : "";
-								$season_string .= ($season_end && !$season_start) ? $season_end : "";
+								$season_end_month = get_field("season_end_month", $acf_partner_id);
+
+								if ($season_start_month && $season_start_mpart) {
+									$season_start = "$season_start_mpart $season_start_month";
+								} elseif ($season_start_month) {
+									$season_start = "$season_start_month";
+								} else { $season_start = false; }
+								
+								if ($season_end_month && $season_end_mpart) {
+									$season_end = "$season_end_mpart $season_end_month";
+								} elseif ($season_end_month) {
+									$season_end = "$season_end_month";
+								} else { $season_end = false; }
+
+								if ($season_start) {
+									$season_string = $season_start;
+									if ($season_end) {
+										$season_string = " - $season_end";
+									}
+								} else { $season_string = false; }
+
 								$has_season = ($season_weeks || $season_string) ? true : false;
 
 								//Full Shares
@@ -733,7 +751,11 @@ get_header(); ?>
 								$size_full_shares_type = get_field("size_full_shares_type", $acf_partner_id);
 								if ($full_shares || $cost_full_shares || $size_full_shares) {
 									$has_full_shares = true;
-									$size_full_shares .= ($size_full_shares_type && $size_full_shares) ? " $size_full_shares_type" : ""; 
+									if ($size_full_shares) {
+										if ($size_full_shares_type) {
+											$size_full_shares .= " $size_full_shares_type";
+										}
+									} else { $size_full_shares = false; }
 								}
 
 								//Half Shares
@@ -744,7 +766,11 @@ get_header(); ?>
 								$size_half_shares_type = get_field("size_half_shares_type", $acf_partner_id);
 								if ($half_shares || $cost_half_shares || $size_half_shares) {
 									$has_half_shares = true;
-									$size_half_shares .= ($size_half_shares_type && $size_half_shares) ? " $size_half_shares_type" : ""; 
+									if ($size_half_shares) {
+										if ($size_half_shares_type) {
+											$size_half_shares .= " $size_half_shares_type";
+										}
+									} else { $size_half_shares = false; }
 								}
 
 								//Possible Add-ons
