@@ -74,7 +74,7 @@ get_header(); ?>
 					$partner_owner_name = (!$partner_owner_name && $partner_contact_name) ? $partner_contact_name : false;
 
 					$partner_owner_photo = get_field("owner_photo", $acf_partner_id);
-					print_r($partner_owner_photo);
+					
 					if (is_array($partner_owner_photo)) {
 						$partner_owner_photo = wp_get_attachment_image($partner_owner_photo["ID"], "full", false, array("class" => "img-responsive"));
 					} elseif (is_string($partner_owner_photo) && strlen($partner_owner_photo) > 0) {
