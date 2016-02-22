@@ -517,7 +517,7 @@ get_header(); ?>
 												<?php
 												if ($hasProducts) {
 													$productsAvailable = array();
-													echo "<!--\n"
+													echo "<!--\n";
 													print_r($products);
 													echo "\n-->";
 													foreach($products as $productCategory=>$productCategoryProducts) {
