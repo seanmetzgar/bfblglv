@@ -10,12 +10,12 @@
 	$news_args = array(
 		"post_type"			=> array( "news" ),
 		"nopaging"			=> false,
-		"posts_per_page"	=> 5
+		"posts_per_page"	=> 2
 	);
 	$events_args = array(
 		"post_type"			=> array( "events" ),
 		"nopaging"			=> false,
-		"posts_per_page"	=> 5,
+		"posts_per_page"	=> 2,
 		"meta_key"			=> "event_date",
 		"order_by"			=> "meta_value_num",
 		"order"				=> "ASC"
@@ -37,8 +37,7 @@
 				<header class="entry-header">
 					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					<p class="post-meta">
-						<span class="published"><?php the_date(); ?></span> |
-						<span class="author"><?php the_author(); ?></span>
+						<span class="published"><?php the_date(); ?></span>
 					</p>
 				</header>
 				<div class="content">
