@@ -160,6 +160,7 @@ get_header();
 						<p class="results-total">Total: <span class="count"></span></p>
 						<ul class="results-list"></ul><!-- end ul.results-list -->
 					</section>
+					<?php if (false): ?>
 					<div class="map-chip page-block tan-shadow">
 						<?php
 							$mapChip = '';
@@ -195,6 +196,7 @@ get_header();
 							echo $mapChip;
 						?>
 					</div><!-- end div.map-chip -->
+					<?php endif; ?>
 
 					<div class="map-page-middle-bg page-block tan-shadow"><!-- NO CONTENT, used only for a background at certain break points --></div>
 

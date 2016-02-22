@@ -4412,9 +4412,10 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	.finder-search-results {
-		float: left;
-		width: 66%;
+		/*float: left;*/
+		/*width: 66%;*/
 		padding-right: 12px; padding-right: 0.75rem;
+		padding-left: 12px; padding-left: 0.75rem;
 	}
 
 	.finder-search-results .results-list {
