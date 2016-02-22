@@ -3515,6 +3515,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 	header.page-header.no-image ~ .entry-content *:first-child {
 		margin-top: 0;
+		padding-top: 0;
 	}
 
 	/* PAGE CONTENT - TABLET */
