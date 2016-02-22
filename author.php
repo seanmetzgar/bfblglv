@@ -798,6 +798,7 @@ get_header(); ?>
 								}
 							}
 						?>
+						<?php if ($certifications || $practices || $benefits || (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $has_farm_pickup || $has_other_pickup))): ?>
 						<div class="entry-farm-practices">
 							<h2 class="greenHeader">Farm Details</h2>
 
@@ -977,7 +978,7 @@ get_header(); ?>
 								</div><!-- end div.product-info-contents -->
 							</div><!-- end div -->
 						</div><!-- end div.entry-wholesale-information -->
-						<?php endif; ?>
+						<?php endif; endif; ?>
 
 					</section><!-- end section.partner-content -->
 
