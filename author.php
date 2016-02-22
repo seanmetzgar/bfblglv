@@ -454,22 +454,22 @@ get_header(); ?>
 									<?php if ((!in_array("farm", $partner_category) && $partner_business_photo) || $partner_owner_photo): ?>
 									<div class="partner-info-left">
 										<div class="owner-details">
-											<?php if (in_array("farm", $partner_category)):
-											if ($partner_owner_photo) {
-												echo '<div class="owner-image">';
-													echo $partner_owner_photo;
-												echo '</div><!-- end div.owner-image -->';
+											<?php if (in_array("farm", $partner_category)) {
+												if ($partner_owner_photo) {
+													echo '<div class="owner-image">';
+														echo $partner_owner_photo;
+													echo '</div><!-- end div.owner-image -->';
+												}
+												if ($partner_owner_name) {
+													echo "\n<h3 class=\"owner-name\">$partner_owner_name</h3>\n";
+												}
+											} else {
+												if ($partner_business_photo) {
+													echo '<div class="business-image">';
+														echo $partner_business_photo;
+													echo '</div><!-- end div.business-image -->';
+												}
 											}
-											if ($partner_owner_name) {
-												echo "\n<h3 class=\"owner-name\">$partner_owner_name</h3>\n";
-											}
-											else:
-											if ($partner_business_photo) {
-												echo '<div class="business-image">';
-													echo $partner_business_photo;
-												echo '</div><!-- end div.business-image -->';
-											}
-											endif;
 											?>
 										</div><!-- end div.owner-details -->
 
