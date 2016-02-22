@@ -713,9 +713,6 @@ get_header(); ?>
 							} elseif (!$is_csa && $is_farm_share) {
 								$csa_heading = "Farm Share Details";
 							}
-							echo "<!--\n";
-							print_r($csa_heading);
-							echo "\n-->";
 
 							if ($is_csa || $is_farm_share) {
 								if (have_rows("csa_details", $acf_partner_id)) { the_row();
@@ -947,8 +944,7 @@ get_header(); ?>
 											<ul class="farming-practices-list">
 												<?php
 												if ($season_weeks) { echo "<li>Season (# of weeks): $season_weeks</li>"; }
-												if ($seaon_start) { echo "<li>Season Start: $season_start"; }
-												if ($seaon_end) { echo "<li>Season End: $season_end"; }
+												if ($seaon_string) { echo "<li>$season_string</li>"; }
 												?>
 											</ul>
 										</div>
