@@ -952,18 +952,18 @@ get_header(); ?>
 									</div>>
 									<?php endif; ?>
 
-									<?php if ($farm_pickup || $other_pickup_locations): ?>
+									<?php if ($has_farm_pickup || $has_other_pickup): ?>
 									<div class="row">
 										<h3 class="col-xs-12">Pickup Locations</h3>
 
-										<?php if ($farm_pickup && $farm_pickup_hours): ?>
+										<?php if ($has_farm_pickup && $farm_pickup_hours): ?>
 										<div class="col-md-4">
 											<h4>Farm Pickup</h4>
 											<p><?php echo $farm_pickup_hours; ?></p>
 										</div>
 										<?php endif; ?>
 
-										<?php if (is_array($other_pickup_locations)):
+										<?php if ($has_other_pickup && is_array($other_pickup_locations)):
 											foreach($other_pickup_locations as $other_pickup_location): ?>
 										<div class="col-md-4">
 											<h4><?php echo $other_pickup_location["name"]; ?></h4>
