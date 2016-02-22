@@ -718,15 +718,14 @@ get_header(); ?>
 							echo "\n-->";
 
 							if ($is_csa || $is_farm_share) {
-								echo "<!--\n";
-								echo "in csa loop";
-								echo "\n-->";
+								if (have_rows("csa_details", $acf_partner_id)): the_row();
+
 								$season_weeks = get_field("season_weeks", $acf_partner_id);
 
-								$season_start_mpart = get_field("season_start_mpart", $acf_partner_id);
-								$season_start_month = get_field("season_start_month", $acf_partner_id);
-								$season_end_mpart = get_field("season_end_mpart", $acf_partner_id);
-								$season_end_month = get_field("season_end_month", $acf_partner_id);
+								$season_start_mpart = get_sub_field("season_start_mpart");
+								$season_start_month = get_sub_field("season_start_month");
+								$season_end_mpart = get_sub_field("season_end_mpart");
+								$season_end_month = get_sub_field("season_end_month");
 
 								if ($season_start_month && $season_start_mpart) {
 									$season_start = "$season_start_mpart $season_start_month";
@@ -748,19 +747,13 @@ get_header(); ?>
 								} else { $season_string = false; }
 
 								$has_season = ($season_weeks || $season_string) ? true : false;
-								echo "<!--\n";
-								print_r($season_weeks);
-								print_r($season_start);
-								print_r($season_end);
-								print_r($season_string);
-								echo "\n-->";
 
 								//Full Shares
 								$has_full_shares = false;
-								$full_shares = get_field("full_shares", $acf_partner_id);
-								$cost_full_shares = get_field("cost_full_shares", $acf_partner_id);
-								$size_full_shares = get_field("size_full_shares", $acf_partner_id);
-								$size_full_shares_type = get_field("size_full_shares_type", $acf_partner_id);
+								$full_shares = get_sub_field("full_shares");
+								$cost_full_shares = get_sub_field("cost_full_shares");
+								$size_full_shares = get_sub_field("size_full_shares");
+								$size_full_shares_type = get_sub_field("size_full_shares_type");
 								if ($full_shares || $cost_full_shares || $size_full_shares) {
 									$has_full_shares = true;
 									if ($size_full_shares) {
@@ -772,10 +765,10 @@ get_header(); ?>
 
 								//Half Shares
 								$has_half_shares = false;
-								$half_shares = get_field("half_shares", $acf_partner_id);
-								$cost_half_shares = get_field("cost_half_shares", $acf_partner_id);
-								$size_half_shares = get_field("size_half_shares", $acf_partner_id);
-								$size_half_shares_type = get_field("size_half_shares_type", $acf_partner_id);
+								$half_shares = get_sub_field("half_shares");
+								$cost_half_shares = get_sub_field("cost_half_shares");
+								$size_half_shares = get_sub_field("size_half_shares");
+								$size_half_shares_type = get_sub_field("size_half_shares_type");
 								if ($half_shares || $cost_half_shares || $size_half_shares) {
 									$has_half_shares = true;
 									if ($size_half_shares) {
@@ -786,16 +779,16 @@ get_header(); ?>
 								}
 
 								//Possible Add-ons
-								$possible_addons = get_field("possible_addons", $acf_partner_id);
+								$possible_addons = get_sub_field("possible_addons");
 
 								//Farm Pickup
 								$has_farm_pickup = false;
-								$has_farm_pickup = get_field("farm_pickup", $acf_partner_id);
+								$has_farm_pickup = get_sub_field("farm_pickup");
 								if ($has_farm_pickup) {
 									$farm_pickup_hours = false;
-									if (have_rows("farm_pickup_hours", $acf_partner_id)) {
+									if (have_rows("farm_pickup_hours")) {
 										$farm_pickup_hours = array();
-										while (have_rows("farm_pickup_hours", $acf_partner_id)) {
+										while (have_rows("farm_pickup_hours")) {
 											the_row();
 											$tempDay = get_sub_field("day");
 											$tempOpenTime = get_sub_field("open_time");
@@ -809,12 +802,12 @@ get_header(); ?>
 								}
 								//Other Pickup Locations
 								$has_other_pickup = false;
-								$has_other_pickup = get_field("other_pickup", $acf_partner_id);
+								$has_other_pickup = get_sub_field("other_pickup");
 								if ($has_other_pickup) {
 									$other_pickup_locations = false;
-									if (have_rows("other_pickup_locations", $acf_partner_id)) {
+									if (have_rows("other_pickup_locations")) {
 										$other_pickup_locations = array();
-										while (have_rows("other_pickup_locations", $acf_partner_id)){
+										while (have_rows("other_pickup_locations")){
 											the_row();
 											$tempLocation = array();
 											$tempLName = get_sub_field("name");
@@ -842,6 +835,10 @@ get_header(); ?>
 										}
 									}
 								}
+								else:
+									$is_csa = false;
+									$is_farm_share = false;
+								endif;
 							}
 						?>
 						<?php if ($certifications || $practices || $benefits || (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $has_farm_pickup || $has_other_pickup))): ?>
