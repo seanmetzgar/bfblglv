@@ -517,26 +517,26 @@ get_header(); ?>
 												<?php
 												if ($hasProducts) {
 													$productsAvailable = array();
-													echo "<!--\n";
-													print_r($products);
-													echo "\n-->";
 													foreach($products as $productCategory=>$productCategoryProducts) {
 														if (is_array($productCategoryProducts) && count($productCategoryProducts) > 0) {
+															$tempProductsList = array();
+															echo "<h4>{$productCategoryProducts["name"]}</h4>";
 															foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
 																if ($productCategoryProduct) {
 																	if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
-																		$productsAvailable[] = $productCategoryProduct;
+																		$$tempProductsList[] = $productCategoryProduct;
 																	} elseif ($productCategoryProductKey === "other") {
-																		$productsAvailable[] = strip_tags($productCategoryProduct);
+																		$tempProductsList[] = strip_tags($productCategoryProduct);
 																	}
 																}
 															}
+															if (count($tempProductsList) > 0) {
+																$tempProductsList = implode(", ", $tempProductsList);
+																echo "<h4>{$productCategoryProducts["name"]}</h4>";
+																echo "<p>$tempProductsList</p>";
+															}
+															$tempProductsList = null;
 														}
-													}
-													if (count($productsAvailable) > 0) {
-														$productsAvailable = implode(", ", $productsAvailable);
-
-														echo "<p>$productsAvailable</p>";
 													}
 												} elseif ($productsText) {
 													echo "<p>$productsText</p>";
@@ -632,24 +632,26 @@ get_header(); ?>
 												<h3>Wholesale Products</h3>
 												<?php
 												if ($hasWsProducts) {
-													$ws_productsAvailable = array();
 													foreach($ws_products as $productCategory=>$productCategoryProducts) {
 														if (is_array($productCategoryProducts) && count($productCategoryProducts) > 0) {
+															$tempProductsList = array();
+															echo "<h4>{$productCategoryProducts["name"]}</h4>";
 															foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
 																if ($productCategoryProduct) {
 																	if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
-																		$ws_productsAvailable[] = $productCategoryProduct;
+																		$$tempProductsList[] = $productCategoryProduct;
 																	} elseif ($productCategoryProductKey === "other") {
-																		$ws_productsAvailable[] = strip_tags($productCategoryProduct);
+																		$tempProductsList[] = strip_tags($productCategoryProduct);
 																	}
 																}
 															}
+															if (count($tempProductsList) > 0) {
+																$tempProductsList = implode(", ", $tempProductsList);
+																echo "<h4>{$productCategoryProducts["name"]}</h4>";
+																echo "<p>$tempProductsList</p>";
+															}
+															$tempProductsList = null;
 														}
-													}
-													if (count($ws_productsAvailable) > 0) {
-														$ws_productsAvailable = implode(", ", $ws_productsAvailable);
-
-														echo "<p>$ws_productsAvailable</p>";
 													}
 												} elseif ($wsProductsText) {
 													echo "<p>$wsProductsText</p>";
