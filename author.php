@@ -395,7 +395,7 @@ get_header(); ?>
 
 							<div>
 								<div class="page-block partner-info-block">
-									<?php if ($partner_owner_photo): ?><div class="partner-info-right"><?php endif; ?>
+									<?php if ((!in_array("farm", $partner_category) && $partner_business_photo) || $partner_owner_photo): ?><div class="partner-info-right"><?php endif; ?>
 
 										<h1 class="entry-title"><?php echo $partner_name; ?></h1>
 
@@ -449,14 +449,12 @@ get_header(); ?>
 											</ul>
 										</div><!-- end div.partner-contact -->
 										<?php endif; ?>
-									<?php if ($partner_owner_photo): ?></div><!-- end div.partner-info-right --><?php endif; ?>
+									<?php if ((!in_array("farm", $partner_category) && $partner_business_photo) || $partner_owner_photo): ?></div><!-- end div.partner-info-right --><?php endif; ?>
 
-									<?php if ($partner_owner_photo): ?>
+									<?php if ((!in_array("farm", $partner_category) && $partner_business_photo) || $partner_owner_photo): ?>
 									<div class="partner-info-left">
 										<div class="owner-details">
-											<h3 class="visuallyhidden">Owner Information</h3>
-
-											<?php
+											<?php if (in_array("farm", $partner_category)):
 											if ($partner_owner_photo) {
 												echo '<div class="owner-image">';
 													echo $partner_owner_photo;
@@ -465,8 +463,14 @@ get_header(); ?>
 											if ($partner_owner_name) {
 												echo "\n<h3 class=\"owner-name\">$partner_owner_name</h3>\n";
 											}
+											else:
+											if ($partner_business_photo) {
+												echo '<div class="business-image">';
+													echo $partner_business_photo;
+												echo '</div><!-- end div.business-image -->';
+											}
+											endif;
 											?>
-
 										</div><!-- end div.owner-details -->
 
 										<?php if ($partner_facebook || $partner_twitter || $partner_instagram): ?>
@@ -689,6 +693,57 @@ get_header(); ?>
 							$certifications = ($certified_organic || $certified_naturally_grown || $certified_biodynamic) ? true : false;
 							$practices = ($only_organic || $integrated_pest_management || $non_gmo || $antibiotic_harmone_free || $pastured || $grass_fed || $extended_growing_season || $other_farming_practices_text) ? true : false;
 							$benefits = ($accept_fmnp || $accept_snap) ? true : false;
+
+							$is_csa = get_field("is_csa", $acf_partner_id);
+							$is_farm_share = get_field("is_farm_share", $acf_partner_id);
+
+							if ($is_csa && $is_farm_share) {
+								$csa_heading = "CSA &amp; Farm Share Details";
+							} elseif ($is_csa && !$is_farm_share) {
+								$csa_heading = "CSA Details";
+							} elseif (!$is_csa && $is_farm_share) {
+								$csa_heading = "Farm Share Details";
+							}
+
+							if ($is_csa || $is_farm_share) {
+								$season_weeks = get_field("season_weels", $acf_partner_id);
+								$season_start_mpart = get_field("season_start_mpart", $acf_partner_id);
+								$season_start = get_field("season_start_month", $acf_partner_id);
+								$season_end_mpart = get_field("season_end_mpart", $acf_partner_id);
+								$season_end = get_field("season_end_month", $acf_partner_id);
+								$season_start = ($season_start_mpart && $season_start) ? $ "$season_start_mpart $season_start" : $season_start;
+								$season_end = ($season_end_mpart && $season_end) ? $ "$season_end_mpart $season_end" : $season_end;
+								$season_string = ($season_start) ? $season_string : "";
+								$season_string .= ($season_start && $season_end) ? " $season_end" : "";
+								$season_string .= ($season_end && !$season_start) ? $season_end : "";
+								$has_season = ($season_weeks || $season_string) ? true : false;
+
+								//Full Shares
+								$has_full_shares = false;
+								$full_shares = get_field("full_shares", $acf_partner_id);
+								$cost_full_shares = get_field("cost_full_shares", $acf_partner_id);
+								$size_full_shares = get_field("size_full_shares", $acf_partner_id);
+								$size_full_shares_type = get_field("size_full_shares_type", $acf_partner_id);
+								if ($full_shares || $cost_full_shares || $size_full_shares) {
+									$has_full_shares = true;
+									$size_full_shares .= ($size_full_shares_type && $size_full_shares) ? " $size_full_shares_type" : ""; 
+								}
+
+								//Half Shares
+								$has_half_shares = false;
+								$half_shares = get_field("half_shares", $acf_partner_id);
+								$cost_half_shares = get_field("cost_half_shares", $acf_partner_id);
+								$size_half_shares = get_field("size_half_shares", $acf_partner_id);
+								$size_half_shares_type = get_field("size_half_shares_type", $acf_partner_id);
+								if ($half_shares || $cost_half_shares || $size_half_shares) {
+									$has_half_shares = true;
+									$size_half_shares .= ($size_half_shares_type && $size_half_shares) ? " $size_half_shares_type" : ""; 
+								}
+
+								//Possible Add-ons
+								$possible_addons = get_field("possible_addons", $acf_partner_id);
+
+							}
 						?>
 						<div class="entry-farm-practices">
 							<h2 class="greenHeader">Farm Details</h2>
