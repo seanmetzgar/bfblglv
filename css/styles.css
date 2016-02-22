@@ -1385,6 +1385,7 @@ body.page-template-page_why-buy-local .page-block.tan-shadow .content {
 .page-block.green .content a {
 	color: #fff;
 	text-decoration: underline;
+	border-bottom: none;
 }
 .page-block.green .content a:hover {
 	color: #fff;
