@@ -146,8 +146,8 @@ button {
 /* BUTTONLINK STYLES */
 .bfblButtonLink,
 #wp-submit,
-.nav-previous,
-.nav-next {
+.nav-previous a,
+.nav-next a {
 	display: inline-block;
 	background: #008c5c!important;
 	border: 1px solid #ffffff!important;
@@ -176,8 +176,8 @@ button {
 }
 
 .bfblButtonLink.btnBlue,
-.nav-previous,
-.nav-next {
+.nav-previous a,
+.nav-next a {
 	border-color: #1a3281!important;
 	color: #1a3281!important;
 	background: transparent!important;
@@ -185,10 +185,10 @@ button {
 
 .bfblButtonLink.btnBlue:hover,
 .bfblButtonLink.btnBlue:focus,
-.nav-previous:hover,
-.nav-next:hover,
-.nav-previous:focus,
-.nav-next:focus {
+.nav-previous a:hover,
+.nav-next a:hover,
+.nav-previous a:focus,
+.nav-next a:focus {
 	background: #1a3281!important;
 	color: #ffffff!important;
 }
