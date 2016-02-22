@@ -524,7 +524,7 @@ get_header(); ?>
 															foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
 																if ($productCategoryProduct) {
 																	if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
-																		$$tempProductsList[] = $productCategoryProduct;
+																		$tempProductsList[] = $productCategoryProduct;
 																	} elseif ($productCategoryProductKey === "other") {
 																		$tempProductsList[] = strip_tags($productCategoryProduct);
 																	}
@@ -639,7 +639,7 @@ get_header(); ?>
 															foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
 																if ($productCategoryProduct) {
 																	if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
-																		$$tempProductsList[] = $productCategoryProduct;
+																		$tempProductsList[] = $productCategoryProduct;
 																	} elseif ($productCategoryProductKey === "other") {
 																		$tempProductsList[] = strip_tags($productCategoryProduct);
 																	}
