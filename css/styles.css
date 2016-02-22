@@ -2682,6 +2682,9 @@ body.single-events .entry-content .post-meta {
 .product-group p {
 	display: inline; margin: 0; padding: 0;
 }
+.product-group h4::after {
+	content: ':';
+}
 
 .partner-social {
 	text-align: center;
