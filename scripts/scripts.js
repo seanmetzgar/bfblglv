@@ -1,6 +1,7 @@
 var $animatedHeader = null;
 var $findLocalFoodForm = null;
 var $currentSearchXHR = null;
+var $chips = null;
 
 jQuery(document).ready(function ($) {
     "use strict";
@@ -215,6 +216,19 @@ jQuery(document).ready(function ($) {
 
         tempText = tempText.replace(testRegex, "CSA<span class=\"lower-case\">s</span>");
         tempText = $(this).html(tempText);
-    })
+    });
+
+    $chips = $("chips-block").find(".chip");
+    if ($chips.length > 1) {
+        $(window).on("resize", function () {
+            var maxTextHeight = 0;
+            var $chipsDescr = $chips.find(".chipDescr");
+            $chipsDescr.height("auto").each(function() {
+                var $this = $(this);
+                maxTextHeight = ($this.height() > maxTextHeight) ? $this.height() : maxTextHeight;
+            });
+            if (maxTextHeight > 0) { $chipsDescr.height(maxTextHeight); }
+        })
+    }
 
 }); // end document ready
