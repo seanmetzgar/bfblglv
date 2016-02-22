@@ -978,7 +978,7 @@ get_header(); ?>
 									</div>
 									<?php endif; ?>
 
-									<?php if (isset($possible_addons) && $possible_addons): ?>
+									<?php if ($possible_addons): ?>
 									<div class="row">
 										<div class="practices-wrap">
 											<h4 class="col-xs-12">Possible Addons</h4>
@@ -989,18 +989,18 @@ get_header(); ?>
 									</div>>
 									<?php endif; ?>
 
-									<?php if ((isset($has_farm_pickup) && $has_farm_pickup) || (isset($has_other_pickup) && $has_other_pickup)): ?>
+									<?php if ($has_farm_pickup ||$has_other_pickup): ?>
 									<div class="row">
 										<h3 class="col-xs-12">Pickup Locations</h3>
 
-										<?php if (isset($has_farm_pickup) && $has_farm_pickup && $farm_pickup_hours): ?>
+										<?php if ($has_farm_pickup && $farm_pickup_hours): ?>
 										<div class="col-sm-4 practices-wrap">
 											<h4>Farm Pickup</h4>
 											<p><?php echo $farm_pickup_hours; ?></p>
 										</div>
 										<?php endif; ?>
 
-										<?php if (isset($has_other_pickup) && $has_other_pickup && is_array($other_pickup_locations)):
+										<?php if ($has_other_pickup && is_array($other_pickup_locations)):
 											foreach($other_pickup_locations as $other_pickup_location): ?>
 										<div class="col-sm-4 practices-wrap">
 											<h4><?php echo $other_pickup_location["name"]; ?></h4>
