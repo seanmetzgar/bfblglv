@@ -1052,16 +1052,12 @@ header.page-header.no-image .entry-title br::after {
 	text-align: center;
 	text-transform: uppercase;
 }
-.nav-below { overflow:hidden; clear: both; }
+.nav-below { overflow:hidden; clear: both; padding-bottom: 20px;}
 .nav-previous {
 	float: left;
-	margin-bottom: 20px;
-	clear: left;
 }
 .nav-next{
 	float: right;
-	margin-bottom: 20px;
-	clear: right;
 }
 
 .entry-content blockquote {
