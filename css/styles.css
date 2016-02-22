@@ -1664,7 +1664,7 @@ a.greenHeader::before {
 	transition: transform 0.1s ease-in-out;
 }
 
-.bfblSlider.slideOpen .greenHeader::before {
+.bfblSlider.sliderOpen .greenHeader::before {
 	transform: rotate(90deg);
 }
 
