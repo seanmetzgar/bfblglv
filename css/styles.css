@@ -3645,7 +3645,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	.team-section .advisory-board ul li {
-		text-align: left;
+		text-align: center;
 		-webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
 		page-break-inside: avoid; /* Firefox */
 		break-inside: avoid; /* IE 10+ */
