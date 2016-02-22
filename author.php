@@ -977,7 +977,7 @@ get_header(); ?>
 
 										<?php if ($possible_addons): ?>
 										<div class="col-sm-4 practices-wrap">
-											<h4 class="col-xs-12">Possible Addons</h4>
+											<h4>Possible Addons</h4>
 											<p><?php echo $possible_addons; ?></p>
 										</div>
 										<?php endif; ?>
