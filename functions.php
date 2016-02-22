@@ -193,7 +193,7 @@ function hide_admin_bar_from_front_end(){
 
 // extract a social media username from a url (assuming standard format, where the username is after the last slash)
 function bfblExtractName($url) {
-	$lastSlash = strrpos($url,'/') + 1;
+	$lastSlash = strrpos($url,'facebook.com/') + 1;
 	$result = substr($url, $lastSlash, strlen($url));
 
 	// if the string is empty, put back the url as a fallback
