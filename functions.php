@@ -103,7 +103,7 @@ function kudu_load_scripts() {
 add_action( 'admin_enqueue_scripts', 'kudu_load_admin_styles' );
 function kudu_load_admin_styles() {
 	$template_path = get_stylesheet_directory_uri();
-    wp_enqueue_style('kudu-admin-css', get_stylesheet_directory_uri() . '/css/admin-styles.css');
+    wp_enqueue_style('kudu-admin-css', get_stylesheet_directory_uri() . '/admin-styles.css');
 } // end kudu_load_admin_styles()
 
 /* ORIGINAL, SIMPLIFIED VERSION (could be used on other projects):
