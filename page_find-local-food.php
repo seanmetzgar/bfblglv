@@ -196,9 +196,9 @@ get_header();
 							echo $mapChip;
 						?>
 					</div><!-- end div.map-chip -->
-					<?php endif; ?>
 
 					<div class="map-page-middle-bg page-block tan-shadow"><!-- NO CONTENT, used only for a background at certain break points --></div>
+					<?php endif; ?>
 
 				</div><!-- end div.map-page-middle -->
 				<?php get_template_part("bfbl", "page-blocks"); ?>
