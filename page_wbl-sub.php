@@ -47,6 +47,7 @@ get_header(); ?>
 						<?php endif; ?>
 
 						<?php the_content(); ?>
+						<?php get_template_part("bfbl", "gallery"); ?>
 					</section>
 
 					<?php get_template_part("bfbl", "page-blocks"); ?>

@@ -27,6 +27,7 @@
 	$events_count = (is_array($events_posts) && count($events_posts)) ? count($events_posts) : 0; ?>
 	<section class="news-events-list row">
 		<div class="col-sm-7 news-list">
+		<?php if (count($news_posts) > 0): ?>
 		<?php foreach ($news_posts as $post): setup_postdata($post);?>
 			<article class="news-summary">
 				<div class="image">
@@ -46,9 +47,14 @@
 				</div>
 			</article>
 		<?php endforeach; wp_reset_postdata();?>
+			<p class="archive-link"><a href="<?php get_post_type_archive_link("news"); ?>">View all news...</a></p>
+		<?php else: ?>
+			<h3>No news articles found...</h3>
+		<?php endif; ?>
 		</div>
 
 		<div class="col-sm-5 events-list">
+		<?php if (count($events_posts) > 0): ?>
 		<?php foreach ($events_posts as $post): setup_postdata($post);?>
 			<article class="events-summary">
 				<div class="image">
@@ -62,13 +68,6 @@
 						<span class="date">
 							<?php 
 								$bfblEventDate = get_field("event_date");
-					// UNCOMMENT TO RESTORE
-					//			// insert a <br /> after the first comma
-					//			// (code based on this example: http://stackoverflow.com/a/1252710 )
-					//			$commaPos = strpos($bfblEventDate, ',');
-					//			if($commaPos !== FALSE) {
-					//				$bfblEventDate = substr_replace($bfblEventDate, ',<br/>', $commaPos,1);
-					//			}
 								echo $bfblEventDate;
 							?>
 						</span>
@@ -80,5 +79,9 @@
 				</div>
 			</article>
 		<?php endforeach; wp_reset_postdata();?>
+			<p class="archive-link"><a href="<?php get_post_type_archive_link("events"); ?>">View all events...</a></p>
+		<?php else: ?>
+			<h3>No events found...</h3>
+		<?php endif; ?>
 		</div>
 	</section>
