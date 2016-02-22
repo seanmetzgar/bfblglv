@@ -195,6 +195,7 @@ function hide_admin_bar_from_front_end(){
 function bfblExtractName($url) {
 	$splitUrl = explode("facebook.com/", $url);
 	$result = $splitUrl[1];
+	$result = chop($result, "/?fref=ts");
 
 	// if the string is empty, put back the url as a fallback
 	if(!$result) {
