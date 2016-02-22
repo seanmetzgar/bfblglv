@@ -10,12 +10,12 @@
 	$news_args = array(
 		"post_type"			=> array( "news" ),
 		"nopaging"			=> false,
-		"posts_per_page"	=> 2
+		"posts_per_page"	=> 3
 	);
 	$events_args = array(
 		"post_type"			=> array( "events" ),
 		"nopaging"			=> false,
-		"posts_per_page"	=> 2,
+		"posts_per_page"	=> 3,
 		"meta_key"			=> "event_date",
 		"order_by"			=> "meta_value_num",
 		"order"				=> "ASC"
@@ -47,9 +47,9 @@
 				</div>
 			</article>
 		<?php endforeach; wp_reset_postdata();?>
-			<p class="archive-link"><a href="<?php get_post_type_archive_link("news"); ?>">View all news...</a></p>
+			<p class="archive-link"><a href="<?php echo get_post_type_archive_link("news"); ?>" class="bfblButtonLink btnOrange">View all news...</a></p>
 		<?php else: ?>
-			<h3>No news articles found...</h3>
+			<h3 class="not-found">No news articles found...</h3>
 		<?php endif; ?>
 		</div>
 
@@ -79,9 +79,9 @@
 				</div>
 			</article>
 		<?php endforeach; wp_reset_postdata();?>
-			<p class="archive-link"><a href="<?php get_post_type_archive_link("events"); ?>">View all events...</a></p>
+			<p class="archive-link"><a href="<?php echo get_post_type_archive_link("events"); ?>" class="bfblButtonLink btnOrange">View all events...</a></p>
 		<?php else: ?>
-			<h3>No events found...</h3>
+			<h3 class="not-found">No events found...</h3>
 		<?php endif; ?>
 		</div>
 	</section>
