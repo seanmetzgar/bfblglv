@@ -3513,7 +3513,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	header.page-header.no-image {
 		padding: 32px 42px; padding: 2rem 2.625rem; /* matches padding on .page-block */
 	}
-	header.page-header.no-image ~ .entry-content h2 {
+	header.page-header.no-image ~ .entry-content h2:first-child {
 		margin-top: 0;
 	}
 
@@ -4730,8 +4730,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		padding: 32px 46px; padding: 2rem 2.875rem;
 	}
 
-	header.page-header.no-image ~ .entry-content {
-		padding-top: 12px;
+	header.page-header.no-image ~ .entry-content h2:first-child {
+		margin-top: 0;
 	}
 
 
