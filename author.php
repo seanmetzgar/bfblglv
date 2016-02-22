@@ -686,7 +686,7 @@ get_header(); ?>
 							$grass_fed = get_field("grass_fed", $acf_partner_id);
 							$extended_growing_season = get_field("extended_growing_season", $acf_partner_id);
 							$other_farming_practices_text = get_field("other_farming_practices_text", $acf_partner_id);
-							
+
 							$accept_snap = get_field("accept_snap", $acf_partner_id);
 							$accept_fmnp = get_field("accept_fmnp", $acf_partner_id);
 
@@ -697,6 +697,7 @@ get_header(); ?>
 							$is_csa = get_field("is_csa", $acf_partner_id);
 							$is_farm_share = get_field("is_farm_share", $acf_partner_id);
 
+							$csa_heading = false;
 							if ($is_csa && $is_farm_share) {
 								$csa_heading = "CSA &amp; Farm Share Details";
 							} elseif ($is_csa && !$is_farm_share) {
@@ -743,6 +744,58 @@ get_header(); ?>
 								//Possible Add-ons
 								$possible_addons = get_field("possible_addons", $acf_partner_id);
 
+								//Farm Pickup
+								$has_farm_pickup = get_field("farm_pickup", $acf_partner_id);
+								if ($has_farm_pickup) {
+									$farm_pickup_hours = false;
+									if (have_rows("farm_pickup_hours", $acf_partner_id)) {
+										$farm_pickup_hours = array();
+										while (have_rows("farm_pickup_hours", $acf_partner_id)) {
+											the_row();
+											$tempDay = get_sub_field("day");
+											$tempOpenTime = get_sub_field("open_time");
+											$tempCloseTime = get_sub_field("close_time");
+
+											$tempHours = "$tempDay: $tempOpenTime - $tempCloseTime";
+											$farm_pickup_hours[] = $tempHours;
+										}
+										$farm_pickup_hours = (count($farm_pickup_hours) > 0) ? implode("<br>", $farm_pickup_hours) : false;
+									}
+								}
+								//Other Pickup Locations
+								$has_other_pickup = get_field("other_pickup", $acf_partner_id);
+								if ($has_other_pickup) {
+									$other_pickup_locations = false;
+									if (have_rows("other_pickup_locations", $acf_partner_id)) {
+										$other_pickup_locations = array();
+										while (have_rows("other_pickup_locations", $acf_partner_id)){
+											the_row();
+											$tempLocation = array();
+											$tempLName = get_sub_field("name");
+											$tempLAddress = get_sub_field("address");
+											$tempLHours = false;
+											if (have_rows("hours")) {
+												$tempLHours = array();
+												while (have_rows("hours")) {
+													the_row();
+													$tempDay = get_sub_field("day");
+													$tempOpenTime = get_sub_field("open_time");
+													$tempCloseTime = get_sub_field("close_time");
+
+													$tempHours = "$tempDay: $tempOpenTime - $tempCloseTime";
+													$tempLHours[] = $tempHours;
+												}
+												$tempLHours = (count($farm_pickup_hours) > 0) ? implode("<br>", $tempLHours) : false;
+											}
+											if ($tempLHours && $tempLName) {
+												$tempLocation["hours"] = $tempLHours;
+												$tempLocation["name"] = $tempLName;
+												$tempLocation["address"] = ($tempLAddress) ? $tempLAddress : false;
+												$other_pickup_locations[] = $tempLocation;
+											}
+										}
+									}
+								}
 							}
 						?>
 						<div class="entry-farm-practices">
@@ -759,7 +812,7 @@ get_header(); ?>
 											<ul class="farming-practices-list">
 												<?php
 												if ($certified_organic) {
-													echo "<li><h4>Certified Organic</h4>";
+													echo "<li>Certified Organic";
 													if ($certified_organic_by || $certified_organic_since) {
 														echo "<br><em>(";
 														if ($certified_organic_since) {
@@ -837,6 +890,88 @@ get_header(); ?>
 											</ul>
 										</div>
 										<?php endif; ?>
+									</div>
+									<?php endif; ?>
+
+
+									<?php if ($csa_heading): ?>
+									<div class="row">
+										<h3 class="col-xs-12"><?php echo $csa_heading; ?></h3>
+										<?php if ($has_season): ?>
+										<div class="col-md-4">
+											<h4>Season Details</h4>
+											<ul class="farming-practices-list">
+												<?php
+												if ($season_weeks) { echo "<li>Season (# of weeks): $season_weeks</li>"; }
+												if ($seaon_start) { echo "<li>Season Start: $season_start"; }
+												if ($seaon_end) { echo "<li>Season End: $season_end"; }
+												?>
+											</ul>
+										</div>
+										<?php endif;
+
+										if ($has_full_shares): ?>
+										<div class="col-md-4">
+											<h4>Full Shares</h4>
+											<ul class="farming-practices-list">
+												<?php
+												if ($full_shares) echo "<li>Number of Shares: $full_shares</li>";
+												if ($cost_full_shares) echo "<li>Cost: \$$cost_full_shares</li>";
+												if ($size_full_shares) echo "<li>Size: $size_full_shares</li>";
+												?>
+											</ul>
+												<?php if ($other_farming_practices_text): ?>
+											<p><strong>Other Practices</strong><br>
+											<?php echo $other_farming_practices_text; ?>
+											</p>
+												<?php endif; ?>
+										</div>
+										<?php endif;
+
+										if ($has_half_shares): ?>
+										<div class="col-md-4">
+											<h4>Half Shares</h4>
+											<ul class="farming-practices-list">
+												<?php
+												if ($full_shares) echo "<li>Number of Shares: $half_shares</li>";
+												if ($cost_full_shares) echo "<li>Cost: \$$cost_half_shares</li>";
+												if ($size_full_shares) echo "<li>Size: $size_half_shares</li>";
+												?>
+											</ul>
+										</div>
+										<?php endif; ?>
+									</div>
+									<?php endif; ?>
+
+									<?php if ($possible_addons): ?>
+									<div class="row">
+										<h4 class="col-xs-12">Possible Addons</h4>
+										<div class="col-xs-12">
+											<p><?php echo $possible_addons; ?></p>
+										</div>
+									</div>>
+									<?php endif; ?>
+
+									<?php if ($farm_pickup || $other_pickup_locations): ?>
+									<div class="row">
+										<h3 class="col-xs-12">Pickup Locations</h3>
+
+										<?php if ($farm_pickup && $farm_pickup_hours): ?>
+										<div class="col-md-4">
+											<h4>Farm Pickup</h4>
+											<p><?php echo $farm_pickup_hours; ?></p>
+										</div>
+										<?php endif; ?>
+
+										<?php if (is_array($other_pickup_locations)):
+											foreach($other_pickup_locations as $other_pickup_location): ?>
+										<div class="col-md-4">
+											<h4><?php echo $other_pickup_location["name"]; ?></h4>
+											<?php if ($other_pickup_location["address"]) echo "<p>{$other_pickup_location["address"]}</p>"; ?>
+											<p><?php echo $other_pickup_location["hours"]; ?></p>
+										</div>
+										<?php endforeach;
+										endif; ?>
 									</div>
 									<?php endif; ?>
 								</div><!-- end div.product-info-contents -->
