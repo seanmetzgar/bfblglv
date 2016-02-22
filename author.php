@@ -736,14 +736,7 @@ get_header(); ?>
 										$season_end = "$season_end_month";
 									} else { $season_end = false; }
 
-									if ($season_start) {
-										$season_string = $season_start;
-										if ($season_end) {
-											$season_string = " - $season_end";
-										}
-									} else { $season_string = false; }
-
-									$has_season = ($season_weeks || $season_string) ? true : false;
+									$has_season = ($season_weeks || $season_start || $season_end) ? true : false;
 
 									//Full Shares
 									$has_full_shares = false;
