@@ -2747,6 +2747,11 @@ body.single-events .entry-content .post-meta {
 	overflow: hidden;
 }
 
+.practices-wrap {
+	margin-bottom: 1em;
+	text-align: center;
+}
+
 /* FIND LOCAL FOOD - MAP PAGE */
 .map-subhead {
 	/* picks up some styles from the partner pages */
@@ -4381,6 +4386,10 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.farming-ptractices-list li em {
 		color: #555555;
 		font-style: italic;
+	}
+
+	.practices-wrap {
+		text-align: left;
 	}
 
 
