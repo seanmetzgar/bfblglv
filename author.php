@@ -713,10 +713,16 @@ get_header(); ?>
 							} elseif (!$is_csa && $is_farm_share) {
 								$csa_heading = "Farm Share Details";
 							}
+							echo "<!--\n";
+							print_r($csa_heading);
+							echo "\n-->";
 
 							if ($is_csa || $is_farm_share) {
+								echo "<!--\n";
+								echo "in csa loop";
+								echo "\n-->";
 								$season_weeks = get_field("season_weeks", $acf_partner_id);
-								
+
 								$season_start_mpart = get_field("season_start_mpart", $acf_partner_id);
 								$season_start_month = get_field("season_start_month", $acf_partner_id);
 								$season_end_mpart = get_field("season_end_mpart", $acf_partner_id);
@@ -727,7 +733,7 @@ get_header(); ?>
 								} elseif ($season_start_month) {
 									$season_start = "$season_start_month";
 								} else { $season_start = false; }
-								
+
 								if ($season_end_month && $season_end_mpart) {
 									$season_end = "$season_end_mpart $season_end_month";
 								} elseif ($season_end_month) {
@@ -742,6 +748,12 @@ get_header(); ?>
 								} else { $season_string = false; }
 
 								$has_season = ($season_weeks || $season_string) ? true : false;
+								echo "<!--\n";
+								print_r($season_weeks);
+								print_r($season_start);
+								print_r($season_end);
+								print_r($season_string);
+								echo "\n-->";
 
 								//Full Shares
 								$has_full_shares = false;
