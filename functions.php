@@ -45,9 +45,7 @@ function kudu_setup() {
 		"footer-menu" => 		__("Footer Menu", "kudu")
 	));
 
-	if ( function_exists( 'add_image_size' ) ) {
-        add_image_size( "tiny", 100, 9999 ); //(cropped)
-    }
+    add_image_size( "tiny", 100, 500 );
 }
 
 add_action("wp_enqueue_scripts", "kudu_load_scripts");
