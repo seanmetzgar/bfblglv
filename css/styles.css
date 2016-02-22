@@ -1052,7 +1052,7 @@ header.page-header.no-image .entry-title br::after {
 	text-align: center;
 	text-transform: uppercase;
 }
-.nav-below { overflow:hidden; }
+.nav-below { overflow:hidden; clear: both; }
 .nav-previous {
 	float: left;
 	margin-bottom: 20px;
