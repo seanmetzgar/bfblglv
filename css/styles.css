@@ -1032,6 +1032,12 @@ header.page-header.no-image .entry-title br::after {
 	color: #555555;
 	margin-bottom: 32px; margin-bottom: 2rem;
 }
+.archive-link { margin: 0 0 1em; }
+.archive-link .bfblButtonLink {
+	display: block;
+	width: 75%;
+	margin: 0 auto;
+}
 
 .entry-content blockquote {
 	clear: both;
