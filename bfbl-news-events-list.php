@@ -10,12 +10,12 @@
 	$news_args = array(
 		"post_type"			=> array( "news" ),
 		"nopaging"			=> false,
-		"posts_per_page"	=> 3
+		"posts_per_page"	=> 2
 	);
 	$events_args = array(
 		"post_type"			=> array( "events" ),
 		"nopaging"			=> false,
-		"posts_per_page"	=> 3,
+		"posts_per_page"	=> 2,
 		"meta_key"			=> "event_date",
 		"order_by"			=> "meta_value_num",
 		"order"				=> "ASC"
