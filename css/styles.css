@@ -3513,11 +3513,11 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	header.page-header.no-image {
 		padding: 32px 42px; padding: 2rem 2.625rem; /* matches padding on .page-block */
 	}
-	header.page-header.no-image ~ .entry-content *:first-child {
+	header.page-header.no-image ~ .entry-content > *:first-child {
 		margin-top: 0;
 		padding-top: 0;
 	}
-	header.page-header.no-image ~ .entry-content .video:first-child ~ * {
+	header.page-header.no-image ~ .entry-content > .video:first-child ~ * {
 		margin-top: 0;
 		padding-top: 0;
 	}
