@@ -717,7 +717,7 @@ get_header(); ?>
 							if ($is_csa || $is_farm_share) {
 								if (have_rows("csa_details", $acf_partner_id)) { the_row();
 
-									$season_weeks = get_field("season_weeks", $acf_partner_id);
+									$season_weeks = get_sub_field("season_weeks");
 
 									$season_start_mpart = get_sub_field("season_start_mpart");
 									$season_start_month = get_sub_field("season_start_month");
