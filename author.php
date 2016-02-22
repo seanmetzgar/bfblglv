@@ -693,8 +693,8 @@ get_header(); ?>
 								<div class="page-block product-info-contents">
 									<?php if ($certifications || $practices || $benefits): ?>
 									<div class="row">
-										<?php if ($certifications): ?>
 										<h3>Farming Practices</h3>
+										<?php if ($certifications): ?>
 										<div class="col-md-4">
 											<h4>Certifications</h4>
 											<ul class="farming-practices-list">
