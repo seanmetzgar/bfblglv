@@ -1056,10 +1056,12 @@ header.page-header.no-image .entry-title br::after {
 .nav-previous {
 	float: left;
 	margin-bottom: 20px;
+	clear: left;
 }
 .nav-next{
 	float: right;
 	margin-bottom: 20px;
+	clear: right;
 }
 
 .entry-content blockquote {
