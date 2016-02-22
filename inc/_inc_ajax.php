@@ -695,7 +695,7 @@ function xhrGetPartners() {
 	$returnPartners = array_unique($returnPartners, SORT_REGULAR);
 
 	usort($returnPartners, function($a, $b) {
-	    return $a->name - $b->name;
+	    return strnatcmp($a->name, $b->name);
 	});
 
 	$result = json_encode($returnPartners);
