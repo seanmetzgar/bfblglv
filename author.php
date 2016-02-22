@@ -944,7 +944,8 @@ get_header(); ?>
 											<ul class="farming-practices-list">
 												<?php
 												if ($season_weeks) { echo "<li>Season (# of weeks): $season_weeks</li>"; }
-												if ($season_string) { echo "<li>$season_string</li>"; }
+												if ($season_start) { echo "<li>Season Starts: $season_start</li>"; }
+												if ($season_end) { echo "<li>Season Ends: $season_end</li>"; }
 												?>
 											</ul>
 										</div>
