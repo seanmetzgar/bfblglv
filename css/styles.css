@@ -3575,7 +3575,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	}
 
 	.footerPhoneEmail span.footerPhone {
-		padding-left: 4px; padding-left: 0.25rem;
+		padding-left: 0;
 	}
 
 	.footerCredits {
