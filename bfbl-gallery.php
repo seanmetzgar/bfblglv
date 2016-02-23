@@ -16,10 +16,11 @@
 	$galleryDataSet[] = "data-cycle-caption=\"#photo-gallery-$galleryID .cycle-caption\"";
 	$galleryDataSet[] = "data-cycle-caption-template=\"{{cycleTitle}}\"";
 	$galleryDataSet[] = "data-cycle-auto-height=\"container\"";
+	$galleryClass = ($upper_gallery) ? "photo-gallery-wrapper upper-gallery" : "photo-gallery-wrapper";
 	$galleryDataSet = implode(" ", $galleryDataSet);
 	if (is_array($galleryImages) && count($galleryImages) > 0) {
 		$galleryCount = count($galleryImages);
-		$galleryOutput .=		"<div class=\"photo-gallery-wrapper\" id=\"photo-gallery-$galleryID\">\n";
+		$galleryOutput .=		"<div class=\"$galleryClass\" id=\"photo-gallery-$galleryID\">\n";
 		$galleryOutput .= 		"    <div class=\"photo-gallery\">\n";
 		$galleryOutput .= 		"        <div class=\"cycle-slideshow\" $galleryDataSet>\n";
 		if ($galleryCount > 1) {

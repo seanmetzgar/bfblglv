@@ -10,7 +10,8 @@ get_header(); ?>
 					$has_video = get_field("has_video");
 					$has_video = is_bool($has_video) ? $has_video : false;
 					$video = $has_video ? get_field("video") : false;
-				?>
+					$upper_gallery = (!$has_video) ? get_field("upper_gallery") : false;
+					$upper_gallery = is_bool($upper_gallery) ? $upper_gallery : false; ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<?php get_template_part("entry", "news-events-header"); ?>
 
@@ -29,10 +30,12 @@ get_header(); ?>
 								<?php echo $video; ?>
 							</div><!-- end div.videoWrap -->
 						</div><!-- end div.video -->
-						<?php endif; ?>
+						<?php elseif ($upper_gallery):
+							get_template_part("bfbl", "gallery");
+						endif;
 
-						<?php the_content(); ?>
-						<?php get_template_part("bfbl", "gallery"); ?>
+						the_content();
+						if (!$upper_gallery) get_template_part("bfbl", "gallery"); ?>
 					</section>
 
 					<?php get_template_part("bfbl", "page-blocks"); ?>
