@@ -3634,7 +3634,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		display: block;
 	}
 
-	.entry-content .video {
+	.entry-content .video,
+	.entry-content .photo-gallery-wrapper.upper-gallery {
 		float: right;
 		width: 50%;
 		margin-left: 32px; margin-left: 2rem;
