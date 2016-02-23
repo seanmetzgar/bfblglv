@@ -2729,10 +2729,12 @@ body.single-events .entry-content .post-meta {
 .partner-social ul {
 	display: inline-block;
 	text-align: left;
+	overflow: hidden;
 }
 
 .partner-social li {
 	display: block; /* display:block inside display:inline-block makes the parent shrink its width to match that of the widest 'grand-child' (the <a>, in this case) */
+	float: left;
 }
 
 .partner-social li a {
