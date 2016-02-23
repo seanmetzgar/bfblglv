@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2016 by original authors @ fontello.com</metadata>
+<defs>
+<font id="quote" horiz-adv-x="1000" >
+<font-face font-family="quote" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="quote-left-1" unicode="&#xe800;" d="M911 16l-335 0 0 335q0 139 99 236t236 98l0-111q-93 0-158-66t-65-157l223 0 0-335z m-558 0l-335 0 0 335q0 139 98 236t237 98l0-111q-93 0-158-66t-65-157l223 0 0-335z" horiz-adv-x="928" />
+</font>
+</defs>
+</svg>

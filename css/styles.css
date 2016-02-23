@@ -66,6 +66,16 @@
 	  font-weight: normal;
 	  font-style: normal;
 	}
+@font-face {
+	  font-family: 'bfbl-quote';
+	  src: url('../fonts/fontello/quote.eot?51416563');
+	  src: url('../fonts/fontello/quote.eot?51416563#iefix') format('embedded-opentype'),
+	       url('../fonts/fontello/quote.woff?51416563') format('woff'),
+	       url('../fonts/fontello/quote.ttf?51416563') format('truetype'),
+	       url('../fonts/fontello/quote.svg?51416563#quote') format('svg');
+	  font-weight: normal;
+	  font-style: normal;
+	}
 
 
 html {
@@ -1081,11 +1091,12 @@ header.page-header.no-image .entry-title br::after {
 .entry-content blockquote::before {
 	display: block;
 	position: absolute;
-	content: '\201C';
+	font-family: "bfbl-quote";
+	content: '\e800';
 	font-size: 30px;
 	width: 30px; height: 30px;
 	color: #008c5c;
-	position: top: 5px; left: 5px;
+	top: 5px; left: 5px;
 }
 .entry-content blockquote p {
 	margin: .5em 0;
