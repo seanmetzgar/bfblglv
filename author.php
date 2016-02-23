@@ -71,7 +71,6 @@ get_header(); ?>
 					$partner_owner_name = get_field("partner_owner_name", $acf_partner_id);
 					$partner_owner_name = strlen($partner_owner_name) > 0 ? $partner_owner_name : false;
 					$partner_contact_name = get_field("partner_contact_name", $acf_partner_id);
-					$partner_owner_name = (!$partner_owner_name && $partner_contact_name) ? $partner_contact_name : false;
 
 					$partner_owner_photo = get_field("owner_photo", $acf_partner_id);
 
