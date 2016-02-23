@@ -803,7 +803,10 @@ get_header(); ?>
 												$tempLName = get_sub_field("name");
 												$tempLAddress = get_sub_field("address");
 												$tempLHours = false;
-												if (have_rows("hours")) {
+												$tempLHoursTBD = get_sub_field("hours_tbd");
+												if (is_bool($tempLHoursTBD) && $tempLHoursTBD) {
+													$tempLHours = "Hours to be determined."
+												} elseif (have_rows("hours")) {
 													$tempLHours = array();
 													while (have_rows("hours")) {
 														the_row();
@@ -825,13 +828,19 @@ get_header(); ?>
 											}
 										}
 									}
+									//Home Delivery
+									$has_home_delivery = false;
+									$has_home_delivery = get_sub_field("home_delivery");
+									if ($has_home_delivery) {
+										$home_delivery_details = get_sub_field("home_delivery_details");
+									}
 								} else {
 									$is_csa = false;
 									$is_farm_share = false;
 								}
 							}
 						?>
-						<?php if ($certifications || $practices || $benefits || (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $has_farm_pickup || $has_other_pickup))): ?>
+						<?php if ($certifications || $practices || $benefits || (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $has_farm_pickup || $has_other_pickup || $has_home_delivery))): ?>
 						<div class="entry-farm-practices">
 							<h2 class="greenHeader">Farm Details</h2>
 
@@ -928,7 +937,7 @@ get_header(); ?>
 									<?php endif; ?>
 
 
-									<?php if (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $has_farm_pickup || $has_other_pickup)): ?>
+									<?php if (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $has_farm_pickup || $has_other_pickup || $has_home_delivery)): ?>
 									<div class="row">
 										<h3 class="col-xs-12"><?php echo $csa_heading; ?></h3>
 										<?php if ($has_season): ?>
@@ -977,32 +986,42 @@ get_header(); ?>
 
 										<?php if ($possible_addons): ?>
 										<div class="col-sm-4 practices-wrap">
-											<h4>Possible Addons</h4>
+											<h4>Possible Add-ons</h4>
 											<p><?php echo $possible_addons; ?></p>
 										</div>
 										<?php endif; ?>
 									</div>
 
-										<?php if ($has_farm_pickup ||$has_other_pickup): ?>
+										<?php if ($has_farm_pickup || $has_other_pickup || $has_home_delivery): ?>
 									<div class="row">
-										<h3 class="col-xs-12">Pickup Locations</h3>
+										<h4 class="col-xs-12">Pick-up Locations</h3>
 
 										<?php if ($has_farm_pickup && $farm_pickup_hours): ?>
-										<div class="col-sm-4 practices-wrap">
-											<h4>Farm Pickup</h4>
+										<div class="col-sm-4 pickup-wrap">
+											<h5>Farm Pick-up</h5>
 											<p><?php echo $farm_pickup_hours; ?></p>
 										</div>
-										<?php endif; ?>
+										<?php endif;
 
-										<?php if ($has_other_pickup && is_array($other_pickup_locations)):
+										if ($has_other_pickup && is_array($other_pickup_locations)):
 											foreach($other_pickup_locations as $other_pickup_location): ?>
-										<div class="col-sm-4 practices-wrap">
-											<h4><?php echo $other_pickup_location["name"]; ?></h4>
-											<?php if ($other_pickup_location["address"]) echo "<p>{$other_pickup_location["address"]}</p>"; ?>
-											<p><?php echo $other_pickup_location["hours"]; ?></p>
+										<div class="col-sm-4 pickup-wrap">
+											<h5><?php echo $other_pickup_location["name"]; ?></h5>
+											<?php 
+											if ($other_pickup_location["address"]) echo "<p>{$other_pickup_location["address"]}</p>";
+											if ($other_pickup_location["hours"]) echo "<p>{$other_pickup_location["hours"]}</p>";
+											?>
 										</div>
 										<?php endforeach;
-										endif; ?>
+										endif; 
+
+										if ($has_home_delivery): ?>
+										<div class="col-sm-4 pickup-wrap">
+											<h5>Home Delivery</h5>
+											<?php if ($home_delivery_details) echo "<p>$home_delivery_details</p>"; ?>
+										</div>
+										<?php endif; ?>
+										
 									</div>
 										<?php endif; ?>
 									<?php endif; ?>
