@@ -1070,17 +1070,6 @@ header.page-header.no-image .entry-title br::after {
 	float: right;
 }
 
-/*.entry-content blockquote {
-	clear: both;
-	background-color: #fdfbf7;
-	background-color: rgba(255, 255, 255, 0.80);
-	border: 0;
-	border-left: 5px solid #008c5c;
-	padding: 20px; padding: 1.25rem;
-	overflow: hidden;
-}
-
-*/
 .entry-content blockquote {
 	clear: both;
 	padding: 0 20px 0 40px;
@@ -1101,6 +1090,7 @@ header.page-header.no-image .entry-title br::after {
 }
 .entry-content blockquote p {
 	margin: .5em 0;
+	color: #008c5c;
 }
 .entry-content blockquote .alignleft,
 .entry-content blockquote .alignright {
@@ -3630,9 +3620,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-right: 40px;
 		padding-top: 30px;
 	}
-	.entry-content blockquote p {
-		font-size: 1.125rem;
-	}
+
 	.entry-content blockquote .alignleft {
 		float: left !important;
 		display: block;
