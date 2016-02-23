@@ -797,7 +797,7 @@ get_header(); ?>
 										$other_pickup_locations = false;
 										if (have_rows("other_pickup_locations")) {
 											$other_pickup_locations = array();
-											while (have_rows("other_pickup_locations")){
+											while (have_rows("other_pickup_locations")) {
 												the_row();
 												$tempLocation = array();
 												$tempLName = get_sub_field("name");
@@ -805,7 +805,7 @@ get_header(); ?>
 												$tempLHours = false;
 												$tempLHoursTBD = get_sub_field("hours_tbd");
 												if (is_bool($tempLHoursTBD) && $tempLHoursTBD) {
-													$tempLHours = "Hours to be determined."
+													$tempLHours = "Hours to be determined.";
 												} elseif (have_rows("hours")) {
 													$tempLHours = array();
 													while (have_rows("hours")) {
@@ -1021,7 +1021,7 @@ get_header(); ?>
 											<?php if ($home_delivery_details) echo "<p>$home_delivery_details</p>"; ?>
 										</div>
 										<?php endif; ?>
-										
+
 									</div>
 										<?php endif; ?>
 									<?php endif; ?>
