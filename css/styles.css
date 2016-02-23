@@ -2566,8 +2566,18 @@ body.single-events .entry-content .post-meta {
 	padding-bottom: 6px; padding-bottom: 0.375rem;
 	font-weight: normal;
 }
+.partner-profile .page-block h5 {
+	color: #555555;
+	font-weight: bold;
+	font-size: 16px; font-size: 1rem;
+	margin: 0;
+	padding-bottom: 6px; padding-bottom: 0.375rem;
+}
 
-.partner-detail {
+.partner-detail,
+.product-group,
+.practice-wrap,
+.pickup-wrap {
 	color: #72706b;
 	text-align: center;
 	font-size: 14px; font-size: 0.875rem;
