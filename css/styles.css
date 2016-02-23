@@ -3618,7 +3618,6 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.entry-content blockquote {
 		margin-left: 40px;
 		margin-right: 40px;
-		padding-top: 30px;
 	}
 
 	.entry-content blockquote .alignleft {
@@ -4841,9 +4840,6 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.entry-content blockquote {
 		margin-left: 80px;
 		margin-right: 80px;
-	}
-	.entry-content blockquote p {
-		font-size: 1.25rem;
 	}
 
 	.alignleft,
