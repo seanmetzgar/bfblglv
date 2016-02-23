@@ -2739,7 +2739,7 @@ body.single-events .entry-content .post-meta {
 }
 
 .partner-social li a {
-	ont-family: 'fontello';
+	font-family: 'fontello';
 	display: block;
 	width: 42px;
 	height: 42px;
@@ -2754,6 +2754,7 @@ body.single-events .entry-content .post-meta {
 	-webkit-border-radius: 50%;
 	border:1px solid #008c5c;
 	box-sizing: border-box;
+	text-decoration: none;
 }
 
 .partner-social li a span {
