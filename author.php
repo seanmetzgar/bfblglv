@@ -784,7 +784,11 @@ get_header(); ?>
 												$tempOpenTime = get_sub_field("open_time");
 												$tempCloseTime = get_sub_field("close_time");
 
-												$tempHours = "$tempDay: $tempOpenTime - $tempCloseTime";
+												$tempHours = "$tempDay";
+												f (strlen($tempOpenTime) > 0 && strlen($tempOpenTime) > 0) {
+													$tempHours .= ": $tempOpenTime - $tempCloseTime";
+												}
+
 												$farm_pickup_hours[] = $tempHours;
 											}
 											$farm_pickup_hours = (count($farm_pickup_hours) > 0) ? implode("<br>", $farm_pickup_hours) : false;
@@ -814,7 +818,11 @@ get_header(); ?>
 														$tempOpenTime = get_sub_field("open_time");
 														$tempCloseTime = get_sub_field("close_time");
 
-														$tempHours = "$tempDay: $tempOpenTime - $tempCloseTime";
+														$tempHours = "$tempDay";
+														if (strlen($tempOpenTime) > 0 && strlen($tempOpenTime) > 0) {
+															$tempHours .= ": $tempOpenTime - $tempCloseTime";
+														}
+
 														$tempLHours[] = $tempHours;
 													}
 													$tempLHours = (count($farm_pickup_hours) > 0) ? implode("<br>", $tempLHours) : false;
