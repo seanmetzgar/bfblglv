@@ -2724,7 +2724,7 @@ body.single-events .entry-content .post-meta {
 	text-align: center;
 	overflow: hidden;
 	border-bottom: 1px solid #ffffff;
-	margin: 0 -10px -10px; margin: 0 -0.625rem -0.625rem;
+	margin: 0 auto;
 }
 
 .partner-social ul {
