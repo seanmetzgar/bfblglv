@@ -2739,13 +2739,15 @@ body.single-events .entry-content .post-meta {
 
 .partner-social li a {
 	display: inline-block;
-	padding: 18px; padding: 1.125rem;
-	padding-left: 0;
+	padding: 10px; padding: 0.625rem;
 	font-size: 16px; font-size: 1rem;
 	line-height: 1;
 	color: #ffffff;
 	text-decoration: none;
 	position: relative;
+}
+.partner-social li:first-child a {
+	padding-left: 0;
 }
 
 .partner-social li a span {
