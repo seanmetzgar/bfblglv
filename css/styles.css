@@ -2789,6 +2789,12 @@ body.single-events .entry-content .post-meta {
 	color: #72706b;
 	font-size: 14px; line-height: 20px;
 }
+.practices-wrap p,
+.practices-wrap h5,
+.practices-wrap h4 {
+	margin: 0;
+	padding-bottom: 6px; padding-bottom: 0.375rem;
+}
 
 /* FIND LOCAL FOOD - MAP PAGE */
 .map-subhead {
