@@ -997,7 +997,7 @@ get_header(); ?>
 										<h4 class="col-xs-12">Pick-up Locations</h3>
 
 										<?php if ($has_farm_pickup && $farm_pickup_hours): ?>
-										<div class="col-sm-4 pickup-wrap">
+										<div class="col-sm-4 practices-wrap">
 											<h5>Farm Pick-up</h5>
 											<p><?php echo $farm_pickup_hours; ?></p>
 										</div>
@@ -1005,7 +1005,7 @@ get_header(); ?>
 
 										if ($has_other_pickup && is_array($other_pickup_locations)):
 											foreach($other_pickup_locations as $other_pickup_location): ?>
-										<div class="col-sm-4 pickup-wrap">
+										<div class="col-sm-4 practices-wrap">
 											<h5><?php echo $other_pickup_location["name"]; ?></h5>
 											<?php 
 											if ($other_pickup_location["address"]) echo "<p>{$other_pickup_location["address"]}</p>";
@@ -1016,7 +1016,7 @@ get_header(); ?>
 										endif; 
 
 										if ($has_home_delivery): ?>
-										<div class="col-sm-4 pickup-wrap">
+										<div class="col-sm-4 practices-wrap">
 											<h5>Home Delivery</h5>
 											<?php if ($home_delivery_details) echo "<p>$home_delivery_details</p>"; ?>
 										</div>

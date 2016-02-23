@@ -2574,10 +2574,7 @@ body.single-events .entry-content .post-meta {
 	padding-bottom: 6px; padding-bottom: 0.375rem;
 }
 
-.partner-detail,
-.product-group,
-.practice-wrap,
-.pickup-wrap {
+.partner-detail {
 	color: #72706b;
 	text-align: center;
 	font-size: 14px; font-size: 0.875rem;
@@ -2778,11 +2775,15 @@ body.single-events .entry-content .post-meta {
 .farming-practices-list {
 	display: block;
 	overflow: hidden;
+	color: #72706b;
+	font-size: 14px; line-height: 20px;
 }
 
 .practices-wrap {
 	margin-bottom: 1em;
 	text-align: center;
+	color: #72706b;
+	font-size: 14px; line-height: 20px;
 }
 
 /* FIND LOCAL FOOD - MAP PAGE */
@@ -4402,6 +4403,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.farming-practices-list li {
 		display: block;
 		padding-left: 15px;
+		color: #72706b;
 	}
 	.farming-practices-list li::before {
 		content: '\2022';
@@ -4417,7 +4419,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		clear: left;
 	}
 	.farming-ptractices-list li em {
-		color: #555555;
+		color: #72706b;
 		font-style: italic;
 	}
 
