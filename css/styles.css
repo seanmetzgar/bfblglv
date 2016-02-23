@@ -2686,6 +2686,7 @@ body.single-events .entry-content .post-meta {
 .product-group {
 	display: block;
 	margin: 0 0 1em;
+	font-size: 14px; line-height: 20px;
 }
 .product-group h4,
 .product-group p {
