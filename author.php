@@ -478,9 +478,9 @@ get_header(); ?>
 											<h4>Social Media</h4>
 											<ul>
 												<?php
-													if ($partner_twitter) echo "<li class='twitter'><a href=\"https://twitter.com/$partner_twitter\" target=\"_blank\"><span>@$partner_twitter</span></a></li>";
-													if ($partner_facebook) echo "<li class='facebook'><a href=\"$partner_facebook\" target=\"_blank\"><span>" . bfblExtractName($partner_facebook) ."</span></a></li>";
-													if ($partner_instagram) echo "<li class='instagram'><a href=\"https://www.instagram.com/$partner_instagram\" target=\"_blank\"><span>@$partner_instagram</span></a></li>";
+													if ($partner_facebook) echo "<li class='facebook'><a href=\"$partner_facebook\" target=\"_blank\" title=\"$partner_facebook\"><span></span></a></li>";
+													if ($partner_twitter) echo "<li class='twitter'><a href=\"https://twitter.com/$partner_twitter\" target=\"_blank\" title=\"@$partner_twitter\"><span></span></a></li>";
+													if ($partner_instagram) echo "<li class='instagram'><a href=\"https://www.instagram.com/$partner_instagram\" target=\"_blank\" title=\"@$partner_instagram\"><span></span></a></li>";
 												?>
 											</ul>
 										</div><!-- end div.partner-social -->
