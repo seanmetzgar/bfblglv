@@ -4390,12 +4390,12 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		text-align: left;
 	}
 
-	/*.partner-social {
+	.partner-social {
 		margin: 0;
 		border: 0;
 		text-align: left;
 	}
-
+	/*
 	.partner-social li a {
 		color: #008c5c;
 		padding: 16px; padding: 1rem;
