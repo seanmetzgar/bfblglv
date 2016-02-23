@@ -1083,7 +1083,7 @@ header.page-header.no-image .entry-title br::after {
 */
 .entry-content blockquote {
 	clear: both;
-	padding: 20px 20px 20px 40px;
+	padding: 0 20px 0 40px;
 	position: relative;
 	overflow: hidden;
 	border: 0;
