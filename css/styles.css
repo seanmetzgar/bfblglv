@@ -2735,6 +2735,7 @@ body.single-events .entry-content .post-meta {
 .partner-social li {
 	display: block; /* display:block inside display:inline-block makes the parent shrink its width to match that of the widest 'grand-child' (the <a>, in this case) */
 	float: left;
+	margin: 0 10px 0 0;
 }
 
 .partner-social li a {
@@ -2755,10 +2756,10 @@ body.single-events .entry-content .post-meta {
 .partner-social li a::before {
 	font-family: 'fontello';
 	display: block;
-	width: 42px; width: 1.375rem;
-	height: 42px; height: 1.375rem;
+	width: 42px;
+	height: 42px;
 	font-size: 22px;
-	line-height: 22px;
+	line-height: 42px;
 	text-align: center;
 	vertical-align: middle;
 	background-color: #008c5c;
