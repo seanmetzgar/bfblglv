@@ -1069,6 +1069,24 @@ header.page-header.no-image .entry-title br::after {
 	padding: 20px; padding: 1.25rem;
 	overflow: hidden;
 }
+
+*/
+.entry-content blockquote {
+	clear: both;
+	padding: 20px 20px 20px 40px;
+	position: relative;
+	overflow: hidden;
+	border: 0;
+}
+.entry-content blockquote::before {
+	display: block;
+	position: absolute;
+	content: '\201C';
+	font-size: 30px;
+	width: 30px; height: 30px;
+	color: #008c5c;
+	position: top: 5px; left: 5px;
+}
 .entry-content blockquote p {
 	margin: .5em 0;
 }
@@ -1078,22 +1096,6 @@ header.page-header.no-image .entry-title br::after {
 	margin-bottom: .5em;
 	margin-top: 0;
 	display: none;
-}*/
-.entry-content blockquote {
-	clear: both;
-	padding: 20px 20px 20px 40px;
-	position: relative;
-	overflow: hidden;
-	border: 0;
-}
-.entry-content::before {
-	display: block;
-	position: absolute;
-	content: '\201C';
-	font-size: 30px;
-	width: 30px; height: 30px;
-	color: #008c5c;
-	position: top: 5px; left: 5px;
 }
 
 .entry-content ul,
