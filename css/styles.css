@@ -4246,14 +4246,14 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 	/* RESOURCES - TABLET */
 	.resources-list.alt .resource-link article{
-		background-color: #008c5c !important
+		background-color: #008c5c;
 		color: #fff;
 	}
 	.resources-list.alt .resource-link h3 {
 		color: #fff;
 	}
 	.resources-list.alt .resource-link:nth-of-type(odd) article {
-		background-color: #f7ecd5 !important;
+		background-color: #f7ecd5;
 		color: #1a3281;
 	}
 	.resources-list.alt .resource-link:nth-of-type(odd) h3 {
