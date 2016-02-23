@@ -1087,6 +1087,7 @@ header.page-header.no-image .entry-title br::after {
 	position: relative;
 	overflow: hidden;
 	border: 0;
+	color: #008c5c;
 }
 .entry-content blockquote::before {
 	display: block;
