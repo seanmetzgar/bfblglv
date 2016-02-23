@@ -4252,11 +4252,11 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.resources-list.alt .resource-link h3 {
 		color: #fff;
 	}
-	.resources-list.alt .resource-link:nth-child(odd) article {
+	.resources-list.alt .resource-link:nth-of-type(odd) article {
 		background-color: #f7ecd5;
 		color: #1a3281;
 	}
-	.resources-list.alt .resource-link:nth-child(odd) h3 {
+	.resources-list.alt .resource-link:nth-of-type(odd) h3 {
 		color: #1a3281;
 	}
 
