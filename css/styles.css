@@ -2686,14 +2686,17 @@ body.single-events .entry-content .post-meta {
 .product-group {
 	display: block;
 	margin: 0 0 1em;
-	font-size: 14px; line-height: 20px;
 }
 .product-group h4,
 .product-group p {
 	display: inline; margin: 0; padding: 0;
+	line-height: 20px;
 }
 .product-group h4::after {
 	content: ': ';
+}
+.product-group p {
+	font-size: 14px;
 }
 
 .partner-social {
@@ -4411,7 +4414,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		font-size: 25px;
 		line-height: 1;
 		margin-left: -15px;
-		margin-top: -2px;
+		margin-top: -3px;
 		float: left;
 		display: inline-block;
 		color: #008c5c;
