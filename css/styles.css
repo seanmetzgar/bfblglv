@@ -3438,6 +3438,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.resource-link .image { display: none; }
 	.resource-link .image ~ .details { margin: 0 30px 0 0; }
 
+	.pickup-heading { text-align: center; }
+
 }
 
 /* large mobile media query */

@@ -1002,7 +1002,7 @@ get_header(); ?>
 
 										<?php if ($has_farm_pickup || $has_other_pickup || $has_home_delivery): ?>
 									<div class="row">
-										<h4 class="col-xs-12">Pick-up Locations</h3>
+										<h4 class="col-xs-12 pickup-heading">Pick-up Locations</h3>
 
 										<?php if ($has_farm_pickup && $farm_pickup_hours): ?>
 										<div class="col-sm-4 practices-wrap">
