@@ -2766,6 +2766,12 @@ body.single-events .entry-content .post-meta {
 	border-radius: 50%;
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
+	border:1px solid #008c5c;
+	box-sizing: border-box;
+}
+.partner-social li a:hover::before {
+	background-color: transparent;
+	color: #008c5c;
 }
 
 .partner-social li.twitter a::before {
