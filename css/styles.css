@@ -2789,7 +2789,7 @@ body.single-events .entry-content .post-meta {
 	color: #72706b;
 	font-size: 14px; line-height: 20px;
 }
-.row > .practices-wrap:nth-child(3n+1) { clear: left; }
+.row > .practices-wrap:nth-of-type(3n+1) { clear: left; }
 
 .practices-wrap p,
 .practices-wrap h5,
