@@ -785,7 +785,7 @@ get_header(); ?>
 												$tempCloseTime = get_sub_field("close_time");
 
 												$tempHours = "$tempDay";
-												f (strlen($tempOpenTime) > 0 && strlen($tempOpenTime) > 0) {
+												if (strlen($tempOpenTime) > 0 && strlen($tempOpenTime) > 0) {
 													$tempHours .= ": $tempOpenTime - $tempCloseTime";
 												}
 
