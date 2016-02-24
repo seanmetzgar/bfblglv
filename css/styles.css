@@ -4247,15 +4247,14 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.archive-list h2.entry-title {
 		font-size: 30px; font-size: 1.875rem;
 	}
-	.
 
 
 	/* RESOURCES - TABLET */
-	.resources-list.alt .resource-link:nth-of-type(even) article {
+	.resources-list.alt .resource-link article {
 		background-color: #008c5c;
 		color: #fff;
 	}
-	.resources-list.alt .resource-link:nth-of-type(even) h3 {
+	.resources-list.alt .resource-link h3 {
 		color: #fff;
 	}
 	.resources-list.alt .resource-link:nth-of-type(odd) article {
