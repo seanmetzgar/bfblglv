@@ -4251,11 +4251,11 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 
 	/* RESOURCES - TABLET */
-	.resources-list.alt .resource-link article{
+	.resources-list.alt .resource-link:nth-of-type(even) article {
 		background-color: #008c5c;
 		color: #fff;
 	}
-	.resources-list.alt .resource-link h3 {
+	.resources-list.alt .resource-link:nth-of-type(even) h3 {
 		color: #fff;
 	}
 	.resources-list.alt .resource-link:nth-of-type(odd) article {
