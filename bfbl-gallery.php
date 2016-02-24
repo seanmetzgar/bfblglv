@@ -4,12 +4,11 @@
  * @subpackage Buy_Local_GLV
  * @since Buy Local GLV 1.0.0
  */
-	
 	$has_video = get_field("has_video");
 	$has_video = is_bool($has_video) ? $has_video : false;
 	$upper_gallery = (!$has_video) ? get_field("upper_gallery") : false;
 	$upper_gallery = is_bool($upper_gallery) ? $upper_gallery : false;
-	
+
 	$galleryOutput = "";
 	$galleryID = 0;
 

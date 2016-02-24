@@ -484,7 +484,7 @@ function addPartnerData($user_id, $partner) {
 			update_field("field_56b3057d80e3a", $partner->certified_biodynamic_by, $user_id);
 		}
 		update_field("field_56b30645c9a0c", (bool)$partner->only_organic, $user_id);
-		update_field("field_56b30664c9a0d", (bool)$partner->intergrated_pest_management, $user_id);
+		update_field("field_56b30664c9a0d", (bool)$partner->integrated_pest_management, $user_id);
 		update_field("field_56b30672c9a0e", (bool)$partner->non_gmo, $user_id);
 		update_field("field_56b30683c9a0f", (bool)$partner->antibiotic_harmone_free, $user_id);
 		update_field("field_56b306b7c9a10", (bool)$partner->pastured, $user_id);
