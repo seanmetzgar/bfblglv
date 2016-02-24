@@ -2341,7 +2341,7 @@ body.single-events .entry-content .post-meta {
 	position: relative;
 }
 .resource-link, .resource-link:hover { text-decoration: none; }
-.resource-link article {
+.resources-list .resource-link article {
 	display: block;
 	background-color: #f7ecd5;
 	position: relative;
@@ -2349,11 +2349,11 @@ body.single-events .entry-content .post-meta {
 	overflow: hidden;
 	color: #1a3281;
 }
-.resource-link:nth-of-type(odd) article {
+.resources-list .resource-link:nth-of-type(odd) article {
 	background-color: #008c5c;
 	color: #fff;
 }
-.resource-link article::after {
+.resources-list .resource-link article::after {
 	content:'\e80b';
 	font-family:'fontello';
 	font-size: 1.5rem;
