@@ -824,7 +824,7 @@ get_header(); ?>
 
 														$tempLHours[] = $tempHours;
 													}
-													$tempLHours = (isset($farm_pickup_hours) && is_array($farm_pickup_hours) && count($farm_pickup_hours) > 0) ? implode("<br>", $tempLHours) : false;
+													$tempLHours = (count($tempLHours) > 0) ? implode("<br>", $tempLHours) : false;
 												}
 												if ($tempLHours && $tempLName) {
 													$tempLocation["hours"] = $tempLHours;
