@@ -690,7 +690,9 @@ get_header(); ?>
 							$pastured = get_field("pastured", $acf_partner_id);
 							$grass_fed = get_field("grass_fed", $acf_partner_id);
 							$extended_growing_season = get_field("extended_growing_season", $acf_partner_id);
-							$other_farming_practices_text = get_field("other_farming_practices_text", $acf_partner_id);
+							$has_other_practices = get_field("has_other_practices", $acf_partner_id);
+							$has_other_practices = (is_bool($has_other_practices) && $has_other_practices) ? $has_other_practices : false;
+							$other_farming_practices_text = ($has_other_practices) ? get_field("other_farming_practices_text", $acf_partner_id) : false;
 
 							$accept_snap = get_field("accept_snap", $acf_partner_id);
 							$accept_fmnp = get_field("accept_fmnp", $acf_partner_id);
