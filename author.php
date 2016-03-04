@@ -580,15 +580,12 @@ get_header(); ?>
 											<?php endif; ?>
 
 											<?php
-											echo "<!--";
-											print_r($source_from);
-											echo "-->";
 											if (is_array($source_from) && count($source_from) > 0): ?>
 											<h4>We source from these BFBLGLV partners</h4>
 											<ul class="vendor-list">
 												<?php foreach ($source_from as $vendor):
-													if (is_object($vendor)):
-														$vendor_id = "user_{$vendor->ID}";
+													if (is_array($vendor)):
+														$vendor_id = "user_{$vendor['ID']}";
 														$vendor_url = get_author_posts_url($vendor_id);
 														$vendor_name = get_field("partner_name", "user_{$vendor_id}");
 														$vendor_city = get_field("partner_city", "user_{$vendor_id}");
