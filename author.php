@@ -1044,11 +1044,6 @@ get_header(); ?>
 												if ($size_full_shares) echo "<li>Size: $size_full_shares</li>";
 												?>
 											</ul>
-												<?php if ($other_farming_practices_text): ?>
-											<p><strong>Other Practices</strong><br>
-											<?php echo $other_farming_practices_text; ?>
-											</p>
-												<?php endif; ?>
 										</div>
 										<?php endif;
 
