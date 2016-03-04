@@ -138,13 +138,15 @@ function breakSeason($season) {
 	return $season_array;
 }
 
-function buildProductsQuery($productTypes) {
+function buildProductsQuery($productTypes, $wholesale = false) {
 	$metaQueryArray = false;
+	$wholesale = (is_bool($wholesale)) ? $wholesale : false;
 
 	if (is_array($productTypes) && count($productTypes) > 0) {
 		$metaQueryArray = array();
 		foreach ($productTypes as $productType) {
 			$tempProductTypeField = "products_{$productType}";
+			$tempProductTypeField = ($wholesale) ? "ws_$tempProductTypeField" : $tempProductTypeField;
 			$tempProductTypeOtherField = "other_{$tempProductTypeField}";
 			$tempMetaQuery = array(
 				"relation" => "OR",
@@ -640,7 +642,7 @@ function xhrGetPartners() {
                     )
                 )
             );
-            $productsQuery = buildProductsQuery($productTypes);
+            $productsQuery = buildProductsQuery($productTypes, $wholesale);
             if ($productsQuery) {
                 $locationTypeQueryArgs["meta_query"][] = $productsQuery;
             }
@@ -650,7 +652,7 @@ function xhrGetPartners() {
                 "role" => $locationType
             );
             if ($locationType === "farm") {
-                $productsQuery = buildProductsQuery($productTypes);
+                $productsQuery = buildProductsQuery($productTypes, $wholesale);
 
                 if ($productsQuery) {
                     $locationTypeQueryArgs["meta_query"] = array($productsQuery);
