@@ -104,7 +104,7 @@ get_header(); ?>
 							$tempVendors = get_sub_field("vendors");
 							$tempVendors = (is_string($tempVendors) && strlen($tempVendors) > 0) ? $tempVendors : false;
 
-							$tempHours = "$tempDay: $tempOpenTime - $tempCloseTime";
+							$tempHours = "<strong>$tempDay: $tempOpenTime - $tempCloseTime</strong>";
 							$tempHours .= ($tempIsSeasonal) ? "<br><span class=\"seasonal\">$tempSeasonStartMonthPart $tempSeasonStartMonth - $tempSeasonEndMonthPart $tempSeasonEndMonth</span>" : "";
 							$tempHours .= ($tempVendors) ? "<br><span class=\"vendors\">$tempVendors Vendors</span>" : "";
 							$partner_hours[] = $tempHours;
