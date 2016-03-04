@@ -3194,15 +3194,14 @@ body.single-events .entry-content .post-meta {
 
 
 .wholesale-section label,
-.wholesale-section .greenHeader {
+.wholesale-section a {
 	/* also has .greenHeader styles, including position:relative */
 	margin-bottom: 0;
 	font-weight: inherit;
 	cursor: pointer;
 }
 
-.wholesale-section label span::after,
-.wholesale-section .greenHeader span::after {
+.wholesale-section label span::after {
 	content: '';
 	position: absolute;
 	top: 50%;

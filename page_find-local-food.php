@@ -148,7 +148,7 @@ get_header();
                                 $wholesaleChecked = (isset($_REQUEST["wholesale"]) && ($_REQUEST["wholesale"] == "true" || $_REQUEST["wholesale"] == "1")) ? true : false; ?>
 							<label class='greenHeader'><input type="checkbox" name="wholesale" value="1"<?php if ($wholesaleChecked) { echo " checked"; } ?>><span>Wholesale</span></label>
                             <?php else: ?>
-							<div class='greenHeader pseudoWholesale'><span>Wholesale (Must be logged in for access)</span></div>
+							<label class='greenHeader'><input disabled type="checkbox" name="wholesale" value="1"><span>Wholesale</span></label>
                             <?php endif; ?>
 						</section>
 					</form>
