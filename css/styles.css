@@ -2606,7 +2606,7 @@ body.single-events .entry-content .post-meta {
 .partner-detail p {
 	margin-bottom: .5em;
 }
-.partner-detail ul li {
+.partner-detail .hours-list li {
 	margin-bottom: .5em;
 	font-weight: normal;
 }
