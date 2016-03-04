@@ -3197,8 +3197,11 @@ body.single-events .entry-content .post-meta {
 .wholesale-section a {
 	/* also has .greenHeader styles, including position:relative */
 	margin-bottom: 0;
-	font-weight: inherit;
 	cursor: pointer;
+	font-weight: 500;
+}
+.wholesale-section label .warning {
+	font-size: .75em;
 }
 
 .wholesale-section label span::after {
