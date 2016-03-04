@@ -551,10 +551,10 @@ get_header(); ?>
 											<ul class="vendor-list">
 												<?php foreach ($products_available_at as $vendor):
 													if (is_object($vendor)):
-														$vendor_id = "user_{$vendor->ID}";
-														$vendor_url = get_author_posts_url($vendor_id);
-														$vendor_name = get_field("partner_name", "user_{$vendor_id}");
-														$vendor_city = get_field("partner_city", "user_{$vendor_id}");
+														$vendor_id = "user_{$vendor['ID']}";
+														$vendor_url = get_author_posts_url($vendor['ID']);
+														$vendor_name = get_field("partner_name", $vendor_id);
+														$vendor_city = get_field("partner_city", $vendor_id);
 														$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
 														echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
 													endif;
@@ -568,10 +568,10 @@ get_header(); ?>
 											<ul class="vendor-list">
 												<?php foreach ($products_available_from as $vendor):
 													if (is_object($vendor)):
-														$vendor_id = "user_{$vendor->ID}";
-														$vendor_url = get_author_posts_url($vendor_id);
-														$vendor_name = get_field("partner_name", "user_{$vendor_id}");
-														$vendor_city = get_field("partner_city", "user_{$vendor_id}");
+														$vendor_id = "user_{$vendor['ID']}";
+														$vendor_url = get_author_posts_url($vendor['ID']);
+														$vendor_name = get_field("partner_name", $vendor_id);
+														$vendor_city = get_field("partner_city", $vendor_id);
 														$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
 														echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
 													endif;
