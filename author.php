@@ -490,7 +490,7 @@ get_header(); ?>
 											<?php endif; ?>
 
 											<?php if (is_array($market_vendors) && count($market_vendors) > 0): ?>
-										<div class="market-manager">
+										<div class="market-vendor-list">
 											<h4>Our vendors include these BFBLGLV partners</h4>
 											<ul>
 												<?php foreach ($market_vendors as $vendor):
