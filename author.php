@@ -439,7 +439,7 @@ get_header(); ?>
 										<?php if ($partner_hours): ?>
 										<div class="partner-detail partner-hours">
 											<h4>Hours</h4>
-											<ul>
+											<ul class="hours-list">
 											<?php foreach ($partner_hours as $partner_hours_day) {
 												echo "<li>$partner_hours_day</li>\n";
 											} ?>
@@ -458,7 +458,7 @@ get_header(); ?>
 
 											<?php if ($market_manager): ?>
 										<div class="partner-detail market-manager">
-											<h4>Market Manager</h4>
+											<h4>Manager</h4>
 											<p><?php echo $market_manager; ?></p>
 										</div><!-- end div.market-manager -->
 											<?php endif; ?>
@@ -466,7 +466,7 @@ get_header(); ?>
 											<?php if ($market_practices): ?>
 
 										<div class="partner-detail market-practices">
-											<h4>Market Practices</h4>
+											<h4>Practices</h4>
 											<ul>
 											<?php switch ($market_ebt) {
 												case "all": 
@@ -484,7 +484,7 @@ get_header(); ?>
 
 											<?php if ($market_vendor_count): ?>
 										<div class="partner-detail market-vendors">
-											<h4># of Vendors</h4>
+											<h4>Vendors</h4>
 											<p><?php echo $market_vendor_count; ?></p>
 										</div><!-- end div.market-vendors -->
 											<?php endif; ?>
@@ -492,7 +492,7 @@ get_header(); ?>
 											<?php if (is_array($market_vendors) && count($market_vendors) > 0): ?>
 										<div class="market-vendor-list">
 											<h4>Our vendors include these BFBLGLV partners</h4>
-											<ul>
+											<ul class="vendor-list">
 												<?php foreach ($market_vendors as $vendor):
 													if (is_array($vendor)):
 														$vendor_id = "user_{$vendor['ID']}";
