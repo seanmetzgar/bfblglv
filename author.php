@@ -550,7 +550,7 @@ get_header(); ?>
 											<h4>Buy our our products at these BFBLGLV partners</h4>
 											<ul class="vendor-list">
 												<?php foreach ($products_available_at as $vendor):
-													if (is_object($vendor)):
+													if (is_array($vendor)):
 														$vendor_id = "user_{$vendor['ID']}";
 														$vendor_url = get_author_posts_url($vendor['ID']);
 														$vendor_name = get_field("partner_name", $vendor_id);
@@ -567,7 +567,7 @@ get_header(); ?>
 											<h4>We also offer products from these BFBLGLV partners</h4>
 											<ul class="vendor-list">
 												<?php foreach ($products_available_from as $vendor):
-													if (is_object($vendor)):
+													if (is_array($vendor)):
 														$vendor_id = "user_{$vendor['ID']}";
 														$vendor_url = get_author_posts_url($vendor['ID']);
 														$vendor_name = get_field("partner_name", $vendor_id);
