@@ -580,6 +580,9 @@ get_header(); ?>
 											<?php endif; ?>
 
 											<?php
+											echo "<!--";
+											print_r($source_from);
+											echo "-->";
 											if (is_array($source_from) && count($source_from) > 0): ?>
 											<h4>We source from these BFBLGLV partners</h4>
 											<ul class="vendor-list">
