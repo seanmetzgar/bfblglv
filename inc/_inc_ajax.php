@@ -159,8 +159,8 @@ function buildProductsQuery($productTypes, $wholesale = false) {
 					),
 					array( 
 						"key" => $tempProductTypeField,
-						"value" => array(""),
-						"compare" => "NOT IN"
+						"value" => serialize(strval("")),
+						"compare" => "NOT LIKE"
 					)
 				),
 				array(
