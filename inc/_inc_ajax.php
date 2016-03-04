@@ -523,7 +523,7 @@ function addPartnerData($user_id, $partner) {
 	if ($partner->category === "institution" || $partner->category === "restaurant") {
 		update_field("field_56b2d80b12906", $partner->source_from_other, $user_id);
 		update_field("field_56b2d8ffd4302", $partner->local_stock_freq, $user_id);
-		update_field("field_56b2d9ddd4304", $partner->local_stock_freq, $user_id);
+		update_field("field_56b2d9ddd4304", $partner->local_stock_qty, $user_id);
 	}
 
 	if ($partner->category === "farmers-market") {
