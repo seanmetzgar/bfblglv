@@ -143,7 +143,7 @@ function buildProductsQuery($productTypes, $wholesale = false) {
 	$wholesale = (is_bool($wholesale)) ? $wholesale : false;
 
 	if (is_array($productTypes) && count($productTypes) > 0) {
-		$metaQueryArray = array();
+		$metaQueryArray = array("relation" => "OR");
 		foreach ($productTypes as $productType) {
 			$tempProductTypeField = "products_{$productType}";
 			$tempProductTypeField = ($wholesale) ? "ws_$tempProductTypeField" : $tempProductTypeField;
