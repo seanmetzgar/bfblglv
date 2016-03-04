@@ -358,6 +358,22 @@ get_header(); ?>
 
 					// $productHours = '<li>' . implode('</li><li>', $prodHoursArray) . '</li>';
 
+				if (in_array("farmers-market", $partner_category)) {
+					$market_manager = get_field("market_manager", $acf_partner_id);
+					$market_vendor_count = get_field("number_of_vendors", $acf_partner_id);
+					$market_vendors = get_field("vendor_list", $acf_partner_id);
+					$market_practices = false;
+					$market_ebt = get_field("market_ebt", $acf_partner_id);
+					$market_ebt = (is_string($market_ebt) && ($market_ebt !== "no")) ? $market_ebt : false;
+					$market_double_snap = get_field("market_double_snap", $acf_partner_id);
+					$market_double_snap = is_bool($market_double_snap) ? $market_double_snap : false;
+					$market_fmnp = get_field("market_fmnp", $acf_partner_id);
+					$market_fmnp = is_bool($market_fmnp) ? $market_fmnp : false;
+
+					if ($market_ebt || $market_double_snap || $market_fmnp) {
+						$market_practices = true;
+					}
+				}
 
 				?>
 				<article id="partner-<?php the_ID(); ?>" class="partner-profile">
@@ -436,6 +452,60 @@ get_header(); ?>
 											<h4>Owner</h4>
 											<p><?php echo $partner_owner_name; ?></p>
 										</div><!-- end div.partner-owner -->
+										<?php endif; ?>
+
+										<?php if (in_array("farmers-market", $partner_category) && ($market_manager || $market_vendor_count || $market_vendors || $market_practices)): ?>
+
+											<?php if ($market_manager): ?>
+										<div class="partner-detail market-manager">
+											<h4>Market Manager</h4>
+											<p><?php echo $market_manager; ?></p>
+										</div><!-- end div.market-manager -->
+											<?php endif; ?>
+
+											<?php if ($market_practices): ?>
+
+										<div class="partner-detail market-practices">
+											<h4>Market Practices</h4>
+											<ul>
+											<?php switch ($market_ebt) {
+												case "all": 
+													echo "<li>Market-wide EBT program</li>";
+													break;
+												case "some":
+													echo "<li>EBT accepted by some vendors</li>";
+													break;
+											}
+											if ($market_double_snap) echo "<li>Double SNAP Program</li>";
+											if ($market_fmnp) echo "<li>FMNP Vouchers accepted by some vendors</li>"; ?>
+											</ul>
+										</div><!-- end div.market-practices -->
+											<?php endif; ?>
+
+											<?php if ($market_vendor_count): ?>
+										<div class="partner-detail market-vendors">
+											<h4># of Vendors</h4>
+											<p><?php echo $market_vendor_count; ?></p>
+										</div><!-- end div.market-vendors -->
+											<?php endif; ?>
+
+											<?php if (is_array($market_vendors) && count($market_vendors) > 0): ?>
+										<div class="market-manager">
+											<h4>Our vendors include these BFBLGLV partners</h4>
+											<ul>
+												<?php foreach ($market_vendors as $vendor):
+													if (is_array($vendor)):
+														$vendor_id = "user_{$vendor['ID']}";
+														$vendor_url = get_author_posts_url($vendor['ID']);
+														$vendor_name = get_field("partner_name", $vendor_id);
+														$vendor_city = get_field("partner_city", $vendor_id);
+														$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
+														echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+													endif;
+												endforeach; ?>
+											</ul>
+										</div><!-- end div.partner-owner -->
+											<?php endif; ?>
 										<?php endif; ?>
 
 										<?php if ($partner_phone || $partner_email || $partner_website): ?>
