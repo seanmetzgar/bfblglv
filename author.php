@@ -547,36 +547,40 @@ get_header(); ?>
 
 											<?php
 											if (is_array($products_available_at) && count($products_available_at) > 0): ?>
-											<h4>Buy our our products at these BFBLGLV partners</h4>
-											<ul class="vendor-list">
-												<?php foreach ($products_available_at as $vendor):
-													if (is_object($vendor)):
-														$vendor_id = "user_{$vendor->ID}";
-														$vendor_url = get_author_posts_url($vendor_id);
-														$vendor_name = get_field("partner_name", "user_{$vendor_id}");
-														$vendor_city = get_field("partner_city", "user_{$vendor_id}");
-														$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
-														echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
-													endif;
-												endforeach; ?>
-											</ul>
+											<div class="page-block">
+												<h4>Buy our our products at these BFBLGLV partners</h4>
+												<ul class="vendor-list">
+													<?php foreach ($products_available_at as $vendor):
+														if (is_object($vendor)):
+															$vendor_id = "user_{$vendor->ID}";
+															$vendor_url = get_author_posts_url($vendor_id);
+															$vendor_name = get_field("partner_name", "user_{$vendor_id}");
+															$vendor_city = get_field("partner_city", "user_{$vendor_id}");
+															$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
+															echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+														endif;
+													endforeach; ?>
+												</ul>
+											</div>
 											<?php endif; ?>
 
 											<?php
 											if (is_array($products_available_from) && count($products_available_from) > 0): ?>
-											<h4>We also offer products from these BFBLGLV partners</h4>
-											<ul class="vendor-list">
-												<?php foreach ($products_available_from as $vendor):
-													if (is_object($vendor)):
-														$vendor_id = "user_{$vendor->ID}";
-														$vendor_url = get_author_posts_url($vendor_id);
-														$vendor_name = get_field("partner_name", "user_{$vendor_id}");
-														$vendor_city = get_field("partner_city", "user_{$vendor_id}");
-														$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
-														echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
-													endif;
-												endforeach; ?>
-											</ul>
+											<div class="page-block">
+												<h4>We also offer products from these BFBLGLV partners</h4>
+												<ul class="vendor-list">
+													<?php foreach ($products_available_from as $vendor):
+														if (is_object($vendor)):
+															$vendor_id = "user_{$vendor->ID}";
+															$vendor_url = get_author_posts_url($vendor_id);
+															$vendor_name = get_field("partner_name", "user_{$vendor_id}");
+															$vendor_city = get_field("partner_city", "user_{$vendor_id}");
+															$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
+															echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+														endif;
+													endforeach; ?>
+												</ul>
+											</div>
 											<?php endif; ?>
 
 											<?php
@@ -584,23 +588,25 @@ get_header(); ?>
 											print_r($source_from);
 											echo "-->";
 											if (is_array($source_from) && count($source_from) > 0): ?>
-											<h4>We source from these BFBLGLV partners</h4>
-											<ul class="vendor-list">
-												<?php foreach ($source_from as $vendor):
-													if (is_array($vendor)):
-														$vendor_id = "user_{$vendor['ID']}";
-														$vendor_url = get_author_posts_url($vendor['ID']);
-														$vendor_name = get_field("partner_name", $vendor_id);
-														$vendor_city = get_field("partner_city", $vendor_id);
-														$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
-														echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
-													endif;
-												endforeach; ?>
-											</ul>
+											<div class="page-block">
+												<h4>We source from these BFBLGLV partners</h4>
+												<ul class="vendor-list">
+													<?php foreach ($source_from as $vendor):
+														if (is_array($vendor)):
+															$vendor_id = "user_{$vendor['ID']}";
+															$vendor_url = get_author_posts_url($vendor['ID']);
+															$vendor_name = get_field("partner_name", $vendor_id);
+															$vendor_city = get_field("partner_city", $vendor_id);
+															$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
+															echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+														endif;
+													endforeach; ?>
+												</ul>
+											</div>
 											<?php endif; ?>
 
 											<?php if ($local_stock_freq && $local_stock_qty)
-												echo "<h4>Local Ingredients</h4><p><em>We $local_stock_freq have $local_stock_qty locally grown ingredients in our menu items.</em></p>"; ?>
+												echo "<div class=\"page-block\"><h4>Local Ingredients</h4><p><em>We $local_stock_freq have $local_stock_qty locally grown ingredients in our menu items.</em></p></div>"; ?>
 
 										</div><!-- end div.products-detail -->
 									<?php if ($partner_business_photo): ?></div><!-- end div.product-info-right --><?php endif; ?>
