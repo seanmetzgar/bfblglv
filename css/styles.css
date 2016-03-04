@@ -4460,8 +4460,8 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.vendor-list li:nth-child(3n+1) {
 		clear: left;
 	}
-	.farming-ptractices-list li em,
-	.vendors-list li em {
+	.farming-practices-list li em,
+	.vendor-list li em {
 		color: #72706b;
 		font-style: italic;
 	}
