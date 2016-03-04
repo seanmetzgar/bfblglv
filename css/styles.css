@@ -2808,6 +2808,9 @@ body.single-events .entry-content .post-meta {
 	color: #72706b;
 	font-size: 14px; line-height: 20px;
 }
+.vendor-list {
+	margin-bottom: 1em;
+}
 
 .practices-wrap {
 	margin-bottom: 1em;
