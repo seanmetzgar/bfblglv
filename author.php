@@ -597,7 +597,7 @@ get_header(); ?>
 											<?php endif; ?>
 
 											<?php if ($local_stock_freq && $local_stock_qty)
-												echo "<p><em>We $local_stock_freq have $local_stock_qty locally grown ingredients in our menu items.</em></p>"; ?>
+												echo "<h4>Local Stock Frequency</h4><p><em>We $local_stock_freq have $local_stock_qty locally grown ingredients in our menu items.</em></p>"; ?>
 
 										</div><!-- end div.products-detail -->
 									<?php if ($partner_business_photo): ?></div><!-- end div.product-info-right --><?php endif; ?>
