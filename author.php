@@ -547,7 +547,7 @@ get_header(); ?>
 
 											<?php
 											if (is_array($products_available_at) && count($products_available_at) > 0): ?>
-											<h4>Buy our our products at these BFBLGLV partners</h4>
+											<h4>Products available at these BFBLGLV partners</h4>
 											<ul class="vendor-list">
 												<?php foreach ($products_available_at as $vendor):
 													if (is_array($vendor)):
@@ -564,7 +564,7 @@ get_header(); ?>
 
 											<?php
 											if (is_array($products_available_from) && count($products_available_from) > 0): ?>
-											<h4>We also offer products from these BFBLGLV partners</h4>
+											<h4>Products available from these BFBLGLV partners</h4>
 											<ul class="vendor-list">
 												<?php foreach ($products_available_from as $vendor):
 													if (is_array($vendor)):
