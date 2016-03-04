@@ -94,6 +94,7 @@ get_header(); ?>
 							$tempDay = get_sub_field("day");
 							$tempOpenTime = get_sub_field("open_time");
 							$tempCloseTime = get_sub_field("close_time");
+							$tempShortDescription = get_sub_field("short_description");
 							$tempIsSeasonal = get_sub_field("is_seasonal");
 							if ($tempIsSeasonal) {
 								$tempSeasonStartMonthPart = get_sub_field("season_start_mpart");
@@ -105,6 +106,7 @@ get_header(); ?>
 							$tempVendors = (is_string($tempVendors) && strlen($tempVendors) > 0) ? $tempVendors : false;
 
 							$tempHours = "<strong>$tempDay: $tempOpenTime - $tempCloseTime</strong>";
+							$tempHours .= ($tempShortDescription) ? "<br><span class=\"short-description\"><em>$tempShortDescription</em></span>" : "";
 							$tempHours .= ($tempIsSeasonal) ? "<br><span class=\"seasonal\">$tempSeasonStartMonthPart $tempSeasonStartMonth - $tempSeasonEndMonthPart $tempSeasonEndMonth</span>" : "";
 							$tempHours .= ($tempVendors) ? "<br><span class=\"vendors\">$tempVendors Vendors</span>" : "";
 							$partner_hours[] = $tempHours;
