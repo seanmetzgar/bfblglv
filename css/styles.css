@@ -2602,6 +2602,14 @@ body.single-events .entry-content .post-meta {
 	margin-bottom: 28px; margin-bottom: 1.75rem;
 	font-weight: bold;
 }
+.market-vendor-list {
+	text-align: center;
+	font-size: 14px; font-size: 0.875rem;
+	line-height: 20px; line-height: 1.25rem;
+	margin-bottom: 28px; margin-bottom: 1.75rem;
+	color: #72706b;
+	font-weight: bold;
+}
 
 .partner-detail p {
 	margin-bottom: .5em;
@@ -4358,10 +4366,12 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.partner-description {
 		margin-bottom: 48px; margin-bottom: 3rem;
 	}
-
+	.market-vendor-list {
+		text-align: left;
+	}
 	.partner-info-block .partner-detail {
 		text-align: left;
-		padding-left: 100px;
+		padding-left: 110px;
 		position: relative;
 	}
 
