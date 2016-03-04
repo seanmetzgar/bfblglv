@@ -152,8 +152,8 @@ function buildProductsQuery($productTypes, $wholesale = false) {
 				"relation" => "OR",
 				array(
 					"key" => $tempProductTypeField,
-					"value" => serialize(strval("")),
-					"compare" => "NOT LIKE"
+					"value" => "a:1%",
+					"compare" => "LIKE"
 				),
 				array(
 					"key" => $tempProductTypeOtherField,
