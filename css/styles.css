@@ -2604,7 +2604,10 @@ body.single-events .entry-content .post-meta {
 }
 
 .partner-detail p {
-	margin-bottom: 0;
+	margin-bottom: .5em;
+}
+.partner-detail ul li {
+	margin-bottom: .5em;
 }
 
 
