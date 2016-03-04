@@ -2801,7 +2801,8 @@ body.single-events .entry-content .post-meta {
 	margin-bottom: 40px; margin-bottom: 2.5rem;
 }
 
-.farming-practices-list {
+.farming-practices-list,
+.vendor-list {
 	display: block;
 	overflow: hidden;
 	color: #72706b;
@@ -4434,15 +4435,18 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-bottom: 0;
 	}
 
-	.farming-practices-list {
+	.farming-practices-list,
+	.vendor-list {
 		color: #003f29;
 	}
-	.farming-practices-list li {
+	.farming-practices-list li,
+	.vendor-list li {
 		display: block;
 		padding-left: 15px;
 		color: #72706b;
 	}
-	.farming-practices-list li::before {
+	.farming-practices-list li::before,
+	.vendor-list li::before {
 		content: '\2022';
 		font-size: 25px;
 		line-height: 1;
@@ -4452,10 +4456,12 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		display: inline-block;
 		color: #008c5c;
 	}
-	.farming-practices-list li:nth-child(3n+1) {
+	.farming-practices-list li:nth-child(3n+1),
+	.vendor-list li:nth-child(3n+1) {
 		clear: left;
 	}
-	.farming-ptractices-list li em {
+	.farming-ptractices-list li em,
+	.vendors-list li em {
 		color: #72706b;
 		font-style: italic;
 	}
