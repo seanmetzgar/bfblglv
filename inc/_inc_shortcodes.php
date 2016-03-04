@@ -83,7 +83,7 @@ function shortcode_getPartners( $atts ) {
 		});
 		$rVal = "<ul>";
 		foreach ($listItems as $item) {
-			$rVal .= "<li><a href=\"{$item->href}\">{$item->name}";
+			$rVal .= "<li><a href=\"{$item->href}\" target=\"_blank\">{$item->name}";
 			$rVal .= ($item->city) ? ", {$item->city}</a></li>" : "</a></li>";
 		}
 		$rVal .= "</ul>";
