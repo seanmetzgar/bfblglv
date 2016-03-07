@@ -83,7 +83,7 @@ get_header();
 								<div class="form-inline page-block map-checkboxes">
 									<label><input type="checkbox" name="product_type[]" value="greens"><span>Greens</span></label>
 									<label><input type="checkbox" name="product_type[]" value="roots"><span>Root Crops</span></label>
-									<label><input type="checkbox" name="product_type[]" value="seasonal"><span>Season Vegetables</span></label>
+									<label><input type="checkbox" name="product_type[]" value="seasonal"><span>Seasonal Vegetables</span></label>
 									<label><input type="checkbox" name="product_type[]" value="melons"><span>Melons &amp; Pumpkins</span></label>
 									<label><input type="checkbox" name="product_type[]" value="herbs"><span>Herbs</span></label>
 									<label><input type="checkbox" name="product_type[]" value="berries"><span>Berries</span></label>
@@ -104,7 +104,7 @@ get_header();
 									<label><input type="checkbox" name="product_type[]" value="educational"><span>Educational Programs</span></label>
 									<label><input type="checkbox" name="product_type[]" value="baked"><span>Baked Goods</span></label>
 									<label><input type="checkbox" name="product_type[]" value="seeds"><span>Nuts / Seeds</span></label>
-									<label><input type="checkbox" name="product_type[]" value="misc"><span>Miscellaneous</span></label>
+									<label><input type="checkbox" name="product_type[]" value="misc"><span>Miscellaneous [e.g. Eggs]</span></label>
 								</div><!-- end div.map-checkboxes -->
 
 								<!-- <div class="map-specific-prods page-block">
