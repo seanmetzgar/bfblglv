@@ -67,7 +67,7 @@ get_header();
 									<label><input type="checkbox" name="location_type[]" value="restaurant"><span>Restaurants / Caterers</span></label>
 									<label><input type="checkbox" name="location_type[]" value="retail"><span>Stores / Retail</span></label>
 									<label><input type="checkbox" name="location_type[]" value="vineyard"><span>Vineyards</span></label>
-									<label><input type="checkbox" name="location_type[]" value="distillery"><span>Distilleries</span></label>
+									<label><input type="checkbox" name="location_type[]" value="distillery"><span>Breweries &amp; Distilleries</span></label>
 									<label><input type="checkbox" name="location_type[]" value="institution"><span>Institutions</span></label>
 									<label><input type="checkbox" name="location_type[]" value="distributor"><span>Distributors</span></label>
 									<label><input type="checkbox" name="location_type[]" value="specialty"><span>Specialty Products</span></label>
