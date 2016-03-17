@@ -75,20 +75,21 @@ function geocodeAddress($street = "", $city = "", $state = "", $zip = "") {
 	return $rVal;
 }
 
-function getZipBounds($zip, $radius = 25) {
+function getZipBounds($zip, $radius = 10) {
     $rVal = false;
+    $radius = is_int($radius && $radius > 0) ? $radius : 10;
     if ($zip && is_int($radius) && $radius > 0) {
 		$fields = "zip=" . urlencode($zip);
 		$fields .= "&radius=" . urlencode($radius);
-
-		$ch = curl_init("https://api.wearekudu.com/geolocate/?{$fields}");
+		$url = "http://api.wearekudu.com/geolocate/?{$fields}";
+		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 		$data = curl_exec($ch);
 		curl_close($ch);
 
 	    $data = json_decode($data);
-	    print_r($data);
+
 	    $boundsData = (is_object($data) &&
 	        property_exists($data, "data") &&
 	        is_object($data->data)) ?
