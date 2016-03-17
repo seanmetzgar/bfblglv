@@ -76,9 +76,9 @@ function geocodeAddress($street = "", $city = "", $state = "", $zip = "") {
 	return $rVal;
 }
 
-function getZipBounds($zip, $radius = 10) {
+function getZipBounds($zip, $radius = 5) {
     $rVal = false;
-    $radius = is_int($radius && $radius > 0) ? $radius : 10;
+    $radius = is_int($radius && $radius > 0) ? $radius : 5;
     if ($zip && is_int($radius) && $radius > 0) {
 		$fields = "zip=" . urlencode($zip);
 		$fields .= "&radius=" . urlencode($radius);
