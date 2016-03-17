@@ -91,9 +91,8 @@ function getZipBounds($zip, $radius = 25) {
 
 	    $boundsData = (is_object($data) &&
 	        property_exists($data, "data") &&
-	        is_object($data->data) ?
-	            $data->data :
-	            false;
+	        is_object($data->data)) ?
+	            $data->data : false;
 
 	    if ($boundsData !== false && is_object($boundsData)) {
 	    	$rVal = $boundsData;
