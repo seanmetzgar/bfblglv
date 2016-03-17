@@ -611,12 +611,10 @@ function addPartnerData($user_id, $partner) {
 		}
 
 	}
-
-
 }
 
 function xhrGetPartners() {
-	$zip = (isset($_REQUEST["zip"]) ? "".$_REQUEST["zip"] : false;
+	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;
 	$zip = ($zip && strlen($zip) >= 5) ? substr($zip, 0, 5) : false;
 	$hasZipBounds = false;
 	if ($zip) {
