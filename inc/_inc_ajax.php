@@ -6,6 +6,7 @@ class MapPartner {
 	public $lat = false;
 	public $lng = false;
 	public $city = false;
+	public $inbounds = false;
 }
 class Hours {
 	public $day = false;
@@ -731,6 +732,7 @@ function xhrGetPartners() {
 		if ($hasZipBounds && !empty($tempMap)) {
 			if ($tempMap["lat"] < $zipBounds->maxLat && $tempMap["lat"] > $zipBounds->minLat &&
 				$tempMap["lng"] < $zipBounds->maxLng && $tempMap["lng"] > $zipBounds->minLng) {
+				$tempObj->inbounds = true;
 				$returnPartners[] = $tempObj;
 			}
 		} else {
