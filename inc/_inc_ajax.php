@@ -75,6 +75,32 @@ function geocodeAddress($street = "", $city = "", $state = "", $zip = "") {
 	return $rVal;
 }
 
+function getZipBounds($zip, $radius = 25) {
+    $rVal = false;
+    if ($zip && is_int($radius) && $radius > 0) {
+		$fields = "zip=" . urlencode($zip);
+		$fields .= "&radius=" . urlencode($radius);
+
+		$ch = curl_init("https://api.wearekudu.com/geolocate/?{$fields}");
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		$data = curl_exec($ch);
+		curl_close($ch);
+
+	    $data = json_decode($data);
+
+	    $boundsData = (is_object($data) &&
+	        property_exists($data, "data") &&
+	        is_object($data->data) ?
+	            $data->data :
+	            false;
+
+	    if ($boundsData !== false && is_object($boundsData)) {
+	    	$rVal = $boundsData;
+	    }
+	}
+	return $rVal;
+}
 function splitHours($hours) {
 	$hours = explode("\n", $hours);
 	$hoursReturn = array();
@@ -591,6 +617,14 @@ function addPartnerData($user_id, $partner) {
 }
 
 function xhrGetPartners() {
+	$zip = (isset($_REQUEST["zip"]) ? "".$_REQUEST["zip"] : false;
+	$zip = ($zip && strlen($zip) >= 5) ? substr($zip, 0, 5) : false;
+	$hasZipBounds = false;
+	if ($zip) {
+		$zipBounds = getZipBounds($zip);
+		$hasZipBounds = (is_object($zipBounds)) ? true : false;
+	}
+
     $pseudoFarmSearch = false;
 	$allLocationTypes = array(
 		"farm", "farmers-market",
@@ -695,7 +729,15 @@ function xhrGetPartners() {
 		}
 		$tempObj->url = get_author_posts_url($partner->ID);
 		$tempObj->city = $tempCity;
-		$returnPartners[] = $tempObj;
+
+		if ($hasZipBounds && !empty($tempMap)) {
+			if ($tempMap["lat"] < $zipBounds->maxLat && $tempMap["lat"] > $zipBounds->minLat &&
+				$tempMap["lng"] < $zipBounds->maxLng && $tempMap["lng"] > $zipBounds->minLng) {
+				$returnPartners[] = $tempObj;
+			}
+		} else {
+			$returnPartners[] = $tempObj;
+		}
 		$tempObj = null;
 		$tempName = null;
 		$tempCity = null;

@@ -16,14 +16,13 @@ get_header();
 
 				<section class="map-form">
 					<form id="find-local-food-form">
-						<?php if (false): ?>
 						<section class="form-section bfblSlider sliderOpen">
 							<h2 class="greenHeader">Location</h2>
 							<div class="bfblSlideWrap">
 
 							<!-- <div class="form-inline page-block"> -->
 								<div class="form-inline page-block map-county-zip">
-
+									<?php if (false): ?>
 									<div class="county-select-wrap">
 
 								<!-- <select name="county" aria-label="County" class="form-control"> -->
@@ -47,6 +46,7 @@ get_header();
 									</div><!-- end div.county-select-wrap -->
 
 									<span>or</span>
+									<?php endif; ?>
 
 									<div class="zip-input-group">
 										<input class="zip-input" name="zip" placeholder="Zip Code" aria-label="Zip Code">
@@ -55,7 +55,6 @@ get_header();
 								</div><!-- end div.form-inline -->
 							</div><!-- end div.bfblSlideWrap -->
 						</section>
-						<?php endif; ?>
 
 						<section class="form-section bfblSlider sliderOpen">
 							<h2 class="greenHeader">Location Type</h2>
