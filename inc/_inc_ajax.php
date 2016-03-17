@@ -88,7 +88,7 @@ function getZipBounds($zip, $radius = 25) {
 		curl_close($ch);
 
 	    $data = json_decode($data);
-
+	    print_r($data);
 	    $boundsData = (is_object($data) &&
 	        property_exists($data, "data") &&
 	        is_object($data->data)) ?
