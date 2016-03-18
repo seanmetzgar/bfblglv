@@ -203,9 +203,14 @@ jQuery(document).ready(function ($) {
         formObject = $findLocalFoodForm.serializeObject();
         console.log(formObject);
         formObject.action = "xhrGetPartners";
-        
+
         xhrGetPartners(formObject);
     }).find("input").eq(0).trigger("blur");
+    $findLocalFoodForm.on("submit", function(e) {
+        e.preventDefault();
+        $findLocalFoodForm.find("input").eq(0).trigger("blur");
+        return false;
+    });
 
     $(".entry-content,.entry-header").find("h1, h2, h3").filter(function () {
         var testRegex = /\bcsas\b/ig;
