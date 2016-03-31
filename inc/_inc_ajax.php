@@ -21,6 +21,209 @@ class Hours {
 	public $season_end_month = false;
 }
 
+class DownloadPartner {
+	public $name = false;
+
+	/** Business Details **/
+	public $partner_phone = "";
+	public $partner_website = "";
+	public $partner_email = "";
+
+	/** Owner Details **/
+	public $owner_name = "";
+	public $owner_phone = "";
+	public $owner_email = "";
+
+	/** Contact Details **/
+	public $contact_name = "";
+	public $contact_job = "";
+	public $contact_phone = "";
+	public $contact_email = "";
+
+	/** Social Media **/
+	public $facebook_page = "";
+	public $instagram_username = "";
+	public $twitter_username = "";
+
+	/** Location **/
+	public $county = "";
+	public $locationAddress = "";
+
+	/** Hours **/
+	public $hours = "";
+
+	/** Availability & Sourcing **/
+	public $products_available_from = "";
+	public $products_available_from_other = "";
+	public $products_available_at = "";
+	public $products_available_at_other = "";
+	public $source_from = "";
+	public $source_from_other = "";
+	public $local_stock_freq = "";
+	public $local_stock_qty = "";
+	public $appointments = false;
+
+	/** Products **/
+	public $products_greens = "";
+	public $products_greens_other = "";
+	public $products_roots = "";
+	public $products_roots_other = "";
+	public $products_seasonal = "";
+	public $products_seasonal_other = "";
+	public $products_melons = "";
+	public $products_melons_other = "";
+	public $products_herbs = "";
+	public $products_herbs_other = "";
+	public $products_berries = "";
+	public $products_berries_other = "";
+	public $products_small_fruits = "";
+	public $products_small_fruits_other = "";
+	public $products_grains = "";
+	public $products_grains_other = "";
+	public $products_value_added = "";
+	public $products_value_added_other = "";
+	public $products_flowers = "";
+	public $products_flowers_other = "";
+	public $products_plants = "";
+	public $products_plants_other = "";
+	public $products_ornamentals = "";
+	public $products_ornamentals_other = "";
+	public $products_syrups = "";
+	public $products_syrups_other = "";
+	public $products_dairy = "";
+	public $products_dairy_other = "";
+	public $products_meat = "";
+	public $products_meat_other = "";
+	public $products_poultry = "";
+	public $products_poultry_other = "";
+	public $products_agritourism = "";
+	public $products_agritourism_other = "";
+	public $products_fibers = "";
+	public $products_fibers_other = "";
+	public $products_artisinal = "";
+	public $products_artisinal_other = "";
+	public $products_liquids = "";
+	public $products_liquids_other = "";
+	public $products_educational = "";
+	public $products_educational_other = "";
+	public $products_baked = "";
+	public $products_baked_other = "";
+	public $products_seeds = "";
+	public $products_seeds_other = "";
+	public $products_misc = "";
+	public $products_misc_other = "";
+	/** Wholesale **/
+	public $is_wholesaler = false;
+	public $quasi_wholesale = false;
+	public $small_wholesale = false;
+	public $large_wholesale = false;
+	public $gap_certification = false;
+	public $gap_certified_since = "";
+		/** Wholesale Products **/
+		public $ws_products_greens = "";
+		public $ws_products_greens_other = "";
+		public $ws_products_roots = "";
+		public $ws_products_roots_other = "";
+		public $ws_products_seasonal = "";
+		public $ws_products_seasonal_other = "";
+		public $ws_products_melons = "";
+		public $ws_products_melons_other = "";
+		public $ws_products_herbs = "";
+		public $ws_products_herbs_other = "";
+		public $ws_products_berries = "";
+		public $ws_products_berries_other = "";
+		public $ws_products_small_fruits = "";
+		public $ws_products_small_fruits_other = "";
+		public $ws_products_grains = "";
+		public $ws_products_grains_other = "";
+		public $ws_products_value_added = "";
+		public $ws_products_value_added_other = "";
+		public $ws_products_flowers = "";
+		public $ws_products_flowers_other = "";
+		public $ws_products_plants = "";
+		public $ws_products_plants_other = "";
+		public $ws_products_ornamentals = "";
+		public $ws_products_ornamentals_other = "";
+		public $ws_products_syrups = "";
+		public $ws_products_syrups_other = "";
+		public $ws_products_dairy = "";
+		public $ws_products_dairy_other = "";
+		public $ws_products_meat = "";
+		public $ws_products_meat_other = "";
+		public $ws_products_poultry = "";
+		public $ws_products_poultry_other = "";
+		public $ws_products_agritourism = "";
+		public $ws_products_agritourism_other = "";
+		public $ws_products_fibers = "";
+		public $ws_products_fibers_other = "";
+		public $ws_products_artisinal = "";
+		public $ws_products_artisinal_other = "";
+		public $ws_products_liquids = "";
+		public $ws_products_liquids_other = "";
+		public $ws_products_educational = "";
+		public $ws_products_educational_other = "";
+		public $ws_products_baked = "";
+		public $ws_products_baked_other = "";
+		public $ws_products_seeds = "";
+		public $ws_products_seeds_other = "";
+		public $ws_products_misc = "";
+		public $ws_products_misc_other = "";
+
+	/** Farm Practices **/
+	public $certified_organic = false;
+	public $certified_organic_since = "";
+	public $certified_organic_by = "";
+
+	public $certified_naturally_grown = false;
+	public $certified_naturally_grown_since = "";
+
+	public $certified_biodynamic = false
+	public $certified_biodynamic_since = "";
+	public $certified_biodynamic_by = "";
+
+	public $only_organic = false;
+	public $integrated_pest_management = false;
+	public $non_gmo = false;
+	public $antibiotic_harmone_free = false;
+	public $pastured = false;
+	public $grass_fed = false;
+	public $extended_growing_season = false;
+	public $other_practices = "";
+
+	/** Acres **/
+	public $acres_owned = "";
+	public $acres_rented = "";
+	public $acres_production = "";
+
+	/** CSA / Farm Share **/
+	public $is_farm_share = false;
+	public $is_csa = false;
+		/** Season **/
+		public $season_weeks = "";
+		public $season = "";
+
+		/** Full Shares **/
+		public $full_shares = "";
+		public $cost_full_shares = "";
+		public $size_full_shares = "";
+
+		/** Half Shares **/
+		public $half_shares = "";
+		public $cost_half_shares = "";
+		public $size_half_shares = "";
+
+		/** Addons **/
+		public $possible_addons = "";
+
+		/** Pickup & Deliver **/
+		public $farm_pickup = false;
+		public $farm_pickup_hours = "";
+		public $other_pickup = false;
+		public $other_pickup_details = "";
+		public $home_delivery = false;
+		public $home_delivery_details = "";
+}
+
 add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_xhrAddPartner", "xhrAddPartner");
@@ -180,12 +383,12 @@ function buildProductsQuery($productTypes, $wholesale = false) {
 				"relation" => "OR",
 				array(
 					"relation" => "AND",
-					array( 
+					array(
 						"key" => $tempProductTypeField,
 						"value" => "",
 						"compare" => "!="
 					),
-					array( 
+					array(
 						"key" => $tempProductTypeField,
 						"value" => serialize(strval("")),
 						"compare" => "NOT LIKE"
@@ -843,6 +1046,7 @@ function xhrGetPartnersDownload() {
 		"retail"
 	);
 	$allPartners = array();
+	$partnersArray = array();
 
 
 	foreach ($locationTypes as $locationType) {
@@ -856,8 +1060,121 @@ function xhrGetPartnersDownload() {
 		}
 	}
 
-	$response = json_encode($allPartners);
-	header('Content-Type: application/json');
-	echo $response;
-	die();
+	foreach ($allPartners as $partner) {
+		$tempObject = new DownloadPartner;
+		$partner_id = $partner->ID;
+		$acfID = "user_{$partner_id}";
+
+		/** Business Name **/
+		$tempObject->name = get_field("partner_name", $acfID);
+
+		/** Business Details **/
+		$tempObject->partner_phone = get_field("partner_phone", $acfID);
+		$tempObject->partner_website = get_field("partner_website", $acfID);
+		$tempObject->partner_email = get_field("partner_email", $acfID);
+
+		/** Owner Details **/
+		$tempObject->owner_name = get_field("partner_owner_name", $acfID);
+		$tempObject->owner_phone = get_field("partner_owner_phone", $acfID);
+		$tempObject->owner_email = get_field("partner_owner_email", $acfID);
+
+		/** Contact Details **/
+		$tempObject->contact_name = get_field("partner_contact_name", $acfID);
+		$tempObject->contact_job = get_field("partner_contact_position", $acfID);
+		$tempObject->contact_phone = get_field("partner_contact_phone", $acfID);
+		$tempObject->contact_email = get_field("partner_contact_email", $acfID);
+
+		/** Social Media **/
+		$tempObject->facebook_page = get_field("partner_facebook", $acfID);
+		$tempObject->instagram_username = get_field("partner_instagram", $acfID);
+		$tempObject->twitter_username = get_field("partner_twitter", $acfID);
+
+		/** Location **/
+		$tempObject->county = get_field("partner_county", $acfID);
+			//Get Address Parts
+			$partner_street_1 = get_field("partner_street_1", $acfID);
+			$partner_street_1 = strlen($partner_street_1) > 0 ? $partner_street_1 : false;
+			$partner_street_2 = get_field("partner_street_2", $acfID);
+			$partner_street_2 = strlen($partner_street_2) > 0 ? $partner_street_2 : false;
+			$partner_city = get_field("partner_city", $acfID);
+			$partner_city = strlen($partner_city) > 0 ? $partner_city : false;
+			$partner_state = get_field("partner_state", $acfID);
+			$partner_state = strlen($partner_state) > 0 ? $partner_state : false;
+			$partner_zip = get_field("partner_zip", $acfID);
+			$partner_zip = strlen($partner_zip) > 0 ? $partner_zip : false;
+			//Sanitize Address
+			$partner_address = "";
+			$partner_address .= $partner_street_1 ? "$partner_street_1".PHP_EOL : "";
+			$partner_address .= $partner_street_2 ? "$partner_street_2".PHP_EOL : "";
+			$partner_address .= $partner_city ? "$partner_city" : "";
+			$partner_address .= ($partner_city && $partner_state) ? ", $partner_state" : "";
+			$partner_address .= (!$partner_city && $partner_state) ? "$partner_state" : "";
+			$partner_address .= ($partner_zip && ($partner_city || $partner_state)) ? " $partner_zip" : "";
+			$partner_address .= ($partner_zip && !$partner_city && !$partner_state) ? $partner_zip : "";
+		$tempObject->locationAddress = (strlen($partner_address) > 0) ? $partner_address : "";
+
+		/** Hours **/
+
+		$partnersArray[] = $tempObject;
+		$tempObject = null;
+	}
+
+	/** Include PHPExcel */
+	require_once dirname(__FILE__) . '/../Classes/PHPExcel.php';
+
+	// Create new PHPExcel object
+	$objPHPExcel = new PHPExcel();
+
+	// Set document properties
+	$objPHPExcel->getProperties()->setCreator("BFBLGLV")
+								 ->setLastModifiedBy("BFBLGLV")
+								 ->setTitle("BFBLGLV Partners")
+								 ->setSubject("BFBLGLV Partner Export")
+								 ->setDescription("BFBLGLV Partner Export")
+								 ->setKeywords("")
+								 ->setCategory("");
+
+
+	// Add some data
+	$objPHPExcel->setActiveSheetIndex(0)
+	            ->setCellValue('A1', 'Name')
+	            ->setCellValue('B1', 'Partner Phone')
+	            ->setCellValue('C1', 'Partner Website')
+	            ->setCellValue('D1', 'Partner Email');
+	$cellCounter = "1";
+	foreach ($partnersArray as $partner) {
+		if (is_object($partner)) {
+			$cellCounter++;
+			$objPHPExcel->setActiveSheetIndex(0)
+	            ->setCellValue('A{$cellCounter}', $partner->name)
+	            ->setCellValue('B{$cellCounter}', $partner->partner_phone)
+	            ->setCellValue('C{$cellCounter}', $partner->partner_website)
+	            ->setCellValue('D{$cellCounter}', $partner->partner_email);
+		}
+	}
+
+	// Rename worksheet
+	$objPHPExcel->getActiveSheet()->setTitle('Partners');
+
+
+	// Set active sheet index to the first sheet, so Excel opens this as the first sheet
+	$objPHPExcel->setActiveSheetIndex(0);
+
+
+	// Redirect output to a client’s web browser (Excel5)
+	header('Content-Type: application/vnd.ms-excel');
+	header('Content-Disposition: attachment;filename="partner_export.xls"');
+	header('Cache-Control: max-age=0');
+	// If you're serving to IE 9, then the following may be needed
+	header('Cache-Control: max-age=1');
+
+	// If you're serving to IE over SSL, then the following may be needed
+	header ('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+	header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
+	header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+	header ('Pragma: public'); // HTTP/1.0
+
+	$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+	$objWriter->save('php://output');
+	exit;
 }
