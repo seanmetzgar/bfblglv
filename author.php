@@ -412,7 +412,7 @@ get_header(); ?>
 
 							<div>
 								<div class="page-block partner-info-block">
-									<?php if ((!in_array("farm", $partner_category) && ($partner_business_photo || $partner_owner_photo) || $partner_owner_photo): ?><div class="partner-info-right"><?php endif; ?>
+									<?php if ((!in_array("farm", $partner_category) && $partner_business_photo) || $partner_owner_photo): ?><div class="partner-info-right"><?php endif; ?>
 
 										<h1 class="entry-title"><?php echo $partner_name; ?></h1>
 
