@@ -47,7 +47,7 @@ class DownloadPartner {
 
 	/** Location **/
 	public $county = "";
-	public $locationAddress = "";
+	public $location_address = "";
 
 	/** Hours **/
 	public $hours = "";
@@ -230,6 +230,10 @@ add_action("wp_ajax_xhrAddPartner", "xhrAddPartner");
 add_action("wp_ajax_nopriv_xhrAddPartner", "xhrAddPartner");
 add_action("wp_ajax_xhrGetPartnersDownload", "xhrGetPartnersDownload");
 
+function xlsBreaks($string) {
+	$rVal = preg_replace('#<br\s*/?>#i', "\n", $string);
+	return $rVal;
+}
 function geocodeAddress($street = "", $city = "", $state = "", $zip = "") {
     $rVal = false;
     if ($street && (($city && $state) || ($zip))) {
@@ -1104,14 +1108,14 @@ function xhrGetPartnersDownload() {
 			$partner_zip = strlen($partner_zip) > 0 ? $partner_zip : false;
 			//Sanitize Address
 			$partner_address = "";
-			$partner_address .= $partner_street_1 ? "$partner_street_1".PHP_EOL : "";
-			$partner_address .= $partner_street_2 ? "$partner_street_2".PHP_EOL : "";
+			$partner_address .= $partner_street_1 ? "$partner_street_1\n" : "";
+			$partner_address .= $partner_street_2 ? "$partner_street_2\n" : "";
 			$partner_address .= $partner_city ? "$partner_city" : "";
 			$partner_address .= ($partner_city && $partner_state) ? ", $partner_state" : "";
 			$partner_address .= (!$partner_city && $partner_state) ? "$partner_state" : "";
 			$partner_address .= ($partner_zip && ($partner_city || $partner_state)) ? " $partner_zip" : "";
 			$partner_address .= ($partner_zip && !$partner_city && !$partner_state) ? $partner_zip : "";
-		$tempObject->locationAddress = (strlen($partner_address) > 0) ? $partner_address : "";
+		$tempObject->location_address = (strlen($partner_address) > 0) ? $partner_address : "";
 
 		/** Hours **/
 
@@ -1140,16 +1144,44 @@ function xhrGetPartnersDownload() {
 	            ->setCellValue('A1', 'Name')
 	            ->setCellValue('B1', 'Partner Phone')
 	            ->setCellValue('C1', 'Partner Website')
-	            ->setCellValue('D1', 'Partner Email');
+	            ->setCellValue('D1', 'Partner Email')
+	            ->setCellValue('E1', 'Owner Name')
+				->setCellValue('F1', 'Owner Phone')
+				->setCellValue('G1', 'Owner Email')
+	            ->setCellValue('H1', 'Contact Name')
+	            ->setCellValue('I1', 'Contact Position')
+				->setCellValue('J1', 'Contact Phone')
+				->setCellValue('K1', 'Contact Email')
+	            ->setCellValue('L1', 'Facebook URL')
+				->setCellValue('M1', 'Twitter Username')
+				->setCellValue('N1', 'Instagram Username')
+				->setCellValue('O1', 'County')
+				->setCellValue('P1', 'Address');
+
+
+
+
 	$cellCounter = "1";
 	foreach ($partnersArray as $partner) {
 		if (is_object($partner)) {
 			$cellCounter++;
 			$objPHPExcel->setActiveSheetIndex(0)
-	            ->setCellValue('A' . $cellCounter, $partner->name)
-	            ->setCellValue('B' . $cellCounter, $partner->partner_phone)
-	            ->setCellValue('C' . $cellCounter, $partner->partner_website)
-	            ->setCellValue('D' . $cellCounter, $partner->partner_email);
+	            ->setCellValue('A' . $cellCounter, xlsBreaks($partner->name))
+	            ->setCellValue('B' . $cellCounter, xlsBreaks($partner->partner_phone))
+	            ->setCellValue('C' . $cellCounter, xlsBreaks($partner->partner_website))
+	            ->setCellValue('D' . $cellCounter, xlsBreaks($partner->partner_email))
+	            ->setCellValue('E' . $cellCounter, xlsBreaks($partner->owner_name))
+				->setCellValue('F' . $cellCounter, xlsBreaks($partner->owner_phone))
+				->setCellValue('G' . $cellCounter, xlsBreaks($partner->owner_email))
+	            ->setCellValue('H' . $cellCounter, xlsBreaks($partner->contact_name))
+	            ->setCellValue('I' . $cellCounter, xlsBreaks($partner->contact_position))
+				->setCellValue('J' . $cellCounter, xlsBreaks($partner->contact_phone))
+				->setCellValue('K' . $cellCounter, xlsBreaks($partner->contact_email))
+	            ->setCellValue('L' . $cellCounter, xlsBreaks($partner->facebook_page))
+				->setCellValue('M' . $cellCounter, xlsBreaks($partner->twitter_username))
+				->setCellValue('N' . $cellCounter, xlsBreaks($partner->instagram_username))
+				->setCellValue('O' . $cellCounter, xlsBreaks($partner->county))
+				->setCellValue('P' . $cellCounter, xlsBreaks($partner->location_address));
 		}
 	}
 
