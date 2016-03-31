@@ -1736,7 +1736,8 @@ function xhrGetPartnersDownload() {
 			$objPHPExcel->getActiveSheet()
 				->getStyle($cell)
     			->getAlignment()
-    			->setWrapText(true);
+    			->setWrapText(true)
+    			->setVertical(PHPExcel_Style_Alignment::VERTICAL_TOP);
 		}
     	$letter++;
 	}
