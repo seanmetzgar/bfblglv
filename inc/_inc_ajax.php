@@ -177,7 +177,7 @@ class DownloadPartner {
 	public $certified_naturally_grown = false;
 	public $certified_naturally_grown_since = "";
 
-	public $certified_biodynamic = false
+	public $certified_biodynamic = false;
 	public $certified_biodynamic_since = "";
 	public $certified_biodynamic_by = "";
 
