@@ -1733,11 +1733,11 @@ function xhrGetPartnersDownload() {
 		for ($j = 1; $j <= count($partnersArray); $j++) {
 			$cell_num = $j + 1;
 			$cell = "" . $letter . $cell_num;
-		}
-		$objPHPExcel->getActiveSheet()
+			$objPHPExcel->getActiveSheet()
 				->getStyle($cell)
     			->getAlignment()
     			->setWrapText(true);
+		}
     	$letter++;
 	}
 
