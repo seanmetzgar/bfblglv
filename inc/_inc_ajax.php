@@ -1185,6 +1185,11 @@ function xhrGetPartnersDownload() {
 		}
 	}
 
+	$objPHPExcel->getActiveSheet()
+				->getStyle('A2:P9999')
+    			->getAlignment()
+    			->setWrapText(true); 
+
 	// Rename worksheet
 	$objPHPExcel->getActiveSheet()->setTitle('Partners');
 
