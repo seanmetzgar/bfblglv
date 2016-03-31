@@ -1146,10 +1146,10 @@ function xhrGetPartnersDownload() {
 		if (is_object($partner)) {
 			$cellCounter++;
 			$objPHPExcel->setActiveSheetIndex(0)
-	            ->setCellValue('A{$cellCounter}', $partner->name)
-	            ->setCellValue('B{$cellCounter}', $partner->partner_phone)
-	            ->setCellValue('C{$cellCounter}', $partner->partner_website)
-	            ->setCellValue('D{$cellCounter}', $partner->partner_email);
+	            ->setCellValue('A' . $cellCounter, $partner->name)
+	            ->setCellValue('B' . $cellCounter, $partner->partner_phone)
+	            ->setCellValue('C' . $cellCounter, $partner->partner_website)
+	            ->setCellValue('D' . $cellCounter, $partner->partner_email);
 		}
 	}
 
