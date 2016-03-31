@@ -25,6 +25,7 @@ add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_xhrAddPartner", "xhrAddPartner");
 add_action("wp_ajax_nopriv_xhrAddPartner", "xhrAddPartner");
+add_action("wp_ajax_xhrGetPartnersDownload", "xhrGetPartnersDownload");
 
 function geocodeAddress($street = "", $city = "", $state = "", $zip = "") {
     $rVal = false;
@@ -831,4 +832,32 @@ function xhrAddPartner() {
 	echo $response;
 
    	die();
+}
+
+function xhrGetPartnersDownload() {
+	$locationTypes = array(
+		"farm", "farmers-market",
+		"restaurant", "vineyard",
+		"distillery", "institution",
+		"distributor", "specialty",
+		"retail"
+	);
+	$allPartners = array();
+
+
+	foreach ($locationTypes as $locationType) {
+		$locationTypePartners = null;
+        $locationTypeQueryArgs = array(
+            "role" => $locationType
+        );
+        $locationTypePartners = get_users($locationTypeQueryArgs);
+        if (is_array($locationTypePartners) && count($locationTypePartners) > 0) {
+			$allPartners = array_merge($locationTypePartners, $allPartners);
+		}
+	}
+
+	$response = json_encode($allPartners);
+	header('Content-Type: application/json');
+	echo $response;
+	die();
 }
