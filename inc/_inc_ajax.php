@@ -1214,7 +1214,7 @@ function xhrGetPartnersDownload() {
 	}
 
 	$objPHPExcel->getActiveSheet()
-				->getStyle('A2:P999')
+				->getStyle('A2:Q500')
     			->getAlignment()
     			->setWrapText(true); 
 
