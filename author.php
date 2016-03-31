@@ -412,7 +412,7 @@ get_header(); ?>
 
 							<div>
 								<div class="page-block partner-info-block">
-									<?php if ((!in_array("farm", $partner_category) && $partner_business_photo) || $partner_owner_photo): ?><div class="partner-info-right"><?php endif; ?>
+									<?php if ((!in_array("farm", $partner_category) && ($partner_business_photo || $partner_owner_photo) || $partner_owner_photo): ?><div class="partner-info-right"><?php endif; ?>
 
 										<h1 class="entry-title"><?php echo $partner_name; ?></h1>
 
@@ -540,6 +540,11 @@ get_header(); ?>
 														echo $partner_business_photo;
 													echo '</div><!-- end div.business-image -->';
 												}
+											}
+											if (in_array("farmers-market", $partner_category) && $partner_owner_photo) {
+												echo '<div class="owner-image">';
+													echo $partner_owner_photo;
+												echo '</div><!-- end div.owner-image -->';
 											}
 											?>
 										</div><!-- end div.owner-details -->
