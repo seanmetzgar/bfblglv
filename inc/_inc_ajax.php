@@ -242,6 +242,14 @@ function downloadParseProducts($products) {
 	return $products;
 }
 
+function get_user_role($user_ID = null) {
+	global $wp_roles;
+	$user = (is_int($user_ID) && $user_id !== 0) ? new WP_User($user_ID) : wp_get_current_user();
+	$roles = $user->roles;
+	$role = array_shift($roles);
+	return isset($wp_roles->role_names[$role]) ? translate_user_role($wp_roles->role_names[$role] ) : "";
+}
+
 function geocodeAddress($street = "", $city = "", $state = "", $zip = "") {
     $rVal = false;
     if ($street && (($city && $state) || ($zip))) {
@@ -1076,12 +1084,7 @@ function xhrGetPartnersDownload() {
 		$tempObject = new DownloadPartner;
 		$partner_id = $partner->ID;
 		$acfID = "user_{$partner_id}";
-		$user_data = get_user_data($partner_id);
-		$user_role = $user_data->roles;
-		if (is_array($user_role)) {
-			$user_role = $user_role[0];
-		}
-		$user_role = niceCategoryName($user_role);
+		$user_role = get_user_role($partner_id);
 
 		/** Business Name **/
 		$tempObject->name = get_field("partner_name", $acfID);
