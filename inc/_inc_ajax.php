@@ -1120,7 +1120,7 @@ function xhrGetPartnersDownload() {
 	}
 
 	/** Include PHPExcel */
-	require_once dirname(__FILE__) . '/../Classes/PHPExcel.php';
+	require_once dirname(__FILE__) . '/../classes/PHPExcel.php';
 
 	// Create new PHPExcel object
 	$objPHPExcel = new PHPExcel();
