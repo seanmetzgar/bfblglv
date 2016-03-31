@@ -222,6 +222,19 @@ class DownloadPartner {
 		public $other_pickup_details = "";
 		public $home_delivery = false;
 		public $home_delivery_details = "";
+
+	/** FM Details **/
+	public $market_vendors = "";
+	public $market_vendor_partners = "";
+	public $market_vendor_partners_other = "";
+
+	public $market_manager = "";
+	public $market_manager_phone = "";
+	public $market_manager_email = "";
+
+	public $market_ebt = "";
+	public $market_fmnp = false;
+	public $market_double_snap = false;
 }
 
 add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
@@ -1412,6 +1425,28 @@ function xhrGetPartnersDownload() {
 		$is_csa = get_field("is_csa", $acfID);
 		$tempObject->is_csa = (is_bool($is_csa)) ? $is_csa : false;
 
+		/** FM Details **/
+		$tempObject->market_vendors = get_field("number_of_vendors", $acfID);
+		$market_vendor_partners = get_field("vendor_list", $acfID);
+		$market_vendor_partners_array = array();
+		if (is_array($market_vendor_partners) && count($market_vendor_partners) > 0) {
+			foreach ($market_vendor_partners as $vendor) {
+				$vendor_id = "user_{$vendor['ID']}";
+				$market_vendor_partners_array[] = get_field("partner_name", $vendor_id);
+			}
+			$market_vendor_partners = implode(PHP_EOL, $products_available_at_array);
+		}
+		$tempObject->market_vendor_partners_other = get_field("vendor_list_other", $acfID);
+
+		$tempObject->market_manager = get_field("market_manager", $acfID);
+		$tempObject->market_manager_phone = get_field("market_manager_phone", $acfID);
+		$tempObject->market_manager_email = get_field("market_manager_email", $acfID);
+
+		$tempObject->market_ebt = get_field("market_ebt", $acfID);
+		$market_fmnp = get_field("market_fmnp", $acfID);
+		$tempObject->market_fmnp = (is_bool($market_fmnp)) ? $market_fmnp : false;
+		$market_double_snap = get_field("market_double_snap", $acfID);
+		$tempObject->market_double_snap = (is_bool($market_double_snap)) ? $market_double_snap : false;
 
 		$partnersArray[] = $tempObject;
 		$tempObject = null;
@@ -1583,7 +1618,16 @@ function xhrGetPartnersDownload() {
 				->setCellValue('EP1', 'Acres Rented')
 				->setCellValue('EQ1', 'Acres in Production')
 				->setCellValue('ER1', 'Is Farm Share')
-				->setCellValue('ES1', 'Is CSA');
+				->setCellValue('ES1', 'Is CSA')
+				->setCellValue('ET1', 'Market: Vendor Count')
+				->setCellValue('EU1', 'Market: Vendors (Partners)')
+				->setCellValue('EV1', 'Market: Vendors (Other)')
+				->setCellValue('EW1', 'Market: Manager')
+				->setCellValue('EX1', 'Market: Manager Phone')
+				->setCellValue('EY1', 'Market: Manager Email')
+				->setCellValue('EZ1', 'Market: EBT')
+				->setCellValue('FA1', 'Market: FMNP')
+				->setCellValue('FB1', 'Market: Double SNAP');
 
 	$cellCounter = "1";
 	foreach ($partnersArray as $partner) {
@@ -1738,11 +1782,20 @@ function xhrGetPartnersDownload() {
 				->setCellValue('EP' . $cellCounter, xlsBreaks($partner->acres_rented))
 				->setCellValue('EQ' . $cellCounter, xlsBreaks($partner->acres_production))
 				->setCellValue('ER' . $cellCounter, $partner->is_farm_share)
-				->setCellValue('ES' . $cellCounter, $partner->is_csa);
+				->setCellValue('ES' . $cellCounter, $partner->is_csa)
+				->setCellValue('ET' . $cellCounter, xlsBreaks($partner->market_vendors))
+				->setCellValue('EU' . $cellCounter, xlsBreaks($partner->market_vendor_partners))
+				->setCellValue('EV' . $cellCounter, xlsBreaks($partner->market_vendor_partners_other))
+				->setCellValue('EW' . $cellCounter, xlsBreaks($partner->market_manager))
+				->setCellValue('EX' . $cellCounter, xlsBreaks($partner->market_manager_phone))
+				->setCellValue('EY' . $cellCounter, xlsBreaks($partner->market_manager_email))
+				->setCellValue('EZ' . $cellCounter, xlsBreaks($partner->market_ebt))
+				->setCellValue('FA' . $cellCounter, $partner->market_fmnp)
+				->setCellValue('FB' . $cellCounter, $partner->market_double_snap);
 		}
 	}
 	$letter = "A";
-	for ($i=0; $i<150; $i++) {
+	for ($i=0; $i<160; $i++) {
 		for ($j = 1; $j <= count($partnersArray); $j++) {
 			$cell_num = $j + 1;
 			$cell = "" . $letter . $cell_num;
