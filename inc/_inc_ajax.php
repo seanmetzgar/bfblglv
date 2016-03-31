@@ -1729,10 +1729,10 @@ function xhrGetPartnersDownload() {
 		}
 	}
 
-	$objPHPExcel->getActiveSheet()
-				->getStyle('A2:ER500')
-    			->getAlignment()
-    			->setWrapText(true);
+	// $objPHPExcel->getActiveSheet()
+	// 			->getStyle('A2:ER500')
+ //    			->getAlignment()
+ //    			->setWrapText(true);
 
 	// Rename worksheet
 	$objPHPExcel->getActiveSheet()->setTitle('Partners');
