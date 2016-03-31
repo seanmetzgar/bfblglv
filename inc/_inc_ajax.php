@@ -59,8 +59,7 @@ class DownloadPartner {
 	public $products_available_at_other = "";
 	public $source_from = "";
 	public $source_from_other = "";
-	public $local_stock_freq = "";
-	public $local_stock_qty = "";
+	public $local_stock = "";
 	public $appointments = false;
 
 	/** Products **/
@@ -1145,6 +1144,51 @@ function xhrGetPartnersDownload() {
 		}
 		$tempObject->hours = (count($partner_hours) > 0) ? implode(PHP_EOL.PHP_EOL, $partner_hours) : "";
 
+		/** Availability & Sourcing **/
+		$products_available_from = "";
+		$products_available_from_array = array();
+		if (is_array($products_available_from) && count($products_available_from) > 0) {
+			foreach ($products_available_from as $vendor) {
+				$vendor_id = "user_{$vendor['ID']}";
+				$products_available_from_array[] = get_field("partner_name", $vendor_id);
+			}
+			$products_available_from = implode(PHP_EOL, $products_available_from_array);
+		}
+		$tempObject->products_available_from = $products_available_from;
+		$tempObject->products_available_from_other = get_field("products_available_from_other", $acfID);
+		
+		$products_available_at = "";
+		if (is_array($products_available_at) && count($products_available_at) > 0) {
+			foreach ($products_available_at as $vendor) {
+				$vendor_id = "user_{$vendor['ID']}";
+				$products_available_at_array[] = get_field("partner_name", $vendor_id);
+			}
+			$products_available_at = implode(PHP_EOL, $products_available_at_array);
+		}
+		$tempObject->products_available_at = $products_available_at;
+		$tempObject->products_available_at_other = get_field("products_available_at_other", $acfID);
+
+		$source_from = "";
+		if (is_array($source_from) && count($source_from) > 0) {
+			foreach ($source_from as $vendor) {
+				$vendor_id = "user_{$vendor['ID']}";
+				$source_from_array[] = get_field("partner_name", $vendor_id);
+			}
+			$source_from = implode(PHP_EOL, $source_from_array);
+		}
+		$tempObject->source_from = $source_from;
+		$tempObject->source_from_other = get_field("source_from_other", $acfID);
+
+		$local_stock_freq = get_field("local_stock_freq", $acfID);
+		$local_stock_qty = get_field("local_stock_qty", $acfID);
+		if ($local_stock_freq && $local_stock_qty) {
+			$local_stock = "We {$local_stock_freq} have {$local_stock_qty} locally grown ingredients in our menu items.";
+		} else { $local_stock = ""; }
+		$tempObject->local_stock = $local_stock;
+
+		$appointments = get_field("appointments", $acfID);
+		$tempObject->appointments = is_bool($appointments) ? $appointments : false;
+
 		$partnersArray[] = $tempObject;
 		$tempObject = null;
 	}
@@ -1183,7 +1227,16 @@ function xhrGetPartnersDownload() {
 				->setCellValue('N1', 'Instagram Username')
 				->setCellValue('O1', 'County')
 				->setCellValue('P1', 'Address')
-				->setCellValue('Q1', 'Hours');
+				->setCellValue('Q1', 'Hours')
+				->setCellValue('R1', 'Products available at')
+				->setCellValue('S1', 'Products also available at')
+				->setCellValue('T1', 'Products available from')
+				->setCellValue('U1', 'Products also available from')
+				->setCellValue('V1', 'Sourced from')
+				->setCellValue('W1', 'Also Sourced from')
+				->setCellValue('X1', 'Local Stock')
+				->setCellValue('Y1', 'Appointments');
+
 
 
 
@@ -1209,12 +1262,20 @@ function xhrGetPartnersDownload() {
 				->setCellValue('N' . $cellCounter, xlsBreaks($partner->instagram_username))
 				->setCellValue('O' . $cellCounter, xlsBreaks($partner->county))
 				->setCellValue('P' . $cellCounter, xlsBreaks($partner->location_address))
-				->setCellValue('Q' . $cellCounter, xlsBreaks($partner->hours));
+				->setCellValue('Q' . $cellCounter, xlsBreaks($partner->hours))
+				->setCellValue('R' . $cellCounter, xlsBreaks($partner->products_available_at))
+				->setCellValue('S' . $cellCounter, xlsBreaks($partner->products_available_at_other))
+				->setCellValue('T' . $cellCounter, xlsBreaks($partner->products_available_from))
+				->setCellValue('U' . $cellCounter, xlsBreaks($partner->products_available_from_other))
+				->setCellValue('V' . $cellCounter, xlsBreaks($partner->source_from))
+				->setCellValue('W' . $cellCounter, xlsBreaks($partner->source_from_other))
+				->setCellValue('X' . $cellCounter, xlsBreaks($partner->local_stock))
+				->setCellValue('Y' . $cellCounter, $partner->appointments)
 		}
 	}
 
 	$objPHPExcel->getActiveSheet()
-				->getStyle('A2:Q500')
+				->getStyle('A2:Y500')
     			->getAlignment()
     			->setWrapText(true); 
 
