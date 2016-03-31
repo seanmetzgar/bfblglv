@@ -1270,7 +1270,7 @@ function xhrGetPartnersDownload() {
 				->setCellValue('V' . $cellCounter, xlsBreaks($partner->source_from))
 				->setCellValue('W' . $cellCounter, xlsBreaks($partner->source_from_other))
 				->setCellValue('X' . $cellCounter, xlsBreaks($partner->local_stock))
-				->setCellValue('Y' . $cellCounter, $partner->appointments)
+				->setCellValue('Y' . $cellCounter, $partner->appointments);
 		}
 	}
 
