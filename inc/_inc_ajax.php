@@ -1730,9 +1730,12 @@ function xhrGetPartnersDownload() {
 	}
 	$letter = "A";
 	for ($i=0; $i<200; $i++) {
-		$range = "{$letter}2:{$letter}999";
+		for ($j = 1; $j <= count($partnersArray); $j++) {
+			$cell_num = $j + 1;
+			$cell = "" . $letter . $cell_num;
+		}
 		$objPHPExcel->getActiveSheet()
-				->getStyle($range)
+				->getStyle($cell)
     			->getAlignment()
     			->setWrapText(true);
     	$letter++;
