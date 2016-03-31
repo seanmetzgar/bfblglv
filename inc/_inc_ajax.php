@@ -1728,11 +1728,15 @@ function xhrGetPartnersDownload() {
 				->setCellValue('ER' . $cellCounter, $partner->is_csa);
 		}
 	}
-
-	// $objPHPExcel->getActiveSheet()
-	// 			->getStyle('A2:ER500')
- //    			->getAlignment()
- //    			->setWrapText(true);
+	$letter = "A";
+	for ($i=0; $i<200; $i++) {
+		$range = "{$letter}2:{$letter}999";
+		$objPHPExcel->getActiveSheet()
+				->getStyle($range)
+    			->getAlignment()
+    			->setWrapText(true);
+    	$letter++;
+	}
 
 	// Rename worksheet
 	$objPHPExcel->getActiveSheet()->setTitle('Partners');
