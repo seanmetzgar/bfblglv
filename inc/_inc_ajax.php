@@ -231,7 +231,7 @@ add_action("wp_ajax_nopriv_xhrAddPartner", "xhrAddPartner");
 add_action("wp_ajax_xhrGetPartnersDownload", "xhrGetPartnersDownload");
 
 function xlsBreaks($string) {
-	$rVal = preg_replace('#<br\s*/?>#i', "\n", $string);
+	$rVal = preg_replace('#<br\s*/?>#i', PHP_EOL, $string);
 	return $rVal;
 }
 function geocodeAddress($street = "", $city = "", $state = "", $zip = "") {
@@ -1118,6 +1118,32 @@ function xhrGetPartnersDownload() {
 		$tempObject->location_address = (strlen($partner_address) > 0) ? $partner_address : "";
 
 		/** Hours **/
+		$partner_hours = array();
+		if (have_rows("hours", $acfID)) {
+			while (have_rows("hours", $acfID)) {
+				the_row();
+				$tempDay = get_sub_field("day");
+				$tempOpenTime = get_sub_field("open_time");
+				$tempCloseTime = get_sub_field("close_time");
+				$tempShortDescription = get_sub_field("short_description");
+				$tempIsSeasonal = get_sub_field("is_seasonal");
+				if ($tempIsSeasonal) {
+					$tempSeasonStartMonthPart = get_sub_field("season_start_mpart");
+					$tempSeasonStartMonth = get_sub_field("season_start_month");
+					$tempSeasonEndMonthPart = get_sub_field("season_end_mpart");
+					$tempSeasonEndMonth = get_sub_field("season_end_month");
+				}
+				$tempVendors = get_sub_field("vendors");
+				$tempVendors = (is_string($tempVendors) && strlen($tempVendors) > 0) ? $tempVendors : false;
+
+				$tempHours = "$tempDay: $tempOpenTime - $tempCloseTime";
+				$tempHours .= ($tempShortDescription) ? PHP_EOL."$tempShortDescription" : "";
+				$tempHours .= ($tempIsSeasonal) ? PHP_EOL."($tempSeasonStartMonthPart $tempSeasonStartMonth - $tempSeasonEndMonthPart $tempSeasonEndMonth)" : "";
+				$tempHours .= ($tempVendors) ? PHP_EOL."[$tempVendors Vendors]" : "";
+				$partner_hours[] = $tempHours;
+			}
+		}
+		$tempObject->hours = (count($partner_hours) > 0) ? implode(PHP_EOL.PHP_EOL, $partner_hours) : "";
 
 		$partnersArray[] = $tempObject;
 		$tempObject = null;
@@ -1156,7 +1182,8 @@ function xhrGetPartnersDownload() {
 				->setCellValue('M1', 'Twitter Username')
 				->setCellValue('N1', 'Instagram Username')
 				->setCellValue('O1', 'County')
-				->setCellValue('P1', 'Address');
+				->setCellValue('P1', 'Address')
+				->setCellValue('Q1', 'Hours');
 
 
 
@@ -1181,7 +1208,8 @@ function xhrGetPartnersDownload() {
 				->setCellValue('M' . $cellCounter, xlsBreaks($partner->twitter_username))
 				->setCellValue('N' . $cellCounter, xlsBreaks($partner->instagram_username))
 				->setCellValue('O' . $cellCounter, xlsBreaks($partner->county))
-				->setCellValue('P' . $cellCounter, xlsBreaks($partner->location_address));
+				->setCellValue('P' . $cellCounter, xlsBreaks($partner->location_address))
+				->setCellValue('Q' . $cellCounter, xlsBreaks($partner->hours));
 		}
 	}
 
