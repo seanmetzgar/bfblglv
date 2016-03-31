@@ -1108,8 +1108,8 @@ function xhrGetPartnersDownload() {
 			$partner_zip = strlen($partner_zip) > 0 ? $partner_zip : false;
 			//Sanitize Address
 			$partner_address = "";
-			$partner_address .= $partner_street_1 ? "$partner_street_1\n" : "";
-			$partner_address .= $partner_street_2 ? "$partner_street_2\n" : "";
+			$partner_address .= $partner_street_1 ? "$partner_street_1".PHP_EOL : "";
+			$partner_address .= $partner_street_2 ? "$partner_street_2".PHP_EOL : "";
 			$partner_address .= $partner_city ? "$partner_city" : "";
 			$partner_address .= ($partner_city && $partner_state) ? ", $partner_state" : "";
 			$partner_address .= (!$partner_city && $partner_state) ? "$partner_state" : "";
