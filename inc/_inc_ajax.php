@@ -1434,8 +1434,9 @@ function xhrGetPartnersDownload() {
 				$vendor_id = "user_{$vendor['ID']}";
 				$market_vendor_partners_array[] = get_field("partner_name", $vendor_id);
 			}
-			$market_vendor_partners = implode(PHP_EOL, $products_available_at_array);
+			$market_vendor_partners = implode(PHP_EOL, $market_vendor_partners_array);
 		}
+		$tempObject->market_vendor_partners = $market_vendor_partners;
 		$tempObject->market_vendor_partners_other = get_field("vendor_list_other", $acfID);
 
 		$tempObject->market_manager = get_field("market_manager", $acfID);
