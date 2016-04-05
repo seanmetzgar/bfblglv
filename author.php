@@ -573,7 +573,7 @@ get_header(); ?>
 
 							<div>
 								<div class="page-block product-info-contents">
-									<?php if ($partner_business_photo): ?>
+									<?php if (in_array("farm", $partner_category) && $partner_business_photo): ?>
 									<div class="product-info-left">
 										<?php
 										if ($partner_business_photo) {
@@ -585,7 +585,7 @@ get_header(); ?>
 									</div><!-- end div.product-info-left -->
 									<?php endif; ?>
 
-									<?php if ($partner_business_photo): ?><div class="product-info-right"><?php endif; ?>
+									<?php if (in_array("farm", $partner_category) && $partner_business_photo): ?><div class="product-info-right"><?php endif; ?>
 										<div class="products-detail">
 											<?php if ($hasProducts || $productsText) : ?>
 											<div class="entry-product-categories entry-content">
