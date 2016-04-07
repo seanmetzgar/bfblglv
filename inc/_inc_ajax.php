@@ -1177,7 +1177,7 @@ function xhrGetPartnersDownload() {
 		$tempObject->hours = (count($partner_hours) > 0) ? implode(PHP_EOL.PHP_EOL, $partner_hours) : "";
 
 		/** Availability & Sourcing **/
-		$products_available_from = "";
+		$products_available_from = get_field("products_available_from", $acfID);
 		$products_available_from_array = array();
 		if (is_array($products_available_from) && count($products_available_from) > 0) {
 			foreach ($products_available_from as $vendor) {
@@ -1185,29 +1185,31 @@ function xhrGetPartnersDownload() {
 				$products_available_from_array[] = get_field("partner_name", $vendor_id);
 			}
 			$products_available_from = implode(PHP_EOL, $products_available_from_array);
-		}
+		} else { $products_available_from = ""; }
 		$tempObject->products_available_from = $products_available_from;
 		$tempObject->products_available_from_other = get_field("products_available_from_other", $acfID);
 
-		$products_available_at = "";
+		$products_available_at = get_field("products_available_at", $acfID);
+		$products_available_at_array = array();
 		if (is_array($products_available_at) && count($products_available_at) > 0) {
 			foreach ($products_available_at as $vendor) {
 				$vendor_id = "user_{$vendor['ID']}";
 				$products_available_at_array[] = get_field("partner_name", $vendor_id);
 			}
 			$products_available_at = implode(PHP_EOL, $products_available_at_array);
-		}
+		} else { $products_available_at = ""; }
 		$tempObject->products_available_at = $products_available_at;
 		$tempObject->products_available_at_other = get_field("products_available_at_other", $acfID);
 
-		$source_from = "";
+		$source_from = get_field("source_from", $acfID);
+		$source_from_array = array();
 		if (is_array($source_from) && count($source_from) > 0) {
 			foreach ($source_from as $vendor) {
 				$vendor_id = "user_{$vendor['ID']}";
 				$source_from_array[] = get_field("partner_name", $vendor_id);
 			}
 			$source_from = implode(PHP_EOL, $source_from_array);
-		}
+		} else { $source_from = ""; }
 		$tempObject->source_from = $source_from;
 		$tempObject->source_from_other = get_field("source_from_other", $acfID);
 
