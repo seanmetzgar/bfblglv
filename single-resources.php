@@ -16,7 +16,8 @@ get_header(); ?>
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 
 						<?php // edit_post_link(); ?>
-						<?php if ($has_post_thumbnail): ?>
+						<?php //if ($has_post_thumbnail):
+						if (false): ?>
 						<div class="image resourceImage">
 							<?php the_post_thumbnail("full", array("class" => "img-responsive")); ?>
 						</div>
