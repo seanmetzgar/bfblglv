@@ -162,17 +162,17 @@ function kudu_filter_wp_title($title) {
 	return $rVal;
 }
 
-add_action("widgets_init", "kudu_widgets_init");
-function kudu_widgets_init() {
-	register_sidebar(array(
-		"name" =>				__("Sidebar Widget Area", "kudu"),
-		"id" =>					"primary-widget-area",
-		"before_widget" =>		"<li id=\"%1$s\" class=\"widget-container %2$s\">",
-		"after_widget" =>		"</li>",
-		"before_title" =>		"<h3 class=\"widget-title\">",
-		"after_title" =>		"</h3>"
-	));
-}
+// add_action("widgets_init", "kudu_widgets_init");
+// function kudu_widgets_init() {
+// 	register_sidebar(array(
+// 		"name" =>				__("Sidebar Widget Area", "kudu"),
+// 		"id" =>					"primary-widget-area",
+// 		"before_widget" =>		"<li id=\"%1$s\" class=\"widget-container %2$s\">",
+// 		"after_widget" =>		"</li>",
+// 		"before_title" =>		"<h3 class=\"widget-title\">",
+// 		"after_title" =>		"</h3>"
+// 	));
+// }
 
 add_filter("get_comments_number", "kudu_comments_number");
 function kudu_comments_number( $count ) {

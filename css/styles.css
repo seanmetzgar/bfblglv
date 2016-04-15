@@ -203,6 +203,17 @@ button {
 	color: #ffffff!important;
 }
 
+.bfblButtonLink.btnBlueSolid {
+	border-color: #1a3281!important;
+	color: #ffffff!important;
+	background: #1a3281!important;
+}
+.bfblButtonLink.btnBlueSolid:hover,
+.bfblButtonLink.btnBlueSolid:focus {
+	color: #1a3281!important;
+	background: transparent !important;
+}
+
 .bfblButtonLink.btnOrange {
 	border-color: #fcaf17!important;
 	color: #fcaf17!important;
