@@ -12,12 +12,11 @@ get_header(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<?php get_template_part("entry", "resources-header"); ?>
 
-					<section class="entry-content<?php if ($has_post_thumbnail) echo " has-image"; ?>">
+					<section class="entry-content<?php if (false) echo " has-image"; ?>">
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 
 						<?php // edit_post_link(); ?>
-						<?php //if ($has_post_thumbnail):
-						if (false): ?>
+						<?php if (false): ?>
 						<div class="image resourceImage">
 							<?php the_post_thumbnail("full", array("class" => "img-responsive")); ?>
 						</div>
