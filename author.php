@@ -520,9 +520,9 @@ get_header(); ?>
 											</ul>
 										</div><!-- end div.partner-contact -->
 										<?php endif; ?>
-									<?php if ((!in_array("farm", $partner_category) && $partner_business_photo) || $partner_owner_photo): ?></div><!-- end div.partner-info-right --><?php endif; ?>
+									<?php if (((!in_array("farm", $partner_category) && !in_array("specialty", $partner_category)) && $partner_business_photo) || $partner_owner_photo): ?></div><!-- end div.partner-info-right --><?php endif; ?>
 
-									<?php if ((!in_array("farm", $partner_category) && $partner_business_photo) || $partner_owner_photo): ?>
+									<?php if (((!in_array("farm", $partner_category) && !in_array("specialty", $partner_category)) && $partner_business_photo) || $partner_owner_photo): ?>
 									<div class="partner-info-left">
 										<div class="owner-details">
 											<?php if (in_array("farm", $partner_category)) {
@@ -585,7 +585,7 @@ get_header(); ?>
 									</div><!-- end div.product-info-left -->
 									<?php endif; ?>
 
-									<?php if (in_array("farm", $partner_category) && $partner_business_photo): ?><div class="product-info-right"><?php endif; ?>
+									<?php if ((in_array("farm", $partner_category) || in_array("specialty", $partner_category)) && $partner_business_photo): ?><div class="product-info-right"><?php endif; ?>
 										<div class="products-detail">
 											<?php if ($hasProducts || $productsText) : ?>
 											<div class="entry-product-categories entry-content">
