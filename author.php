@@ -525,7 +525,7 @@ get_header(); ?>
 									<?php if (((!in_array("farm", $partner_category) && !in_array("specialty", $partner_category)) && $partner_business_photo) || $partner_owner_photo): ?>
 									<div class="partner-info-left">
 										<div class="owner-details">
-											<?php if (in_array("farm", $partner_category) || in_array("specialty")) {
+											<?php if (in_array("farm", $partner_category) || in_array("specialty", $partner_category)) {
 												if ($partner_owner_photo) {
 													echo '<div class="owner-image">';
 														echo $partner_owner_photo;
