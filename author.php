@@ -573,7 +573,7 @@ get_header(); ?>
 
 							<div>
 								<div class="page-block product-info-contents">
-									<?php if (in_array("farm", $partner_category) && $partner_business_photo): ?>
+									<?php if ((in_array("farm", $partner_category) || in_array("specialty", $partner_category)) && $partner_business_photo): ?>
 									<div class="product-info-left">
 										<?php
 										if ($partner_business_photo) {
