@@ -1032,6 +1032,7 @@ header.page-header.no-image .entry-title br::after {
 .entry-content h2.resourceSubhead {
 	font-size: 30px; font-size: 1.875rem;
 	color: #555555;
+	clear: both;
 }
 
 .entry-content h3 {
