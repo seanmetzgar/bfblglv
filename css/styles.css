@@ -203,7 +203,8 @@ button {
 	color: #ffffff!important;
 }
 
-.bfblButtonLink.btnBlueSolid {
+.bfblButtonLink.btnBlueSolid,
+.bfblButtonLink.btnBlueSolidWhiteHover {
 	border-color: #1a3281!important;
 	color: #ffffff!important;
 	background: #1a3281!important;
@@ -212,6 +213,13 @@ button {
 .bfblButtonLink.btnBlueSolid:focus {
 	color: #1a3281!important;
 	background: transparent !important;
+}
+
+.bfblButtonLink.btnBlueSolidWhiteHover:hover,
+.bfblButtonLink.btnBlueSolidWhiteHover:focus {
+	color: #1a3281!important;
+	background: #fff !important;
+	border-color: #fff;
 }
 
 .bfblButtonLink.btnOrange {
@@ -238,7 +246,79 @@ button {
 	color: #ffffff!important;
 }
 
+/** BLC Challenge Social **/
+.blc-social-content {
+	padding-top: .5em !important;
+	padding-bottom: .2em !important;
+}
+.blc-social-content p {
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.blc-social {
+	list-style-type: none;
+	text-align: center;
+	display: block;
+}
+.blc-social li {
+	display: inline-block;
+	font-size: 20px;
+	margin: 1em;
+	padding: 0;
+	background: transparent;
+	overflow: hidden;
+	width: 40px; height: 40px;
+}
+.blc-social li::before {
+	display: none !important;
+}
+.blc-social li a {
+	position: relative;
+	display: block;
+	float: left;
+	border-radius: 50%;
+	text-decoration: none;
+	background: transparent;
+	width: 40px;
+	height: 40px;
+}
 
+.blc-social li a span { display: none; }
+.blc-social li a::before {
+	display: block;
+	width: 40px; height: 40px;
+	font-family: fontello;
+	font-size: 20px;
+	line-height: 40px;
+	border-radius: 50%;
+	text-align: center;
+	color: #fff;
+	background-color: #1a3281;
+}
+.blc-social li a:hover {
+	background-color: transparent !important;
+}
+.blc-social li a:hover::before {
+	background-color: #fff;
+	color: #1a3281;
+}
+
+.blc-social .twitter a::before {
+	content: '\e802';
+}
+
+.blc-social .facebook a::before {
+	content: '\e804';
+}
+
+.blc-social .youtube a::before {
+	content: '\e801';
+}
+
+.blc-social .instagram a::before {
+	content: '\e803';
+}
 
 /* HEADER */
 
