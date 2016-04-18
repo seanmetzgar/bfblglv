@@ -201,7 +201,6 @@ jQuery(document).ready(function ($) {
             $productTypesSection.hide().find("input,select,textarea").prop("disabled", true);
         }
         formObject = $findLocalFoodForm.serializeObject();
-        console.log(formObject);
         formObject.action = "xhrGetPartners";
 
         xhrGetPartners(formObject);
