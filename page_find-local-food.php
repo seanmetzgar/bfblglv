@@ -7,6 +7,7 @@
  * @since Buy Local GLV 1.0.0
  */
 get_header();
+$activeCounties = get_active_counties();
 ?>
 			<?php get_template_part("entry", "partner-header"); ?>
 			<div class="page-block acf-map-wrap">
@@ -22,32 +23,21 @@ get_header();
 
 							<!-- <div class="form-inline page-block"> -->
 								<div class="form-inline page-block map-county-zip">
-									<?php if (false): ?>
+									<?php if ($activeCounties): ?>
 									<div class="county-select-wrap">
 
 								<!-- <select name="county" aria-label="County" class="form-control"> -->
 									<select name="county" aria-label="County" class="county-select">
 									<!-- <option value="" default>County</option> -->
-										<option value='' selected="selected"></option>
-										<option value="Berks">Berks</option>
-										<option value="Bucks">Bucks</option>
-										<option value="Carbon">Carbon</option>
-										<option value="Chester">Chester</option>
-										<option value="Hunterdon">Hunterdon</option>
-										<option value="Lancaster">Lancaster</option>
-										<option value="Lebanon">Lebanon</option>
-										<option value="Lehigh">Lehigh</option>
-										<option value="Monroe">Monroe</option>
-										<option value="Montgomery">Montgomery</option>
-										<option value="Northampton">Northampton</option>
-										<option value="Schuylkill">Schuylkill</option>
-										<option value="Warren">Warren</option>
+										<?php foreach ($activeCounties as $county): ?>
+										<option value="" selected></option>
+										<option value="<?php echo $county; ?>"><?php echo $county; ?></option>
+										<?php endforeach; ?>
 									</select>
 									</div><!-- end div.county-select-wrap -->
 
 									<span>or</span>
 									<?php endif; ?>
-
 									<div class="zip-input-group">
 										<input class="zip-input" name="zip" placeholder="Zip Code" aria-label="Zip Code">
 								    	<button class="zip-btn" type="button"><span class="screen-reader-text">Search</span></button>

@@ -100,3 +100,40 @@ function indent($tabs, $spaces = 0, $echo = false) {
         echo $indent;
     } else { return $indent; }
 }
+
+function get_active_counties() {
+    $locationTypes = array(
+        "farm", "farmers-market",
+        "restaurant", "vineyard",
+        "distillery", "institution",
+        "distributor", "specialty",
+        "retail"
+    );
+    $allPartners = array();
+    $counties = array();
+    foreach ($locationTypes as $locationType) {
+        $locationTypePartners = null;
+        $locationTypeQueryArgs = array(
+            "role" => $locationType
+        );
+        $locationTypePartners = get_users($locationTypeQueryArgs);
+        if (is_array($locationTypePartners) && count($locationTypePartners) > 0) {
+            $allPartners = array_merge($locationTypePartners, $allPartners);
+        }
+    }
+
+    foreach ($allPartners as $partner) {
+        $partner_id = $partner->ID;
+        $acfID = "user_{$partner_id}";
+
+        $county = get_field("partner_county", $acfID);
+        if ($county) $counties[] = $county;
+    }
+
+    $counties = array_unique($counties);
+    usort($counties, function($a, $b) {
+        return strnatcmp($a, $b);
+    });
+    if (count($counties) === 0) $counties = false;
+    return $counties;
+}
