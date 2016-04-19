@@ -175,7 +175,7 @@ jQuery(document).ready(function ($) {
 
     //Find Local Food Form
     $findLocalFoodForm = $("#find-local-food-form").eq(0);
-    $findLocalFoodForm.on("blur change", "input, textarea, select", function () {
+    $findLocalFoodForm.on("blur change keyup keypress", "input, textarea, select", function () {
         var formObject = false;
         var $productTypesSection = $findLocalFoodForm.find(".product-types-section");
         var locationTypes = $findLocalFoodForm.find("[name='location_type[]'],[name=is_csa],[name=is_farm_share]").filter(":checked").serializeArray();
