@@ -520,12 +520,12 @@ get_header(); ?>
 											</ul>
 										</div><!-- end div.partner-contact -->
 										<?php endif; ?>
-									<?php if (((!in_array("farm", $partner_category) && !in_array("specialty", $partner_category) && !in_array("restaurant", $partner_category)) && $partner_business_photo) || $partner_owner_photo): ?></div><!-- end div.partner-info-right --><?php endif; ?>
+									<?php if (((!in_array("farm", $partner_category) && !in_array("specialty", $partner_category) && !in_array("restaurant", $partner_category) && !in_array("distillery", $partner_category)) && $partner_business_photo) || $partner_owner_photo): ?></div><!-- end div.partner-info-right --><?php endif; ?>
 
-									<?php if (((!in_array("farm", $partner_category) && !in_array("specialty", $partner_category) && !in_array("restaurant", $partner_category)) && $partner_business_photo) || $partner_owner_photo): ?>
+									<?php if (((!in_array("farm", $partner_category) && !in_array("specialty", $partner_category) && !in_array("restaurant", $partner_category) && !in_array("distillery", $partner_category)) && $partner_business_photo) || $partner_owner_photo): ?>
 									<div class="partner-info-left">
 										<div class="owner-details">
-											<?php if (in_array("farm", $partner_category) || in_array("specialty", $partner_category) || in_array("restaurant", $partner_category)) {
+											<?php if (in_array("farm", $partner_category) || in_array("specialty", $partner_category) || in_array("restaurant", $partner_category) || in_array("distillery", $partner_category)) {
 												if ($partner_owner_photo) {
 													echo '<div class="owner-image">';
 														echo $partner_owner_photo;
@@ -573,7 +573,7 @@ get_header(); ?>
 
 							<div>
 								<div class="page-block product-info-contents">
-									<?php if ((in_array("farm", $partner_category) || in_array("specialty", $partner_category) || in_array("restaurant", $partner_category)) && $partner_business_photo): ?>
+									<?php if ((in_array("farm", $partner_category) || in_array("specialty", $partner_category) || in_array("restaurant", $partner_category) || in_array("distillery", $partner_category)) && $partner_business_photo): ?>
 									<div class="product-info-left">
 										<?php
 										if ($partner_business_photo) {
@@ -585,7 +585,7 @@ get_header(); ?>
 									</div><!-- end div.product-info-left -->
 									<?php endif; ?>
 
-									<?php if ((in_array("farm", $partner_category) || in_array("specialty", $partner_category) || in_array("restaurant", $partner_category)) && $partner_business_photo): ?><div class="product-info-right"><?php endif; ?>
+									<?php if ((in_array("farm", $partner_category) || in_array("specialty", $partner_category) || in_array("restaurant", $partner_category) || in_array("distillery", $partner_category)) && $partner_business_photo): ?><div class="product-info-right"><?php endif; ?>
 										<div class="products-detail">
 											<?php if ($hasProducts || $productsText) : ?>
 											<div class="entry-product-categories entry-content">
