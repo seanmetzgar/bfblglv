@@ -7,6 +7,7 @@ class MapPartner {
 	public $lng = false;
 	public $city = false;
 	public $inbounds = false;
+	public $county = false;
 }
 class Hours {
 	public $day = false;
@@ -856,9 +857,12 @@ function xhrGetPartners() {
 	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;
 	$zip = ($zip && strlen($zip) >= 5) ? substr($zip, 0, 5) : false;
 	$hasZipBounds = false;
+	$county = false;
 	if ($zip) {
 		$zipBounds = getZipBounds($zip);
 		$hasZipBounds = (is_object($zipBounds)) ? true : false;
+	} else {
+		$county = (isset($_REQUEST["county"])) ? "".$_REQUEST["county"] : false;
 	}
 
     $pseudoFarmSearch = false;
@@ -957,6 +961,7 @@ function xhrGetPartners() {
 		$tempObj->id = $partner->ID;
 		$tempName = get_field("partner_name", "user_{$partner->ID}");
 		$tempCity = get_field("partner_city", "user_{$partner->ID}");
+		$tempCounty = get_field("partner_county", "user_{$partner->ID}");
 		$tempObj->name = strlen($tempName) > 0 ? $tempName : $partner->display_name;
 		$tempMap = get_field("partner_map", "user_{$partner->ID}");
 		if (!empty($tempMap)) {
@@ -969,6 +974,11 @@ function xhrGetPartners() {
 		if ($hasZipBounds && !empty($tempMap)) {
 			if ($tempMap["lat"] < $zipBounds->maxLat && $tempMap["lat"] > $zipBounds->minLat &&
 				$tempMap["lng"] < $zipBounds->maxLng && $tempMap["lng"] > $zipBounds->minLng) {
+				$tempObj->inbounds = true;
+				$returnPartners[] = $tempObj;
+			}
+		} elseif ($county) {
+			if ($county == $tempCounty) {
 				$tempObj->inbounds = true;
 				$returnPartners[] = $tempObj;
 			}
