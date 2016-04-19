@@ -893,13 +893,26 @@ function xhrGetPartners() {
 			$_REQUEST["product_type"] :
 			false;
 
+	$specificProducts =
+		(isset($_REQUEST["specific_products"]) &&
+	 	is_array($_REQUEST["specific_products"]) &&
+		count($_REQUEST["specific_products"]) > 0) ?
+			$_REQUEST["specific_products"] :
+				(isset($_REQUEST["specific_products"]) &&
+				is_string($_REQUEST["specific_products"]) &&
+				strlen($_REQUEST["specific_products"]) > 0) ?
+					array($_REQUEST["specific_products"]) : false;
+
 	$wholesale = (isset($_REQUEST["wholesale"]) && ($_REQUEST["wholesale"] == "true" || $_REQUEST["wholesale"] == "1")) ? true : false;
 
    	$tempPartners = array();
    	$returnPartners = array();
 
    	if ($locationTypes === false) {
-   		$locationTypes = ($productTypes || $pseudoFarmSearch) ? array("farm") : $allLocationTypes;
+   		$locationTypes = ($productTypes || $pseudoFarmSearch) ? 
+   			array("farm") : 
+   			(!$productTypes && $specificProducts) ?
+   				array("farm") : $allLocationTypes;
    	} else {
         //Clear $productTypes if not a farm search
    		$productTypes = (in_array("farm", $locationTypes)) ? $productTypes : false;
@@ -945,10 +958,36 @@ function xhrGetPartners() {
         		"compare" => "="
         	);
         }
+
+        if ($locationType === "farm" && !$productTypes && $specificProducts) { continue; }
+
 		$locationTypePartners = get_users($locationTypeQueryArgs);
 
 		if (is_array($locationTypePartners) && count($locationTypePartners) > 0) {
 			$tempPartners = array_merge($locationTypePartners, $tempPartners);
+		}
+	}
+
+	if (is_array($specificProducts) && count($specificProducts) > 0) {
+		$specificProductsTempPartners =get_users(array("role" => "farm"));
+		$specificProductsPartners = array();
+
+		if (is_array($specificProductsTempPartners) && count($specificProductsTempPartners) > 0) {
+			foreach($specificProductsTempPartners as $specificProductsPartner) {
+				$addThisPartner = false;
+				foreach ($specificProducts as $specificProduct) {
+					if (has_specific_product($specificProductsPartner->ID, $specificProduct, $wholesale)) {
+						$addThisPartner = true;
+					}
+				}
+				if ($addThisPartner) {
+					$specificProductsPartners[] = $specificProductsPartner;
+				}
+			}
+		}
+
+		if (count($specificProductsPartners) > 0) {
+			$tempPartners = array_merge($specificProductsPartners, $tempPartners);
 		}
 	}
 

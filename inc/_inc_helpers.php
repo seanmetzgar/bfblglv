@@ -1,4 +1,5 @@
 <?php
+ini_set("display_errors", 1);
 /** Helpers **/
 function niceCategoryName($slug) {
     switch($slug) {
@@ -179,4 +180,55 @@ function get_specific_products() {
     $productsArray = array_unique($productsArray);
 
     return $productsArray;
+}
+
+function has_specific_product($partner_id, $product, $wholesale = false) {
+    $rVal = false;
+    if (is_string($partner_id) && strpos($partner_id, "user_") !== false) {
+        $acf_id = $partner_id;
+    } else {
+        $acf_id = "user_{$partner_id}";
+    }
+    $productTypes = array(
+        "products_greens",
+        "products_roots",
+        "products_seasonal",
+        "products_melons",
+        "products_herbs",
+        "products_berries",
+        "products_small_fruits",
+        "products_grains",
+        "products_value_added",
+        "products_flowers",
+        "products_plants",
+        "products_ornamentals",
+        "products_syrups",
+        "products_dairy",
+        "products_meat",
+        "products_poultry",
+        "products_agritourism",
+        "products_fibers",
+        "products_artisinal",
+        "products_liquids",
+        "products_educational",
+        "products_baked",
+        "products_seeds",
+        "products_misc"
+    );
+    $productTypePrefix = ($wholesale === true) ? "ws_" : "";
+    if (is_string($product) && strlen($product) > 0) {
+        foreach ($productTypes as $productType) {
+            $tempProducts = get_field(($productTypePrefix.$productType), $acf_id);
+            $tempProducts = (is_string($tempProducts) && strlen($tempProducts) > 0) ?
+                array($tempProducts) :
+                (is_array($tempProducts) && count($tempProducts) > 0) ? $tempProducts : false;
+            if (is_array($tempProducts)) {
+                if (array_search($product, $tempProducts) !== false) $rVal = true;
+            }
+        }
+    } else {
+        $rVal = false;
+    }
+
+    return $rVal;
 }
