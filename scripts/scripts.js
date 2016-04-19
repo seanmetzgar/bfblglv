@@ -27,6 +27,7 @@ jQuery(document).ready(function ($) {
 
     $(".county-select").chosen({
         "disable_search": true,
+        "allow_single_deselect" : true,
         "placeholder_text_single": "County"
     });
 

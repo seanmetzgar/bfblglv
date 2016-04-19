@@ -30,8 +30,8 @@ $specificProducts = get_specific_products();
 								<!-- <select name="county" aria-label="County" class="form-control"> -->
 									<select name="county" aria-label="County" class="county-select">
 									<!-- <option value="" default>County</option> -->
-										<?php foreach ($activeCounties as $county): ?>
 										<option value="" selected></option>
+										<?php foreach ($activeCounties as $county): ?>
 										<option value="<?php echo $county; ?>"><?php echo $county; ?></option>
 										<?php endforeach; ?>
 									</select>

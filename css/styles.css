@@ -3123,6 +3123,28 @@ body.single-events .entry-content .post-meta {
 	border-bottom-style: solid;
 	border-bottom-color: #ffffff;
 }
+.county-select-wrap .chosen-single abbr {
+	background: none;
+	top: 11px;
+	right: 34px;
+	width: 13px; height: 10px;
+	color: #fff;
+}
+.county-select-wrap .chosen-single abbr::before {
+	content: 'x';
+	position: absolute;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+	font-size: 13px; line-height: 10px;
+	font-weight: normal;
+	display: block;
+	font-family: Verdana;
+	text-align: center;
+}
+
+.county-select-wrap .chosen-single abbr:hover {
+	color: #ddd;
+}
 
 /* active state */
 .county-select-wrap .chosen-container-active.chosen-with-drop .chosen-single div::before {
