@@ -100,3 +100,83 @@ function indent($tabs, $spaces = 0, $echo = false) {
         echo $indent;
     } else { return $indent; }
 }
+
+function get_specific_products() {
+    $productTypes = array(
+        "products_greens",
+        "products_roots",
+        "products_seasonal",
+        "products_melons",
+        "products_herbs",
+        "products_berries",
+        "products_small_fruits",
+        "products_grains",
+        "products_value_added",
+        "products_flowers",
+        "products_plants",
+        "products_ornamentals",
+        "products_syrups",
+        "products_dairy",
+        "products_meat",
+        "products_poultry",
+        "products_agritourism",
+        "products_fibers",
+        "products_artisinal",
+        "products_liquids",
+        "products_educational",
+        "products_baked",
+        "products_seeds",
+        "products_misc",
+        "ws_products_greens",
+        "ws_products_roots",
+        "ws_products_seasonal",
+        "ws_products_melons",
+        "ws_products_herbs",
+        "ws_products_berries",
+        "ws_products_small_fruits",
+        "ws_products_grains",
+        "ws_products_value_added",
+        "ws_products_flowers",
+        "ws_products_plants",
+        "ws_products_ornamentals",
+        "ws_products_syrups",
+        "ws_products_dairy",
+        "ws_products_meat",
+        "ws_products_poultry",
+        "ws_products_agritourism",
+        "ws_products_fibers",
+        "ws_products_artisinal",
+        "ws_products_liquids",
+        "ws_products_educational",
+        "ws_products_baked",
+        "ws_products_seeds",
+        "ws_products_misc"
+    );
+    $productsArray = array();
+
+    $productPartners = get_users(array(
+        "role" => "farm"
+    ));
+
+    foreach ($productPartners as $partner) {
+        $partner_id = $partner->ID;
+        $acfID = "user_{$partner_id}";
+
+        foreach ($productTypes as $productType) {
+            $tempProducts = get_field($productType, $acfID);
+            $tempProducts = (is_string($tempProducts) && strlen($tempProducts) > 0) ?
+                array($tempProducts) :
+                (is_array($tempProducts) && count($tempProducts) > 0) ? $tempProducts : false;
+            if (is_array($tempProducts)) {
+                foreach (array_keys($tempProducts, 'Other') as $key) {
+                    unset($tempProducts[$key]);
+                }
+                $productsArray = array_merge($tempProducts, $productsArray);
+            }
+        }
+    }
+
+    $productsArray = array_unique($productsArray);
+
+    return $productsArray;
+}

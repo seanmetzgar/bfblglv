@@ -7,6 +7,7 @@
  * @since Buy Local GLV 1.0.0
  */
 get_header();
+$specificProducts = get_specific_products();
 ?>
 			<?php get_template_part("entry", "partner-header"); ?>
 			<div class="page-block acf-map-wrap">
@@ -110,32 +111,9 @@ get_header();
 									<label>
 										<span class="map-subhead">Looking for a <br />specific product?</span>
 										<select name="specific_products" multiple class="chosen-specific-products">
-											<option value="Product A">Product A</option>
-											<option value="Product B">Product B</option>
-											<option value="Product C">Product C</option>
-											<option value="Product D">Product D</option>
-											<option value="Product E">Product E</option>
-											<option value="Product F">Product F</option>
-											<option value="Product G">Product G</option>
-											<option value="Product H">Product H</option>
-											<option value="Product I">Product I</option>
-											<option value="Product J">Product J</option>
-											<option value="Product K">Product K</option>
-											<option value="Product L">Product L</option>
-											<option value="Product M">Product M</option>
-											<option value="Product N">Product N</option>
-											<option value="Product O">Product O</option>
-											<option value="Product P">Product P</option>
-											<option value="Product Q">Product Q</option>
-											<option value="Product R">Product R</option>
-											<option value="Product S">Product S</option>
-											<option value="Product T">Product T</option>
-											<option value="Product U">Product U</option>
-											<option value="Product V">Product V</option>
-											<option value="Product W">Product W</option>
-											<option value="Product X">Product X</option>
-											<option value="Product Y">Product Y</option>
-											<option value="Product Z">Product Z</option>
+											<?php foreach ($specificProducts as $specificProduct): if (!is_string($specificProduct) || (is_string($specificProduct) && strlen($specificProduct) < 1)) { continue; } ?>
+											<option value="<?php echo $specificProduct; ?>"><?php echo $specificProduct; ?></option>
+											<?php endforeach; ?>
 										</select>
 									</label>
 								</div><!-- end div.map-specific-prods -->
