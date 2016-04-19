@@ -106,7 +106,7 @@ get_header();
 									<label><input type="checkbox" name="product_type[]" value="misc"><span>Miscellaneous [e.g. Eggs]</span></label>
 								</div><!-- end div.map-checkboxes -->
 
-								<!-- <div class="map-specific-prods page-block">
+								<div class="map-specific-prods page-block">
 									<label>
 										<span class="map-subhead">Looking for a <br />specific product?</span>
 										<select name="specific_products" multiple class="chosen-specific-products">
@@ -138,7 +138,7 @@ get_header();
 											<option value="Product Z">Product Z</option>
 										</select>
 									</label>
-								</div> --><!-- end div.map-specific-prods -->
+								</div><!-- end div.map-specific-prods -->
 							</div><!-- end div.bfblSlideWrap -->
 						</section>
 
