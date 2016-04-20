@@ -2820,7 +2820,7 @@ body.single-events .entry-content .post-meta {
 	content: ': ';
 }
 .product-group h4.farmTypeString {
-	margin-top: 1em;
+	margin-top: 3em;
 	font-style: italic;
 }
 .product-group h4.farmTypeString::after {
