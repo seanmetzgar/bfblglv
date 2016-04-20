@@ -2678,6 +2678,9 @@ body.single-events .entry-content .post-meta {
 	padding-bottom: 6px; padding-bottom: 0.375rem;
 	font-weight: normal;
 }
+.partner-profile .page-block h4.farmTypeString {
+	margin-top: 3em;
+}
 .partner-profile .page-block h5 {
 	color: #555555;
 	font-weight: bold;
@@ -2818,13 +2821,6 @@ body.single-events .entry-content .post-meta {
 }
 .product-group h4::after {
 	content: ': ';
-}
-.product-group h4.farmTypeString {
-	margin-top: 3em;
-	font-style: italic;
-}
-.product-group h4.farmTypeString::after {
-	content: none;
 }
 .product-group p {
 	font-size: 14px;
