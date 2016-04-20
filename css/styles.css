@@ -2819,6 +2819,13 @@ body.single-events .entry-content .post-meta {
 .product-group h4::after {
 	content: ': ';
 }
+.product-group h4.farmTypeString {
+	color: #555555;
+	font-style: italic;
+}
+.product-group h4.farmTypeString::after {
+	content: none;
+}
 .product-group p {
 	font-size: 14px;
 }

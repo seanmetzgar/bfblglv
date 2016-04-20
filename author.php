@@ -620,7 +620,7 @@ get_header(); ?>
 												} elseif ($productsText) {
 													echo "<p>$productsText</p>";
 												}
-												if ($farmTypeString) echo "<h4>$farmTypeString</h4>";
+												if ($farmTypeString) echo "<h4 class=\"farmTypeString\">$farmTypeString</h4>";
 												?>
 											</div><!-- end div.entry-product-categories -->
 											<?php endif; ?>
