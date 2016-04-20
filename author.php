@@ -589,7 +589,7 @@ get_header(); ?>
 									<?php if ((in_array("farm", $partner_category) || in_array("specialty", $partner_category) || in_array("restaurant", $partner_category) || in_array("distillery", $partner_category)) && $partner_business_photo): ?><div class="product-info-right"><?php endif; ?>
 										<div class="products-detail">
 											<?php if ($hasProducts || $productsText) : 
-												$productsAvailableSuffix = (in_array("farm", $partner_category) && $farm_type) ? " From Our {$farm_type}" : "";
+												$farmTypeString = (in_array("farm", $partner_category) && $farm_type) ? "Products Available From Our {$farm_type}" : "";
 											?>
 											<div class="entry-product-categories entry-content">
 												<h3>Products Available</h3>
@@ -620,6 +620,7 @@ get_header(); ?>
 												} elseif ($productsText) {
 													echo "<p>$productsText</p>";
 												}
+												if ($farmTypeString) echo "<h4>$farmTypeString</h4>";
 												?>
 											</div><!-- end div.entry-product-categories -->
 											<?php endif; ?>
