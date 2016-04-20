@@ -592,7 +592,7 @@ get_header(); ?>
 												$productsAvailableSuffix = (in_array("farm", $partner_category) && $farm_type) ? " From Our {$farm_type}" : "";
 											?>
 											<div class="entry-product-categories entry-content">
-												<h3>Products Available<?php echo $productsAvailableSuffix; ?></h3>
+												<h3>Products Available</h3>
 												<?php
 												if ($hasProducts) {
 													foreach($products as $productCategory=>$productCategoryProducts) {
