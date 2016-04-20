@@ -118,6 +118,7 @@ get_header(); ?>
 					$source_from = get_field("source_from", $acf_partner_id);
 					$local_stock_freq = get_field("local_stock_freq", $acf_partner_id);
 					$local_stock_qty = get_field("local_stock_qty", $acf_partner_id);
+					$farm_type = get_field("farm_type", $acf_partner_id);
 
 					$products = false;
 					if (in_array("farm", $partner_category)){
@@ -587,9 +588,11 @@ get_header(); ?>
 
 									<?php if ((in_array("farm", $partner_category) || in_array("specialty", $partner_category) || in_array("restaurant", $partner_category) || in_array("distillery", $partner_category)) && $partner_business_photo): ?><div class="product-info-right"><?php endif; ?>
 										<div class="products-detail">
-											<?php if ($hasProducts || $productsText) : ?>
+											<?php if ($hasProducts || $productsText) : 
+												$productsAvailableSuffix = ((in_array("farm", $partner_category) && $farm_type) ? " From Our {$farm_type}" : "";
+											?>
 											<div class="entry-product-categories entry-content">
-												<h3>Products Available</h3>
+												<h3>Products Available<?php echo $productsAvailableSuffix; ?></h3>
 												<?php
 												if ($hasProducts) {
 													foreach($products as $productCategory=>$productCategoryProducts) {
