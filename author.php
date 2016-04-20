@@ -995,7 +995,7 @@ get_header(); ?>
 											<ul class="farming-practices-list">
 												<?php
 												if ($only_organic) { echo "<li>Use Only Organic Materials</li>"; }
-												if ($integrated_pest_management) { echo "<li>Intergrated Pest Management (IPM)</li>"; }
+												if ($integrated_pest_management) { echo "<li>Integrated Pest Management (IPM)</li>"; }
 												if ($non_gmo) { echo "<li>Non-GMO</li>"; }
 												if ($antibiotic_harmone_free) { echo "<li>Antibiotic and Hormone Free</li>"; }
 												if ($pastured) { echo "<li>Pastured</li>"; }
