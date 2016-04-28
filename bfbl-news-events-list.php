@@ -18,7 +18,7 @@
 		"posts_per_page"	=> 2,
 		"meta_key"			=> "event_date",
 		"order_by"			=> "meta_value_num",
-		"order"				=> "ASC"
+		"order"				=> "DESC"
 	);
 	$news_posts = get_posts($news_args);
 	$events_posts = get_posts($events_args);
