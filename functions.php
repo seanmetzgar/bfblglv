@@ -61,8 +61,8 @@ function kudu_load_scripts() {
 	wp_register_script("kudu-slick", "$template_path/scripts/vendor/slick/slick.min.js");
 	wp_register_script("kudu-chosen", "$template_path/scripts/vendor/chosen/chosen.jquery.min.js");
 	wp_register_script("kudu-cycle", "$template_path/scripts/vendor/cycle/jquery.cycle.js");
-    wp_register_script("kudu-plugins", "$template_path/scripts/plugins.js");
-    wp_register_script("kudu-scripts", "$template_path/scripts/scripts.js");
+    wp_register_script("kudu-plugins", "$template_path/scripts/plugins.min.js");
+    wp_register_script("kudu-scripts", "$template_path/scripts/scripts.min.js");
     wp_localize_script("kudu-plugins", "KuduAJAX", array( "ajaxUrl" => admin_url("admin-ajax.php")));
 
     wp_register_style("kudu-bootstrap", "$template_path/bootstrap/css/bootstrap.min.css");
@@ -72,7 +72,7 @@ function kudu_load_scripts() {
 	wp_register_style("kudu-blue-hwy-cond", "//fast.fonts.net/cssapi/e8f90dbe-0738-494a-8ef0-584ecb35f973.css");
 	wp_register_style("kudu-chosen-style", "$template_path/scripts/vendor/chosen/chosen.css");
 	wp_register_style("kudu-clear-sans", "$template_path/fonts/clear_sans/font.css");
-    wp_register_style("kudu-css", "$template_path/css/styles.css");
+    wp_register_style("kudu-css", "$template_path/css/styles.min.css");
 
     wp_enqueue_style("kudu-bootstrap");
     wp_enqueue_style("kudu-bootstrap-theme", false, array("kudu-bootstrap"));
