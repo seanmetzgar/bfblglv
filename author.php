@@ -119,6 +119,7 @@ get_header(); ?>
 					$local_stock_freq = get_field("local_stock_freq", $acf_partner_id);
 					$local_stock_qty = get_field("local_stock_qty", $acf_partner_id);
 					$farm_type = get_field("farm_type", $acf_partner_id);
+					$farm_type = ($farm_type === "false") ? false : $farm_type;
 
 					$products = false;
 					if (in_array("farm", $partner_category)){
