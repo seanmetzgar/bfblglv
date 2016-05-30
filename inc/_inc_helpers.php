@@ -269,3 +269,13 @@ function has_specific_product($partner_id, $product, $wholesale = false) {
 
     return $rVal;
 }
+
+function isHiddenVendor($vendor) {
+    $rVal = false;
+    if (is_array($vendor)) {
+        $vendor_data = get_userdata($vendor['ID']);
+        $vendor_roles = $vendor_data->roles;
+        if (in_array("hidden-vendor", $vendor_roles)) { $rVal = true; }
+    }
+    return $rVal;
+}

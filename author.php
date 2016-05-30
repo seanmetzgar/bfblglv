@@ -498,11 +498,15 @@ get_header(); ?>
 												<?php foreach ($market_vendors as $vendor):
 													if (is_array($vendor)):
 														$vendor_id = "user_{$vendor['ID']}";
-														$vendor_url = get_author_posts_url($vendor['ID']);
 														$vendor_name = get_field("partner_name", $vendor_id);
-														$vendor_city = get_field("partner_city", $vendor_id);
-														$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
-														echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+														if (!isHiddenVendor($vendor)):
+															$vendor_url = get_author_posts_url($vendor['ID']);
+															$vendor_city = get_field("partner_city", $vendor_id);
+															$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
+															echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+														else:
+															echo "<li>$vendor_name</li>";
+														endif;
 													endif;
 												endforeach; ?>
 											</ul>
@@ -634,11 +638,15 @@ get_header(); ?>
 												<?php foreach ($products_available_at as $vendor):
 													if (is_array($vendor)):
 														$vendor_id = "user_{$vendor['ID']}";
-														$vendor_url = get_author_posts_url($vendor['ID']);
 														$vendor_name = get_field("partner_name", $vendor_id);
-														$vendor_city = get_field("partner_city", $vendor_id);
-														$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
-														echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+														if (!isHiddenVendor($vendor)):
+															$vendor_url = get_author_posts_url($vendor['ID']);
+															$vendor_city = get_field("partner_city", $vendor_id);
+															$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
+															echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+														else:
+															echo "<li>$vendor_name</li>";
+														endif;
 													endif;
 												endforeach; ?>
 											</ul>
@@ -651,11 +659,15 @@ get_header(); ?>
 												<?php foreach ($products_available_from as $vendor):
 													if (is_array($vendor)):
 														$vendor_id = "user_{$vendor['ID']}";
-														$vendor_url = get_author_posts_url($vendor['ID']);
 														$vendor_name = get_field("partner_name", $vendor_id);
-														$vendor_city = get_field("partner_city", $vendor_id);
-														$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
-														echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+														if (!isHiddenVendor($vendor)):
+															$vendor_url = get_author_posts_url($vendor['ID']);
+															$vendor_city = get_field("partner_city", $vendor_id);
+															$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
+															echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+														else:
+															echo "<li>$vendor_name</li>";
+														endif;
 													endif;
 												endforeach; ?>
 											</ul>
@@ -668,11 +680,15 @@ get_header(); ?>
 												<?php foreach ($source_from as $vendor):
 													if (is_array($vendor)):
 														$vendor_id = "user_{$vendor['ID']}";
-														$vendor_url = get_author_posts_url($vendor['ID']);
 														$vendor_name = get_field("partner_name", $vendor_id);
-														$vendor_city = get_field("partner_city", $vendor_id);
-														$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
-														echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+														if (!isHiddenVendor($vendor)):
+															$vendor_url = get_author_posts_url($vendor['ID']);
+															$vendor_city = get_field("partner_city", $vendor_id);
+															$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
+															echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+														else:
+															echo "<li>$vendor_name</li>";
+														endif;
 													endif;
 												endforeach; ?>
 											</ul>
