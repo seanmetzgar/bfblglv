@@ -147,6 +147,7 @@ get_header(); ?>
 						$products["educational"] = get_field("products_educational", $acf_partner_id);
 						$products["baked"] = get_field("products_baked", $acf_partner_id);
 						$products["seeds"] = get_field("products_seeds", $acf_partner_id);
+						$products["pyo"] = get_field("products_pyo", $acf_partner_id);
 						$products["misc"] = get_field("products_misc", $acf_partner_id);
 
 						$ws_products = array();
@@ -173,6 +174,7 @@ get_header(); ?>
 						$ws_products["educational"] = get_field("ws_products_educational", $acf_partner_id);
 						$ws_products["baked"] = get_field("ws_products_baked", $acf_partner_id);
 						$ws_products["seeds"] = get_field("ws_products_seeds", $acf_partner_id);
+						$ws_products["pyo"] = get_field("ws_products_pyo", $acf_partner_id);
 						$ws_products["misc"] = get_field("ws_products_misc", $acf_partner_id);
 
 						$productCategoryUnsets = array();
@@ -225,6 +227,9 @@ get_header(); ?>
 											break;
 										case "seeds":
 											$productCategoryName = "Nuts & Seeds";
+											break;
+										case "pyo":
+											$productCategoryName = "Pick Your Own";
 											break;
 										case "misc":
 											$productCategoryName = "Other Products";
@@ -299,6 +304,9 @@ get_header(); ?>
 											break;
 										case "seeds":
 											$productCategoryName = "Nuts & Seeds";
+											break;
+										case "pyo":
+											$productCategoryName = "Pick Your Own";
 											break;
 										case "misc":
 											$productCategoryName = "Other Products";
