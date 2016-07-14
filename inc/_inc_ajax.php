@@ -111,6 +111,8 @@ class DownloadPartner {
 	public $products_baked_other = "";
 	public $products_seeds = "";
 	public $products_seeds_other = "";
+	public $products_pyo = "";
+	public $products_pyo_other = "";
 	public $products_misc = "";
 	public $products_misc_other = "";
 	/** Wholesale **/
@@ -167,6 +169,8 @@ class DownloadPartner {
 		public $ws_products_baked_other = "";
 		public $ws_products_seeds = "";
 		public $ws_products_seeds_other = "";
+		public $ws_products_pyo = "";
+		public $ws_products_pyo_other = "";
 		public $ws_products_misc = "";
 		public $ws_products_misc_other = "";
 
@@ -1275,150 +1279,156 @@ function xhrGetPartnersDownload() {
 		/** Products **/
 		$products_greens = get_field("products_greens", $acfID);
 		$tempObject->products_greens = downloadParseProducts($products_greens);
-		$tempObject->products_greens_other = get_field("other_products_greens");
+		$tempObject->products_greens_other = get_field("other_products_greens", $acfID);
 		$products_roots = get_field("products_roots", $acfID);
 		$tempObject->products_roots = downloadParseProducts($products_roots);
-		$tempObject->products_roots_other = get_field("other_products_roots");
+		$tempObject->products_roots_other = get_field("other_products_roots", $acfID);
 		$products_seasonal = get_field("products_seasonal", $acfID);
 		$tempObject->products_seasonal = downloadParseProducts($products_seasonal);
-		$tempObject->products_seasonal_other = get_field("other_products_seasonal");
+		$tempObject->products_seasonal_other = get_field("other_products_seasonal", $acfID);
 		$products_melons = get_field("products_melons", $acfID);
 		$tempObject->products_melons = downloadParseProducts($products_melons);
-		$tempObject->products_melons_other = get_field("other_products_melons");
+		$tempObject->products_melons_other = get_field("other_products_melons", $acfID);
 		$products_herbs = get_field("products_herbs", $acfID);
 		$tempObject->products_herbs = downloadParseProducts($products_herbs);
-		$tempObject->products_herbs_other = get_field("other_products_herbs");
+		$tempObject->products_herbs_other = get_field("other_products_herbs", $acfID);
 		$products_berries = get_field("products_berries", $acfID);
 		$tempObject->products_berries = downloadParseProducts($products_berries);
-		$tempObject->products_berries_other = get_field("other_products_berries");
+		$tempObject->products_berries_other = get_field("other_products_berries", $acfID);
 		$products_small_fruits = get_field("products_small_fruits", $acfID);
 		$tempObject->products_small_fruits = downloadParseProducts($products_small_fruits);
-		$tempObject->products_small_fruits_other = get_field("other_products_small_fruits");
+		$tempObject->products_small_fruits_other = get_field("other_products_small_fruits", $acfID);
 		$products_grains = get_field("products_grains", $acfID);
 		$tempObject->products_grains = downloadParseProducts($products_grains);
-		$tempObject->products_grains_other = get_field("other_products_grains");
+		$tempObject->products_grains_other = get_field("other_products_grains", $acfID);
 		$products_value_added = get_field("products_value_added", $acfID);
 		$tempObject->products_value_added = downloadParseProducts($products_value_added);
-		$tempObject->products_value_added_other = get_field("other_products_value_added");
+		$tempObject->products_value_added_other = get_field("other_products_value_added", $acfID);
 		$products_flowers = get_field("products_flowers", $acfID);
 		$tempObject->products_flowers = downloadParseProducts($products_flowers);
-		$tempObject->products_flowers_other = get_field("other_products_flowers");
+		$tempObject->products_flowers_other = get_field("other_products_flowers", $acfID);
 		$products_plants = get_field("products_plants", $acfID);
 		$tempObject->products_plants = downloadParseProducts($products_plants);
-		$tempObject->products_plants_other = get_field("other_products_plants");
+		$tempObject->products_plants_other = get_field("other_products_plants", $acfID);
 		$products_ornamentals = get_field("products_ornamentals", $acfID);
 		$tempObject->products_ornamentals = downloadParseProducts($products_ornamentals);
-		$tempObject->products_ornamentals_other = get_field("other_products_ornamentals");
+		$tempObject->products_ornamentals_other = get_field("other_products_ornamentals", $acfID);
 		$products_syrups = get_field("products_syrups", $acfID);
 		$tempObject->products_syrups = downloadParseProducts($products_syrups);
-		$tempObject->products_syrups_other = get_field("other_products_syrups");
+		$tempObject->products_syrups_other = get_field("other_products_syrups", $acfID);
 		$products_dairy = get_field("products_dairy", $acfID);
 		$tempObject->products_dairy = downloadParseProducts($products_dairy);
-		$tempObject->products_dairy_other = get_field("other_products_dairy");
+		$tempObject->products_dairy_other = get_field("other_products_dairy", $acfID);
 		$products_meat = get_field("products_meat", $acfID);
 		$tempObject->products_meat = downloadParseProducts($products_meat);
-		$tempObject->products_meat_other = get_field("other_products_meat");
+		$tempObject->products_meat_other = get_field("other_products_meat", $acfID);
 		$products_poultry = get_field("products_poultry", $acfID);
 		$tempObject->products_poultry = downloadParseProducts($products_poultry);
-		$tempObject->products_poultry_other = get_field("other_products_poultry");
+		$tempObject->products_poultry_other = get_field("other_products_poultry", $acfID);
 		$products_agritourism = get_field("products_agritourism", $acfID);
 		$tempObject->products_agritourism = downloadParseProducts($products_agritourism);
-		$tempObject->products_agritourism_other = get_field("other_products_agritourism");
+		$tempObject->products_agritourism_other = get_field("other_products_agritourism", $acfID);
 		$products_fibers = get_field("products_fibers", $acfID);
 		$tempObject->products_fibers = downloadParseProducts($products_fibers);
-		$tempObject->products_fibers_other = get_field("other_products_fibers");
+		$tempObject->products_fibers_other = get_field("other_products_fibers", $acfID);
 		$products_artisinal = get_field("products_artisinal", $acfID);
 		$tempObject->products_artisinal = downloadParseProducts($products_artisinal);
-		$tempObject->products_artisinal_other = get_field("other_products_artisinal");
+		$tempObject->products_artisinal_other = get_field("other_products_artisinal", $acfID);
 		$products_liquids = get_field("products_liquids", $acfID);
 		$tempObject->products_liquids = downloadParseProducts($products_liquids);
-		$tempObject->products_liquids_other = get_field("other_products_liquids");
+		$tempObject->products_liquids_other = get_field("other_products_liquids", $acfID);
 		$products_educational = get_field("products_educational", $acfID);
 		$tempObject->products_educational = downloadParseProducts($products_educational);
-		$tempObject->products_educational_other = get_field("other_products_educational");
+		$tempObject->products_educational_other = get_field("other_products_educational", $acfID);
 		$products_baked = get_field("products_baked", $acfID);
 		$tempObject->products_baked = downloadParseProducts($products_baked);
-		$tempObject->products_baked_other = get_field("other_products_baked");
+		$tempObject->products_baked_other = get_field("other_products_baked", $acfID);
 		$products_seeds = get_field("products_seeds", $acfID);
 		$tempObject->products_seeds = downloadParseProducts($products_seeds);
-		$tempObject->products_seeds_other = get_field("other_products_seeds");
+		$tempObject->products_seeds_other = get_field("other_products_seeds", $acfID);
+		$products_pyo = get_field("products_pyo", $acfID);
+		$tempObject->products_pyo = downloadParseProducts($products_seeds);
+		$tempObject->products_pyo_other = get_field("other_products_pyo", $acfID);
 		$products_misc = get_field("products_misc", $acfID);
 		$tempObject->products_misc = downloadParseProducts($products_misc);
-		$tempObject->products_misc_other = get_field("other_products_misc");
+		$tempObject->products_misc_other = get_field("other_products_misc", $acfID);
 
 		/** Wholesale Products **/
-		$ws_products_greens = get_field("products_greens", $acfID);
+		$ws_products_greens = get_field("ws_products_greens", $acfID);
 		$tempObject->ws_products_greens = downloadParseProducts($ws_products_greens);
-		$tempObject->ws_products_greens_other = get_field("other_ws_products_greens");
-		$ws_products_roots = get_field("products_roots", $acfID);
+		$tempObject->ws_products_greens_other = get_field("other_ws_products_greens", $acfID);
+		$ws_products_roots = get_field("ws_products_roots", $acfID);
 		$tempObject->ws_products_roots = downloadParseProducts($ws_products_roots);
-		$tempObject->ws_products_roots_other = get_field("other_ws_products_roots");
-		$ws_products_seasonal = get_field("products_seasonal", $acfID);
+		$tempObject->ws_products_roots_other = get_field("other_ws_products_roots", $acfID);
+		$ws_products_seasonal = get_field("ws_products_seasonal", $acfID);
 		$tempObject->ws_products_seasonal = downloadParseProducts($ws_products_seasonal);
-		$tempObject->ws_products_seasonal_other = get_field("other_ws_products_seasonal");
-		$ws_products_melons = get_field("products_melons", $acfID);
+		$tempObject->ws_products_seasonal_other = get_field("other_ws_products_seasonal", $acfID);
+		$ws_products_melons = get_field("ws_products_melons", $acfID);
 		$tempObject->ws_products_melons = downloadParseProducts($ws_products_melons);
-		$tempObject->ws_products_melons_other = get_field("other_ws_products_melons");
-		$ws_products_herbs = get_field("products_herbs", $acfID);
+		$tempObject->ws_products_melons_other = get_field("other_ws_products_melons", $acfID);
+		$ws_products_herbs = get_field("ws_products_herbs", $acfID);
 		$tempObject->ws_products_herbs = downloadParseProducts($ws_products_herbs);
-		$tempObject->ws_products_herbs_other = get_field("other_ws_products_herbs");
-		$ws_products_berries = get_field("products_berries", $acfID);
+		$tempObject->ws_products_herbs_other = get_field("other_ws_products_herbs", $acfID);
+		$ws_products_berries = get_field("ws_products_berries", $acfID);
 		$tempObject->ws_products_berries = downloadParseProducts($ws_products_berries);
-		$tempObject->ws_products_berries_other = get_field("other_ws_products_berries");
-		$ws_products_small_fruits = get_field("products_small_fruits", $acfID);
+		$tempObject->ws_products_berries_other = get_field("other_ws_products_berries", $acfID);
+		$ws_products_small_fruits = get_field("ws_products_small_fruits", $acfID);
 		$tempObject->ws_products_small_fruits = downloadParseProducts($ws_products_small_fruits);
-		$tempObject->ws_products_small_fruits_other = get_field("other_ws_products_small_fruits");
-		$ws_products_grains = get_field("products_grains", $acfID);
+		$tempObject->ws_products_small_fruits_other = get_field("other_ws_products_small_fruits", $acfID);
+		$ws_products_grains = get_field("ws_products_grains", $acfID);
 		$tempObject->ws_products_grains = downloadParseProducts($ws_products_grains);
-		$tempObject->ws_products_grains_other = get_field("other_ws_products_grains");
-		$ws_products_value_added = get_field("products_value_added", $acfID);
+		$tempObject->ws_products_grains_other = get_field("other_ws_products_grains", $acfID);
+		$ws_products_value_added = get_field("ws_products_value_added", $acfID);
 		$tempObject->ws_products_value_added = downloadParseProducts($ws_products_value_added);
-		$tempObject->ws_products_value_added_other = get_field("other_ws_products_value_added");
-		$ws_products_flowers = get_field("products_flowers", $acfID);
+		$tempObject->ws_products_value_added_other = get_field("other_ws_products_value_added", $acfID);
+		$ws_products_flowers = get_field("ws_products_flowers", $acfID);
 		$tempObject->ws_products_flowers = downloadParseProducts($ws_products_flowers);
-		$tempObject->ws_products_flowers_other = get_field("other_ws_products_flowers");
-		$ws_products_plants = get_field("products_plants", $acfID);
+		$tempObject->ws_products_flowers_other = get_field("other_ws_products_flowers", $acfID);
+		$ws_products_plants = get_field("ws_products_plants", $acfID);
 		$tempObject->ws_products_plants = downloadParseProducts($ws_products_plants);
-		$tempObject->ws_products_plants_other = get_field("other_ws_products_plants");
-		$ws_products_ornamentals = get_field("products_ornamentals", $acfID);
+		$tempObject->ws_products_plants_other = get_field("other_ws_products_plants", $acfID);
+		$ws_products_ornamentals = get_field("ws_products_ornamentals", $acfID);
 		$tempObject->ws_products_ornamentals = downloadParseProducts($ws_products_ornamentals);
-		$tempObject->ws_products_ornamentals_other = get_field("other_ws_products_ornamentals");
-		$ws_products_syrups = get_field("products_syrups", $acfID);
+		$tempObject->ws_products_ornamentals_other = get_field("other_ws_products_ornamentals", $acfID);
+		$ws_products_syrups = get_field("ws_products_syrups", $acfID);
 		$tempObject->ws_products_syrups = downloadParseProducts($ws_products_syrups);
-		$tempObject->ws_products_syrups_other = get_field("other_ws_products_syrups");
-		$ws_products_dairy = get_field("products_dairy", $acfID);
+		$tempObject->ws_products_syrups_other = get_field("other_ws_products_syrups", $acfID);
+		$ws_products_dairy = get_field("ws_products_dairy", $acfID);
 		$tempObject->ws_products_dairy = downloadParseProducts($ws_products_dairy);
-		$tempObject->ws_products_dairy_other = get_field("other_ws_products_dairy");
-		$ws_products_meat = get_field("products_meat", $acfID);
+		$tempObject->ws_products_dairy_other = get_field("other_ws_products_dairy", $acfID);
+		$ws_products_meat = get_field("ws_products_meat", $acfID);
 		$tempObject->ws_products_meat = downloadParseProducts($ws_products_meat);
-		$tempObject->ws_products_meat_other = get_field("other_ws_products_meat");
-		$ws_products_poultry = get_field("products_poultry", $acfID);
+		$tempObject->ws_products_meat_other = get_field("other_ws_products_meat", $acfID);
+		$ws_products_poultry = get_field("ws_products_poultry", $acfID);
 		$tempObject->ws_products_poultry = downloadParseProducts($ws_products_poultry);
-		$tempObject->ws_products_poultry_other = get_field("other_ws_products_poultry");
-		$ws_products_agritourism = get_field("products_agritourism", $acfID);
+		$tempObject->ws_products_poultry_other = get_field("other_ws_products_poultry", $acfID);
+		$ws_products_agritourism = get_field("ws_products_agritourism", $acfID);
 		$tempObject->ws_products_agritourism = downloadParseProducts($ws_products_agritourism);
-		$tempObject->ws_products_agritourism_other = get_field("other_ws_products_agritourism");
-		$ws_products_fibers = get_field("products_fibers", $acfID);
+		$tempObject->ws_products_agritourism_other = get_field("other_ws_products_agritourism", $acfID);
+		$ws_products_fibers = get_field("ws_products_fibers", $acfID);
 		$tempObject->ws_products_fibers = downloadParseProducts($ws_products_fibers);
-		$tempObject->ws_products_fibers_other = get_field("other_ws_products_fibers");
-		$ws_products_artisinal = get_field("products_artisinal", $acfID);
+		$tempObject->ws_products_fibers_other = get_field("other_ws_products_fibers", $acfID);
+		$ws_products_artisinal = get_field("ws_products_artisinal", $acfID);
 		$tempObject->ws_products_artisinal = downloadParseProducts($ws_products_artisinal);
-		$tempObject->ws_products_artisinal_other = get_field("other_ws_products_artisinal");
-		$ws_products_liquids = get_field("products_liquids", $acfID);
+		$tempObject->ws_products_artisinal_other = get_field("other_ws_products_artisinal", $acfID);
+		$ws_products_liquids = get_field("ws_products_liquids", $acfID);
 		$tempObject->ws_products_liquids = downloadParseProducts($ws_products_liquids);
-		$tempObject->ws_products_liquids_other = get_field("other_ws_products_liquids");
-		$ws_products_educational = get_field("products_educational", $acfID);
+		$tempObject->ws_products_liquids_other = get_field("other_ws_products_liquids", $acfID);
+		$ws_products_educational = get_field("ws_products_educational", $acfID);
 		$tempObject->ws_products_educational = downloadParseProducts($ws_products_educational);
-		$tempObject->ws_products_educational_other = get_field("other_ws_products_educational");
-		$ws_products_baked = get_field("products_baked", $acfID);
+		$tempObject->ws_products_educational_other = get_field("other_ws_products_educational", $acfID);
+		$ws_products_baked = get_field("ws_products_baked", $acfID);
 		$tempObject->ws_products_baked = downloadParseProducts($ws_products_baked);
-		$tempObject->ws_products_baked_other = get_field("other_ws_products_baked");
-		$ws_products_seeds = get_field("products_seeds", $acfID);
+		$tempObject->ws_products_baked_other = get_field("other_ws_products_baked", $acfID);
+		$ws_products_seeds = get_field("ws_products_seeds", $acfID);
 		$tempObject->ws_products_seeds = downloadParseProducts($ws_products_seeds);
-		$tempObject->ws_products_seeds_other = get_field("other_ws_products_seeds");
-		$ws_products_misc = get_field("products_misc", $acfID);
+		$tempObject->ws_products_seeds_other = get_field("other_ws_products_seeds", $acfID);
+		$ws_products_pyo = get_field("ws_products_pyo", $acfID);
+		$tempObject->ws_products_pyo = downloadParseProducts($ws_products_pyo);
+		$tempObject->ws_products_pyo_other = get_field("other_ws_products_pyo", $acfID);
+		$ws_products_misc = get_field("ws_products_misc", $acfID);
 		$tempObject->ws_products_misc = downloadParseProducts($ws_products_misc);
-		$tempObject->ws_products_misc_other = get_field("other_ws_products_misc");
+		$tempObject->ws_products_misc_other = get_field("other_ws_products_misc", $acfID);
 
 
 		/** Wholesale **/
@@ -1594,92 +1604,96 @@ function xhrGetPartnersDownload() {
 				->setCellValue('BR1', 'Products: Baked Other')
 				->setCellValue('BS1', 'Products: Seeds')
 				->setCellValue('BT1', 'Products: Seeds Other')
-				->setCellValue('BU1', 'Products: Misc')
-				->setCellValue('BV1', 'Products: Misc Other')
-				->setCellValue('BW1', 'Wholesaler')
-				->setCellValue('BX1', 'Quasi Wholesale')
-				->setCellValue('BY1', 'Small Wholesale')
-				->setCellValue('BZ1', 'Large Wholesale')
-				->setCellValue('CA1', 'GAP Certified')
-				->setCellValue('CB1', 'GAP Certified Since')
-				->setCellValue('CC1', 'Wholesale Products: Greens')
-				->setCellValue('CD1', 'Wholesale Products: Greens Other')
-				->setCellValue('CE1', 'Wholesale Products: Roots')
-				->setCellValue('CF1', 'Wholesale Products: Roots Other')
-				->setCellValue('CG1', 'Wholesale Products: Seasonal')
-				->setCellValue('CH1', 'Wholesale Products: Seasonal Other')
-				->setCellValue('CI1', 'Wholesale Products: Melons')
-				->setCellValue('CJ1', 'Wholesale Products: Melons Other')
-				->setCellValue('CK1', 'Wholesale Products: Herbs')
-				->setCellValue('CL1', 'Wholesale Products: Herbs Other')
-				->setCellValue('CM1', 'Wholesale Products: Berries')
-				->setCellValue('CN1', 'Wholesale Products: Berries Other')
-				->setCellValue('CO1', 'Wholesale Products: Small Fruits')
-				->setCellValue('CP1', 'Wholesale Products: Small Fruits Other')
-				->setCellValue('CQ1', 'Wholesale Products: Grains')
-				->setCellValue('CR1', 'Wholesale Products: Grains Other')
-				->setCellValue('CS1', 'Wholesale Products: Value Added')
-				->setCellValue('CT1', 'Wholesale Products: Value Added Other')
-				->setCellValue('CU1', 'Wholesale Products: Flowers')
-				->setCellValue('CV1', 'Wholesale Products: Flowers Other')
-				->setCellValue('CW1', 'Wholesale Products: Plants')
-				->setCellValue('CX1', 'Wholesale Products: Plants Other')
-				->setCellValue('CY1', 'Wholesale Products: Ornamentals')
-				->setCellValue('CZ1', 'Wholesale Products: Ornamentals Other')
-				->setCellValue('DA1', 'Wholesale Products: Syrups')
-				->setCellValue('DB1', 'Wholesale Products: Syrups Other')
-				->setCellValue('DC1', 'Wholesale Products: Dairy')
-				->setCellValue('DD1', 'Wholesale Products: Dairy Other')
-				->setCellValue('DE1', 'Wholesale Products: Meat')
-				->setCellValue('DF1', 'Wholesale Products: Meat Other')
-				->setCellValue('DG1', 'Wholesale Products: Poultry')
-				->setCellValue('DH1', 'Wholesale Products: Poultry Other')
-				->setCellValue('DI1', 'Wholesale Products: Agritourism')
-				->setCellValue('DJ1', 'Wholesale Products: Agritourism Other')
-				->setCellValue('DK1', 'Wholesale Products: Fibers')
-				->setCellValue('DL1', 'Wholesale Products: Fibers Other')
-				->setCellValue('DM1', 'Wholesale Products: Artisinal')
-				->setCellValue('DN1', 'Wholesale Products: Artisinal Other')
-				->setCellValue('DO1', 'Wholesale Products: Liquids')
-				->setCellValue('DP1', 'Wholesale Products: Liquids Other')
-				->setCellValue('DQ1', 'Wholesale Products: Educational')
-				->setCellValue('DR1', 'Wholesale Products: Educational Other')
-				->setCellValue('DS1', 'Wholesale Products: Baked')
-				->setCellValue('DT1', 'Wholesale Products: Baked Other')
-				->setCellValue('DU1', 'Wholesale Products: Seeds')
-				->setCellValue('DV1', 'Wholesale Products: Seeds Other')
-				->setCellValue('DW1', 'Wholesale Products: Misc')
-				->setCellValue('DX1', 'Wholesale Products: Misc Other')
-				->setCellValue('DY1', 'Certified Organic')
-				->setCellValue('DZ1', 'Certified Organic Since')
-				->setCellValue('EA1', 'Certified Organic By')
-				->setCellValue('EB1', 'Certified Naturally Grown')
-				->setCellValue('EC1', 'Certified Naturally Grown Since')
-				->setCellValue('ED1', 'Certified Biodynamic')
-				->setCellValue('EE1', 'Certified Biodynamic Since')
-				->setCellValue('EF1', 'Certified Biodynamic By')
-				->setCellValue('EG1', 'Only Organic')
-				->setCellValue('EH1', 'IPM')
-				->setCellValue('EI1', 'Non-GMO')
-				->setCellValue('EJ1', 'Antibiotic and Harmone Free')
-				->setCellValue('EK1', 'Pastured')
-				->setCellValue('EL1', 'Grass Fed')
-				->setCellValue('EM1', 'Extended Growing Season')
-				->setCellValue('EN1', 'Other Practices')
-				->setCellValue('EO1', 'Acres Owned')
-				->setCellValue('EP1', 'Acres Rented')
-				->setCellValue('EQ1', 'Acres in Production')
-				->setCellValue('ER1', 'Is Farm Share')
-				->setCellValue('ES1', 'Is CSA')
-				->setCellValue('ET1', 'Market: Vendor Count')
-				->setCellValue('EU1', 'Market: Vendors (Partners)')
-				->setCellValue('EV1', 'Market: Vendors (Other)')
-				->setCellValue('EW1', 'Market: Manager')
-				->setCellValue('EX1', 'Market: Manager Phone')
-				->setCellValue('EY1', 'Market: Manager Email')
-				->setCellValue('EZ1', 'Market: EBT')
-				->setCellValue('FA1', 'Market: FMNP')
-				->setCellValue('FB1', 'Market: Double SNAP');
+				->setCellValue('BU1', 'Products: PYO')
+				->setCellValue('BV1', 'Products: PYO Other')
+				->setCellValue('BW1', 'Products: Misc')
+				->setCellValue('BX1', 'Products: Misc Other')
+				->setCellValue('BY1', 'Wholesaler')
+				->setCellValue('BZ1', 'Quasi Wholesale')
+				->setCellValue('CA1', 'Small Wholesale')
+				->setCellValue('CB1', 'Large Wholesale')
+				->setCellValue('CC1', 'GAP Certified')
+				->setCellValue('CD1', 'GAP Certified Since')
+				->setCellValue('CE1', 'Wholesale Products: Greens')
+				->setCellValue('CF1', 'Wholesale Products: Greens Other')
+				->setCellValue('CG1', 'Wholesale Products: Roots')
+				->setCellValue('CH1', 'Wholesale Products: Roots Other')
+				->setCellValue('CI1', 'Wholesale Products: Seasonal')
+				->setCellValue('CJ1', 'Wholesale Products: Seasonal Other')
+				->setCellValue('CK1', 'Wholesale Products: Melons')
+				->setCellValue('CL1', 'Wholesale Products: Melons Other')
+				->setCellValue('CM1', 'Wholesale Products: Herbs')
+				->setCellValue('CN1', 'Wholesale Products: Herbs Other')
+				->setCellValue('CO1', 'Wholesale Products: Berries')
+				->setCellValue('CP1', 'Wholesale Products: Berries Other')
+				->setCellValue('CQ1', 'Wholesale Products: Small Fruits')
+				->setCellValue('CR1', 'Wholesale Products: Small Fruits Other')
+				->setCellValue('CS1', 'Wholesale Products: Grains')
+				->setCellValue('CT1', 'Wholesale Products: Grains Other')
+				->setCellValue('CU1', 'Wholesale Products: Value Added')
+				->setCellValue('CV1', 'Wholesale Products: Value Added Other')
+				->setCellValue('CW1', 'Wholesale Products: Flowers')
+				->setCellValue('CX1', 'Wholesale Products: Flowers Other')
+				->setCellValue('CY1', 'Wholesale Products: Plants')
+				->setCellValue('CZ1', 'Wholesale Products: Plants Other')
+				->setCellValue('DA1', 'Wholesale Products: Ornamentals')
+				->setCellValue('DB1', 'Wholesale Products: Ornamentals Other')
+				->setCellValue('DC1', 'Wholesale Products: Syrups')
+				->setCellValue('DD1', 'Wholesale Products: Syrups Other')
+				->setCellValue('DE1', 'Wholesale Products: Dairy')
+				->setCellValue('DF1', 'Wholesale Products: Dairy Other')
+				->setCellValue('DG1', 'Wholesale Products: Meat')
+				->setCellValue('DH1', 'Wholesale Products: Meat Other')
+				->setCellValue('DI1', 'Wholesale Products: Poultry')
+				->setCellValue('DJ1', 'Wholesale Products: Poultry Other')
+				->setCellValue('DK1', 'Wholesale Products: Agritourism')
+				->setCellValue('DL1', 'Wholesale Products: Agritourism Other')
+				->setCellValue('DM1', 'Wholesale Products: Fibers')
+				->setCellValue('DN1', 'Wholesale Products: Fibers Other')
+				->setCellValue('DO1', 'Wholesale Products: Artisinal')
+				->setCellValue('DP1', 'Wholesale Products: Artisinal Other')
+				->setCellValue('DQ1', 'Wholesale Products: Liquids')
+				->setCellValue('DR1', 'Wholesale Products: Liquids Other')
+				->setCellValue('DS1', 'Wholesale Products: Educational')
+				->setCellValue('DT1', 'Wholesale Products: Educational Other')
+				->setCellValue('DU1', 'Wholesale Products: Baked')
+				->setCellValue('DV1', 'Wholesale Products: Baked Other')
+				->setCellValue('DW1', 'Wholesale Products: Seeds')
+				->setCellValue('DX1', 'Wholesale Products: Seeds Other')
+				->setCellValue('DW1', 'Wholesale Products: PYO')
+				->setCellValue('DZ1', 'Wholesale Products: PYO Other')
+				->setCellValue('EA1', 'Wholesale Products: Misc')
+				->setCellValue('EB1', 'Wholesale Products: Misc Other')
+				->setCellValue('EC1', 'Certified Organic')
+				->setCellValue('ED1', 'Certified Organic Since')
+				->setCellValue('EE1', 'Certified Organic By')
+				->setCellValue('EF1', 'Certified Naturally Grown')
+				->setCellValue('EG1', 'Certified Naturally Grown Since')
+				->setCellValue('EH1', 'Certified Biodynamic')
+				->setCellValue('EI1', 'Certified Biodynamic Since')
+				->setCellValue('EJ1', 'Certified Biodynamic By')
+				->setCellValue('EK1', 'Only Organic')
+				->setCellValue('EL1', 'IPM')
+				->setCellValue('EM1', 'Non-GMO')
+				->setCellValue('EN1', 'Antibiotic and Harmone Free')
+				->setCellValue('EO1', 'Pastured')
+				->setCellValue('EP1', 'Grass Fed')
+				->setCellValue('EQ1', 'Extended Growing Season')
+				->setCellValue('ER1', 'Other Practices')
+				->setCellValue('ES1', 'Acres Owned')
+				->setCellValue('ET1', 'Acres Rented')
+				->setCellValue('EU1', 'Acres in Production')
+				->setCellValue('EV1', 'Is Farm Share')
+				->setCellValue('EW1', 'Is CSA')
+				->setCellValue('EX1', 'Market: Vendor Count')
+				->setCellValue('EY1', 'Market: Vendors (Partners)')
+				->setCellValue('EZ1', 'Market: Vendors (Other)')
+				->setCellValue('FA1', 'Market: Manager')
+				->setCellValue('FB1', 'Market: Manager Phone')
+				->setCellValue('FC1', 'Market: Manager Email')
+				->setCellValue('FD1', 'Market: EBT')
+				->setCellValue('FE1', 'Market: FMNP')
+				->setCellValue('FF1', 'Market: Double SNAP');
 
 	$cellCounter = "1";
 	foreach ($partnersArray as $partner) {
@@ -1758,92 +1772,96 @@ function xhrGetPartnersDownload() {
 				->setCellValue('BR' . $cellCounter, xlsBreaks($partner->products_baked_other))
 				->setCellValue('BS' . $cellCounter, xlsBreaks($partner->products_seeds))
 				->setCellValue('BT' . $cellCounter, xlsBreaks($partner->products_seeds_other))
-				->setCellValue('BU' . $cellCounter, xlsBreaks($partner->products_misc))
-				->setCellValue('BV' . $cellCounter, xlsBreaks($partner->products_misc_other))
-				->setCellValue('BW' . $cellCounter, $partner->is_wholesaler)
-				->setCellValue('BX' . $cellCounter, $partner->quasi_wholesale)
-				->setCellValue('BY' . $cellCounter, $partner->small_wholesale)
-				->setCellValue('BZ' . $cellCounter, $partner->large_wholesale)
-				->setCellValue('CA' . $cellCounter, $partner->gap_certification)
-				->setCellValue('CB' . $cellCounter, xlsBreaks($partner->gap_certified_since))
-				->setCellValue('CC' . $cellCounter, xlsBreaks($partner->ws_products_greens))
-				->setCellValue('CD' . $cellCounter, xlsBreaks($partner->ws_products_greens_other))
-				->setCellValue('CE' . $cellCounter, xlsBreaks($partner->ws_products_roots))
-				->setCellValue('CF' . $cellCounter, xlsBreaks($partner->ws_products_roots_other))
-				->setCellValue('CG' . $cellCounter, xlsBreaks($partner->ws_products_seasonal))
-				->setCellValue('CH' . $cellCounter, xlsBreaks($partner->ws_products_seasonal_other))
-				->setCellValue('CI' . $cellCounter, xlsBreaks($partner->ws_products_melons))
-				->setCellValue('CJ' . $cellCounter, xlsBreaks($partner->ws_products_melons_other))
-				->setCellValue('CK' . $cellCounter, xlsBreaks($partner->ws_products_herbs))
-				->setCellValue('CL' . $cellCounter, xlsBreaks($partner->ws_products_herbs_other))
-				->setCellValue('CM' . $cellCounter, xlsBreaks($partner->ws_products_berries))
-				->setCellValue('CN' . $cellCounter, xlsBreaks($partner->ws_products_berries_other))
-				->setCellValue('CO' . $cellCounter, xlsBreaks($partner->ws_products_small_fruits))
-				->setCellValue('CP' . $cellCounter, xlsBreaks($partner->ws_products_small_fruits_other))
-				->setCellValue('CQ' . $cellCounter, xlsBreaks($partner->ws_products_grains))
-				->setCellValue('CR' . $cellCounter, xlsBreaks($partner->ws_products_grains_other))
-				->setCellValue('CS' . $cellCounter, xlsBreaks($partner->ws_products_value_added))
-				->setCellValue('CT' . $cellCounter, xlsBreaks($partner->ws_products_value_added_other))
-				->setCellValue('CU' . $cellCounter, xlsBreaks($partner->ws_products_flowers))
-				->setCellValue('CV' . $cellCounter, xlsBreaks($partner->ws_products_flowers_other))
-				->setCellValue('CW' . $cellCounter, xlsBreaks($partner->ws_products_plants))
-				->setCellValue('CX' . $cellCounter, xlsBreaks($partner->ws_products_plants_other))
-				->setCellValue('CY' . $cellCounter, xlsBreaks($partner->ws_products_ornamentals))
-				->setCellValue('CZ' . $cellCounter, xlsBreaks($partner->ws_products_ornamentals_other))
-				->setCellValue('DA' . $cellCounter, xlsBreaks($partner->ws_products_syrups))
-				->setCellValue('DB' . $cellCounter, xlsBreaks($partner->ws_products_syrups_other))
-				->setCellValue('DC' . $cellCounter, xlsBreaks($partner->ws_products_dairy))
-				->setCellValue('DD' . $cellCounter, xlsBreaks($partner->ws_products_dairy_other))
-				->setCellValue('DE' . $cellCounter, xlsBreaks($partner->ws_products_meat))
-				->setCellValue('DF' . $cellCounter, xlsBreaks($partner->ws_products_meat_other))
-				->setCellValue('DG' . $cellCounter, xlsBreaks($partner->ws_products_poultry))
-				->setCellValue('DH' . $cellCounter, xlsBreaks($partner->ws_products_poultry_other))
-				->setCellValue('DI' . $cellCounter, xlsBreaks($partner->ws_products_agritourism))
-				->setCellValue('DJ' . $cellCounter, xlsBreaks($partner->ws_products_agritourism_other))
-				->setCellValue('DK' . $cellCounter, xlsBreaks($partner->ws_products_fibers))
-				->setCellValue('DL' . $cellCounter, xlsBreaks($partner->ws_products_fibers_other))
-				->setCellValue('DM' . $cellCounter, xlsBreaks($partner->ws_products_artisinal))
-				->setCellValue('DN' . $cellCounter, xlsBreaks($partner->ws_products_artisinal_other))
-				->setCellValue('DO' . $cellCounter, xlsBreaks($partner->ws_products_liquids))
-				->setCellValue('DP' . $cellCounter, xlsBreaks($partner->ws_products_liquids_other))
-				->setCellValue('DQ' . $cellCounter, xlsBreaks($partner->ws_products_educational))
-				->setCellValue('DR' . $cellCounter, xlsBreaks($partner->ws_products_educational_other))
-				->setCellValue('DS' . $cellCounter, xlsBreaks($partner->ws_products_baked))
-				->setCellValue('DT' . $cellCounter, xlsBreaks($partner->ws_products_baked_other))
-				->setCellValue('DU' . $cellCounter, xlsBreaks($partner->ws_products_seeds))
-				->setCellValue('DV' . $cellCounter, xlsBreaks($partner->ws_products_seeds_other))
-				->setCellValue('DW' . $cellCounter, xlsBreaks($partner->ws_products_misc))
-				->setCellValue('DX' . $cellCounter, xlsBreaks($partner->ws_products_misc_other))
-				->setCellValue('DY' . $cellCounter, $partner->certified_organic)
-				->setCellValue('DZ' . $cellCounter, xlsBreaks($partner->certified_organic_since))
-				->setCellValue('EA' . $cellCounter, xlsBreaks($partner->certified_organic_by))
-				->setCellValue('EB' . $cellCounter, $partner->certified_naturally_grown)
-				->setCellValue('EC' . $cellCounter, xlsBreaks($partner->certified_naturally_grown_since))
-				->setCellValue('ED' . $cellCounter, $partner->certified_biodynamic)
-				->setCellValue('EE' . $cellCounter, xlsBreaks($partner->certified_biodynamic_since))
-				->setCellValue('EF' . $cellCounter, xlsBreaks($partner->certified_biodynamic_by))
-				->setCellValue('EG' . $cellCounter, $partner->only_organic)
-				->setCellValue('EH' . $cellCounter, $partner->integrated_pest_management)
-				->setCellValue('EI' . $cellCounter, $partner->non_gmo)
-				->setCellValue('EJ' . $cellCounter, $partner->antibiotic_harmone_free)
-				->setCellValue('EK' . $cellCounter, $partner->pastured)
-				->setCellValue('EL' . $cellCounter, $partner->grass_fed)
-				->setCellValue('EM' . $cellCounter, $partner->extended_growing_season)
-				->setCellValue('EN' . $cellCounter, xlsBreaks($partner->other_practices))
-				->setCellValue('EO' . $cellCounter, xlsBreaks($partner->acres_owned))
-				->setCellValue('EP' . $cellCounter, xlsBreaks($partner->acres_rented))
-				->setCellValue('EQ' . $cellCounter, xlsBreaks($partner->acres_production))
-				->setCellValue('ER' . $cellCounter, $partner->is_farm_share)
-				->setCellValue('ES' . $cellCounter, $partner->is_csa)
-				->setCellValue('ET' . $cellCounter, xlsBreaks($partner->market_vendors))
-				->setCellValue('EU' . $cellCounter, xlsBreaks($partner->market_vendor_partners))
-				->setCellValue('EV' . $cellCounter, xlsBreaks($partner->market_vendor_partners_other))
-				->setCellValue('EW' . $cellCounter, xlsBreaks($partner->market_manager))
-				->setCellValue('EX' . $cellCounter, xlsBreaks($partner->market_manager_phone))
-				->setCellValue('EY' . $cellCounter, xlsBreaks($partner->market_manager_email))
-				->setCellValue('EZ' . $cellCounter, xlsBreaks($partner->market_ebt))
-				->setCellValue('FA' . $cellCounter, $partner->market_fmnp)
-				->setCellValue('FB' . $cellCounter, $partner->market_double_snap);
+				->setCellValue('BU' . $cellCounter, xlsBreaks($partner->products_pyo))
+				->setCellValue('BV' . $cellCounter, xlsBreaks($partner->products_pyo_other))
+				->setCellValue('BW' . $cellCounter, xlsBreaks($partner->products_misc))
+				->setCellValue('BX' . $cellCounter, xlsBreaks($partner->products_misc_other))
+				->setCellValue('BY' . $cellCounter, $partner->is_wholesaler)
+				->setCellValue('BZ' . $cellCounter, $partner->quasi_wholesale)
+				->setCellValue('CA' . $cellCounter, $partner->small_wholesale)
+				->setCellValue('CB' . $cellCounter, $partner->large_wholesale)
+				->setCellValue('CC' . $cellCounter, $partner->gap_certification)
+				->setCellValue('CD' . $cellCounter, xlsBreaks($partner->gap_certified_since))
+				->setCellValue('CE' . $cellCounter, xlsBreaks($partner->ws_products_greens))
+				->setCellValue('CF' . $cellCounter, xlsBreaks($partner->ws_products_greens_other))
+				->setCellValue('CG' . $cellCounter, xlsBreaks($partner->ws_products_roots))
+				->setCellValue('CH' . $cellCounter, xlsBreaks($partner->ws_products_roots_other))
+				->setCellValue('CI' . $cellCounter, xlsBreaks($partner->ws_products_seasonal))
+				->setCellValue('CJ' . $cellCounter, xlsBreaks($partner->ws_products_seasonal_other))
+				->setCellValue('CK' . $cellCounter, xlsBreaks($partner->ws_products_melons))
+				->setCellValue('CL' . $cellCounter, xlsBreaks($partner->ws_products_melons_other))
+				->setCellValue('CM' . $cellCounter, xlsBreaks($partner->ws_products_herbs))
+				->setCellValue('CN' . $cellCounter, xlsBreaks($partner->ws_products_herbs_other))
+				->setCellValue('CO' . $cellCounter, xlsBreaks($partner->ws_products_berries))
+				->setCellValue('CP' . $cellCounter, xlsBreaks($partner->ws_products_berries_other))
+				->setCellValue('CQ' . $cellCounter, xlsBreaks($partner->ws_products_small_fruits))
+				->setCellValue('CR' . $cellCounter, xlsBreaks($partner->ws_products_small_fruits_other))
+				->setCellValue('CS' . $cellCounter, xlsBreaks($partner->ws_products_grains))
+				->setCellValue('CT' . $cellCounter, xlsBreaks($partner->ws_products_grains_other))
+				->setCellValue('CU' . $cellCounter, xlsBreaks($partner->ws_products_value_added))
+				->setCellValue('CV' . $cellCounter, xlsBreaks($partner->ws_products_value_added_other))
+				->setCellValue('CW' . $cellCounter, xlsBreaks($partner->ws_products_flowers))
+				->setCellValue('CX' . $cellCounter, xlsBreaks($partner->ws_products_flowers_other))
+				->setCellValue('CY' . $cellCounter, xlsBreaks($partner->ws_products_plants))
+				->setCellValue('CZ' . $cellCounter, xlsBreaks($partner->ws_products_plants_other))
+				->setCellValue('DA' . $cellCounter, xlsBreaks($partner->ws_products_ornamentals))
+				->setCellValue('DB' . $cellCounter, xlsBreaks($partner->ws_products_ornamentals_other))
+				->setCellValue('DC' . $cellCounter, xlsBreaks($partner->ws_products_syrups))
+				->setCellValue('DD' . $cellCounter, xlsBreaks($partner->ws_products_syrups_other))
+				->setCellValue('DE' . $cellCounter, xlsBreaks($partner->ws_products_dairy))
+				->setCellValue('DF' . $cellCounter, xlsBreaks($partner->ws_products_dairy_other))
+				->setCellValue('DG' . $cellCounter, xlsBreaks($partner->ws_products_meat))
+				->setCellValue('DH' . $cellCounter, xlsBreaks($partner->ws_products_meat_other))
+				->setCellValue('DI' . $cellCounter, xlsBreaks($partner->ws_products_poultry))
+				->setCellValue('DJ' . $cellCounter, xlsBreaks($partner->ws_products_poultry_other))
+				->setCellValue('DK' . $cellCounter, xlsBreaks($partner->ws_products_agritourism))
+				->setCellValue('DL' . $cellCounter, xlsBreaks($partner->ws_products_agritourism_other))
+				->setCellValue('DM' . $cellCounter, xlsBreaks($partner->ws_products_fibers))
+				->setCellValue('DN' . $cellCounter, xlsBreaks($partner->ws_products_fibers_other))
+				->setCellValue('DO' . $cellCounter, xlsBreaks($partner->ws_products_artisinal))
+				->setCellValue('DP' . $cellCounter, xlsBreaks($partner->ws_products_artisinal_other))
+				->setCellValue('DQ' . $cellCounter, xlsBreaks($partner->ws_products_liquids))
+				->setCellValue('DR' . $cellCounter, xlsBreaks($partner->ws_products_liquids_other))
+				->setCellValue('DS' . $cellCounter, xlsBreaks($partner->ws_products_educational))
+				->setCellValue('DT' . $cellCounter, xlsBreaks($partner->ws_products_educational_other))
+				->setCellValue('DU' . $cellCounter, xlsBreaks($partner->ws_products_baked))
+				->setCellValue('DV' . $cellCounter, xlsBreaks($partner->ws_products_baked_other))
+				->setCellValue('DW' . $cellCounter, xlsBreaks($partner->ws_products_seeds))
+				->setCellValue('DX' . $cellCounter, xlsBreaks($partner->ws_products_seeds_other))
+				->setCellValue('DY' . $cellCounter, xlsBreaks($partner->ws_products_pyo))
+				->setCellValue('DZ' . $cellCounter, xlsBreaks($partner->ws_products_pyo_other))
+				->setCellValue('EA' . $cellCounter, xlsBreaks($partner->ws_products_misc))
+				->setCellValue('EB' . $cellCounter, xlsBreaks($partner->ws_products_misc_other))
+				->setCellValue('EC' . $cellCounter, $partner->certified_organic)
+				->setCellValue('ED' . $cellCounter, xlsBreaks($partner->certified_organic_since))
+				->setCellValue('EE' . $cellCounter, xlsBreaks($partner->certified_organic_by))
+				->setCellValue('EF' . $cellCounter, $partner->certified_naturally_grown)
+				->setCellValue('EG' . $cellCounter, xlsBreaks($partner->certified_naturally_grown_since))
+				->setCellValue('EH' . $cellCounter, $partner->certified_biodynamic)
+				->setCellValue('EI' . $cellCounter, xlsBreaks($partner->certified_biodynamic_since))
+				->setCellValue('EJ' . $cellCounter, xlsBreaks($partner->certified_biodynamic_by))
+				->setCellValue('EK' . $cellCounter, $partner->only_organic)
+				->setCellValue('EL' . $cellCounter, $partner->integrated_pest_management)
+				->setCellValue('EM' . $cellCounter, $partner->non_gmo)
+				->setCellValue('EN' . $cellCounter, $partner->antibiotic_harmone_free)
+				->setCellValue('EO' . $cellCounter, $partner->pastured)
+				->setCellValue('EP' . $cellCounter, $partner->grass_fed)
+				->setCellValue('EQ' . $cellCounter, $partner->extended_growing_season)
+				->setCellValue('ER' . $cellCounter, xlsBreaks($partner->other_practices))
+				->setCellValue('ES' . $cellCounter, xlsBreaks($partner->acres_owned))
+				->setCellValue('ET' . $cellCounter, xlsBreaks($partner->acres_rented))
+				->setCellValue('EU' . $cellCounter, xlsBreaks($partner->acres_production))
+				->setCellValue('EV' . $cellCounter, $partner->is_farm_share)
+				->setCellValue('EW' . $cellCounter, $partner->is_csa)
+				->setCellValue('EX' . $cellCounter, xlsBreaks($partner->market_vendors))
+				->setCellValue('EY' . $cellCounter, xlsBreaks($partner->market_vendor_partners))
+				->setCellValue('EZ' . $cellCounter, xlsBreaks($partner->market_vendor_partners_other))
+				->setCellValue('FA' . $cellCounter, xlsBreaks($partner->market_manager))
+				->setCellValue('FB' . $cellCounter, xlsBreaks($partner->market_manager_phone))
+				->setCellValue('FC' . $cellCounter, xlsBreaks($partner->market_manager_email))
+				->setCellValue('FD' . $cellCounter, xlsBreaks($partner->market_ebt))
+				->setCellValue('FE' . $cellCounter, $partner->market_fmnp)
+				->setCellValue('FF' . $cellCounter, $partner->market_double_snap);
 		}
 	}
 	$letter = "A";
