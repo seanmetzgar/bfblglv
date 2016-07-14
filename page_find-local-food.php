@@ -94,6 +94,7 @@ $specificProducts = get_specific_products();
 									<label><input type="checkbox" name="product_type[]" value="educational"><span>Educational Programs</span></label>
 									<label><input type="checkbox" name="product_type[]" value="baked"><span>Baked Goods</span></label>
 									<label><input type="checkbox" name="product_type[]" value="seeds"><span>Nuts / Seeds</span></label>
+									<label><input type="checkbox" name="product_type[]" value="pyo"><span>Pick Your Own</span></label>
 									<label><input type="checkbox" name="product_type[]" value="misc"><span>Miscellaneous [e.g. Eggs]</span></label>
 								</div><!-- end div.map-checkboxes -->
 
