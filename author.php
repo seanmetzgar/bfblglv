@@ -1088,7 +1088,7 @@ get_header(); ?>
 									<?php if (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $share_product_info || $has_farm_pickup || $has_other_pickup || $has_home_delivery)): ?>
 									<div class="row">
 										<h3 class="col-xs-12"><?php echo $csa_heading; ?></h3>
-										<?php if ($has_season): ?>
+										<?php if ($has_season): ?> 
 										<div class="col-sm-4 practices-wrap">
 											<h4>Season Details</h4>
 											<ul class="farming-practices-list">
