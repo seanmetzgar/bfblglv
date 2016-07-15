@@ -18,92 +18,92 @@ function niceCategoryName($slug) {
     return $rVal;
 }
 
-// function niceProductTypeName($type) {
-//     if (is_string($type)) {
-//         switch($type) {
-//             case "greens":
-//                 $rVal = "Greens";
-//                 break;
-//             case "roots":
-//                 $rVal = "Root Crops";
-//                 break;
-//             case "seasonal":
-//                 $rVal = "Seasonal Vegetables";
-//                 break;
-//             case "melons":
-//                 $rVal = "Melons & Pumpkins";
-//                 break;
-//             case "herbs":
-//                 $rVal = "Herbs";
-//                 break;
-//             case "berries":
-//                 $rVal = "Berries";
-//                 break;
-//             case "small_fruits":
-//                 $rVal = "Orchard & Small Fruits";
-//                 break;
-//             case "grains":
-//                 $rVal = "Grains";
-//                 break;
-//             case "value_added":
-//                 $rVal = "Value-Added";
-//                 break;
-//             case "flowers":
-//                 $rVal = "Flowers";
-//                 break;
-//             case "plants":
-//                 $rVal = "Plants";
-//                 break;
-//             case "ornamentals":
-//                 $rVal = "Ornamentals";
-//                 break;
-//             case "syrups":
-//                 $rVal = "Honey / Syrups";
-//                 break;
-//             case "dairy":
-//                 $rVal = "Dairy";
-//                 break;
-//             case "meat":
-//                 $rVal = "Meat";
-//                 break;
-//             case "poultry":
-//                 $rVal = "Poultry";
-//                 break;
-//             case "agritourism":
-//                 $rVal = "Agritourism";
-//                 break;
-//             case "fibers":
-//                 $rVal = "Wool / Fibers";
-//                 break;
-//             case "artisinal":
-//                 $rVal = "Artisanal Products";
-//                 break;
-//             case "liquids":
-//                 $rVal = "Beverages";
-//                 break;
-//             case "educational":
-//                 $rVal = "Educational Programs";
-//                 break;
-//             case "baked":
-//                 $rVal = "Baked Goods";
-//                 break;
-//             case "seeds":
-//                 $rVal = "Nuts / Seeds";
-//                 break;
-//             case "pyo":
-//                 $rVal = "Pick Your Own";
-//                 break;
-//             case "misc":
-//                 $rVal = "Miscellaneous [e.g. Eggs]";
-//                 break;
-//             default
-//                 $rVal = $type;
-//         }
-//     } else {
-//         $rVal = "";
-//     }
-//     return $rVal;
-// }
+function niceProductTypeName($type) {
+    if (is_string($type)) {
+        switch($type) {
+            case "greens":
+                $rVal = "Greens";
+                break;
+            case "roots":
+                $rVal = "Root Crops";
+                break;
+            case "seasonal":
+                $rVal = "Seasonal Vegetables";
+                break;
+            case "melons":
+                $rVal = "Melons & Pumpkins";
+                break;
+            case "herbs":
+                $rVal = "Herbs";
+                break;
+            case "berries":
+                $rVal = "Berries";
+                break;
+            case "small_fruits":
+                $rVal = "Orchard & Small Fruits";
+                break;
+            case "grains":
+                $rVal = "Grains";
+                break;
+            case "value_added":
+                $rVal = "Value-Added";
+                break;
+            case "flowers":
+                $rVal = "Flowers";
+                break;
+            case "plants":
+                $rVal = "Plants";
+                break;
+            case "ornamentals":
+                $rVal = "Ornamentals";
+                break;
+            case "syrups":
+                $rVal = "Honey / Syrups";
+                break;
+            case "dairy":
+                $rVal = "Dairy";
+                break;
+            case "meat":
+                $rVal = "Meat";
+                break;
+            case "poultry":
+                $rVal = "Poultry";
+                break;
+            case "agritourism":
+                $rVal = "Agritourism";
+                break;
+            case "fibers":
+                $rVal = "Wool / Fibers";
+                break;
+            case "artisinal":
+                $rVal = "Artisanal Products";
+                break;
+            case "liquids":
+                $rVal = "Beverages";
+                break;
+            case "educational":
+                $rVal = "Educational Programs";
+                break;
+            case "baked":
+                $rVal = "Baked Goods";
+                break;
+            case "seeds":
+                $rVal = "Nuts / Seeds";
+                break;
+            case "pyo":
+                $rVal = "Pick Your Own";
+                break;
+            case "misc":
+                $rVal = "Miscellaneous [e.g. Eggs]";
+                break;
+            default
+                $rVal = $type;
+        }
+    } else {
+        $rVal = "";
+    }
+    return $rVal;
+}
 
 function kudu_custom_pings($comment) {
     $GLOBALS["comment"] = $comment;
