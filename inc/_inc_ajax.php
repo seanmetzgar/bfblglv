@@ -411,9 +411,6 @@ function breakSeason($season) {
 }
 
 function buildProductsQuery($productTypes, $wholesale = false) {
-	// At start of script
-	$time_start = microtime(true); 
-
 	$metaQueryArray = false;
 	$wholesale = (is_bool($wholesale)) ? $wholesale : false;
 
@@ -448,8 +445,6 @@ function buildProductsQuery($productTypes, $wholesale = false) {
 			$metaQueryArray[] = $tempMetaQuery;
 		}
 	}
-
-	error_log("buildProductsQuery runtime: " . floor(microtime(true) - $time_start));
 	return $metaQueryArray;
 }
 
@@ -865,6 +860,8 @@ function addPartnerData($user_id, $partner) {
 }
 
 function xhrGetPartners() {
+	$time_start = microtime(true);
+
 	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;
 	$zip = ($zip && strlen($zip) >= 5) ? substr($zip, 0, 5) : false;
 	$hasZipBounds = false;
@@ -1040,7 +1037,7 @@ function xhrGetPartners() {
 		$tempCity = null;
 		$tempMap = null;
 	}
-
+	error_log("time before sort: " . floor(microtime(true) - $time_start));
 	$returnPartners = array_unique($returnPartners, SORT_REGULAR);
 
 	usort($returnPartners, function($a, $b) {
