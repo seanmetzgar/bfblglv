@@ -5388,6 +5388,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 /** XHR Alerts */
 .xhrAlert, .xhrError {
   display: inline-block;
+  white-space: nowrap;
   background-color: #eee;
   position: fixed;
   border: 1px solid #ddd;
