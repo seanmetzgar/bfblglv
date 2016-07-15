@@ -100,7 +100,7 @@ function xhrGetPartners(formObject) {
         data: formObject,
         success: xhrGetPartnersHandler,
         error: xhrGetPartnersError,
-        timeout: 15000
+        timeout: 30000
     });
 }
 
