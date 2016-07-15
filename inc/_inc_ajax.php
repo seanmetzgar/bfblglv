@@ -1,4 +1,7 @@
 <?php
+
+ini_set("error_log", "/home/bfblglv/timelog/timelog-bfblglv.org.log");
+
 class MapPartner {
 	public $id = false;
 	public $name = false;
