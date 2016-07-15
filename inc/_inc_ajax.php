@@ -973,7 +973,7 @@ function xhrGetPartners() {
 
         if ($locationType === "farm" && !$productTypes && $specificProducts) { continue; }
 
-        error_log("time before get users: " . floor(microtime(true) - $time_start));
+        error_log("time before get users: " . round(microtime(true) - $time_start, 2). "s");
 
 		$locationTypePartners = get_users($locationTypeQueryArgs);
 
