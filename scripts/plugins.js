@@ -568,5 +568,5 @@ function xhrGetPartners(formObject) {
 
 jQuery(document).ready( function () {
     $currentXhrAlert = jQuery("<div class='xhrAlert'></div>").appendTo(jQuery("body")).html("Loading... Please wait.");
-    $currentXhrError = jQuery("<div class='xhrError'></div>").appendTo(jQuery("body")).html("An error occured. Please try again.");
+    $currentXhrError = jQuery("<div class='xhrError'></div>").appendTo(jQuery("body")).html("Error: Please try again later.");
 });
