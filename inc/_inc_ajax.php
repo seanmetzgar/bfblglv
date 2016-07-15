@@ -886,7 +886,7 @@ function xhrGetPartners() {
 		"syrups", "dairy", "meat",
 		"poultry", "agritourism", "fibers",
 		"artisinal", "liquids", "educational",
-		"baked", "seeds", "misc"
+		"baked", "seeds", "pyo", "misc"
 	);
 
 	$locationTypes = (isset($_REQUEST["location_type"])
