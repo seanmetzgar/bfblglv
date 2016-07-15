@@ -99,7 +99,8 @@ function xhrGetPartners(formObject) {
         url: KuduAJAX.ajaxUrl,
         data: formObject,
         success: xhrGetPartnersHandler,
-        error: xhrGetPartnersError
+        error: xhrGetPartnersError,
+        timeout: 15000
     });
 }
 
