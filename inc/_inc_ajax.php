@@ -860,6 +860,7 @@ function addPartnerData($user_id, $partner) {
 }
 
 function xhrGetPartners() {
+	set_time_limit ( 65 );
 	// $time_start = microtime(true);
 
 	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;
