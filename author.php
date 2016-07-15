@@ -885,8 +885,8 @@ get_header(); ?>
 									$possible_addons = get_sub_field("possible_addons");
 
 									//CSA/Farm share product info
-									$shares_product_sourcing = get_sub_field("share_product_sourcing");
-									$shares_product_type = get_sub_field("share_product_type");
+									$shares_product_sourcing = get_sub_field("shares_product_sourcing");
+									$shares_product_type = get_sub_field("shares_product_type");
 									if (is_array($shares_product_type)) {
 										$tempShareProductTypeArray = [];
 										foreach ($shares_product_type as $temp_type) {
