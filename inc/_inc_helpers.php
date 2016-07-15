@@ -20,6 +20,7 @@ function niceCategoryName($slug) {
 
 function niceProductTypeName($slug) {
     $rVal = $slug;
+    
     switch($slug) {
         case "greens":
             $rVal = "Greens";

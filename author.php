@@ -887,7 +887,7 @@ get_header(); ?>
 									//CSA/Farm share product info
 									$shares_product_sourcing = get_sub_field("shares_product_sourcing");
 									$shares_product_type = get_sub_field("shares_product_type");
-									if (is_array($shares_product_type)) {
+									if (is_array($shares_product_type) && count($shares_product_type) > 0) {
 										$tempShareProductTypeArray = [];
 										foreach ($shares_product_type as $temp_type) {
 											$tempShareProductTypeArray[] = niceProductTypeName($temp_type);
