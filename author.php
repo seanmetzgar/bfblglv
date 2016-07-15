@@ -121,6 +121,12 @@ get_header(); ?>
 					$farm_type = get_field("farm_type", $acf_partner_id);
 					$farm_type = ($farm_type === "false") ? false : $farm_type;
 
+					/** Acres Info **/
+					$acres_owned = get_field("acres_owned", $acf_partner_id);
+					$acres_rented = get_field("acres_rented", $acf_partner_id);
+					$acres_production = get_field("acres_production", $acf_partner_id);
+					$has_acreage = ($acres_owned || $acres_rented || $acres_production) ? true : false;
+
 					$products = false;
 					if (in_array("farm", $partner_category)){
 						$products = array();
@@ -955,17 +961,23 @@ get_header(); ?>
 								}
 							}
 						?>
-						<?php if ($certifications || $practices || $benefits || (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $has_farm_pickup || $has_other_pickup || $has_home_delivery))): ?>
+						<?php if ($certifications || $practices || $benefits || $has_acreage || (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $has_farm_pickup || $has_other_pickup || $has_home_delivery))): ?>
 						<div class="entry-farm-practices">
 							<h2 class="greenHeader">Farm Details</h2>
 
 							<div>
 								<div class="page-block product-info-contents">
-									<?php if ($certifications || $practices || $benefits): ?>
+									<?php if ($certifications || $practices || $benefits || $has_acreage): ?>
+									<?php $practicesColCount = $certifications ? 1 : 0;
+									$count = $practices ? $practicesColCount + 1 : $practicesColCount;
+									$count = $benefits ? $practicesColCount + 1 : $practicesColCount;
+									$count = $has_acreage ? $practicesColCount + 1 : $practicesColCount;
+									$practicesColCount = ($practicesColCount >= 2 && $practicesColCount <= 4) ? (12 / $practicesColCount) : 6;
+									?>
 									<div class="row">
 										<h3 class="col-xs-12">Farming Practices</h3>
 										<?php if ($certifications): ?>
-										<div class="col-sm-4 practices-wrap">
+										<div class="col-sm-<?php echo $practicesColCount; ?> practices-wrap">
 											<h4>Certifications</h4>
 											<ul class="farming-practices-list">
 												<?php
@@ -1016,7 +1028,7 @@ get_header(); ?>
 										<?php endif;
 
 										if ($practices): ?>
-										<div class="col-sm-4 practices-wrap">
+										<div class="col-sm-<?php echo $practicesColCount; ?> practices-wrap">
 											<h4>Practices</h4>
 											<ul class="farming-practices-list">
 												<?php
@@ -1030,7 +1042,7 @@ get_header(); ?>
 												?>
 											</ul>
 												<?php if ($other_farming_practices_text): ?>
-											<p><strong>Other Practices</strong><br>
+											<h5 style="margin: 5px 0 0;">Other Practices</h5>
 											<?php echo $other_farming_practices_text; ?>
 											</p>
 												<?php endif; ?>
@@ -1038,12 +1050,25 @@ get_header(); ?>
 										<?php endif;
 
 										if ($benefits): ?>
-										<div class="col-sm-4 practices-wrap">
+										<div class="col-sm-<?php echo $practicesColCount; ?> practices-wrap">
 											<h4>Benefits Acceptance</h4>
 											<ul class="farming-practices-list">
 											<?php
 												if ($accept_snap) { echo "<li>Accept SNAP</li>"; }
 												if ($accept_fmnp) { echo "<li>Accept FMNP</li>"; }
+											?>
+											</ul>
+										</div>
+										<?php endif;
+
+										if ($has_acreage): ?>
+										<div class="col-sm-<?php echo $practicesColCount; ?> practices-wrap">
+											<h4>Acreage</h4>
+											<ul class="farming-practices-list">
+											<?php
+												if ($acres_owned) { echo "<li>Acres Owned: {$acres_owned}</li>"; }
+												if ($acres_rented) { echo "<li>Acres Rented: {$acres_rented}</li>"; }
+												if ($acres_production) { echo "<li>Acres in Production: {$acres_production}</li>"; }
 											?>
 											</ul>
 										</div>
