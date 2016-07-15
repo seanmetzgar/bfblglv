@@ -1,6 +1,6 @@
 <?php
 
-ini_set("error_log", "/home/bfblglv/timelog/timelog-bfblglv.org.log");
+// ini_set("error_log", "/home/bfblglv/timelog/timelog-bfblglv.org.log");
 
 class MapPartner {
 	public $id = false;
@@ -860,7 +860,7 @@ function addPartnerData($user_id, $partner) {
 }
 
 function xhrGetPartners() {
-	$time_start = microtime(true);
+	// $time_start = microtime(true);
 
 	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;
 	$zip = ($zip && strlen($zip) >= 5) ? substr($zip, 0, 5) : false;
@@ -972,8 +972,6 @@ function xhrGetPartners() {
         }
 
         if ($locationType === "farm" && !$productTypes && $specificProducts) { continue; }
-
-        error_log("time before get users: " . round(microtime(true) - $time_start, 2). "s");
 
 		$locationTypePartners = get_users($locationTypeQueryArgs);
 
