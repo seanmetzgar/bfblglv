@@ -485,7 +485,7 @@ get_header(); ?>
 											<h4>Practices</h4>
 											<ul>
 											<?php switch ($market_ebt) {
-												case "all": 
+												case "all":
 													echo "<li>Market-wide EBT program</li>";
 													break;
 												case "some":
@@ -607,7 +607,7 @@ get_header(); ?>
 
 									<?php if ((in_array("farm", $partner_category) || in_array("specialty", $partner_category) || in_array("restaurant", $partner_category) || in_array("distillery", $partner_category)) && $partner_business_photo): ?><div class="product-info-right"><?php endif; ?>
 										<div class="products-detail">
-											<?php if ($hasProducts || $productsText) : 
+											<?php if ($hasProducts || $productsText) :
 												$farmTypeString = (in_array("farm", $partner_category) && $farm_type) ? "Products Available From Our {$farm_type}" : "";
 											?>
 											<div class="entry-product-categories entry-content">
@@ -884,6 +884,20 @@ get_header(); ?>
 									//Possible Add-ons
 									$possible_addons = get_sub_field("possible_addons");
 
+									//CSA/Farm share product info
+									$share_product_sourcing = get_sub_field("share_product_sourcing");
+									$share_product_type = get_sub_field("share_product_type");
+									if (is_array($share_product_type)) {
+										$tempShareProductTypeArray = [];
+										foreach ($share_product_type as $temp_type) {
+											$tempShareProductTypeArray[] = niceProductTypeName($temp_type);
+										}
+										$share_product_type = implode(", ", $tempShareProductTypeArray);
+									} elseif (is_string($share_product_type) && strlen($share_product_type) > 0) {
+										$share_product_type = niceProductTypeName($share_product_type);
+									} else { $share_product_type = false; }
+									$share_product_info = ($share_product_type || $share_product_sourcing) ? true : false;
+
 									//Farm Pickup
 									$has_farm_pickup = false;
 									$has_farm_pickup = get_sub_field("farm_pickup");
@@ -961,7 +975,7 @@ get_header(); ?>
 								}
 							}
 						?>
-						<?php if ($certifications || $practices || $benefits || $has_acreage || (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $has_farm_pickup || $has_other_pickup || $has_home_delivery))): ?>
+						<?php if ($certifications || $practices || $benefits || $has_acreage || (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $share_product_info || $possible_addons || $has_farm_pickup || $has_other_pickup || $has_home_delivery))): ?>
 						<div class="entry-farm-practices">
 							<h2 class="greenHeader">Farm Details</h2>
 
@@ -1071,7 +1085,7 @@ get_header(); ?>
 									<?php endif; ?>
 
 
-									<?php if (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $has_farm_pickup || $has_other_pickup || $has_home_delivery)): ?>
+									<?php if (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $share_product_info || $has_farm_pickup || $has_other_pickup || $has_home_delivery)): ?>
 									<div class="row">
 										<h3 class="col-xs-12"><?php echo $csa_heading; ?></h3>
 										<?php if ($has_season): ?>
@@ -1113,6 +1127,14 @@ get_header(); ?>
 										</div>
 										<?php endif; ?>
 
+										<?php if ($share_product_info): ?>
+										<div class="col-sm-4 practices-wrap">
+											<h4>Products</h4>
+											<?php if ($share_product_sourcing) echo "<p><strong>Products sourced from:</strong> {$share_product_sourcing}</p>"; ?>
+											<?php if ($share_product_type) echo "<p><strong>Product Types:</strong><br>{$share_product_type}</p>"; ?>
+										</div>
+										<?php endif; ?>
+
 										<?php if ($possible_addons): ?>
 										<div class="col-sm-4 practices-wrap">
 											<h4>Possible Add-ons</h4>
@@ -1136,13 +1158,13 @@ get_header(); ?>
 											foreach($other_pickup_locations as $other_pickup_location): ?>
 										<div class="col-sm-4 practices-wrap">
 											<h5><?php echo $other_pickup_location["name"]; ?></h5>
-											<?php 
+											<?php
 											if ($other_pickup_location["address"]) echo "<p>{$other_pickup_location["address"]}</p>";
 											if ($other_pickup_location["hours"]) echo "<p>{$other_pickup_location["hours"]}</p>";
 											?>
 										</div>
 										<?php endforeach;
-										endif; 
+										endif;
 
 										if ($has_home_delivery): ?>
 										<div class="col-sm-4 practices-wrap">
