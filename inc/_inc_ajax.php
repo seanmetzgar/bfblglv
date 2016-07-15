@@ -408,6 +408,9 @@ function breakSeason($season) {
 }
 
 function buildProductsQuery($productTypes, $wholesale = false) {
+	// At start of script
+	$time_start = microtime(true); 
+
 	$metaQueryArray = false;
 	$wholesale = (is_bool($wholesale)) ? $wholesale : false;
 
@@ -443,6 +446,7 @@ function buildProductsQuery($productTypes, $wholesale = false) {
 		}
 	}
 
+	error_log("buildProductsQuery runtime: " . (microtime(true) - $time_start));
 	return $metaQueryArray;
 }
 
