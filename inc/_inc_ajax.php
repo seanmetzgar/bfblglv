@@ -449,7 +449,7 @@ function buildProductsQuery($productTypes, $wholesale = false) {
 		}
 	}
 
-	error_log("buildProductsQuery runtime: " . (microtime(true) - $time_start));
+	error_log("buildProductsQuery runtime: " . floor(microtime(true) - $time_start));
 	return $metaQueryArray;
 }
 
