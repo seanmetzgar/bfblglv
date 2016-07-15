@@ -968,16 +968,10 @@ get_header(); ?>
 							<div>
 								<div class="page-block product-info-contents">
 									<?php if ($certifications || $practices || $benefits || $has_acreage): ?>
-									<?php $practicesColCount = $certifications ? 1 : 0;
-									$count = $practices ? $practicesColCount + 1 : $practicesColCount;
-									$count = $benefits ? $practicesColCount + 1 : $practicesColCount;
-									$count = $has_acreage ? $practicesColCount + 1 : $practicesColCount;
-									$practicesColCount = ($practicesColCount >= 2 && $practicesColCount <= 4) ? (12 / $practicesColCount) : 6;
-									?>
 									<div class="row">
 										<h3 class="col-xs-12">Farming Practices</h3>
 										<?php if ($certifications): ?>
-										<div class="col-sm-<?php echo $practicesColCount; ?> practices-wrap">
+										<div class="col-sm-4 practices-wrap">
 											<h4>Certifications</h4>
 											<ul class="farming-practices-list">
 												<?php
@@ -1028,7 +1022,7 @@ get_header(); ?>
 										<?php endif;
 
 										if ($practices): ?>
-										<div class="col-sm-<?php echo $practicesColCount; ?> practices-wrap">
+										<div class="col-sm-4 practices-wrap">
 											<h4>Practices</h4>
 											<ul class="farming-practices-list">
 												<?php
@@ -1050,7 +1044,7 @@ get_header(); ?>
 										<?php endif;
 
 										if ($benefits): ?>
-										<div class="col-sm-<?php echo $practicesColCount; ?> practices-wrap">
+										<div class="col-sm-4 practices-wrap">
 											<h4>Benefits Acceptance</h4>
 											<ul class="farming-practices-list">
 											<?php
@@ -1062,7 +1056,7 @@ get_header(); ?>
 										<?php endif;
 
 										if ($has_acreage): ?>
-										<div class="col-sm-<?php echo $practicesColCount; ?> practices-wrap">
+										<div class="col-sm-4 practices-wrap">
 											<h4>Acreage</h4>
 											<ul class="farming-practices-list">
 											<?php
