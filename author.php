@@ -888,10 +888,9 @@ get_header(); ?>
 									$shares_product_sourcing = get_sub_field("shares_product_sourcing");
 									$shares_product_type = get_sub_field("shares_product_type");
 									if (is_array($shares_product_type) && count($shares_product_type) > 0) {
-										$tempShareProductTypeArray = [];
+										$tempShareProductTypeArray = array();
 										foreach ($shares_product_type as $temp_type) {
-											echo "<p>$temp_type</p>";
-											//$tempShareProductTypeArray[] = niceProductTypeName($temp_type);
+											$tempShareProductTypeArray[] = $temp_type;
 										}
 										$shares_product_type = implode(", ", $tempShareProductTypeArray);
 									} elseif (is_string($shares_product_type) && strlen($shares_product_type) > 0) {
