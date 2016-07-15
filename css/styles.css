@@ -5427,6 +5427,6 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
   content: '\e800';
 }
 .xhrError.active, .xhrAlert.active { 
-  top: 30px;
+  top: 75px;
   opacity: 1;
 }
