@@ -885,18 +885,18 @@ get_header(); ?>
 									$possible_addons = get_sub_field("possible_addons");
 
 									//CSA/Farm share product info
-									$share_product_sourcing = get_sub_field("share_product_sourcing");
-									$share_product_type = get_sub_field("share_product_type");
-									if (is_array($share_product_type)) {
+									$shares_product_sourcing = get_sub_field("share_product_sourcing");
+									$shares_product_type = get_sub_field("share_product_type");
+									if (is_array($shares_product_type)) {
 										$tempShareProductTypeArray = [];
-										foreach ($share_product_type as $temp_type) {
+										foreach ($shares_product_type as $temp_type) {
 											$tempShareProductTypeArray[] = niceProductTypeName($temp_type);
 										}
-										$share_product_type = implode(", ", $tempShareProductTypeArray);
-									} elseif (is_string($share_product_type) && strlen($share_product_type) > 0) {
-										$share_product_type = niceProductTypeName($share_product_type);
-									} else { $share_product_type = false; }
-									$share_product_info = ($share_product_type || $share_product_sourcing) ? true : false;
+										$shares_product_type = implode(", ", $tempShareProductTypeArray);
+									} elseif (is_string($shares_product_type) && strlen($shares_product_type) > 0) {
+										$shares_product_type = niceProductTypeName($shares_product_type);
+									} else { $shares_product_type = false; }
+									$shares_product_info = ($shares_product_type || $shares_product_sourcing) ? true : false;
 
 									//Farm Pickup
 									$has_farm_pickup = false;
@@ -975,7 +975,7 @@ get_header(); ?>
 								}
 							}
 						?>
-						<?php if ($certifications || $practices || $benefits || $has_acreage || (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $share_product_info || $possible_addons || $has_farm_pickup || $has_other_pickup || $has_home_delivery))): ?>
+						<?php if ($certifications || $practices || $benefits || $has_acreage || (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $shares_product_info || $possible_addons || $has_farm_pickup || $has_other_pickup || $has_home_delivery))): ?>
 						<div class="entry-farm-practices">
 							<h2 class="greenHeader">Farm Details</h2>
 
@@ -1085,10 +1085,10 @@ get_header(); ?>
 									<?php endif; ?>
 
 
-									<?php if (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $share_product_info || $has_farm_pickup || $has_other_pickup || $has_home_delivery)): ?>
+									<?php if (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $shares_product_info || $has_farm_pickup || $has_other_pickup || $has_home_delivery)): ?>
 									<div class="row">
 										<h3 class="col-xs-12"><?php echo $csa_heading; ?></h3>
-										<?php if ($has_season): ?> 
+										<?php if ($has_season): ?>
 										<div class="col-sm-4 practices-wrap">
 											<h4>Season Details</h4>
 											<ul class="farming-practices-list">
@@ -1127,11 +1127,11 @@ get_header(); ?>
 										</div>
 										<?php endif; ?>
 
-										<?php if ($share_product_info): ?>
+										<?php if ($shares_product_info): ?>
 										<div class="col-sm-4 practices-wrap">
 											<h4>Products</h4>
-											<?php if ($share_product_sourcing) echo "<p><strong>Products sourced from:</strong> {$share_product_sourcing}</p>"; ?>
-											<?php if ($share_product_type) echo "<p><strong>Product Types:</strong><br>{$share_product_type}</p>"; ?>
+											<?php if ($shares_product_sourcing) echo "<p><strong>Products sourced from:</strong> {$shares_product_sourcing}</p>"; ?>
+											<?php if ($shares_product_type) echo "<p><strong>Product Types:</strong><br>{$shares_product_type}</p>"; ?>
 										</div>
 										<?php endif; ?>
 
