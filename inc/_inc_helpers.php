@@ -96,7 +96,7 @@ function niceProductTypeName($type) {
             case "misc":
                 $rVal = "Miscellaneous [e.g. Eggs]";
                 break;
-            default
+            default:
                 $rVal = $type;
         }
     } else {
