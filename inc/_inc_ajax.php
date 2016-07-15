@@ -973,6 +973,8 @@ function xhrGetPartners() {
 
         if ($locationType === "farm" && !$productTypes && $specificProducts) { continue; }
 
+        error_log("time before get users: " . floor(microtime(true) - $time_start));
+
 		$locationTypePartners = get_users($locationTypeQueryArgs);
 
 		if (is_array($locationTypePartners) && count($locationTypePartners) > 0) {
@@ -1037,7 +1039,7 @@ function xhrGetPartners() {
 		$tempCity = null;
 		$tempMap = null;
 	}
-	error_log("time before sort: " . floor(microtime(true) - $time_start));
+
 	$returnPartners = array_unique($returnPartners, SORT_REGULAR);
 
 	usort($returnPartners, function($a, $b) {
