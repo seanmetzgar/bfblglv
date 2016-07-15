@@ -1,7 +1,9 @@
+'use strict';
 var $currentXhrGetPartners = null;
+var $currentXhrAlert = [];
+var $currentXhrError = [];
 //Fluid Dialog Function
 function fluidDialog() {
-    "use strict";
     var $visible = $(".ui-dialog:visible");
     // each open dialog
     $visible.each(function () {
@@ -26,7 +28,6 @@ function fluidDialog() {
 
 //XHR Stuff
 function xhrGetPartnersHandler(data) {
-    "use strict";
     var mapHTML = "";
     var resultsHTML = "";
     var resultsTotal = 0;
@@ -68,25 +69,42 @@ function xhrGetPartnersHandler(data) {
     });
     $(".finder-search-results").find(".results-list").empty().html(resultsHTML);
     $(".finder-search-results").find(".results-total .count").empty().html(resultsTotal);
+
+    if ($currentXhrAlert.length > 0 && $currentXhrError.length > 0) {
+        $currentXhrAlert.removeClass("active");
+        $currentXhrError.removeClass("active");
+    }
+}
+
+function xhrGetPartnersError() {
+    if ($currentXhrAlert.length > 0 && $currentXhrError.length > 0) {
+        $currentXhrAlert.removeClass("active");
+        $currentXhrError.addClass("active");
+    }
 }
 
 function xhrGetPartners(formObject) {
-    "use strict";
     if ($currentXhrGetPartners && $currentXhrGetPartners.readyState !== 4){
         $currentXhrGetPartners.abort();
     }
+
+    if ($currentXhrAlert.length > 0 && $currentXhrError.length > 0) {
+        $currentXhrError.removeClass("active");
+        $currentXhrAlert.addClass("active");
+    }
+
     $currentXhrGetPartners = $.ajax({
         type: "post",
         dataType: "json",
         url: KuduAJAX.ajaxUrl,
         data: formObject,
-        success: xhrGetPartnersHandler
+        success: xhrGetPartnersHandler,
+        error: xhrGetPartnersError
     });
 }
 
 // ACF MAP
 (function ($) {
-    "use strict";
     /*
     *  render_map
     *
@@ -409,7 +427,6 @@ function xhrGetPartners(formObject) {
  * @version 2.5.0
  */
 (function(root, factory) {
-        "use strict";
     // AMD
     if (typeof define === "function" && define.amd) {
         define(["exports", "jquery"], function(exports, $) {
@@ -547,3 +564,8 @@ function xhrGetPartners(formObject) {
 
     return FormSerializer;
 }));
+
+jQuery(document).ready( function () {
+    $currentXhrAlert = jQuery("<div class='xhrAlert'></div>").appendTo(jQuery("body")).html("Loading... Please wait.");
+    $currentXhrError = jQuery("<div class='xhrError'></div>").appendTo(jQuery("body")).html("An error occured. Please try again.");
+});
