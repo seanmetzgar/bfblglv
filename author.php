@@ -1008,7 +1008,7 @@ get_header(); ?>
 							$benefits ||
 							$has_acreage ||
 							($is_csa &&
-								($csa_data["csa"]["has_seasons"] ||
+								($csa_data["csa"]["has_season"] ||
 								$csa_data["csa"]["has_full_shares"] ||
 								$csa_data["csa"]["has_half_shares"] ||
 								$csa_data["csa"]["has_product_info"] ||
@@ -1017,7 +1017,7 @@ get_header(); ?>
 								$csa_data["csa"]["has_other_pickup"] ||
 								$csa_data["csa"]["has_home_delivery"])) ||
 							($is_winter_csa &&
-								($csa_data["winter_csa"]["has_seasons"] ||
+								($csa_data["winter_csa"]["has_season"] ||
 								$csa_data["winter_csa"]["has_full_shares"] ||
 								$csa_data["winter_csa"]["has_half_shares"] ||
 								$csa_data["winter_csa"]["has_product_info"] ||
@@ -1026,7 +1026,7 @@ get_header(); ?>
 								$csa_data["winter_csa"]["has_other_pickup"] ||
 								$csa_data["winter_csa"]["has_home_delivery"])) ||
 							($is_farm_share &&
-								($csa_data["farm_share"]["has_seasons"] ||
+								($csa_data["farm_share"]["has_season"] ||
 								$csa_data["farm_share"]["has_full_shares"] ||
 								$csa_data["farm_share"]["has_half_shares"] ||
 								$csa_data["farm_share"]["has_product_info"] ||
@@ -1148,7 +1148,7 @@ get_header(); ?>
 										foreach ($csa_loops as $csa_type): //CSA - FE:A
 											if (${"is_{$csa_type}"} &&
 												array_key_exists($csa_type, $csa_data) &&
-												($csa_data[$csa_type]["has_seasons"] ||
+												($csa_data[$csa_type]["has_season"] ||
 												$csa_data[$csa_type]["has_full_shares"] ||
 												$csa_data[$csa_type]["has_half_shares"] ||
 												$csa_data[$csa_type]["has_product_info"] ||
@@ -1160,7 +1160,7 @@ get_header(); ?>
 									<div class="row">
 										<h3 class="col-xs-12"><?php echo $csa_data[$csa_type]["section_title"]; ?></h3>
 
-										<?php if ($csa_data[$csa_type]["has_seasons"]): ?>
+										<?php if ($csa_data[$csa_type]["has_season"]): ?>
 										<div class="col-sm-4 practices-wrap">
 											<h4>Season Details</h4>
 											<ul class="farming-practices-list">
