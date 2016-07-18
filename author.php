@@ -968,7 +968,7 @@ get_header(); ?>
 														$tempLocation["hours"] = $tempLHours;
 														$tempLocation["name"] = $tempLName;
 														$tempLocation["address"] = ($tempLAddress) ? $tempLAddress : false;
-														$csa_data[$csa_type]["other_pickup_locations"] = $tempLocation;
+														$csa_data[$csa_type]["other_pickup_locations"][] = $tempLocation;
 													}
 												}
 											}
@@ -1228,7 +1228,6 @@ get_header(); ?>
 										if ($csa_data[$csa_type]["has_other_pickup"] && is_array($csa_data[$csa_type]["other_pickup_locations"])):
 											foreach($csa_data[$csa_type]["other_pickup_locations"] as $other_pickup_location): ?>
 										<div class="col-sm-4 practices-wrap">
-											<textarea><?php print_r($other_pickup_location); ?></textarea>
 											<h5><?php echo $other_pickup_location["name"]; ?></h5>
 											<?php
 											if ($other_pickup_location["address"]) echo "<p>{$other_pickup_location["address"]}</p>";
