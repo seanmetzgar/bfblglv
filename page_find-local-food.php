@@ -53,6 +53,7 @@ $specificProducts = get_specific_products();
 								<div class="form-inline page-block map-checkboxes">
 									<label><input type="checkbox" name="location_type[]" value="farm"><span>Farms</span></label>
 									<label><input type="checkbox" name="location_type[]" value="csa"><span>CSAs</span></label>
+									<label><input type="checkbox" name="location_type[]" value="winter-csa"><span>Winter CSAs</span></label>
 									<label><input type="checkbox" name="location_type[]" value="farm-share"><span>Farm Shares</span></label>
 									<label><input type="checkbox" name="location_type[]" value="restaurant"><span>Restaurants / Caterers</span></label>
 									<label><input type="checkbox" name="location_type[]" value="retail"><span>Stores / Retail</span></label>

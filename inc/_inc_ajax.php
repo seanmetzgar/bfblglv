@@ -932,9 +932,9 @@ function xhrGetPartners() {
    	}
 
 	foreach ($locationTypes as $locationType) {
-		if (in_array($locationType, array("farm-share", "csa"))) {
+		if (in_array($locationType, array("farm-share", "csa", "winter-csa"))) {
             $locationTypePartners = null;
-            $pseudoLocationType = ($locationType === "farm-share") ? "is_farm_share" : "is_csa";
+            $pseudoLocationType = "is_" . str_replace("-", "_", $locationType);
             $locationTypeQueryArgs = array(
                 "role" => "farm",
                 "meta_query" => array(
@@ -1486,10 +1486,16 @@ function xhrGetPartnersDownload() {
 		$tempObject->acres_production = get_field("acres_production", $acfID);
 
 		/** CSA / Farm Share **/
+		$csa_loops = array();
 		$is_farm_share = get_field("is_farm_share", $acfID);
 		$tempObject->is_farm_share = (is_bool($is_farm_share)) ? $is_farm_share : false;
+		if ($is_farm_share) { $csa_loops[] = "farm_share"; }
 		$is_csa = get_field("is_csa", $acfID);
 		$tempObject->is_csa = (is_bool($is_csa)) ? $is_csa : false;
+		if ($is_csa) { $csa_loops[] = "csa"; }
+		$is_winter_csa = get_field("is_winter_csa", $acfID);
+		$tempObject->is_csa = (is_bool($is_winter_csa)) ? $is_winter_csa : false;
+		if ($is_winter_csa) { $csa_loops[] = "winter_csa"; }
 
 		/** FM Details **/
 		$tempObject->market_vendors = get_field("number_of_vendors", $acfID);
@@ -1665,7 +1671,7 @@ function xhrGetPartnersDownload() {
 				->setCellValue('DV1', 'Wholesale Products: Baked Other')
 				->setCellValue('DW1', 'Wholesale Products: Seeds')
 				->setCellValue('DX1', 'Wholesale Products: Seeds Other')
-				->setCellValue('DW1', 'Wholesale Products: PYO')
+				->setCellValue('DY1', 'Wholesale Products: PYO')
 				->setCellValue('DZ1', 'Wholesale Products: PYO Other')
 				->setCellValue('EA1', 'Wholesale Products: Misc')
 				->setCellValue('EB1', 'Wholesale Products: Misc Other')
@@ -1690,15 +1696,16 @@ function xhrGetPartnersDownload() {
 				->setCellValue('EU1', 'Acres in Production')
 				->setCellValue('EV1', 'Is Farm Share')
 				->setCellValue('EW1', 'Is CSA')
-				->setCellValue('EX1', 'Market: Vendor Count')
-				->setCellValue('EY1', 'Market: Vendors (Partners)')
-				->setCellValue('EZ1', 'Market: Vendors (Other)')
-				->setCellValue('FA1', 'Market: Manager')
-				->setCellValue('FB1', 'Market: Manager Phone')
-				->setCellValue('FC1', 'Market: Manager Email')
-				->setCellValue('FD1', 'Market: EBT')
-				->setCellValue('FE1', 'Market: FMNP')
-				->setCellValue('FF1', 'Market: Double SNAP');
+				->setCellValue('EX1', 'Is Winter CSA')
+				->setCellValue('EY1', 'Market: Vendor Count')
+				->setCellValue('EZ1', 'Market: Vendors (Partners)')
+				->setCellValue('FA1', 'Market: Vendors (Other)')
+				->setCellValue('FB1', 'Market: Manager')
+				->setCellValue('FC1', 'Market: Manager Phone')
+				->setCellValue('FD1', 'Market: Manager Email')
+				->setCellValue('FE1', 'Market: EBT')
+				->setCellValue('FF1', 'Market: FMNP')
+				->setCellValue('FG1', 'Market: Double SNAP');
 
 	$cellCounter = "1";
 	foreach ($partnersArray as $partner) {
@@ -1858,19 +1865,20 @@ function xhrGetPartnersDownload() {
 				->setCellValue('EU' . $cellCounter, xlsBreaks($partner->acres_production))
 				->setCellValue('EV' . $cellCounter, $partner->is_farm_share)
 				->setCellValue('EW' . $cellCounter, $partner->is_csa)
-				->setCellValue('EX' . $cellCounter, xlsBreaks($partner->market_vendors))
-				->setCellValue('EY' . $cellCounter, xlsBreaks($partner->market_vendor_partners))
-				->setCellValue('EZ' . $cellCounter, xlsBreaks($partner->market_vendor_partners_other))
-				->setCellValue('FA' . $cellCounter, xlsBreaks($partner->market_manager))
-				->setCellValue('FB' . $cellCounter, xlsBreaks($partner->market_manager_phone))
-				->setCellValue('FC' . $cellCounter, xlsBreaks($partner->market_manager_email))
-				->setCellValue('FD' . $cellCounter, xlsBreaks($partner->market_ebt))
-				->setCellValue('FE' . $cellCounter, $partner->market_fmnp)
-				->setCellValue('FF' . $cellCounter, $partner->market_double_snap);
+				->setCellValue('EX' . $cellCounter, $partner->is_winter_csa)
+				->setCellValue('EY' . $cellCounter, xlsBreaks($partner->market_vendors))
+				->setCellValue('EZ' . $cellCounter, xlsBreaks($partner->market_vendor_partners))
+				->setCellValue('FA' . $cellCounter, xlsBreaks($partner->market_vendor_partners_other))
+				->setCellValue('FB' . $cellCounter, xlsBreaks($partner->market_manager))
+				->setCellValue('FC' . $cellCounter, xlsBreaks($partner->market_manager_phone))
+				->setCellValue('FD' . $cellCounter, xlsBreaks($partner->market_manager_email))
+				->setCellValue('FE' . $cellCounter, xlsBreaks($partner->market_ebt))
+				->setCellValue('FF' . $cellCounter, $partner->market_fmnp)
+				->setCellValue('FG' . $cellCounter, $partner->market_double_snap);
 		}
 	}
 	$letter = "A";
-	for ($i=0; $i<160; $i++) {
+	for ($i=0; $i<166; $i++) {
 		for ($j = 1; $j <= count($partnersArray); $j++) {
 			$cell_num = $j + 1;
 			$cell = "" . $letter . $cell_num;
