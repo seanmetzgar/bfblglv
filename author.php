@@ -1156,7 +1156,6 @@ get_header(); ?>
 												$csa_data[$csa_type]["has_farm_pickup"] ||
 												$csa_data[$csa_type]["has_other_pickup"] ||
 												$csa_data[$csa_type]["has_home_delivery"])): //CSA - IF:B ?>
-									?>
 									<div class="row">
 										<h3 class="col-xs-12"><?php echo $csa_data[$csa_type]["section_title"]; ?></h3>
 
