@@ -813,169 +813,227 @@ get_header(); ?>
 							$practices = ($only_organic || $integrated_pest_management || $non_gmo || $antibiotic_harmone_free || $pastured || $grass_fed || $extended_growing_season || $other_farming_practices_text) ? true : false;
 							$benefits = ($accept_fmnp || $accept_snap) ? true : false;
 
+							$csa_loops = array();
 							$is_csa = get_field("is_csa", $acf_partner_id);
 							$is_csa = (is_bool($is_csa)) ? $is_csa : false;
+							if ($is_csa) { $csa_loops[] = "csa"; }
+							$is_winter_csa = get_field("is_winter_csa", $acf_partner_id);
+							$is_winter_csa = (is_bool($is_winter_csa)) ? $is_winter_csa : false;
+							if ($is_winter_csa) { $csa_loops[] = "winter_csa"; }
 							$is_farm_share = get_field("is_farm_share", $acf_partner_id);
 							$is_farm_share = (is_bool($is_farm_share)) ? $is_farm_share : false;
+							if ($is_farm_share) { $csa_loops[] = "farm_share"; }
 
-							$csa_heading = false;
-							if ($is_csa && $is_farm_share) {
-								$csa_heading = "CSA &amp; Farm Share Details";
-							} elseif ($is_csa && !$is_farm_share) {
-								$csa_heading = "CSA Details";
-							} elseif (!$is_csa && $is_farm_share) {
-								$csa_heading = "Farm Share Details";
-							}
+							// $csa_heading = false;
+							// if ($is_csa && $is_farm_share) {
+							// 	$csa_heading = "CSA &amp; Farm Share Details";
+							// } elseif ($is_csa && !$is_farm_share) {
+							// 	$csa_heading = "CSA Details";
+							// } elseif (!$is_csa && $is_farm_share) {
+							// 	$csa_heading = "Farm Share Details";
+							// }
 
-							if ($is_csa || $is_farm_share) {
-								if (have_rows("csa_details", $acf_partner_id)) { the_row();
+							if (count($csa_loops) > 0) {
+								$csa_data = array();
+								foreach ($csa_loops as $csa_type) {
+									if (have_rows("{$csa_type}_details", $acf_partner_id)) { the_row();
+										$csa_data[$csa_type] = array();
 
-									$season_weeks = get_sub_field("season_weeks");
+										$csa_data[$csa_type]["season_weeks"] = get_sub_field("season_weeks");
 
-									$season_start_mpart = get_sub_field("season_start_mpart");
-									$season_start_month = get_sub_field("season_start_month");
-									$season_end_mpart = get_sub_field("season_end_mpart");
-									$season_end_month = get_sub_field("season_end_month");
+										$csa_data[$csa_type]["season_start_mpart"] = get_sub_field("season_start_mpart");
+										$csa_data[$csa_type]["season_start_month"] = get_sub_field("season_start_month");
+										$csa_data[$csa_type]["season_end_mpart"] = get_sub_field("season_end_mpart");
+										$csa_data[$csa_type]["season_end_month"] = get_sub_field("season_end_month");
 
-									if ($season_start_month && $season_start_mpart) {
-										$season_start = "$season_start_mpart $season_start_month";
-									} elseif ($season_start_month) {
-										$season_start = "$season_start_month";
-									} else { $season_start = false; }
+										if ($csa_data[$csa_type]["season_start_month"] && $csa_data[$csa_type]["season_start_mpart"]) {
+											$csa_data[$csa_type]["season_start"] = "{$csa_data[$csa_type]["season_start_mpart"]} {$csa_data[$csa_type]["season_start_month"]}";
+										} elseif ($csa_data[$csa_type]["season_start_month"]) {
+											$csa_data[$csa_type]["season_start"] = "{$csa_data[$csa_type]["season_start_month"]}";
+										} else { $csa_data[$csa_type]["season_start"] = false; }
 
-									if ($season_end_month && $season_end_mpart) {
-										$season_end = "$season_end_mpart $season_end_month";
-									} elseif ($season_end_month) {
-										$season_end = "$season_end_month";
-									} else { $season_end = false; }
+										if ($csa_data[$csa_type]["season_end_month"] && $csa_data[$csa_type]["season_end_mpart"]) {
+											$csa_data[$csa_type]["season_end"] = "{$csa_data[$csa_type]["season_end_mpart"]} {$csa_data[$csa_type]["season_end_month"]}";
+										} elseif ($csa_data[$csa_type]["season_end_month"]) {
+											$csa_data[$csa_type]["season_end"] = "{$csa_data[$csa_type]["season_end_month"]}";
+										} else { $csa_data[$csa_type]["season_end"] = false; }
 
-									$has_season = ($season_weeks || $season_start || $season_end) ? true : false;
+										$csa_data[$csa_type]["has_season"] = ($csa_data[$csa_type]["season_weeks"] || $csa_data[$csa_type]["season_start"] || $csa_data[$csa_type]["season_end"]) ? true : false;
 
-									//Full Shares
-									$has_full_shares = false;
-									$full_shares = get_sub_field("full_shares");
-									$cost_full_shares = get_sub_field("cost_full_shares");
-									$size_full_shares = get_sub_field("size_full_shares");
-									$size_full_shares_type = get_sub_field("size_full_shares_type");
-									if ($full_shares || $cost_full_shares || $size_full_shares) {
-										$has_full_shares = true;
-										if ($size_full_shares) {
-											if ($size_full_shares_type) {
-												$size_full_shares .= " $size_full_shares_type";
-											}
-										} else { $size_full_shares = false; }
-									}
-
-									//Half Shares
-									$has_half_shares = false;
-									$half_shares = get_sub_field("half_shares");
-									$cost_half_shares = get_sub_field("cost_half_shares");
-									$size_half_shares = get_sub_field("size_half_shares");
-									$size_half_shares_type = get_sub_field("size_half_shares_type");
-									if ($half_shares || $cost_half_shares || $size_half_shares) {
-										$has_half_shares = true;
-										if ($size_half_shares) {
-											if ($size_half_shares_type) {
-												$size_half_shares .= " $size_half_shares_type";
-											}
-										} else { $size_half_shares = false; }
-									}
-
-									//Possible Add-ons
-									$possible_addons = get_sub_field("possible_addons");
-
-									//CSA/Farm share product info
-									$shares_product_sourcing = get_sub_field("shares_product_sourcing");
-									$shares_product_type = get_sub_field("shares_product_type");
-									if (is_array($shares_product_type) && count($shares_product_type) > 0) {
-										$tempShareProductTypeArray = array();
-										foreach ($shares_product_type as $temp_type) {
-											$tempShareProductTypeArray[] = niceProductTypeName($temp_type);
-										}
-										$shares_product_type = implode(", ", $tempShareProductTypeArray);
-									} elseif (is_string($shares_product_type) && strlen($shares_product_type) > 0) {
-										$shares_product_type = niceProductTypeName($shares_product_type);
-									} else { $shares_product_type = false; }
-									$shares_product_info = ($shares_product_type || $shares_product_sourcing) ? true : false;
-
-									//Farm Pickup
-									$has_farm_pickup = false;
-									$has_farm_pickup = get_sub_field("farm_pickup");
-									if ($has_farm_pickup) {
-										$farm_pickup_hours = false;
-										if (have_rows("farm_pickup_hours")) {
-											$farm_pickup_hours = array();
-											while (have_rows("farm_pickup_hours")) {
-												the_row();
-												$tempDay = get_sub_field("day");
-												$tempOpenTime = get_sub_field("open_time");
-												$tempCloseTime = get_sub_field("close_time");
-
-												$tempHours = "$tempDay";
-												if (strlen($tempOpenTime) > 0 && strlen($tempOpenTime) > 0) {
-													$tempHours .= ": $tempOpenTime - $tempCloseTime";
+										//Full Shares
+										$csa_data[$csa_type]["has_full_shares"] = false;
+										$csa_data[$csa_type]["full_shares"] = get_sub_field("full_shares");
+										$csa_data[$csa_type]["cost_full_shares"] = get_sub_field("cost_full_shares");
+										$csa_data[$csa_type]["size_full_shares"] = get_sub_field("size_full_shares");
+										$csa_data[$csa_type]["size_full_shares_type"] = get_sub_field("size_full_shares_type");
+										if ($csa_data[$csa_type]["full_shares"] || $csa_data[$csa_type]["cost_full_shares"] || $csa_data[$csa_type]["size_full_shares"]) {
+											$csa_data[$csa_type]["has_full_shares"] = true;
+											if ($csa_data[$csa_type]["size_full_shares"]) {
+												if ($csa_data[$csa_type]["size_full_shares_type"]) {
+													$csa_data[$csa_type]["size_full_shares"] .= " {$csa_data[$csa_type]["size_full_shares_type"]}";
 												}
-
-												$farm_pickup_hours[] = $tempHours;
-											}
-											$farm_pickup_hours = (count($farm_pickup_hours) > 0) ? implode("<br>", $farm_pickup_hours) : false;
+											} else { $csa_data[$csa_type]["size_full_shares"] = false; }
 										}
-									}
-									//Other Pickup Locations
-									$has_other_pickup = false;
-									$has_other_pickup = get_sub_field("other_pickup");
-									if ($has_other_pickup) {
-										$other_pickup_locations = false;
-										if (have_rows("other_pickup_locations")) {
-											$other_pickup_locations = array();
-											while (have_rows("other_pickup_locations")) {
-												the_row();
-												$tempLocation = array();
-												$tempLName = get_sub_field("name");
-												$tempLAddress = get_sub_field("address");
-												$tempLHours = false;
-												$tempLHoursTBD = get_sub_field("hours_tbd");
-												if (is_bool($tempLHoursTBD) && $tempLHoursTBD) {
-													$tempLHours = "Hours to be determined.";
-												} elseif (have_rows("hours")) {
-													$tempLHours = array();
-													while (have_rows("hours")) {
-														the_row();
-														$tempDay = get_sub_field("day");
-														$tempOpenTime = get_sub_field("open_time");
-														$tempCloseTime = get_sub_field("close_time");
 
-														$tempHours = "$tempDay";
-														if (strlen($tempOpenTime) > 0 && strlen($tempOpenTime) > 0) {
-															$tempHours .= ": $tempOpenTime - $tempCloseTime";
-														}
+										//Half Shares
+										$csa_data[$csa_type]["has_half_shares"] = false;
+										$csa_data[$csa_type]["half_shares"] = get_sub_field("half_shares");
+										$csa_data[$csa_type]["cost_half_shares"] = get_sub_field("cost_half_shares");
+										$csa_data[$csa_type]["size_half_shares"] = get_sub_field("size_half_shares");
+										$csa_data[$csa_type]["size_half_shares_type"] = get_sub_field("size_half_shares_type");
+										if ($csa_data[$csa_type]["half_shares"] || $csa_data[$csa_type]["cost_half_shares"] || $csa_data[$csa_type]["size_half_shares"]) {
+											$csa_data[$csa_type]["has_half_shares"] = true;
+											if ($csa_data[$csa_type]["size_half_shares"]) {
+												if ($csa_data[$csa_type]["size_half_shares_type"]) {
+													$csa_data[$csa_type]["size_half_shares"] .= " {$csa_data[$csa_type]["size_half_shares_type"]}";
+												}
+											} else { $csa_data[$csa_type]["size_half_shares"] = false; }
+										}
 
-														$tempLHours[] = $tempHours;
+										//Possible Add-ons
+										$csa_data[$csa_type]["possible_addons"] = get_sub_field("possible_addons");
+
+										//CSA/Farm share product info
+										$csa_data[$csa_type]["product_sourcing"] = get_sub_field("product_sourcing");
+										$csa_data[$csa_type]["product_types"] = get_sub_field("product_types");
+										if (is_array($csa_data[$csa_type]["product_types"]) && count($csa_data[$csa_type]["product_types"]) > 0) {
+											$tempShareProductTypeArray = array();
+											foreach ($csa_data[$csa_type]["product_types"] as $temp_type) {
+												$tempShareProductTypeArray[] = niceProductTypeName($temp_type);
+											}
+											$csa_data[$csa_type]["product_types"] = implode(", ", $tempShareProductTypeArray);
+										} elseif (is_string($csa_data[$csa_type]["product_types"]) && strlen($csa_data[$csa_type]["product_types"]) > 0) {
+											$csa_data[$csa_type]["product_types"] = niceProductTypeName($csa_data[$csa_type]["product_types"]);
+										} else { $csa_data[$csa_type]["product_types"] = false; }
+										$csa_data[$csa_type]["has_product_info"] = ($csa_data[$csa_type]["product_types"] || $csa_data[$csa_type]["product_sourcing"]) ? true : false;
+
+										//Farm Pickup
+										$csa_data[$csa_type]["has_farm_pickup"] = false;
+										$csa_data[$csa_type]["has_farm_pickup"] = get_sub_field("farm_pickup");
+										if ($csa_data[$csa_type]["has_farm_pickup"]) {
+											$csa_data[$csa_type]["farm_pickup_hours"] = false;
+											if (have_rows("farm_pickup_hours")) {
+												$csa_data[$csa_type]["farm_pickup_hours"] = array();
+												while (have_rows("farm_pickup_hours")) {
+													the_row();
+													$tempDay = get_sub_field("day");
+													$tempOpenTime = get_sub_field("open_time");
+													$tempCloseTime = get_sub_field("close_time");
+
+													$tempHours = "$tempDay";
+													if (strlen($tempOpenTime) > 0 && strlen($tempOpenTime) > 0) {
+														$tempHours .= ": $tempOpenTime - $tempCloseTime";
 													}
-													$tempLHours = (count($tempLHours) > 0) ? implode("<br>", $tempLHours) : false;
+
+													$csa_data[$csa_type]["farm_pickup_hours"][] = $tempHours;
 												}
-												if ($tempLHours && $tempLName) {
-													$tempLocation["hours"] = $tempLHours;
-													$tempLocation["name"] = $tempLName;
-													$tempLocation["address"] = ($tempLAddress) ? $tempLAddress : false;
-													$other_pickup_locations[] = $tempLocation;
+												$csa_data[$csa_type]["farm_pickup_hours"] = (count($csa_data[$csa_type]["farm_pickup_hours"]) > 0) ? implode("<br>", $csa_data[$csa_type]["farm_pickup_hours"]) : false;
+											}
+										}
+
+										//Other Pickup Locations
+										$csa_data[$csa_type]["has_other_pickup"] = false;
+										$csa_data[$csa_type]["has_other_pickup"] = get_sub_field("other_pickup");
+										if ($csa_data[$csa_type]["has_other_pickup"]) {
+											$csa_data[$csa_type]["other_pickup_locations"] = false;
+											if (have_rows("other_pickup_locations")) {
+												$csa_data[$csa_type]["other_pickup_locations"] = array();
+												while (have_rows("other_pickup_locations")) {
+													the_row();
+													$tempLocation = array();
+													$tempLName = get_sub_field("name");
+													$tempLAddress = get_sub_field("address");
+													$tempLHours = false;
+													$tempLHoursTBD = get_sub_field("hours_tbd");
+													if (is_bool($tempLHoursTBD) && $tempLHoursTBD) {
+														$tempLHours = "Hours to be determined.";
+													} elseif (have_rows("hours")) {
+														$tempLHours = array();
+														while (have_rows("hours")) {
+															the_row();
+															$tempDay = get_sub_field("day");
+															$tempOpenTime = get_sub_field("open_time");
+															$tempCloseTime = get_sub_field("close_time");
+
+															$tempHours = "$tempDay";
+															if (strlen($tempOpenTime) > 0 && strlen($tempOpenTime) > 0) {
+																$tempHours .= ": $tempOpenTime - $tempCloseTime";
+															}
+
+															$tempLHours[] = $tempHours;
+														}
+														$tempLHours = (count($tempLHours) > 0) ? implode("<br>", $tempLHours) : false;
+													}
+													if ($tempLHours && $tempLName) {
+														$tempLocation["hours"] = $tempLHours;
+														$tempLocation["name"] = $tempLName;
+														$tempLocation["address"] = ($tempLAddress) ? $tempLAddress : false;
+														$csa_data[$csa_type]["other_pickup_locations"] = $tempLocation;
+													}
 												}
 											}
 										}
+
+										//Home Delivery
+										$csa_data[$csa_type]["has_home_delivery"] = false;
+										$csa_data[$csa_type]["has_home_delivery"] = get_sub_field("home_delivery");
+										if ($csa_data[$csa_type]["has_home_delivery"]) {
+											$csa_data[$csa_type]["home_delivery_details"] = get_sub_field("home_delivery_details");
+										}
+
+										//Section Title
+										switch ($csa_type) {
+											case "csa":
+												$csa_data[$csa_type]["section_title"] = "CSA Details";
+												break;
+											case "winter_csa":
+												$csa_data[$csa_type]["section_title"] = "Winter CSA Details";
+												break;
+											case "farm_share":
+												$csa_data[$csa_type]["section_title"] = "Farm Share Details";
+												break;
+											default:
+												$csa_data[$csa_type]["section_title"] = "{$csa_type} Details";
+										}
+									} else {
+										${"is_{$csa_type}"} = false;
 									}
-									//Home Delivery
-									$has_home_delivery = false;
-									$has_home_delivery = get_sub_field("home_delivery");
-									if ($has_home_delivery) {
-										$home_delivery_details = get_sub_field("home_delivery_details");
-									}
-								} else {
-									$is_csa = false;
-									$is_farm_share = false;
+
+
 								}
 							}
 						?>
-						<?php if ($certifications || $practices || $benefits || $has_acreage || (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $shares_product_info || $possible_addons || $has_farm_pickup || $has_other_pickup || $has_home_delivery))): ?>
+						<?php if ($certifications ||
+							$practices ||
+							$benefits ||
+							$has_acreage ||
+							($is_csa &&
+								($csa_data["csa"]["has_seasons"] ||
+								$csa_data["csa"]["has_full_shares"] ||
+								$csa_data["csa"]["has_half_shares"] ||
+								$csa_data["csa"]["has_product_info"] ||
+								$csa_data["csa"]["possible_addons"] ||
+								$csa_data["csa"]["has_farm_pickup"] ||
+								$csa_data["csa"]["has_other_pickup"] ||
+								$csa_data["csa"]["has_home_delivery"])) ||
+							($is_winter_csa &&
+								($csa_data["winter_csa"]["has_seasons"] ||
+								$csa_data["winter_csa"]["has_full_shares"] ||
+								$csa_data["winter_csa"]["has_half_shares"] ||
+								$csa_data["winter_csa"]["has_product_info"] ||
+								$csa_data["winter_csa"]["possible_addons"] ||
+								$csa_data["winter_csa"]["has_farm_pickup"] ||
+								$csa_data["winter_csa"]["has_other_pickup"] ||
+								$csa_data["winter_csa"]["has_home_delivery"])) ||
+							($is_farm_share &&
+								($csa_data["farm_share"]["has_seasons"] ||
+								$csa_data["farm_share"]["has_full_shares"] ||
+								$csa_data["farm_share"]["has_half_shares"] ||
+								$csa_data["farm_share"]["has_product_info"] ||
+								$csa_data["farm_share"]["possible_addons"] ||
+								$csa_data["farm_share"]["has_farm_pickup"] ||
+								$csa_data["farm_share"]["has_other_pickup"] ||
+								$csa_data["farm_share"]["has_home_delivery"]))): ?>
 						<div class="entry-farm-practices">
 							<h2 class="greenHeader">Farm Details</h2>
 
@@ -1084,78 +1142,92 @@ get_header(); ?>
 									</div>
 									<?php endif; ?>
 
-
-									<?php if (($is_csa || $is_farm_share) && ($has_season || $has_full_shares || $has_half_shares || $possible_addons || $shares_product_info || $has_farm_pickup || $has_other_pickup || $has_home_delivery)): ?>
+									<?php if (is_array($csa_loops) &&
+										(count($csa_loops) > 0) &&
+										is_array($csa_data)): //CSA - IF:A
+										foreach ($csa_loops as $csa_type): //CSA - FE:A
+											if (${"is_{$csa_type}"} &&
+												array_key_exists($csa_type, $csa_data) &&
+												($csa_data[$csa_type]["has_seasons"] ||
+												$csa_data[$csa_type]["has_full_shares"] ||
+												$csa_data[$csa_type]["has_half_shares"] ||
+												$csa_data[$csa_type]["has_product_info"] ||
+												$csa_data[$csa_type]["possible_addons"] ||
+												$csa_data[$csa_type]["has_farm_pickup"] ||
+												$csa_data[$csa_type]["has_other_pickup"] ||
+												$csa_data[$csa_type]["has_home_delivery"])): //CSA - IF:B ?>
+									?>
 									<div class="row">
-										<h3 class="col-xs-12"><?php echo $csa_heading; ?></h3>
-										<?php if ($has_season): ?>
+										<h3 class="col-xs-12"><?php echo $csa_data[$csa_type]["section_title"]; ?></h3>
+
+										<?php if ($csa_data[$csa_type]["has_seasons"]): ?>
 										<div class="col-sm-4 practices-wrap">
 											<h4>Season Details</h4>
 											<ul class="farming-practices-list">
 												<?php
-												if ($season_weeks) { echo "<li>Season (# of weeks): $season_weeks</li>"; }
-												if ($season_start) { echo "<li>Season Starts: $season_start</li>"; }
-												if ($season_end) { echo "<li>Season Ends: $season_end</li>"; }
+												if ($csa_data[$csa_type]["season_weeks"]) { echo "<li>Season (# of weeks): {$csa_data[$csa_type]["season_weeks"]}</li>"; }
+												if ($csa_data[$csa_type]["season_start"]) { echo "<li>Season Starts: {$csa_data[$csa_type]["season_start"]}</li>"; }
+												if ($csa_data[$csa_type]["season_end"]) { echo "<li>Season Ends: {$csa_data[$csa_type]["season_end"]}</li>"; }
 												?>
 											</ul>
 										</div>
 										<?php endif;
 
-										if ($has_full_shares): ?>
+										if ($csa_data[$csa_type]["has_full_shares"]): ?>
 										<div class="col-sm-4 practices-wrap">
 											<h4>Full Shares</h4>
 											<ul class="farming-practices-list">
 												<?php
-												if ($full_shares) echo "<li>Number of Shares: $full_shares</li>";
-												if ($cost_full_shares) echo "<li>Cost: \$$cost_full_shares</li>";
-												if ($size_full_shares) echo "<li>Size: $size_full_shares</li>";
+												if ($csa_data[$csa_type]["full_shares"]) echo "<li>Number of Shares: {$csa_data[$csa_type]["full_shares"]}</li>";
+												if ($csa_data[$csa_type]["cost_full_shares"]) echo "<li>Cost: \${$csa_data[$csa_type]["cost_full_shares"]}</li>";
+												if ($csa_data[$csa_type]["size_full_shares"]) echo "<li>Size: {$csa_data[$csa_type]["size_full_shares"]}</li>";
 												?>
 											</ul>
 										</div>
 										<?php endif;
 
-										if ($has_half_shares): ?>
+										if ($csa_data[$csa_type]["has_half_shares"]): ?>
 										<div class="col-sm-4 practices-wrap">
 											<h4>Half Shares</h4>
 											<ul class="farming-practices-list">
 												<?php
-												if ($full_shares) echo "<li>Number of Shares: $half_shares</li>";
-												if ($cost_full_shares) echo "<li>Cost: \$$cost_half_shares</li>";
-												if ($size_full_shares) echo "<li>Size: $size_half_shares</li>";
+												if ($csa_data[$csa_type]["half_shares"]) echo "<li>Number of Shares: {$csa_data[$csa_type]["half_shares"]}</li>";
+												if ($csa_data[$csa_type]["cost_half_shares"]) echo "<li>Cost: \${$csa_data[$csa_type]["cost_half_shares"]}</li>";
+												if ($csa_data[$csa_type]["size_half_shares"]) echo "<li>Size: {$csa_data[$csa_type]["size_half_shares"]}</li>";
 												?>
 											</ul>
 										</div>
 										<?php endif; ?>
 
-										<?php if ($shares_product_info): ?>
+										<?php if ($csa_data[$csa_type]["has_product_info"]): ?>
 										<div class="col-sm-4 practices-wrap">
 											<h4>Products</h4>
-											<?php if ($shares_product_sourcing) echo "<p><strong>Products sourced from:</strong> {$shares_product_sourcing}</p>"; ?>
-											<?php if ($shares_product_type) echo "<p><strong>Product Types:</strong><br>{$shares_product_type}</p>"; ?>
+											<?php if ($csa_data[$csa_type]["product_sourcing"]) echo "<p><strong>Products sourced from:</strong> {$csa_data[$csa_type]["product_sourcing"]}</p>"; ?>
+											<?php if ($csa_data[$csa_type]["product_types"]) echo "<p><strong>Product Types:</strong><br>{$csa_data[$csa_type]["product_types"]}</p>"; ?>
 										</div>
 										<?php endif; ?>
 
-										<?php if ($possible_addons): ?>
+										<?php if ($csa_data[$csa_type]["possible_addons"]): ?>
 										<div class="col-sm-4 practices-wrap">
 											<h4>Possible Add-ons</h4>
-											<p><?php echo $possible_addons; ?></p>
+											<p><?php echo $csa_data[$csa_type]["possible_addons"]; ?></p>
 										</div>
 										<?php endif; ?>
 									</div>
 
-										<?php if ($has_farm_pickup || $has_other_pickup || $has_home_delivery): ?>
+										<?php if ($csa_data[$csa_type]["has_farm_pickup"] || $csa_data[$csa_type]["has_other_pickup"] || $csa_data[$csa_type]["has_home_delivery"]): ?>
 									<div class="row">
 										<h4 class="col-xs-12 pickup-heading">Pick-up Locations</h3>
 
-										<?php if ($has_farm_pickup && $farm_pickup_hours): ?>
+										<?php if ($csa_data[$csa_type]["has_farm_pickup"] && $csa_data[$csa_type]["farm_pickup_hours"]): ?>
 										<div class="col-sm-4 practices-wrap">
 											<h5>Farm Pick-up</h5>
-											<p><?php echo $farm_pickup_hours; ?></p>
+											<p><?php echo $csa_data[$csa_type]["farm_pickup_hours"]; ?></p>
 										</div>
 										<?php endif;
 
-										if ($has_other_pickup && is_array($other_pickup_locations)):
-											foreach($other_pickup_locations as $other_pickup_location): ?>
+										if ($csa_data[$csa_type]["has_other_pickup"] && is_array($csa_data[$csa_type]["other_pickup_locations"])):
+											foreach($csa_data[$csa_type]["other_pickup_locations"] as $other_pickup_location): ?>
 										<div class="col-sm-4 practices-wrap">
 											<h5><?php echo $other_pickup_location["name"]; ?></h5>
 											<?php
@@ -1166,16 +1238,19 @@ get_header(); ?>
 										<?php endforeach;
 										endif;
 
-										if ($has_home_delivery): ?>
+										if ($csa_data[$csa_type]["has_home_delivery"]): ?>
 										<div class="col-sm-4 practices-wrap">
 											<h5>Home Delivery</h5>
-											<?php if ($home_delivery_details) echo "<p>$home_delivery_details</p>"; ?>
+											<?php if ($csa_data[$csa_type]["home_delivery_details"]) echo "<p>{$csa_data[$csa_type]["home_delivery_details"]}</p>"; ?>
 										</div>
 										<?php endif; ?>
 
 									</div>
 										<?php endif; ?>
-									<?php endif; ?>
+									<?php
+											endif; //END CSA - IF:B
+										endforeach; //END CSA - FE:A
+									endif; //END CSA - IF:A ?>
 								</div><!-- end div.product-info-contents -->
 							</div><!-- end div -->
 						</div><!-- end div.entry-wholesale-information -->
