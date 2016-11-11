@@ -140,7 +140,8 @@ function blglv_modify_user_table_row( $val, $column_name, $user_id ) {
         		$user_info = get_userdata($user_id);
 				$first_name = $user_info->first_name;
 				$last_name = $user_info->last_name;
-        		$val = "$first_name $last_name";
+				$username = $user_info->user_login;
+        		$val = "$first_name $last_name ($username)";
         	}
         	break;
         default:
