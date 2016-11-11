@@ -434,7 +434,7 @@ get_header(); ?>
 
 										<div class="partner-description entry-content">
 											<?php if ($partner_bio) echo $partner_bio; ?>
-											<p><small><em>Last Updated: <?php echo do_shortcode("[]"); ?></em></small></p>
+											<p><small><em>Last Updated: <?php echo do_shortcode("[partner-last-updated]"); ?></em></small></p>
 										</div><!-- end div.partner-description -->
 
 										<?php if ($partner_address): ?>
