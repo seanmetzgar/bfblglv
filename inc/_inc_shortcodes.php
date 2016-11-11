@@ -136,7 +136,6 @@ function blglv_modify_user_table_row( $val, $column_name, $user_id ) {
             break;
         case 'partner_name':
         	$val = get_field("partner_name", "user_{$user_id}");
-        	$val .= "<div class=\"row-actions\"><span><a href=\"/wp-admin/user-edit.php?user_id={$user_id}&wp_http_referer=%2Fwp-admin%2Fusers.php\">Edit</a></span></div>";
         	break;
         default:
         	$val = $val;
