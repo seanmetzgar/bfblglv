@@ -104,13 +104,8 @@ add_shortcode( 'partner-last-updated', 'partner_last_updated_shortcode');
 function partner_last_updated_shortcode($atts = []) {
 	// normalize attribute keys, lowercase
     $atts = array_change_key_case((array)$atts, CASE_LOWER);
- 
-    // override default attributes with user attributes
-    $atts = shortcode_atts([
-		'user_id' => $author_id,
-	], $atts, $tag);
-
-	return partner_last_updated_print($user_id = $atts["user_id"]);
+    $value = str_replace("<br>", " - ", partner_last_updated_print($user_id = $atts["user_id"]));
+	return $value;
 }
 function partner_last_updated_print($user_id = null){
     $user = ($user_id === null) ? wp_get_current_user() : get_user_by("ID", $user_id);
