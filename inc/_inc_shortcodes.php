@@ -110,8 +110,8 @@ function wppb_last_updated_save($content){
 }
 
 add_shortcode( 'wppb-last-updated', 'wppb_last_updated_print');
-function wppb_last_updated_print(){
-    $user = wp_get_current_user();
+function wppb_last_updated_print($user_id = null){
+    $user = ($user_id === null) ? wp_get_current_user() : get_user_by("ID", $user_id);
     $last_updated = get_user_meta($user->ID,  'wppb_last_updated', true );
     if ( $last_updated == '' ){
         $udata = get_userdata( $user->ID );
@@ -130,11 +130,15 @@ function blglv_modify_user_table( $column ) {
     return $column;
 }
 add_filter( 'manage_users_columns', 'blglv_modify_user_table' );
+function blglv_modify_user_sortable( $column ) {
+    $columns['user_modified'] = 'user_modified';
+}
+add_filter( 'manage_users_sortable_columns', 'blglv_modify_user_sortable' );
 
 function blglv_modify_user_table_row( $val, $column_name, $user_id ) {
     switch ($column_name) {
         case 'user_modified' :
-            $val = wppb_last_updated_print();
+            $val = wppb_last_updated_print($user_id);
             break;
         default:
     }
