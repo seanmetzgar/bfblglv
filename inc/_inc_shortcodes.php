@@ -133,7 +133,7 @@ add_filter( 'manage_users_columns', 'blglv_modify_user_table' );
 function blglv_modify_user_table_row( $val, $column_name, $user_id ) {
     switch ($column_name) {
         case 'user_modified' :
-            return do_shortcode("[wppb-last-updated]")
+            return do_shortcode("[wppb-last-updated]");
             break;
         default:
     }
