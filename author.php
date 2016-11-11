@@ -432,11 +432,10 @@ get_header(); ?>
 
 										<h1 class="entry-title"><?php echo $partner_name; ?></h1>
 
-										<?php if ($partner_bio): ?>
 										<div class="partner-description entry-content">
-											<?php echo $partner_bio; ?>
+											<?php if ($partner_bio) echo $partner_bio; ?>
+											<p><small><em>Last Updated: <?php echo do_shortcode("[]"); ?></em></small></p>
 										</div><!-- end div.partner-description -->
-										<?php endif; ?>
 
 										<?php if ($partner_address): ?>
 										<div class="partner-detail">

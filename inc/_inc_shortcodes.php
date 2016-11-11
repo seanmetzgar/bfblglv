@@ -118,10 +118,12 @@ function partner_last_updated_print($user_id = null){
 
 function blglv_modify_user_table( $column ) {
     $column['user_modified'] = 'Last Updated';
+    $column['partner_name'] = 'Partner Name';
     return $column;
 }
 add_filter( 'manage_users_columns', 'blglv_modify_user_table' );
 function blglv_modify_user_sortable( $columns ) {
+	$columns['partner_name'] = 'partner_name';
     $columns['user_modified'] = 'user_modified';
     return $columns;
 }
@@ -132,7 +134,12 @@ function blglv_modify_user_table_row( $val, $column_name, $user_id ) {
         case 'user_modified' :
             $val = partner_last_updated_print($user_id);
             break;
+        case 'partner_name':
+        	$val = get_field("partner_name", "user_{$user_id}");
+        	$val .= "<div class=\"row-actions\"><span><a href=\"/wp-admin/user-edit.php?user_id={$user_id}&wp_http_referer=%2Fwp-admin%2Fusers.php\">Edit</a></span></div>";
+        	break;
         default:
+        	$val = $val;
     }
     return $val;
 }
