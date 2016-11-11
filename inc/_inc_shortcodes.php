@@ -105,7 +105,7 @@ add_filter('wppb_edit_profile_all_changes_saved_except_mismatch_password', 'wppb
 add_filter('wppb_edit_profile_all_changes_saved_except_uncompleted_password', 'wppb_last_updated_save');
 function wppb_last_updated_save($content){
     $user = wp_get_current_user();
-    update_user_meta( $user->ID, 'wppb_last_updated', date("M d Y - H:i") );
+    update_user_meta( $user->ID, 'wppb_last_updated', time() );
     return $content;
 }
 
@@ -117,9 +117,10 @@ function wppb_last_updated_print(){
         $udata = get_userdata( $user->ID );
         $registered = $udata->user_registered;
 
-        return date( "M d Y - H:i", strtotime( $registered ) );
+        $last_updated = strtotime( $registered );
+ 
     }
-
+    $last_updated = date( "Y/m/d<br>g:i a", $last_updated );
     return $last_updated;
 }
 
@@ -133,7 +134,7 @@ add_filter( 'manage_users_columns', 'blglv_modify_user_table' );
 function blglv_modify_user_table_row( $val, $column_name, $user_id ) {
     switch ($column_name) {
         case 'user_modified' :
-            return do_shortcode("[wppb-last-updated]");
+            $val = wppb_last_updated_print();
             break;
         default:
     }
