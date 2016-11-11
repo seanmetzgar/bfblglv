@@ -92,3 +92,33 @@ function shortcode_getPartners( $atts ) {
 	return $rVal;
 }
 add_shortcode( 'partners-list', 'shortcode_getPartners' );
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// Last Update On Edit Profile. This shortcode list the last updated date for the CURRENTLY LOGGED IN USER.
+// Use like this: Last Updated: [wppb-last-updated] . If a user never saved his profile, the registration date will be listed.
+//////////////////////////////////////////////////////////////////////////////////////////////////
+add_filter('wppb_edit_profile_all_changes_saved', 'wppb_last_updated_save');
+add_filter('wppb_edit_profile_all_changes_saved_except_existing_email', 'wppb_last_updated_save');
+add_filter('wppb_edit_profile_all_changes_saved_except_invalid_email', 'wppb_last_updated_save');
+add_filter('wppb_edit_profile_all_changes_saved_except_mismatch_password', 'wppb_last_updated_save');
+add_filter('wppb_edit_profile_all_changes_saved_except_uncompleted_password', 'wppb_last_updated_save');
+function wppb_last_updated_save($content){
+    $user = wp_get_current_user();
+    update_user_meta( $user->ID, 'wppb_last_updated', date("M d Y - H:i") );
+    return $content;
+}
+
+add_shortcode( 'wppb-last-updated', 'wppb_last_updated_print');
+function wppb_last_updated_print(){
+    $user = wp_get_current_user();
+    $last_updated = get_user_meta($user->ID,  'wppb_last_updated', true );
+    if ( $last_updated == '' ){
+        $udata = get_userdata( $user->ID );
+        $registered = $udata->user_registered;
+
+        return date( "M d Y - H:i", strtotime( $registered ) );
+    }
+
+    return $last_updated;
+}
