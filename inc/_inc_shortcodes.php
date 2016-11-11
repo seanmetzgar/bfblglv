@@ -120,7 +120,7 @@ function wppb_last_updated_print(){
         $last_updated = strtotime( $registered );
  
     }
-    $last_updated = date( "Y/m/d<br>g:i a", $last_updated );
+    $last_updated = date( "Y/m/d<\b\\r>g:i a", $last_updated );
     return $last_updated;
 }
 
