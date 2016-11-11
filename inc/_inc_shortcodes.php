@@ -130,8 +130,9 @@ function blglv_modify_user_table( $column ) {
     return $column;
 }
 add_filter( 'manage_users_columns', 'blglv_modify_user_table' );
-function blglv_modify_user_sortable( $column ) {
+function blglv_modify_user_sortable( $columns ) {
     $columns['user_modified'] = 'user_modified';
+    return $columns;
 }
 add_filter( 'manage_users_sortable_columns', 'blglv_modify_user_sortable' );
 
