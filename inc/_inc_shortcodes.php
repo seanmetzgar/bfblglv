@@ -94,10 +94,7 @@ function shortcode_getPartners( $atts ) {
 add_shortcode( 'partners-list', 'shortcode_getPartners' );
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////
-// Last Update On Edit Profile. This shortcode list the last updated date for the CURRENTLY LOGGED IN USER.
-// Use like this: Last Updated: [wppb-last-updated] . If a user never saved his profile, the registration date will be listed.
-//////////////////////////////////////////////////////////////////////////////////////////////////
+
 add_action( 'profile_update', 'partner_last_updated_save', 10, 2 );
 function partner_last_updated_save($user_id){
     update_user_meta( $user_id, 'user_last_updated', time() );
