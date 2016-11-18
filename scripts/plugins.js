@@ -80,7 +80,6 @@ function xhrGetPartnersError() {
     if ($currentXhrAlert.length > 0 && $currentXhrError.length > 0) {
         $currentXhrAlert.removeClass("active");
         $currentXhrError.addClass("active").delay(5).removeClass("active");
-        setTimeout()
     }
 }
 
