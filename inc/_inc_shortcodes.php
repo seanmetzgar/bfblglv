@@ -94,31 +94,65 @@ function shortcode_getPartners( $atts ) {
 add_shortcode( 'partners-list', 'shortcode_getPartners' );
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////
-// Last Update On Edit Profile. This shortcode list the last updated date for the CURRENTLY LOGGED IN USER.
-// Use like this: Last Updated: [wppb-last-updated] . If a user never saved his profile, the registration date will be listed.
-//////////////////////////////////////////////////////////////////////////////////////////////////
-add_filter('wppb_edit_profile_all_changes_saved', 'wppb_last_updated_save');
-add_filter('wppb_edit_profile_all_changes_saved_except_existing_email', 'wppb_last_updated_save');
-add_filter('wppb_edit_profile_all_changes_saved_except_invalid_email', 'wppb_last_updated_save');
-add_filter('wppb_edit_profile_all_changes_saved_except_mismatch_password', 'wppb_last_updated_save');
-add_filter('wppb_edit_profile_all_changes_saved_except_uncompleted_password', 'wppb_last_updated_save');
-function wppb_last_updated_save($content){
-    $user = wp_get_current_user();
-    update_user_meta( $user->ID, 'wppb_last_updated', date("M d Y - H:i") );
-    return $content;
+
+add_action( 'profile_update', 'partner_last_updated_save', 10, 2 );
+function partner_last_updated_save($user_id){
+    update_user_meta( $user_id, 'user_last_updated', time() );
 }
 
-add_shortcode( 'wppb-last-updated', 'wppb_last_updated_print');
-function wppb_last_updated_print(){
-    $user = wp_get_current_user();
-    $last_updated = get_user_meta($user->ID,  'wppb_last_updated', true );
+add_shortcode( 'partner-last-updated', 'partner_last_updated_shortcode');
+function partner_last_updated_shortcode($atts = []) {
+	// normalize attribute keys, lowercase
+    $atts = array_change_key_case((array)$atts, CASE_LOWER);
+    $value = str_replace("<br>", " - ", partner_last_updated_print($user_id = $atts["user_id"]));
+	return $value;
+}
+function partner_last_updated_print($user_id = null){
+    $user = ($user_id === null) ? wp_get_current_user() : get_user_by("ID", $user_id);
+    $last_updated = get_user_meta($user->ID,  'user_last_updated', true );
     if ( $last_updated == '' ){
         $udata = get_userdata( $user->ID );
         $registered = $udata->user_registered;
 
-        return date( "M d Y - H:i", strtotime( $registered ) );
+        $last_updated = strtotime( $registered );
+ 
     }
-
+    $last_updated = date( "Y/m/d<\b\\r>g:i a", $last_updated );
     return $last_updated;
 }
+
+
+function blglv_modify_user_table( $column ) {
+    $column['user_modified'] = 'Last Updated';
+    $column['partner_name'] = 'Partner Name';
+    return $column;
+}
+add_filter( 'manage_users_columns', 'blglv_modify_user_table' );
+function blglv_modify_user_sortable( $columns ) {
+	$columns['partner_name'] = 'partner_name';
+    $columns['user_modified'] = 'user_modified';
+    return $columns;
+}
+add_filter( 'manage_users_sortable_columns', 'blglv_modify_user_sortable' );
+
+function blglv_modify_user_table_row( $val, $column_name, $user_id ) {
+    switch ($column_name) {
+        case 'user_modified' :
+            $val = partner_last_updated_print($user_id);
+            break;
+        case 'partner_name':
+        	$val = get_field("partner_name", "user_{$user_id}");
+        	if ($val == "") {
+        		$user_info = get_userdata($user_id);
+				$first_name = $user_info->first_name;
+				$last_name = $user_info->last_name;
+				$username = $user_info->user_login;
+        		$val = "$first_name $last_name ($username)";
+        	}
+        	break;
+        default:
+        	$val = $val;
+    }
+    return $val;
+}
+add_filter( 'manage_users_custom_column', 'blglv_modify_user_table_row', 10, 3 );
