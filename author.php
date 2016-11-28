@@ -594,22 +594,22 @@ get_header(); ?>
 								<div class="page-block product-info-contents">
 									<div class="product-info-left">
 									<?php 
-									if ((in_array("farm", $partner_category) || in_array("specialty", $partner_category) || in_array("restaurant", $partner_category) || in_array("distillery", $partner_category) || in_array("vineyard", $partner_category)) && $partner_business_photo):
+									if (in_array("farm", $partner_category) || in_array("specialty", $partner_category) || in_array("restaurant", $partner_category) || in_array("distillery", $partner_category) || in_array("vineyard", $partner_category)) {
 										if ($partner_business_photo) {
 											echo '<div class="business-image">';
 												echo $partner_business_photo;
 											echo '</div><!-- end div.business-image -->';
 										}
-									else:
+									} else {
 										if ($partner_owner_photo) {
 											echo '<div class="owner-image">';
 												echo $partner_owner_photo;
 											echo '</div><!-- end div.owner-image -->';
 										}
-									endif; ?>
+									} ?>
 									</div><!-- end div.product-info-left -->
 
-									<?php if ((in_array("farm", $partner_category) || in_array("specialty", $partner_category) || in_array("restaurant", $partner_category) || in_array("distillery", $partner_category) || in_array("vineyard", $partner_category)) && $partner_business_photo): ?><div class="product-info-right"><?php endif; ?>
+									<?php if (in_array("farm", $partner_category) || in_array("specialty", $partner_category) || in_array("restaurant", $partner_category) || in_array("distillery", $partner_category) || in_array("vineyard", $partner_category)): ?><div class="product-info-right"><?php endif; ?>
 										<div class="products-detail">
 											<?php if ($hasProducts || $productsText) :
 												$farmTypeString = (in_array("farm", $partner_category) && $farm_type) ? "Products Available From Our {$farm_type}" : "";
