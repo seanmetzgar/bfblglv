@@ -31,15 +31,17 @@ function xhrGetPartnersHandler(mainData) {
     var mapHTML = "";
     var resultsHTML = "";
     var resultsTotal = 0;
+    var data = [];
+    var specificData = [];
 
     if (typeof mainData === "object") {
         if (mainData.partners === "object") {
             data = mainData.partners;
-        } else data = [];
+        }
 
         if (mainData.specific === "object") {
             specificData = mainData.specific;
-        } else specificData = [];
+        }
     }
 
     if (typeof data === "object") {
