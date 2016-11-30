@@ -34,7 +34,7 @@ function xhrGetPartnersHandler(mainData) {
     var data = [];
     var specificData = [];
 
-    console.log(mainData);
+    //console.log(mainData);
 
     if (typeof mainData === "object") {
         if (mainData.partners === "object") {
@@ -45,40 +45,39 @@ function xhrGetPartnersHandler(mainData) {
             specificData = mainData.specific;
         }
     }
-    console.log(data, specificData);
+    //console.log(data, specificData);
 
-    if (typeof data === "object") {
-        resultsTotal = data.length;
-        resultsTotal = (isNaN(resultsTotal)) ? 0 : resultsTotal;
+    resultsTotal = data.length;
+    resultsTotal = (isNaN(resultsTotal)) ? 0 : resultsTotal;
 
-        $(data).each(function () {
-            var tempName = false;
-            var tempURL = false;
-            var tempLat = false;
-            var tempLng = false;
-            var tempCity = false;
-            var tempHTML = "";
-            var tempResultHTML = "";
+    $(data).each(function () {
+        var tempName = false;
+        var tempURL = false;
+        var tempLat = false;
+        var tempLng = false;
+        var tempCity = false;
+        var tempHTML = "";
+        var tempResultHTML = "";
 
-            tempName = (this.name.length > 0) ? this.name : false;
-            tempCity = (this.city.length > 0) ? ", " + this.city : "";
-            tempURL = (this.url.length > 0) ? this.url : false;
-            tempLat = !isNaN(this.lat) ? "" + this.lat : false;
-            tempLng = !isNaN(this.lng) ? "" + this.lng : false;
+        tempName = (this.name.length > 0) ? this.name : false;
+        tempCity = (this.city.length > 0) ? ", " + this.city : "";
+        tempURL = (this.url.length > 0) ? this.url : false;
+        tempLat = !isNaN(this.lat) ? "" + this.lat : false;
+        tempLng = !isNaN(this.lng) ? "" + this.lng : false;
 
-            if (tempName && tempURL && tempLat && tempLng) {
-                tempHTML = "<div class=\"marker\" data-lat=\"" + tempLat + "\" data-lng=\"" + tempLng + "\">";
-                tempHTML = tempHTML + "<h4><a href=\"" + tempURL + "\">" + tempName + "</a></h4>";
-                tempHTML = tempHTML + "</div>";
-                mapHTML = mapHTML + tempHTML;
-                tempHTML = "";
-            }
-            if (tempName && tempURL) {
-                tempResultHTML = "<li><a href=\"" + tempURL + "\" target=\"_blank\">" + tempName + tempCity + "</a></li>";
-                resultsHTML = resultsHTML + tempResultHTML;
-            }
-        });
-    }
+        if (tempName && tempURL && tempLat && tempLng) {
+            tempHTML = "<div class=\"marker\" data-lat=\"" + tempLat + "\" data-lng=\"" + tempLng + "\">";
+            tempHTML = tempHTML + "<h4><a href=\"" + tempURL + "\">" + tempName + "</a></h4>";
+            tempHTML = tempHTML + "</div>";
+            mapHTML = mapHTML + tempHTML;
+            tempHTML = "";
+        }
+        if (tempName && tempURL) {
+            tempResultHTML = "<li><a href=\"" + tempURL + "\" target=\"_blank\">" + tempName + tempCity + "</a></li>";
+            resultsHTML = resultsHTML + tempResultHTML;
+        }
+    });
+    
     $(".acf-map").empty().html(mapHTML).each(function () {
         $(this).trigger("re-render");
     });
