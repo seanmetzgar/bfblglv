@@ -227,7 +227,7 @@ function get_active_counties() {
 }
 
 function get_specific_products($productTypes = array()) {
-    if (!isArray($productTypes) || (isArray($productTypes) && count($productTypes) === 0)) {
+    if (!is_array($productTypes) || (is_array($productTypes) && count($productTypes) === 0)) {
         //Set Defaults if productTypes not set
         $productTypes = array(
             "products_greens",
