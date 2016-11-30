@@ -34,22 +34,17 @@ function xhrGetPartnersHandler(mainData) {
     var data = [];
     var specificData = [];
 
-    //console.log(mainData);
-
     if (typeof mainData === "object") {
-        if (mainData.partners === "object") {
+        if (typeof mainData.partners === "object") {
             data = mainData.partners;
-            console.log(data);
         }
 
-        if (mainData.specific === "object") {
+        if (typeof mainData.specific === "object") {
             specificData = mainData.specific;
         }
     }
-    //console.log(data, specificData);
 
     resultsTotal = data.length;
-    console.log(resultsTotal);
     resultsTotal = (isNaN(resultsTotal)) ? 0 : resultsTotal;
 
     $(data).each(function () {
