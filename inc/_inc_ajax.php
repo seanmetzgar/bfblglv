@@ -1050,7 +1050,7 @@ function xhrGetPartners() {
 	$updatedSpecificProductsList = array_unique($updatedSpecificProductsList, SORT_REGULAR);
 
 	$result = array("specific" => $updatedSpecificProductsList, "partners" => $returnPartners);
-	$result = json_encode($returnPartners);
+	$result = json_encode($result);
 
 // 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 // 		header('Content-Type: application/json');
