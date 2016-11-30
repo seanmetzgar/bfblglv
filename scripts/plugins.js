@@ -48,6 +48,7 @@ function xhrGetPartnersHandler(mainData) {
     //console.log(data, specificData);
 
     resultsTotal = data.length;
+    console.log(resultsTotal);
     resultsTotal = (isNaN(resultsTotal)) ? 0 : resultsTotal;
 
     $(data).each(function () {
@@ -77,7 +78,7 @@ function xhrGetPartnersHandler(mainData) {
             resultsHTML = resultsHTML + tempResultHTML;
         }
     });
-    
+
     $(".acf-map").empty().html(mapHTML).each(function () {
         $(this).trigger("re-render");
     });
