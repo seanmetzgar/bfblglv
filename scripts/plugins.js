@@ -34,6 +34,8 @@ function xhrGetPartnersHandler(mainData) {
     var data = [];
     var specificData = [];
 
+    console.log(mainData);
+
     if (typeof mainData === "object") {
         if (mainData.partners === "object") {
             data = mainData.partners;
@@ -43,6 +45,7 @@ function xhrGetPartnersHandler(mainData) {
             specificData = mainData.specific;
         }
     }
+    console.log(data, specificData);
 
     if (typeof data === "object") {
         resultsTotal = data.length;
