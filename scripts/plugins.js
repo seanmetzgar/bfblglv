@@ -33,6 +33,8 @@ function xhrGetPartnersHandler(mainData) {
     var resultsTotal = 0;
     var data = [];
     var specificData = [];
+    var specificDataOptions = "";
+    var $specificProductsSelect = $(".chosen-specific-products");
 
     if (typeof mainData === "object") {
         if (typeof mainData.partners === "object") {
@@ -46,6 +48,22 @@ function xhrGetPartnersHandler(mainData) {
 
     resultsTotal = data.length;
     resultsTotal = (isNaN(resultsTotal)) ? 0 : resultsTotal;
+
+    $specificProductsSelect.empty();
+    $(specificData).each(function () {
+        var optionHtml = false;
+        if (this.length > 0) {
+            optionHtml = "<option value=\"";
+            optionHtml += this;
+            optionHtml += "\">";
+            optionHtml += this;
+            optionHtml += "</option>";
+        }
+        if (optionHtml !== false) {
+            $specificProductsSelect.append(optionHtml);
+        }
+    });
+    $specificProductsSelect.trigger("chosen:updated");
 
     $(data).each(function () {
         var tempName = false;
