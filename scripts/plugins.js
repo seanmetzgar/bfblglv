@@ -51,6 +51,7 @@ function xhrGetPartnersHandler(mainData) {
 
     $specificProductsSelect.empty();
     $(specificData).each(function () {
+        console.log(this);
         var optionHtml = false;
         if (this.length > 0) {
             optionHtml = "<option value=\"";
