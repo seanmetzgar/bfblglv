@@ -27,10 +27,20 @@ function fluidDialog() {
 } // end fluidDialog()
 
 //XHR Stuff
-function xhrGetPartnersHandler(data) {
+function xhrGetPartnersHandler(mainData) {
     var mapHTML = "";
     var resultsHTML = "";
     var resultsTotal = 0;
+
+    if (typeof mainData === "object") {
+        if (mainData.partners === "object") {
+            data = mainData.partners;
+        } else data = [];
+
+        if (mainData.specific === "object") {
+            specificData = mainData.specific;
+        } else specificData = [];
+    }
 
     if (typeof data === "object") {
         resultsTotal = data.length;
