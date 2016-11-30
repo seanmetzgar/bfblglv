@@ -906,6 +906,8 @@ function xhrGetPartners() {
 			$_REQUEST["product_type"] :
 			false;
 
+	$updatedSpecificProductsList = get_specific_products($productTypes);
+
 	$specificProducts =
 		(isset($_REQUEST["specific_products"]) &&
 	 	is_array($_REQUEST["specific_products"]) &&
@@ -1045,6 +1047,9 @@ function xhrGetPartners() {
 	    return strnatcmp($a->name, $b->name);
 	});
 
+	$updatedSpecificProductsList = array_unique($updatedSpecificProductsList, SORT_REGULAR);
+
+	$result = array("specific" => $updatedSpecificProductsList, "partners" => $returnPartners);
 	$result = json_encode($returnPartners);
 
 // 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
