@@ -39,6 +39,7 @@ function xhrGetPartnersHandler(mainData) {
     if (typeof mainData === "object") {
         if (typeof mainData.partners === "object") {
             data = mainData.partners;
+            resultsTotal = data.length;
         }
         console.log(mainData);
         if (typeof mainData.specific === "object") {
@@ -46,7 +47,6 @@ function xhrGetPartnersHandler(mainData) {
         }
     }
 
-    resultsTotal = data.length;
     resultsTotal = (isNaN(resultsTotal)) ? 0 : resultsTotal;
 
     $specificProductsSelect.empty();
