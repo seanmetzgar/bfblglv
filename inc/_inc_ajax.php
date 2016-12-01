@@ -1010,7 +1010,7 @@ function xhrGetPartners() {
 
 		if (count($specificProductsPartners) > 0) {
 			// $tempPartners = array_merge($specificProductsPartners, $tempPartners);
-			$tempPartners = $specificProductsPartners;
+			$tempPartners = array_intersect($specificProductsPartners, $tempPartners);
 		}
 	}
 
