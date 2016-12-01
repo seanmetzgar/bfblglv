@@ -51,16 +51,15 @@ function xhrGetPartnersHandler(mainData) {
 
     $specificProductsSelect.empty();
     $(specificData).each(function () {
-        console.log(this);
         var optionHtml = false;
-        var name = this.name;
-        var selected = this.selected;
+        var optionName = this.name;
+        var optionSelected = this.selected;
         if (name.length > 0) {
             optionHtml = "<option value=\"";
-            optionHtml += this;
+            optionHtml += optionName;
             optionHtml += "\"";
-            optionHtml += (selected) ? " selected>" : ">";
-            optionHtml += this;
+            optionHtml += (optionSelected) ? " selected>" : ">";
+            optionHtml += optionName;
             optionHtml += "</option>";
         }
         if (optionHtml !== false) {
