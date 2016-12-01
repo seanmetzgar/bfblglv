@@ -65,6 +65,7 @@ function xhrGetPartnersHandler(mainData) {
         if (optionHtml !== false) {
             $specificProductsSelect.append(optionHtml);
         }
+        console.log(optionHtml);
     });
     $specificProductsSelect.chosen("destroy");
     $specificProductsSelect.chosen({
