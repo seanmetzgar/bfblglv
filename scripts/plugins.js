@@ -41,7 +41,7 @@ function xhrGetPartnersHandler(mainData) {
             data = mainData.partners;
             resultsTotal = data.length;
         }
-        console.log(mainData);
+
         if (typeof mainData.specific === "object") {
             specificData = mainData.specific;
         }
@@ -61,8 +61,6 @@ function xhrGetPartnersHandler(mainData) {
             optionHtml += (optionSelected) ? " selected>" : ">";
             optionHtml += optionName;
             optionHtml += "</option>";
-
-            console.log(optionHtml);
         }
         if (optionHtml !== false) {
             $specificProductsSelect.append(optionHtml);
