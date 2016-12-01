@@ -4,6 +4,11 @@
 class SpecificProduct {
 	public $name = false;
 	public $selected = false;
+
+	function __construct($name, $selected = false) {
+		$this->name = $name;
+		$this->selected = is_bool($selected) ? $selected : false;
+	}
 }
 class MapPartner {
 	public $id = false;
