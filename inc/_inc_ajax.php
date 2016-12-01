@@ -1051,7 +1051,7 @@ function xhrGetPartners() {
 
 	$updatedSpecificProductsList = array_values(array_unique($updatedSpecificProductsList, SORT_REGULAR));
 	foreach ($updatedSpecificProductsList as $updatedSpecificProduct) {
-		$isActive = in_array($updatedSpecificProduct, $specific_products);
+		$isActive = (is_array($specificProducts) ? in_array($updatedSpecificProduct, $specificProducts) : false;
 		$updatedSpecificProduct = new SpecificProduct($updatedSpecificProduct, $isActive);
 	}
 
