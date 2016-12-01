@@ -258,6 +258,8 @@ add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_xhrAddPartner", "xhrAddPartner");
 add_action("wp_ajax_nopriv_xhrAddPartner", "xhrAddPartner");
 add_action("wp_ajax_xhrGetPartnersDownload", "xhrGetPartnersDownload");
+add_action("wp_ajax_nopriv_xhrGetRenewalPartners", "xhrGetRenewalPartners");
+add_action("wp_ajax_xhrGetRenewalPartners", "xhrGetRenewalPartners");
 
 function xlsBreaks($string) {
 	$rVal = preg_replace('#<br\s*/?>#i', PHP_EOL, $string);
