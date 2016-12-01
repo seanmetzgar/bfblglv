@@ -867,6 +867,23 @@ function addPartnerData($user_id, $partner) {
 	}
 }
 
+function xhrGetRenewalPartners() {
+	set_time_limit ( 65 );
+	$allLocationTypes = array(
+		"farm", "farmers-market",
+		"restaurant", "vineyard",
+		"distillery", "institution",
+		"distributor", "specialty",
+		"retail"
+	);
+
+	$renewalPartners = get_users(array(
+		"role__in" => $allLocationTypes
+	));
+
+	print_r($renewalPartners);
+}
+
 function xhrGetPartners() {
 	set_time_limit ( 65 );
 	// $time_start = microtime(true);
