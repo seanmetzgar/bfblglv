@@ -906,8 +906,6 @@ function xhrGetPartners() {
 			$_REQUEST["product_type"] :
 			false;
 
-	$updatedSpecificProductsList = get_specific_products($productTypes);
-
 	$specificProducts =
 		(isset($_REQUEST["specific_products"]) &&
 	 	is_array($_REQUEST["specific_products"]) &&
@@ -919,6 +917,7 @@ function xhrGetPartners() {
 					array($_REQUEST["specific_products"]) : false;
 
 	$wholesale = (isset($_REQUEST["wholesale"]) && ($_REQUEST["wholesale"] == "true" || $_REQUEST["wholesale"] == "1")) ? true : false;
+	$updatedSpecificProductsList = get_specific_products($productTypes, $wholesale);
 
    	$tempPartners = array();
    	$returnPartners = array();

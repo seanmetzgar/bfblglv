@@ -226,62 +226,52 @@ function get_active_counties() {
     return $counties;
 }
 
-function get_specific_products($productTypes = array()) {
+function get_specific_products($productTypes = array(), $wholesale = null) {
     if (!is_array($productTypes) || (is_array($productTypes) && count($productTypes) === 0)) {
         //Set Defaults if productTypes not set
         $productTypes = array(
-            "products_greens",
-            "products_roots",
-            "products_seasonal",
-            "products_melons",
-            "products_herbs",
-            "products_berries",
-            "products_small_fruits",
-            "products_grains",
-            "products_value_added",
-            "products_flowers",
-            "products_plants",
-            "products_ornamentals",
-            "products_syrups",
-            "products_dairy",
-            "products_meat",
-            "products_poultry",
-            "products_agritourism",
-            "products_fibers",
-            "products_artisinal",
-            "products_liquids",
-            "products_educational",
-            "products_baked",
-            "products_seeds",
-            "products_misc",
-            "products_pyo",
-            "ws_products_greens",
-            "ws_products_roots",
-            "ws_products_seasonal",
-            "ws_products_melons",
-            "ws_products_herbs",
-            "ws_products_berries",
-            "ws_products_small_fruits",
-            "ws_products_grains",
-            "ws_products_value_added",
-            "ws_products_flowers",
-            "ws_products_plants",
-            "ws_products_ornamentals",
-            "ws_products_syrups",
-            "ws_products_dairy",
-            "ws_products_meat",
-            "ws_products_poultry",
-            "ws_products_agritourism",
-            "ws_products_fibers",
-            "ws_products_artisinal",
-            "ws_products_liquids",
-            "ws_products_educational",
-            "ws_products_baked",
-            "ws_products_seeds",
-            "ws_products_misc",
-            "ws_products_pyo"
+            "greens",
+            "roots",
+            "seasonal",
+            "melons",
+            "herbs",
+            "berries",
+            "small_fruits",
+            "grains",
+            "value_added",
+            "flowers",
+            "plants",
+            "ornamentals",
+            "syrups",
+            "dairy",
+            "meat",
+            "poultry",
+            "agritourism",
+            "fibers",
+            "artisinal",
+            "liquids",
+            "educational",
+            "baked",
+            "seeds",
+            "misc",
+            "pyo"
         );
     }
+    $tempProductTypes = array();
+    foreach ($productTypes as $productType) {
+        if (is_bool($wholesale)) {
+            if ($wholesale) {
+                $tempProductTypes[] = "ws_products_{$productType}";
+            } else {
+                $tempProductTypes[] = "products_{$productType}";
+            }
+        } else {
+            $tempProductTypes[] = "products_{$productType}";
+            $tempProductTypes[] = "ws_products_{$productType}";
+        }
+    }
+    $productTypes = $tempProductTypes;
+    $tempProductTypes = null;
 
     $productsArray = array();
 
