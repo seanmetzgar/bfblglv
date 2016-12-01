@@ -18,6 +18,7 @@ class RenewalPartner {
 	public $contactEmail = false;
 	public $renewedUntil = false;
 	public $renewedDate = false;
+	public $renewedStatus = 0;
 }
 
 class MapPartner {
@@ -891,7 +892,7 @@ function xhrGetRenewalPartners() {
 	$renewalYear = 2017;
 
 	$renewalPartnersArray = array();
-	
+
 	$renewalPartners = get_users(array(
 		"role__in" => $allLocationTypes
 	));
@@ -910,13 +911,28 @@ function xhrGetRenewalPartners() {
 		$partner_renewed_until = get_field("partner_renewed_until", $acf_partner_id);
 		$partner_renewed_date = get_field("partner_renewed_date", $acf_partner_id);
 
+		if (is_numeric($partner_renewed_until)) {
+			$partner_renewed_until = intval($partner_renewed_until);
+			if ($partner_renewed_until >= $renewalYear) {
+				$partner_renewed_status = 1;
+			} else {
+				$partner_renewed_status = 0;
+			}
+		} else {
+			$partner_renewed_until = $renewalYear - 1;
+			update_field("partner_renewed_until", $partner_renewed_until, $acf_partner_id);
+			$partner_renewed_status = 0;
+		}
+
 		$partner_object = new RenewalPartner();
 		$partner_object->id = $partner_id;
 		$partner_object->name = $partner_name;
 		$partner_object->contactName = $partner_contact_name;
 		$partner_object->contactEmail = $partner_contact_email;
+
 		$partner_object->renewedUntil = $partner_renewed_until;
 		$partner_object->renewedDate = $partner_renewed_date;
+		$partner_object->renewedStatus = $partner_renewed_status;
 
 		$renewalPartnersArray[] = $partner_object;
 		$partner_object = null;
