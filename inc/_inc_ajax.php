@@ -986,8 +986,7 @@ function xhrGetPartners() {
 		$locationTypePartners = get_users($locationTypeQueryArgs);
 
 		if (is_array($locationTypePartners) && count($locationTypePartners) > 0) {
-			// $tempPartners = array_merge($locationTypePartners, $tempPartners);
-			$tempPartners = $locationTypePartners;
+			$tempPartners = array_merge($locationTypePartners, $tempPartners);
 		}
 	}
 
@@ -1010,7 +1009,8 @@ function xhrGetPartners() {
 		}
 
 		if (count($specificProductsPartners) > 0) {
-			$tempPartners = array_merge($specificProductsPartners, $tempPartners);
+			// $tempPartners = array_merge($specificProductsPartners, $tempPartners);
+			$tempPartners = $specificProductsPartners
 		}
 	}
 
