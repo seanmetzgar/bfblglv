@@ -54,7 +54,7 @@ function xhrGetPartnersHandler(mainData) {
         var optionHtml = false;
         var optionName = this.name;
         var optionSelected = this.selected;
-        if (name.length > 0) {
+        if (optionName.length > 0) {
             optionHtml = "<option value=\"";
             optionHtml += optionName;
             optionHtml += "\"";
@@ -65,7 +65,6 @@ function xhrGetPartnersHandler(mainData) {
         if (optionHtml !== false) {
             $specificProductsSelect.append(optionHtml);
         }
-        console.log(optionHtml);
     });
     $specificProductsSelect.chosen("destroy");
     $specificProductsSelect.chosen({
