@@ -925,7 +925,7 @@ function xhrGetRenewalPartners() {
 	$renewalPartnersArray = json_encode($renewalPartnersArray);
 
 	header('Content-Type: application/json');
-	echo $result;
+	echo $renewalPartnersArray;
 
    	die();
 }
