@@ -19,6 +19,7 @@ class RenewalPartner {
 	public $renewedUntil = false;
 	public $renewedDate = false;
 	public $renewedStatus = 0;
+	public $renewalUUID = false;
 }
 
 class MapPartner {
@@ -913,6 +914,8 @@ function xhrGetRenewalPartners() {
 		$partner_renewed_until = get_field("partner_renewed_until", $acf_partner_id);
 		$partner_renewed_date = get_field("partner_renewed_date", $acf_partner_id);
 		$partner_renewed_date_time = strtotime($partner_renewed_date);
+		$partner_renewal_uuid = get_user_meta($partner_id, "partner_renewal_uuid");
+
 		if ($partner_renewed_date_time === false) {
 			$partner_renewed_date = $partner_data->user_registered;
 			$partner_renewed_date_time = strtotime($partner_renewed_date);
@@ -933,6 +936,11 @@ function xhrGetRenewalPartners() {
 			$partner_renewed_status = 0;
 		}
 
+		if (!UUID::is_valid($partner_renewal_uuid)) {
+			$partner_renewal_uuid = UUID::v4();
+			update_user_meta( $partner_id, "partner_renewal_uuid", $partner_renewal_uuid );
+		}
+
 		$partner_object = new RenewalPartner();
 		$partner_object->id = $partner_id;
 		$partner_object->name = $partner_name;
@@ -942,6 +950,7 @@ function xhrGetRenewalPartners() {
 		$partner_object->renewedUntil = $partner_renewed_until;
 		$partner_object->renewedDate = $partner_renewed_date;
 		$partner_object->renewedStatus = $partner_renewed_status;
+		$partner_object->renewalUUID = $partner_renewal_uuid;
 
 		$renewalPartnersArray[] = $partner_object;
 		$partner_object = null;
@@ -1019,8 +1028,8 @@ function xhrGetPartners() {
    	$returnPartners = array();
 
    	if ($locationTypes === false) {
-   		$locationTypes = ($productTypes || $pseudoFarmSearch) ? 
-   			array("farm") : 
+   		$locationTypes = ($productTypes || $pseudoFarmSearch) ?
+   			array("farm") :
    			(!$productTypes && $specificProducts) ?
    				array("farm") : $allLocationTypes;
    	} else {

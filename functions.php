@@ -1,4 +1,5 @@
 <?php
+require_once(dirname(__FILE__) . "/inc/_inc_uuid.php");
 require_once(dirname(__FILE__) . "/inc/_inc_helpers.php");
 require_once(dirname(__FILE__) . "/inc/_inc_customizations.php");
 require_once(dirname(__FILE__) . "/inc/_inc_ajax.php");
