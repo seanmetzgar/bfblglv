@@ -40,7 +40,7 @@ function xhrGetPartnersHandler(mainData) {
         if (typeof mainData.partners === "object") {
             data = mainData.partners;
         }
-        console.log(mainData.specific);
+        console.log(mainData);
         if (typeof mainData.specific === "object") {
             specificData = mainData.specific;
         }
