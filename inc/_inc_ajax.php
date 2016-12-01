@@ -1047,7 +1047,7 @@ function xhrGetPartners() {
 	    return strnatcmp($a->name, $b->name);
 	});
 
-	$updatedSpecificProductsList = array_unique($updatedSpecificProductsList, SORT_REGULAR);
+	$updatedSpecificProductsList = array_unique((array) $updatedSpecificProductsList, SORT_REGULAR);
 
 	$result = array("specific" => $updatedSpecificProductsList, "partners" => $returnPartners);
 	$result = json_encode($result);
