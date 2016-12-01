@@ -1010,7 +1010,13 @@ function xhrGetPartners() {
 
 		if (count($specificProductsPartners) > 0) {
 			// $tempPartners = array_merge($specificProductsPartners, $tempPartners);
-			$tempPartners = array_intersect($specificProductsPartners, $tempPartners);
+			// $tempPartners = array_intersect($specificProductsPartners, $tempPartners);
+			$tempPartners =  array_uintersect($specificProductsPartners, $tempPartners, function($obj1, $obj2){
+			  	$md5 = function($obj){
+			    	return md5(serialize($obj));
+			  	};
+			  	return strcmp($md5($obj1), $md5($obj2));
+			});
 		}
 	}
 
