@@ -61,6 +61,8 @@ function xhrGetPartnersHandler(mainData) {
             optionHtml += (optionSelected) ? " selected>" : ">";
             optionHtml += optionName;
             optionHtml += "</option>";
+
+            console.log(optionHtml);
         }
         if (optionHtml !== false) {
             $specificProductsSelect.append(optionHtml);
