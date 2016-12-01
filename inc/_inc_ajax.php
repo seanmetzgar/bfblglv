@@ -1,7 +1,10 @@
 <?php
 
 // ini_set("error_log", "/home/bfblglv/timelog/timelog-bfblglv.org.log");
-
+class SpecificProduct {
+	public $name = false;
+	public $selected = false;
+}
 class MapPartner {
 	public $id = false;
 	public $name = false;
@@ -1047,6 +1050,10 @@ function xhrGetPartners() {
 	});
 
 	$updatedSpecificProductsList = array_values(array_unique($updatedSpecificProductsList, SORT_REGULAR));
+	foreach ($updatedSpecificProductsList as $updatedSpecificProduct) {
+		$isActive = in_array($updatedSpecificProduct, $specific_products);
+		$updatedSpecificProduct = new SpecificProduct($updatedSpecificProduct, $isActive);
+	}
 
 	$result = array("specific" => $updatedSpecificProductsList, "partners" => $returnPartners);
 	$result = json_encode($result);
