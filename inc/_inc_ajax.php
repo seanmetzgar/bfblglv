@@ -10,6 +10,16 @@ class SpecificProduct {
 		$this->selected = is_bool($selected) ? $selected : false;
 	}
 }
+
+class RenewalPartner {
+	public $id = false;
+	public $name = false;
+	public $contactName = false;
+	public $contactEmail = false;
+	public $renewedUntil = false;
+	public $renewedDate = false;
+}
+
 class MapPartner {
 	public $id = false;
 	public $name = false;
@@ -878,12 +888,45 @@ function xhrGetRenewalPartners() {
 		"distributor", "specialty",
 		"retail"
 	);
+	$renewalYear = 2017;
 
+	$renewalPartnersArray
 	$renewalPartners = get_users(array(
 		"role__in" => $allLocationTypes
 	));
 
-	print_r($renewalPartners);
+	foreach ($renewalPartners as $renewalPartner) {
+		$partner_id = $renewalPartner->ID;
+		$acf_partner_id = "user_{$partner_id}";
+		$partner_data = get_userdata($partner_id);
+		$partner_category = $partner_data->roles;
+		$partner_name = get_field("partner_name", $acf_partner_id);
+		$partner_name = strlen($partner_name) > 0 ? $partner_name : $renewalPartner->display_name;
+		$partner_contact_name = get_field("partner_contact_name", $acf_partner_id);
+		$partner_contact_name = strlen($partner_contact_name) > 0 ? $partner_contact_name : $partner_name;
+		$partner_contact_email = get_field("partner_contact_email", $acf_partner_id);
+		$partner_contact_email = strlen($partner_contact_email) > 0 ? $partner_contact_email : $renewalPartner->user_email;
+		$partner_renewed_until = get_field("partner_renewed_until", $acf_partner_id);
+		$partner_renewed_date = get_field("partner_renewed_date", $acf_partner_id);
+
+		$partner_object = new RenewalPartner();
+		$partner_object->id = $partner_id;
+		$partner_object->name = $partner_name;
+		$partner_object->contactName = $partner_contact_name;
+		$partner_object->contactEmail = $partner_contact_email;
+		$partner_object->renewedUntil = $partner_renewed_until;
+		$partner_object->renewedDate = $partner_renewed_date;
+
+		$renewalPartnersArray[] = $partner_object;
+		$partner_object = null;
+	}
+
+	$renewalPartnersArray = json_encode($renewalPartnersArray);
+
+	header('Content-Type: application/json');
+	echo $result;
+
+   	die();
 }
 
 function xhrGetPartners() {
