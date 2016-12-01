@@ -1055,10 +1055,14 @@ function xhrGetPartners() {
 	});
 
 	$updatedSpecificProductsList = array_values(array_unique($updatedSpecificProductsList, SORT_REGULAR));
+	$fixedSpecificProductsList = array();
 	foreach ($updatedSpecificProductsList as $updatedSpecificProduct) {
 		$isActive = (is_array($specificProducts)) ? in_array($updatedSpecificProduct, $specificProducts) : false;
-		$updatedSpecificProduct = new SpecificProduct($updatedSpecificProduct, $isActive);
+		$tempUpdatedSpecificProduct = new SpecificProduct($updatedSpecificProduct, $isActive);
+		$fixedSpecificProductsList[] = $tempUpdatedSpecificProduct;
 	}
+	$updatedSpecificProductsList = $fixedSpecificProductsList;
+	$fixedSpecificProductsList = null;
 
 	$result = array("specific" => $updatedSpecificProductsList, "partners" => $returnPartners);
 	$result = json_encode($result);
