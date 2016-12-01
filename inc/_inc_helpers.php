@@ -307,7 +307,7 @@ function get_specific_products($productTypes = array()) {
         }
     }
 
-    $productsArray = array_unique($productsArray);
+    $productsArray = array_values(array_unique($productsArray));
 
     return $productsArray;
 }
