@@ -66,7 +66,10 @@ function xhrGetPartnersHandler(mainData) {
             $specificProductsSelect.append(optionHtml);
         }
     });
-    $specificProductsSelect.trigger("chosen:updated");
+    $specificProductsSelect.destroy();
+    $specificProductsSelect.chosen({
+        "placeholder_text_multiple": "Select Products"
+    });
 
     $(data).each(function () {
         var tempName = false;
