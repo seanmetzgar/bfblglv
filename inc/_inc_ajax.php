@@ -936,10 +936,10 @@ function xhrGetRenewalPartners() {
 			$partner_renewed_status = 0;
 		}
 
-		if (!UUID::is_valid($partner_renewal_uuid)) {
-			$partner_renewal_uuid = UUID::v4();
-			update_user_meta( $partner_id, "partner_renewal_uuid", $partner_renewal_uuid );
-		}
+		// if (!UUID::is_valid($partner_renewal_uuid)) {
+		// 	$partner_renewal_uuid = UUID::v4();
+		// 	update_user_meta( $partner_id, "partner_renewal_uuid", $partner_renewal_uuid );
+		// }
 
 		$partner_object = new RenewalPartner();
 		$partner_object->id = $partner_id;
