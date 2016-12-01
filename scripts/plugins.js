@@ -66,7 +66,7 @@ function xhrGetPartnersHandler(mainData) {
             $specificProductsSelect.append(optionHtml);
         }
     });
-    $specificProductsSelect.destroy();
+    $specificProductsSelect.chosen("destroy");
     $specificProductsSelect.chosen({
         "placeholder_text_multiple": "Select Products"
     });
