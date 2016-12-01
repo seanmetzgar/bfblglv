@@ -890,7 +890,8 @@ function xhrGetRenewalPartners() {
 	);
 	$renewalYear = 2017;
 
-	$renewalPartnersArray
+	$renewalPartnersArray = array();
+	
 	$renewalPartners = get_users(array(
 		"role__in" => $allLocationTypes
 	));
