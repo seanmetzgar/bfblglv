@@ -14,6 +14,7 @@ class SpecificProduct {
 class RenewalPartner {
 	public $id = false;
 	public $name = false;
+	public $category = false;
 	public $contactName = false;
 	public $contactEmail = false;
 	public $renewedUntil = false;
@@ -890,6 +891,9 @@ function xhrGetRenewalPartners() {
 		"distributor", "specialty",
 		"retail"
 	);
+
+	$user_role = get_user_role($partner_id);
+
 	$renewalYear = 2017;
 	$renewalCutOff = "{$renewalYear}-03-07 23:59:59";
 	$renewalCutOffTime = strtotime($renewalCutOff);
@@ -904,7 +908,7 @@ function xhrGetRenewalPartners() {
 		$partner_id = $renewalPartner->ID;
 		$acf_partner_id = "user_{$partner_id}";
 		$partner_data = get_userdata($partner_id);
-		$partner_category = $partner_data->roles;
+		$partner_category = $user_role;
 		$partner_name = get_field("partner_name", $acf_partner_id);
 		$partner_name = strlen($partner_name) > 0 ? $partner_name : $renewalPartner->display_name;
 		$partner_contact_name = get_field("partner_contact_name", $acf_partner_id);
