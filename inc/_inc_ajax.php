@@ -919,7 +919,7 @@ function xhrGetRenewalPartners() {
 		$partner_renewed_until = get_field("partner_renewed_until", $acf_partner_id);
 		$partner_renewed_date = get_field("partner_renewed_date", $acf_partner_id);
 		$partner_renewed_date_time = strtotime($partner_renewed_date);
-		$partner_renewal_uuid = get_user_meta($partner_id, "partner_renewal_uuid");
+		$partner_renewal_uuid = get_user_meta($partner_id, "partner_renewal_uuid", true);
 
 		if ($partner_renewed_date_time === false) {
 			$partner_renewed_date = $partner_data->user_registered;
