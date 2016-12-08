@@ -892,8 +892,6 @@ function xhrGetRenewalPartners() {
 		"retail"
 	);
 
-	$user_role = get_user_role($partner_id);
-
 	$renewalYear = 2017;
 	$renewalCutOff = "{$renewalYear}-03-07 23:59:59";
 	$renewalCutOffTime = strtotime($renewalCutOff);
@@ -908,7 +906,7 @@ function xhrGetRenewalPartners() {
 		$partner_id = $renewalPartner->ID;
 		$acf_partner_id = "user_{$partner_id}";
 		$partner_data = get_userdata($partner_id);
-		$partner_category = $user_role;
+		$partner_role = get_user_role($partner_id);
 		$partner_name = get_field("partner_name", $acf_partner_id);
 		$partner_name = strlen($partner_name) > 0 ? $partner_name : $renewalPartner->display_name;
 		$partner_contact_name = get_field("partner_contact_name", $acf_partner_id);
@@ -948,6 +946,7 @@ function xhrGetRenewalPartners() {
 		$partner_object = new RenewalPartner();
 		$partner_object->id = $partner_id;
 		$partner_object->name = $partner_name;
+		$partner_object->category = $partner_role;
 		$partner_object->contactName = $partner_contact_name;
 		$partner_object->contactEmail = $partner_contact_email;
 
