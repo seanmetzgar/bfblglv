@@ -907,6 +907,9 @@ function xhrGetRenewalPartners() {
 		$acf_partner_id = "user_{$partner_id}";
 		$partner_data = get_userdata($partner_id);
 		$partner_role = $partner_data->roles;
+		if (is_array($partner_role)) {
+			$partner_role = $partner_role[0];
+		}
 		$partner_name = get_field("partner_name", $acf_partner_id);
 		$partner_name = strlen($partner_name) > 0 ? $partner_name : $renewalPartner->display_name;
 		$partner_contact_name = get_field("partner_contact_name", $acf_partner_id);
