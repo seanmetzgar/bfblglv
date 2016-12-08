@@ -940,9 +940,10 @@ function xhrGetRenewalPartners() {
 			update_field("partner_renewed_until", $partner_renewed_until, $acf_partner_id);
 			$partner_renewed_status = 0;
 		}
-
+		print_r(UUID::v4());
 		// if (!UUID::is_valid($partner_renewal_uuid)) {
 		// 	$partner_renewal_uuid = UUID::v4();
+		// 	print_r($partner_rene)
 		// 	update_user_meta( $partner_id, "partner_renewal_uuid", $partner_renewal_uuid );
 		// }
 
