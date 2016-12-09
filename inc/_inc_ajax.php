@@ -923,9 +923,13 @@ function xhrGetRenewalPartners() {
 	);
 
 	$renewalYear = getRenewalYear();
+	$previousYear = $renewalYear - 1;
 
-	$renewalCutOff = "{$renewalYear}-03-07 23:59:59";
-	$renewalCutOffTime = strtotime($renewalCutOff);
+	$renewalGrandfathered = "{$previousYear}-11-01 00:00:00";
+	$renewalShutDown = "{$renewalYear}-03-07 23:59:59";
+
+	$renewalGrandfatheredTime = strtotime($renewalGrandfathered);
+	$renewalShutDownTime = strtotime($renewalShutDown);
 
 	$renewalPartnersArray = array();
 
@@ -957,6 +961,13 @@ function xhrGetRenewalPartners() {
 			$partner_renewed_date_time = strtotime($partner_renewed_date);
 			$partner_renewed_date = date("Y-m-d H:i:s", $partner_renewed_date_time);
 			update_field("partner_renewed_date", $partner_renewed_date, $acf_partner_id);
+		}
+
+		if ($partner_renewed_date_time >= $renewalGrandfatheredTime) {
+			if ((is_numeric($partner_renewed_until) && $partner_renewed_until < $renewalYear) || !(is_numeric($partner_renewed_until))) {
+				$partner_renewed_until = $renewalYear;
+				update_field("partner_renewed_until", $partner_renewed_until, $acf_partner_id);
+			}
 		}
 
 		if (is_numeric($partner_renewed_until)) {
