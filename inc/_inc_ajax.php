@@ -274,16 +274,18 @@ class DownloadPartner {
 	public $market_double_snap = false;
 }
 
+//XHR Definitions
 add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_xhrAddPartner", "xhrAddPartner");
 add_action("wp_ajax_nopriv_xhrAddPartner", "xhrAddPartner");
 add_action("wp_ajax_xhrGetPartnersDownload", "xhrGetPartnersDownload");
-add_action("wp_ajax_nopriv_xhrGetRenewalPartners", "xhrGetRenewalPartners");
-add_action("wp_ajax_xhrGetRenewalPartners", "xhrGetRenewalPartners");
+add_action("wp_ajax_nopriv_xhrGetRenewalData", "xhrGetRenewalData");
+add_action("wp_ajax_xhrGetRenewalData", "xhrGetRenewalData");
 add_action("wp_ajax_nopriv_xhrGetRenewalYear", "xhrGetRenewalYear");
 add_action("wp_ajax_xhrGetRenewalYear", "xhrGetRenewalYear");
 
+//XHR Helpers
 function xlsBreaks($string) {
 	$rVal = preg_replace('#<br\s*/?>#i', PHP_EOL, $string);
 	return $rVal;
@@ -906,6 +908,7 @@ function addPartnerData($user_id, $partner) {
 	}
 }
 
+//XHR Functions
 function xhrGetRenewalYear() {
 	$renewalYear = getRenewalYear();
 	$renewalYear = "{\"year\":{$renewalYear}}";
@@ -916,7 +919,7 @@ function xhrGetRenewalYear() {
 	die();
 }
 
-function xhrGetRenewalPartners() {
+function xhrGetRenewalData() {
 	set_time_limit ( 65 );
 	$allLocationTypes = array(
 		"farm", "farmers-market",
