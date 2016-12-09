@@ -26,6 +26,10 @@ class RenewalPartner {
 	public $renewalEmail3Sent = false;
 	public $renewalEmail4Sent = false;
 }
+class RenewalData {
+	public $year = false;
+	public $partners = false;
+}
 
 class MapPartner {
 	public $id = false;
@@ -1004,17 +1008,19 @@ function xhrGetRenewalPartners() {
 		$partner_object = null;
 	}
 
-	$renewalPartnersArray = json_encode($renewalPartnersArray);
+	$partnerData = new RenewalData;
+	$partnerData->year = $renewalYear;
+	$partnerData->partners = $renewalPartnersArray;
+	$partnerData = json_encode($partnerData);
 
 	header('Content-Type: application/json');
-	echo $renewalPartnersArray;
+	echo $partnerData;
 
    	die();
 }
 
 function xhrGetPartners() {
 	set_time_limit ( 65 );
-	// $time_start = microtime(true);
 
 	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;
 	$zip = ($zip && strlen($zip) >= 5) ? substr($zip, 0, 5) : false;
