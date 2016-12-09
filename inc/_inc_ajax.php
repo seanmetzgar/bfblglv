@@ -21,6 +21,10 @@ class RenewalPartner {
 	public $renewedDate = false;
 	public $renewedStatus = 0;
 	public $renewalUUID = false;
+	public $renewalEmail1Sent = false;
+	public $renewalEmail2Sent = false;
+	public $renewalEmail3Sent = false;
+	public $renewalEmail4Sent = false;
 }
 
 class MapPartner {
@@ -284,6 +288,25 @@ function downloadParseProducts($products) {
 		$products = implode(", ", $products);
 	} else { $products = ""; }
 	return $products;
+}
+
+function getBFBLRenewalYear($echo = false, $ajax = false) {
+	$ajax = (is_bool($ajax)) ? $ajax : false;
+	$echo = ((is_bool($echo) && $echo) || $ajax) ? $echo : false;
+
+	$currentMonth = date("n");
+	$currentYear = date("Y");
+	$renewalYear = ($currentMonth >= 10) ? $currentYear + 1 : $currentYear;
+
+	if ($ajax) {
+		$renewalYear = "{\"year\":{$renewalYear}}";
+	}
+
+	if ($echo) {
+		echo $renewalYear;
+	} else {
+		return $renewalYear;
+	}
 }
 
 function get_user_role($user_ID = null) {
@@ -892,7 +915,8 @@ function xhrGetRenewalPartners() {
 		"retail"
 	);
 
-	$renewalYear = 2017;
+	$renewalYear = getBFBLRenewalYear();
+
 	$renewalCutOff = "{$renewalYear}-03-07 23:59:59";
 	$renewalCutOffTime = strtotime($renewalCutOff);
 
