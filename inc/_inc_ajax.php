@@ -277,6 +277,8 @@ add_action("wp_ajax_nopriv_xhrAddPartner", "xhrAddPartner");
 add_action("wp_ajax_xhrGetPartnersDownload", "xhrGetPartnersDownload");
 add_action("wp_ajax_nopriv_xhrGetRenewalPartners", "xhrGetRenewalPartners");
 add_action("wp_ajax_xhrGetRenewalPartners", "xhrGetRenewalPartners");
+add_action("wp_ajax_nopriv_xhrGetRenewalYear", "xhrGetRenewalYear");
+add_action("wp_ajax_xhrGetRenewalYear", "xhrGetRenewalYear");
 
 function xlsBreaks($string) {
 	$rVal = preg_replace('#<br\s*/?>#i', PHP_EOL, $string);
@@ -290,17 +292,12 @@ function downloadParseProducts($products) {
 	return $products;
 }
 
-function getBFBLRenewalYear($echo = false, $ajax = false) {
-	$ajax = (is_bool($ajax)) ? $ajax : false;
-	$echo = ((is_bool($echo) && $echo) || $ajax) ? $echo : false;
+function getRenewalYear($echo = false) {
+	$echo = (is_bool($echo)) ? $echo : false;
 
 	$currentMonth = date("n");
 	$currentYear = date("Y");
 	$renewalYear = ($currentMonth >= 10) ? $currentYear + 1 : $currentYear;
-
-	if ($ajax) {
-		$renewalYear = "{\"year\":{$renewalYear}}";
-	}
 
 	if ($echo) {
 		echo $renewalYear;
@@ -905,6 +902,16 @@ function addPartnerData($user_id, $partner) {
 	}
 }
 
+function xhrGetRenewalYear() {
+	$renewalYear = getRenewalYear();
+	$renewalYear = "{\"year\":{$renewalYear}}";
+
+	header('Content-Type: application/json');
+	echo $renewalYear;
+
+	die();
+}
+
 function xhrGetRenewalPartners() {
 	set_time_limit ( 65 );
 	$allLocationTypes = array(
@@ -915,7 +922,7 @@ function xhrGetRenewalPartners() {
 		"retail"
 	);
 
-	$renewalYear = getBFBLRenewalYear();
+	$renewalYear = getRenewalYear();
 
 	$renewalCutOff = "{$renewalYear}-03-07 23:59:59";
 	$renewalCutOffTime = strtotime($renewalCutOff);
