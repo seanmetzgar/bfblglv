@@ -21,10 +21,6 @@ class RenewalPartner {
 	public $renewedDate = false;
 	public $renewedStatus = 0;
 	public $renewalUUID = false;
-	public $renewalEmail1Sent = false;
-	public $renewalEmail2Sent = false;
-	public $renewalEmail3Sent = false;
-	public $renewalEmail4Sent = false;
 }
 class RenewalData {
 	public $year = false;
