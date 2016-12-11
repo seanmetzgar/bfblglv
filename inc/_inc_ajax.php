@@ -941,11 +941,10 @@ function xhrGetRenewalPartner() {
 	$renewalShutDownTime = strtotime($renewalShutDown);
 
 	if ($user_id > 0 && $renewal_uuid && $renewalPartner = get_user_by("id", $user_id)) {
-		echo ("got data");
+		$partner_id = $renewalPartner->ID;
 		$partner_renewal_uuid = get_user_meta($partner_id, "partner_renewal_uuid", true);
 
 		if ($partner_renewal_uuid === $renewal_uuid) {
-			$partner_id = $renewalPartner->ID;
 			$acf_partner_id = "user_{$partner_id}";
 			$partner_data = get_userdata($partner_id);
 			$partner_role = $partner_data->roles;
