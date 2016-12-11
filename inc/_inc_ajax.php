@@ -927,6 +927,7 @@ function xhrGetRenewalYear() {
 function xhrGetRenewalPartner() {
 	$user_id = $_REQUEST["id"];
 	$renewal_uuid = $_REQUEST["uuid"];
+	echo ("{$user_id}<br>{$renewal_uuid}");
 
 	$user_id = (intval($user_id)) ? (int)$user_id : false;
 	$renewal_uuid = (UUID::is_valid($renewal_uuid)) ? $renewal_uuid : false;
