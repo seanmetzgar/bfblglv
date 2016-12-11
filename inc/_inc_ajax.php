@@ -1008,6 +1008,7 @@ function xhrGetRenewalPartner() {
 
 	$partnerData = new RenewalSingleData;
 	$partnerData->partner = $partner_object;
+	$partnerData = json_encode($partnerData);
 
 	header('Content-Type: application/json');
 	echo $partnerData;
