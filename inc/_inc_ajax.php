@@ -930,8 +930,6 @@ function xhrGetRenewalPartner() {
 
 	$user_id = (intval($user_id)) ? (int)$user_id : false;
 	$renewal_uuid = (UUID::is_valid($renewal_uuid)) ? $renewal_uuid : false;
-	
-	echo ("{$user_id}<br>{$renewal_uuid}");
 
 	$renewalYear = getRenewalYear();
 	$previousYear = $renewalYear - 1;
@@ -943,6 +941,7 @@ function xhrGetRenewalPartner() {
 	$renewalShutDownTime = strtotime($renewalShutDown);
 
 	if ($user_id > 0 && $renewal_uuid && $renewalPartner = get_user_by("id", $user_id)) {
+		echo ("got data");
 		$partner_renewal_uuid = get_user_meta($partner_id, "partner_renewal_uuid", true);
 
 		if ($partner_renewal_uuid === $renewal_uuid) {
