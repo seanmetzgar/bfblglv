@@ -30,6 +30,9 @@ class RenewalData {
 	public $year = false;
 	public $partners = false;
 }
+class RenewalSingleData {
+	public $partner = false;
+}
 
 class MapPartner {
 	public $id = false;
@@ -284,6 +287,8 @@ add_action("wp_ajax_nopriv_xhrGetRenewalData", "xhrGetRenewalData");
 add_action("wp_ajax_xhrGetRenewalData", "xhrGetRenewalData");
 add_action("wp_ajax_nopriv_xhrGetRenewalYear", "xhrGetRenewalYear");
 add_action("wp_ajax_xhrGetRenewalYear", "xhrGetRenewalYear");
+add_action("wp_ajax_nopriv_xhrGetRenewalPartner", "xhrGetRenewalPartner");
+add_action("wp_ajax_xhrGetRenewalPartner", "xhrGetRenewalPartner");
 
 //XHR Helpers
 function xlsBreaks($string) {
@@ -917,6 +922,97 @@ function xhrGetRenewalYear() {
 	echo $renewalYear;
 
 	die();
+}
+
+function xhrGetRenewalPartner() {
+	$user_id = $_POST["id"];
+	$renewal_uuid = $_POST["uuid"];
+
+	$user_id = (intval($user_id)) ? (int)$user_id : false;
+	$renewal_uuid = (UUID::is_valid($renewal_uuid)) ? $renewal_uuid : false;
+
+	$renewalYear = getRenewalYear();
+	$previousYear = $renewalYear - 1;
+
+	$renewalGrandfathered = "{$previousYear}-11-01 00:00:00";
+	$renewalShutDown = "{$renewalYear}-03-07 23:59:59";
+
+	$renewalGrandfatheredTime = strtotime($renewalGrandfathered);
+	$renewalShutDownTime = strtotime($renewalShutDown);
+
+	if ($user_id > 0 && $renewal_uuid && $renewalPartner = get_user_by("id", $user_id)) {
+		$partner_renewal_uuid = get_user_meta($partner_id, "partner_renewal_uuid", true);
+
+		if ($partner_renewal_uuid === $renewal_uuid) {
+			$partner_id = $renewalPartner->ID;
+			$acf_partner_id = "user_{$partner_id}";
+			$partner_data = get_userdata($partner_id);
+			$partner_role = $partner_data->roles;
+			if (is_array($partner_role)) {
+				$partner_role = $partner_role[0];
+			}
+			$partner_name = get_field("partner_name", $acf_partner_id);
+			$partner_name = strlen($partner_name) > 0 ? $partner_name : $renewalPartner->display_name;
+			$partner_contact_name = get_field("partner_contact_name", $acf_partner_id);
+			$partner_contact_name = strlen($partner_contact_name) > 0 ? $partner_contact_name : $partner_name;
+			$partner_contact_email = get_field("partner_contact_email", $acf_partner_id);
+			$partner_contact_email = strlen($partner_contact_email) > 0 ? $partner_contact_email : $renewalPartner->user_email;
+			$partner_renewed_until = get_field("partner_renewed_until", $acf_partner_id);
+			$partner_renewed_date = get_field("partner_renewed_date", $acf_partner_id);
+			$partner_renewed_date_time = strtotime($partner_renewed_date);
+
+			if ($partner_renewed_date_time === false) {
+				$partner_renewed_date = $partner_data->user_registered;
+				$partner_renewed_date_time = strtotime($partner_renewed_date);
+				$partner_renewed_date = date("Y-m-d H:i:s", $partner_renewed_date_time);
+				update_field("partner_renewed_date", $partner_renewed_date, $acf_partner_id);
+			}
+
+			if ($partner_renewed_date_time >= $renewalGrandfatheredTime) {
+				if ((is_numeric($partner_renewed_until) && $partner_renewed_until < $renewalYear) || !(is_numeric($partner_renewed_until))) {
+					$partner_renewed_until = $renewalYear;
+					update_field("partner_renewed_until", $partner_renewed_until, $acf_partner_id);
+				}
+			}
+
+			if (is_numeric($partner_renewed_until)) {
+				$partner_renewed_until = intval($partner_renewed_until);
+				if ($partner_renewed_until >= $renewalYear) {
+					$partner_renewed_status = 1;
+				} else {
+					$partner_renewed_status = 0;
+				}
+			} else {
+				$partner_renewed_until = $renewalYear - 1;
+				update_field("partner_renewed_until", $partner_renewed_until, $acf_partner_id);
+				$partner_renewed_status = 0;
+			}
+
+			$partner_object = new RenewalPartner();
+			$partner_object->id = $partner_id;
+			$partner_object->name = $partner_name;
+			$partner_object->category = $partner_role;
+			$partner_object->contactName = $partner_contact_name;
+			$partner_object->contactEmail = $partner_contact_email;
+
+			$partner_object->renewedUntil = $partner_renewed_until;
+			$partner_object->renewedDate = $partner_renewed_date;
+			$partner_object->renewedStatus = $partner_renewed_status;
+			$partner_object->renewalUUID = $partner_renewal_uuid;
+		} else {
+			$partner_object = false;
+		}
+	} else {
+		$partner_object = false;
+	}
+
+	$partnerData = new RenewalSingleData;
+	$partnerData->partner = $partner_object;
+
+	header('Content-Type: application/json');
+	echo $partnerData;
+
+   	die();
 }
 
 function xhrGetRenewalData() {
