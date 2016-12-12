@@ -1,6 +1,7 @@
 <?php
 ini_set("display_errors", 1);
 /** Helpers **/
+
 function niceCategoryName($slug) {
     switch($slug) {
         case "farmers-market":
