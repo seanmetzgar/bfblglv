@@ -21,6 +21,7 @@ class RenewalPartner {
 	public $renewedDate = false;
 	public $renewedStatus = 0;
 	public $renewalUUID = false;
+	public $profileURL = false;
 }
 class RenewalData {
 	public $year = false;
@@ -1000,6 +1001,8 @@ function xhrGetRenewalPartner() {
 			$partner_object->renewedDate = $partner_renewed_date;
 			$partner_object->renewedStatus = $partner_renewed_status;
 			$partner_object->renewalUUID = $partner_renewal_uuid;
+
+			$partner_object->profileURL = get_author_posts_url($partner_id);
 		} else {
 			$partner_object = false;
 		}
