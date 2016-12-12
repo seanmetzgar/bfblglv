@@ -1215,6 +1215,8 @@ function xhrUpdateRenewalPartnerEmail() {
 	    }
 	}
 
+	echo $email_id;
+
 	$renewalYear = getRenewalYear();
 	$status = false;
 
