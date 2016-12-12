@@ -1215,14 +1215,12 @@ function xhrUpdateRenewalPartnerEmail() {
 	    }
 	}
 
-	echo $email_id;
-
 	$renewalYear = getRenewalYear();
 	$status = false;
 
 	if ($user_id && $renewal_uuid && $email_id && $email_meta_prefix) {
-		update_user_meta( $partner_id, "{$email_meta_prefix}_sent", $renewalYear );
-		update_user_meta( $partner_id, "{$email_meta_prefix}_status", $email_status );
+		update_user_meta( $user_id, "{$email_meta_prefix}_sent", $renewalYear );
+		update_user_meta( $user_id, "{$email_meta_prefix}_status", $email_status );
 		$status = true;
 	}
 
