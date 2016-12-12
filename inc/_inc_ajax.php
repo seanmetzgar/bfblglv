@@ -1015,6 +1015,28 @@ function xhrGetRenewalPartner() {
 			$partner_object->renewedStatus = $partner_renewed_status;
 			$partner_object->renewalUUID = $partner_renewal_uuid;
 
+			$partner_email1Sent = get_user_meta($partner_id, "partner_renewal_email1_sent", true);
+			$partner_email2Sent = get_user_meta($partner_id, "partner_renewal_email2_sent", true);
+			$partner_email3Sent = get_user_meta($partner_id, "partner_renewal_email3_sent", true);
+			$partner_email4Sent = get_user_meta($partner_id, "partner_renewal_email4_sent", true);
+			$partner_emailTSent = get_user_meta($partner_id, "partner_renewal_emailT_sent", true);
+			$partner_email1Status = get_user_meta($partner_id, "partner_renewal_email1_status", true);
+			$partner_email2Status = get_user_meta($partner_id, "partner_renewal_email2_status", true);
+			$partner_email3Status = get_user_meta($partner_id, "partner_renewal_email3_status", true);
+			$partner_email4Status = get_user_meta($partner_id, "partner_renewal_email4_status", true);
+			$partner_emailTStatus = get_user_meta($partner_id, "partner_renewal_emailT_status", true);
+
+			$partner_object->email1Sent = ($partner_email1Sent == $renewalYear) ? true : false;
+			$partner_object->email2Sent = ($partner_email2Sent == $renewalYear) ? true : false;
+			$partner_object->email3Sent = ($partner_email3Sent == $renewalYear) ? true : false;
+			$partner_object->email4Sent = ($partner_email4Sent == $renewalYear) ? true : false;
+			$partner_object->emailTSent = ($partner_emailTSent == $renewalYear) ? true : false;
+			$partner_object->email1Status = $partner_email1Status;
+			$partner_object->email2Status = $partner_email2Status;
+			$partner_object->email3Status = $partner_email3Status;
+			$partner_object->email4Status = $partner_email4Status;
+			$partner_object->emailTStatus = $partner_emailTStatus;
+
 			$partner_object->profileURL = get_author_posts_url($partner_id);
 		} else {
 			$partner_object = false;
@@ -1109,6 +1131,18 @@ function xhrGetRenewalData() {
 			update_user_meta( $partner_id, "partner_renewal_uuid", $partner_renewal_uuid );
 		}
 
+		$partner_object = new RenewalPartner();
+		$partner_object->id = $partner_id;
+		$partner_object->name = $partner_name;
+		$partner_object->category = $partner_role;
+		$partner_object->contactName = $partner_contact_name;
+		$partner_object->contactEmail = $partner_contact_email;
+
+		$partner_object->renewedUntil = $partner_renewed_until;
+		$partner_object->renewedDate = $partner_renewed_date;
+		$partner_object->renewedStatus = $partner_renewed_status;
+		$partner_object->renewalUUID = $partner_renewal_uuid;
+
 		$partner_email1Sent = get_user_meta($partner_id, "partner_renewal_email1_sent", true);
 		$partner_email2Sent = get_user_meta($partner_id, "partner_renewal_email2_sent", true);
 		$partner_email3Sent = get_user_meta($partner_id, "partner_renewal_email3_sent", true);
@@ -1131,17 +1165,7 @@ function xhrGetRenewalData() {
 		$partner_object->email4Status = $partner_email4Status;
 		$partner_object->emailTStatus = $partner_emailTStatus;
 
-		$partner_object = new RenewalPartner();
-		$partner_object->id = $partner_id;
-		$partner_object->name = $partner_name;
-		$partner_object->category = $partner_role;
-		$partner_object->contactName = $partner_contact_name;
-		$partner_object->contactEmail = $partner_contact_email;
-
-		$partner_object->renewedUntil = $partner_renewed_until;
-		$partner_object->renewedDate = $partner_renewed_date;
-		$partner_object->renewedStatus = $partner_renewed_status;
-		$partner_object->renewalUUID = $partner_renewal_uuid;
+		$partner_object->profileURL = get_author_posts_url($partner_id);
 
 		$renewalPartnersArray[] = $partner_object;
 		$partner_object = null;
