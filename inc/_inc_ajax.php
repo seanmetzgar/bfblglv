@@ -291,6 +291,8 @@ add_action("wp_ajax_nopriv_xhrGetRenewalPartner", "xhrGetRenewalPartner");
 add_action("wp_ajax_xhrGetRenewalPartner", "xhrGetRenewalPartner");
 add_action("wp_ajax_nopriv_xhrMarkRenewalPaid", "xhrMarkRenewalPaid");
 add_action("wp_ajax_xhrMarkRenewalPaid", "xhrMarkRenewalPaid");
+add_action("wp_ajax_nopriv_xhrUpdateRenewalPartnerEmail", "xhrUpdateRenewalPartnerEmail");
+add_action("wp_ajax_xhrUpdateRenewalPartnerEmail", "xhrUpdateRenewalPartnerEmail");
 
 //XHR Helpers
 function xlsBreaks($string) {
@@ -1119,6 +1121,58 @@ function xhrGetRenewalData() {
 
 	header('Content-Type: application/json');
 	echo $partnerData;
+
+   	die();
+}
+
+function xhrUpdateRenewalPartnerEmail() {
+	$user_id = (int)$_REQUEST["id"];
+	$renewal_uuid = $_REQUEST["uuid"];
+	$email_id = $_REQUEST["email"];
+	$email_status = $_REQUEST["sent"];
+
+	$user_id = (is_int($user_id)) ? $user_id : false;
+	$renewal_uuid = (UUID::is_valid($renewal_uuid)) ? $renewal_uuid : false;
+	$email_id = (is_string($email_id)) ? $email_id : false;
+	$email_status = (is_bool($email_status)) ? (bool)$email_status : false;
+
+	if ($email_id) {
+		switch ($email_id) {
+	    	case "R1":
+	    		$email_meta_prefix = "partner_renewal_email1";
+	    		break;
+	    	case "R2":
+	    		$email_meta_prefix = "partner_renewal_email2";
+	    		break;
+	    	case "R3":
+	    		$email_meta_prefix = "partner_renewal_email3";
+	    		break;
+	    	case "R4":
+	    		$email_meta_prefix = "partner_renewal_email4";
+	    		break;
+	    	case "RT":
+	    		$email_meta_prefix = "partner_renewal_emailT";
+	    		break;
+	    	default:
+	    		$email_meta_prefix = false;
+	    }
+	}
+
+	$renewalYear = getRenewalYear();
+	$status = false;
+
+	if ($user_id && $renewal_uuid && $email_id && $email_meta_prefix) {
+		update_user_meta( $partner_id, "{$email_meta_prefix}_sent", $renewalYear );
+		update_user_meta( $partner_id, "{$email_meta_prefix}_status", $email_status );
+		$status = true;
+	}
+
+	$data = new XHRStatus;
+	$data->status = $status;
+	$data = json_encode($data);
+
+	header('Content-Type: application/json');
+	echo $data;
 
    	die();
 }
