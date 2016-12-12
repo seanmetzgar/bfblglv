@@ -22,6 +22,17 @@ class RenewalPartner {
 	public $renewedStatus = 0;
 	public $renewalUUID = false;
 	public $profileURL = false;
+
+	public $email1Sent = false;
+	public $email2Sent = false;
+	public $email3Sent = false;
+	public $email4Sent = false;
+	public $emailTSent = false;
+	public $email1Status = false;
+	public $email2Status = false;
+	public $email3Status = false;
+	public $email4Status = false;
+	public $emailTStatus = false;
 }
 class RenewalData {
 	public $year = false;
@@ -1097,6 +1108,28 @@ function xhrGetRenewalData() {
 			$partner_renewal_uuid = UUID::v4();
 			update_user_meta( $partner_id, "partner_renewal_uuid", $partner_renewal_uuid );
 		}
+
+		$partner_email1Sent = get_user_meta($partner_id, "partner_renewal_email1_sent", true);
+		$partner_email2Sent = get_user_meta($partner_id, "partner_renewal_email2_sent", true);
+		$partner_email3Sent = get_user_meta($partner_id, "partner_renewal_email3_sent", true);
+		$partner_email4Sent = get_user_meta($partner_id, "partner_renewal_email4_sent", true);
+		$partner_emailTSent = get_user_meta($partner_id, "partner_renewal_emailT_sent", true);
+		$partner_email1Status = get_user_meta($partner_id, "partner_renewal_email1_status", true);
+		$partner_email2Status = get_user_meta($partner_id, "partner_renewal_email2_status", true);
+		$partner_email3Status = get_user_meta($partner_id, "partner_renewal_email3_status", true);
+		$partner_email4Status = get_user_meta($partner_id, "partner_renewal_email4_status", true);
+		$partner_emailTStatus = get_user_meta($partner_id, "partner_renewal_emailT_status", true);
+
+		$partner_object->email1Sent = ($partner_email1Sent == $renewalYear) ? true : false;
+		$partner_object->email2Sent = ($partner_email2Sent == $renewalYear) ? true : false;
+		$partner_object->email3Sent = ($partner_email3Sent == $renewalYear) ? true : false;
+		$partner_object->email4Sent = ($partner_email4Sent == $renewalYear) ? true : false;
+		$partner_object->emailTSent = ($partner_emailTSent == $renewalYear) ? true : false;
+		$partner_object->email1Status = $partner_email1Status;
+		$partner_object->email2Status = $partner_email2Status;
+		$partner_object->email3Status = $partner_email3Status;
+		$partner_object->email4Status = $partner_email4Status;
+		$partner_object->emailTStatus = $partner_emailTStatus;
 
 		$partner_object = new RenewalPartner();
 		$partner_object->id = $partner_id;
