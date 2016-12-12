@@ -1191,7 +1191,7 @@ function xhrUpdateRenewalPartnerEmail() {
 	$user_id = (is_int($user_id)) ? $user_id : false;
 	$renewal_uuid = (UUID::is_valid($renewal_uuid)) ? $renewal_uuid : false;
 	$email_id = (is_string($email_id)) ? $email_id : false;
-	$email_status = (is_bool($email_status)) ? (bool)$email_status : false;
+	$email_status = ($email_status == "1" || $email_status == "true") ? true : false;
 
 	if ($email_id) {
 		switch ($email_id) {
