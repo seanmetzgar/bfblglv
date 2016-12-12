@@ -1031,11 +1031,11 @@ function xhrGetRenewalPartner() {
 			$partner_object->email3Sent = ($partner_email3Sent == $renewalYear) ? true : false;
 			$partner_object->email4Sent = ($partner_email4Sent == $renewalYear) ? true : false;
 			$partner_object->emailTSent = ($partner_emailTSent == $renewalYear) ? true : false;
-			$partner_object->email1Status = $partner_email1Status;
-			$partner_object->email2Status = $partner_email2Status;
-			$partner_object->email3Status = $partner_email3Status;
-			$partner_object->email4Status = $partner_email4Status;
-			$partner_object->emailTStatus = $partner_emailTStatus;
+			$partner_object->email1Status = $partner_email1Status ? true : false;
+			$partner_object->email2Status = $partner_email2Status ? true : false;
+			$partner_object->email3Status = $partner_email3Status ? true : false;
+			$partner_object->email4Status = $partner_email4Status ? true : false;
+			$partner_object->emailTStatus = $partner_emailTStatus ? true : false;
 
 			$partner_object->profileURL = get_author_posts_url($partner_id);
 		} else {
@@ -1159,11 +1159,11 @@ function xhrGetRenewalData() {
 		$partner_object->email3Sent = ($partner_email3Sent == $renewalYear) ? true : false;
 		$partner_object->email4Sent = ($partner_email4Sent == $renewalYear) ? true : false;
 		$partner_object->emailTSent = ($partner_emailTSent == $renewalYear) ? true : false;
-		$partner_object->email1Status = $partner_email1Status;
-		$partner_object->email2Status = $partner_email2Status;
-		$partner_object->email3Status = $partner_email3Status;
-		$partner_object->email4Status = $partner_email4Status;
-		$partner_object->emailTStatus = $partner_emailTStatus;
+		$partner_object->email1Status = $partner_email1Status ? true : false;
+		$partner_object->email2Status = $partner_email2Status ? true : false;
+		$partner_object->email3Status = $partner_email3Status ? true : false;
+		$partner_object->email4Status = $partner_email4Status ? true : false;
+		$partner_object->emailTStatus = $partner_emailTStatus ? true : false;
 
 		$partner_object->profileURL = get_author_posts_url($partner_id);
 
