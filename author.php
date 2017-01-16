@@ -391,6 +391,23 @@ get_header(); ?>
 					}
 				}
 
+				$is_agritourism = false;
+				if (in_array("farm", $partner_category) || 
+					in_array("distillery", $partner_category) || 
+					in_array("vineyard", $partner_category) || 
+					in_array("specialty", $partner_category)) {
+					$is_agritourism = get_field("is_agritourism", $acf_partner_id);
+					$is_agritourism = is_bool($is_agritourism) ? $is_agritourism : false;
+
+					if ($is_agritourism) {
+						$agritourism_heading = "Agritourism Information";
+						$agritourism_events_heading = "Agritourism Events";
+						$agritourism_description = get_field("agritourism_description", $acf_partner_id);
+						$agritourism_photo = get_field("agritourism_photo", $acf_partner_id);
+					}
+				}
+
+
 				?>
 				<article id="partner-<?php the_ID(); ?>" class="partner-profile">
 					<?php get_template_part("entry", "partner-header"); ?>
@@ -1249,6 +1266,29 @@ get_header(); ?>
 							</div><!-- end div -->
 						</div><!-- end div.entry-wholesale-information -->
 						<?php endif; endif; ?>
+
+						<?php if ($is_agritourism): ?>
+						<div class="entry-agritourism">
+							<h2 class="greenHeader"><?php echo $agritourism_heading; ?></h2>
+
+							<div>
+								<div class="page-block product-info-contents">
+									<?php if ($agritourism_photo) ?>
+									<div class="product-info-left">
+										<div class="agritourism-photo">
+											<img src="<?php echo $agritourism_photo; ?>">
+										</div>
+									</div>
+									<?php endif; ?>
+
+									<div class="<?php if ($agritourism_photo) echo "partner-agritourism-right "; ?>entry-content">
+										<h3><?php echo $agritourism_events_heading; ?></h3>
+										<?php if ($agritourism_description) echo $agritourism_description; ?>
+									</div>
+								</div>
+							</div>
+						</div><!-- end div.entry-agritourism -->
+						<?php endif; ?>
 
 					</section><!-- end section.partner-content -->
 
