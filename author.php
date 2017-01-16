@@ -1350,11 +1350,11 @@ get_header(); ?>
 															<?php if ($tempEventDesc) echo "<p class=\"description\">$tempEventDesc</p>"; ?>
 															<?php if ($tempHasSeason) echo "<p class=\"season\">$tempSeasonString</p>"; ?>
 															<?php if (count($tempHours) > 0) { 
-																echo "<p class=\"hours\"><em>";
+																echo "<p class=\"hours\">";
 																foreach($tempHours as $tempHour) {
 																	echo "$tempHour<br>";
 																}
-																echo "</em></p>";
+																echo "</p>";
 															} ?>
 														</div>
 													<?php endif;

@@ -2956,12 +2956,10 @@ body.single-events .entry-content .post-meta {
 .agritourism-event p,
 .agritourism-event ul {
 	font-size: 14px; font-size: 0.875rem;
+	line-height: 20px;
+	color: #72706b;
 }
-.agritourism-event ul {
-	padding-left: 0.25em;
-}
-.agritourism-event ul li {
-	margin: 0; padding: 0 0 0 1em;
+.agritourism-event .description {
 	font-style: italic;
 }
 
