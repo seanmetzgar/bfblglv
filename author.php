@@ -404,7 +404,7 @@ get_header(); ?>
 						$agritourism_photo = get_field("agritourism_photo", $acf_partner_id);
 						$agritourism_products = get_field("products_agritourism", $acf_partner_id);
 						$agritourism_products = (is_array($agritourism_products) && count($agritourism_products) > 0) ? $agritourism_products : false;
-						$agritourism_products_string = $agritourism_products ? implode(", ", $agritourism_products);
+						$agritourism_products_string = $agritourism_products ? implode(", ", $agritourism_products) : "";
 					}
 				}
 
