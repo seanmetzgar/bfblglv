@@ -1346,9 +1346,9 @@ get_header(); ?>
 
 													if ($tempEventTitle && ($tempEventDesc || $tempHasSeason || count($tempHours) > 0)): ?>
 														<div class="<?php echo $agritourism_event_class; ?>">
-															<h4><?php echo $tempEventTitle; ?></h4>
+															<h5><?php echo $tempEventTitle; ?></h5>
 															<?php if ($tempEventDesc) echo "<p class=\"description\">$tempEventDesc</p>"; ?>
-															<?php if ($tempHasSeason) echo "<p class=\"season\">$tempHasSeason</p>"; ?>
+															<?php if ($tempHasSeason) echo "<p class=\"season\">$tempSeasonString</p>"; ?>
 															<?php if (count($tempHours) > 0) { 
 																echo "<ul class=\"hours\">";
 																foreach($tempHours as $tempHour) {
