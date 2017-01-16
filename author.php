@@ -1273,7 +1273,7 @@ get_header(); ?>
 
 							<div>
 								<div class="page-block product-info-contents">
-									<?php if ($agritourism_photo) ?>
+									<?php if ($agritourism_photo): ?>
 									<div class="product-info-left">
 										<div class="agritourism-photo">
 											<img src="<?php echo $agritourism_photo; ?>">
