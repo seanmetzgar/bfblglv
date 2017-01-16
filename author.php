@@ -146,7 +146,6 @@ get_header(); ?>
 						$products["dairy"] = get_field("products_dairy", $acf_partner_id);
 						$products["meat"] = get_field("products_meat", $acf_partner_id);
 						$products["poultry"] = get_field("products_poultry", $acf_partner_id);
-						$products["agritourism"] = get_field("products_agritourism", $acf_partner_id);
 						$products["fibers"] = get_field("products_fibers", $acf_partner_id);
 						$products["artisinal"] = get_field("products_artisinal", $acf_partner_id);
 						$products["liquids"] = get_field("products_liquids", $acf_partner_id);
@@ -173,7 +172,6 @@ get_header(); ?>
 						$ws_products["dairy"] = get_field("ws_products_dairy", $acf_partner_id);
 						$ws_products["meat"] = get_field("ws_products_meat", $acf_partner_id);
 						$ws_products["poultry"] = get_field("ws_products_poultry", $acf_partner_id);
-						$ws_products["agritourism"] = get_field("ws_products_agritourism", $acf_partner_id);
 						$ws_products["fibers"] = get_field("ws_products_fibers", $acf_partner_id);
 						$ws_products["artisinal"] = get_field("ws_products_artisinal", $acf_partner_id);
 						$ws_products["liquids"] = get_field("ws_products_liquids", $acf_partner_id);
@@ -404,6 +402,9 @@ get_header(); ?>
 						$agritourism_events_heading = "Agritourism Events";
 						$agritourism_description = get_field("agritourism_description", $acf_partner_id);
 						$agritourism_photo = get_field("agritourism_photo", $acf_partner_id);
+						$agritourism_products = get_field("products_agritourism", $acf_partner_id);
+						$agritourism_products = (is_array($agritourism_products) && count($agritourism_products) > 0) ? $agritourism_products : false;
+						$agritourism_products_string = $agritourism_products ? implode(", ", $agritourism_products);
 					}
 				}
 
@@ -1267,7 +1268,7 @@ get_header(); ?>
 						</div><!-- end div.entry-wholesale-information -->
 						<?php endif; endif; ?>
 
-						<?php if ($is_agritourism): ?>
+						<?php if ($is_agritourism && ($agritourism_description || $agritourism_products)): ?>
 						<div class="entry-agritourism">
 							<h2 class="greenHeader"><?php echo $agritourism_heading; ?></h2>
 
@@ -1283,6 +1284,7 @@ get_header(); ?>
 
 									<div class="<?php if ($agritourism_photo) echo "partner-agritourism-right "; ?>entry-content">
 										<h3><?php echo $agritourism_events_heading; ?></h3>
+										<?php if ($agritourism_products) echo "<p><em>{$agritourism_products_string}</em></p>"; ?>
 										<?php if ($agritourism_description) echo $agritourism_description; ?>
 									</div>
 								</div>
