@@ -2953,6 +2953,9 @@ body.single-events .entry-content .post-meta {
 	margin: 0;
 	padding-bottom: 0;
 }
+.agritourism-event ul {
+	padding-left: 0.25em;
+}
 .agritourism-event ul li {
 	margin: 0; padding: 0 0 0 1em;
 	font-style: italic;
