@@ -405,6 +405,9 @@ get_header(); ?>
 						$agritourism_products = get_field("products_agritourism", $acf_partner_id);
 						$agritourism_products = (is_array($agritourism_products) && count($agritourism_products) > 0) ? $agritourism_products : false;
 						$agritourism_products_string = $agritourism_products ? implode(", ", $agritourism_products) : "";
+
+						$agritourism_event_class = ($agritourism_photo) ? "col-sm-6" : "col-sm-4";
+						$agritourism_event_class .= " agritourism-event";
 					}
 				}
 
@@ -1286,6 +1289,78 @@ get_header(); ?>
 										<h3><?php echo $agritourism_events_heading; ?></h3>
 										<?php if ($agritourism_products) echo "<p><em>{$agritourism_products_string}</em></p>"; ?>
 										<?php if ($agritourism_description) echo $agritourism_description; ?>
+										<?php
+											$agritourism_events = array();
+											if (have_rows("agritourism_events", $acf_partner_id)) {
+												while (have_rows("agritourism_events", $acf_partner_id)) {
+													echo "<div class=\"row\">";
+													the_row();
+													$tempEventTitle = get_sub_field("title");
+													$tempEventDesc = get_sub_field("description");
+													$tempHasSeason = get_sub_field("is_seasonal");
+													$tempSeasonString = "";
+													$tempHasHours = false;
+													$tempHours = array();
+													if ($tempHasSeason) {
+														$tempSeasonStartMonthPart = get_sub_field("season_start_mpart");
+														$tempSeasonStartMonth = get_sub_field("season_start_month");
+														$tempSeasonEndMonthPart = get_sub_field("season_end_mpart");
+														$tempSeasonEndMonth = get_sub_field("season_end_month");
+
+
+														if ($tempSeasonStartMonth && $tempSeasonStartMonthPart) {
+															$tempSeasonStart = "$tempSeasonStartMonthPart $tempSeasonStartMonth";
+														} elseif ($tempSeasonStartMonth) {
+															$tempSeasonStart = "$tempSeasonStartMonth";
+														}
+
+														if ($tempSeasonEndMonth && $tempSeasonEndMonthPart) {
+															$tempSeasonEnd = "$tempSeasonEndMonthPart $tempSeasonEndMonth";
+														} elseif ($tempSeasonEndMonth) {
+															$tempSeasonEnd = "$tempSeasonEndMonth";
+														}
+
+														if ($tempSeasonStart && $tempSeasonEnd) {
+															$tempSeasonString = "$tempSeasonStart - $tempSeasonEnd";
+														} else {
+															$tempHasSeason = false;
+														}
+													}
+
+													if (have_rows("hours")) {
+														while (have_rows("hours")) {
+															the_row();
+															$tempDay = get_sub_field("day");
+															$tempOpen = get_sub_field("open_time");
+															$tempClose = get_sub_field("open_time");
+															if ($tempDay) {
+																$tempHour = "$tempDay";
+																if ($tempOpen && $tempClose) {
+																	$tempHour .= ": $tempOpen - $tempClose";
+																}
+																$tempHours[] = $tempHour;
+															}
+														}
+													}
+
+
+													if ($tempEventTitle && ($tempEventDesc || $tempHasSeason || count($tempHours) > 0)): ?>
+														<div class="<?php echo $agritourism_event_class; ?>">
+															<h4><?php echo $tempEventTitle; ?></h4>
+															<?php if ($tempEventDesc) echo "<p class=\"description\">$tempEventDesc</p>"; ?>
+															<?php if ($tempHasSeason) echo "<p class=\"season\">$tempHasSeason</p>"; ?>
+															<?php if (count($tempHours) > 0) { 
+																echo "<ul class=\"hours\">";
+																foreach($tempHours as $tempHour) {
+																	echo "<li>$tempHour</li>";
+																}
+																echo "</ul>";
+															} ?>
+														</div>
+													<?php endif;
+												}
+												echo "</div>";
+											} ?>
 									</div>
 								</div>
 							</div>
