@@ -2941,12 +2941,21 @@ body.single-events .entry-content .post-meta {
 
 .practices-wrap p,
 .practices-wrap h5,
-.practices-wrap h4,
-.agritourism-event p,
-.agritourism-event h5,
-.agritourism-event h4 {
+.practices-wrap h4 {
 	margin: 0;
 	padding-bottom: 6px; padding-bottom: 0.375rem;
+}
+
+.agritourism-event p,
+.agritourism-event h4,
+.agritourism-event h5,
+.agritourism-event ul {
+	margin: 0;
+	padding-bottom: 0;
+}
+.agritourism-event ul li {
+	margin: 0; padding: 0 0 0 1em;
+	font-style: italic;
 }
 
 /* FIND LOCAL FOOD - MAP PAGE */
