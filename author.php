@@ -1139,7 +1139,7 @@ get_header(); ?>
 						<?php endif; endif; ?>
 
 						<?php if ($is_agritourism && ($agritourism_description || $agritourism_products)): ?>
-						<div class="entry-agritourism">
+						<div class="entry-agritourism" id="agritourism">
 							<h2 class="greenHeader"><?php echo $agritourism_heading; ?></h2>
 
 							<div>
