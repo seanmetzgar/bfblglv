@@ -400,7 +400,6 @@ get_header(); ?>
 					if ($is_agritourism) {
 						$agritourism_heading = "Agritourism Information";
 						$agritourism_events_heading = "Agritourism Activities";
-						$agritourism_description = get_field("agritourism_description", $acf_partner_id);
 						$agritourism_photo = get_field("agritourism_photo", $acf_partner_id);
 						$agritourism_products = get_field("products_agritourism", $acf_partner_id);
 						$agritourism_products = (is_array($agritourism_products) && count($agritourism_products) > 0) ? $agritourism_products : false;
@@ -1138,7 +1137,7 @@ get_header(); ?>
 						</div><!-- end div.entry-csa-details -->
 						<?php endif; endif; ?>
 
-						<?php if ($is_agritourism && ($agritourism_description || $agritourism_products)): ?>
+						<?php if ($is_agritourism && $agritourism_products): ?>
 						<div class="entry-agritourism" id="agritourism">
 							<h2 class="greenHeader"><?php echo $agritourism_heading; ?></h2>
 
@@ -1154,8 +1153,6 @@ get_header(); ?>
 
 									<div class="<?php if ($agritourism_photo) echo "partner-agritourism-right "; ?>entry-content">
 										<h3><?php echo $agritourism_events_heading; ?></h3>
-										<?php if ($agritourism_products) echo "<p><em>{$agritourism_products_string}</em></p>"; ?>
-										<?php if ($agritourism_description) echo $agritourism_description; ?>
 										<?php
 											$agritourism_events = array();
 											if (have_rows("agritourism_events", $acf_partner_id)) {
@@ -1227,7 +1224,7 @@ get_header(); ?>
 													<?php endif;
 												}
 												echo "</div>";
-											} ?>
+											} elseif ($agritourism_products) echo "<p><em>{$agritourism_products_string}</em></p>"; ?>
 									</div>
 								</div>
 							</div>
