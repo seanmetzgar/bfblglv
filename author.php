@@ -1269,8 +1269,6 @@ get_header(); ?>
 							$practices = ($only_organic || $integrated_pest_management || $non_gmo || $antibiotic_harmone_free || $pastured || $grass_fed || $extended_growing_season || $other_farming_practices_text) ? true : false;
 							$benefits = ($accept_fmnp || $accept_snap) ? true : false;
 
-							}
-
 							if ($certifications ||
 								$practices ||
 								$benefits ||
