@@ -399,7 +399,7 @@ get_header(); ?>
 
 					if ($is_agritourism) {
 						$agritourism_heading = "Agritourism Information";
-						$agritourism_events_heading = "Agritourism Events";
+						$agritourism_events_heading = "Agritourism Activities";
 						$agritourism_description = get_field("agritourism_description", $acf_partner_id);
 						$agritourism_photo = get_field("agritourism_photo", $acf_partner_id);
 						$agritourism_products = get_field("products_agritourism", $acf_partner_id);
@@ -804,40 +804,7 @@ get_header(); ?>
 						<?php endif; ?>
 
 						<?php if (in_array("farm", $partner_category)):
-							$certified_organic = get_field("certified_organic", $acf_partner_id);
-							$certified_naturally_grown = get_field("certified_naturally_grown", $acf_partner_id);
-							$certified_biodynamic = get_field("certified_biodynamic", $acf_partner_id);
-
-							if ($certified_organic) {
-								$certified_organic_since = get_field("certified_organic_since", $acf_partner_id);
-								$certified_organic_by = get_field("certified_organic_by", $acf_partner_id);
-							}
-							if ($certified_naturally_grown) {
-								$certified_naturally_grown_since = get_field("certified_naturally_grown_since", $acf_partner_id);
-							}
-							if ($certified_biodynamic) {
-								$certified_biodynamic_since = get_field("certified_biodynamic_since", $acf_partner_id);
-								$certified_biodynamic_by = get_field("certified_biodynamic_by", $acf_partner_id);
-							}
-
-							$only_organic = get_field("only_organic", $acf_partner_id);
-							$integrated_pest_management = get_field("integrated_pest_management", $acf_partner_id);
-							$non_gmo = get_field("non_gmo", $acf_partner_id);
-							$antibiotic_harmone_free = get_field("antibiotic_harmone_free", $acf_partner_id);
-							$pastured = get_field("pastured", $acf_partner_id);
-							$grass_fed = get_field("grass_fed", $acf_partner_id);
-							$extended_growing_season = get_field("extended_growing_season", $acf_partner_id);
-							$has_other_practices = get_field("has_other_practices", $acf_partner_id);
-							$has_other_practices = (is_bool($has_other_practices) && $has_other_practices) ? $has_other_practices : false;
-							$other_farming_practices_text = ($has_other_practices) ? get_field("other_practices", $acf_partner_id) : false;
-
-							$accept_snap = get_field("accept_snap", $acf_partner_id);
-							$accept_fmnp = get_field("accept_fmnp", $acf_partner_id);
-
-							$certifications = ($certified_organic || $certified_naturally_grown || $certified_biodynamic) ? true : false;
-							$practices = ($only_organic || $integrated_pest_management || $non_gmo || $antibiotic_harmone_free || $pastured || $grass_fed || $extended_growing_season || $other_farming_practices_text) ? true : false;
-							$benefits = ($accept_fmnp || $accept_snap) ? true : false;
-
+							$csa_section_title = "";
 							$csa_loops = array();
 							$is_csa = get_field("is_csa", $acf_partner_id);
 							$is_csa = (is_bool($is_csa)) ? $is_csa : false;
@@ -1000,164 +967,64 @@ get_header(); ?>
 										//Section Title
 										switch ($csa_type) {
 											case "csa":
-												$csa_data[$csa_type]["section_title"] = "CSA Details";
+												$csa_data[$csa_type]["section_title"] = "CSA";
 												break;
 											case "winter_csa":
-												$csa_data[$csa_type]["section_title"] = "Winter CSA Details";
+												$csa_data[$csa_type]["section_title"] = "Winter CSA";
 												break;
 											case "farm_share":
-												$csa_data[$csa_type]["section_title"] = "Farm Share Details";
+												$csa_data[$csa_type]["section_title"] = "Farm Share";
 												break;
 											default:
-												$csa_data[$csa_type]["section_title"] = "{$csa_type} Details";
+												$csa_data[$csa_type]["section_title"] = "{$csa_type}";
 										}
 									} else {
 										${"is_{$csa_type}"} = false;
 									}
-
-
 								}
 							}
-						?>
-						<?php if ($certifications ||
-							$practices ||
-							$benefits ||
-							$has_acreage ||
-							($is_csa &&
-								($csa_data["csa"]["has_season"] ||
-								$csa_data["csa"]["has_full_shares"] ||
-								$csa_data["csa"]["has_half_shares"] ||
-								$csa_data["csa"]["has_product_info"] ||
-								$csa_data["csa"]["possible_addons"] ||
-								$csa_data["csa"]["has_farm_pickup"] ||
-								$csa_data["csa"]["has_other_pickup"] ||
-								$csa_data["csa"]["has_home_delivery"])) ||
-							($is_winter_csa &&
-								($csa_data["winter_csa"]["has_season"] ||
-								$csa_data["winter_csa"]["has_full_shares"] ||
-								$csa_data["winter_csa"]["has_half_shares"] ||
-								$csa_data["winter_csa"]["has_product_info"] ||
-								$csa_data["winter_csa"]["possible_addons"] ||
-								$csa_data["winter_csa"]["has_farm_pickup"] ||
-								$csa_data["winter_csa"]["has_other_pickup"] ||
-								$csa_data["winter_csa"]["has_home_delivery"])) ||
-							($is_farm_share &&
-								($csa_data["farm_share"]["has_season"] ||
-								$csa_data["farm_share"]["has_full_shares"] ||
-								$csa_data["farm_share"]["has_half_shares"] ||
-								$csa_data["farm_share"]["has_product_info"] ||
-								$csa_data["farm_share"]["possible_addons"] ||
-								$csa_data["farm_share"]["has_farm_pickup"] ||
-								$csa_data["farm_share"]["has_other_pickup"] ||
-								$csa_data["farm_share"]["has_home_delivery"]))): ?>
-						<div class="entry-farm-practices">
-							<h2 class="greenHeader">Farm Details</h2>
+
+							if ($is_farm_share && ($is_winter_csa || $is_csa)) {
+								$csa_section_title = "CSA & Farm Share Details";
+							} elseif ($is_farm_share) {
+								$csa_section_title = "Farm Share Details";
+							} else {
+								$csa_section_title = "CSA Details";
+							}
+
+							if (
+								($is_csa &&
+									($csa_data["csa"]["has_season"] ||
+									$csa_data["csa"]["has_full_shares"] ||
+									$csa_data["csa"]["has_half_shares"] ||
+									$csa_data["csa"]["has_product_info"] ||
+									$csa_data["csa"]["possible_addons"] ||
+									$csa_data["csa"]["has_farm_pickup"] ||
+									$csa_data["csa"]["has_other_pickup"] ||
+									$csa_data["csa"]["has_home_delivery"])) ||
+								($is_winter_csa &&
+									($csa_data["winter_csa"]["has_season"] ||
+									$csa_data["winter_csa"]["has_full_shares"] ||
+									$csa_data["winter_csa"]["has_half_shares"] ||
+									$csa_data["winter_csa"]["has_product_info"] ||
+									$csa_data["winter_csa"]["possible_addons"] ||
+									$csa_data["winter_csa"]["has_farm_pickup"] ||
+									$csa_data["winter_csa"]["has_other_pickup"] ||
+									$csa_data["winter_csa"]["has_home_delivery"])) ||
+								($is_farm_share &&
+									($csa_data["farm_share"]["has_season"] ||
+									$csa_data["farm_share"]["has_full_shares"] ||
+									$csa_data["farm_share"]["has_half_shares"] ||
+									$csa_data["farm_share"]["has_product_info"] ||
+									$csa_data["farm_share"]["possible_addons"] ||
+									$csa_data["farm_share"]["has_farm_pickup"] ||
+									$csa_data["farm_share"]["has_other_pickup"] ||
+									$csa_data["farm_share"]["has_home_delivery"]))): ?>
+						<div class="entry-csa-details">
+							<h2 class="greenHeader"><?php echo $csa_section_title; ?></h2>
 
 							<div>
 								<div class="page-block product-info-contents">
-									<?php if ($certifications || $practices || $benefits || $has_acreage): ?>
-									<div class="row">
-										<h3 class="col-xs-12">Farming Practices</h3>
-										<?php if ($certifications): ?>
-										<div class="col-sm-4 practices-wrap">
-											<h4>Certifications</h4>
-											<ul class="farming-practices-list">
-												<?php
-												if ($certified_organic) {
-													echo "<li>Certified Organic";
-													if ($certified_organic_by || $certified_organic_since) {
-														echo "<br><em>(";
-														if ($certified_organic_since) {
-															echo "Since: $certified_organic_since";
-														}
-														if ($certified_organic_since && $certified_organic_by) {
-															echo " | ";
-														}
-														if ($certified_organic_by) {
-															echo "By: $certified_organic_by";
-														}
-														echo ")</em>";
-													}
-													echo "</li>";
-												}
-												if ($certified_naturally_grown) {
-													echo "<li>Certified Naturally Grown";
-													if ($certified_naturally_grown_since) {
-														echo "<br><em>(Since: $certified_naturally_grown_since)</em>";
-													}
-													echo "</li>";
-												}
-												if ($certified_biodynamic) {
-													echo "<li>Certified Biodynamic";
-													if ($certified_biodynamic_by || $certified_biodynamic_since) {
-														echo "<br><em>(";
-														if ($certified_biodynamic_since) {
-															echo "Since: $certified_biodynamic_since";
-														}
-														if ($certified_biodynamic_since && $certified_biodynamic_by) {
-															echo " | ";
-														}
-														if ($certified_biodynamic_by) {
-															echo "By: $certified_biodynamic_by";
-														}
-														echo ")</em>";
-													}
-													echo "</li>";
-												}
-												?>
-											</ul>
-										</div>
-										<?php endif;
-
-										if ($practices): ?>
-										<div class="col-sm-4 practices-wrap">
-											<h4>Practices</h4>
-											<ul class="farming-practices-list">
-												<?php
-												if ($only_organic) { echo "<li>Use Only Organic Materials</li>"; }
-												if ($integrated_pest_management) { echo "<li>Integrated Pest Management (IPM)</li>"; }
-												if ($non_gmo) { echo "<li>Non-GMO</li>"; }
-												if ($antibiotic_harmone_free) { echo "<li>Antibiotic and Hormone Free</li>"; }
-												if ($pastured) { echo "<li>Pastured</li>"; }
-												if ($grass_fed) { echo "<li>100% Grass Fed</li>"; }
-												if ($extended_growing_season) { echo "<li>Extended Growing Season</li>"; }
-												?>
-											</ul>
-												<?php if ($other_farming_practices_text): ?>
-											<h5 style="margin: 5px 0 0;">Other Practices</h5>
-											<?php echo $other_farming_practices_text; ?>
-											</p>
-												<?php endif; ?>
-										</div>
-										<?php endif;
-
-										if ($benefits): ?>
-										<div class="col-sm-4 practices-wrap">
-											<h4>Benefits Acceptance</h4>
-											<ul class="farming-practices-list">
-											<?php
-												if ($accept_snap) { echo "<li>Accept SNAP</li>"; }
-												if ($accept_fmnp) { echo "<li>Accept FMNP</li>"; }
-											?>
-											</ul>
-										</div>
-										<?php endif;
-
-										if ($has_acreage): ?>
-										<div class="col-sm-4 practices-wrap">
-											<h4>Acreage</h4>
-											<ul class="farming-practices-list">
-											<?php
-												if ($acres_owned) { echo "<li>Acres Owned: {$acres_owned}</li>"; }
-												if ($acres_rented) { echo "<li>Acres Rented: {$acres_rented}</li>"; }
-												if ($acres_production) { echo "<li>Acres in Production: {$acres_production}</li>"; }
-											?>
-											</ul>
-										</div>
-										<?php endif; ?>
-									</div>
-									<?php endif; ?>
-
 									<?php if (is_array($csa_loops) &&
 										(count($csa_loops) > 0) &&
 										is_array($csa_data)): //CSA - IF:A
@@ -1268,7 +1135,7 @@ get_header(); ?>
 									endif; //END CSA - IF:A ?>
 								</div><!-- end div.product-info-contents -->
 							</div><!-- end div -->
-						</div><!-- end div.entry-wholesale-information -->
+						</div><!-- end div.entry-csa-details -->
 						<?php endif; endif; ?>
 
 						<?php if ($is_agritourism && ($agritourism_description || $agritourism_products)): ?>
@@ -1366,6 +1233,159 @@ get_header(); ?>
 							</div>
 						</div><!-- end div.entry-agritourism -->
 						<?php endif; ?>
+
+						<?php if (in_array("farm", $partner_category)):
+							$certified_organic = get_field("certified_organic", $acf_partner_id);
+							$certified_naturally_grown = get_field("certified_naturally_grown", $acf_partner_id);
+							$certified_biodynamic = get_field("certified_biodynamic", $acf_partner_id);
+
+							if ($certified_organic) {
+								$certified_organic_since = get_field("certified_organic_since", $acf_partner_id);
+								$certified_organic_by = get_field("certified_organic_by", $acf_partner_id);
+							}
+							if ($certified_naturally_grown) {
+								$certified_naturally_grown_since = get_field("certified_naturally_grown_since", $acf_partner_id);
+							}
+							if ($certified_biodynamic) {
+								$certified_biodynamic_since = get_field("certified_biodynamic_since", $acf_partner_id);
+								$certified_biodynamic_by = get_field("certified_biodynamic_by", $acf_partner_id);
+							}
+
+							$only_organic = get_field("only_organic", $acf_partner_id);
+							$integrated_pest_management = get_field("integrated_pest_management", $acf_partner_id);
+							$non_gmo = get_field("non_gmo", $acf_partner_id);
+							$antibiotic_harmone_free = get_field("antibiotic_harmone_free", $acf_partner_id);
+							$pastured = get_field("pastured", $acf_partner_id);
+							$grass_fed = get_field("grass_fed", $acf_partner_id);
+							$extended_growing_season = get_field("extended_growing_season", $acf_partner_id);
+							$has_other_practices = get_field("has_other_practices", $acf_partner_id);
+							$has_other_practices = (is_bool($has_other_practices) && $has_other_practices) ? $has_other_practices : false;
+							$other_farming_practices_text = ($has_other_practices) ? get_field("other_practices", $acf_partner_id) : false;
+
+							$accept_snap = get_field("accept_snap", $acf_partner_id);
+							$accept_fmnp = get_field("accept_fmnp", $acf_partner_id);
+
+							$certifications = ($certified_organic || $certified_naturally_grown || $certified_biodynamic) ? true : false;
+							$practices = ($only_organic || $integrated_pest_management || $non_gmo || $antibiotic_harmone_free || $pastured || $grass_fed || $extended_growing_season || $other_farming_practices_text) ? true : false;
+							$benefits = ($accept_fmnp || $accept_snap) ? true : false;
+
+							}
+
+							if ($certifications ||
+								$practices ||
+								$benefits ||
+								$has_acreage): ?>
+						<div class="entry-farm-practices">
+							<h2 class="greenHeader">Farm Details</h2>
+
+							<div>
+								<div class="page-block product-info-contents">
+									<?php if ($certifications || $practices || $benefits || $has_acreage): ?>
+									<div class="row">
+										<h3 class="col-xs-12">Farming Practices</h3>
+										<?php if ($certifications): ?>
+										<div class="col-sm-4 practices-wrap">
+											<h4>Certifications</h4>
+											<ul class="farming-practices-list">
+												<?php
+												if ($certified_organic) {
+													echo "<li>Certified Organic";
+													if ($certified_organic_by || $certified_organic_since) {
+														echo "<br><em>(";
+														if ($certified_organic_since) {
+															echo "Since: $certified_organic_since";
+														}
+														if ($certified_organic_since && $certified_organic_by) {
+															echo " | ";
+														}
+														if ($certified_organic_by) {
+															echo "By: $certified_organic_by";
+														}
+														echo ")</em>";
+													}
+													echo "</li>";
+												}
+												if ($certified_naturally_grown) {
+													echo "<li>Certified Naturally Grown";
+													if ($certified_naturally_grown_since) {
+														echo "<br><em>(Since: $certified_naturally_grown_since)</em>";
+													}
+													echo "</li>";
+												}
+												if ($certified_biodynamic) {
+													echo "<li>Certified Biodynamic";
+													if ($certified_biodynamic_by || $certified_biodynamic_since) {
+														echo "<br><em>(";
+														if ($certified_biodynamic_since) {
+															echo "Since: $certified_biodynamic_since";
+														}
+														if ($certified_biodynamic_since && $certified_biodynamic_by) {
+															echo " | ";
+														}
+														if ($certified_biodynamic_by) {
+															echo "By: $certified_biodynamic_by";
+														}
+														echo ")</em>";
+													}
+													echo "</li>";
+												}
+												?>
+											</ul>
+										</div>
+										<?php endif;
+
+										if ($practices): ?>
+										<div class="col-sm-4 practices-wrap">
+											<h4>Practices</h4>
+											<ul class="farming-practices-list">
+												<?php
+												if ($only_organic) { echo "<li>Use Only Organic Materials</li>"; }
+												if ($integrated_pest_management) { echo "<li>Integrated Pest Management (IPM)</li>"; }
+												if ($non_gmo) { echo "<li>Non-GMO</li>"; }
+												if ($antibiotic_harmone_free) { echo "<li>Antibiotic and Hormone Free</li>"; }
+												if ($pastured) { echo "<li>Pastured</li>"; }
+												if ($grass_fed) { echo "<li>100% Grass Fed</li>"; }
+												if ($extended_growing_season) { echo "<li>Extended Growing Season</li>"; }
+												?>
+											</ul>
+												<?php if ($other_farming_practices_text): ?>
+											<h5 style="margin: 5px 0 0;">Other Practices</h5>
+											<?php echo $other_farming_practices_text; ?>
+											</p>
+												<?php endif; ?>
+										</div>
+										<?php endif;
+
+										if ($benefits): ?>
+										<div class="col-sm-4 practices-wrap">
+											<h4>Benefits Acceptance</h4>
+											<ul class="farming-practices-list">
+											<?php
+												if ($accept_snap) { echo "<li>Accept SNAP</li>"; }
+												if ($accept_fmnp) { echo "<li>Accept FMNP</li>"; }
+											?>
+											</ul>
+										</div>
+										<?php endif;
+
+										if ($has_acreage): ?>
+										<div class="col-sm-4 practices-wrap">
+											<h4>Acreage</h4>
+											<ul class="farming-practices-list">
+											<?php
+												if ($acres_owned) { echo "<li>Acres Owned: {$acres_owned}</li>"; }
+												if ($acres_rented) { echo "<li>Acres Rented: {$acres_rented}</li>"; }
+												if ($acres_production) { echo "<li>Acres in Production: {$acres_production}</li>"; }
+											?>
+											</ul>
+										</div>
+										<?php endif; ?>
+									</div>
+									<?php endif; ?>
+								</div><!-- end div.product-info-contents -->
+							</div><!-- end div -->
+						</div><!-- end div.entry-farm-practices -->
+						<?php endif; endif; ?>
 
 					</section><!-- end section.partner-content -->
 
