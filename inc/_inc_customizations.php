@@ -27,6 +27,7 @@ function manage_wp_posts_be_qe_pre_get_posts( $query ) {
          case 'user_last_updated':
             $query->set( 'meta_key', 'user_last_updated' );
             $query->set( 'orderby', 'meta_value' );
+            print_r($query);
             break;
 
       }
