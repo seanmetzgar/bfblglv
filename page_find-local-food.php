@@ -51,18 +51,18 @@ $specificProducts = get_specific_products();
 							<h2 class="greenHeader">Location Type</h2>
 							<div class="bfblSlideWrap">
 								<div class="form-inline page-block map-checkboxes">
-									<label><input type="checkbox" name="location_type[]" value="farm"><span>Farms</span></label>
+									<label><input type="checkbox" name="location_type[]" value="distillery"><span>Breweries &amp; Distilleries</span></label>
 									<label><input type="checkbox" name="location_type[]" value="csa"><span>CSAs</span></label>
-									<label><input type="checkbox" name="location_type[]" value="winter-csa"><span>Winter CSAs</span></label>
+									<label><input type="checkbox" name="location_type[]" value="distributor"><span>Distributors</span></label>
+									<label><input type="checkbox" name="location_type[]" value="farm"><span>Farms</span></label>
+									<label><input type="checkbox" name="location_type[]" value="farmers-market"><span>Farmers' Markets</span></label>
 									<label><input type="checkbox" name="location_type[]" value="farm-share"><span>Farm Shares</span></label>
+									<label><input type="checkbox" name="location_type[]" value="institution"><span>Institutions</span></label>
 									<label><input type="checkbox" name="location_type[]" value="restaurant"><span>Restaurants / Caterers</span></label>
+									<label><input type="checkbox" name="location_type[]" value="specialty"><span>Specialty Products</span></label>
 									<label><input type="checkbox" name="location_type[]" value="retail"><span>Stores / Retail</span></label>
 									<label><input type="checkbox" name="location_type[]" value="vineyard"><span>Vineyards</span></label>
-									<label><input type="checkbox" name="location_type[]" value="distillery"><span>Breweries &amp; Distilleries</span></label>
-									<label><input type="checkbox" name="location_type[]" value="institution"><span>Institutions</span></label>
-									<label><input type="checkbox" name="location_type[]" value="distributor"><span>Distributors</span></label>
-									<label><input type="checkbox" name="location_type[]" value="specialty"><span>Specialty Products</span></label>
-									<label><input type="checkbox" name="location_type[]" value="farmers-market"><span>Farmers' Markets</span></label>
+									<label><input type="checkbox" name="location_type[]" value="winter-csa"><span>Winter CSAs</span></label>
 								</div><!-- end div.map-checkboxes -->
 							</div><!-- end div.bfblSlideWrap -->
 						</section>
@@ -72,30 +72,31 @@ $specificProducts = get_specific_products();
 							<div class="bfblSlideWrap">
 
 								<div class="form-inline page-block map-checkboxes">
+									<label><input type="checkbox" name="product_type[]" value="agritourism"><span>Agritourism</span></label>
+									<label><input type="checkbox" name="product_type[]" value="artisinal"><span>Artisanal Products</span></label>
+									<label><input type="checkbox" name="product_type[]" value="baked"><span>Baked Goods</span></label>
+									<label><input type="checkbox" name="product_type[]" value="berries"><span>Berries</span></label>
+									<label><input type="checkbox" name="product_type[]" value="liquids"><span>Beverages</span></label>
+									<label><input type="checkbox" name="product_type[]" value="dairy"><span>Dairy</span></label>
+									<label><input type="checkbox" name="product_type[]" value="educational"><span>Educational Programs</span></label>
+									<label><input type="checkbox" name="product_type[]" value="flowers"><span>Flowers</span></label>
+									<label><input type="checkbox" name="product_type[]" value="grains"><span>Grains</span></label>
 									<label><input type="checkbox" name="product_type[]" value="greens"><span>Greens</span></label>
+									<label><input type="checkbox" name="product_type[]" value="herbs"><span>Herbs</span></label>
+									<label><input type="checkbox" name="product_type[]" value="syrups"><span>Honey / Syrups</span></label>
+									<label><input type="checkbox" name="product_type[]" value="meat"><span>Meat</span></label>
+									<label><input type="checkbox" name="product_type[]" value="melons"><span>Melons &amp; Pumpkins</span></label>
+									<label><input type="checkbox" name="product_type[]" value="seeds"><span>Nuts / Seeds</span></label>
+									<label><input type="checkbox" name="product_type[]" value="small_fruits"><span>Orchard &amp; Small Fruits</span></label>
+									<label><input type="checkbox" name="product_type[]" value="ornamentals"><span>Ornamentals</span></label>
+									<label><input type="checkbox" name="product_type[]" value="pyo"><span>Pick Your Own</span></label>
+									<label><input type="checkbox" name="product_type[]" value="plants"><span>Plants</span></label>
+									<label><input type="checkbox" name="product_type[]" value="poultry"><span>Poultry</span></label>
 									<label><input type="checkbox" name="product_type[]" value="roots"><span>Root Crops</span></label>
 									<label><input type="checkbox" name="product_type[]" value="seasonal"><span>Seasonal Vegetables</span></label>
-									<label><input type="checkbox" name="product_type[]" value="melons"><span>Melons &amp; Pumpkins</span></label>
-									<label><input type="checkbox" name="product_type[]" value="herbs"><span>Herbs</span></label>
-									<label><input type="checkbox" name="product_type[]" value="berries"><span>Berries</span></label>
-									<label><input type="checkbox" name="product_type[]" value="small_fruits"><span>Orchard &amp; Small Fruits</span></label>
-									<label><input type="checkbox" name="product_type[]" value="grains"><span>Grains</span></label>
 									<label><input type="checkbox" name="product_type[]" value="value_added"><span>Value-Added</span></label>
-									<label><input type="checkbox" name="product_type[]" value="flowers"><span>Flowers</span></label>
-									<label><input type="checkbox" name="product_type[]" value="plants"><span>Plants</span></label>
-									<label><input type="checkbox" name="product_type[]" value="ornamentals"><span>Ornamentals</span></label>
-									<label><input type="checkbox" name="product_type[]" value="syrups"><span>Honey / Syrups</span></label>
-									<label><input type="checkbox" name="product_type[]" value="dairy"><span>Dairy</span></label>
-									<label><input type="checkbox" name="product_type[]" value="meat"><span>Meat</span></label>
-									<label><input type="checkbox" name="product_type[]" value="poultry"><span>Poultry</span></label>
-									<label><input type="checkbox" name="product_type[]" value="agritourism"><span>Agritourism</span></label>
 									<label><input type="checkbox" name="product_type[]" value="fibers"><span>Wool / Fibers</span></label>
-									<label><input type="checkbox" name="product_type[]" value="artisinal"><span>Artisanal Products</span></label>
-									<label><input type="checkbox" name="product_type[]" value="liquids"><span>Beverages</span></label>
-									<label><input type="checkbox" name="product_type[]" value="educational"><span>Educational Programs</span></label>
-									<label><input type="checkbox" name="product_type[]" value="baked"><span>Baked Goods</span></label>
-									<label><input type="checkbox" name="product_type[]" value="seeds"><span>Nuts / Seeds</span></label>
-									<label><input type="checkbox" name="product_type[]" value="pyo"><span>Pick Your Own</span></label>
+
 									<label><input type="checkbox" name="product_type[]" value="misc"><span>Miscellaneous [e.g. Eggs]</span></label>
 								</div><!-- end div.map-checkboxes -->
 
