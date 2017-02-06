@@ -1151,7 +1151,7 @@ get_header(); ?>
 									</div>
 									<?php endif; ?>
 
-									<div class="<?php if ($agritourism_photo) echo "partner-agritourism-right "; ?>entry-content">
+									<div class="<?php if ($agritourism_photo) echo "product-info-right "; ?>entry-content">
 										<h3><?php echo $agritourism_events_heading; ?></h3>
 										<?php
 											$agritourism_events = array();
