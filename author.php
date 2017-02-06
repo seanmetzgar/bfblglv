@@ -1146,7 +1146,7 @@ get_header(); ?>
 									<?php if ($agritourism_photo): ?>
 									<div class="product-info-left">
 										<div class="agritourism-photo">
-											<img src="<?php echo $agritourism_photo; ?>">
+											<img src="<?php echo $agritourism_photo; ?>" class="img-responsive">
 										</div>
 									</div>
 									<?php endif; ?>
