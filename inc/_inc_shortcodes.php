@@ -117,7 +117,7 @@ function partner_last_updated_print($user_id = null){
         $last_updated = strtotime( $registered );
  
     }
-    $last_updated = date( "Y/m/d", $last_updated );
+    $last_updated = date( "F d, Y", $last_updated );
     return $last_updated;
 }
 
