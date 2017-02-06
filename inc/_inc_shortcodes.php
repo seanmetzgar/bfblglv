@@ -128,24 +128,24 @@ function blglv_modify_user_table( $column ) {
     return $column;
 }
 add_filter( 'manage_users_columns', 'blglv_modify_user_table' );
+
+
+function blglv_modify_user_table_content( $column_name, $user_id ) {
+    if ($column_name == "user_modified") {
+        echo partner_last_updated_print($user_id);
+    } elseif ($column_name == "partner_name") {
+        echo get_field("partner_name", "user_{$acf_partner_id}");
+    }
+    return;
+}
+add_action( 'manage_users_custom_column', 'blglv_modify_user_table_content', 10, 2 );
+
 function blglv_modify_user_sortable( $columns ) {
 	$columns['partner_name'] = 'partner_name';
     $columns['user_modified'] = 'user_modified';
     return $columns;
 }
 add_filter( 'manage_users_sortable_columns', 'blglv_modify_user_sortable' );
-
-function blglv_user_modified_sort( $vars ) {
-    if ( isset( $vars['orderby'] ) && 'user_modified' == $vars['orderby'] ) {
-        $vars = array_merge( $vars, array(
-            'meta_key' => 'user_last_updated',
-            'orderby' => 'meta_value'
-        ) );
-    }
-    header("Location: http://www.google.com");
-    return $vars;
-}
-add_filter( 'request', 'blglv_user_modified_sort' );
 
 function blglv_modify_user_table_row( $val, $column_name, $user_id ) {
     switch ($column_name) {
