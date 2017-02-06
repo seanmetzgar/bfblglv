@@ -123,33 +123,22 @@ function partner_last_updated_print($user_id = null){
 
 
 function blglv_modify_user_table( $column ) {
-    $column['user_modified'] = 'Last Updated';
+    $column['user_last_updated'] = 'Last Updated';
     $column['partner_name'] = 'Partner Name';
     return $column;
 }
 add_filter( 'manage_users_columns', 'blglv_modify_user_table' );
 
-
-function blglv_modify_user_table_content( $column_name, $user_id ) {
-    if ($column_name == "user_modified") {
-        echo partner_last_updated_print($user_id);
-    } elseif ($column_name == "partner_name") {
-        echo get_field("partner_name", "user_{$acf_partner_id}");
-    }
-    return;
-}
-add_action( 'manage_users_custom_column', 'blglv_modify_user_table_content', 10, 2 );
-
 function blglv_modify_user_sortable( $columns ) {
 	$columns['partner_name'] = 'partner_name';
-    $columns['user_modified'] = 'user_modified';
+    $columns['user_last_updated'] = 'user_last_updated';
     return $columns;
 }
 add_filter( 'manage_users_sortable_columns', 'blglv_modify_user_sortable' );
 
 function blglv_modify_user_table_row( $val, $column_name, $user_id ) {
     switch ($column_name) {
-        case 'user_modified' :
+        case 'user_last_updated' :
             $val = partner_last_updated_print($user_id);
             break;
         case 'partner_name':
