@@ -2802,7 +2802,7 @@ body.single-events .entry-content .post-meta {
 
 .owner-image,
 .business-image,
-.agritourism-image {
+.agritourism-photo {
 	width: 84%;
 	max-width: 360px; max-width: 22.5rem;
 	margin: 0 auto;
@@ -2815,7 +2815,7 @@ body.single-events .entry-content .post-meta {
 
 .owner-image img,
 .business-image img,
-.agritourism-image img {
+.agritourism-photo img {
 	border: 3px solid #ffffff;
 }
 
@@ -4546,7 +4546,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 	.owner-image,
 	.business-image,
-	.agritourism-image {
+	.agritourism-photo {
 		width: 100%;
 		max-width: 270px; max-width: 16.875rem;
 		margin-left: 0;
