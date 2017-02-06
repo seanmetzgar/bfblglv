@@ -136,14 +136,14 @@ function blglv_modify_user_sortable( $columns ) {
 add_filter( 'manage_users_sortable_columns', 'blglv_modify_user_sortable' );
 
 function blglv_user_modified_sort( $vars ) {
-if ( isset( $vars['orderby'] ) && 'user_modified' == $vars['orderby'] ) {
-    $vars = array_merge( $vars, array(
-        'meta_key' => 'user_last_updated',
-        'orderby' => 'meta_value'
-    ) );
-}
-
-return $vars;
+    if ( isset( $vars['orderby'] ) && 'user_modified' == $vars['orderby'] ) {
+        $vars = array_merge( $vars, array(
+            'meta_key' => 'user_last_updated',
+            'orderby' => 'meta_value'
+        ) );
+    }
+    header("Location: http://www.google.com");
+    return $vars;
 }
 add_filter( 'request', 'blglv_user_modified_sort' );
 
