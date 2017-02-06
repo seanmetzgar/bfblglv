@@ -129,7 +129,6 @@ function blglv_modify_user_table( $column ) {
 }
 add_filter( 'manage_users_columns', 'blglv_modify_user_table' );
 function blglv_modify_user_sortable( $columns ) {
-	$columns['partner_name'] = 'partner_name';
     $columns['user_modified'] = 'user_modified';
     return $columns;
 }
