@@ -21,17 +21,13 @@ function remove_menus(){
 
 add_action( 'pre_get_posts', 'manage_wp_posts_be_qe_pre_get_posts', 1 );
 function manage_wp_posts_be_qe_pre_get_posts( $query ) {
-   if ( is_admin() && $query->is_main_query() && ( $orderby = $query->get( 'orderby' ) ) ) {
+   if ( $query->is_main_query() && ( $orderby = $query->get( 'orderby' ) ) ) {
 
       switch( $orderby ) {
          case 'user_last_updated':
             $query->set( 'meta_key', 'user_last_updated' );
             $query->set( 'orderby', 'meta_value' );
-            print_r($query);
             break;
-
       }
-
    }
-
 }
