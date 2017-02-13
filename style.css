@@ -10,12 +10,3 @@ Text Domain: kudu
 */
 
 /** Go Look in /css/styles.css **/
-
-
-.columned-list {
-	column-count: 2;
-}
-
-.columned-list li {
-	font-weight: 1em;
-}

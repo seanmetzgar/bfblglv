@@ -5455,3 +5455,23 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
   top: 75px;
   opacity: 1;
 }
+
+
+
+
+.columned-list {
+	column-count: 2;
+}
+
+.columned-list ul,
+.columned-list ol {
+	display: none;
+}
+
+.columned-list li {
+	font-weight: 1em;
+
+	-webkit-column-break-inside: avoid;
+              page-break-inside: avoid;
+                   break-inside: avoid;
+}
