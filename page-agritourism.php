@@ -15,7 +15,7 @@ get_header(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<?php get_template_part("entry", "header"); ?>
 
-					<section class="entry-content<?php if ($has_video) echo " has-video"; ?>">
+					<section class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1 entry-content<?php if ($has_video) echo " has-video"; ?>">
 						<?php if ($has_video): ?>
 						<div class="video">
 							<div class="videoWrap">
