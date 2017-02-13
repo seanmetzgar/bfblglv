@@ -5470,9 +5470,6 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 }
 
 .columned-list li {
-	font-weight: 1em;
-	display: inline-block;
-
 	-webkit-column-break-inside: avoid;
               page-break-inside: avoid;
                    break-inside: avoid;
