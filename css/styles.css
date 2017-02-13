@@ -1223,6 +1223,7 @@ ul.green-bullets li {
 	margin-bottom: 8px; margin-bottom: 0.5rem;
 	font-weight: normal;
 	position: relative;
+	padding-left: 13px;
 }
 
 .entry-content ul li::before,
@@ -1230,10 +1231,10 @@ ul.green-bullets li::before {
 	content: '\2022';
 	font-size: 25px;
 	line-height: 1;
-	margin-left: -13px;
-	margin-top: -2px;
-	float: left;
-	display: inline-block;
+	position: absolute;
+	top: -2px; left: 0;
+	width: 13px;
+	display: block;
 	color: #008c5c;
 }
 
@@ -5470,6 +5471,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 .columned-list li {
 	font-weight: 1em;
+	display: inline-block;
 
 	-webkit-column-break-inside: avoid;
               page-break-inside: avoid;
