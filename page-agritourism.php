@@ -15,15 +15,17 @@ get_header(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<?php get_template_part("entry", "header"); ?>
 
-					<section class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1 entry-content<?php if ($has_video) echo " has-video"; ?>">
-						<?php if ($has_video): ?>
-						<div class="video">
-							<div class="videoWrap">
-								<?php echo $video; ?>
-							</div><!-- end div.videoWrap -->
-						</div><!-- end div.video -->
-						<?php endif; ?>
-						<?php the_content(); ?>
+					<section class="row entry-content<?php if ($has_video) echo " has-video"; ?>">
+						<div class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1">
+							<?php if ($has_video): ?>
+							<div class="video">
+								<div class="videoWrap">
+									<?php echo $video; ?>
+								</div><!-- end div.videoWrap -->
+							</div><!-- end div.video -->
+							<?php endif; ?>
+							<?php the_content(); ?>
+						</div>
 					</section>
 					<?php get_template_part("bfbl", "page-blocks"); ?>
 				</article>
