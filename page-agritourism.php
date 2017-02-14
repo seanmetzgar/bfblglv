@@ -6,14 +6,14 @@
  * @subpackage Buy_Local_GLV
  * @since Buy Local GLV 1.6.0
  */
-get_header(); 
-	$agritourism_query_args = array(
+get_header();
+	$partners__args = array(
 		"role__in" 		=> array("farm", "distillery", "vineyard", "specialty"),
 		"meta_key" 		=> "is_agritourism",
 		"meta_value" 	=> "1"
 	);
-	$agritourism_query = new WP_User_Query($agritourism_query_args);
-	$agritourism_partners = $agritourism_query->get_results();
+	$partners_query = new WP_User_Query($partners__args);
+	$partners = $agritourism_query->get_results();
 ?>
 			<section class="main-content" role="main">
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
@@ -36,9 +36,47 @@ get_header();
 						</div>
 					</section>
 
+					<?php if (!empty($agritourism_partners)): ?>
 					<section class="page-block odd partner-block">
-						<pre><?php print_r($agritourism_partners); ?></pre>
+						<ul>
+							<?php foreach ($partners as $partner): 
+								$partner_ID 	= $partner->ID;
+								// $partner_data = get_userdata($partner_ID);
+								$acf_partner_id = "user_{$partner_ID}";
+								$partner_url 	= get_author_posts_url($partner_ID);
+								$partner_name 	= get_field("partner_name", $acf_partner_id);
+								$partner_name 	= strlen($partner_name) > 0 ? 
+												$partner_name : 
+												$partner->display_name;
+								$partner_owner_photo = get_field("owner_photo", $acf_partner_id);
+								if (is_array($partner_owner_photo)) {
+									$partner_owner_photo = wp_get_attachment_image($partner_owner_photo["ID"], "full", false, array("class" => "img-responsive"));
+								} elseif (is_string($partner_owner_photo) && strlen($partner_owner_photo) > 0) {
+									$partner_owner_photo = "<img src=\"$partner_owner_photo\" class=\"img-responsive\">";
+								} else { $partner_owner_photo = false; }
+								$partner_business_photo = get_field("business_photo", $acf_partner_id);
+								if (is_array($partner_business_photo)) {
+									$partner_business_photo = wp_get_attachment_image($partner_business_photo["ID"], "full", false, array("class" => "img-responsive"));
+								} elseif (is_string($partner_business_photo) && strlen($partner_business_photo) > 0) {
+									$partner_business_photo = "<img src=\"$partner_business_photo\" class=\"img-responsive\">";
+								} else { $partner_business_photo = false; }
+							?>
+							<li><a href="<?php echo $partner_url; ?>" title="<?php echo $partner_name; ?>">
+								<?php if ($partner_business_photo || $partner_owner_photo): ?>
+								<figure class="image">
+									<?php if ($partner_business_photo) echo $partner_business_photo;
+									else echo $partner_owner_photo; ?>
+								</figure>
+								<?php else: ?>
+								<div class="pseudo-image">
+									<span><?php echo $partner_name; ?></span>
+								</div>
+								<?php endif; ?>
+							</a></li>
+							<?php endforeach; ?>
+						</ul>
 					</section>
+					<?php endif; ?>
 				</article>
 				<?php endwhile; endif; ?>
 			</section>
