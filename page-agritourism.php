@@ -7,13 +7,13 @@
  * @since Buy Local GLV 1.6.0
  */
 get_header();
-	$partners__args = array(
+	$partners_args = array(
 		"role__in" 		=> array("farm", "distillery", "vineyard", "specialty"),
 		"meta_key" 		=> "is_agritourism",
 		"meta_value" 	=> "1"
 	);
-	$partners_query = new WP_User_Query($partners__args);
-	$partners = $agritourism_query->get_results();
+	$partners_query = new WP_User_Query($partners_args);
+	$partners = $partners_query->get_results();
 ?>
 			<section class="main-content" role="main">
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
