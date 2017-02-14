@@ -36,8 +36,8 @@ get_header();
 						</div>
 					</section>
 
-					<?php if (!empty($agritourism_partners)): ?>
-					<section class="page-block odd partner-block">
+					<?php if (!empty($partners)): ?>
+					<section class="page-block odd partners-block">
 						<ul>
 							<?php foreach ($partners as $partner): 
 								$partner_ID 	= $partner->ID;
