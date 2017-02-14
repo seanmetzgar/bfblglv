@@ -64,8 +64,8 @@ get_header();
 							<li><a href="<?php echo $partner_url; ?>" title="<?php echo $partner_name; ?>">
 								<?php if ($partner_business_photo || $partner_owner_photo): ?>
 								<figure class="image">
-									<?php if ($partner_owner_photo) echo $partner_owner_photo;
-									else echo $partner_business_photo; ?>
+									<?php if ($partner_business_photo) echo $partner_business_photo;
+									else echo $partner_owner_photo; ?>
 								</figure>
 								<?php else: ?>
 								<div class="pseudo-image">
