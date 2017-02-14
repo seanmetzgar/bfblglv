@@ -6,7 +6,15 @@
  * @subpackage Buy_Local_GLV
  * @since Buy Local GLV 1.6.0
  */
-get_header(); ?>
+get_header(); 
+	$agritourism_query_args = array(
+		"role__in" 		=> array("farm", "distillery", "vineyard", "specialty"),
+		"meta_key" 		=> "is_agritourism",
+		"meta_value" 	=> "1"
+	);
+	$agritourism_query = new WP_User_Query($agritourism_query_args);
+	$agritourism_partners = $agritourism_query->get_results();
+?>
 			<section class="main-content" role="main">
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 					$has_video = get_field("has_video");
@@ -27,7 +35,10 @@ get_header(); ?>
 							<?php the_content(); ?>
 						</div>
 					</section>
-					<?php get_template_part("bfbl", "page-blocks"); ?>
+
+					<section class="page-block odd partner-block">
+						<pre><?php print_r($agritourism_partners); ?></pre>
+					</section>
 				</article>
 				<?php endwhile; endif; ?>
 			</section>
