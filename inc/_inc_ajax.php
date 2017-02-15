@@ -1341,7 +1341,7 @@ function xhrGetPartners() {
    	}
 
 	foreach ($locationTypes as $locationType) {
-		if (in_array($locationType, array("farm-share", "csa", "winter-csa"))) {
+		if (in_array($locationType, array("farm-share", "csa", "winter-csa", "fall-csa"))) {
             $locationTypePartners = null;
             $pseudoLocationType = "is_" . str_replace("-", "_", $locationType);
             $locationTypeQueryArgs = array(
