@@ -811,6 +811,9 @@ get_header(); ?>
 							$is_winter_csa = get_field("is_winter_csa", $acf_partner_id);
 							$is_winter_csa = (is_bool($is_winter_csa)) ? $is_winter_csa : false;
 							if ($is_winter_csa) { $csa_loops[] = "winter_csa"; }
+							$is_fall_csa = get_field("is_fall_csa", $acf_partner_id);
+							$is_fall_csa = (is_bool($is_fall_csa)) ? $is_fall_csa : false;
+							if ($is_fall_csa) { $csa_loops[] = "fall_csa"; }
 							$is_farm_share = get_field("is_farm_share", $acf_partner_id);
 							$is_farm_share = (is_bool($is_farm_share)) ? $is_farm_share : false;
 							if ($is_farm_share) { $csa_loops[] = "farm_share"; }
@@ -971,6 +974,9 @@ get_header(); ?>
 											case "winter_csa":
 												$csa_data[$csa_type]["section_title"] = "Winter CSA";
 												break;
+											case "fall_csa":
+												$csa_data[$csa_type]["section_title"] = "Fall CSA";
+												break;
 											case "farm_share":
 												$csa_data[$csa_type]["section_title"] = "Farm Share";
 												break;
@@ -983,7 +989,7 @@ get_header(); ?>
 								}
 							}
 
-							if ($is_farm_share && ($is_winter_csa || $is_csa)) {
+							if ($is_farm_share && ($is_fall_csa || $is_winter_csa || $is_csa)) {
 								$csa_section_title = "CSA & Farm Share Details";
 							} elseif ($is_farm_share) {
 								$csa_section_title = "Farm Share Details";
@@ -1010,6 +1016,15 @@ get_header(); ?>
 									$csa_data["winter_csa"]["has_farm_pickup"] ||
 									$csa_data["winter_csa"]["has_other_pickup"] ||
 									$csa_data["winter_csa"]["has_home_delivery"])) ||
+								($is_fall_csa &&
+									($csa_data["fall_csa"]["has_season"] ||
+									$csa_data["fall_csa"]["has_full_shares"] ||
+									$csa_data["fall_csa"]["has_half_shares"] ||
+									$csa_data["fall_csa"]["has_product_info"] ||
+									$csa_data["fall_csa"]["possible_addons"] ||
+									$csa_data["fall_csa"]["has_farm_pickup"] ||
+									$csa_data["fall_csa"]["has_other_pickup"] ||
+									$csa_data["fall_csa"]["has_home_delivery"])) ||
 								($is_farm_share &&
 									($csa_data["farm_share"]["has_season"] ||
 									$csa_data["farm_share"]["has_full_shares"] ||
