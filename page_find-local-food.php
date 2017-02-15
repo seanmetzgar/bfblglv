@@ -51,9 +51,8 @@ $specificProducts = get_specific_products();
 							<h2 class="greenHeader">Location Type</h2>
 							<div class="bfblSlideWrap">
 								<div class="form-inline page-block map-checkboxes">
-									<label><input type="checkbox" name="location_type[]" value="fall-csa"><span>Autumn CSA</span></label>
+									<label><input type="checkbox" name="location_type[]" value="fall-csa"><span>Autumn CSAs</span></label>
 									<label><input type="checkbox" name="location_type[]" value="distillery"><span>Breweries &amp; Distilleries</span></label>
-									<label><input type="checkbox" name="location_type[]" value="csa"><span>CSAs</span></label>
 									<label><input type="checkbox" name="location_type[]" value="distributor"><span>Distributors</span></label>
 									<label><input type="checkbox" name="location_type[]" value="farm"><span>Farms</span></label>
 									<label><input type="checkbox" name="location_type[]" value="farmers-market"><span>Farmers' Markets</span></label>
@@ -62,6 +61,7 @@ $specificProducts = get_specific_products();
 									<label><input type="checkbox" name="location_type[]" value="restaurant"><span>Restaurants / Caterers</span></label>
 									<label><input type="checkbox" name="location_type[]" value="specialty"><span>Specialty Products</span></label>
 									<label><input type="checkbox" name="location_type[]" value="retail"><span>Stores / Retail</span></label>
+									<label><input type="checkbox" name="location_type[]" value="csa"><span>Summer CSAs</span></label>
 									<label><input type="checkbox" name="location_type[]" value="vineyard"><span>Vineyards</span></label>
 									<label><input type="checkbox" name="location_type[]" value="winter-csa"><span>Winter CSAs</span></label>
 								</div><!-- end div.map-checkboxes -->

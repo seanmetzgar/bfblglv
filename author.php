@@ -390,9 +390,9 @@ get_header(); ?>
 				}
 
 				$is_agritourism = false;
-				if (in_array("farm", $partner_category) || 
-					in_array("distillery", $partner_category) || 
-					in_array("vineyard", $partner_category) || 
+				if (in_array("farm", $partner_category) ||
+					in_array("distillery", $partner_category) ||
+					in_array("vineyard", $partner_category) ||
 					in_array("specialty", $partner_category)) {
 					$is_agritourism = get_field("is_agritourism", $acf_partner_id);
 					$is_agritourism = is_bool($is_agritourism) ? $is_agritourism : false;
@@ -613,7 +613,7 @@ get_header(); ?>
 							<div>
 								<div class="page-block product-info-contents">
 									<div class="product-info-left">
-									<?php 
+									<?php
 									if (in_array("farm", $partner_category) || in_array("specialty", $partner_category) || in_array("restaurant", $partner_category) || in_array("distillery", $partner_category) || in_array("vineyard", $partner_category)) {
 										if ($partner_business_photo) {
 											echo '<div class="business-image">';
@@ -808,12 +808,15 @@ get_header(); ?>
 							$is_csa = get_field("is_csa", $acf_partner_id);
 							$is_csa = (is_bool($is_csa)) ? $is_csa : false;
 							if ($is_csa) { $csa_loops[] = "csa"; }
-							$is_winter_csa = get_field("is_winter_csa", $acf_partner_id);
-							$is_winter_csa = (is_bool($is_winter_csa)) ? $is_winter_csa : false;
-							if ($is_winter_csa) { $csa_loops[] = "winter_csa"; }
+
 							$is_fall_csa = get_field("is_fall_csa", $acf_partner_id);
 							$is_fall_csa = (is_bool($is_fall_csa)) ? $is_fall_csa : false;
 							if ($is_fall_csa) { $csa_loops[] = "fall_csa"; }
+
+							$is_winter_csa = get_field("is_winter_csa", $acf_partner_id);
+							$is_winter_csa = (is_bool($is_winter_csa)) ? $is_winter_csa : false;
+							if ($is_winter_csa) { $csa_loops[] = "winter_csa"; }
+
 							$is_farm_share = get_field("is_farm_share", $acf_partner_id);
 							$is_farm_share = (is_bool($is_farm_share)) ? $is_farm_share : false;
 							if ($is_farm_share) { $csa_loops[] = "farm_share"; }
@@ -969,13 +972,13 @@ get_header(); ?>
 										//Section Title
 										switch ($csa_type) {
 											case "csa":
-												$csa_data[$csa_type]["section_title"] = "CSA";
-												break;
-											case "winter_csa":
-												$csa_data[$csa_type]["section_title"] = "Winter CSA";
+												$csa_data[$csa_type]["section_title"] = "Summer CSA";
 												break;
 											case "fall_csa":
 												$csa_data[$csa_type]["section_title"] = "Autumn CSA";
+												break;
+											case "winter_csa":
+												$csa_data[$csa_type]["section_title"] = "Winter CSA";
 												break;
 											case "farm_share":
 												$csa_data[$csa_type]["section_title"] = "Farm Share";
@@ -1228,7 +1231,7 @@ get_header(); ?>
 															<h5><?php echo $tempEventTitle; ?></h5>
 															<?php if ($tempEventDesc) echo "<p class=\"description\">$tempEventDesc</p>"; ?>
 															<?php if ($tempHasSeason) echo "<p class=\"season\">$tempSeasonString</p>"; ?>
-															<?php if (count($tempHours) > 0) { 
+															<?php if (count($tempHours) > 0) {
 																echo "<p class=\"hours\">";
 																foreach($tempHours as $tempHour) {
 																	echo "$tempHour<br>";
