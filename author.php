@@ -975,7 +975,7 @@ get_header(); ?>
 												$csa_data[$csa_type]["section_title"] = "Winter CSA";
 												break;
 											case "fall_csa":
-												$csa_data[$csa_type]["section_title"] = "Fall CSA";
+												$csa_data[$csa_type]["section_title"] = "Autumn CSA";
 												break;
 											case "farm_share":
 												$csa_data[$csa_type]["section_title"] = "Farm Share";
