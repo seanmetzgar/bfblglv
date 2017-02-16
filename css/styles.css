@@ -5508,3 +5508,19 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 .partners-blocks .image.contain {
 	background-size: contain;
 }
+.partners-blocks .image span {
+	text-indent: -9999em;
+	visibility: hidden;
+}
+.partners-blocks .pseudo-image span {
+	font-size: 1.25rem;
+	text-transform: uppercase;
+	font-weight: 300;
+	text-align: center;
+	display: block;
+	position: absolute;
+	top: 50%; left: 15px; right: 15px;
+	color: #015c3c;
+	text-decoration: none;
+	transform: translateY(-50%);
+}
