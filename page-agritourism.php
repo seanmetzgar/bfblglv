@@ -51,25 +51,25 @@ get_header();
 								//Images
 									//Logo
 								$partner_logo 	= get_field("logo", $acf_partner_id);
-								$partner_logo  	= is_array($partner_logo) ? 
+								$partner_logo  	= (is_array($partner_logo) && array_key_exists("ID", $partner_logo)) ? 
 												wp_get_attachment_image_src($partner_logo["ID"], "full") :
 												false;
 								$partner_fill = ($partner_logo) ? "contain" : "cover";
 									//Owner
 								$partner_owner_photo = get_field("owner_photo", $acf_partner_id);
 								print_r($partner_owner_photo);
-								if (is_array($partner_owner_photo)) {
+								if (is_array($partner_owner_photo) && array_key_exists("ID", $partner_owner_photo)) {
 									$partner_owner_photo = wp_get_attachment_image_src($partner_owner_photo["ID"], "full");
 								} elseif (is_string($partner_owner_photo) && strlen($partner_owner_photo) > 0) {
-									$partner_owner_photo = $partner_owner_photo;
+									$partner_owner_photo = trim($partner_owner_photo);
 								} else { $partner_owner_photo = false; }
 									//Business
 								$partner_business_photo = get_field("business_photo", $acf_partner_id);
 								print_r($partner_business_photo);
-								if (is_array($partner_business_photo)) {
+								if (is_array($partner_business_photo) && array_key_exists("ID", $partner_business_photo)) {
 									$partner_business_photo = wp_get_attachment_image_src($partner_business_photo["ID"], "full");
 								} elseif (is_string($partner_business_photo) && strlen($partner_business_photo) > 0) {
-									$partner_business_photo = $partner_business_photo;
+									$partner_business_photo = trim($partner_business_photo);
 								} else { $partner_business_photo = false; }
 
 								$partner_image = ($partner_logo) ? $partner_logo : (
