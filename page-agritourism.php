@@ -38,7 +38,7 @@ get_header();
 
 					<?php if (!empty($partners)): ?>
 					<section class="page-block odd partners-block">
-						<ul class="partners-list">
+						<ul class="partners-list row">
 							<?php foreach ($partners as $partner): 
 								$partner_ID 	= $partner->ID;
 								// $partner_data = get_userdata($partner_ID);
