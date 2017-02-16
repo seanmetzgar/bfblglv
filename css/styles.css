@@ -5513,7 +5513,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	text-indent: -9999em;
 	visibility: hidden;
 }
-.partners-blocks .pseudo-image span 
+.partners-blocks .pseudo-image span,
 .partners-blocks .overlay span {
 	font-size: 1.25rem;
 	text-transform: uppercase;
@@ -5526,6 +5526,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	transform: translateY(-50%);
 	opacity: 1;
 	transition: opacity 0.1s ease-in-out;
+	z-index: 1;
 }
 .partners-blocks .pseudo-image span {
 	color: #015c3c;

@@ -86,6 +86,9 @@ get_header();
 									<span><?php echo $partner_name; ?></span>
 								</div>
 								<?php endif; ?>
+								<div class="overlay">
+									<span><?php echo $partner_name; ?></span>
+								</div>
 							</a></li>
 							<?php endforeach; ?>
 						</ul>
