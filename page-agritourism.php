@@ -38,7 +38,7 @@ get_header();
 
 					<?php if (!empty($partners)): ?>
 					<section class="page-block odd partners-block">
-						<ul>
+						<ul class="partners-list">
 							<?php foreach ($partners as $partner): 
 								$partner_ID 	= $partner->ID;
 								// $partner_data = get_userdata($partner_ID);
@@ -48,24 +48,35 @@ get_header();
 								$partner_name 	= strlen($partner_name) > 0 ? 
 												$partner_name : 
 												$partner->display_name;
+								//Images
+									//Logo
+								$partner_logo 	= get_field("logo", $acf_partner_id);
+								$partner_logo  	is_array($partner_logo) ? 
+												wp_get_attachment_image_src($partner_logo["ID"], "full") :
+												false;
+									//Owner
 								$partner_owner_photo = get_field("owner_photo", $acf_partner_id);
 								if (is_array($partner_owner_photo)) {
 									$partner_owner_photo = wp_get_attachment_image_src($partner_owner_photo["ID"], "full");
 								} elseif (is_string($partner_owner_photo) && strlen($partner_owner_photo) > 0) {
 									$partner_owner_photo = $partner_owner_photo;
 								} else { $partner_owner_photo = false; }
+									//Business
 								$partner_business_photo = get_field("business_photo", $acf_partner_id);
 								if (is_array($partner_business_photo)) {
 									$partner_business_photo = wp_get_attachment_image_src($partner_business_photo["ID"], "full");
 								} elseif (is_string($partner_business_photo) && strlen($partner_business_photo) > 0) {
 									$partner_business_photo = $partner_business_photo;
 								} else { $partner_business_photo = false; }
+
+								$partner_image = ($partner_logo) ? $partner_logo : (
+												 ($partner_business_photo) ? $partner_business_photo : (
+												 ($partner_owner_photo) ? $partner_owner_photo : false ));
 							?>
-							<li><a href="<?php echo $partner_url; ?>" title="<?php echo $partner_name; ?>">
-								<?php if ($partner_business_photo || $partner_owner_photo): ?>
-								<figure class="image">
-									<?php if ($partner_business_photo) echo $partner_business_photo;
-									else echo $partner_owner_photo; ?>
+							<li class="col-md-3 col-sm-6"><a href="<?php echo $partner_url; ?>" title="<?php echo $partner_name; ?>">
+								<?php if ($partner_image): ?>
+								<figure class="image" style="background-image: url('<?php echo $partner_image; ?>');">
+									<span><?php echo $partner_name; ?></span>
 								</figure>
 								<?php else: ?>
 								<div class="pseudo-image">
