@@ -5501,5 +5501,10 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 .partners-blocks .image {
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
+}
+.partners-blocks .image.cover {
 	background-size: cover;
+}
+.partners-blocks .image.container {
+	background-size: contain;
 }

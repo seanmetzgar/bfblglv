@@ -54,6 +54,7 @@ get_header();
 								$partner_logo  	= is_array($partner_logo) ? 
 												wp_get_attachment_image_src($partner_logo["ID"], "full") :
 												false;
+								$partner_fill = ($partner_logo) ? "contain" : "cover";
 									//Owner
 								$partner_owner_photo = get_field("owner_photo", $acf_partner_id);
 								if (is_array($partner_owner_photo)) {
@@ -75,7 +76,7 @@ get_header();
 							?>
 							<li class="col-md-3 col-sm-6"><a href="<?php echo $partner_url; ?>" title="<?php echo $partner_name; ?>">
 								<?php if ($partner_image): ?>
-								<figure class="image" style="background-image: url('<?php echo $partner_image; ?>');">
+								<figure class="image <?php echo $partner_fill; ?>" style="background-image: url('<?php echo $partner_image; ?>');">
 									<span><?php echo $partner_name; ?></span>
 								</figure>
 								<?php else: ?>
