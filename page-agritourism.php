@@ -10,7 +10,8 @@ get_header();
 	$partners_args = array(
 		"role__in" 		=> array("farm", "distillery", "vineyard", "specialty"),
 		"meta_key" 		=> "is_agritourism",
-		"meta_value" 	=> "1"
+		"meta_value" 	=> "1",
+		"number"		=> -1
 	);
 	$partners_query = new WP_User_Query($partners_args);
 	$partners = $partners_query->get_results();
