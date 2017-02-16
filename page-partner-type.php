@@ -43,7 +43,7 @@ get_header();
 					"key"		=> "is_farm_share",
 					"value"		=> "1",
 					"compare"	=> "="
-				)
+				);
 			}
 			$partners_args = array(
 				"role__in" 		=> array("farm"),
