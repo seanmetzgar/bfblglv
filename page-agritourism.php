@@ -51,8 +51,8 @@ get_header();
 								//Images
 									//Logo
 								$partner_logo 	= get_field("logo", $acf_partner_id);
-								$partner_logo  	= (is_array($partner_logo) && array_key_exists("ID", $partner_logo)) ? 
-												wp_get_attachment_image_src($partner_logo["ID"], "full") :
+								$partner_logo  	= (is_array($partner_logo) && array_key_exists("url", $partner_logo)) ? 
+												$partner_logo["url"] :
 												false;
 								$partner_fill = ($partner_logo) ? "contain" : "cover";
 									//Owner
