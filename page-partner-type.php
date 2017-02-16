@@ -1,18 +1,57 @@
 <?php
 /**
- * Template Name: Agritourism Landing Page
+ * Template Name: Partner Type Page
  *
  * @package WordPress
  * @subpackage Buy_Local_GLV
  * @since Buy Local GLV 1.6.0
  */
 get_header();
-	$partners_args = array(
-		"role__in" 		=> array("farm", "distillery", "vineyard", "specialty"),
-		"meta_key" 		=> "is_agritourism",
-		"meta_value" 	=> "1",
-		"number"		=> -1
-	);
+	$landing_type = get_field("landing_type");
+	switch($landing_type) {
+		case "agritourism":
+			$partners_args = array(
+				"role__in" 		=> array("farm", "distillery", "vineyard", "specialty"),
+				"meta_key" 		=> "is_agritourism",
+				"meta_value" 	=> "1",
+				"number"		=> -1
+			);
+			break;
+		case "csa":
+		default:
+			$show_farm_share = get_field("show_farm_share");
+			$meta_query = array(
+				"relation"	=> "OR",
+				array(
+					"key"		=> "is_csa",
+					"value" 	=> "1",
+					"compare" 	=> "="
+				),
+				array(
+					"key"		=> "is_winter_csa",
+					"value" 	=> "1",
+					"compare" 	=> "="
+				),
+				array(
+					"key"		=> "is_fall_csa",
+					"value" 	=> "1",
+					"compare" 	=> "="
+				)
+			);
+			if ($show_farm_share) {
+				$meta_query[] = array(
+					"key"		=> "is_farm_share",
+					"value"		=> "1",
+					"compare"	=> "="
+				)
+			}
+			$partners_args = array(
+				"role__in" 		=> array("farm"),
+				"meta_query" 	=> $meta_query,
+				"number"		=> -1
+			);
+			break;
+	}
 	$partners_query = new WP_User_Query($partners_args);
 	$partners = $partners_query->get_results();
 ?>
@@ -98,6 +137,4 @@ get_header();
 				</article>
 				<?php endwhile; endif; ?>
 			</section>
-
-
 <?php get_footer(); ?>
