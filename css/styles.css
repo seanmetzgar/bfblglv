@@ -5459,7 +5459,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 
 
 
-
+/*Columned List*/
 .columned-list {
 	column-count: 2;
 }
@@ -5473,4 +5473,33 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	-webkit-column-break-inside: avoid;
               page-break-inside: avoid;
                    break-inside: avoid;
+}
+
+/*Partners Blocks (Agritourism/CSA page) */
+.partners-blocks {
+	overflow: hidden;
+}
+.partners-blocks li {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.partners-blocks li a {
+	position: relative;
+	display: block;
+	padding: 0 0 100%;
+	width: 100%; height: 0;
+	box-sizing: content-box;
+	border: 1px solid #8cc63f;
+}
+.partners-blocks .image,
+.partners-blocks .pseudo-image {
+	position: absolute;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+	z-index: 1;
+}
+.partners-blocks .image {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
