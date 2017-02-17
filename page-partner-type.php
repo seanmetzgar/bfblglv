@@ -98,7 +98,7 @@ get_header();
 								$partner_state = get_field("partner_state", $acf_partner_id);
 								$partner_state = strlen($partner_state) > 0 ? $partner_state : false;
 								$partner_location = ($partner_city) ? $partner_city : "";
-								$partner_location = ($partner_city && $partner_state) ? ", $partner_state" : (($partner_state) ? $partner_state : "");
+								$partner_location .= ($partner_city && $partner_state) ? ", $partner_state" : (($partner_state) ? $partner_state : "");
 
 								//Images
 									//Logo
