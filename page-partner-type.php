@@ -10,17 +10,20 @@ get_header();
 	$landing_type = get_field("landing_type");
 	switch($landing_type) {
 		case "agritourism":
-			$partners_args = array(
-				"role__in" 		=> array("farm", "distillery", "vineyard", "specialty"),
-				"meta_key" 		=> "is_agritourism",
-				"meta_value" 	=> "1",
-				"number"		=> -1
+			$query_meta = array(
+				"relation"	=> "OR",
+				array(
+					"key"		=> "is_agritourism",
+					"value" 	=> "1",
+					"compare" 	=> "="
+				)
 			);
+			$query_roles = array("farm", "distillery", "vineyard", "specialty");
 			break;
 		case "csa":
 		default:
 			$show_farm_share = get_field("show_farm_share");
-			$meta_query = array(
+			$query_meta = array(
 				"relation"	=> "OR",
 				array(
 					"key"		=> "is_csa",
@@ -39,19 +42,22 @@ get_header();
 				)
 			);
 			if ($show_farm_share) {
-				$meta_query[] = array(
+				$query_meta[] = array(
 					"key"		=> "is_farm_share",
 					"value"		=> "1",
 					"compare"	=> "="
 				);
 			}
-			$partners_args = array(
-				"role__in" 		=> array("farm"),
-				"meta_query" 	=> $meta_query,
-				"number"		=> -1
-			);
+			$query_roles = array("farm");
 			break;
 	}
+	$partners_args = array(
+		"role__in" 		=> $query_roles,
+		"meta_key" 		=> "partner_name",
+		"meta_query" 	=> $query_meta,
+		"number"		=> -1,
+		"orderby"		=> "meta_value"
+	);
 	$partners_query = new WP_User_Query($partners_args);
 	$partners = $partners_query->get_results();
 ?>
@@ -81,7 +87,6 @@ get_header();
 						<ul class="partners-blocks row">
 							<?php foreach ($partners as $partner): 
 								$partner_ID 	= $partner->ID;
-								// $partner_data = get_userdata($partner_ID);
 								$acf_partner_id = "user_{$partner_ID}";
 								$partner_url 	= get_author_posts_url($partner_ID);
 								$partner_name 	= get_field("partner_name", $acf_partner_id);
