@@ -5531,7 +5531,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	transition: opacity 0.1s ease-in-out;
 	z-index: 1;
 }
-.partners-blocks .pseduo-image span em,
+.partners-blocks .pseudo-image span em,
 .partners-blocks .overlay span em {
 	font-size: 0.9rem;
 	font-style: italic;
