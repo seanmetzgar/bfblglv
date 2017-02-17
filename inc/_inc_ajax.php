@@ -1341,20 +1341,49 @@ function xhrGetPartners() {
    	}
 
 	foreach ($locationTypes as $locationType) {
-		if (in_array($locationType, array("farm-share", "csa", "winter-csa", "fall-csa"))) {
+		if (in_array($locationType, array("farm-share", "csa"))) {
             $locationTypePartners = null;
             $pseudoLocationType = "is_" . str_replace("-", "_", $locationType);
-            $locationTypeQueryArgs = array(
-                "role" => "farm",
-                "meta_query" => array(
-                    "relation" => "AND",
-                    array(
-                        "key" => $pseudoLocationType,
-                        "value" => 1,
-                        "compare" => "="
-                    )
-                )
-            );
+
+            if ($locationType == "csa") {
+            	$locationTypeQueryArgs = array(
+	                "role" => "farm",
+	                "meta_query" => array(
+	                    "relation" => "AND",
+	                    array(
+	                    	"relation" => "OR",
+	                    	array(
+	                    		"key" => "is_csa",
+	                    		"value" => 1,
+	                    		"compare" => "="
+	                    	),
+	                    	array(
+	                    		"key" => "is_winter_csa",
+	                    		"value" => 1,
+	                    		"compare" => "="
+	                    	),
+	                    	array(
+	                    		"key" => "is_fall_csa",
+	                    		"value" => 1,
+	                    		"compare" => "="
+	                    	)
+	                    )
+	                )
+	            );
+            } else {
+            	$locationTypeQueryArgs = array(
+	                "role" => "farm",
+	                "meta_query" => array(
+	                    "relation" => "AND",
+	                    array(
+	                        "key" => $pseudoLocationType,
+	                        "value" => 1,
+	                        "compare" => "="
+	                    )
+	                )
+	            );
+            }
+            
             $productsQuery = buildProductsQuery($productTypes, $wholesale);
             if ($productsQuery) {
                 $locationTypeQueryArgs["meta_query"][] = $productsQuery;
