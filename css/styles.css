@@ -5452,7 +5452,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 .xhrError::before {
   content: '\e800';
 }
-.xhrError.active, .xhrAlert.active { 
+.xhrError.active, .xhrAlert.active {
   top: 75px;
   opacity: 1;
 }
@@ -5462,6 +5462,10 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 /*Columned List*/
 .columned-list {
 	column-count: 2;
+	padding-left: 3rem;
+	padding-right: 3rem;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .columned-list ul,
@@ -5510,7 +5514,6 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	background-size: contain;
 }
 .partners-blocks .image span {
-	text-indent: -9999em;
 	visibility: hidden;
 }
 .partners-blocks .pseudo-image span,
@@ -5527,6 +5530,11 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	opacity: 1;
 	transition: opacity 0.1s ease-in-out;
 	z-index: 1;
+}
+.partners-blocks .pseduo-image span em,
+.partners-blocks .overlay span em {
+	font-size: 0.9rem;
+	font-style: italic;
 }
 .partners-blocks .pseudo-image span {
 	color: #015c3c;
