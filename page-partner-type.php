@@ -116,7 +116,7 @@ get_header();
 												 ($partner_business_photo) ? $partner_business_photo : (
 												 ($partner_owner_photo) ? $partner_owner_photo : false ));
 							?>
-							<li class="col-md-3 col-xs-6"><a href="<?php echo $partner_url; ?>" title="<?php echo $partner_name; ?>">
+							<li class="col-md-3 col-sm-4 col-xs-6"><a href="<?php echo $partner_url; ?>" title="<?php echo $partner_name; ?>">
 								<?php if ($partner_image): ?>
 								<figure class="image <?php echo $partner_fill; ?>" style="background-image: url('<?php echo $partner_image; ?>');">
 									<span><?php echo $partner_name; ?></span>
