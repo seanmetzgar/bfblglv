@@ -1,0 +1,146 @@
+.site-footer {
+	text-align: center;
+	background-color: $color-brown;
+	color: $color-light-brown;
+	@include font-size($font-size-footer-px, $font-size-footer);
+	.footer-logo {
+		width: 175px; height: auto;
+	}
+	.footer-heading {
+		font-family: $font-stack-alternate;
+		font-weight: $font-weight-alternate;
+		text-transform: none;
+		letter-spacing: 0px;
+		@include font-size($font-size-footer-heading-px, $font-size-footer-heading);
+		color: $color-white;
+		margin-top: $standard-margin;
+	}
+
+	.footer-top {
+		background-color: lighten($color-brown, 3%);
+		padding: 20px 0;
+	}
+	.footer-bottom {
+		padding: 10px 0;
+		p {
+			margin: 0;
+		}
+	}
+	.copyright {
+		color: $color-medium-brown;
+		font-size: 13px;
+	}
+	.kudu-link {
+		margin: 0;
+		font-family: $font-stack-alternate;
+		color: $color-medium-brown;
+		text-transform: uppercase;
+		font-weight: $font-weight-alternate;
+
+		font-size: 11px;
+		text-decoration: none;
+
+		&:hover {
+			color: $color-light-brown;
+		}
+	}
+	.menu-column {
+		.footer-heading {
+			visibility: hidden;
+		}
+		ul {
+			font-family: $font-stack-alternate;
+			line-height: 1.25;
+			letter-spacing: 2px;
+			color: $color-white;
+			text-transform: uppercase;
+			column-count: 2;
+			column-width: auto;
+			list-style-type: none;
+			padding: 0; margin: 0;
+			text-align: inherit;
+
+			li {
+				margin: 0; padding: 0;
+				break-inside: avoid;
+				text-indent: 0;
+
+				a {
+					color: $color-white;
+					text-decoration: none;
+					display: block;
+					padding: 0 0 10px;
+
+					&:hover {
+						color: $color-accent;
+					}
+				}
+			}
+		}
+	}
+
+	.instagram-column {
+		overflow: hidden;
+		.instagram-link {
+			color: $color-light-brown;
+			text-decoration: none;
+			display: block;
+
+			&:hover {
+				color: $color-accent;
+			}
+		}
+		.instagram-feed {
+			#sb_instagram {
+				padding-top: 0 !important;
+				padding-bottom: 0 !important;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				margin: 0 -10px;
+				width: auto !important;
+
+				#sbi_images {
+					padding: 0 !important;
+
+					.sbi_item {
+						padding: 10px !important;
+
+						.sbi_link {
+							background: rgba(242, 97, 2, 0.65) !important;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@include breakpoint(tablet) {
+		text-align: left;
+		.footer-header {
+			margin-top: 0;
+		}
+		.footer-top {
+			padding: 40px 0;
+		}
+		.footer-bottom {
+			padding: 30px 0;
+		}
+		.copyright {
+			text-align: right;
+		}
+
+		.menu-column {
+			ul {
+				column-count: 1;
+			}
+		}
+	}
+	
+	@include breakpoint(desktop) {
+		.menu-column {
+			ul {
+				column-count: 2;
+			}
+		}
+	}
+}
