@@ -1,0 +1,16 @@
+Dear %%POC_NAME%%:
+
+It’s time to renew your Buy Fresh Buy Local of the
+Greater Lehigh Valley partnership for %%RENEWAL_YEAR%%. 
+To do so, please follow the link below.
+
+%%RENEWAL_LINK%%
+
+We look forward to continuing to work with you in the coming year.
+
+Sincerely,
+Buy Fresh Buy Local of the Greater Lehigh Valley
+A Program of the Nurture Nature Center
+610-253-4190
+BFBL@NurtureNatureCenter.org
+http://www.buylocalglv.org

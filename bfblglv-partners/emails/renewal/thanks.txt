@@ -1,0 +1,19 @@
+Dear %%POC_NAME%%:
+
+Thank you for renewing your Buy Fresh Buy Local of the
+Greater Lehigh Valley partnership for %%RENEWAL_YEAR%%.
+
+Please take this opportunity to ensure your information
+is up to date %%UPDATE_LISTING_DATE%% for this year's
+Local Food Guide.
+
+%%PROFILE_LINK%%
+
+We look forward to continuing to work with you in the coming year.
+
+Sincerely,
+Buy Fresh Buy Local of the Greater Lehigh Valley
+A Program of the Nurture Nature Center
+610-253-4190
+BFBL@NurtureNatureCenter.org
+http://www.buylocalglv.org

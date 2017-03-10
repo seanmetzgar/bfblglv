@@ -1,0 +1,44 @@
+@import "includes/datatables";
+.bfblglv-blc-wrap {
+	hr {
+		margin: 30px 0;
+	}
+}
+
+.bfblglv-blc-list,
+.bfblglv-blc-view {
+	.button.dashicons-before {
+
+		&::before {
+			line-height:25px;
+		}
+
+		span {
+			display: none;
+		}
+	}
+}
+
+.bfblglv-blc-form {
+	display: block;
+	width: 100%;
+	max-width: 600px;
+
+
+	label {
+		display: block;
+		font-weight: bold;
+
+		input, textarea {
+			display: block;
+			width: 100%;
+			font-weight: normal;
+			padding: 5px;
+			box-sizing: border-box;
+			margin: .25em 0 1em;
+		}
+		textarea {
+			height: 75px;
+		}
+	}
+}

@@ -1,0 +1,348 @@
+@import "vendor/bootstrap-sass/bootstrap-compass";
+@import "vendor/bootstrap-sass/bootstrap";
+
+@import "includes/variables";
+@import "includes/mixins";
+@import "includes/helpers";
+
+@import "vendor/datatables/datatables";
+
+/** Basics **/
+html {
+	font-size: 62.5%;
+	padding: 0; margin: 0;
+	min-width: 100%;
+	max-width: 100%;
+}
+body {
+	font-size: 1.4rem;
+	font-family: Helvetica, Arial, sans-serif;
+	padding: 0; margin: 0;
+	color: $color-grey;
+	min-width: 100%;
+	max-width: 100%;
+}
+/** Text **/
+h1 {
+	font-size: 2.4rem;
+	font-weight: bold;
+	margin: 0 0 1em;
+}
+h2 {
+	font-size: 2.0rem;
+	font-weight: bold;
+	margin: 0 0 1em;
+}
+h3 {
+	font-size: 1.6rem;
+	font-weight: bold;
+	margin: 0 0 1em;
+}
+h4 {
+	font-size: 1.4rem;
+	font-weight: bold;
+	margin: 0 0 1em;
+}
+h5, h6 {
+	font-size: 1.4rem;
+	font-weight: bold;
+	margin: 0;
+}
+
+/** Title **/
+.pre-title {
+	width: 250px; height: 89px;
+	background:url(../images/branding/bfbl_logo.png) 50% 50% no-repeat;
+	margin: .5em auto .25em;
+}
+.title {
+	margin: 0 0 1em;
+	text-align: center;
+}
+.section-title {
+	margin: 0;
+	text-align: center;
+	&.with-margin { margin: 0 0 1em; }
+}
+.section-subtitle {
+	margin: 0 0 1em;
+	text-align: center;
+}
+/*form styles*/
+.signup-wrapper {
+	.extra-form-data { display: none; }
+
+	.signup-form {
+		position: relative;
+
+		.signup-progress {
+			display: none;
+			text-align: center;
+
+			margin-bottom: 30px;
+			padding: 0;
+			overflow: hidden;
+			/*CSS counters to number the steps*/
+			counter-reset: step;
+
+			> li {
+				list-style-type: none;
+				text-transform: uppercase;
+				font-size: 9px;
+
+				width: 25%;
+				@for $i from 1 through 20 {
+				    &:first-child:nth-last-child( #{$i} ),
+				    &:first-child:nth-last-child( #{$i} ) ~ li {
+				      	width: calc(100% / #{$i});
+				    }
+			  	}
+				float: left;
+				position: relative;
+
+				&:before {
+					content: counter(step);
+					counter-increment: step;
+					width: 20px;
+					line-height: 20px;
+					display: block;
+					font-size: 10px;
+					background: $color-background-alt;
+					border-radius: 3px;
+					margin: 0 auto 5px auto;
+				}
+
+				&:after {
+					content: '';
+					width: 100%;
+					height: 2px;
+					background: $color-background-alt;
+					position: absolute;
+					left: -50%;
+					top: 9px;
+					z-index: -1; /*put it behind the numbers*/
+				}
+
+				&:first-child:after {
+					content: none;
+					display: none;
+				}
+
+				&.active:before,
+				&.active:after {
+					background: #27AE60;
+					color: white;
+				}
+			}
+		}
+
+		.signup-stage {
+			background: white;
+			border: 0 none;
+			border-radius: 3px;
+			box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+			padding: 20px 30px;
+		}
+
+		&.initialized {
+			.signup-stage {
+				position: absolute;
+			}
+			.signup-progress {
+				display: block;
+			}
+		}
+	}
+
+	textarea.form-control,
+	select[multiple].form-control,
+	select[size].form-control {
+		height: 85px;
+	}
+}
+
+
+label {
+	display: block;
+	margin: 0 0 20px;
+	font-weight: normal;
+
+	&.check-label {
+		margin: 0 0 10px;
+
+		input { margin-right: 5px; }
+	}
+	&.other-products {
+		display: none;
+	}
+	&.no-margin {
+		margin-bottom: 0;
+	}
+}
+.label-text {
+	font-weight: bold;
+	display: block;
+	margin: 0 0 5px;
+
+	&.required {
+		&:after {
+			content: '\00a0\2217';
+			color: red;
+			font-size: 20px; line-height: 20px;
+			font-weight: normal;
+		}
+	}
+	&.not-bold { font-weight: normal; }
+}
+.pseudo-label {
+	margin-top: 1em;
+}
+
+/** Buttons **/
+.btn {
+	&.previous {
+		float: left;
+
+		&:before {
+			content: "\00ab\00a0";
+		}
+	}
+	&.next {
+		&:after {
+			content: "\00a0\00bb";
+		}
+	}
+	&.next, &.submit {
+		float: right;
+	}
+}
+
+.missing {
+	-webkit-box-shadow: 0px 0px 5px red;
+	-moz-box-shadow: 0px 0px 5px red;
+	box-shadow: 0px 0px 5px red;
+	transition: all $transition-normal ease-in-out;
+}
+
+.approval-controls { margin-bottom: 1em; margin-top: 1em; }
+
+.reliant { display: none; clear: both; }
+.select-reliant { display: none; }
+
+.error-messages {
+	color: $color-light-grey;
+
+	text-align: center;
+	margin: 100px auto 10px;
+	font-size: 11px;
+
+	.caption {
+		font-weight: bold;
+	}
+}
+
+.input-group {
+	.btn {
+		line-height: 20px;
+	}
+	&.has-margin {
+		margin-bottom: 20px;
+	}
+	&.double-input {
+		.form-control {
+		    width: 50%;
+		    border-right-width: 0px;
+
+		    &:focus {
+		    	border-right-width: 1px;
+		    }
+		}
+	}
+}
+
+.hours-input {
+	.hours-day {
+		border: 1px solid $color-light-grey;
+		padding: 5px;
+		margin: .5em 0;
+	}
+	.seasonal-info {
+		label {
+			margin-bottom: 0;
+			margin-top: .5em;
+		}
+	}
+	.check-label {
+		&.seasonal-toggle {
+			margin: .5em 0 0;
+		}
+	}
+}
+
+.status-icon {
+		display: block;
+		width: 1.6em; height: 1.6em;
+		margin-left: auto; margin-right: auto;
+		border-radius: 50%;
+		text-indent: -9999em;
+		overflow: hidden;
+
+	&.user-renewed {
+		background-color: $brand-success;
+	}
+
+	&.user-not-renewed {
+		background-color: $brand-warning;
+	}
+
+	&.user-disabled {
+		background-color: $brand-danger;
+	}
+}
+
+.email-statuses {
+	display: inline-block;
+	margin-left: auto; margin-right: auto;
+	text-align: center;
+	.email-status {
+		display: inline-block;
+		width: 1.6em; height: 1.6em;
+		line-height: 1.6em;
+		border-radius: 50%;
+		font-weight: bold;
+		background-color: #BBB;
+		color: #FFF;
+
+		&.not-sent {
+			background-color: #BBB;
+		}
+		&.sent {
+			background-color: $brand-success;
+		}
+		&.failed {
+			background-color: $brand-danger;
+		}
+		&.not-required {
+			background-color: $brand-info;
+		}
+	}
+}
+
+.site-footer {
+	clear: both;
+	border-top: 1px solid #ddd;
+	color: #ddd;
+	font-size: 10px;
+	margin-top: 30px;
+	text-align: right;
+
+	p {
+		font-size: 10px;
+		text-align: right;
+		font-style: italic;
+		color: #ddd;
+		margin: 1em;
+	}
+}
+
+
