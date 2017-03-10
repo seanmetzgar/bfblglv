@@ -73,37 +73,65 @@
 		return $rVal;
 	}
 
-	function getRegisteredPartners() {
+	function getRegisteredPartners($server_name = false) {
+		$server_name = (is_string($server_name) && strlen($server_name) > 0) ? $server_name : $_SERVER["SERVER_NAME"];
+	  	$ajax_url_server = ($server_name === "partner.buylocalglv.org") ? "www.buylocalglv.org" : "dev.buylocalglv.org";
+	  	$ajax_url = "http://{$ajax_url_server}/wp-admin/admin-ajax.php?action=xhrGetPartners";
+		$json = file_get_contents($ajax_url);
+		$data = json_decode($json);
+
 		$rVal = false;
 		$tempArray = array();
-		global $mysqli;
 
-		if (!$mysqli->connect_errno) {
-			$select_query = "SELECT id, name FROM registrations WHERE status=1 OR status=2";
-			$select_statement = $mysqli->stmt_init();
+		if (is_object($data) && property_exists($data, "partners") && is_array($data->partners)) {
+			foreach $data->$partners as $partner) {
+				$has_fields = (is_object($partner) && property_exists($partner, "id") && property_exists($partner, "name")) ? true : false;
+				if ($has_fields) {
+					$partnerObj = new SimplePartner;
+					$partnerObj->id = $partner->id;
+					$partnerObj->name = $partner->name;
 
-			if ($select_statement->prepare($select_query)) {
-				$select_statement->execute();
-
-				$select_result = $select_statement->get_result();
-				while ($partner = $select_result->fetch_assoc()) {
-					$has_fields = (is_array($partner) && count($partner) > 0) ? true : false;
-					if ($has_fields) {
-						$partnerObj = new SimplePartner;
-						$partnerObj->id = $partner["id"];
-						$partnerObj->name = $partner["name"];
-
-						if (is_int($partnerObj->id) && is_string($partnerObj->name) && $partnerObj->id > 0 && strlen($partnerObj->name) > 0) {
-							$tempArray[] = $partnerObj;
-						}
+					if (is_int($partnerObj->id) && is_string($partnerObj->name) && $partnerObj->id > 0 && strlen($partnerObj->name) > 0) {
+						$tempArray[] = $partnerObj;
 					}
 				}
-				$select_statement->close();
 			}
 		}
 		$rVal = (is_array($tempArray) && count($tempArray) > 0) ? $tempArray : false;
 		return $rVal;
 	}
+
+	// function getRegisteredPartners() {
+	// 	$rVal = false;
+	// 	$tempArray = array();
+	// 	global $mysqli;
+
+	// 	if (!$mysqli->connect_errno) {
+	// 		$select_query = "SELECT id, name FROM registrations WHERE status=1 OR status=2";
+	// 		$select_statement = $mysqli->stmt_init();
+
+	// 		if ($select_statement->prepare($select_query)) {
+	// 			$select_statement->execute();
+
+	// 			$select_result = $select_statement->get_result();
+	// 			while ($partner = $select_result->fetch_assoc()) {
+	// 				$has_fields = (is_array($partner) && count($partner) > 0) ? true : false;
+	// 				if ($has_fields) {
+	// 					$partnerObj = new SimplePartner;
+	// 					$partnerObj->id = $partner["id"];
+	// 					$partnerObj->name = $partner["name"];
+
+	// 					if (is_int($partnerObj->id) && is_string($partnerObj->name) && $partnerObj->id > 0 && strlen($partnerObj->name) > 0) {
+	// 						$tempArray[] = $partnerObj;
+	// 					}
+	// 				}
+	// 			}
+	// 			$select_statement->close();
+	// 		}
+	// 	}
+	// 	$rVal = (is_array($tempArray) && count($tempArray) > 0) ? $tempArray : false;
+	// 	return $rVal;
+	// }
 
 
 	function hoursInput($name, $arguments) {
