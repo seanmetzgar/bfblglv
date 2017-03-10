@@ -84,7 +84,7 @@
 		$tempArray = array();
 
 		if (is_object($data) && property_exists($data, "partners") && is_array($data->partners)) {
-			foreach $data->$partners as $partner) {
+			foreach $data->partners as $partner) {
 				$has_fields = (is_object($partner) && property_exists($partner, "id") && property_exists($partner, "name")) ? true : false;
 				if ($has_fields) {
 					$partnerObj = new SimplePartner;
