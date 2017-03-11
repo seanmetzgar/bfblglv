@@ -78,6 +78,7 @@
 				$p["link"] = (strlen($p["uuid"]) > 10) ? "approve.php?id={$p["id"]}&uuid={$p["uuid"]}" : false;
 				$p["sendLink"] = (strlen($p["uuid"]) > 10) ? "send_to_wp.php?id={$p["id"]}&uuid={$p["uuid"]}" : false;
 				$p["deleteLink"] = (strlen($p["uuid"]) > 10) ? "change_status.php?id={$p["id"]}&uuid={$p["uuid"]}&status=7" : false;
+				$p["completeLink"] = (strlen($p["uuid"]) > 10) ? "continue.php?id={$p["id"]}&uuid={$p["uuid"]}" : false;
 				$partners[] = $p;
 				$p = null;
 			}
@@ -132,6 +133,7 @@ if (count($partners) > 0) {
 		$category = niceCategoryName($partner["category"]);
 		$status = niceStatusName($partner["status"]);
 		$paid = nicePaymentStatus($partner["paid"]);
+
 		$partner_table .=		"        <tr>\n";
 		if ($partner["link"]) {
 			$partner_table .=	"            <td><a href=\"{$partner["link"]}\">{$partner["name"]}</a></td>\n";
@@ -145,6 +147,8 @@ if (count($partners) > 0) {
 		$partner_table .=		"            <td>{$paid}</td>\n";
 		if ($partner["status"] === 2) {
 			$partner_table .=	"            <td><a href=\"{$partner["sendLink"]}\">Import</a></td>\n";
+		} elseif ($partner["status"] === 1 && $partner["paid"] === 1) {
+			$partner_table .=	"            <td><a href=\"/{$partner["completeLink"]}\">Complete</a></td>\n";
 		} else {
 			$partner_table .=	"            <td>&nbsp;</td>\n";
 		}
