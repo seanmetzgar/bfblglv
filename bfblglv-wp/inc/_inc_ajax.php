@@ -928,16 +928,16 @@ function addPartnerData($user_id, $partner) {
 
 	//Vendors
 	if ($partner->products_available_from && is_array($partner->products_available_from)) {
-		update_field("products_available_from", $partner->products_available_from, $user_id)
+		update_field("products_available_from", $partner->products_available_from, $user_id);
 	}
 	if ($partner->products_available_at && is_array($partner->products_available_at)) {
-		update_field("products_available_from", $partner->products_available_from, $user_id)
+		update_field("products_available_from", $partner->products_available_from, $user_id);
 	}
 	if ($partner->vendor_list && is_array($partner->vendor_list)) {
-		update_field("vendor_list", $partner->vendor_list, $user_id)
+		update_field("vendor_list", $partner->vendor_list, $user_id);
 	}
 	if ($partner->source_from && is_array($partner->source_from)) {
-		update_field("source_from", $partner->source_from, $user_id)
+		update_field("source_from", $partner->source_from, $user_id);
 	}
 }
 
