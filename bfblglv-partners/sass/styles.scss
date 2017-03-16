@@ -158,8 +158,12 @@ h5, h6 {
 
 	textarea.form-control,
 	select[multiple].form-control,
-	select[size].form-control {
+	select[size].form-control,
 		height: 85px;
+
+		& + .select2-container .selecc2-selection--multiple {
+			height: 83px;
+		}
 	}
 }
 
