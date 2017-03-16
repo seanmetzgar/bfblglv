@@ -326,4 +326,5 @@ $(function () {
         $footer.addClass("site-footer");
         $("<p>Version: " + version + "</p>").appendTo($footer);
     }
+    $("select").select2();
 });
