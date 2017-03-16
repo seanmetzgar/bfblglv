@@ -9,7 +9,7 @@ Error: Invalid CSS after "		height: 85px": expected "{", was ";"
 161: 	select[size].form-control,
 162: 		height: 85px;
 163: 
-164: 		& + .select2-container .selecc2-selection--multiple {
+164: 		& ~ .select2-container .selecc2-selection--multiple {
 165: 			height: 83px;
 166: 		}
 167: 	}
@@ -54,4 +54,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"		height: 85px\": expected \"{\", was \";\"\A         on line 162 of /Users/sean/Documents/SourceTree/bfblglv-wp/bfblglv-partners/sass/styles.scss\A \A 157: 	}\A 158: \A 159: 	textarea.form-control,\A 160: 	select[multiple].form-control,\A 161: 	select[size].form-control,\A 162: 		height: 85px;\A 163: \A 164: 		& + .select2-container .selecc2-selection--multiple {\A 165: 			height: 83px;\A 166: 		}\A 167: 	}"; }
+  content: "Error: Invalid CSS after \"		height: 85px\": expected \"{\", was \";\"\A         on line 162 of /Users/sean/Documents/SourceTree/bfblglv-wp/bfblglv-partners/sass/styles.scss\A \A 157: 	}\A 158: \A 159: 	textarea.form-control,\A 160: 	select[multiple].form-control,\A 161: 	select[size].form-control,\A 162: 		height: 85px;\A 163: \A 164: 		& ~ .select2-container .selecc2-selection--multiple {\A 165: 			height: 83px;\A 166: 		}\A 167: 	}"; }

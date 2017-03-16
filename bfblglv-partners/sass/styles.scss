@@ -161,7 +161,7 @@ h5, h6 {
 	select[size].form-control,
 		height: 85px;
 
-		& + .select2-container .selecc2-selection--multiple {
+		& ~ .select2-container .selecc2-selection--multiple {
 			height: 83px;
 		}
 	}
