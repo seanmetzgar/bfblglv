@@ -1307,6 +1307,7 @@ function xhrGetPartners() {
 	set_time_limit ( 65 );
 	$renewalYear = getRenewalYear();
 	$renewalShutDownTime = getRenewalShutDown();
+	$renewalGrandfatheredTime = getRenewalGrandfathered();
 
 	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;
 	$zip = ($zip && strlen($zip) >= 5) ? substr($zip, 0, 5) : false;
@@ -1488,13 +1489,21 @@ function xhrGetPartners() {
 
 	foreach ($tempPartners as $partnerKey=>$partner) {
 		$tempRenewedUntil = get_field("partner_renewed_until", "user_{$partner->ID}");
-		if (!is_numeric($tempRenewedUntil)) {
-			$tempRenewedUntil = $renewalYear;
+		$tempRenewedDate = get_field("partner_renewed_date", "user_{$partner->ID}");
+		$tempRenewedDate = strtotime($tempRenewedDate);
+
+		if ($tempRenewedDate < $renewalGrandfatheredTime) {
+			$tempRenewedUntil = $renewalYear - 1;
 			update_field("partner_renewed_until", $tempRenewedUntil, "user_{$partner->ID}");
-		}
-		if (($tempRenewedUntil < $renewalYear) && (time() >= $renewalShutDownTime)) {
 			update_user_meta($partner->ID, "ja_disable_user", 1 );
 		}
+		// if (!is_numeric($tempRenewedUntil)) {
+		// 	$tempRenewedUntil = $renewalYear;
+		// 	update_field("partner_renewed_until", $tempRenewedUntil, "user_{$partner->ID}");
+		// }
+		// if (($tempRenewedUntil < $renewalYear) && (time() >= $renewalShutDownTime)) {
+		// 	update_user_meta($partner->ID, "ja_disable_user", 1 );
+		// }
 
 		$tempDisabled = get_user_meta( $partner->ID, "ja_disable_user", true );
 
