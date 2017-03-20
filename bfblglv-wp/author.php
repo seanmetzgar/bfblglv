@@ -15,6 +15,7 @@ if ($disabled) {
 	global $wp_query;
     $wp_query->set_404();
     status_header(404);
+    exit;
 }
 
 get_header(); ?>
