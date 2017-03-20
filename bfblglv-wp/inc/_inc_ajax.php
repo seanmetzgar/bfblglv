@@ -1464,10 +1464,6 @@ function xhrGetPartners() {
 
 	foreach ($tempPartners as $partnerKey=>$partner) {
 		$tempDisabled = get_user_meta( $partner->ID, "ja_disable_user", true );
-		$tempDisabled = (is_bool($tempDisabled) || 
-						(is_int($tempDisabled) && 
-							($tempDisabled == 0 
-							|| $tempDisabled == 1))) ? $tempDisabled : false;
 
 		if (!$tempDisabled) {
 			$tempObj = new MapPartner;
