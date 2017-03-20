@@ -952,6 +952,31 @@ function xhrGetRenewalYear() {
 	die();
 }
 
+function getRenewalShutDown($asTime = false) {
+	$renewalYear = getRenewalYear();
+
+	$renewalShutDown = "{$renewalYear}-03-07 23:59:59";
+
+	if ($asTime) {
+		$renewalShutDown = strtotime($renewalShutDown);
+	}
+
+	return $renewalShutDown;
+}
+
+function getRenewalGrandfathered($asTime = true) {
+	$renewalYear = getRenewalYear();
+	$previousYear = $renewalYear - 1;
+
+	$renewalGrandfathered = "{$previousYear}-11-01 00:00:00";
+
+	if ($asTime) {
+		$renewalGrandfathered = strtotime($renewalGrandfathered);
+	}
+
+	return $renewalGrandfathered;
+}
+
 function xhrGetRenewalPartner() {
 	$user_id = $_REQUEST["id"];
 	$renewal_uuid = $_REQUEST["uuid"];
@@ -962,11 +987,8 @@ function xhrGetRenewalPartner() {
 	$renewalYear = getRenewalYear();
 	$previousYear = $renewalYear - 1;
 
-	$renewalGrandfathered = "{$previousYear}-11-01 00:00:00";
-	$renewalShutDown = "{$renewalYear}-03-07 23:59:59";
-
-	$renewalGrandfatheredTime = strtotime($renewalGrandfathered);
-	$renewalShutDownTime = strtotime($renewalShutDown);
+	$renewalGrandfatheredTime = getRenewalGrandfathered();
+	$renewalShutDownTime = getRenewalGrandfathered();
 
 	if ($user_id > 0 && $renewal_uuid && $renewalPartner = get_user_by("id", $user_id)) {
 		$partner_id = $renewalPartner->ID;
@@ -1283,6 +1305,8 @@ function xhrMarkRenewalPaid() {
 
 function xhrGetPartners() {
 	set_time_limit ( 65 );
+	$renewalYear = getRenewalYear();
+	$renewalShutDownTime = getRenewalShutDown();
 
 	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;
 	$zip = ($zip && strlen($zip) >= 5) ? substr($zip, 0, 5) : false;
@@ -1463,6 +1487,15 @@ function xhrGetPartners() {
 	}
 
 	foreach ($tempPartners as $partnerKey=>$partner) {
+		$tempRenewedUntil = get_field("partner_renewed_until", "user_{$partner->ID}");
+		if (!is_int($tempRenewedUntil)) {
+			$tempRenewedUntil = $renewalYear;
+			update_field("partner_renewed_until", $tempRenewedUntil, "user_{$partner->ID}");
+		}
+		if (($tempRenewedUntil < $renewalYear) && (time() >= $renewalShutDownTime)) {
+			update_user_meta( $partner->ID, "ja_disable_user", 1 );
+		}
+
 		$tempDisabled = get_user_meta( $partner->ID, "ja_disable_user", true );
 
 		if (!$tempDisabled) {
