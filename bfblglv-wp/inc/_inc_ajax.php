@@ -1396,7 +1396,7 @@ function xhrGetPartners() {
 	                )
 	            );
             }
-            
+
             $productsQuery = buildProductsQuery($productTypes, $wholesale);
             if ($productsQuery) {
                 $locationTypeQueryArgs["meta_query"][] = $productsQuery;
@@ -1463,38 +1463,50 @@ function xhrGetPartners() {
 	}
 
 	foreach ($tempPartners as $partnerKey=>$partner) {
-		$tempObj = new MapPartner;
-		$tempObj->id = $partner->ID;
-		$tempName = get_field("partner_name", "user_{$partner->ID}");
-		$tempCity = get_field("partner_city", "user_{$partner->ID}");
-		$tempCounty = get_field("partner_county", "user_{$partner->ID}");
-		$tempObj->name = strlen($tempName) > 0 ? $tempName : $partner->display_name;
-		$tempMap = get_field("partner_map", "user_{$partner->ID}");
-		if (!empty($tempMap)) {
-			$tempObj->lat = $tempMap["lat"];
-			$tempObj->lng = $tempMap["lng"];
-		}
-		$tempObj->url = get_author_posts_url($partner->ID);
-		$tempObj->city = $tempCity;
+		$tempDisabled = get_user_meta( $partner->ID, "ja_disable_user", true );
+		$tempDisabled = (is_bool($tempDisabled) || 
+						(is_int($tempDisabled) && 
+							($tempDisabled == 0 
+							|| $tempDisabled == 1))) ? $tempDisabled : false;
 
-		if ($hasZipBounds && !empty($tempMap)) {
-			if ($tempMap["lat"] < $zipBounds->maxLat && $tempMap["lat"] > $zipBounds->minLat &&
-				$tempMap["lng"] < $zipBounds->maxLng && $tempMap["lng"] > $zipBounds->minLng) {
-				$tempObj->inbounds = true;
+		if (!$tempDisabled) {
+			$tempObj = new MapPartner;
+			$tempObj->id = $partner->ID;
+			$tempName = get_field("partner_name", "user_{$partner->ID}");
+			$tempCity = get_field("partner_city", "user_{$partner->ID}");
+			$tempCounty = get_field("partner_county", "user_{$partner->ID}");
+			$tempObj->name = strlen($tempName) > 0 ? $tempName : $partner->display_name;
+			$tempMap = get_field("partner_map", "user_{$partner->ID}");
+
+			if (!empty($tempMap)) {
+				$tempObj->lat = $tempMap["lat"];
+				$tempObj->lng = $tempMap["lng"];
+			}
+
+			$tempObj->url = get_author_posts_url($partner->ID);
+			$tempObj->city = $tempCity;
+
+			if ($hasZipBounds && !empty($tempMap)) {
+				if ($tempMap["lat"] < $zipBounds->maxLat && $tempMap["lat"] > $zipBounds->minLat &&
+					$tempMap["lng"] < $zipBounds->maxLng && $tempMap["lng"] > $zipBounds->minLng) {
+					$tempObj->inbounds = true;
+					$returnPartners[] = $tempObj;
+				}
+			} elseif ($county) {
+				if ($county == $tempCounty) {
+					$tempObj->inbounds = true;
+					$returnPartners[] = $tempObj;
+				}
+			} else {
 				$returnPartners[] = $tempObj;
 			}
-		} elseif ($county) {
-			if ($county == $tempCounty) {
-				$tempObj->inbounds = true;
-				$returnPartners[] = $tempObj;
-			}
-		} else {
-			$returnPartners[] = $tempObj;
 		}
+
 		$tempObj = null;
 		$tempName = null;
 		$tempCity = null;
 		$tempMap = null;
+		$tempDisabled = false;
 	}
 
 	$returnPartners = array_unique($returnPartners, SORT_REGULAR);
