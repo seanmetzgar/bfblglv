@@ -12,9 +12,9 @@ $acf_partner_id = "user_{$current_partner_ID}";
 
 $disabled = get_user_meta($current_partner_ID, "ja_disable_user", true);
 if ($disabled) {
-	include( get_query_template( "404" ) );
-    header('HTTP/1.0 404 Not Found');
-    exit; 
+	global $wp_query;
+    $wp_query->set_404();
+    status_header(404);
 }
 
 get_header(); ?>
