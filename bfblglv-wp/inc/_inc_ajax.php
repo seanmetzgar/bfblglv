@@ -1492,18 +1492,16 @@ function xhrGetPartners() {
 		$tempRenewedDate = get_field("partner_renewed_date", "user_{$partner->ID}");
 		$tempRenewedDate = strtotime($tempRenewedDate);
 
-		if ($tempRenewedDate < $renewalGrandfatheredTime) {
-			$tempRenewedUntil = $renewalYear - 1;
-			update_field("partner_renewed_until", $tempRenewedUntil, "user_{$partner->ID}");
-			update_user_meta($partner->ID, "ja_disable_user", 1 );
-		}
-		// if (!is_numeric($tempRenewedUntil)) {
-		// 	$tempRenewedUntil = $renewalYear;
+		// if ($tempRenewedDate < $renewalGrandfatheredTime) {
+		// 	$tempRenewedUntil = $renewalYear - 1;
 		// 	update_field("partner_renewed_until", $tempRenewedUntil, "user_{$partner->ID}");
-		// }
-		// if (($tempRenewedUntil < $renewalYear) && (time() >= $renewalShutDownTime)) {
 		// 	update_user_meta($partner->ID, "ja_disable_user", 1 );
 		// }
+		if (is_numeric($tempRenewedUntil)) {
+			if (($tempRenewedUntil < $renewalYear) && (time() >= $renewalShutDownTime)) {
+				update_user_meta($partner->ID, "ja_disable_user", 1 );
+			}
+		}
 
 		$tempDisabled = get_user_meta( $partner->ID, "ja_disable_user", true );
 
