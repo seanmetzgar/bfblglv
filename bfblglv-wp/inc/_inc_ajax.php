@@ -1488,12 +1488,8 @@ function xhrGetPartners() {
 
 	foreach ($tempPartners as $partnerKey=>$partner) {
 		$tempRenewedUntil = get_field("partner_renewed_until", "user_{$partner->ID}");
-		if (!is_int($tempRenewedUntil)) {
-			$tempRenewedUntil = $renewalYear;
-			update_field("partner_renewed_until", $tempRenewedUntil, "user_{$partner->ID}");
-		}
 		if (($tempRenewedUntil < $renewalYear) && (time() >= $renewalShutDownTime)) {
-			update_user_meta( $partner->ID, "ja_disable_user", 1 );
+			update_user_meta($partner->ID, "ja_disable_user", 1 );
 		}
 
 		$tempDisabled = get_user_meta( $partner->ID, "ja_disable_user", true );
