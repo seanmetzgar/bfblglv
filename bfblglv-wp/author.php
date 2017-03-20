@@ -4,14 +4,22 @@
  * @subpackage Buy_Local_GLV
  * @since Buy Local GLV 1.0.0
  */
+$current_partner = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
+$current_partner_ID = $current_partner->ID;
+$current_partner_data = get_userdata($current_partner_ID);
+$partner_category = $current_partner_data->roles;
+$acf_partner_id = "user_{$current_partner_ID}";
+
+$disabled = get_user_meta($current_partner_ID, "ja_disable_user", true);
+if ($disabled) {
+	include( get_query_template( "404" ) );
+    header('HTTP/1.0 404 Not Found');
+    exit; 
+}
+
 get_header(); ?>
 			<section class="main-content" role="main">
 				<?php
-					$current_partner = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
-					$current_partner_ID = $current_partner->ID;
-					$current_partner_data = get_userdata($current_partner_ID);
-					$partner_category = $current_partner_data->roles;
-					$acf_partner_id = "user_{$current_partner_ID}";
 
 					$partner_map = get_field("partner_map", $acf_partner_id);
 					$partner_name = get_field("partner_name", $acf_partner_id);
