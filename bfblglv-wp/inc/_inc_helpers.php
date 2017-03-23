@@ -363,3 +363,12 @@ function isHiddenVendor($vendor) {
     }
     return $rVal;
 }
+
+function isDisabledVendor($vendor) {
+    $rVal = false;
+    if (is_array($vendor)) {
+        $disabled = get_user_meta($vendor["ID"], "ja_disable_user", true);
+        $rVal = ($disabled) ? true : false;
+    }
+    return $rVal;
+}

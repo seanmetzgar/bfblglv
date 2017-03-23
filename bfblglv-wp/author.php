@@ -538,7 +538,7 @@ get_header(); ?>
 													if (is_array($vendor)):
 														$vendor_id = "user_{$vendor['ID']}";
 														$vendor_name = get_field("partner_name", $vendor_id);
-														if (!isHiddenVendor($vendor)):
+														if (!isHiddenVendor($vendor) || !isDisabledVendor($vendor)):
 															$vendor_url = get_author_posts_url($vendor['ID']);
 															$vendor_city = get_field("partner_city", $vendor_id);
 															$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
@@ -683,7 +683,7 @@ get_header(); ?>
 													if (is_array($vendor)):
 														$vendor_id = "user_{$vendor['ID']}";
 														$vendor_name = get_field("partner_name", $vendor_id);
-														if (!isHiddenVendor($vendor)):
+														if (!isHiddenVendor($vendor) || !isDisabledVendor($vendor)):
 															$vendor_url = get_author_posts_url($vendor['ID']);
 															$vendor_city = get_field("partner_city", $vendor_id);
 															$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
@@ -704,7 +704,7 @@ get_header(); ?>
 													if (is_array($vendor)):
 														$vendor_id = "user_{$vendor['ID']}";
 														$vendor_name = get_field("partner_name", $vendor_id);
-														if (!isHiddenVendor($vendor)):
+														if (!isHiddenVendor($vendor) || !isDisabledVendor($vendor)):
 															$vendor_url = get_author_posts_url($vendor['ID']);
 															$vendor_city = get_field("partner_city", $vendor_id);
 															$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
@@ -725,7 +725,7 @@ get_header(); ?>
 													if (is_array($vendor)):
 														$vendor_id = "user_{$vendor['ID']}";
 														$vendor_name = get_field("partner_name", $vendor_id);
-														if (!isHiddenVendor($vendor)):
+														if (!isHiddenVendor($vendor) || !isDisabledVendor($vendor)):
 															$vendor_url = get_author_posts_url($vendor['ID']);
 															$vendor_city = get_field("partner_city", $vendor_id);
 															$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
