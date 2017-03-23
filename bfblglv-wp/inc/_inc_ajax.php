@@ -2030,8 +2030,10 @@ function xhrGetPartnersDownload() {
 			$market_vendor_partners_array = array();
 			if (is_array($market_vendor_partners) && count($market_vendor_partners) > 0) {
 				foreach ($market_vendor_partners as $vendor) {
-					$vendor_id = "user_{$vendor['ID']}";
-					$market_vendor_partners_array[] = get_field("partner_name", $vendor_id);
+					if(!isDisabledVendor($vendor)) {
+						$vendor_id = "user_{$vendor['ID']}";
+						$market_vendor_partners_array[] = get_field("partner_name", $vendor_id);
+					}
 				}
 				$market_vendor_partners = implode(PHP_EOL, $market_vendor_partners_array);
 			}
