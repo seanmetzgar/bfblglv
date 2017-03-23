@@ -1288,6 +1288,7 @@ function xhrMarkRenewalPaid() {
 		if ($partner_renewal_uuid === $renewal_uuid) {
 			$acf_partner_id = "user_{$partner_id}";
 			if (update_field("partner_renewed_date", $renewal_date, $acf_partner_id) && update_field("partner_renewed_until", $renewed_until, $acf_partner_id)) {
+				update_user_meta( $partner->ID, "ja_disable_user", 0 );
 				$status = true;
 			}
 		}
