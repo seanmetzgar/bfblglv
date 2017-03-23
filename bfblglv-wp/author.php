@@ -730,7 +730,7 @@ get_header(); ?>
 															$vendor_city = get_field("partner_city", $vendor_id);
 															$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
 															echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
-														else:
+														elseif (!isDisabledVendor($vendor)):
 															echo "<li>$vendor_name</li>";
 														endif;
 													endif;
