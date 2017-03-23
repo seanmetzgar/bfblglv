@@ -1670,377 +1670,387 @@ function xhrGetPartnersDownload() {
 	}
 
 	foreach ($allPartners as $partner) {
-		$tempObject = new DownloadPartner;
-		$partner_id = $partner->ID;
-		$acfID = "user_{$partner_id}";
-		$user_role = get_user_role($partner_id);
+		$tempDisabled = get_user_meta( $partner->ID, "ja_disable_user", true );
 
-		/** Business Name **/
-		$tempObject->name = get_field("partner_name", $acfID);
-		$tempObject->category = $user_role;
+		if (!$tempDisabled) {
+			$tempObject = new DownloadPartner;
+			$partner_id = $partner->ID;
+			$acfID = "user_{$partner_id}";
+			$user_role = get_user_role($partner_id);
 
-		/** Business Details **/
-		$tempObject->partner_phone = get_field("partner_phone", $acfID);
-		$tempObject->partner_website = get_field("partner_website", $acfID);
-		$tempObject->partner_email = get_field("partner_email", $acfID);
+			/** Business Name **/
+			$tempObject->name = get_field("partner_name", $acfID);
+			$tempObject->category = $user_role;
 
-		/** Owner Details **/
-		$tempObject->owner_name = get_field("partner_owner_name", $acfID);
-		$tempObject->owner_phone = get_field("partner_owner_phone", $acfID);
-		$tempObject->owner_email = get_field("partner_owner_email", $acfID);
+			/** Business Details **/
+			$tempObject->partner_phone = get_field("partner_phone", $acfID);
+			$tempObject->partner_website = get_field("partner_website", $acfID);
+			$tempObject->partner_email = get_field("partner_email", $acfID);
 
-		/** Contact Details **/
-		$tempObject->contact_name = get_field("partner_contact_name", $acfID);
-		$tempObject->contact_job = get_field("partner_contact_position", $acfID);
-		$tempObject->contact_phone = get_field("partner_contact_phone", $acfID);
-		$tempObject->contact_email = get_field("partner_contact_email", $acfID);
+			/** Owner Details **/
+			$tempObject->owner_name = get_field("partner_owner_name", $acfID);
+			$tempObject->owner_phone = get_field("partner_owner_phone", $acfID);
+			$tempObject->owner_email = get_field("partner_owner_email", $acfID);
 
-		/** Social Media **/
-		$tempObject->facebook_page = get_field("partner_facebook", $acfID);
-		$tempObject->instagram_username = get_field("partner_instagram", $acfID);
-		$tempObject->twitter_username = get_field("partner_twitter", $acfID);
+			/** Contact Details **/
+			$tempObject->contact_name = get_field("partner_contact_name", $acfID);
+			$tempObject->contact_job = get_field("partner_contact_position", $acfID);
+			$tempObject->contact_phone = get_field("partner_contact_phone", $acfID);
+			$tempObject->contact_email = get_field("partner_contact_email", $acfID);
 
-		/** Location **/
-		$tempObject->county = get_field("partner_county", $acfID);
-			//Get Address Parts
-			$partner_street_1 = get_field("partner_street_1", $acfID);
-			$partner_street_1 = strlen($partner_street_1) > 0 ? $partner_street_1 : false;
-			$partner_street_2 = get_field("partner_street_2", $acfID);
-			$partner_street_2 = strlen($partner_street_2) > 0 ? $partner_street_2 : false;
-			$partner_city = get_field("partner_city", $acfID);
-			$partner_city = strlen($partner_city) > 0 ? $partner_city : false;
-			$partner_state = get_field("partner_state", $acfID);
-			$partner_state = strlen($partner_state) > 0 ? $partner_state : false;
-			$partner_zip = get_field("partner_zip", $acfID);
-			$partner_zip = strlen($partner_zip) > 0 ? $partner_zip : false;
-			//Sanitize Address
-			$partner_address = "";
-			$partner_address .= $partner_street_1 ? "$partner_street_1".PHP_EOL : "";
-			$partner_address .= $partner_street_2 ? "$partner_street_2".PHP_EOL : "";
-			$partner_address .= $partner_city ? "$partner_city" : "";
-			$partner_address .= ($partner_city && $partner_state) ? ", $partner_state" : "";
-			$partner_address .= (!$partner_city && $partner_state) ? "$partner_state" : "";
-			$partner_address .= ($partner_zip && ($partner_city || $partner_state)) ? " $partner_zip" : "";
-			$partner_address .= ($partner_zip && !$partner_city && !$partner_state) ? $partner_zip : "";
-		$tempObject->location_address = (strlen($partner_address) > 0) ? $partner_address : "";
+			/** Social Media **/
+			$tempObject->facebook_page = get_field("partner_facebook", $acfID);
+			$tempObject->instagram_username = get_field("partner_instagram", $acfID);
+			$tempObject->twitter_username = get_field("partner_twitter", $acfID);
 
-		/** Hours **/
-		$partner_hours = array();
-		if (have_rows("hours", $acfID)) {
-			while (have_rows("hours", $acfID)) {
-				the_row();
-				$tempDay = get_sub_field("day");
-				$tempOpenTime = get_sub_field("open_time");
-				$tempCloseTime = get_sub_field("close_time");
-				$tempShortDescription = get_sub_field("short_description");
-				$tempIsSeasonal = get_sub_field("is_seasonal");
-				if ($tempIsSeasonal) {
-					$tempSeasonStartMonthPart = get_sub_field("season_start_mpart");
-					$tempSeasonStartMonth = get_sub_field("season_start_month");
-					$tempSeasonEndMonthPart = get_sub_field("season_end_mpart");
-					$tempSeasonEndMonth = get_sub_field("season_end_month");
+			/** Location **/
+			$tempObject->county = get_field("partner_county", $acfID);
+				//Get Address Parts
+				$partner_street_1 = get_field("partner_street_1", $acfID);
+				$partner_street_1 = strlen($partner_street_1) > 0 ? $partner_street_1 : false;
+				$partner_street_2 = get_field("partner_street_2", $acfID);
+				$partner_street_2 = strlen($partner_street_2) > 0 ? $partner_street_2 : false;
+				$partner_city = get_field("partner_city", $acfID);
+				$partner_city = strlen($partner_city) > 0 ? $partner_city : false;
+				$partner_state = get_field("partner_state", $acfID);
+				$partner_state = strlen($partner_state) > 0 ? $partner_state : false;
+				$partner_zip = get_field("partner_zip", $acfID);
+				$partner_zip = strlen($partner_zip) > 0 ? $partner_zip : false;
+				//Sanitize Address
+				$partner_address = "";
+				$partner_address .= $partner_street_1 ? "$partner_street_1".PHP_EOL : "";
+				$partner_address .= $partner_street_2 ? "$partner_street_2".PHP_EOL : "";
+				$partner_address .= $partner_city ? "$partner_city" : "";
+				$partner_address .= ($partner_city && $partner_state) ? ", $partner_state" : "";
+				$partner_address .= (!$partner_city && $partner_state) ? "$partner_state" : "";
+				$partner_address .= ($partner_zip && ($partner_city || $partner_state)) ? " $partner_zip" : "";
+				$partner_address .= ($partner_zip && !$partner_city && !$partner_state) ? $partner_zip : "";
+			$tempObject->location_address = (strlen($partner_address) > 0) ? $partner_address : "";
+
+			/** Hours **/
+			$partner_hours = array();
+			if (have_rows("hours", $acfID)) {
+				while (have_rows("hours", $acfID)) {
+					the_row();
+					$tempDay = get_sub_field("day");
+					$tempOpenTime = get_sub_field("open_time");
+					$tempCloseTime = get_sub_field("close_time");
+					$tempShortDescription = get_sub_field("short_description");
+					$tempIsSeasonal = get_sub_field("is_seasonal");
+					if ($tempIsSeasonal) {
+						$tempSeasonStartMonthPart = get_sub_field("season_start_mpart");
+						$tempSeasonStartMonth = get_sub_field("season_start_month");
+						$tempSeasonEndMonthPart = get_sub_field("season_end_mpart");
+						$tempSeasonEndMonth = get_sub_field("season_end_month");
+					}
+					$tempVendors = get_sub_field("vendors");
+					$tempVendors = (is_string($tempVendors) && strlen($tempVendors) > 0) ? $tempVendors : false;
+
+					$tempHours = "$tempDay: $tempOpenTime - $tempCloseTime";
+					$tempHours .= ($tempShortDescription) ? PHP_EOL."$tempShortDescription" : "";
+					$tempHours .= ($tempIsSeasonal) ? PHP_EOL."($tempSeasonStartMonthPart $tempSeasonStartMonth - $tempSeasonEndMonthPart $tempSeasonEndMonth)" : "";
+					$tempHours .= ($tempVendors) ? PHP_EOL."[$tempVendors Vendors]" : "";
+					$partner_hours[] = $tempHours;
 				}
-				$tempVendors = get_sub_field("vendors");
-				$tempVendors = (is_string($tempVendors) && strlen($tempVendors) > 0) ? $tempVendors : false;
-
-				$tempHours = "$tempDay: $tempOpenTime - $tempCloseTime";
-				$tempHours .= ($tempShortDescription) ? PHP_EOL."$tempShortDescription" : "";
-				$tempHours .= ($tempIsSeasonal) ? PHP_EOL."($tempSeasonStartMonthPart $tempSeasonStartMonth - $tempSeasonEndMonthPart $tempSeasonEndMonth)" : "";
-				$tempHours .= ($tempVendors) ? PHP_EOL."[$tempVendors Vendors]" : "";
-				$partner_hours[] = $tempHours;
 			}
+			$tempObject->hours = (count($partner_hours) > 0) ? implode(PHP_EOL.PHP_EOL, $partner_hours) : "";
+
+			/** Availability & Sourcing **/
+			$products_available_from = get_field("products_available_from", $acfID);
+			$products_available_from_array = array();
+			if (is_array($products_available_from) && count($products_available_from) > 0) {
+				foreach ($products_available_from as $vendor) {
+					if (!isDisabledVendor($vendor)) {
+						$vendor_id = "user_{$vendor['ID']}";
+						$products_available_from_array[] = get_field("partner_name", $vendor_id);
+					}
+				}
+				$products_available_from = implode(PHP_EOL, $products_available_from_array);
+			} else { $products_available_from = ""; }
+			$tempObject->products_available_from = $products_available_from;
+			$tempObject->products_available_from_other = get_field("products_available_from_other", $acfID);
+
+			$products_available_at = get_field("products_available_at", $acfID);
+			$products_available_at_array = array();
+			if (is_array($products_available_at) && count($products_available_at) > 0) {
+				foreach ($products_available_at as $vendor) {
+					if (!isDisabledVendor($vendor)) {
+						$vendor_id = "user_{$vendor['ID']}";
+						$products_available_at_array[] = get_field("partner_name", $vendor_id);
+					}
+				}
+				$products_available_at = implode(PHP_EOL, $products_available_at_array);
+			} else { $products_available_at = ""; }
+			$tempObject->products_available_at = $products_available_at;
+			$tempObject->products_available_at_other = get_field("products_available_at_other", $acfID);
+
+			$source_from = get_field("source_from", $acfID);
+			$source_from_array = array();
+			if (is_array($source_from) && count($source_from) > 0) {
+				foreach ($source_from as $vendor) {
+					if (!isDisabledVendor($vendor)) {
+						$vendor_id = "user_{$vendor['ID']}";
+						$source_from_array[] = get_field("partner_name", $vendor_id);
+					}
+				}
+				$source_from = implode(PHP_EOL, $source_from_array);
+			} else { $source_from = ""; }
+			$tempObject->source_from = $source_from;
+			$tempObject->source_from_other = get_field("source_from_other", $acfID);
+
+			$local_stock_freq = get_field("local_stock_freq", $acfID);
+			$local_stock_qty = get_field("local_stock_qty", $acfID);
+			if ($local_stock_freq && $local_stock_qty) {
+				$local_stock = "We {$local_stock_freq} have {$local_stock_qty} locally grown ingredients in our menu items.";
+			} else { $local_stock = ""; }
+			$tempObject->local_stock = $local_stock;
+
+			$appointments = get_field("appointments", $acfID);
+			$tempObject->appointments = is_bool($appointments) ? $appointments : false;
+
+			/** Products **/
+			$products_greens = get_field("products_greens", $acfID);
+			$tempObject->products_greens = downloadParseProducts($products_greens);
+			$tempObject->products_greens_other = get_field("other_products_greens", $acfID);
+			$products_roots = get_field("products_roots", $acfID);
+			$tempObject->products_roots = downloadParseProducts($products_roots);
+			$tempObject->products_roots_other = get_field("other_products_roots", $acfID);
+			$products_seasonal = get_field("products_seasonal", $acfID);
+			$tempObject->products_seasonal = downloadParseProducts($products_seasonal);
+			$tempObject->products_seasonal_other = get_field("other_products_seasonal", $acfID);
+			$products_melons = get_field("products_melons", $acfID);
+			$tempObject->products_melons = downloadParseProducts($products_melons);
+			$tempObject->products_melons_other = get_field("other_products_melons", $acfID);
+			$products_herbs = get_field("products_herbs", $acfID);
+			$tempObject->products_herbs = downloadParseProducts($products_herbs);
+			$tempObject->products_herbs_other = get_field("other_products_herbs", $acfID);
+			$products_berries = get_field("products_berries", $acfID);
+			$tempObject->products_berries = downloadParseProducts($products_berries);
+			$tempObject->products_berries_other = get_field("other_products_berries", $acfID);
+			$products_small_fruits = get_field("products_small_fruits", $acfID);
+			$tempObject->products_small_fruits = downloadParseProducts($products_small_fruits);
+			$tempObject->products_small_fruits_other = get_field("other_products_small_fruits", $acfID);
+			$products_grains = get_field("products_grains", $acfID);
+			$tempObject->products_grains = downloadParseProducts($products_grains);
+			$tempObject->products_grains_other = get_field("other_products_grains", $acfID);
+			$products_value_added = get_field("products_value_added", $acfID);
+			$tempObject->products_value_added = downloadParseProducts($products_value_added);
+			$tempObject->products_value_added_other = get_field("other_products_value_added", $acfID);
+			$products_flowers = get_field("products_flowers", $acfID);
+			$tempObject->products_flowers = downloadParseProducts($products_flowers);
+			$tempObject->products_flowers_other = get_field("other_products_flowers", $acfID);
+			$products_plants = get_field("products_plants", $acfID);
+			$tempObject->products_plants = downloadParseProducts($products_plants);
+			$tempObject->products_plants_other = get_field("other_products_plants", $acfID);
+			$products_ornamentals = get_field("products_ornamentals", $acfID);
+			$tempObject->products_ornamentals = downloadParseProducts($products_ornamentals);
+			$tempObject->products_ornamentals_other = get_field("other_products_ornamentals", $acfID);
+			$products_syrups = get_field("products_syrups", $acfID);
+			$tempObject->products_syrups = downloadParseProducts($products_syrups);
+			$tempObject->products_syrups_other = get_field("other_products_syrups", $acfID);
+			$products_dairy = get_field("products_dairy", $acfID);
+			$tempObject->products_dairy = downloadParseProducts($products_dairy);
+			$tempObject->products_dairy_other = get_field("other_products_dairy", $acfID);
+			$products_meat = get_field("products_meat", $acfID);
+			$tempObject->products_meat = downloadParseProducts($products_meat);
+			$tempObject->products_meat_other = get_field("other_products_meat", $acfID);
+			$products_poultry = get_field("products_poultry", $acfID);
+			$tempObject->products_poultry = downloadParseProducts($products_poultry);
+			$tempObject->products_poultry_other = get_field("other_products_poultry", $acfID);
+			$products_agritourism = get_field("products_agritourism", $acfID);
+			$tempObject->products_agritourism = downloadParseProducts($products_agritourism);
+			$tempObject->products_agritourism_other = get_field("other_products_agritourism", $acfID);
+			$products_fibers = get_field("products_fibers", $acfID);
+			$tempObject->products_fibers = downloadParseProducts($products_fibers);
+			$tempObject->products_fibers_other = get_field("other_products_fibers", $acfID);
+			$products_artisinal = get_field("products_artisinal", $acfID);
+			$tempObject->products_artisinal = downloadParseProducts($products_artisinal);
+			$tempObject->products_artisinal_other = get_field("other_products_artisinal", $acfID);
+			$products_liquids = get_field("products_liquids", $acfID);
+			$tempObject->products_liquids = downloadParseProducts($products_liquids);
+			$tempObject->products_liquids_other = get_field("other_products_liquids", $acfID);
+			$products_educational = get_field("products_educational", $acfID);
+			$tempObject->products_educational = downloadParseProducts($products_educational);
+			$tempObject->products_educational_other = get_field("other_products_educational", $acfID);
+			$products_baked = get_field("products_baked", $acfID);
+			$tempObject->products_baked = downloadParseProducts($products_baked);
+			$tempObject->products_baked_other = get_field("other_products_baked", $acfID);
+			$products_seeds = get_field("products_seeds", $acfID);
+			$tempObject->products_seeds = downloadParseProducts($products_seeds);
+			$tempObject->products_seeds_other = get_field("other_products_seeds", $acfID);
+			$products_pyo = get_field("products_pyo", $acfID);
+			$tempObject->products_pyo = downloadParseProducts($products_seeds);
+			$tempObject->products_pyo_other = get_field("other_products_pyo", $acfID);
+			$products_misc = get_field("products_misc", $acfID);
+			$tempObject->products_misc = downloadParseProducts($products_misc);
+			$tempObject->products_misc_other = get_field("other_products_misc", $acfID);
+
+			/** Wholesale Products **/
+			$ws_products_greens = get_field("ws_products_greens", $acfID);
+			$tempObject->ws_products_greens = downloadParseProducts($ws_products_greens);
+			$tempObject->ws_products_greens_other = get_field("other_ws_products_greens", $acfID);
+			$ws_products_roots = get_field("ws_products_roots", $acfID);
+			$tempObject->ws_products_roots = downloadParseProducts($ws_products_roots);
+			$tempObject->ws_products_roots_other = get_field("other_ws_products_roots", $acfID);
+			$ws_products_seasonal = get_field("ws_products_seasonal", $acfID);
+			$tempObject->ws_products_seasonal = downloadParseProducts($ws_products_seasonal);
+			$tempObject->ws_products_seasonal_other = get_field("other_ws_products_seasonal", $acfID);
+			$ws_products_melons = get_field("ws_products_melons", $acfID);
+			$tempObject->ws_products_melons = downloadParseProducts($ws_products_melons);
+			$tempObject->ws_products_melons_other = get_field("other_ws_products_melons", $acfID);
+			$ws_products_herbs = get_field("ws_products_herbs", $acfID);
+			$tempObject->ws_products_herbs = downloadParseProducts($ws_products_herbs);
+			$tempObject->ws_products_herbs_other = get_field("other_ws_products_herbs", $acfID);
+			$ws_products_berries = get_field("ws_products_berries", $acfID);
+			$tempObject->ws_products_berries = downloadParseProducts($ws_products_berries);
+			$tempObject->ws_products_berries_other = get_field("other_ws_products_berries", $acfID);
+			$ws_products_small_fruits = get_field("ws_products_small_fruits", $acfID);
+			$tempObject->ws_products_small_fruits = downloadParseProducts($ws_products_small_fruits);
+			$tempObject->ws_products_small_fruits_other = get_field("other_ws_products_small_fruits", $acfID);
+			$ws_products_grains = get_field("ws_products_grains", $acfID);
+			$tempObject->ws_products_grains = downloadParseProducts($ws_products_grains);
+			$tempObject->ws_products_grains_other = get_field("other_ws_products_grains", $acfID);
+			$ws_products_value_added = get_field("ws_products_value_added", $acfID);
+			$tempObject->ws_products_value_added = downloadParseProducts($ws_products_value_added);
+			$tempObject->ws_products_value_added_other = get_field("other_ws_products_value_added", $acfID);
+			$ws_products_flowers = get_field("ws_products_flowers", $acfID);
+			$tempObject->ws_products_flowers = downloadParseProducts($ws_products_flowers);
+			$tempObject->ws_products_flowers_other = get_field("other_ws_products_flowers", $acfID);
+			$ws_products_plants = get_field("ws_products_plants", $acfID);
+			$tempObject->ws_products_plants = downloadParseProducts($ws_products_plants);
+			$tempObject->ws_products_plants_other = get_field("other_ws_products_plants", $acfID);
+			$ws_products_ornamentals = get_field("ws_products_ornamentals", $acfID);
+			$tempObject->ws_products_ornamentals = downloadParseProducts($ws_products_ornamentals);
+			$tempObject->ws_products_ornamentals_other = get_field("other_ws_products_ornamentals", $acfID);
+			$ws_products_syrups = get_field("ws_products_syrups", $acfID);
+			$tempObject->ws_products_syrups = downloadParseProducts($ws_products_syrups);
+			$tempObject->ws_products_syrups_other = get_field("other_ws_products_syrups", $acfID);
+			$ws_products_dairy = get_field("ws_products_dairy", $acfID);
+			$tempObject->ws_products_dairy = downloadParseProducts($ws_products_dairy);
+			$tempObject->ws_products_dairy_other = get_field("other_ws_products_dairy", $acfID);
+			$ws_products_meat = get_field("ws_products_meat", $acfID);
+			$tempObject->ws_products_meat = downloadParseProducts($ws_products_meat);
+			$tempObject->ws_products_meat_other = get_field("other_ws_products_meat", $acfID);
+			$ws_products_poultry = get_field("ws_products_poultry", $acfID);
+			$tempObject->ws_products_poultry = downloadParseProducts($ws_products_poultry);
+			$tempObject->ws_products_poultry_other = get_field("other_ws_products_poultry", $acfID);
+			$ws_products_agritourism = get_field("ws_products_agritourism", $acfID);
+			$tempObject->ws_products_agritourism = downloadParseProducts($ws_products_agritourism);
+			$tempObject->ws_products_agritourism_other = get_field("other_ws_products_agritourism", $acfID);
+			$ws_products_fibers = get_field("ws_products_fibers", $acfID);
+			$tempObject->ws_products_fibers = downloadParseProducts($ws_products_fibers);
+			$tempObject->ws_products_fibers_other = get_field("other_ws_products_fibers", $acfID);
+			$ws_products_artisinal = get_field("ws_products_artisinal", $acfID);
+			$tempObject->ws_products_artisinal = downloadParseProducts($ws_products_artisinal);
+			$tempObject->ws_products_artisinal_other = get_field("other_ws_products_artisinal", $acfID);
+			$ws_products_liquids = get_field("ws_products_liquids", $acfID);
+			$tempObject->ws_products_liquids = downloadParseProducts($ws_products_liquids);
+			$tempObject->ws_products_liquids_other = get_field("other_ws_products_liquids", $acfID);
+			$ws_products_educational = get_field("ws_products_educational", $acfID);
+			$tempObject->ws_products_educational = downloadParseProducts($ws_products_educational);
+			$tempObject->ws_products_educational_other = get_field("other_ws_products_educational", $acfID);
+			$ws_products_baked = get_field("ws_products_baked", $acfID);
+			$tempObject->ws_products_baked = downloadParseProducts($ws_products_baked);
+			$tempObject->ws_products_baked_other = get_field("other_ws_products_baked", $acfID);
+			$ws_products_seeds = get_field("ws_products_seeds", $acfID);
+			$tempObject->ws_products_seeds = downloadParseProducts($ws_products_seeds);
+			$tempObject->ws_products_seeds_other = get_field("other_ws_products_seeds", $acfID);
+			$ws_products_pyo = get_field("ws_products_pyo", $acfID);
+			$tempObject->ws_products_pyo = downloadParseProducts($ws_products_pyo);
+			$tempObject->ws_products_pyo_other = get_field("other_ws_products_pyo", $acfID);
+			$ws_products_misc = get_field("ws_products_misc", $acfID);
+			$tempObject->ws_products_misc = downloadParseProducts($ws_products_misc);
+			$tempObject->ws_products_misc_other = get_field("other_ws_products_misc", $acfID);
+
+
+			/** Wholesale **/
+			$is_wholesaler = get_field("is_wholesaler", $acfID);
+			$tempObject->is_wholesaler = is_bool($is_wholesaler) ? $is_wholesaler : false;
+			$quasi_wholesale = get_field("quasi_wholesale", $acfID);
+			$tempObject->quasi_wholesale = is_bool($quasi_wholesale) ? $quasi_wholesale : false;
+			$small_wholesale = get_field("small_wholesale", $acfID);
+			$tempObject->small_wholesale = is_bool($small_wholesale) ? $small_wholesale : false;
+			$large_wholesale = get_field("large_wholesale", $acfID);
+			$tempObject->large_wholesale = is_bool($large_wholesale) ? $large_wholesale : false;
+			$gap_certification = get_field("gap_certification", $acfID);
+			$tempObject->gap_certification = is_bool($gap_certification) ? $gap_certification : false;
+			$tempObject->gap_certified_since = get_field("gap_certified_since", $acfID);
+
+			/** Farm Practices **/
+			$certified_organic = get_field("certified_organic", $acfID);
+			$tempObject->certified_organic = (is_bool($certified_organic)) ? $certified_organic : false;
+			$tempObject->certified_organic_since = "";
+			$tempObject->certified_organic_by = "";
+
+			$certified_naturally_grown = get_field("certified_naturally_grown", $acfID);
+			$tempObject->certified_naturally_grown = (is_bool($certified_naturally_grown)) ? $certified_naturally_grown : false;
+			$tempObject->certified_naturally_grown_since = "";
+
+			$certified_biodynamic = get_field("certified_biodynamic", $acfID);
+			$tempObject->certified_biodynamic = (is_bool($certified_biodynamic)) ? $certified_biodynamic : false;
+			$tempObject->certified_biodynamic_since = "";
+			$tempObject->certified_biodynamic_by = "";
+
+			$only_organic = get_field("only_organic", $acfID);
+			$tempObject->only_organic = (is_bool($only_organic)) ? $only_organic : false;
+			$integrated_pest_management = get_field("integrated_pest_management", $acfID);
+			$tempObject->integrated_pest_management = (is_bool($integrated_pest_management)) ? $integrated_pest_management : false;
+			$non_gmo = get_field("non_gmo", $acfID);
+			$tempObject->non_gmo = (is_bool($non_gmo)) ? $non_gmo : false;
+			$antibiotic_harmone_free = get_field("antibiotic_harmone_free", $acfID);
+			$tempObject->antibiotic_harmone_free = (is_bool($antibiotic_harmone_free)) ? $antibiotic_harmone_free : false;
+			$pastured = get_field("pastured", $acfID);
+			$tempObject->pastured = (is_bool($pastured)) ? $pastured : false;
+			$grass_fed = get_field("grass_fed", $acfID);
+			$tempObject->grass_fed = (is_bool($grass_fed)) ? $grass_fed : false;
+			$extended_growing_season = get_field("extended_growing_season", $acfID);
+			$tempObject->extended_growing_season = (is_bool($extended_growing_season)) ? $extended_growing_season : false;
+			$tempObject->other_practices = get_field("other_practices", $acfID);
+
+			/** Acres **/
+			$tempObject->acres_owned = get_field("acres_owned", $acfID);
+			$tempObject->acres_rented = get_field("acres_rented", $acfID);
+			$tempObject->acres_production = get_field("acres_production", $acfID);
+
+			/** CSA / Farm Share **/
+			$csa_loops = array();
+			$is_farm_share = get_field("is_farm_share", $acfID);
+			$tempObject->is_farm_share = (is_bool($is_farm_share)) ? $is_farm_share : false;
+			if ($is_farm_share) { $csa_loops[] = "farm_share"; }
+			$is_csa = get_field("is_csa", $acfID);
+			$tempObject->is_csa = (is_bool($is_csa)) ? $is_csa : false;
+			if ($is_csa) { $csa_loops[] = "csa"; }
+			$is_winter_csa = get_field("is_winter_csa", $acfID);
+			$tempObject->is_csa = (is_bool($is_winter_csa)) ? $is_winter_csa : false;
+			if ($is_winter_csa) { $csa_loops[] = "winter_csa"; }
+
+			/** FM Details **/
+			$tempObject->market_vendors = get_field("number_of_vendors", $acfID);
+			$market_vendor_partners = get_field("vendor_list", $acfID);
+			$market_vendor_partners_array = array();
+			if (is_array($market_vendor_partners) && count($market_vendor_partners) > 0) {
+				foreach ($market_vendor_partners as $vendor) {
+					$vendor_id = "user_{$vendor['ID']}";
+					$market_vendor_partners_array[] = get_field("partner_name", $vendor_id);
+				}
+				$market_vendor_partners = implode(PHP_EOL, $market_vendor_partners_array);
+			}
+			$tempObject->market_vendor_partners = $market_vendor_partners;
+			$tempObject->market_vendor_partners_other = get_field("vendor_list_other", $acfID);
+
+			$tempObject->market_manager = get_field("market_manager", $acfID);
+			$tempObject->market_manager_phone = get_field("market_manager_phone", $acfID);
+			$tempObject->market_manager_email = get_field("market_manager_email", $acfID);
+
+			$tempObject->market_ebt = get_field("market_ebt", $acfID);
+			$market_fmnp = get_field("market_fmnp", $acfID);
+			$tempObject->market_fmnp = (is_bool($market_fmnp)) ? $market_fmnp : false;
+			$market_double_snap = get_field("market_double_snap", $acfID);
+			$tempObject->market_double_snap = (is_bool($market_double_snap)) ? $market_double_snap : false;
+
+			$partnersArray[] = $tempObject;
+			$tempObject = null;
 		}
-		$tempObject->hours = (count($partner_hours) > 0) ? implode(PHP_EOL.PHP_EOL, $partner_hours) : "";
-
-		/** Availability & Sourcing **/
-		$products_available_from = get_field("products_available_from", $acfID);
-		$products_available_from_array = array();
-		if (is_array($products_available_from) && count($products_available_from) > 0) {
-			foreach ($products_available_from as $vendor) {
-				$vendor_id = "user_{$vendor['ID']}";
-				$products_available_from_array[] = get_field("partner_name", $vendor_id);
-			}
-			$products_available_from = implode(PHP_EOL, $products_available_from_array);
-		} else { $products_available_from = ""; }
-		$tempObject->products_available_from = $products_available_from;
-		$tempObject->products_available_from_other = get_field("products_available_from_other", $acfID);
-
-		$products_available_at = get_field("products_available_at", $acfID);
-		$products_available_at_array = array();
-		if (is_array($products_available_at) && count($products_available_at) > 0) {
-			foreach ($products_available_at as $vendor) {
-				$vendor_id = "user_{$vendor['ID']}";
-				$products_available_at_array[] = get_field("partner_name", $vendor_id);
-			}
-			$products_available_at = implode(PHP_EOL, $products_available_at_array);
-		} else { $products_available_at = ""; }
-		$tempObject->products_available_at = $products_available_at;
-		$tempObject->products_available_at_other = get_field("products_available_at_other", $acfID);
-
-		$source_from = get_field("source_from", $acfID);
-		$source_from_array = array();
-		if (is_array($source_from) && count($source_from) > 0) {
-			foreach ($source_from as $vendor) {
-				$vendor_id = "user_{$vendor['ID']}";
-				$source_from_array[] = get_field("partner_name", $vendor_id);
-			}
-			$source_from = implode(PHP_EOL, $source_from_array);
-		} else { $source_from = ""; }
-		$tempObject->source_from = $source_from;
-		$tempObject->source_from_other = get_field("source_from_other", $acfID);
-
-		$local_stock_freq = get_field("local_stock_freq", $acfID);
-		$local_stock_qty = get_field("local_stock_qty", $acfID);
-		if ($local_stock_freq && $local_stock_qty) {
-			$local_stock = "We {$local_stock_freq} have {$local_stock_qty} locally grown ingredients in our menu items.";
-		} else { $local_stock = ""; }
-		$tempObject->local_stock = $local_stock;
-
-		$appointments = get_field("appointments", $acfID);
-		$tempObject->appointments = is_bool($appointments) ? $appointments : false;
-
-		/** Products **/
-		$products_greens = get_field("products_greens", $acfID);
-		$tempObject->products_greens = downloadParseProducts($products_greens);
-		$tempObject->products_greens_other = get_field("other_products_greens", $acfID);
-		$products_roots = get_field("products_roots", $acfID);
-		$tempObject->products_roots = downloadParseProducts($products_roots);
-		$tempObject->products_roots_other = get_field("other_products_roots", $acfID);
-		$products_seasonal = get_field("products_seasonal", $acfID);
-		$tempObject->products_seasonal = downloadParseProducts($products_seasonal);
-		$tempObject->products_seasonal_other = get_field("other_products_seasonal", $acfID);
-		$products_melons = get_field("products_melons", $acfID);
-		$tempObject->products_melons = downloadParseProducts($products_melons);
-		$tempObject->products_melons_other = get_field("other_products_melons", $acfID);
-		$products_herbs = get_field("products_herbs", $acfID);
-		$tempObject->products_herbs = downloadParseProducts($products_herbs);
-		$tempObject->products_herbs_other = get_field("other_products_herbs", $acfID);
-		$products_berries = get_field("products_berries", $acfID);
-		$tempObject->products_berries = downloadParseProducts($products_berries);
-		$tempObject->products_berries_other = get_field("other_products_berries", $acfID);
-		$products_small_fruits = get_field("products_small_fruits", $acfID);
-		$tempObject->products_small_fruits = downloadParseProducts($products_small_fruits);
-		$tempObject->products_small_fruits_other = get_field("other_products_small_fruits", $acfID);
-		$products_grains = get_field("products_grains", $acfID);
-		$tempObject->products_grains = downloadParseProducts($products_grains);
-		$tempObject->products_grains_other = get_field("other_products_grains", $acfID);
-		$products_value_added = get_field("products_value_added", $acfID);
-		$tempObject->products_value_added = downloadParseProducts($products_value_added);
-		$tempObject->products_value_added_other = get_field("other_products_value_added", $acfID);
-		$products_flowers = get_field("products_flowers", $acfID);
-		$tempObject->products_flowers = downloadParseProducts($products_flowers);
-		$tempObject->products_flowers_other = get_field("other_products_flowers", $acfID);
-		$products_plants = get_field("products_plants", $acfID);
-		$tempObject->products_plants = downloadParseProducts($products_plants);
-		$tempObject->products_plants_other = get_field("other_products_plants", $acfID);
-		$products_ornamentals = get_field("products_ornamentals", $acfID);
-		$tempObject->products_ornamentals = downloadParseProducts($products_ornamentals);
-		$tempObject->products_ornamentals_other = get_field("other_products_ornamentals", $acfID);
-		$products_syrups = get_field("products_syrups", $acfID);
-		$tempObject->products_syrups = downloadParseProducts($products_syrups);
-		$tempObject->products_syrups_other = get_field("other_products_syrups", $acfID);
-		$products_dairy = get_field("products_dairy", $acfID);
-		$tempObject->products_dairy = downloadParseProducts($products_dairy);
-		$tempObject->products_dairy_other = get_field("other_products_dairy", $acfID);
-		$products_meat = get_field("products_meat", $acfID);
-		$tempObject->products_meat = downloadParseProducts($products_meat);
-		$tempObject->products_meat_other = get_field("other_products_meat", $acfID);
-		$products_poultry = get_field("products_poultry", $acfID);
-		$tempObject->products_poultry = downloadParseProducts($products_poultry);
-		$tempObject->products_poultry_other = get_field("other_products_poultry", $acfID);
-		$products_agritourism = get_field("products_agritourism", $acfID);
-		$tempObject->products_agritourism = downloadParseProducts($products_agritourism);
-		$tempObject->products_agritourism_other = get_field("other_products_agritourism", $acfID);
-		$products_fibers = get_field("products_fibers", $acfID);
-		$tempObject->products_fibers = downloadParseProducts($products_fibers);
-		$tempObject->products_fibers_other = get_field("other_products_fibers", $acfID);
-		$products_artisinal = get_field("products_artisinal", $acfID);
-		$tempObject->products_artisinal = downloadParseProducts($products_artisinal);
-		$tempObject->products_artisinal_other = get_field("other_products_artisinal", $acfID);
-		$products_liquids = get_field("products_liquids", $acfID);
-		$tempObject->products_liquids = downloadParseProducts($products_liquids);
-		$tempObject->products_liquids_other = get_field("other_products_liquids", $acfID);
-		$products_educational = get_field("products_educational", $acfID);
-		$tempObject->products_educational = downloadParseProducts($products_educational);
-		$tempObject->products_educational_other = get_field("other_products_educational", $acfID);
-		$products_baked = get_field("products_baked", $acfID);
-		$tempObject->products_baked = downloadParseProducts($products_baked);
-		$tempObject->products_baked_other = get_field("other_products_baked", $acfID);
-		$products_seeds = get_field("products_seeds", $acfID);
-		$tempObject->products_seeds = downloadParseProducts($products_seeds);
-		$tempObject->products_seeds_other = get_field("other_products_seeds", $acfID);
-		$products_pyo = get_field("products_pyo", $acfID);
-		$tempObject->products_pyo = downloadParseProducts($products_seeds);
-		$tempObject->products_pyo_other = get_field("other_products_pyo", $acfID);
-		$products_misc = get_field("products_misc", $acfID);
-		$tempObject->products_misc = downloadParseProducts($products_misc);
-		$tempObject->products_misc_other = get_field("other_products_misc", $acfID);
-
-		/** Wholesale Products **/
-		$ws_products_greens = get_field("ws_products_greens", $acfID);
-		$tempObject->ws_products_greens = downloadParseProducts($ws_products_greens);
-		$tempObject->ws_products_greens_other = get_field("other_ws_products_greens", $acfID);
-		$ws_products_roots = get_field("ws_products_roots", $acfID);
-		$tempObject->ws_products_roots = downloadParseProducts($ws_products_roots);
-		$tempObject->ws_products_roots_other = get_field("other_ws_products_roots", $acfID);
-		$ws_products_seasonal = get_field("ws_products_seasonal", $acfID);
-		$tempObject->ws_products_seasonal = downloadParseProducts($ws_products_seasonal);
-		$tempObject->ws_products_seasonal_other = get_field("other_ws_products_seasonal", $acfID);
-		$ws_products_melons = get_field("ws_products_melons", $acfID);
-		$tempObject->ws_products_melons = downloadParseProducts($ws_products_melons);
-		$tempObject->ws_products_melons_other = get_field("other_ws_products_melons", $acfID);
-		$ws_products_herbs = get_field("ws_products_herbs", $acfID);
-		$tempObject->ws_products_herbs = downloadParseProducts($ws_products_herbs);
-		$tempObject->ws_products_herbs_other = get_field("other_ws_products_herbs", $acfID);
-		$ws_products_berries = get_field("ws_products_berries", $acfID);
-		$tempObject->ws_products_berries = downloadParseProducts($ws_products_berries);
-		$tempObject->ws_products_berries_other = get_field("other_ws_products_berries", $acfID);
-		$ws_products_small_fruits = get_field("ws_products_small_fruits", $acfID);
-		$tempObject->ws_products_small_fruits = downloadParseProducts($ws_products_small_fruits);
-		$tempObject->ws_products_small_fruits_other = get_field("other_ws_products_small_fruits", $acfID);
-		$ws_products_grains = get_field("ws_products_grains", $acfID);
-		$tempObject->ws_products_grains = downloadParseProducts($ws_products_grains);
-		$tempObject->ws_products_grains_other = get_field("other_ws_products_grains", $acfID);
-		$ws_products_value_added = get_field("ws_products_value_added", $acfID);
-		$tempObject->ws_products_value_added = downloadParseProducts($ws_products_value_added);
-		$tempObject->ws_products_value_added_other = get_field("other_ws_products_value_added", $acfID);
-		$ws_products_flowers = get_field("ws_products_flowers", $acfID);
-		$tempObject->ws_products_flowers = downloadParseProducts($ws_products_flowers);
-		$tempObject->ws_products_flowers_other = get_field("other_ws_products_flowers", $acfID);
-		$ws_products_plants = get_field("ws_products_plants", $acfID);
-		$tempObject->ws_products_plants = downloadParseProducts($ws_products_plants);
-		$tempObject->ws_products_plants_other = get_field("other_ws_products_plants", $acfID);
-		$ws_products_ornamentals = get_field("ws_products_ornamentals", $acfID);
-		$tempObject->ws_products_ornamentals = downloadParseProducts($ws_products_ornamentals);
-		$tempObject->ws_products_ornamentals_other = get_field("other_ws_products_ornamentals", $acfID);
-		$ws_products_syrups = get_field("ws_products_syrups", $acfID);
-		$tempObject->ws_products_syrups = downloadParseProducts($ws_products_syrups);
-		$tempObject->ws_products_syrups_other = get_field("other_ws_products_syrups", $acfID);
-		$ws_products_dairy = get_field("ws_products_dairy", $acfID);
-		$tempObject->ws_products_dairy = downloadParseProducts($ws_products_dairy);
-		$tempObject->ws_products_dairy_other = get_field("other_ws_products_dairy", $acfID);
-		$ws_products_meat = get_field("ws_products_meat", $acfID);
-		$tempObject->ws_products_meat = downloadParseProducts($ws_products_meat);
-		$tempObject->ws_products_meat_other = get_field("other_ws_products_meat", $acfID);
-		$ws_products_poultry = get_field("ws_products_poultry", $acfID);
-		$tempObject->ws_products_poultry = downloadParseProducts($ws_products_poultry);
-		$tempObject->ws_products_poultry_other = get_field("other_ws_products_poultry", $acfID);
-		$ws_products_agritourism = get_field("ws_products_agritourism", $acfID);
-		$tempObject->ws_products_agritourism = downloadParseProducts($ws_products_agritourism);
-		$tempObject->ws_products_agritourism_other = get_field("other_ws_products_agritourism", $acfID);
-		$ws_products_fibers = get_field("ws_products_fibers", $acfID);
-		$tempObject->ws_products_fibers = downloadParseProducts($ws_products_fibers);
-		$tempObject->ws_products_fibers_other = get_field("other_ws_products_fibers", $acfID);
-		$ws_products_artisinal = get_field("ws_products_artisinal", $acfID);
-		$tempObject->ws_products_artisinal = downloadParseProducts($ws_products_artisinal);
-		$tempObject->ws_products_artisinal_other = get_field("other_ws_products_artisinal", $acfID);
-		$ws_products_liquids = get_field("ws_products_liquids", $acfID);
-		$tempObject->ws_products_liquids = downloadParseProducts($ws_products_liquids);
-		$tempObject->ws_products_liquids_other = get_field("other_ws_products_liquids", $acfID);
-		$ws_products_educational = get_field("ws_products_educational", $acfID);
-		$tempObject->ws_products_educational = downloadParseProducts($ws_products_educational);
-		$tempObject->ws_products_educational_other = get_field("other_ws_products_educational", $acfID);
-		$ws_products_baked = get_field("ws_products_baked", $acfID);
-		$tempObject->ws_products_baked = downloadParseProducts($ws_products_baked);
-		$tempObject->ws_products_baked_other = get_field("other_ws_products_baked", $acfID);
-		$ws_products_seeds = get_field("ws_products_seeds", $acfID);
-		$tempObject->ws_products_seeds = downloadParseProducts($ws_products_seeds);
-		$tempObject->ws_products_seeds_other = get_field("other_ws_products_seeds", $acfID);
-		$ws_products_pyo = get_field("ws_products_pyo", $acfID);
-		$tempObject->ws_products_pyo = downloadParseProducts($ws_products_pyo);
-		$tempObject->ws_products_pyo_other = get_field("other_ws_products_pyo", $acfID);
-		$ws_products_misc = get_field("ws_products_misc", $acfID);
-		$tempObject->ws_products_misc = downloadParseProducts($ws_products_misc);
-		$tempObject->ws_products_misc_other = get_field("other_ws_products_misc", $acfID);
-
-
-		/** Wholesale **/
-		$is_wholesaler = get_field("is_wholesaler", $acfID);
-		$tempObject->is_wholesaler = is_bool($is_wholesaler) ? $is_wholesaler : false;
-		$quasi_wholesale = get_field("quasi_wholesale", $acfID);
-		$tempObject->quasi_wholesale = is_bool($quasi_wholesale) ? $quasi_wholesale : false;
-		$small_wholesale = get_field("small_wholesale", $acfID);
-		$tempObject->small_wholesale = is_bool($small_wholesale) ? $small_wholesale : false;
-		$large_wholesale = get_field("large_wholesale", $acfID);
-		$tempObject->large_wholesale = is_bool($large_wholesale) ? $large_wholesale : false;
-		$gap_certification = get_field("gap_certification", $acfID);
-		$tempObject->gap_certification = is_bool($gap_certification) ? $gap_certification : false;
-		$tempObject->gap_certified_since = get_field("gap_certified_since", $acfID);
-
-		/** Farm Practices **/
-		$certified_organic = get_field("certified_organic", $acfID);
-		$tempObject->certified_organic = (is_bool($certified_organic)) ? $certified_organic : false;
-		$tempObject->certified_organic_since = "";
-		$tempObject->certified_organic_by = "";
-
-		$certified_naturally_grown = get_field("certified_naturally_grown", $acfID);
-		$tempObject->certified_naturally_grown = (is_bool($certified_naturally_grown)) ? $certified_naturally_grown : false;
-		$tempObject->certified_naturally_grown_since = "";
-
-		$certified_biodynamic = get_field("certified_biodynamic", $acfID);
-		$tempObject->certified_biodynamic = (is_bool($certified_biodynamic)) ? $certified_biodynamic : false;
-		$tempObject->certified_biodynamic_since = "";
-		$tempObject->certified_biodynamic_by = "";
-
-		$only_organic = get_field("only_organic", $acfID);
-		$tempObject->only_organic = (is_bool($only_organic)) ? $only_organic : false;
-		$integrated_pest_management = get_field("integrated_pest_management", $acfID);
-		$tempObject->integrated_pest_management = (is_bool($integrated_pest_management)) ? $integrated_pest_management : false;
-		$non_gmo = get_field("non_gmo", $acfID);
-		$tempObject->non_gmo = (is_bool($non_gmo)) ? $non_gmo : false;
-		$antibiotic_harmone_free = get_field("antibiotic_harmone_free", $acfID);
-		$tempObject->antibiotic_harmone_free = (is_bool($antibiotic_harmone_free)) ? $antibiotic_harmone_free : false;
-		$pastured = get_field("pastured", $acfID);
-		$tempObject->pastured = (is_bool($pastured)) ? $pastured : false;
-		$grass_fed = get_field("grass_fed", $acfID);
-		$tempObject->grass_fed = (is_bool($grass_fed)) ? $grass_fed : false;
-		$extended_growing_season = get_field("extended_growing_season", $acfID);
-		$tempObject->extended_growing_season = (is_bool($extended_growing_season)) ? $extended_growing_season : false;
-		$tempObject->other_practices = get_field("other_practices", $acfID);
-
-		/** Acres **/
-		$tempObject->acres_owned = get_field("acres_owned", $acfID);
-		$tempObject->acres_rented = get_field("acres_rented", $acfID);
-		$tempObject->acres_production = get_field("acres_production", $acfID);
-
-		/** CSA / Farm Share **/
-		$csa_loops = array();
-		$is_farm_share = get_field("is_farm_share", $acfID);
-		$tempObject->is_farm_share = (is_bool($is_farm_share)) ? $is_farm_share : false;
-		if ($is_farm_share) { $csa_loops[] = "farm_share"; }
-		$is_csa = get_field("is_csa", $acfID);
-		$tempObject->is_csa = (is_bool($is_csa)) ? $is_csa : false;
-		if ($is_csa) { $csa_loops[] = "csa"; }
-		$is_winter_csa = get_field("is_winter_csa", $acfID);
-		$tempObject->is_csa = (is_bool($is_winter_csa)) ? $is_winter_csa : false;
-		if ($is_winter_csa) { $csa_loops[] = "winter_csa"; }
-
-		/** FM Details **/
-		$tempObject->market_vendors = get_field("number_of_vendors", $acfID);
-		$market_vendor_partners = get_field("vendor_list", $acfID);
-		$market_vendor_partners_array = array();
-		if (is_array($market_vendor_partners) && count($market_vendor_partners) > 0) {
-			foreach ($market_vendor_partners as $vendor) {
-				$vendor_id = "user_{$vendor['ID']}";
-				$market_vendor_partners_array[] = get_field("partner_name", $vendor_id);
-			}
-			$market_vendor_partners = implode(PHP_EOL, $market_vendor_partners_array);
-		}
-		$tempObject->market_vendor_partners = $market_vendor_partners;
-		$tempObject->market_vendor_partners_other = get_field("vendor_list_other", $acfID);
-
-		$tempObject->market_manager = get_field("market_manager", $acfID);
-		$tempObject->market_manager_phone = get_field("market_manager_phone", $acfID);
-		$tempObject->market_manager_email = get_field("market_manager_email", $acfID);
-
-		$tempObject->market_ebt = get_field("market_ebt", $acfID);
-		$market_fmnp = get_field("market_fmnp", $acfID);
-		$tempObject->market_fmnp = (is_bool($market_fmnp)) ? $market_fmnp : false;
-		$market_double_snap = get_field("market_double_snap", $acfID);
-		$tempObject->market_double_snap = (is_bool($market_double_snap)) ? $market_double_snap : false;
-
-		$partnersArray[] = $tempObject;
-		$tempObject = null;
 	}
 
 	/** Include PHPExcel */
