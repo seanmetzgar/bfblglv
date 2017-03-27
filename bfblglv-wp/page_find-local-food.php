@@ -1,4 +1,4 @@
-<?php
+]]]<?php
 /**
  * Template Name: Find Local Food
  *
@@ -102,7 +102,7 @@ $specificProducts = get_specific_products();
 								<div class="map-specific-prods page-block">
 									<label>
 										<span class="map-subhead">Looking for a <br />specific product?</span>
-										<select name="specific_products" multiple class="chosen-specific-products">
+										<select name="specific_products[]" multiple class="chosen-specific-products">
 											<?php foreach ($specificProducts as $specificProduct): if (!is_string($specificProduct) || (is_string($specificProduct) && strlen($specificProduct) < 1)) { continue; } ?>
 											<option value="<?php echo $specificProduct; ?>"><?php echo $specificProduct; ?></option>
 											<?php endforeach; ?>
