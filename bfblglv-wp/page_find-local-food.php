@@ -104,7 +104,7 @@ $specificProducts = get_specific_products();
 										<span class="map-subhead">Looking for a <br />specific product?</span>
 										<select name="specific_products[]" multiple class="chosen-specific-products">
 											<?php
-											$specificProductRequest = (isset($_REQUEST["specific_product"]) && strlen($_REQUEST["specific_product"]) > 0) ? $specificProductRequest : false;
+											$specificProductRequest = (isset($_REQUEST["specific_product"]) && strlen($_REQUEST["specific_product"]) > 0) ? $_REQUEST["specific_product"] : false;
 											foreach ($specificProducts as $specificProduct): if (!is_string($specificProduct) || (is_string($specificProduct) && strlen($specificProduct) < 1)) { continue; } 
 												$selectedAttribute = ($specificProductRequest == $specificProduct) ? " selected" : ""; ?>
 											<option value="<?php echo $specificProduct; ?>"<?php echo $selectedAttribute; ?>><?php echo $specificProduct; ?></option>
