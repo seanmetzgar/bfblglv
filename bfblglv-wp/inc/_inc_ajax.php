@@ -7,7 +7,7 @@ class SpecificProduct {
 
 	function __construct($name, $selected = false) {
 		$this->name = $name;
-		$this->selected = is_bool($selected) ? $selected : false;
+		$this->selected = $selected ? true : false;
 	}
 }
 
