@@ -83,6 +83,7 @@ function newGetPartners() {
 
 	$pseudoLocationTypeMetaQuery = false;
 	$wholesalerMetaQuery = false;
+	$metaQuery = false;
 
 	if ($zip) {
 		$zipBounds = getZipBounds($zip);
@@ -160,17 +161,22 @@ function newGetPartners() {
 			"value" => 1,
 			"compare" => "="
 		) : false;
-	$metaQuery = array("relation" => "AND");
-	if ($wholesalerMetaQuery) {
-		array_push($metaQuery, $wholesalerMetaQuery);
+	if ($wholesalerMetaQuery || $pseudoLocationTypeMetaQuery) {
+		$metaQuery = array("relation" => "AND");
+		if ($wholesalerMetaQuery) {
+			array_push($metaQuery, $wholesalerMetaQuery);
+		}
+		if ($pseudoLocationTypeMetaQuery) {
+			array_push($metaQuery, $pseudoLocationTypeMetaQuery);
+		}
 	}
-	if ($pseudoLocationTypeMetaQuery) {
-		array_push($metaQuery, $pseudoLocationTypeMetaQuery);
-	}
+
 	$queryArguments = array(
-		"role__in" => $locationTypes,
-		"meta_query" => $metaQuery
+		"role__in" => $locationTypes
 	);
+	if (is_array($metaQuery) && count($metaQuery) > 1) {
+		array_push($queryArguments, $metaQuery);
+	}
 
 	$result = json_encode($queryArguments);
 
