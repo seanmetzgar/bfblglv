@@ -483,11 +483,11 @@ function breakSeason($season) {
 }
 
 function buildProductsQuery($productTypes, $wholesale = false) {
-	$metaQueryArray = false;
+	$productsQuery = false;
 	$wholesale = (is_bool($wholesale)) ? $wholesale : false;
 
 	if (is_array($productTypes) && count($productTypes) > 0) {
-		$metaQueryArray = array("relation" => "OR");
+		$productsQuery = array("relation" => "OR");
 		foreach ($productTypes as $productType) {
 			$tempProductTypeField = "products_{$productType}";
 			$tempProductTypeField = ($wholesale) ? "ws_$tempProductTypeField" : $tempProductTypeField;
@@ -514,10 +514,10 @@ function buildProductsQuery($productTypes, $wholesale = false) {
 				)
 			);
 
-			$metaQueryArray[] = $tempMetaQuery;
+			$productsQuery[] = $tempMetaQuery;
 		}
 	}
-	return $metaQueryArray;
+	return $productsQuery;
 }
 
 function addPartnerData($user_id, $partner) {

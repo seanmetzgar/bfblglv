@@ -1,4 +1,42 @@
 <?php
+function getProductsQuery($productTypes, $wholesale = false) {
+	$productsQuery = false;
+	$wholesale = (is_bool($wholesale)) ? $wholesale : false;
+
+	if (is_array($productTypes) && count($productTypes) > 0) {
+		$productsQuery = array("relation" => "OR");
+		foreach ($productTypes as $productType) {
+			$tempProductTypeField = "products_{$productType}";
+			$tempProductTypeField = ($wholesale) ? "ws_$tempProductTypeField" : $tempProductTypeField;
+			$tempProductTypeOtherField = "other_{$tempProductTypeField}";
+			$tempMetaQuery = array(
+				"relation" => "OR",
+				array(
+					"relation" => "AND",
+					array(
+						"key" => $tempProductTypeField,
+						"value" => "",
+						"compare" => "!="
+					),
+					array(
+						"key" => $tempProductTypeField,
+						"value" => serialize(strval("")),
+						"compare" => "NOT LIKE"
+					)
+				),
+				array(
+					"key" => $tempProductTypeOtherField,
+					"value" => "",
+					"compare" => "!="
+				)
+			);
+
+			$productsQuery[] = $tempMetaQuery;
+		}
+	}
+	return $productsQuery;
+}
+
 function addPseudoLocationTypeData($locationTypes, $csa, $farmShare, $agritourism, $farmToTable) {
 	$rVal = $locationTypes;
 	if (!is_array($rVal)) { $rVal = array(); }
@@ -170,13 +208,19 @@ function newGetPartners() {
 			"compare" => "="
 		) : false;
 
+	//Product Types Query
+	$productsQuery = buildProductsQuery($productTypes, $wholesale);
+
 	//Build Full Meta Query
-	if ($wholesalerMetaQuery || $pseudoLocationTypeMetaQuery) {
+	if ($wholesalerMetaQuery || $pseudoLocationTypeMetaQuery || $productsQuery) {
 		if ($wholesalerMetaQuery) {
 			array_push($metaQuery, $wholesalerMetaQuery);
 		}
 		if ($pseudoLocationTypeMetaQuery) {
 			array_push($metaQuery, $pseudoLocationTypeMetaQuery);
+		}
+		if ($productsQuery) {
+			array_push($metaQuery, $productsQuery);
 		}
 	}
 
