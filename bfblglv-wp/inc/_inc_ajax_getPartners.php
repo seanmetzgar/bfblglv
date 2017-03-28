@@ -214,8 +214,8 @@ function newGetPartners() {
 		if ($pseudoLocationTypeMetaQuery) {
 			array_push($metaQuery, $pseudoLocationTypeMetaQuery);
 		}
-		if ($productsQuery) {
-			array_push($metaQuery, $productsQuery);
+		if ($productsMetaQuery) {
+			array_push($metaQuery, $productsMetaQuery);
 		}
 	}
 
