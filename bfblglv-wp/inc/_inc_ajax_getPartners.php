@@ -285,9 +285,17 @@ function xhrGetPartners() {
 
 	if ($doMainQuery) {
 		$partners1 = get_users($queryArguments);
+		echo "do main<br>";
+		echo "<pre>";
+		print_r("$queryArguments");
+		echo "</pre>";
 	}
 	if ($doPseudoQuery) {
 		$partners2 = get_users($pseudoQueryArguments);
+		echo "do pseudo<br>";
+		echo "<pre>";
+		print_r("$pseudoQueryArguments");
+		echo "</pre>";
 	}
 	$partners = array_merge($partners1, $partners2);
 	$partners = createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale);
@@ -309,9 +317,9 @@ function xhrGetPartners() {
 
 	$result = array("query" => $queryArguments, "specific" => $updatedSpecificProductsList, "partners" => $partners);
 
-	echo "<pre>";
-	print_r($result);
-	echo "</pre>";
+	// echo "<pre>";
+	// print_r($result);
+	// echo "</pre>";
 
 	// $result = json_encode($result);
 
