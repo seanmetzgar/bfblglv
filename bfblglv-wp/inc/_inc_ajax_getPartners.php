@@ -228,8 +228,8 @@ function newGetPartners() {
 		$queryArguments["meta_query"] = $metaQuery;
 	}
 
-	// $partners = get_users($queryArguments);
-	$partners = array();
+	$partners = get_users($queryArguments);
+	// $partners = array();
 	$result = array("q" => $queryArguments, "p" => $partners);
 
 	echo "<pre>";
