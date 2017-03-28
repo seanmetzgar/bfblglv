@@ -91,14 +91,15 @@ function newGetPartners() {
 	//Defaults
 	$pseudoLocationTypeMetaQuery = false;
 	$wholesalerMetaQuery = false;
-	$metaQuery = array(
-		"relation" => "AND",
-		array(
-			"key" => "ja_disable_user",
-			"value" => 1,
-			"compare" => "!="
-		)
-	);
+	$metaQuery = false;
+	// $metaQuery = array(
+	// 	"relation" => "AND",
+	// 	array(
+	// 		"key" => "ja_disable_user",
+	// 		"value" => 1,
+	// 		"compare" => "!="
+	// 	)
+	// );
 
 	//Default Location Types
 	$allLocationTypes = array(
