@@ -95,8 +95,8 @@ function newGetPartners() {
 		"relation" => "AND",
 		array(
 			"key" => "ja_disable_user",
-			"value" => "1",
-			"compare" => "!="
+			"value" => "0",
+			"compare" => "="
 		)
 	);
 
