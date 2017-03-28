@@ -73,7 +73,7 @@ $specificProducts = get_specific_products();
 							<div class="bfblSlideWrap">
 
 								<div class="form-inline page-block map-checkboxes">
-									<!-- <label><input type="checkbox" name="product_type[]" value="agritourism"><span>Agritourism</span></label> -->
+									<label><input type="checkbox" name="product_type[]" value="agritourism"><span>Agritourism</span></label>
 									<label><input type="checkbox" name="product_type[]" value="artisinal"><span>Artisanal Products</span></label>
 									<label><input type="checkbox" name="product_type[]" value="baked"><span>Baked Goods</span></label>
 									<label><input type="checkbox" name="product_type[]" value="berries"><span>Berries</span></label>
