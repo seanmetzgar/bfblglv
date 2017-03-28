@@ -1,35 +1,70 @@
 <?php
-function getProductsMetaQuery($productTypes, $wholesale = false) {
-	$productsMetaQuery = false;
-	$wholesale = (is_bool($wholesale)) ? $wholesale : false;
+function createMapPartners($partners, $zipBounds, $county) {
+	$mapPartners = array();
+	$renewalYear = getRenewalYear();
+	$renewalShutDownTime = getRenewalShutDown();
+	$renewalGrandfatheredTime = getRenewalGrandfathered();
 
-	if (is_array($productTypes) && count($productTypes) > 0) {
-		$productsMetaQuery = array("relation" => "OR");
-		foreach ($productTypes as $productType) {
-			$tempProductTypeField = "products_{$productType}";
-			$tempProductTypeField = ($wholesale) ? "ws_$tempProductTypeField" : $tempProductTypeField;
-			$tempProductTypeOtherField = "other_{$tempProductTypeField}";
-			$productsMetaQuery[] = array(
-				"relation" => "AND",
-				array(
-					"key" => $tempProductTypeField,
-					"value" => "",
-					"compare" => "!="
-				),
-				array(
-					"key" => $tempProductTypeField,
-					"value" => "s:0:\"\";",
-					"compare" => "NOT LIKE"
-				)
-			);
-			$productsMetaQuery[] = array(
-				"key" => $tempProductTypeOtherField,
-				"value" => "",
-				"compare" => "!="
-			);
+	foreach ($partners as $id) {
+		if ($id = intval($id)) {
+			$acf_id = "user_{$id}";
+			$tempRenewedUntil = get_field("partner_renewed_until", $acf_id);
+			// $tempRenewedDate = get_field("partner_renewed_date", $acf_id);
+			// $tempRenewedDate = strtotime($tempRenewedDate);
+
+			// if ($tempRenewedDate < $renewalGrandfatheredTime) {
+			// 	$tempRenewedUntil = $renewalYear - 1;
+			// 	update_field("partner_renewed_until", $tempRenewedUntil, "user_{$partner->ID}");
+			// 	update_user_meta($partner->ID, "ja_disable_user", 1 );
+			// }
+
+			if (is_numeric($tempRenewedUntil)) {
+				if (($tempRenewedUntil < $renewalYear) && (time() >= $renewalShutDownTime)) {
+					update_user_meta($id, "ja_disable_user", 1 );
+				}
+			}
+			$tempDisabled = get_user_meta( $id, "ja_disable_user", true );
+
+			if (!$tempDisabled) {
+				$tempObj = new MapPartner;
+				$tempObj->id = $id;
+				$tempName = get_field("partner_name", $acf_id);
+				$tempCity = get_field("partner_city", $acf_id);
+				$tempCounty = get_field("partner_county", $acf_id);
+				$tempObj->name = strlen($tempName) > 0 ? $tempName : get_author_name($id);
+				$tempMap = get_field("partner_map", $acf_id);
+
+				if (!empty($tempMap)) {
+					$tempObj->lat = $tempMap["lat"];
+					$tempObj->lng = $tempMap["lng"];
+				}
+
+				$tempObj->url = get_author_posts_url($id);
+				$tempObj->city = $tempCity;
+
+				if (is_object($zipBounds) && !empty($tempMap)) {
+					if ($tempMap["lat"] < $zipBounds->maxLat && $tempMap["lat"] > $zipBounds->minLat &&
+						$tempMap["lng"] < $zipBounds->maxLng && $tempMap["lng"] > $zipBounds->minLng) {
+						$mapPartners[] = $tempObj;
+					}
+				} elseif ($county) {
+					if ($county == $tempCounty) {
+						$mapPartners[] = $tempObj;
+					}
+				} else {
+					$mapPartners[] = $tempObj;
+				}
+
+				//Reset temp variables
+				$tempObj = null;
+				$tempName = null;
+				$tempCity = null;
+				$tempMap = null;
+				$tempDisabled = false;
+			}
 		}
 	}
-	return $productsMetaQuery;
+	return $mapPartners;
 }
 
 function addPseudoLocationTypeData($locationTypes, $csa, $farmShare, $agritourism, $farmToTable) {
@@ -104,10 +139,6 @@ function getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism, $farmToT
 }
 
 function newGetPartners() {
-	$renewalYear = getRenewalYear();
-	$renewalShutDownTime = getRenewalShutDown();
-	$renewalGrandfatheredTime = getRenewalGrandfathered();
-
 	//Setup Location Boundry Variables
 	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;
 	$zip = ($zip && strlen($zip) >= 5) ? substr($zip, 0, 5) : false;
@@ -124,14 +155,7 @@ function newGetPartners() {
 	//Defaults
 	$pseudoLocationTypeMetaQuery = false;
 	$wholesalerMetaQuery = false;
-	$metaQuery = array(
-		"relation" => "AND",
-		array(
-			"key" => "ja_disable_user",
-			"value" => "0",
-			"compare" => "="
-		)
-	);
+	$metaQuery = false;
 
 	//Default Location Types
 	$allLocationTypes = array(
@@ -140,18 +164,6 @@ function newGetPartners() {
 		"distillery", "institution",
 		"distributor", "specialty",
 		"retail"
-	);
-
-	//Default Product Types
-	$allProductTypes = array(
-		"greens", "roots", "seasonal",
-		"melons", "herbs", "berries",
-		"small_fruits", "grains", "value_added",
-		"flowers", "plants", "ornamentals",
-		"syrups", "dairy", "meat",
-		"poultry", "agritourism", "fibers",
-		"artisinal", "liquids", "educational",
-		"baked", "seeds", "pyo", "misc"
 	);
 
 	//Search Fields ($_REQUEST)
@@ -203,33 +215,29 @@ function newGetPartners() {
 			"compare" => "="
 		) : false;
 
-	//Product Types Query 
-	$productsMetaQuery = getProductsMetaQuery($productTypes, $wholesale);
-
 	//Build Full Meta Query
-	if ($wholesalerMetaQuery || $pseudoLocationTypeMetaQuery || $productsMetaQuery) {
+	if ($wholesalerMetaQuery || $pseudoLocationTypeMetaQuery) {
+		$metaQuery = array("relation" => "AND");
 		if ($wholesalerMetaQuery) {
 			array_push($metaQuery, $wholesalerMetaQuery);
 		}
 		if ($pseudoLocationTypeMetaQuery) {
 			array_push($metaQuery, $pseudoLocationTypeMetaQuery);
 		}
-		if ($productsMetaQuery) {
-			array_push($metaQuery, $productsMetaQuery);
-		}
 	}
 
 	//Build Query Arguments
 	$queryArguments = array(
 		"role__in" => $locationTypes,
-		"fields" => "ID"
+		"fields" => array("ID", "display_name")
 	);
 	if (is_array($metaQuery) && count($metaQuery) > 1) {
 		$queryArguments["meta_query"] = $metaQuery;
 	}
 
 	$partners = get_users($queryArguments);
-	// $partners = array();
+	$partners = createMapPartners();
+
 	$result = array("q" => $queryArguments, "p" => $partners);
 
 	echo "<pre>";
@@ -241,5 +249,5 @@ function newGetPartners() {
 	// echo $result;
 
  	// die();
- 
+
 }

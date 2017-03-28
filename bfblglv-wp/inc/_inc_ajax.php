@@ -52,7 +52,6 @@ class MapPartner {
 	public $lat = false;
 	public $lng = false;
 	public $city = false;
-	public $inbounds = false;
 	public $county = false;
 }
 class Hours {
@@ -1529,12 +1528,10 @@ function xhrGetPartners() {
 			if ($hasZipBounds && !empty($tempMap)) {
 				if ($tempMap["lat"] < $zipBounds->maxLat && $tempMap["lat"] > $zipBounds->minLat &&
 					$tempMap["lng"] < $zipBounds->maxLng && $tempMap["lng"] > $zipBounds->minLng) {
-					$tempObj->inbounds = true;
 					$returnPartners[] = $tempObj;
 				}
 			} elseif ($county) {
 				if ($county == $tempCounty) {
-					$tempObj->inbounds = true;
 					$returnPartners[] = $tempObj;
 				}
 			} else {
