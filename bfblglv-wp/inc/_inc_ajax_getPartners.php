@@ -26,7 +26,7 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes) {
 			$tempDisabled = get_user_meta( $id, "ja_disable_user", true );
 
 			if (!$tempDisabled) {
-				if (!$productTypes || checkProductTypes($id, $productTypes)) {
+				if (!$productTypes || checkProductTypes($id, $productTypes, $wholesale)) {
 					$tempObj = new MapPartner;
 					$tempObj->id = $id;
 					$tempName = get_field("partner_name", $acf_id);
