@@ -258,7 +258,7 @@ function newGetPartners() {
 	}
 
 	$partners = get_users($queryArguments);
-	$partners = createMapPartners($partners, $zipBounds, $county);
+	$partners = createMapPartners($partners, $zipBounds, $county, $productTypes);
 
 	$result = array("p" => $partners);
 
