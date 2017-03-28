@@ -51,12 +51,14 @@ $specificProducts = get_specific_products();
 							<h2 class="greenHeader">Location Type</h2>
 							<div class="bfblSlideWrap">
 								<div class="form-inline page-block map-checkboxes">
+									<label><input type="checkbox" name="agritourism" value="1"><span>Agritourism</span></label>
 									<label><input type="checkbox" name="location_type[]" value="distillery"><span>Breweries &amp; Distilleries</span></label>
-									<label><input type="checkbox" name="location_type[]" value="csa"><span>CSAs</span></label>
+									<label><input type="checkbox" name="csa" value="1"><span>CSAs</span></label>
 									<label><input type="checkbox" name="location_type[]" value="distributor"><span>Distributors</span></label>
 									<label><input type="checkbox" name="location_type[]" value="farm"><span>Farms</span></label>
 									<label><input type="checkbox" name="location_type[]" value="farmers-market"><span>Farmers' Markets</span></label>
-									<label><input type="checkbox" name="location_type[]" value="farm-share"><span>Farm Shares</span></label>
+									<label><input type="checkbox" name="farm-share" value="1"><span>Farm Shares</span></label>
+									<label><input type="checkbox" name="farm-to-table" value="1"><span>Farm to Table</span></label>
 									<label><input type="checkbox" name="location_type[]" value="institution"><span>Institutions</span></label>
 									<label><input type="checkbox" name="location_type[]" value="restaurant"><span>Restaurants / Caterers</span></label>
 									<label><input type="checkbox" name="location_type[]" value="specialty"><span>Specialty Products</span></label>
@@ -71,7 +73,7 @@ $specificProducts = get_specific_products();
 							<div class="bfblSlideWrap">
 
 								<div class="form-inline page-block map-checkboxes">
-									<label><input type="checkbox" name="product_type[]" value="agritourism"><span>Agritourism</span></label>
+									<!-- <label><input type="checkbox" name="product_type[]" value="agritourism"><span>Agritourism</span></label> -->
 									<label><input type="checkbox" name="product_type[]" value="artisinal"><span>Artisanal Products</span></label>
 									<label><input type="checkbox" name="product_type[]" value="baked"><span>Baked Goods</span></label>
 									<label><input type="checkbox" name="product_type[]" value="berries"><span>Berries</span></label>

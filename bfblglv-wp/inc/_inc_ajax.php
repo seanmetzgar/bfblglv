@@ -305,6 +305,9 @@ add_action("wp_ajax_xhrMarkRenewalPaid", "xhrMarkRenewalPaid");
 add_action("wp_ajax_nopriv_xhrUpdateRenewalPartnerEmail", "xhrUpdateRenewalPartnerEmail");
 add_action("wp_ajax_xhrUpdateRenewalPartnerEmail", "xhrUpdateRenewalPartnerEmail");
 
+add_action("wp_ajax_newGetPartners", "newGetPartners");
+add_action("wp_ajax_nopriv_newGetPartners", "newGetPartners");
+
 //XHR Helpers
 function xlsBreaks($string) {
 	$rVal = preg_replace('#<br\s*/?>#i', PHP_EOL, $string);
