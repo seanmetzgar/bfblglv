@@ -186,7 +186,7 @@ function newGetPartners() {
 		"fields" => "ID"
 	);
 	if (is_array($metaQuery) && count($metaQuery) > 1) {
-		array_push($queryArguments, $metaQuery);
+		$queryArguments["meta_query"] = $metaQuery;
 	}
 
 	$partners = get_users($queryArguments);
