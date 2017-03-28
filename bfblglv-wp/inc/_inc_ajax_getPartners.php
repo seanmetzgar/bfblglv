@@ -252,23 +252,9 @@ function xhrGetPartners() {
 		} else { $productTypes = array("agritourism"); }
 	}
 
-	//Wholesaler Meta Query
-	$wholesalerMetaQuery = ($wholesale) ?
-		array(
-			"key" => "is_wholesaler",
-			"value" => "1",
-			"compare" => "="
-		) : false;
-
 	//Build Full Meta Query
-	if ($wholesalerMetaQuery || $pseudoLocationTypeMetaQuery) {
-		$metaQuery = array("relation" => "AND");
-		if ($wholesalerMetaQuery) {
-			array_push($metaQuery, $wholesalerMetaQuery);
-		}
-		if ($pseudoLocationTypeMetaQuery) {
-			array_push($metaQuery, $pseudoLocationTypeMetaQuery);
-		}
+	if ($pseudoLocationTypeMetaQuery) {
+		$metaQuery = $pseudoLocationTypeMetaQuery
 	}
 
 	//Build Query Arguments
@@ -304,7 +290,7 @@ function xhrGetPartners() {
 	echo "<pre>";
 	print_r($result);
 	echo "</pre>";
-	
+
 	// $result = json_encode($result);
 
 	// header('Content-Type: application/json');
