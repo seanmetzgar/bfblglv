@@ -1,5 +1,5 @@
 <?php
-function createMapPartners($partners, $zipBounds, $county, $productTypes) {
+function createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale) {
 	$mapPartners = array();
 	$renewalYear = getRenewalYear();
 	$renewalShutDownTime = getRenewalShutDown();
@@ -95,7 +95,6 @@ function checkPartnerProducts($id, $productTypes, $specificProducts, $wholesale)
 			$tempProductTypeOtherField = get_field($tempProductTypeOtherField, "user_{$id}");
 
 			$hasProductTypeField = (is_array($tempProductTypeField) && count($tempProductTypeField) > 0) ? true : false;
-			print_r($hasProductTypeField);
 			$hasProductTypeOtherField = ($tempProductTypeOtherField) ? true : false;
 
 			if (is_array($specificProducts) && count($specificProducts) > 0 && $hasProductTypeField) {
@@ -282,7 +281,7 @@ function newGetPartners() {
 	}
 
 	$partners = get_users($queryArguments);
-	$partners = createMapPartners($partners, $zipBounds, $county, $productTypes);
+	$partners = createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale);
 
 	$result = array("p" => $partners);
 
