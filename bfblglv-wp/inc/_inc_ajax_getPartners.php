@@ -237,11 +237,11 @@ function xhrGetPartners() {
 
 	$pseudoLocationTypeMetaQuery = getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism, $farmToTable);
 
-	if ($agritourism) {
-		if ($productTypes) {
-			array_push($productTypes, "agritourism");
-		} else { $productTypes = array("agritourism"); }
-	}
+	// if ($agritourism) {
+	// 	if ($productTypes) {
+	// 		array_push($productTypes, "agritourism");
+	// 	} else { $productTypes = array("agritourism"); }
+	// }
 
 	//Wholesaler Meta Query
 	$wholesalerMetaQuery = ($wholesale) ?
