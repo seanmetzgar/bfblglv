@@ -254,7 +254,7 @@ function xhrGetPartners() {
 
 	//Build Full Meta Query
 	if ($pseudoLocationTypeMetaQuery) {
-		$metaQuery = $pseudoLocationTypeMetaQuery
+		$metaQuery = $pseudoLocationTypeMetaQuery;
 	}
 
 	//Build Query Arguments
