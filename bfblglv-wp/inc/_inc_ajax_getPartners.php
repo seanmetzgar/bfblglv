@@ -283,17 +283,9 @@ function xhrGetPartners() {
 	$partners2 = array();
 
 	if ($doMainQuery) {
-		echo "do main<br>";
-		echo "<pre>";
-		print_r($queryArguments);
-		echo "</pre>";
 		$partners1 = get_users($queryArguments);
 	}
 	if ($doPseudoQuery) {
-		echo "do pseudo<br>";
-		echo "<pre>";
-		print_r($pseudoQueryArguments);
-		echo "</pre>";
 		$partners2 = get_users($pseudoQueryArguments);
 	}
 	$partners = array_merge($partners1, $partners2);
@@ -314,11 +306,11 @@ function xhrGetPartners() {
 	$updatedSpecificProductsList = $fixedSpecificProductsList;
 	$fixedSpecificProductsList = null;
 
-	$result = array("query" => $queryArguments, "specific" => $updatedSpecificProductsList, "partners" => $partners);
+	$result = array("specific" => $updatedSpecificProductsList, "partners" => $partners);
 
-	// echo "<pre>";
-	// print_r($result);
-	// echo "</pre>";
+	echo "<pre>";
+	print_r($result);
+	echo "</pre>";
 
 	// $result = json_encode($result);
 
