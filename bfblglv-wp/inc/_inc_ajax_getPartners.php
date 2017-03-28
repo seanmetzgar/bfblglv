@@ -179,7 +179,7 @@ function getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism, $farmToT
 	return $rVal;
 }
 
-function newGetPartners() {
+function xhrGetPartners() {
 	//Setup Location Boundry Variables
 	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;
 	$zip = ($zip && strlen($zip) >= 5) ? substr($zip, 0, 5) : false;
