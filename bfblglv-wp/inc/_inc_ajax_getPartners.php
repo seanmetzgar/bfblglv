@@ -188,7 +188,9 @@ function newGetPartners() {
 		array_push($queryArguments, $metaQuery);
 	}
 
-	$result = json_encode($queryArguments);
+	$partners = get_users($queryArguments);
+
+	$result = json_encode($partners);
 
 	header('Content-Type: application/json');
 	echo $result;
