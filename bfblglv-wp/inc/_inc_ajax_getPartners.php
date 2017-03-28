@@ -81,16 +81,24 @@ function newGetPartners() {
 	$hasZipBounds = false;
 	$county = false;
 
-	$pseudoLocationTypeMetaQuery = false;
-	$wholesalerMetaQuery = false;
-	$metaQuery = false;
-
 	if ($zip) {
 		$zipBounds = getZipBounds($zip);
 		$hasZipBounds = (is_object($zipBounds)) ? true : false;
 	} else {
 		$county = (isset($_REQUEST["county"])) ? "".$_REQUEST["county"] : false;
 	}
+
+	//Defaults
+	$pseudoLocationTypeMetaQuery = false;
+	$wholesalerMetaQuery = false;
+	$metaQuery = array(
+		"relation" => "AND",
+		array(
+			"key" => "ja_disable_user",
+			"value" => 1,
+			"compare" => "!="
+		)
+	);
 
 	//Default Location Types
 	$allLocationTypes = array(
@@ -161,8 +169,9 @@ function newGetPartners() {
 			"value" => 1,
 			"compare" => "="
 		) : false;
+
+	//Build Full Meta Query
 	if ($wholesalerMetaQuery || $pseudoLocationTypeMetaQuery) {
-		$metaQuery = array("relation" => "AND");
 		if ($wholesalerMetaQuery) {
 			array_push($metaQuery, $wholesalerMetaQuery);
 		}
@@ -171,6 +180,7 @@ function newGetPartners() {
 		}
 	}
 
+	//Build Query Arguments
 	$queryArguments = array(
 		"role__in" => $locationTypes
 	);
