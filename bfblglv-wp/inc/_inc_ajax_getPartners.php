@@ -283,16 +283,28 @@ function newGetPartners() {
 	$partners = get_users($queryArguments);
 	$partners = createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale);
 
-	$result = array("p" => $partners);
+	$partners = array_unique($returnPartners, SORT_REGULAR);
 
-	echo "<pre>";
-	print_r($result);
-	echo "</pre>";
-	// $result = json_encode($result);
+	usort($partners, function($a, $b) {
+	    return strnatcmp($a->name, $b->name);
+	});
 
-	// header('Content-Type: application/json');
-	// echo $result;
+	$updatedSpecificProductsList = get_specific_products($productTypes, $wholesale);
+	$updatedSpecificProductsList = array_values(array_unique($updatedSpecificProductsList, SORT_REGULAR));
+	$fixedSpecificProductsList = array();
+	foreach ($updatedSpecificProductsList as $updatedSpecificProduct) {
+		$isActive = (is_array($specificProducts)) ? in_array($updatedSpecificProduct, $specificProducts) : false;
+		$tempUpdatedSpecificProduct = new SpecificProduct($updatedSpecificProduct, $isActive);
+		$fixedSpecificProductsList[] = $tempUpdatedSpecificProduct;
+	}
+	$updatedSpecificProductsList = $fixedSpecificProductsList;
+	$fixedSpecificProductsList = null;
 
- 	// die();
+	$result = array("specific" => $updatedSpecificProductsList, "partners" => $partners);
+	$result = json_encode($result);
 
+	header('Content-Type: application/json');
+	echo $result;
+
+ 	die();
 }
