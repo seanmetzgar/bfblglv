@@ -26,7 +26,7 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes) {
 			$tempDisabled = get_user_meta( $id, "ja_disable_user", true );
 
 			if (!$tempDisabled) {
-				if (!$productTypes || checkProductTypes($id, $productTypes, $wholesale)) {
+				if ((!$productTypes && !$specificProducts) || checkPartnerProducts($id, $productTypes, $specificProducts, $wholesale)) {
 					$tempObj = new MapPartner;
 					$tempObj->id = $id;
 					$tempName = get_field("partner_name", $acf_id);
@@ -69,21 +69,27 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes) {
 	return $mapPartners;
 }
 
-function checkProductTypes($id, $productTypes, $wholesale) {
+function checkPartnerProducts($id, $productTypes, $specificProducts, $wholesale) {
 	$rVal = false;
-	if (is_array($productTypes) && count($productTypes) > 0) {
-		foreach ($productTypes as $productType) {
-			$tempProductTypeField = "products_{$productType}";
-			$tempProductTypeField = ($wholesale) ? "ws_$tempProductTypeField" : $tempProductTypeField;
-			$tempProductTypeOtherField = "other_{$tempProductTypeField}";
+	if ((is_array($productTypes) && count($productTypes) > 0) || (is_array($specificProducts) && count($specificProducts) > 0) {
+		if (is_array($productTypes) && count($productTypes) > 0) {
+			foreach ($productTypes as $productType) {
+				$tempProductTypeField = "products_{$productType}";
+				$tempProductTypeField = ($wholesale) ? "ws_$tempProductTypeField" : $tempProductTypeField;
+				$tempProductTypeOtherField = "other_{$tempProductTypeField}";
 
-			$tempProductTypeField = get_field($tempProductTypeField, "user_{$id}");
-			$tempProductTypeOtherField = get_field($tempProductTypeOtherField, "user_{$id}");
+				$tempProductTypeField = get_field($tempProductTypeField, "user_{$id}");
+				$tempProductTypeOtherField = get_field($tempProductTypeOtherField, "user_{$id}");
 
-			$tempProductTypeField = (is_array($tempProductTypeField) && count($tempProductTypeField) > 0) ? true : false;
-			$tempProductTypeOtherField = ($tempProductTypeOtherField) ? true : false;
+				$hasProductTypeField = (is_array($tempProductTypeField) && count($tempProductTypeField) > 0) ? true : false;
+				$hasProductTypeOtherField = ($tempProductTypeOtherField) ? true : false;
 
-			if ($tempProductTypeField || $tempProductTypeOtherField) { $rVal = true; }
+				if (is_array($specificProducts) && count($specificProducts) > 0 && $hasProductTypeField) { 
+					foreach ($specificProducts as $specificProduct) {
+						if (in_array($specificProduct, $tempProductTypeField)) { $rVal = true; }
+					}
+				} elseif ($hasProductTypeField || $hasProductTypeOtherField) { $rVal = true; }
+			}
 		}
 	} else { $rVal = true; }
 
@@ -228,6 +234,11 @@ function newGetPartners() {
 	$locationTypes = addPseudoLocationTypeData($locationTypes, $csa, $farmShare, $agritourism, $farmToTable);
 	$locationTypes = (is_array($locationTypes) && count($locationTypes) > 0) ? $locationTypes : $allLocationTypes;
 	$pseudoLocationTypeMetaQuery = getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism, $farmToTable);
+	if ($agritourism) {
+		if ($productTypes) {
+			array_push($productTypes, "agritourism");
+		} else { $productTypes = array("agritourism"); }
+	}
 
 	//Wholesaler Meta Query
 	$wholesalerMetaQuery = ($wholesale) ?
