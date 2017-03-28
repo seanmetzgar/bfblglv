@@ -299,11 +299,16 @@ function xhrGetPartners() {
 	$updatedSpecificProductsList = $fixedSpecificProductsList;
 	$fixedSpecificProductsList = null;
 
-	$result = array("specific" => $updatedSpecificProductsList, "partners" => $partners);
-	$result = json_encode($result);
+	$result = array("query" => $queryArguments, "specific" => $updatedSpecificProductsList, "partners" => $partners);
 
-	header('Content-Type: application/json');
-	echo $result;
+	echo "<pre>";
+	print_r($result);
+	echo "</pre>";
+	
+	// $result = json_encode($result);
 
- 	die();
+	// header('Content-Type: application/json');
+	// echo $result;
+
+ // 	die();
 }
