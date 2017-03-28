@@ -203,7 +203,7 @@ function newGetPartners() {
 			"compare" => "="
 		) : false;
 
-	//Product Types Query
+	//Product Types Query 
 	$productsQuery = getProductsQuery($productTypes, $wholesale);
 
 	//Build Full Meta Query
