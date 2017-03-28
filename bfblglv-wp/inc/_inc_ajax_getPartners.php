@@ -226,15 +226,14 @@ function xhrGetPartners() {
 							? true : false;
 
 	//Add Pseudo Location Types & Meta Query
-	if ((!is_array($locationTypes) || count($locationTypes) == 0) && ($csa || $farmShare || $agritourism || $farmToTable)) {
+	if ($csa || $farmShare || $agritourism || $farmToTable) {
 		$doPseudoQuery = true;
-		$locationTypes = false;
 	} else {
 		$doPseudoQuery = false;
-		$locationTypes = (is_array($locationTypes) && count($locationTypes) > 0) ? $locationTypes : $allLocationTypes;
+		$locationTypes = (count($locationTypes) > 0) ? $locationTypes : $allLocationTypes;
 	}
 
-	$doMainQuery = ($locationTypes) ? true : false;
+	$doMainQuery = (count($locationTypes) > 0) ? true : false;
 
 	$pseudoLocationTypeMetaQuery = getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism, $farmToTable);
 
