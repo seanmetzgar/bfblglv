@@ -191,10 +191,15 @@ function newGetPartners() {
 
 	$partners = get_users($queryArguments);
 	$result = array("q" => $queryArguments, "p" => $partners);
-	$result = json_encode($result);
 
-	header('Content-Type: application/json');
-	echo $result;
+	echo "<pre>";
+	print_r($result);
+	echo "</pre>";
+	// $result = json_encode($result);
 
-   	die();
+	// header('Content-Type: application/json');
+	// echo $result;
+
+ 	// die();
+ 
 }
