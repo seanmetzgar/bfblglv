@@ -142,12 +142,11 @@ function newGetPartners() {
 	//Setup Location Boundry Variables
 	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;
 	$zip = ($zip && strlen($zip) >= 5) ? substr($zip, 0, 5) : false;
-	$hasZipBounds = false;
+	$zipBounds = false;
 	$county = false;
 
 	if ($zip) {
 		$zipBounds = getZipBounds($zip);
-		$hasZipBounds = (is_object($zipBounds)) ? true : false;
 	} else {
 		$county = (isset($_REQUEST["county"])) ? "".$_REQUEST["county"] : false;
 	}
@@ -236,9 +235,9 @@ function newGetPartners() {
 	}
 
 	$partners = get_users($queryArguments);
-	$partners = createMapPartners($partners, $zipBounds, $county);
+	//$partners = createMapPartners($partners, $zipBounds, $county);
 
-	$result = array("q" => $queryArguments, "p" => $partners);
+	$result = array("p" => $productTypes);
 
 	echo "<pre>";
 	print_r($result);
