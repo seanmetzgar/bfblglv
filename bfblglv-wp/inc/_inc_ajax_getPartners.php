@@ -204,7 +204,7 @@ function newGetPartners() {
 		) : false;
 
 	//Product Types Query
-	$productsQuery = buildProductsQuery($productTypes, $wholesale);
+	$productsQuery = getProductsQuery($productTypes, $wholesale);
 
 	//Build Full Meta Query
 	if ($wholesalerMetaQuery || $pseudoLocationTypeMetaQuery || $productsQuery) {
