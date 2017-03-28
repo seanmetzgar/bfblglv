@@ -95,7 +95,7 @@ function newGetPartners() {
 		"relation" => "AND",
 		array(
 			"key" => "ja_disable_user",
-			"value" => 1,
+			"value" => "1",
 			"compare" => "!="
 		)
 	);
@@ -166,7 +166,7 @@ function newGetPartners() {
 	$wholesalerMetaQuery = ($wholesale) ?
 		array(
 			"key" => "is_wholesaler",
-			"value" => 1,
+			"value" => "1",
 			"compare" => "="
 		) : false;
 
@@ -190,8 +190,8 @@ function newGetPartners() {
 	}
 
 	$partners = get_users($queryArguments);
-
-	$result = json_encode($partners);
+	$result = array("q" => $queryArguments, "p" => $partners);
+	$result = json_encode($result);
 
 	header('Content-Type: application/json');
 	echo $result;
