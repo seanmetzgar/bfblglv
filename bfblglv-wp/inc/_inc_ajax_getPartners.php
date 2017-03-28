@@ -283,8 +283,7 @@ function newGetPartners() {
 	$partners = get_users($queryArguments);
 	$partners = createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale);
 
-	$partners = array_unique($returnPartners, SORT_REGULAR);
-
+	$partners = array_unique($partners, SORT_REGULAR);
 	usort($partners, function($a, $b) {
 	    return strnatcmp($a->name, $b->name);
 	});
