@@ -165,7 +165,7 @@ function newGetPartners() {
 		array_push($metaQuery, $wholesalerMetaQuery);
 	}
 	if ($pseudoLocationTypeMetaQuery) {
-		array_push($metaQuery, $pseudoLocationTypeMetaQuery)
+		array_push($metaQuery, $pseudoLocationTypeMetaQuery);
 	}
 	$queryArguments = array(
 		"role__in" => $locationTypes;
