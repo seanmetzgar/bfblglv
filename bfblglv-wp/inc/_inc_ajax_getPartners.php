@@ -308,14 +308,14 @@ function xhrGetPartners() {
 
 	$result = array("specific" => $updatedSpecificProductsList, "partners" => $partners);
 
-	echo "<pre>";
-	print_r($result);
-	echo "</pre>";
+	// echo "<pre>";
+	// print_r($result);
+	// echo "</pre>";
 
-	// $result = json_encode($result);
+	$result = json_encode($result);
 
-	// header('Content-Type: application/json');
-	// echo $result;
+	header('Content-Type: application/json');
+	echo $result;
 
- // 	die();
+ 	die();
 }
