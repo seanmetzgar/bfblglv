@@ -108,23 +108,6 @@ function checkPartnerProducts($id, $productTypes, $specificProducts, $wholesale)
 	return $rVal;
 }
 
-function addPseudoLocationTypeData($locationTypes, $csa, $farmShare, $agritourism, $farmToTable) {
-	$rVal = $locationTypes;
-	if (!is_array($rVal)) { $rVal = array(); }
-	if ($csa || $farmShare || $agritourism || $farmToTable) {
-		if ($agritourism) {
-			array_push($rVal, "distillery", "vineyard", "specialty");
-		}
-		if ($farmToTable) {
-			array_push($rVal, "restaurant");
-		}
-		if ($csa || $farmShare || $agritourism) {
-			array_push($rVal, "farm");
-		}
-	}
-	return array_unique($rVal, SORT_REGULAR);
-}
-
 function getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism, $farmToTable) {
 	$rVal = false;
 	if ($csa || $farmShare || $agritourism || $farmToTable) {
@@ -243,18 +226,43 @@ function xhrGetPartners() {
 							? true : false;
 
 	//Add Pseudo Location Types & Meta Query
-	$locationTypes = addPseudoLocationTypeData($locationTypes, $csa, $farmShare, $agritourism, $farmToTable);
-	$locationTypes = (is_array($locationTypes) && count($locationTypes) > 0) ? $locationTypes : $allLocationTypes;
+	if ((!is_array($locationTypes) || count($locationTypes) == 0) && ($csa || $farmShare || $agritourism || $farmToTable)) {
+		$doPseudoQuery = true;
+		$locationTypes = false;
+	} else {
+		$doPseudoQuery = false;
+		$locationTypes = (is_array($locationTypes) && count($locationTypes) > 0) ? $locationTypes : $allLocationTypes;
+	}
+
+	$doMainQuery = ($locationTypes) ? true : false;
+
 	$pseudoLocationTypeMetaQuery = getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism, $farmToTable);
+
 	if ($agritourism) {
 		if ($productTypes) {
 			array_push($productTypes, "agritourism");
 		} else { $productTypes = array("agritourism"); }
 	}
 
+	//Wholesaler Meta Query
+	$wholesalerMetaQuery = ($wholesale) ?
+		array(
+			"key" => "is_wholesaler",
+			"value" => "1",
+			"compare" => "="
+		) : false;
+
 	//Build Full Meta Query
-	if ($pseudoLocationTypeMetaQuery) {
-		$metaQuery = $pseudoLocationTypeMetaQuery;
+	if ($wholesalerMetaQuery || $pseudoLocationTypeMetaQuery) {
+		$metaQuery = array("relation" => "AND");
+		$pseudoMetaQuery = array("relation" => "AND");
+		if ($wholesalerMetaQuery) {
+			array_push($metaQuery, $wholesalerMetaQuery);
+			array_push($pseudoMetaQuery, $wholesalerMetaQuery);
+		}
+		if ($pseudoLocationTypeMetaQuery) {
+			array_push($pseudoMetaQuery, $pseudoLocationTypeMetaQuery);
+		}
 	}
 
 	//Build Query Arguments
@@ -262,13 +270,27 @@ function xhrGetPartners() {
 		"role__in" => $locationTypes,
 		"fields" => "ID"
 	);
+	$pseudoQueryArguments = array(
+		"fields" => "ID"
+	);
 	if (is_array($metaQuery) && count($metaQuery) > 1) {
 		$queryArguments["meta_query"] = $metaQuery;
 	}
+	if (is_array($pseudoLocationTypeMetaQuery) && count($pseudoLocationTypeMetaQuery) > 1) {
+		$pseudoQueryArguments["meta_query"] = $pseudoLocationTypeMetaQuery;
+	}
 
-	$partners = get_users($queryArguments);
+	$partners1 = array();
+	$partners2 = array();
+
+	if ($doMainQuery) {
+		$partners1 = get_users($queryArguments);
+	}
+	if ($doPseudoQuery) {
+		$partners2 = get_users($pseudoQueryArguments);
+	}
+	$partners = array_merge($partners1, $partners2)
 	$partners = createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale);
-
 	$partners = array_unique($partners, SORT_REGULAR);
 	usort($partners, function($a, $b) {
 	    return strnatcmp($a->name, $b->name);
