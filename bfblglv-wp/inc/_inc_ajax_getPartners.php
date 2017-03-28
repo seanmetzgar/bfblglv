@@ -18,7 +18,7 @@ function getProductsMetaQuery($productTypes, $wholesale = false) {
 				),
 				array(
 					"key" => $tempProductTypeField,
-					"value" => "s:0:\"\";"
+					"value" => "s:0:\"\";",
 					"compare" => "NOT LIKE"
 				)
 			);
