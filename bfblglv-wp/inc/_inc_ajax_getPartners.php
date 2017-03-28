@@ -185,9 +185,9 @@ function newGetPartners() {
 		"role__in" => $locationTypes,
 		"fields" => "ID"
 	);
-	if (is_array($metaQuery) && count($metaQuery) > 1) {
-		$queryArguments["meta_query"] = $metaQuery;
-	}
+	// if (is_array($metaQuery) && count($metaQuery) > 1) {
+	// 	$queryArguments["meta_query"] = $metaQuery;
+	// }
 
 	$partners = get_users($queryArguments);
 	$result = array("q" => $queryArguments, "p" => $partners);
