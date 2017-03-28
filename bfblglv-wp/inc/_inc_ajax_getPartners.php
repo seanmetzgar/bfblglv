@@ -182,7 +182,8 @@ function newGetPartners() {
 
 	//Build Query Arguments
 	$queryArguments = array(
-		"role__in" => $locationTypes
+		"role__in" => $locationTypes,
+		"fields" => array("ID")
 	);
 	if (is_array($metaQuery) && count($metaQuery) > 1) {
 		array_push($queryArguments, $metaQuery);
