@@ -9,29 +9,24 @@ function getProductsQuery($productTypes, $wholesale = false) {
 			$tempProductTypeField = "products_{$productType}";
 			$tempProductTypeField = ($wholesale) ? "ws_$tempProductTypeField" : $tempProductTypeField;
 			$tempProductTypeOtherField = "other_{$tempProductTypeField}";
-			$tempMetaQuery = array(
-				"relation" => "OR",
+			$productsQuery[] = array(
+				"relation" => "AND",
 				array(
-					"relation" => "AND",
-					array(
-						"key" => $tempProductTypeField,
-						"value" => "",
-						"compare" => "!="
-					),
-					array(
-						"key" => $tempProductTypeField,
-						"value" => serialize(strval("")),
-						"compare" => "NOT LIKE"
-					)
-				),
-				array(
-					"key" => $tempProductTypeOtherField,
+					"key" => $tempProductTypeField,
 					"value" => "",
 					"compare" => "!="
+				),
+				array(
+					"key" => $tempProductTypeField,
+					"value" => serialize(strval("")),
+					"compare" => "NOT LIKE"
 				)
 			);
-
-			$productsQuery[] = $tempMetaQuery;
+			$productsQuery[] = array(
+				"key" => $tempProductTypeOtherField,
+				"value" => "",
+				"compare" => "!="
+			);
 		}
 	}
 	return $productsQuery;
