@@ -1,5 +1,5 @@
 <?php
-function createMapPartners($partners, $zipBounds, $county) {
+function createMapPartners($partners, $zipBounds, $county, $productTypes) {
 	$mapPartners = array();
 	$renewalYear = getRenewalYear();
 	$renewalShutDownTime = getRenewalShutDown();
@@ -26,45 +26,68 @@ function createMapPartners($partners, $zipBounds, $county) {
 			$tempDisabled = get_user_meta( $id, "ja_disable_user", true );
 
 			if (!$tempDisabled) {
-				$tempObj = new MapPartner;
-				$tempObj->id = $id;
-				$tempName = get_field("partner_name", $acf_id);
-				$tempCity = get_field("partner_city", $acf_id);
-				$tempCounty = get_field("partner_county", $acf_id);
-				$tempObj->name = strlen($tempName) > 0 ? $tempName : get_author_name($id);
-				$tempMap = get_field("partner_map", $acf_id);
+				if (!$productTypes || checkProductTypes($id, $productTypes)) {
+					$tempObj = new MapPartner;
+					$tempObj->id = $id;
+					$tempName = get_field("partner_name", $acf_id);
+					$tempCity = get_field("partner_city", $acf_id);
+					$tempCounty = get_field("partner_county", $acf_id);
+					$tempObj->name = strlen($tempName) > 0 ? $tempName : get_author_name($id);
+					$tempMap = get_field("partner_map", $acf_id);
 
-				if (!empty($tempMap)) {
-					$tempObj->lat = $tempMap["lat"];
-					$tempObj->lng = $tempMap["lng"];
-				}
+					if (!empty($tempMap)) {
+						$tempObj->lat = $tempMap["lat"];
+						$tempObj->lng = $tempMap["lng"];
+					}
 
-				$tempObj->url = get_author_posts_url($id);
-				$tempObj->city = $tempCity;
+					$tempObj->url = get_author_posts_url($id);
+					$tempObj->city = $tempCity;
 
-				if (is_object($zipBounds) && !empty($tempMap)) {
-					if ($tempMap["lat"] < $zipBounds->maxLat && $tempMap["lat"] > $zipBounds->minLat &&
-						$tempMap["lng"] < $zipBounds->maxLng && $tempMap["lng"] > $zipBounds->minLng) {
+					if (is_object($zipBounds) && !empty($tempMap)) {
+						if ($tempMap["lat"] < $zipBounds->maxLat && $tempMap["lat"] > $zipBounds->minLat &&
+							$tempMap["lng"] < $zipBounds->maxLng && $tempMap["lng"] > $zipBounds->minLng) {
+							$mapPartners[] = $tempObj;
+						}
+					} elseif ($county) {
+						if ($county == $tempCounty) {
+							$mapPartners[] = $tempObj;
+						}
+					} else {
 						$mapPartners[] = $tempObj;
 					}
-				} elseif ($county) {
-					if ($county == $tempCounty) {
-						$mapPartners[] = $tempObj;
-					}
-				} else {
-					$mapPartners[] = $tempObj;
-				}
 
-				//Reset temp variables
-				$tempObj = null;
-				$tempName = null;
-				$tempCity = null;
-				$tempMap = null;
-				$tempDisabled = false;
+					//Reset temp variables
+					$tempObj = null;
+					$tempName = null;
+					$tempCity = null;
+					$tempMap = null;
+					$tempDisabled = false;
+				}
 			}
 		}
 	}
 	return $mapPartners;
+}
+
+function checkProductTypes($id, $productTypes, $wholesale) {
+	$rVal = false;
+	if (is_array($productTypes) && count($productTypes) > 0) {
+		foreach ($productTypes as $productType) {
+			$tempProductTypeField = "products_{$productType}";
+			$tempProductTypeField = ($wholesale) ? "ws_$tempProductTypeField" : $tempProductTypeField;
+			$tempProductTypeOtherField = "other_{$tempProductTypeField}";
+
+			$tempProductTypeField = get_field($tempProductTypeField, "user_{$id}");
+			$tempProductTypeOtherField = get_field($tempProductTypeOtherField, "user_{$id}");
+
+			$tempProductTypeField = (is_array($tempProductTypeField) && count($tempProductTypeField) > 0) ? true : false;
+			$tempProductTypeOtherField = ($tempProductTypeOtherField) ? true : false;
+
+			if ($tempProductTypeField || $tempProductTypeOtherField) { $rVal = true; }
+		}
+	} else { $rVal = true; }
+
+	return $rVal;
 }
 
 function addPseudoLocationTypeData($locationTypes, $csa, $farmShare, $agritourism, $farmToTable) {
@@ -235,9 +258,9 @@ function newGetPartners() {
 	}
 
 	$partners = get_users($queryArguments);
-	//$partners = createMapPartners($partners, $zipBounds, $county);
+	$partners = createMapPartners($partners, $zipBounds, $county);
 
-	$result = array("p" => $productTypes);
+	$result = array("p" => $partners);
 
 	echo "<pre>";
 	print_r($result);
