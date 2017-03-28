@@ -289,7 +289,7 @@ function xhrGetPartners() {
 	if ($doPseudoQuery) {
 		$partners2 = get_users($pseudoQueryArguments);
 	}
-	$partners = array_merge($partners1, $partners2)
+	$partners = array_merge($partners1, $partners2);
 	$partners = createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale);
 	$partners = array_unique($partners, SORT_REGULAR);
 	usort($partners, function($a, $b) {
