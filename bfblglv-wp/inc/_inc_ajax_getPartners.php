@@ -285,14 +285,14 @@ function xhrGetPartners() {
 	if ($doMainQuery) {
 		echo "do main<br>";
 		echo "<pre>";
-		print_r("$queryArguments");
+		print_r($queryArguments);
 		echo "</pre>";
 		$partners1 = get_users($queryArguments);
 	}
 	if ($doPseudoQuery) {
 		echo "do pseudo<br>";
 		echo "<pre>";
-		print_r("$pseudoQueryArguments");
+		print_r($pseudoQueryArguments);
 		echo "</pre>";
 		$partners2 = get_users($pseudoQueryArguments);
 	}
