@@ -175,18 +175,22 @@ jQuery(document).ready(function ($) {
 
     //Find Local Food Form
     $findLocalFoodForm = $("#find-local-food-form").eq(0);
-    $findLocalFoodForm.on("blur change keyup keypress", "input, textarea, select", function () {
+    $findLocalFoodForm.on("blur change", "input, textarea, select", function () {
         var formObject = false;
         var $productTypesSection = $findLocalFoodForm.find(".product-types-section");
-        var locationTypes = $findLocalFoodForm.find("[name='location_type[]'],[name=is_csa],[name=is_farm_share]").filter(":checked").serializeArray();
+        var locationTypes = $findLocalFoodForm.find("[name='location_type[]'],[name='csa'],[name='farm_share'],[name='farm-share'],[name='agritourism']").filter(":checked").serializeArray();
         var locationTypeValues = Array();
         for (var i = 0; i < locationTypes.length; i = i + 1) {
             switch(locationTypes[i].name) {
-                case "is_csa":
+                case "csa":
                     locationTypeValues.push("csa");
                     break;
-                case "is_farm_share":
+                case "farm_share":
+                case "farm-share":
                     locationTypeValues.push("farm-share");
+                    break;
+                case "agritourism":
+                    locationTypeValues.push("agritourism");
                     break;
                 case "location_type[]":
                 default:
@@ -196,7 +200,8 @@ jQuery(document).ready(function ($) {
         if (locationTypeValues.length === 0 ||
             (locationTypeValues.indexOf("farm") !== -1 ||
             locationTypeValues.indexOf("csa") !== -1 ||
-            locationTypeValues.indexOf("farm-share") !== -1)) {
+            locationTypeValues.indexOf("farm-share") !== -1 ||
+            locationTypeValues.indexOf("agritourism") !== -1)) {
             $productTypesSection.show().find("input,select,textarea").prop("disabled", false).removeProp("disabled");
         } else {
             $productTypesSection.hide().find("input,select,textarea").prop("disabled", true);
