@@ -71,25 +71,37 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes) {
 
 function checkPartnerProducts($id, $productTypes, $specificProducts, $wholesale) {
 	$rVal = false;
-	if ((is_array($productTypes) && count($productTypes) > 0) || (is_array($specificProducts) && count($specificProducts) > 0) {
-		if (is_array($productTypes) && count($productTypes) > 0) {
-			foreach ($productTypes as $productType) {
-				$tempProductTypeField = "products_{$productType}";
-				$tempProductTypeField = ($wholesale) ? "ws_$tempProductTypeField" : $tempProductTypeField;
-				$tempProductTypeOtherField = "other_{$tempProductTypeField}";
 
-				$tempProductTypeField = get_field($tempProductTypeField, "user_{$id}");
-				$tempProductTypeOtherField = get_field($tempProductTypeOtherField, "user_{$id}");
+	if (!is_array($productTypes) || count($productTypes) == 0 && (is_array($specificProducts) && count($specificProducts) > 0)) {
+		$productTypes = array(
+			"greens", "roots", "seasonal",
+			"melons", "herbs", "berries",
+			"small_fruits", "grains", "value_added",
+			"flowers", "plants", "ornamentals",
+			"syrups", "dairy", "meat",
+			"poultry", "agritourism", "fibers",
+			"artisinal", "liquids", "educational",
+			"baked", "seeds", "pyo", "misc"
+		);
+	}
 
-				$hasProductTypeField = (is_array($tempProductTypeField) && count($tempProductTypeField) > 0) ? true : false;
-				$hasProductTypeOtherField = ($tempProductTypeOtherField) ? true : false;
+	if (is_array($productTypes) && count($productTypes) > 0) {
+		foreach ($productTypes as $productType) {
+			$tempProductTypeField = "products_{$productType}";
+			$tempProductTypeField = ($wholesale) ? "ws_$tempProductTypeField" : $tempProductTypeField;
+			$tempProductTypeOtherField = "other_{$tempProductTypeField}";
 
-				if (is_array($specificProducts) && count($specificProducts) > 0 && $hasProductTypeField) { 
-					foreach ($specificProducts as $specificProduct) {
-						if (in_array($specificProduct, $tempProductTypeField)) { $rVal = true; }
-					}
-				} elseif ($hasProductTypeField || $hasProductTypeOtherField) { $rVal = true; }
-			}
+			$tempProductTypeField = get_field($tempProductTypeField, "user_{$id}");
+			$tempProductTypeOtherField = get_field($tempProductTypeOtherField, "user_{$id}");
+
+			$hasProductTypeField = (is_array($tempProductTypeField) && count($tempProductTypeField) > 0) ? true : false;
+			$hasProductTypeOtherField = ($tempProductTypeOtherField) ? true : false;
+
+			if (is_array($specificProducts) && count($specificProducts) > 0 && $hasProductTypeField) {
+				foreach ($specificProducts as $specificProduct) {
+					if (in_array($specificProduct, $tempProductTypeField)) { $rVal = true; }
+				}
+			} elseif ($hasProductTypeField || $hasProductTypeOtherField) { $rVal = true; }
 		}
 	} else { $rVal = true; }
 
