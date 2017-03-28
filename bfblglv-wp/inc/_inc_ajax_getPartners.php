@@ -168,8 +168,8 @@ function newGetPartners() {
 		array_push($metaQuery, $pseudoLocationTypeMetaQuery);
 	}
 	$queryArguments = array(
-		"role__in" => $locationTypes;
-		"meta_query" => $metaQuery;
+		"role__in" => $locationTypes,
+		"meta_query" => $metaQuery
 	);
 
 	$result = json_encode($queryArguments);
