@@ -5474,6 +5474,7 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 }
 .columned-list a {
 	text-decoration: none;
+	border-bottom: 0;
 }
 
 .columned-list li {
