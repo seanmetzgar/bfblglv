@@ -16,69 +16,69 @@ $locationTypesRequest = (is_array($_REQUEST["location_type"]) && count($_REQUEST
 
 $locationTypesData = "[
 	{
-		name: \"Agritourism\",
-		key: \"agritourism\",
-		special: true
+		\"name\": \"Agritourism\",
+		\"key\": \"agritourism\",
+		\"special\": true
 	},
 	{
-		name: \"Breweries & Distilleries\",
-		key: \"distillery\",
-		special: false
+		\"name\": \"Breweries & Distilleries\",
+		\"key\": \"distillery\",
+		\"special\": false
 	},
 	{
-		name: \"CSAs\",
-		key: \"csa\",
-		special: true
+		\"name\": \"CSAs\",
+		\"key\": \"csa\",
+		\"special\": true
 	},
 	{
-		name: \"Distributors\",
-		key: \"distributor\",
-		special: false
+		\"name\": \"Distributors\",
+		\"key\": \"distributor\",
+		\"special\": false
 	},
 	{
-		name: \"Farm\",
-		key: \"farm\",
-		special: false
+		\"name\": \"Farm\",
+		\"key\": \"farm\",
+		\"special\": false
 	},
 	{
-		name: \"Farmers' Markets\",
-		key: \"farmers-market\",
-		special: false
+		\"name\": \"Farmers' Markets\",
+		\"key\": \"farmers-market\",
+		\"special\": false
 	},
 	{
-		name: \"Farm Shares\",
-		key: \"farm-share\",
-		special: true
+		\"name\": \"Farm Shares\",
+		\"key\": \"farm-share\",
+		\"special\": true
 	},
 	{
-		name: \"Farm to Table\",
-		key: \"farm-to-table\",
-		special: true
+		\"name\": \"Farm to Table\",
+		\"key\": \"farm-to-table\",
+		\"special\": true
 	},
 	{
-		name: \"Institutions\",
-		key: \"institution\",
-		special: false
+		\"name\": \"Institutions\",
+		\"key\": \"institution\",
+		\"special\": false
 	},
 	{
-		name: \"Restaurants & Caterers\",
-		key: \"restaurant\",
-		special: false
+		\"name\": \"Restaurants & Caterers\",
+		\"key\": \"restaurant\",
+		\"special\": false
 	},
 	{
-		name: \"Specialty Products\",
-		key: \"specialty\",
-		special: false
+		\"name\": \"Specialty Products\",
+		\"key\": \"specialty\",
+		\"special\": false
 	},
 	{
-		name: \"Stores & Retail\",
-		key: \"retail\",
-		special: false
+		\"name\": \"Stores & Retail\",
+		\"key\": \"retail\",
+		\"special\": false
 	},
 	{
-		name: \"Vineyards\",
-		key: \"vineyard\",
-		special: false
+		\"name\": \"Vineyards\",
+		\"key\": \"vineyard\",
+		\"special\": false
 	}
 ]";
 $locationTypesData = json_decode($locationTypesData);
@@ -125,7 +125,7 @@ $locationTypesData = json_decode($locationTypesData);
 							<div class="bfblSlideWrap">
 								<div class="form-inline page-block map-checkboxes">
 								<?php
-									foreach ($locationTypesData as $locationType):
+									foreach($locationTypesData as $locationType):
 										$checkedAttribute = in_array($locationType->key, $locationTypesRequest) ? " checked" : ""; ?>
 									<?php if ($locationType->special): ?>
 									<label><input type="checkbox" name="<?php echo $locationType->key; ?>" value="1"<?php echo $checkedAttribute; ?>><span><?php echo htmlentities($locationType->name); ?></span></label>
