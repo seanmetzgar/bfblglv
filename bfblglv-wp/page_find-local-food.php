@@ -9,9 +9,9 @@
 get_header();
 $activeCounties = get_active_counties();
 $specificProducts = get_specific_products();
-$specificProductsRequest = (isset($_REQUEST["specific_products"] && is_array($_REQUEST["specific_products"]) && count($_REQUEST["specific_products"]) > 0) ?
+$specificProductsRequest = (isset($_REQUEST["specific_products"]) && is_array($_REQUEST["specific_products"]) && count($_REQUEST["specific_products"]) > 0) ?
 	$_REQUEST["specific_products"] : array();
-$locationTypesRequest = (isset($_REQUEST["location_type"] && is_array($_REQUEST["location_type"]) && count($_REQUEST["location_type"]) > 0) ?
+$locationTypesRequest = (isset($_REQUEST["location_type"]) && is_array($_REQUEST["location_type"]) && count($_REQUEST["location_type"]) > 0) ?
 	$_REQUEST["location_type"] : array();
 
 $locationTypesData = "[
