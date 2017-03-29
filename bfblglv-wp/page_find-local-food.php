@@ -9,6 +9,8 @@
 get_header();
 $activeCounties = get_active_counties();
 $specificProducts = get_specific_products();
+$specificProductsRequest = (is_array($_REQUEST["specific_products"]) && count($_REQUEST["specific_products"]) > 0) ?
+	$_REQUEST["specific_products"] : array();
 ?>
 			<?php get_template_part("entry", "partner-header"); ?>
 			<div class="page-block acf-map-wrap">
@@ -106,9 +108,8 @@ $specificProducts = get_specific_products();
 										<span class="map-subhead">Looking for a <br />specific product?</span>
 										<select name="specific_products[]" multiple class="chosen-specific-products">
 											<?php
-											$specificProductRequest = (isset($_REQUEST["specific_product"]) && strlen($_REQUEST["specific_product"]) > 0) ? $_REQUEST["specific_product"] : false;
 											foreach ($specificProducts as $specificProduct): if (!is_string($specificProduct) || (is_string($specificProduct) && strlen($specificProduct) < 1)) { continue; } 
-												$selectedAttribute = ($specificProductRequest == $specificProduct) ? " selected" : ""; ?>
+												$selectedAttribute = in_array($specificProduct, $specificProductsRequest) ? " selected" : ""; ?>
 											<option value="<?php echo $specificProduct; ?>"<?php echo $selectedAttribute; ?>><?php echo $specificProduct; ?></option>
 											<?php endforeach; ?>
 										</select>
