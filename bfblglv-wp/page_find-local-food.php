@@ -11,6 +11,77 @@ $activeCounties = get_active_counties();
 $specificProducts = get_specific_products();
 $specificProductsRequest = (is_array($_REQUEST["specific_products"]) && count($_REQUEST["specific_products"]) > 0) ?
 	$_REQUEST["specific_products"] : array();
+$locationTypesRequest = (is_array($_REQUEST["location_type"]) && count($_REQUEST["location_type"]) > 0) ?
+	$_REQUEST["location_type"] : array();
+
+$locationTypesData = "[
+	{
+		name: \"Agritourism\",
+		key: \"agritourism\",
+		special: true
+	},
+	{
+		name: \"Breweries & Distilleries\",
+		key: \"distillery\",
+		special: false
+	},
+	{
+		name: \"CSAs\",
+		key: \"csa\",
+		special: true
+	},
+	{
+		name: \"Distributors\",
+		key: \"distributor\",
+		special: false
+	},
+	{
+		name: \"Farm\",
+		key: \"farm\",
+		special: false
+	},
+	{
+		name: \"Farmers' Markets\",
+		key: \"farmers-market\",
+		special: false
+	},
+	{
+		name: \"Farm Shares\",
+		key: \"farm-share\",
+		special: true
+	},
+	{
+		name: \"Farm to Table\",
+		key: \"farm-to-table\",
+		special: true
+	},
+	{
+		name: \"Institutions\",
+		key: \"institution\",
+		special: false
+	},
+	{
+		name: \"Restaurants & Caterers\",
+		key: \"restaurant\",
+		special: false
+	},
+	{
+		name: \"Specialty Products\",
+		key: \"specialty\",
+		special: false
+	},
+	{
+		name: \"Stores & Retail\",
+		key: \"retail\",
+		special: false
+	},
+	{
+		name: \"Vineyards\",
+		key: \"vineyard\",
+		special: false
+	}
+]";
+$locationTypesData = json_decode($locationTypesData);
 ?>
 			<?php get_template_part("entry", "partner-header"); ?>
 			<div class="page-block acf-map-wrap">
@@ -53,19 +124,14 @@ $specificProductsRequest = (is_array($_REQUEST["specific_products"]) && count($_
 							<h2 class="greenHeader">Location Type</h2>
 							<div class="bfblSlideWrap">
 								<div class="form-inline page-block map-checkboxes">
-									<label><input type="checkbox" name="agritourism" value="1"><span>Agritourism</span></label>
-									<label><input type="checkbox" name="location_type[]" value="distillery"><span>Breweries &amp; Distilleries</span></label>
-									<label><input type="checkbox" name="csa" value="1"><span>CSAs</span></label>
-									<label><input type="checkbox" name="location_type[]" value="distributor"><span>Distributors</span></label>
-									<label><input type="checkbox" name="location_type[]" value="farm"><span>Farms</span></label>
-									<label><input type="checkbox" name="location_type[]" value="farmers-market"><span>Farmers' Markets</span></label>
-									<label><input type="checkbox" name="farm-share" value="1"><span>Farm Shares</span></label>
-									<label><input type="checkbox" name="farm-to-table" value="1"><span>Farm to Table</span></label>
-									<label><input type="checkbox" name="location_type[]" value="institution"><span>Institutions</span></label>
-									<label><input type="checkbox" name="location_type[]" value="restaurant"><span>Restaurants / Caterers</span></label>
-									<label><input type="checkbox" name="location_type[]" value="specialty"><span>Specialty Products</span></label>
-									<label><input type="checkbox" name="location_type[]" value="retail"><span>Stores / Retail</span></label>
-									<label><input type="checkbox" name="location_type[]" value="vineyard"><span>Vineyards</span></label>
+								<?php
+									foreach ($locationTypesData as $locationType):
+										$checkedAttribute = in_array($locationType->key, $locationTypesRequest) ? " checked" : ""; ?>
+									<?php if ($locationType->special): ?>
+									<label><input type="checkbox" name="<?php echo $locationType->key; ?>" value="1"<?php echo $checkedAttribute; ?>><span><?php echo htmlentities($locationType->name); ?></span></label>
+									<?php else: ?>
+									<label><input type="checkbox" name="location_type[]" value="<?php echo $locationType->key; ?>"<?php echo $checkedAttribute; ?>><span><?php echo htmlentities($locationType->name); ?></span></label>
+									<?php endif; endforeach; ?>
 								</div><!-- end div.map-checkboxes -->
 							</div><!-- end div.bfblSlideWrap -->
 						</section>
