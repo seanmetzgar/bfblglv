@@ -60,6 +60,7 @@ get_header();
 	);
 	$partners_query = new WP_User_Query($partners_args);
 	$partners = $partners_query->get_results();
+	$possible_products = false;
 	if ($landing_type == "agritourism") {
 		$possible_products = array();
 		foreach ($partners as $temp) {
@@ -95,6 +96,14 @@ get_header();
 							</div><!-- end div.video -->
 							<?php endif; ?>
 							<?php the_content(); ?>
+							<?php if (is_array($possible_products) && count($possible_products) > 3): ?>
+							<ul class="columned-list">
+								<?php foreach ($possible_products as $key=>$possible_product): ?>
+								<li><a href="#" data-product="<?php echo $key; ?>"><strong><?php $possible_product; ?></strong></a></li>
+								<?php endforeach; ?>
+								<li><a href="#" data-product="all"><strong>and more...</strong></a></li>
+							<ul class="columned-list">
+							<?php endif; ?>
 						</div>
 					</section>
 
@@ -153,16 +162,10 @@ get_header();
 										foreach ($partner_products as $partner_product) {
 											$partner_products_attribute[] = array_search($partner_product, $possible_products);
 										}
-										echo "\n<!-- ATTRIBUTES: \n";
-										print_r($partner_products_attribute);
-										echo "-->\n";
 										$partner_products_attribute = implode(",", $partner_products_attribute);
-										echo "\n<!-- ATTRIBUTES IMPLODED: \n";
-										print_r($partner_products_attribute);
-										echo "-->\n";
 									}
 								}
-								$partner_products_attribute = ($partner_products_attribute) ? " products=\"$partner_products_attribute\"" : "";
+								$partner_products_attribute = ($partner_products_attribute) ? " products=\"[{$partner_products_attribute}]\"" : "";
 							?>
 							<li class="col-md-3 col-sm-4 col-xs-6"<?php echo $partner_products_attribute; ?>><a href="<?php echo $partner_url; ?>" title="<?php echo $partner_name; ?>">
 								<?php if ($partner_image): ?>
