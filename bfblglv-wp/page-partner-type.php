@@ -97,7 +97,7 @@ get_header();
 							<?php endif; ?>
 							<?php the_content(); ?>
 							<?php if (is_array($possible_products) && count($possible_products) > 3): ?>
-							<ul class="columned-list">
+							<ul class="columned-list filter-list">
 								<?php foreach ($possible_products as $key=>$possible_product): ?>
 								<li><a href="#" data-product="<?php echo $key; ?>"><strong><?php $possible_product; ?></strong></a></li>
 								<?php endforeach; ?>
