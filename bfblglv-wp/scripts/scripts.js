@@ -241,4 +241,23 @@ jQuery(document).ready(function ($) {
         }).trigger("resize");
     }
 
+    $(".filter-list").find("a").on("click", function (e) {
+        var $this = $(this);
+        var product = $this.data("product");
+        var $partnerBlocks = $(".partner-blocks");
+        if (product === "all") {
+            $partnerBlocks.find("li").show();
+        } else {
+            $partnerBlocks.find("li").each(function () {
+                var $that = $(this);
+                var products = $that.data("products");
+                if (products.indexOf(product) != -1) {
+                    $that.show();
+                } else { $that.hide(); }
+            });
+        }
+        e.preventDefault();
+
+    });
+
 }); // end document ready
