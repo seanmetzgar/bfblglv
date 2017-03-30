@@ -244,19 +244,15 @@ jQuery(document).ready(function ($) {
     $(".filter-list").find("a").on("click", function (e) {
         var $this = $(this);
         var product = $this.data("product");
-        var $partnerBlocks = $(".partner-blocks");
+        var $partnerBlocks = $(".partners-blocks");
         e.preventDefault();
 
-        console.log("product", product);
         if (product === "all") {
             $partnerBlocks.find("li").show();
-            console.log("all loop")
         } else {
-            console.log("other loop");
             $partnerBlocks.find("li").each(function () {
                 var $that = $(this);
                 var products = $that.data("products");
-                console.log(products, product);
                 if (products.indexOf(product) != -1) {
                     $that.show();
                 } else { $that.hide(); }
