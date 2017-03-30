@@ -69,11 +69,11 @@ get_header();
 				$possible_products = array_merge($possible_products, $tempProducts);
 			}
 		}
-		$possible_products = array_unique($possible_products, SORT_REGULAR);
+		$possible_products = array_values(array_unique($possible_products, SORT_REGULAR));
 		if(($key = array_search("Other", $possible_products)) !== false) {
 		    unset($possible_products[$key]);
 		}
-		$possible_products = array_unique($possible_products, SORT_REGULAR);
+		$possible_products = array_values($possible_products);
 		echo "<!-- ARGH: \n";
 		print_r($possible_products);
 		echo "\n-->\n";
