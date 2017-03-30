@@ -60,6 +60,16 @@ get_header();
 	);
 	$partners_query = new WP_User_Query($partners_args);
 	$partners = $partners_query->get_results();
+	if ($landing_type === "agritourism") {
+		$possible_products = array();
+		foreach ($partners as $temp) {
+			$tempProducts = get_field("products_agritourism", "user_{$partner->ID}");
+			if (is_array($tempProducts)) {
+				$possible_products = array_merge($possible_products, $tempProducts);
+			}
+		}
+		$possible_products = array_unique($possible_products, SORT_REGULAR);
+	}
 ?>
 			<section class="main-content" role="main">
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
@@ -127,8 +137,22 @@ get_header();
 								$partner_image = ($partner_logo) ? $partner_logo : (
 												 ($partner_business_photo) ? $partner_business_photo : (
 												 ($partner_owner_photo) ? $partner_owner_photo : false ));
+
+								$partner_products_attribute = false;
+								if ($landing_type === "agritourism") {
+									$partner_products = get_field("products_agritourism");
+									if (is_array($partner_products)) {
+										$partner_products = array_unique($partner_products, SORT_REGULAR);
+										$partner_products_attribute = array();
+										foreach ($partner_products as $partner_product) {
+											$partner_products_attribute[] = array_search($partner_product, $possible_products);
+										}
+										$partner_products_attribute = implode(",", $partner_products_attribute);
+									}
+								}
+								$partner_products_attribute = ($partner_products_attribute) ? " products=\"$partner_products_attribute\"" : "";
 							?>
-							<li class="col-md-3 col-sm-4 col-xs-6"><a href="<?php echo $partner_url; ?>" title="<?php echo $partner_name; ?>">
+							<li class="col-md-3 col-sm-4 col-xs-6"<?php echo $partner_products_attribute; ?>><a href="<?php echo $partner_url; ?>" title="<?php echo $partner_name; ?>">
 								<?php if ($partner_image): ?>
 								<figure class="image <?php echo $partner_fill; ?>" style="background-image: url('<?php echo $partner_image; ?>');">
 									<span><?php echo $partner_name; ?><?php if ($partner_location) echo "<br><em>$partner_location</em>"; ?></span>
