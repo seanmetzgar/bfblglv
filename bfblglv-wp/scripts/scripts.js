@@ -246,9 +246,13 @@ jQuery(document).ready(function ($) {
         var product = $this.data("product");
         var $partnerBlocks = $(".partner-blocks");
         e.preventDefault();
+
+        console.log("product", product);
         if (product === "all") {
             $partnerBlocks.find("li").show();
+            console.log("all loop")
         } else {
+            console.log("other loop");
             $partnerBlocks.find("li").each(function () {
                 var $that = $(this);
                 var products = $that.data("products");
