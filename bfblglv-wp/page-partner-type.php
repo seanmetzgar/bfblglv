@@ -146,7 +146,7 @@ get_header();
 
 								$partner_products_attribute = false;
 								if ($landing_type == "agritourism") {
-									$partner_products = get_field("products_agritourism");
+									$partner_products = get_field("products_agritourism", $acf_partner_id);
 									if (is_array($partner_products)) {
 										$partner_products = array_unique($partner_products, SORT_REGULAR);
 										$partner_products_attribute = array();
