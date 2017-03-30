@@ -69,13 +69,11 @@ get_header();
 				$possible_products = array_merge($possible_products, $tempProducts);
 			}
 		}
-		echo "\n<!-- PRE UNIQUE: \n";
-		print_r($possible_products);
-		echo "-->\n";
 		$possible_products = array_unique($possible_products, SORT_REGULAR);
-		echo "\n<!-- POST UNIQUE: \n";
-		print_r($possible_products);
-		echo "-->\n";
+		if(($key = array_search("Other", $possible_products)) !== false) {
+		    unset($possible_products[$key]);
+		}
+		$possible_products = array_unique($possible_products, SORT_REGULAR);
 	}
 ?>
 			<section class="main-content" role="main">
