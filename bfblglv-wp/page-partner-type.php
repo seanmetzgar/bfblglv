@@ -63,7 +63,7 @@ get_header();
 	if ($landing_type === "agritourism") {
 		$possible_products = array();
 		foreach ($partners as $temp) {
-			$tempProducts = get_field("products_agritourism", "user_{$partner->ID}");
+			$tempProducts = get_field("products_agritourism", "user_{$temp->ID}");
 			if (is_array($tempProducts)) {
 				$possible_products = array_merge($possible_products, $tempProducts);
 			}
