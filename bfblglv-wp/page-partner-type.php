@@ -74,9 +74,6 @@ get_header();
 		    unset($possible_products[$key]);
 		}
 		$possible_products = array_values($possible_products);
-		echo "<!-- ARGH: \n";
-		print_r($possible_products);
-		echo "\n-->\n";
 	}
 ?>
 			<section class="main-content" role="main">
@@ -161,7 +158,6 @@ get_header();
 										$partner_products = array_unique($partner_products, SORT_REGULAR);
 										$partner_products_attribute = array();
 										foreach ($partner_products as $partner_product) {
-											echo "<!-- $partner_product -->\n";
 											$tempProductKey = array_search($partner_product, $possible_products)
 											if ($tempProductKey !== false) {
 												$partner_products_attribute[] = $tempProductKey;
