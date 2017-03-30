@@ -74,6 +74,9 @@ get_header();
 		    unset($possible_products[$key]);
 		}
 		$possible_products = array_unique($possible_products, SORT_REGULAR);
+		echo "<!-- ARGH: \n";
+		print_r($possible_products);
+		echo "\n-->\n";
 	}
 ?>
 			<section class="main-content" role="main">
