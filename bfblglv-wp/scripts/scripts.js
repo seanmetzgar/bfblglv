@@ -245,19 +245,19 @@ jQuery(document).ready(function ($) {
         var $this = $(this);
         var product = $this.data("product");
         var $partnerBlocks = $(".partner-blocks");
+        e.preventDefault();
         if (product === "all") {
             $partnerBlocks.find("li").show();
         } else {
             $partnerBlocks.find("li").each(function () {
                 var $that = $(this);
                 var products = $that.data("products");
+                console.log(products, product);
                 if (products.indexOf(product) != -1) {
                     $that.show();
                 } else { $that.hide(); }
             });
         }
-        e.preventDefault();
-
     });
 
 }); // end document ready
