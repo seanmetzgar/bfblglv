@@ -153,7 +153,13 @@ get_header();
 										foreach ($partner_products as $partner_product) {
 											$partner_products_attribute[] = array_search($partner_product, $possible_products);
 										}
+										echo "\n<!-- ATTRIBUTES: \n";
+										print_r($partner_products_attribute);
+										echo "-->\n";
 										$partner_products_attribute = implode(",", $partner_products_attribute);
+										echo "\n<!-- ATTRIBUTES IMPLODED: \n";
+										print_r($partner_products_attribute);
+										echo "-->\n";
 									}
 								}
 								$partner_products_attribute = ($partner_products_attribute) ? " products=\"$partner_products_attribute\"" : "";
