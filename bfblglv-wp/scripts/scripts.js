@@ -253,7 +253,7 @@ jQuery(document).ready(function ($) {
             $partnerBlocks.find("li").each(function () {
                 var $that = $(this);
                 var products = $that.data("products");
-                console.log(product);
+                console.log(typeof product, typeof products[0]);
                 if (products.indexOf(product) != -1) {
                     $that.show();
                 } else { $that.hide(); }
