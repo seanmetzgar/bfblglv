@@ -246,6 +246,7 @@ jQuery(document).ready(function ($) {
         var product = $this.data("product");
         var $partnerBlocks = $(".partner-blocks");
         e.preventDefault();
+        console.log(product);
         if (product === "all") {
             $partnerBlocks.find("li").show();
         } else {
