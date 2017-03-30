@@ -158,7 +158,9 @@ get_header();
 										$partner_products = array_unique($partner_products, SORT_REGULAR);
 										$partner_products_attribute = array();
 										foreach ($partner_products as $partner_product) {
-											$partner_products_attribute[] = array_search($partner_product, $possible_products);
+											if ($tempProductKey = array_search($partner_product, $possible_products)) {
+												$partner_products_attribute[] = $tempProductKey;
+											}
 										}
 										$partner_products_attribute = implode(",", $partner_products_attribute);
 									}
