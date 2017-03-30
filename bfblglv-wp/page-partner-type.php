@@ -60,7 +60,7 @@ get_header();
 	);
 	$partners_query = new WP_User_Query($partners_args);
 	$partners = $partners_query->get_results();
-	if ($landing_type === "agritourism") {
+	if ($landing_type == "agritourism") {
 		$possible_products = array();
 		foreach ($partners as $temp) {
 			$tempProducts = get_field("products_agritourism", "user_{$temp->ID}");
@@ -139,7 +139,7 @@ get_header();
 												 ($partner_owner_photo) ? $partner_owner_photo : false ));
 
 								$partner_products_attribute = false;
-								if ($landing_type === "agritourism") {
+								if ($landing_type == "agritourism") {
 									$partner_products = get_field("products_agritourism");
 									if (is_array($partner_products)) {
 										$partner_products = array_unique($partner_products, SORT_REGULAR);
