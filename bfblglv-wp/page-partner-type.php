@@ -165,7 +165,7 @@ get_header();
 										$partner_products_attribute = implode(",", $partner_products_attribute);
 									}
 								}
-								$partner_products_attribute = ($partner_products_attribute) ? " products=\"[{$partner_products_attribute}]\"" : "";
+								$partner_products_attribute = ($partner_products_attribute) ? " data-products=\"[{$partner_products_attribute}]\"" : "";
 							?>
 							<li class="col-md-3 col-sm-4 col-xs-6"<?php echo $partner_products_attribute; ?>><a href="<?php echo $partner_url; ?>" title="<?php echo $partner_name; ?>">
 								<?php if ($partner_image): ?>
