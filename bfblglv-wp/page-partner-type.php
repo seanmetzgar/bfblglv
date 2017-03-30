@@ -99,7 +99,7 @@ get_header();
 							<?php if (is_array($possible_products) && count($possible_products) > 3): ?>
 							<ul class="columned-list filter-list">
 								<?php foreach ($possible_products as $key=>$possible_product): ?>
-								<li><a href="#" data-product="<?php echo $key; ?>"><strong><?php $possible_product; ?></strong></a></li>
+								<li><a href="#" data-product="<?php echo $key; ?>"><strong><?php echo $possible_product; ?></strong></a></li>
 								<?php endforeach; ?>
 								<li><a href="#" data-product="all"><strong>and more...</strong></a></li>
 							<ul class="columned-list">
