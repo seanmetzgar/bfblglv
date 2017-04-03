@@ -59,22 +59,15 @@ get_header();
 							</div><!-- end div.video -->
 							<?php endif; ?>
 							<?php the_content(); ?>
-							<?php if (is_array($possible_products) && count($possible_products) > 3): ?>
-							<ul class="columned-list filter-list">
-								<?php foreach ($possible_products as $key=>$possible_product): ?>
-								<li><a href="#" data-product="<?php echo $key; ?>"><strong><?php echo $possible_product; ?></strong></a></li>
-								<?php endforeach; ?>
-								<li><a href="#" data-product="all"><strong>and more...</strong></a></li>
-							<ul class="columned-list">
-							<?php endif; ?>
 						</div>
 					</section>
 
 					<?php foreach ($possible_products as $key=>$possible_product): ?>
-					<section class="page-block-full">
+					<section class="page-block-full bfblSlider sliderOpen">
 						<h2 class="greenHeader"><?php echo $possible_product; ?></h2>
-						<div class="page-block-content">
-							<ul class="partners-blocks row">
+						<div class="bfblSlideWrap">
+							<div class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1">
+								<ul class="partners-blocks row">
 								<?php foreach ($partners as $partner):
 									$partner_ID 	= $partner->ID;
 									$acf_partner_id = "user_{$partner_ID}";
@@ -120,22 +113,23 @@ get_header();
 														 ($partner_business_photo) ? $partner_business_photo : (
 														 ($partner_owner_photo) ? $partner_owner_photo : false ));
 								?>
-								<li class="col-md-3 col-sm-4 col-xs-6"><a href="<?php echo $partner_url; ?>" title="<?php echo $partner_name; ?>">
-									<?php if ($partner_image): ?>
-									<figure class="image <?php echo $partner_fill; ?>" style="background-image: url('<?php echo $partner_image; ?>');">
-										<span><?php echo $partner_name; ?><?php if ($partner_location) echo "<br><em>$partner_location</em>"; ?></span>
-									</figure>
-									<?php else: ?>
-									<div class="pseudo-image">
-										<span><?php echo $partner_name; ?><?php if ($partner_location) echo "<br><em>$partner_location</em>"; ?></span>
-									</div>
-									<?php endif; ?>
-									<div class="overlay">
-										<span><?php echo $partner_name; ?><?php if ($partner_location) echo "<br><em>$partner_location</em>"; ?></span>
-									</div>
-								</a></li>
+									<li class="col-md-3 col-sm-4 col-xs-6"><a href="<?php echo $partner_url; ?>" title="<?php echo $partner_name; ?>">
+										<?php if ($partner_image): ?>
+										<figure class="image <?php echo $partner_fill; ?>" style="background-image: url('<?php echo $partner_image; ?>');">
+											<span><?php echo $partner_name; ?><?php if ($partner_location) echo "<br><em>$partner_location</em>"; ?></span>
+										</figure>
+										<?php else: ?>
+										<div class="pseudo-image">
+											<span><?php echo $partner_name; ?><?php if ($partner_location) echo "<br><em>$partner_location</em>"; ?></span>
+										</div>
+										<?php endif; ?>
+										<div class="overlay">
+											<span><?php echo $partner_name; ?><?php if ($partner_location) echo "<br><em>$partner_location</em>"; ?></span>
+										</div>
+									</a></li>
 								<?php endif; endforeach; ?>
-							</ul>
+								</ul>
+							</div>
 						</div>
 					</section>
 					<?php endforeach; ?>
