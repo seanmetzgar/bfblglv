@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Buy_Local_GLV
- * @since Buy Local GLV 1.X.X
+ * @since Buy Local GLV 1.7.0
  */
 get_header();
 	//PARTNER QUERY
