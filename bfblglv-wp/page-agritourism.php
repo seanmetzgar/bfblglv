@@ -63,7 +63,7 @@ get_header();
 					</section>
 
 					<?php foreach ($possible_products as $key=>$possible_product): ?>
-					<section class="page-block-full bfblSlider sliderOpen">
+					<section class="partners-section bfblSlider sliderOpen">
 						<h2 class="greenHeader"><?php echo $possible_product; ?></h2>
 						<div class="bfblSlideWrap">
 							<div class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1">

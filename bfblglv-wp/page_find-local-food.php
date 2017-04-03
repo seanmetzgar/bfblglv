@@ -91,7 +91,7 @@ $locationTypesData = json_decode($locationTypesData);
 
 				<section class="map-form">
 					<form id="find-local-food-form">
-						<section class="form-section bfblSlider sliderOpen">
+						<section class="form-section bfblSlider">
 							<h2 class="greenHeader">Location</h2>
 							<div class="bfblSlideWrap">
 
