@@ -71,7 +71,7 @@ get_header();
 					</section>
 
 					<?php foreach ($possible_products as $key=>$possible_product): ?>
-					<section class="page-block">
+					<section class="page-block-full">
 						<h2 class="greenHeader"><?php echo $possible_product; ?></h2>
 						<div class="page-block-content">
 							<ul class="partners-blocks row">
