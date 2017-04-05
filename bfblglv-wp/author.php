@@ -1180,8 +1180,8 @@ get_header(); ?>
 										<?php
 											$agritourism_events = array();
 											if (have_rows("agritourism_events", $acf_partner_id)) {
+												echo "<div class=\"row\">";
 												while (have_rows("agritourism_events", $acf_partner_id)) {
-													echo "<div class=\"row\">";
 													the_row();
 													$tempEventTitle = get_sub_field("title");
 													$tempEventDesc = get_sub_field("description");
