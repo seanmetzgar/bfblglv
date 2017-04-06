@@ -178,7 +178,7 @@ jQuery(document).ready(function ($) {
     $findLocalFoodForm.on("blur change", "input, textarea, select", function () {
         var formObject = false;
         var $productTypesSection = $findLocalFoodForm.find(".product-types-section");
-        var locationTypes = $findLocalFoodForm.find("[name='location_type[]'],[name='csa'],[name='farm_share'],[name='farm-share'],[name='agritourism']").filter(":checked").serializeArray();
+        var locationTypes = $findLocalFoodForm.find("[name='location_type[]'],[name='csa'],[name='farm_share'],[name='agritourism']").filter(":checked").serializeArray();
         var locationTypeValues = Array();
         for (var i = 0; i < locationTypes.length; i = i + 1) {
             switch(locationTypes[i].name) {

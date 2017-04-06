@@ -47,12 +47,7 @@ $locationTypesData = "[
 	},
 	{
 		\"name\": \"Farm Shares\",
-		\"key\": \"farm-share\",
-		\"special\": true
-	},
-	{
-		\"name\": \"Farm to Table\",
-		\"key\": \"farm-to-table\",
+		\"key\": \"farm_share\",
 		\"special\": true
 	},
 	{
