@@ -108,9 +108,9 @@ function checkPartnerProducts($id, $productTypes, $specificProducts, $wholesale)
 	return $rVal;
 }
 
-function getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism, $farmToTable) {
+function getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism) {
 	$rVal = false;
-	if ($csa || $farmShare || $agritourism || $farmToTable) {
+	if ($csa || $farmShare || $agritourism) {
 		$rVal = array("relation" => "OR");
 		if ($csa) {
 			array_push($rVal,
@@ -144,15 +144,6 @@ function getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism, $farmToT
 			array_push($rVal,
 				array(
 					"key" => "is_agritourism",
-					"value" => 1,
-					"compare" => "="
-				)
-			);
-		}
-		if ($farmToTable) {
-			array_push($rVal,
-				array(
-					"key" => "is_farm_to_table",
 					"value" => 1,
 					"compare" => "="
 				)
@@ -212,21 +203,17 @@ function xhrGetPartners() {
 						($_REQUEST["csa"] == "true" ||
 						$_REQUEST["csa"] == "1"))
 							? true : false;
-	$farmShare = 		(isset($_REQUEST["farm-share"]) &&
-						($_REQUEST["farm-share"] == "true" ||
-						$_REQUEST["farm-share"] == "1"))
+	$farmShare = 		(isset($_REQUEST["farm_share"]) &&
+						($_REQUEST["farm_share"] == "true" ||
+						$_REQUEST["farm_share"] == "1"))
 							? true : false;
 	$agritourism = 		(isset($_REQUEST["agritourism"]) &&
 						($_REQUEST["agritourism"] == "true" ||
 						$_REQUEST["agritourism"] == "1"))
 							? true : false;
-	$farmToTable = 		(isset($_REQUEST["farm-to-table"]) &&
-						($_REQUEST["farm-to-table"] == "true" ||
-						$_REQUEST["farm-to-table"] == "1"))
-							? true : false;
 
 	//Add Pseudo Location Types & Meta Query
-	if ($csa || $farmShare || $agritourism || $farmToTable) {
+	if ($csa || $farmShare || $agritourism) {
 		$doPseudoQuery = true;
 	} else {
 		$doPseudoQuery = false;
@@ -235,7 +222,7 @@ function xhrGetPartners() {
 
 	$doMainQuery = (count($locationTypes) > 0) ? true : false;
 
-	$pseudoLocationTypeMetaQuery = getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism, $farmToTable);
+	$pseudoLocationTypeMetaQuery = getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism);
 
 	// if ($agritourism) {
 	// 	if ($productTypes) {
