@@ -79,7 +79,8 @@ function checkPartnerProducts($id, $productTypes, $specificProducts, $wholesale)
 			"small_fruits", "grains", "value_added",
 			"flowers", "plants", "ornamentals",
 			"syrups", "dairy", "meat",
-			"poultry", "agritourism", "fibers",
+			"poultry", "eggs", "mushrooms",
+			"agritourism", "fibers",
 			"artisinal", "liquids", "educational",
 			"baked", "seeds", "pyo", "misc"
 		);

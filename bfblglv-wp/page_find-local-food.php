@@ -143,6 +143,7 @@ $locationTypesData = json_decode($locationTypesData);
 									<label><input type="checkbox" name="product_type[]" value="liquids"><span>Beverages</span></label>
 									<label><input type="checkbox" name="product_type[]" value="dairy"><span>Dairy</span></label>
 									<label><input type="checkbox" name="product_type[]" value="educational"><span>Educational Programs</span></label>
+									<label><input type="checkbox" name="product_type[]" value="eggs"><span>Eggs</span></label>
 									<label><input type="checkbox" name="product_type[]" value="flowers"><span>Flowers</span></label>
 									<label><input type="checkbox" name="product_type[]" value="grains"><span>Grains</span></label>
 									<label><input type="checkbox" name="product_type[]" value="greens"><span>Greens</span></label>
@@ -150,6 +151,7 @@ $locationTypesData = json_decode($locationTypesData);
 									<label><input type="checkbox" name="product_type[]" value="syrups"><span>Honey / Syrups</span></label>
 									<label><input type="checkbox" name="product_type[]" value="meat"><span>Meat</span></label>
 									<label><input type="checkbox" name="product_type[]" value="melons"><span>Melons &amp; Pumpkins</span></label>
+									<label><input type="checkbox" name="product_type[]" value="mushrooms"><span>Mushrooms</span></label>
 									<label><input type="checkbox" name="product_type[]" value="seeds"><span>Nuts / Seeds</span></label>
 									<label><input type="checkbox" name="product_type[]" value="small_fruits"><span>Orchard &amp; Small Fruits</span></label>
 									<label><input type="checkbox" name="product_type[]" value="ornamentals"><span>Ornamentals</span></label>
