@@ -163,7 +163,7 @@ $locationTypesData = json_decode($locationTypesData);
 									<label><input type="checkbox" name="product_type[]" value="value_added"><span>Value-Added</span></label>
 									<label><input type="checkbox" name="product_type[]" value="fibers"><span>Wool / Fibers</span></label>
 
-									<label><input type="checkbox" name="product_type[]" value="misc"><span>Miscellaneous [e.g. Eggs]</span></label>
+									<label><input type="checkbox" name="product_type[]" value="misc"><span>Miscellaneous</span></label>
 								</div><!-- end div.map-checkboxes -->
 
 								<div class="map-specific-prods page-block">
