@@ -391,6 +391,7 @@
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_greens[]" value="Mustard Greens">Mustard Greens</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_greens[]" value="Radicchio">Radicchio</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_greens[]" value="Salad Mixes">Salad Mixes</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_greens[]" value="Sorrel">Sorrel</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_greens[]" value="Spinach">Spinach</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_greens[]" value="Swiss Chard">Swiss Chard</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_greens[]" value="Tatsoi">Tatsoi</label>
@@ -426,6 +427,7 @@
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_roots[]" value="Shallots">Shallots</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_roots[]" value="Sunchokes">Sunchokes</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_roots[]" value="Sweet Potatoes">Sweet Potatoes</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_roots[]" value="Turmeric">Turmeric</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_roots[]" value="Turnips">Turnips</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_roots[]" class="reliant-toggle" value="Other">Other</label>
                                 <div class="reliant">
@@ -483,7 +485,8 @@
                             <div class="product-types row">
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_melons[]" value="Cantaloupes">Cantaloupes</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_melons[]" value="Honeydew">Honeydew</label>
-                                <label class="check-label col-sm-4"><input type="checkbox" name="products_melons[]" value="Pumpkins (Pie)">Pumpkins (Pie)</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_melons[]" value="Other Melons">Other Melons</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_melons[]" value="Pumpkins (Edible, Pie)">Pumpkins (Edible, Pie)</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_melons[]" value="Watermelons">Watermelons</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_melons[]" class="reliant-toggle" value="Other">Other</label>
                                 <div class="reliant">
@@ -500,6 +503,7 @@
                             <div class="product-types row">
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_herbs[]" value="Herbs (Fresh)">Herbs (Fresh)</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_herbs[]" value="Herbs (Dried)">Herbs (Dried)</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_herbs[]" value="Herbs (Medicinal)">Herbs (Medicinal)</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_herbs[]" value="Herbs (Plants)">Herbs (Plants)</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_herbs[]" class="reliant-toggle" value="Other">Other</label>
                                 <div class="reliant">
@@ -518,10 +522,14 @@
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_berries[]" value="Blueberries">Blueberries</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_berries[]" value="Currants">Currants</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_berries[]" value="Gooseberries">Gooseberries</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_berries[]" value="Huckleberries">Huckleberries</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_berries[]" value="Kiwi Berries">Kiwi Berries</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_berries[]" value="Mulberries">Mulberries</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_berries[]" value="Raspberries (Red)">Raspberries (Red)</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_berries[]" value="Raspberries (Black)">Raspberries (Black)</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_berries[]" value="Raspberries (White)">Raspberries (White)</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_berries[]" value="Strawberries">Strawberries</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_berries[]" value="Wineberries">Wineberries</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_berries[]" class="reliant-toggle" value="Other">Other</label>
                                 <div class="reliant">
                                     <label clas="col-sm-12">
@@ -541,6 +549,7 @@
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_small_fruits[]" value="Cherries">Cherries</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_small_fruits[]" value="Figs">Figs</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_small_fruits[]" value="Grapes">Grapes</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_small_fruits[]" value="Ground (Husk) Cherries">Ground (Husk) Cherries</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_small_fruits[]" value="Nectarines">Nectarines</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_small_fruits[]" value="Peaches">Peaches</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_small_fruits[]" value="Pears">Pears</label>
@@ -559,6 +568,7 @@
                         <fieldset>
                             <p class="label-text pseudo-label">Grains</p>
                             <div class="product-types row">
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_grains[]" value="Oatmeal">Oatmeal</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_grains[]" value="Wheat Flour">Wheat Flour</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_grains[]" value="Wheat Berries">Wheat Berries</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_grains[]" class="reliant-toggle" value="Other">Other</label>
@@ -579,10 +589,16 @@
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_value_added[]" value="Cider (Apple)">Cider (Apple)</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_value_added[]" value="Cider (Pear)">Cider (Pear)</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_value_added[]" value="Dried Fruits">Dried Fruits</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_value_added[]" value="Fruit Butters">Fruit Butters</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_value_added[]" value="Hot Sauce">Hot Sauce</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_value_added[]" value="Ice Cream">Ice Cream</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_value_added[]" value="Jams, Jellies">Jams, Jellies</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_value_added[]" value="Ketchup">Ketchup</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_value_added[]" value="Pesto">Pesto</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_value_added[]" value="Salsas">Salsas</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_value_added[]" value="Stock">Stock (Chicken, Beef, Vegetable, Other)</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_value_added[]" value="Tomato Sauce">Tomato Sauce</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_value_added[]" value="Tomatoes (Canned, Crushed)">Tomatoes (Canned, Crushed)</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_value_added[]" value="Vinegars">Vinegars</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_value_added[]" class="reliant-toggle" value="Other">Other</label>
                                 <div class="reliant">
@@ -613,8 +629,14 @@
                         <fieldset>
                             <p class="label-text pseudo-label">Plants</p>
                             <div class="product-types row">
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_plants[]" value="Annuals">Annuals</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_plants[]" value="Bedding Plants">Bedding Plants</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_plants[]" value="Hanging Baskets">Hanging Baskets</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_plants[]" value="Herb Starts">Herb Starts</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_plants[]" value="Mums">Mums</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_plants[]" value="Perennials">Perennials</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_plants[]" value="Seeds">Seeds</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_plants[]" value="Vegetable Starts">Vegetable Starts</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_plants[]" class="reliant-toggle" value="Other">Other</label>
                                 <div class="reliant">
                                     <label clas="col-sm-12">
@@ -649,6 +671,7 @@
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_syrups[]" value="Fruit Syrup">Fruit Syrup</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_syrups[]" value="Honey ">Honey </label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_syrups[]" value="Honey (Raw)">Honey (Raw)</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_syrups[]" value="Honey Comb">Honey Comb</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_syrups[]" value="Maple Syrup">Maple Syrup</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_syrups[]" class="reliant-toggle" value="Other">Other</label>
                                 <div class="reliant">
@@ -664,8 +687,10 @@
                             <p class="label-text pseudo-label">Dairy</p>
                             <div class="product-types row">
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_dairy[]" value="Butter">Butter</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_dairy[]" value="Buttermilk">Buttermilk</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_dairy[]" value="Cheese (Cow)">Cheese (Cow)</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_dairy[]" value="Cheese (Goat)">Cheese (Goat)</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_dairy[]" value="Drinkable Yogurt">Drinkable Yogurt</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_dairy[]" value="Milk (Cow, Pasteurized)">Milk (Cow, Pasteurized)</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_dairy[]" value="Milk (Goat, Pasteurized)">Milk (Goat, Pasteurized)</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_dairy[]" value="Milk (Cow, Raw)">Milk (Cow, Raw)</label>
@@ -686,9 +711,13 @@
                             <p class="label-text pseudo-label">Meat</p>
                             <div class="product-types row">
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_meats[]" value="Beef">Beef</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_meats[]" value="Beef Jerky">Beef Jerky</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_meats[]" value="Goat">Goat</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_meats[]" value="Lamb">Lamb</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_meats[]" value="Pork">Pork</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_meats[]" value="Salumi & Charcuterie">Salumi &amp; Charcuterie</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_meats[]" value="Sausage">Sausage</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_meats[]" value="Smoked meat">Smoked meat</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_meats[]" value="Veal (Rose)">Veal (Rose)</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_meats[]" class="reliant-toggle" value="Other">Other</label>
                                 <div class="reliant">
@@ -705,12 +734,43 @@
                             <div class="product-types row">
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_poultry[]" value="Chicken">Chicken</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_poultry[]" value="Duck">Duck</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_poultry[]" value="Quail">Quail</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_poultry[]" value="Turkey">Turkey</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_poultry[]" class="reliant-toggle" value="Other">Other</label>
                                 <div class="reliant">
                                     <label clas="col-sm-12">
                                         <span class="label-text">Other Products:</span>
                                         <textarea type="text" name="other_products_poultry" class="form-control"></textarea>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <p class="label-text pseudo-label">Eggs</p>
+                            <div class="product-types row">
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_eggs[]" value="Eggs (Chicken)">Eggs (Chicken)</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_eggs[]" value="Eggs (Duck)">Eggs (Duck)</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_eggs[]" value="Eggs (Quail)">Eggs (Quail)</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_eggs[]" class="reliant-toggle" value="Other">Other</label>
+                                <div class="reliant">
+                                    <label clas="col-sm-12">
+                                        <span class="label-text">Other Products:</span>
+                                        <textarea type="text" name="other_products_eggs" class="form-control"></textarea>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <p class="label-text pseudo-label">Mushrooms</p>
+                            <div class="product-types row">
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_mushrooms[]" value="Mushrooms">Mushrooms</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_mushrooms[]" class="reliant-toggle" value="Other">Other</label>
+                                <div class="reliant">
+                                    <label clas="col-sm-12">
+                                        <span class="label-text">Other Products:</span>
+                                        <textarea type="text" name="other_products_mushrooms" class="form-control"></textarea>
                                     </label>
                                 </div>
                             </div>
@@ -739,6 +799,10 @@
                             <p class="label-text pseudo-label">Wool, Fibers</p>
                             <div class="product-types row">
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_fibers[]" value="Alpaca">Alpaca</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_fibers[]" value="Cotton">Cotton</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_fibers[]" value="Knitted, Crocheted Items">Knitted, Crocheted Items</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_fibers[]" value="Lamb Skins">Lamb Skins</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_fibers[]" value="Rugs">Rugs</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_fibers[]" value="Wool">Wool</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_fibers[]" value="Yarn">Yarn</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_fibers[]" class="reliant-toggle" value="Other">Other</label>
@@ -755,7 +819,9 @@
                             <p class="label-text pseudo-label">Artisanal Products</p>
                             <div class="product-types row">
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_artisinal[]" value="Candles">Candles</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_artisinal[]" value="Essential Oils">Essential Oils</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_artisinal[]" value="Gift Baskets">Gift Baskets</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_artisinal[]" value="Skin, Lip Care Products">Skin, Lip Care Products</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_artisinal[]" value="Soap">Soap</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_artisinal[]" value="Wreaths">Wreaths</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_artisinal[]" class="reliant-toggle" value="Other">Other</label>
@@ -771,7 +837,10 @@
                         <fieldset>
                             <p class="label-text pseudo-label">Wine, Spirits, Cider</p>
                             <div class="product-types row">
-                                <label class="check-label col-sm-4"><input type="checkbox" name="products_liquids[]" value="Cider">Cider</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_liquids[]" value="Applejack">Applejack</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_liquids[]" value="Brandy">Brandy</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_liquids[]" value="Cider (Apple)">Cider (Apple)</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_liquids[]" value="Cider (Pear)">Cider (Pear)</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_liquids[]" value="Gin">Gin</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_liquids[]" value="Rum">Rum</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_liquids[]" value="Vodka">Vodka</label>
@@ -789,6 +858,7 @@
                         <fieldset>
                             <p class="label-text pseudo-label">Educational Programs</p>
                             <div class="product-types row">
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_educational[]" value="Culinary Classes">Culinary Classes</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_educational[]" value="Workshops">Workshops</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_educational[]" value="School Tours">School Tours</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_educational[]" class="reliant-toggle" value="Other">Other</label>
@@ -804,10 +874,13 @@
                         <fieldset>
                             <p class="label-text pseudo-label">Baked Goods</p>
                             <div class="product-types row">
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_baked[]" value="Biscotti">Biscotti</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_baked[]" value="Bread">Bread</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_baked[]" value="Cakes">Cakes</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_baked[]" value="Cookies">Cookies</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_baked[]" value="Muffins">Muffins</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_baked[]" value="Pancake Mixes">Pancake Mixes</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_baked[]" value="Pasties">Pasties</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_baked[]" value="Pies">Pies</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_baked[]" class="reliant-toggle" value="Other">Other</label>
                                 <div class="reliant">
@@ -837,11 +910,11 @@
                         <fieldset>
                             <p class="label-text pseudo-label">Other Products</p>
                             <div class="product-types row">
-                                <label class="check-label col-sm-4"><input type="checkbox" name="products_extras[]" value="Mushrooms">Mushrooms</label>
-                                <label class="check-label col-sm-4"><input type="checkbox" name="products_extras[]" value="Eggs">Eggs</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_extras[]" value="Christmas Trees">Christmas Trees</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_extras[]" value="Compost">Compost</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_extras[]" value="Firewood">Firewood</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_extras[]" value="Hay">Hay</label>
+                                <label class="check-label col-sm-4"><input type="checkbox" name="products_extras[]" value="Straw">Straw</label>
                                 <label class="check-label col-sm-4"><input type="checkbox" name="products_extras[]" class="reliant-toggle" value="Other">Other</label>
                                 <div class="reliant">
                                     <label clas="col-sm-12">
@@ -881,7 +954,7 @@
 
                                 <h3 style="text-align: center;">Wholesale Products</h3>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Greens</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_greens[]" value="Arugula">Arugula</label>
@@ -899,12 +972,13 @@
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_greens[]" value="Mustard Greens">Mustard Greens</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_greens[]" value="Radicchio">Radicchio</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_greens[]" value="Salad Mixes">Salad Mixes</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_greens[]" value="Sorrel">Sorrel</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_greens[]" value="Spinach">Spinach</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_greens[]" value="Swiss Chard">Swiss Chard</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_greens[]" value="Tatsoi">Tatsoi</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_greens[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_greens" class="form-control"></textarea>
                                             </label>
@@ -913,7 +987,7 @@
                                     
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Root Crops</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_roots[]" value="Beets">Beets</label>
@@ -934,10 +1008,11 @@
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_roots[]" value="Shallots">Shallots</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_roots[]" value="Sunchokes">Sunchokes</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_roots[]" value="Sweet Potatoes">Sweet Potatoes</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_roots[]" value="Turmeric">Turmeric</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_roots[]" value="Turnips">Turnips</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_roots[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_roots" class="form-control"></textarea>
                                             </label>
@@ -945,7 +1020,7 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Season Vegetables</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_seasonal[]" value="Artichokes">Artichokes</label>
@@ -978,7 +1053,7 @@
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_seasonal[]" value="Zucchini">Zucchini</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_seasonal[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_seasonal" class="form-control"></textarea>
                                             </label>
@@ -986,16 +1061,17 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Melons &amp; Pumpkins</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_melons[]" value="Cantaloupes">Cantaloupes</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_melons[]" value="Honeydew">Honeydew</label>
-                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_melons[]" value="Pumpkins (Pie)">Pumpkins (Pie)</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_melons[]" value="Other Melons">Other Melons</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_melons[]" value="Pumpkins (Edible, Pie)">Pumpkins (Edible, Pie)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_melons[]" value="Watermelons">Watermelons</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_melons[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_melons" class="form-control"></textarea>
                                             </label>
@@ -1003,15 +1079,16 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Herbs</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_herbs[]" value="Herbs (Fresh)">Herbs (Fresh)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_herbs[]" value="Herbs (Dried)">Herbs (Dried)</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_herbs[]" value="Herbs (Medicinal)">Herbs (Medicinal)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_herbs[]" value="Herbs (Plants)">Herbs (Plants)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_herbs[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_herbs" class="form-control"></textarea>
                                             </label>
@@ -1019,20 +1096,24 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Berries</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_berries[]" value="Blackberries">Blackberries</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_berries[]" value="Blueberries">Blueberries</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_berries[]" value="Currants">Currants</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_berries[]" value="Gooseberries">Gooseberries</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_berries[]" value="Huckleberries">Huckleberries</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_berries[]" value="Kiwi Berries">Kiwi Berries</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_berries[]" value="Mulberries">Mulberries</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_berries[]" value="Raspberries (Red)">Raspberries (Red)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_berries[]" value="Raspberries (Black)">Raspberries (Black)</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_berries[]" value="Raspberries (White)">Raspberries (White)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_berries[]" value="Strawberries">Strawberries</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_berries[]" value="Wineberries">Wineberries</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_berries[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_berries" class="form-control"></textarea>
                                             </label>
@@ -1040,7 +1121,7 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Orchard &amp; Small Fruits</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_small_fruits[]" value="Apples">Apples</label>
@@ -1049,6 +1130,7 @@
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_small_fruits[]" value="Cherries">Cherries</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_small_fruits[]" value="Figs">Figs</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_small_fruits[]" value="Grapes">Grapes</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_small_fruits[]" value="Ground (Husk) Cherries">Ground (Husk) Cherries</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_small_fruits[]" value="Nectarines">Nectarines</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_small_fruits[]" value="Peaches">Peaches</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_small_fruits[]" value="Pears">Pears</label>
@@ -1056,7 +1138,7 @@
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_small_fruits[]" value="Plums">Plums</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_small_fruits[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_small_fruits" class="form-control"></textarea>
                                             </label>
@@ -1064,14 +1146,15 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Grains</p>
                                     <div class="product-types row">
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_grains[]" value="Oatmeal">Oatmeal</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_grains[]" value="Wheat Flour">Wheat Flour</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_grains[]" value="Wheat Berries">Wheat Berries</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_grains[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_grains" class="form-control"></textarea>
                                             </label>
@@ -1079,7 +1162,7 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Value-Added</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" value="Apple Sauce">Apple Sauce</label>
@@ -1087,14 +1170,20 @@
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" value="Cider (Apple)">Cider (Apple)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" value="Cider (Pear)">Cider (Pear)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" value="Dried Fruits">Dried Fruits</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" value="Fruit Butters">Fruit Butters</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" value="Hot Sauce">Hot Sauce</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" value="Ice Cream">Ice Cream</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" value="Jams, Jellies">Jams, Jellies</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" value="Ketchup">Ketchup</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" value="Pesto">Pesto</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" value="Salsas">Salsas</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" value="Stock">Stock (Chicken, Beef, Vegetable, Other)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" value="Tomato Sauce">Tomato Sauce</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" value="Tomatoes (Canned, Crushed)">Tomatoes (Canned, Crushed)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" value="Vinegars">Vinegars</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_value_added[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_value_added" class="form-control"></textarea>
                                             </label>
@@ -1102,7 +1191,7 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Flowers</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_flowers[]" value="Flowers (Cut)">Flowers (Cut)</label>
@@ -1110,7 +1199,7 @@
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_flowers[]" value="Flowers (Edible)">Flowers (Edible)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_flowers[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_flowers" class="form-control"></textarea>
                                             </label>
@@ -1118,14 +1207,20 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Plants</p>
                                     <div class="product-types row">
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_plants[]" value="Annuals">Annuals</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_plants[]" value="Bedding Plants">Bedding Plants</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_plants[]" value="Hanging Baskets">Hanging Baskets</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_plants[]" value="Herb Starts">Herb Starts</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_plants[]" value="Mums">Mums</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_plants[]" value="Perennials">Perennials</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_plants[]" value="Seeds">Seeds</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_plants[]" value="Vegetable Starts">Vegetable Starts</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_plants[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_plants" class="form-control"></textarea>
                                             </label>
@@ -1133,7 +1228,7 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Ornamentals</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_ornamentals[]" value="Corn Shocks">Corn Shocks</label>
@@ -1143,7 +1238,7 @@
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_ornamentals[]" value="Straw Bales">Straw Bales</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_ornamentals[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_ornamentals" class="form-control"></textarea>
                                             </label>
@@ -1151,16 +1246,17 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Honey / Syrup</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_syrups[]" value="Fruit Syrup">Fruit Syrup</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_syrups[]" value="Honey ">Honey </label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_syrups[]" value="Honey (Raw)">Honey (Raw)</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_syrups[]" value="Honey Comb">Honey Comb</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_syrups[]" value="Maple Syrup">Maple Syrup</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_syrups[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_syrups" class="form-control"></textarea>
                                             </label>
@@ -1168,12 +1264,14 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Dairy</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_dairy[]" value="Butter">Butter</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_dairy[]" value="Buttermilk">Buttermilk</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_dairy[]" value="Cheese (Cow)">Cheese (Cow)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_dairy[]" value="Cheese (Goat)">Cheese (Goat)</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_dairy[]" value="Drinkable Yogurt">Drinkable Yogurt</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_dairy[]" value="Milk (Cow, Pasteurized)">Milk (Cow, Pasteurized)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_dairy[]" value="Milk (Goat, Pasteurized)">Milk (Goat, Pasteurized)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_dairy[]" value="Milk (Cow, Raw)">Milk (Cow, Raw)</label>
@@ -1182,7 +1280,7 @@
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_dairy[]" value="Yogurt (Goat)">Yogurt (Goat)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_dairy[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_dairy" class="form-control"></textarea>
                                             </label>
@@ -1190,17 +1288,21 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Meat</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_meats[]" value="Beef">Beef</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_meats[]" value="Beef Jerky">Beef Jerky</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_meats[]" value="Goat">Goat</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_meats[]" value="Lamb">Lamb</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_meats[]" value="Pork">Pork</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_meats[]" value="Salumi & Charcuterie">Salumi &amp; Charcuterie</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_meats[]" value="Sausage">Sausage</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_meats[]" value="Smoked meat">Smoked meat</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_meats[]" value="Veal (Rose)">Veal (Rose)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_meats[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_meats" class="form-control"></textarea>
                                             </label>
@@ -1208,15 +1310,16 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Chicken &amp; Other Poultry</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_poultry[]" value="Chicken">Chicken</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_poultry[]" value="Duck">Duck</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_poultry[]" value="Quail">Quail</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_poultry[]" value="Turkey">Turkey</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_poultry[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_poultry" class="form-control"></textarea>
                                             </label>
@@ -1224,7 +1327,37 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
+                                    <p class="label-text pseudo-label">Eggs</p>
+                                    <div class="product-types row">
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_eggs[]" value="Eggs (Chicken)">Eggs (Chicken)</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_eggs[]" value="Eggs (Duck)">Eggs (Duck)</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_eggs[]" value="Eggs (Quail)">Eggs (Quail)</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_eggs[]" class="reliant-toggle" value="Other">Other</label>
+                                        <div class="reliant">
+                                            <label clas="col-sm-12">
+                                                <span class="label-text">Other Products:</span>
+                                                <textarea type="text" name="other_ws_products_eggs" class="form-control"></textarea>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset>
+                                    <p class="label-text pseudo-label">Mushrooms</p>
+                                    <div class="product-types row">
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_mushrooms[]" value="Mushrooms">Mushrooms</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_mushrooms[]" class="reliant-toggle" value="Other">Other</label>
+                                        <div class="reliant">
+                                            <label clas="col-sm-12">
+                                                <span class="label-text">Other Products:</span>
+                                                <textarea type="text" name="other_ws_products_mushrooms" class="form-control"></textarea>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset>
                                     <p class="label-text pseudo-label">Agritourism</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_agritourism[]" value="Corn Maze">Corn Maze</label>
@@ -1235,7 +1368,7 @@
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_agritourism[]" value="Weddings">Weddings</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_agritourism[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_agritourism" class="form-control"></textarea>
                                             </label>
@@ -1243,15 +1376,19 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Wool, Fibers</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_fibers[]" value="Alpaca">Alpaca</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_fibers[]" value="Cotton">Cotton</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_fibers[]" value="Knitted, Crocheted Items">Knitted, Crocheted Items</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_fibers[]" value="Lamb Skins">Lamb Skins</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_fibers[]" value="Rugs">Rugs</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_fibers[]" value="Wool">Wool</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_fibers[]" value="Yarn">Yarn</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_fibers[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_fibers" class="form-control"></textarea>
                                             </label>
@@ -1259,16 +1396,18 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Artisanal Products</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_artisinal[]" value="Candles">Candles</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_artisinal[]" value="Essential Oils">Essential Oils</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_artisinal[]" value="Gift Baskets">Gift Baskets</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_artisinal[]" value="Skin, Lip Care Products">Skin, Lip Care Products</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_artisinal[]" value="Soap">Soap</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_artisinal[]" value="Wreaths">Wreaths</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_artisinal[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_artisinal" class="form-control"></textarea>
                                             </label>
@@ -1276,17 +1415,20 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Wine, Spirits, Cider</p>
                                     <div class="product-types row">
-                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_liquids[]" value="Cider">Cider</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_liquids[]" value="Applejack">Applejack</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_liquids[]" value="Brandy">Brandy</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_liquids[]" value="Cider (Apple)">Cider (Apple)</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_liquids[]" value="Cider (Pear)">Cider (Pear)</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_liquids[]" value="Gin">Gin</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_liquids[]" value="Rum">Rum</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_liquids[]" value="Vodka">Vodka</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_liquids[]" value="Wine">Wine</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_liquids[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_liquids" class="form-control"></textarea>
                                             </label>
@@ -1294,14 +1436,15 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Educational Programs</p>
                                     <div class="product-types row">
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_educational[]" value="Culinary Classes">Culinary Classes</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_educational[]" value="Workshops">Workshops</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_educational[]" value="School Tours">School Tours</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_educational[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_educational" class="form-control"></textarea>
                                             </label>
@@ -1309,17 +1452,20 @@
                                     </div>
                                 </fieldset>
             
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Baked Goods</p>
                                     <div class="product-types row">
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_baked[]" value="Biscotti">Biscotti</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_baked[]" value="Bread">Bread</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_baked[]" value="Cakes">Cakes</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_baked[]" value="Cookies">Cookies</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_baked[]" value="Muffins">Muffins</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_baked[]" value="Pancake Mixes">Pancake Mixes</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_baked[]" value="Pasties">Pasties</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_baked[]" value="Pies">Pies</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_baked[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_baked" class="form-control"></textarea>
                                             </label>
@@ -1327,14 +1473,14 @@
                                     </div>
                                 </fieldset>
             
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Nuts, Seeds</p>
                                     <div class="product-types row">
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_nuts_seeds[]" value="Chestnuts">Chestnuts</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_nuts_seeds[]" value="Sunflower Seeds">Sunflower Seeds</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_nuts_seeds[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_nuts_seeds" class="form-control"></textarea>
                                             </label>
@@ -1342,23 +1488,23 @@
                                     </div>
                                 </fieldset>
 
-                                <fieldset class="col-sm-12">
+                                <fieldset>
                                     <p class="label-text pseudo-label">Other Products</p>
                                     <div class="product-types row">
-                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_extras[]" value="1">Mushrooms</label>
-                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_extras[]" value="1">Eggs</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_extras[]" value="Christmas Trees">Christmas Trees</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_extras[]" value="Compost">Compost</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_extras[]" value="Firewood">Firewood</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_extras[]" value="Hay">Hay</label>
+                                        <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_extras[]" value="Straw">Straw</label>
                                         <label class="check-label col-sm-4"><input type="checkbox" name="ws_products_extras[]" class="reliant-toggle" value="Other">Other</label>
                                         <div class="reliant">
-                                            <label class="col-sm-12">
+                                            <label clas="col-sm-12">
                                                 <span class="label-text">Other Products:</span>
                                                 <textarea type="text" name="other_ws_products_extras" class="form-control"></textarea>
                                             </label>
                                         </div>
                                     </div>
-                                </fieldset> 
+                                </fieldset>
                             </div>
                         </div>
 
