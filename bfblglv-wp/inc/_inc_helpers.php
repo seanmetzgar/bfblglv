@@ -70,6 +70,12 @@ function niceProductTypeName($type) {
             case "poultry":
                 $rVal = "Poultry";
                 break;
+            case "eggs":
+                $rVal = "Eggs";
+                break;
+            case "mushrooms":
+                $rVal = "Mushrooms";
+                break;
             case "agritourism":
                 $rVal = "Agritourism";
                 break;
@@ -95,7 +101,7 @@ function niceProductTypeName($type) {
                 $rVal = "Pick Your Own";
                 break;
             case "misc":
-                $rVal = "Miscellaneous [e.g. Eggs]";
+                $rVal = "Miscellaneous";
                 break;
             default:
                 $rVal = $type;
@@ -247,6 +253,8 @@ function get_specific_products($productTypes = array(), $wholesale = null) {
             "dairy",
             "meat",
             "poultry",
+            "eggs",
+            "mushrooms",
             "agritourism",
             "fibers",
             "artisinal",
@@ -327,6 +335,8 @@ function has_specific_product($partner_id, $product, $wholesale = false) {
         "products_dairy",
         "products_meat",
         "products_poultry",
+        "products_eggs",
+        "products_mushrooms",
         "products_agritourism",
         "products_fibers",
         "products_artisinal",
@@ -334,6 +344,7 @@ function has_specific_product($partner_id, $product, $wholesale = false) {
         "products_educational",
         "products_baked",
         "products_seeds",
+        "products_pyo",
         "products_misc"
     );
     $productTypePrefix = ($wholesale === true) ? "ws_" : "";
