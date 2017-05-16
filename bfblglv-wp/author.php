@@ -152,6 +152,8 @@ get_header(); ?>
 						$products["dairy"] = get_field("products_dairy", $acf_partner_id);
 						$products["meat"] = get_field("products_meat", $acf_partner_id);
 						$products["poultry"] = get_field("products_poultry", $acf_partner_id);
+						$products["eggs"] = get_field("products_eggs", $acf_partner_id);
+						$products["mushrooms"] = get_field("products_mushrooms", $acf_partner_id);
 						$products["fibers"] = get_field("products_fibers", $acf_partner_id);
 						$products["artisinal"] = get_field("products_artisinal", $acf_partner_id);
 						$products["liquids"] = get_field("products_liquids", $acf_partner_id);
@@ -178,6 +180,8 @@ get_header(); ?>
 						$ws_products["dairy"] = get_field("ws_products_dairy", $acf_partner_id);
 						$ws_products["meat"] = get_field("ws_products_meat", $acf_partner_id);
 						$ws_products["poultry"] = get_field("ws_products_poultry", $acf_partner_id);
+						$ws_products["eggs"] = get_field("ws_products_eggs", $acf_partner_id);
+						$ws_products["mushrooms"] = get_field("ws_products_mushrooms", $acf_partner_id);
 						$ws_products["fibers"] = get_field("ws_products_fibers", $acf_partner_id);
 						$ws_products["artisinal"] = get_field("ws_products_artisinal", $acf_partner_id);
 						$ws_products["liquids"] = get_field("ws_products_liquids", $acf_partner_id);
