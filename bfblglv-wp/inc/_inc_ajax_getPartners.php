@@ -68,7 +68,6 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 			}
 		}
 	}
-	print_r($mapPartners);
 	return $mapPartners;
 }
 
