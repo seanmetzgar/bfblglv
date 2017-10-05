@@ -155,6 +155,7 @@ function getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism) {
 }
 
 function xhrGetPartners() {
+	header('Content-Type: application/json');
 	//Setup Location Boundry Variables
 	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;
 	$zip = ($zip && strlen($zip) >= 5) ? substr($zip, 0, 5) : false;
@@ -277,6 +278,7 @@ function xhrGetPartners() {
 		$partners2 = get_users($pseudoQueryArguments);
 	}
 	$partners = array_merge($partners1, $partners2);
+	print_r($partners);
 	$partners = createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale);
 	$partners = array_unique($partners, SORT_REGULAR);
 	usort($partners, function($a, $b) {
@@ -301,10 +303,6 @@ function xhrGetPartners() {
 	// echo "</pre>";
 
 	$result = json_encode($result);
-
-	header('Content-Type: application/json');
-	print_r($partners1);
-	print_r($partners2);
 	echo $result;
 
  	die();
