@@ -1520,6 +1520,10 @@ body.page-template-page_why-buy-local .page-block.tan-shadow .content {
 }
 .main-content.archive-page .page-block .content a {
 	text-decoration: none;
+	border-bottom: 0;
+}
+.main-content.archive-page .page-block .content a::hover{
+	background-color: transparent;
 }
 
 .page-block h2,
