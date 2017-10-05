@@ -1466,6 +1466,10 @@ body.home.page .page-block .content {
 body.page-template-page_wbl-sub .page-block .content {
 	text-align: left;
 }
+.main-content.archive-page .page-block .content {
+	text-align: left;
+	padding: 0 12px 14px; padding: 0 0.75rem 0.875rem;
+}
 
 .page-block.white {
 	background: #ffffff;
@@ -1513,6 +1517,9 @@ body.page-template-page_why-buy-local .page-block.tan-shadow .content {
 .page-block.green .content a:hover {
 	color: #fff;
 	background-color: transparent;
+}
+.main-content.archive-page .page-block .content a {
+	text-decoration: none;
 }
 
 .page-block h2,
