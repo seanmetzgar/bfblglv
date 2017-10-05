@@ -303,6 +303,8 @@ function xhrGetPartners() {
 	$result = json_encode($result);
 
 	header('Content-Type: application/json');
+	print_r($partners1);
+	print_r($partners2);
 	echo $result;
 
  	die();
