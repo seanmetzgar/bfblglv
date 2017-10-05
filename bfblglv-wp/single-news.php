@@ -13,7 +13,7 @@ get_header(); ?>
 					$upper_gallery = (!$has_video) ? get_field("upper_gallery") : false;
 					$upper_gallery = is_bool($upper_gallery) ? $upper_gallery : false; ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<?php get_template_part("entry", "news-events-header"); ?>
+					<?php get_template_part("entry", "archive-header"); ?>
 
 					<section class="entry-content<?php if ($has_video) echo " has-video"; ?>">
 

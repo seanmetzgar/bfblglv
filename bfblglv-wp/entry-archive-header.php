@@ -1,5 +1,5 @@
 <?php 
-
+	
 	$archive_header_image_id = get_field("{$post_type}_header_image", "option");
 	$archive_header_image = is_int($archive_header_image_id) ? wp_get_attachment_image($archive_header_image_id, "full") : false;
 	
