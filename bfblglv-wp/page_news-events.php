@@ -8,7 +8,8 @@
  */
 wp_redirect( get_post_type_archive_link( "news" ), 301);
 exit;
-get_header(); ?>
+if (false): get_header(); ?>
+
 			<section class="main-content" role="main">
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -37,4 +38,4 @@ get_header(); ?>
 				<?php endwhile; endif; ?>
 				<?php get_template_part("bfbl", "news-events-list"); ?>
 			</section>
-<?php get_footer(); ?>
+<?php get_footer(); endif; ?>
