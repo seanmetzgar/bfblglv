@@ -6,6 +6,8 @@
  * @subpackage Buy_Local_GLV
  * @since Buy Local GLV 1.0.0
  */
+wp_redirect( get_post_type_archive_link( "news" ), 301);
+exit;
 get_header(); ?>
 			<section class="main-content" role="main">
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

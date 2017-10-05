@@ -243,7 +243,7 @@ class BFBL_GLV_Customizations {
 	    );
 
 		register_post_type( $news_type_name, $news_type_args );
-		register_post_type( $events_type_name, $events_type_args );
+		// register_post_type( $events_type_name, $events_type_args );
 		register_post_type( $resources_type_name, $resources_type_args );
 		register_post_type( $sponsors_type_name, $sponsors_type_args );
 
