@@ -2,14 +2,8 @@
 function createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale) {
 	$mapPartners = array();
 	$renewalYear = getRenewalYear();
-	$renewalShutDownTime = getRenewalShutDown();
+	$renewalShutDownTime = getRenewalShutDown(true);
 	$renewalGrandfatheredTime = getRenewalGrandfathered();
-
-
-	echo "$renewalYear: " . print_r($renewalYear, true) . "\n\n";
-	echo "$renewalShutDownTime: " . print_r($renewalShutDownTime, true) . "\n\n";
-	echo "$renewalGrandfatheredTime: " . print_r($renewalGrandfatheredTime, true) . "\n\n";
-	echo time() . "\n\n";
 
 	foreach ($partners as $id) {
 		if ($id = intval($id)) {
@@ -27,6 +21,8 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 			if (is_numeric($tempRenewedUntil)) {
 				if (($tempRenewedUntil < $renewalYear) && (time() >= $renewalShutDownTime)) {
 					update_user_meta($id, "ja_disable_user", 1 );
+				} elseif (($tempRenewedUntil < $renewalYear) && (time() < $renewalShutDownTime)) {
+					update_user_meta($id, "ja_disable_user", 0 );
 				}
 			}
 			$tempDisabled = get_user_meta( $id, "ja_disable_user", true );
