@@ -3951,6 +3951,9 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.page-block .content {
 		padding: 0 60px 28px; padding: 0 3.75rem 1.75rem;
 	}
+	.main-content.archive-page .page-block .content {
+		padding-top: 0;
+	}
 
 	.page-block h2,
 	.partner-profile .page-block h1,
@@ -4133,6 +4136,12 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 	.page-block.video .content {
 		padding-top: 72px; padding-top: 4.5rem;
 		text-align: left;
+	}
+
+	.main-content.archive-page .page-block.image-left .content,
+	.main-content.archive-page .page-block.image-right .content,
+	.main-content.archive-page .page-block.video .content {
+		padding-top: 0;
 	}
 
 
