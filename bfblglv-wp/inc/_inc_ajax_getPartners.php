@@ -1,11 +1,6 @@
 <?php
 function createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale) {
 	$mapPartners = array();
-	echo "$zipBounds: " . print_r($zipBounds, true) . "\n\n";
-	echo "$county: " . print_r($county, true) . "\n\n";
-	echo "$productTypes: " . print_r($productTypes, true) . "\n\n";
-	echo "$specificProducts: " . print_r($specificProducts, true) . "\n\n";
-	echo "$wholesale: " . print_r($wholesale, true) . "\n\n";
 	$renewalYear = getRenewalYear();
 	$renewalShutDownTime = getRenewalShutDown();
 	$renewalGrandfatheredTime = getRenewalGrandfathered();
@@ -14,6 +9,7 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 	echo "$renewalYear: " . print_r($renewalYear, true) . "\n\n";
 	echo "$renewalShutDownTime: " . print_r($renewalShutDownTime, true) . "\n\n";
 	echo "$renewalGrandfatheredTime: " . print_r($renewalGrandfatheredTime, true) . "\n\n";
+	echo time() . "\n\n";
 
 	foreach ($partners as $id) {
 		if ($id = intval($id)) {
