@@ -66,6 +66,7 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 			}
 		}
 	}
+	print_r($mapPartners);
 	return $mapPartners;
 }
 
@@ -278,7 +279,6 @@ function xhrGetPartners() {
 		$partners2 = get_users($pseudoQueryArguments);
 	}
 	$partners = array_merge($partners1, $partners2);
-	print_r($partners);
 	$partners = createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale);
 	$partners = array_unique($partners, SORT_REGULAR);
 	usort($partners, function($a, $b) {
