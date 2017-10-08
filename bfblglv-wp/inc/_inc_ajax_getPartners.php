@@ -73,6 +73,8 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 
 function checkPartnerProducts($id, $productTypes, $specificProducts, $wholesale) {
 	$rVal = false;
+	$fm = get_field("farm_type", "user_{$id}");
+	$fm = $fm === "Farm Market" ? true : false;
 
 	if (!is_array($productTypes) || count($productTypes) == 0 && (is_array($specificProducts) && count($specificProducts) > 0)) {
 		$productTypes = array(
@@ -105,6 +107,24 @@ function checkPartnerProducts($id, $productTypes, $specificProducts, $wholesale)
 					if (in_array($specificProduct, $tempProductTypeField)) { $rVal = true; }
 				}
 			} elseif ($hasProductTypeField || $hasProductTypeOtherField) { $rVal = true; }
+
+			//Do it again for Farm Market products
+			if (!$wholesale && $fm) {
+				$tempProductTypeField = "fm_products_{$productType}";
+				$tempProductTypeOtherField = "other_{$tempProductTypeField}";
+
+				$tempProductTypeField = get_field($tempProductTypeField, "user_{$id}");
+				$tempProductTypeOtherField = get_field($tempProductTypeOtherField, "user_{$id}");
+
+				$hasProductTypeField = (is_array($tempProductTypeField) && count($tempProductTypeField) > 0) ? true : false;
+				$hasProductTypeOtherField = ($tempProductTypeOtherField) ? true : false;
+
+				if (is_array($specificProducts) && count($specificProducts) > 0 && $hasProductTypeField) {
+					foreach ($specificProducts as $specificProduct) {
+						if (in_array($specificProduct, $tempProductTypeField)) { $rVal = true; }
+					}
+				} elseif ($hasProductTypeField || $hasProductTypeOtherField) { $rVal = true; }
+			}
 		}
 	} else { $rVal = true; }
 
