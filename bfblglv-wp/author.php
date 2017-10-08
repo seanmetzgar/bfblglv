@@ -163,6 +163,34 @@ get_header(); ?>
 						$products["pyo"] = get_field("products_pyo", $acf_partner_id);
 						$products["misc"] = get_field("products_misc", $acf_partner_id);
 
+						$fm_products = array();
+						$fm_products["greens"] = get_field("fm_products_greens", $acf_partner_id);
+						$fm_products["roots"] = get_field("fm_products_roots", $acf_partner_id);
+						$fm_products["seasonal"] = get_field("fm_products_seasonal", $acf_partner_id);
+						$fm_products["melons"] = get_field("fm_products_melons", $acf_partner_id);
+						$fm_products["herbs"] = get_field("fm_products_herbs", $acf_partner_id);
+						$fm_products["berries"] = get_field("fm_products_berries", $acf_partner_id);
+						$fm_products["small_fruits"] = get_field("fm_products_small_fruits", $acf_partner_id);
+						$fm_products["grains"] = get_field("fm_products_grains", $acf_partner_id);
+						$fm_products["value_added"] = get_field("fm_products_value_added", $acf_partner_id);
+						$fm_products["flowers"] = get_field("fm_products_flowers", $acf_partner_id);
+						$fm_products["plants"] = get_field("fm_products_plants", $acf_partner_id);
+						$fm_products["ornamentals"] = get_field("fm_products_ornamentals", $acf_partner_id);
+						$fm_products["syrups"] = get_field("fm_products_syrups", $acf_partner_id);
+						$fm_products["dairy"] = get_field("fm_products_dairy", $acf_partner_id);
+						$fm_products["meat"] = get_field("fm_products_meat", $acf_partner_id);
+						$fm_products["poultry"] = get_field("fm_products_poultry", $acf_partner_id);
+						$fm_products["eggs"] = get_field("fm_products_eggs", $acf_partner_id);
+						$fm_products["mushrooms"] = get_field("fm_products_mushrooms", $acf_partner_id);
+						$fm_products["fibers"] = get_field("fm_products_fibers", $acf_partner_id);
+						$fm_products["artisinal"] = get_field("fm_products_artisinal", $acf_partner_id);
+						$fm_products["liquids"] = get_field("fm_products_liquids", $acf_partner_id);
+						$fm_products["educational"] = get_field("fm_products_educational", $acf_partner_id);
+						$fm_products["baked"] = get_field("fm_products_baked", $acf_partner_id);
+						$fm_products["seeds"] = get_field("fm_products_seeds", $acf_partner_id);
+						$fm_products["pyo"] = get_field("fm_products_pyo", $acf_partner_id);
+						$fm_products["misc"] = get_field("fm_products_misc", $acf_partner_id);
+
 						$ws_products = array();
 						$ws_products["greens"] = get_field("ws_products_greens", $acf_partner_id);
 						$ws_products["roots"] = get_field("ws_products_roots", $acf_partner_id);
@@ -266,6 +294,83 @@ get_header(); ?>
 							unset($products[$productCategory]);
 						}
 						$hasProducts = (count($products) > 0) ? true : false;
+
+						$productCategoryUnsets = array();
+						foreach ($fm_products as $productCategory=>$productCategoryProducts) {
+							if (is_array($productCategoryProducts) && count($productCategoryProducts) > 0 && !in_array("", $productCategoryProducts)) {
+
+								if (in_array("Other", $productCategoryProducts)) {
+									while ($tempProd = current($productCategoryProducts)) {
+									    if ($tempProd === "Other") {
+									        $fm_products[$productCategory]["other"] = get_field("other_fm_products_{$productCategory}", $acf_partner_id);
+									    }
+									    next($productCategoryProducts);
+									}
+
+									if (strlen($fm_products[$productCategory]["other"]) < 1)
+										unset($fm_products[$productCategory]["other"]);
+								}
+
+								$productCategoryUnsets = array();
+								if (count($productCategoryProducts) > 0) {
+									switch ($productCategory) {
+										case "roots":
+											$productCategoryName = "Root Crops";
+											break;
+										case "seasonal":
+											$productCategoryName = "Seasonal Vegetables";
+											break;
+										case "melons":
+											$productCategoryName = "Melons & Pumpkins";
+											break;
+										case "small_fruits":
+											$productCategoryName = "Orchard & Small Fruits";
+											break;
+										case "value_added":
+											$productCategoryName = "Value-Added";
+											break;
+										case "syrups":
+											$productCategoryName = "Honey / Syrup";
+											break;
+										case "artisinal":
+											$productCategoryName = "Artisinal Products";
+											break;
+										case "liquids":
+											$productCategoryName = "Beverages";
+											break;
+										case "educational":
+											$productCategoryName = "Educational Programs";
+											break;
+										case "baked":
+											$productCategoryName = "Baked Goods";
+											break;
+										case "seeds":
+											$productCategoryName = "Nuts & Seeds";
+											break;
+										case "pyo":
+											$productCategoryName = "Pick Your Own";
+											break;
+										case "misc":
+											$productCategoryName = "Other Products";
+											break;
+										default:
+											$productCategoryName = ucwords($productCategory);
+									}
+									$fm_products[$productCategory]["name"] = $productCategoryName;
+
+									if (strlen($fm_products[$productCategory]["name"]) < 1)
+										$fm_products[$productCategory]["name"] = ucwords($productCategory);
+
+								}
+							}	else {
+								$productCategoryUnsets[] = $productCategory;
+							}
+						}
+
+						foreach ($productCategoryUnsets as $productCategory) {
+							unset($fm_products[$productCategory]);
+						}
+						$hasFMProducts = (count($fm_products) > 0) ? true : false;
 
 						$productCategoryUnsets = array();
 						foreach ($ws_products as $productCategory=>$productCategoryProducts) {
@@ -645,7 +750,7 @@ get_header(); ?>
 												$farmTypeString = (in_array("farm", $partner_category) && $farm_type) ? "Products Available From Our {$farm_type}" : "";
 											?>
 											<div class="entry-product-categories entry-content">
-												<h3>Products Available</h3>
+												<h3>Products We Produce</h3>
 												<?php
 												if ($hasProducts) {
 													foreach($products as $productCategory=>$productCategoryProducts) {
@@ -672,9 +777,7 @@ get_header(); ?>
 													}
 												} elseif ($productsText) {
 													echo "<p>$productsText</p>";
-												}
-												if ($farmTypeString) echo "<h4 class=\"farmTypeString\">$farmTypeString</h4>";
-												?>
+												} ?>
 											</div><!-- end div.entry-product-categories -->
 											<?php endif; ?>
 
@@ -698,6 +801,39 @@ get_header(); ?>
 													endif;
 												endforeach; ?>
 											</ul>
+											<?php endif; ?>
+
+											<?php if ($hasFMProducts || $productsText) : ?>
+											<div class="entry-product-categories entry-content">
+												<h3>Products Available From Other Local Farms</h3>
+												<?php
+												if ($hasFMProducts) {
+													foreach($fm_products as $productCategory=>$productCategoryProducts) {
+														if (is_array($productCategoryProducts) && count($productCategoryProducts) > 0) {
+															$tempProductsList = array();
+															foreach ($productCategoryProducts as $productCategoryProductKey => $productCategoryProduct) {
+																if ($productCategoryProduct) {
+																	if (is_int($productCategoryProductKey) && $productCategoryProduct !== "Other") {
+																		$tempProductsList[] = $productCategoryProduct;
+																	} elseif ($productCategoryProductKey === "other") {
+																		$tempProductsList[] = strip_tags($productCategoryProduct);
+																	}
+																}
+															}
+															if (count($tempProductsList) > 0) {
+																$tempProductsList = implode(", ", $tempProductsList);
+																echo "<div class=\"product-group\">";
+																echo "<h4>{$productCategoryProducts["name"]}</h4>";
+																echo "<p>$tempProductsList</p>";
+																echo "</div>";
+															}
+															$tempProductsList = null;
+														}
+													}
+												} elseif ($productsText) {
+													echo "<p>$productsText</p>";
+												} ?>
+											</div><!-- end div.entry-product-categories -->
 											<?php endif; ?>
 
 											<?php
