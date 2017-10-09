@@ -746,9 +746,38 @@ get_header(); ?>
 
 									<?php if (in_array("farm", $partner_category) || in_array("specialty", $partner_category) || in_array("restaurant", $partner_category) || in_array("distillery", $partner_category) || in_array("vineyard", $partner_category)): ?><div class="product-info-right"><?php endif; ?>
 										<div class="products-detail">
-											<?php if ($hasProducts || $productsText) :
+											<?php 
 												$farmTypeString = (in_array("farm", $partner_category) && $farm_type) ? "Products Available From Our {$farm_type}" : "";
-											?>
+											if ($farmTypeString || (is_array($products_available_at) && count($products_available_at) > 0)): ?>
+											<h3>Locations</h3>
+											
+												<?php $if ($farmTypeString): ?>
+											<h4><?php echo $farmTypeString; ?></h4>
+												<?php endif; ?>
+
+												<?php
+												if (is_array($products_available_at) && count($products_available_at) > 0): ?>
+											<h4>Products available at these BFBLGLV partners</h4>
+											<ul class="vendor-list">
+												<?php foreach ($products_available_at as $vendor):
+													if (is_array($vendor)):
+														$vendor_id = "user_{$vendor['ID']}";
+														$vendor_name = get_field("partner_name", $vendor_id);
+														if (!isHiddenVendor($vendor) || !isDisabledVendor($vendor)):
+															$vendor_url = get_author_posts_url($vendor['ID']);
+															$vendor_city = get_field("partner_city", $vendor_id);
+															$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
+															echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+														elseif (isHiddenVendor($vendor) && !isDisabledVendor($vendor)):
+															echo "<li>$vendor_name</li>";
+														endif;
+													endif;
+												endforeach; ?>
+											</ul>
+												<?php endif; 
+											endif; ?>
+
+											<?php if ($hasProducts || $productsText) : ?>
 											<div class="entry-product-categories entry-content">
 												<h3>Products We Produce</h3>
 												<?php
@@ -781,31 +810,9 @@ get_header(); ?>
 											</div><!-- end div.entry-product-categories -->
 											<?php endif; ?>
 
-
-											<?php
-											if (is_array($products_available_at) && count($products_available_at) > 0): ?>
-											<h4>Products available at these BFBLGLV partners</h4>
-											<ul class="vendor-list">
-												<?php foreach ($products_available_at as $vendor):
-													if (is_array($vendor)):
-														$vendor_id = "user_{$vendor['ID']}";
-														$vendor_name = get_field("partner_name", $vendor_id);
-														if (!isHiddenVendor($vendor) || !isDisabledVendor($vendor)):
-															$vendor_url = get_author_posts_url($vendor['ID']);
-															$vendor_city = get_field("partner_city", $vendor_id);
-															$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
-															echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
-														elseif (isHiddenVendor($vendor) && !isDisabledVendor($vendor)):
-															echo "<li>$vendor_name</li>";
-														endif;
-													endif;
-												endforeach; ?>
-											</ul>
-											<?php endif; ?>
-
 											<?php if ($hasFMProducts || $productsText) : ?>
 											<div class="entry-product-categories entry-content">
-												<h3>Products Available From Other Local Farms</h3>
+												<h3>Products From Other Local Farms</h3>
 												<?php
 												if ($hasFMProducts) {
 													foreach($fm_products as $productCategory=>$productCategoryProducts) {
@@ -838,7 +845,7 @@ get_header(); ?>
 
 											<?php
 											if (is_array($products_available_from) && count($products_available_from) > 0): ?>
-											<h4>Products available from these BFBLGLV partners</h4>
+											<h3>Products From these BFBLGLV Partners</h3>
 											<ul class="vendor-list">
 												<?php foreach ($products_available_from as $vendor):
 													if (is_array($vendor)):
@@ -859,7 +866,7 @@ get_header(); ?>
 
 											<?php
 											if (is_array($source_from) && count($source_from) > 0): ?>
-											<h4>We source from these BFBLGLV partners</h4>
+											<h3>We source from these BFBLGLV partners</h3>
 											<ul class="vendor-list">
 												<?php foreach ($source_from as $vendor):
 													if (is_array($vendor)):
