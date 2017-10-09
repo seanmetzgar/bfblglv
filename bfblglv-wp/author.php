@@ -751,7 +751,7 @@ get_header(); ?>
 											if ($farmTypeString || (is_array($products_available_at) && count($products_available_at) > 0)): ?>
 											<h3>Locations</h3>
 											
-												<?php $if ($farmTypeString): ?>
+												<?php if ($farmTypeString): ?>
 											<h4><?php echo $farmTypeString; ?></h4>
 												<?php endif; ?>
 
