@@ -749,33 +749,34 @@ get_header(); ?>
 											<?php 
 												$farmTypeString = (in_array("farm", $partner_category) && $farm_type) ? "Products Available From Our {$farm_type}" : "";
 											if ($farmTypeString || (is_array($products_available_at) && count($products_available_at) > 0)): ?>
-											<h3>Locations</h3>
-											
+											<div class="entry-content">
+												<h3>Locations</h3>
+												
 												<?php if ($farmTypeString): ?>
-											<h4><?php echo $farmTypeString; ?></h4>
+												<h4><?php echo $farmTypeString; ?></h4>
 												<?php endif; ?>
 
-												<?php
-												if (is_array($products_available_at) && count($products_available_at) > 0): ?>
-											<h4>Products available at these BFBLGLV partners</h4>
-											<ul class="vendor-list">
-												<?php foreach ($products_available_at as $vendor):
-													if (is_array($vendor)):
-														$vendor_id = "user_{$vendor['ID']}";
-														$vendor_name = get_field("partner_name", $vendor_id);
-														if (!isHiddenVendor($vendor) || !isDisabledVendor($vendor)):
-															$vendor_url = get_author_posts_url($vendor['ID']);
-															$vendor_city = get_field("partner_city", $vendor_id);
-															$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
-															echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
-														elseif (isHiddenVendor($vendor) && !isDisabledVendor($vendor)):
-															echo "<li>$vendor_name</li>";
+												<?php if (is_array($products_available_at) && count($products_available_at) > 0): ?>
+												<h4>Products available at these BFBLGLV partners</h4>
+												<ul class="vendor-list">
+													<?php foreach ($products_available_at as $vendor):
+														if (is_array($vendor)):
+															$vendor_id = "user_{$vendor['ID']}";
+															$vendor_name = get_field("partner_name", $vendor_id);
+															if (!isHiddenVendor($vendor) || !isDisabledVendor($vendor)):
+																$vendor_url = get_author_posts_url($vendor['ID']);
+																$vendor_city = get_field("partner_city", $vendor_id);
+																$vendor_name .= ($vendor_city) ? ", $vendor_city" : "";
+																echo "<li><a href=\"$vendor_url\">$vendor_name</a></li>\n";
+															elseif (isHiddenVendor($vendor) && !isDisabledVendor($vendor)):
+																echo "<li>$vendor_name</li>";
+															endif;
 														endif;
-													endif;
-												endforeach; ?>
-											</ul>
-												<?php endif; 
-											endif; ?>
+													endforeach; ?>
+												</ul>
+												<?php endif; ?>
+											</div>
+											<?php endif; ?>
 
 											<?php if ($hasProducts || $productsText) : ?>
 											<div class="entry-product-categories entry-content">
