@@ -811,7 +811,7 @@ get_header(); ?>
 											</div><!-- end div.entry-product-categories -->
 											<?php endif; ?>
 
-											<?php if ($hasFMProducts || $productsText) : ?>
+											<?php if ($hasFMProducts) : ?>
 											<div class="entry-product-categories entry-content">
 												<h3>Products From Other Local Farms</h3>
 												<?php
@@ -838,8 +838,6 @@ get_header(); ?>
 															$tempProductsList = null;
 														}
 													}
-												} elseif ($productsText) {
-													echo "<p>$productsText</p>";
 												} ?>
 											</div><!-- end div.entry-product-categories -->
 											<?php endif; ?>
