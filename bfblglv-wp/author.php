@@ -811,7 +811,7 @@ get_header(); ?>
 											</div><!-- end div.entry-product-categories -->
 											<?php endif; ?>
 
-											<?php if ($hasFMProducts) : ?>
+											<?php if (isset($hasFMProducts) && $hasFMProducts) : ?>
 											<div class="entry-product-categories entry-content">
 												<h3>Products From Other Local Farms</h3>
 												<?php
