@@ -6075,8 +6075,8 @@ ol ol, ul ol {
 /** Footer **/
 .site-footer {
   text-align: center;
-  background-color: #423d38;
-  color: #d8c3ae;
+  background-color: #015c3c;
+  color: #fff;
   font-size: 14px;
   font-size: 0.875rem; }
   .site-footer .footer-logo {
@@ -6092,25 +6092,25 @@ ol ol, ul ol {
     color: #fff;
     margin-top: 20px; }
   .site-footer .footer-top {
-    background-color: #4a453f;
+    background-color: #008c5c;
     padding: 20px 0; }
   .site-footer .footer-bottom {
     padding: 10px 0; }
     .site-footer .footer-bottom p {
       margin: 0; }
   .site-footer .copyright {
-    color: #7c7268;
+    color: #8cc63f;
     font-size: 13px; }
   .site-footer .kudu-link {
     margin: 0;
     font-family: "PT Sans Caption", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #7c7268;
+    color: #008c5c;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 11px;
     text-decoration: none; }
     .site-footer .kudu-link:hover {
-      color: #d8c3ae; }
+      color: #8cc63f; }
   .site-footer .menu-column .footer-heading {
     visibility: hidden; }
   .site-footer .menu-column ul {
@@ -6143,7 +6143,7 @@ ol ol, ul ol {
   .site-footer .instagram-column {
     overflow: hidden; }
     .site-footer .instagram-column .instagram-link {
-      color: #d8c3ae;
+      color: #8cc63f;
       text-decoration: none;
       display: block; }
       .site-footer .instagram-column .instagram-link:hover {

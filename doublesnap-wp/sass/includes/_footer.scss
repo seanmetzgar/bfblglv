@@ -1,7 +1,7 @@
 .site-footer {
 	text-align: center;
-	background-color: $color-brown;
-	color: $color-light-brown;
+	background-color: $color-dark-green;
+	color: $color-white;
 	@include font-size($font-size-footer-px, $font-size-footer);
 	.footer-logo {
 		width: 175px; height: auto;
@@ -17,7 +17,7 @@
 	}
 
 	.footer-top {
-		background-color: lighten($color-brown, 3%);
+		background-color: $color-green;
 		padding: 20px 0;
 	}
 	.footer-bottom {
@@ -27,13 +27,13 @@
 		}
 	}
 	.copyright {
-		color: $color-medium-brown;
+		color: $color-light-green;
 		font-size: 13px;
 	}
 	.kudu-link {
 		margin: 0;
 		font-family: $font-stack-alternate;
-		color: $color-medium-brown;
+		color: $color-green;
 		text-transform: uppercase;
 		font-weight: $font-weight-alternate;
 
@@ -41,7 +41,7 @@
 		text-decoration: none;
 
 		&:hover {
-			color: $color-light-brown;
+			color: $color-light-green;
 		}
 	}
 	.menu-column {
@@ -82,7 +82,7 @@
 	.instagram-column {
 		overflow: hidden;
 		.instagram-link {
-			color: $color-light-brown;
+			color: $color-light-green;
 			text-decoration: none;
 			display: block;
 
