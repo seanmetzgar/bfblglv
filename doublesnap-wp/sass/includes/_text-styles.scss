@@ -1,0 +1,107 @@
+h1, .pseudo-h1 {
+	font-family: $font-stack-primary;
+	font-weight: $font-weight-normal;
+	@include font-size($font-size-h1-px, $font-size-h1);
+
+	color: $color-heading;
+}
+h2, .pseudo-h2 {
+	font-family: $font-stack-primary;
+	font-weight: $font-weight-normal;
+
+}
+h3, .pseudo-h3,
+h4, .pseudo-h4 {
+	font-family: $font-stack-alternate;
+	font-weight: $font-weight-alternate;
+	color: $color-accent;
+	text-transform: uppercase;
+	@include font-size($font-size-h3-px, $font-size-h3);
+	letter-spacing: 2px;
+}
+h4, .pseudo-h4 {
+	margin-bottom: 0 !important;
+
+	& ~ p, & ~ ul, & ~ ol {
+		margin-top: 0 !important;
+	}
+}
+
+a {
+	color: $color-accent;
+	text-decoration: none;
+	&:hover {
+		color: $color-grey;
+	}
+}
+
+button, a {
+	transition: all $transition-normal ease-in-out;
+}
+.accent {
+	color: $color-accent;
+	a {
+		font-style: italic;
+	}
+}
+.meta {
+	color: $color-accent;
+
+	a {
+		font-style: italic;
+	}
+	@include breakpoint(tablet) {
+		@include font-size($font-size-meta-px, $font-size-meta);
+	}
+}
+
+.entry-content, .entry-header {
+	text-align: center;
+}
+
+h1,h2,h3,h4,h5,h6,p,hr {
+	margin: $standard-margin 0;
+}
+
+em {
+	font-style: italic;
+}
+strong {
+	font-weight: bold;
+}
+
+ul {
+   list-style-type: disc;
+   list-style-position: inside;
+   text-align: left;
+}
+ol {
+   list-style-type: decimal;
+   list-style-position: inside;
+   text-align: left;
+}
+li {
+	padding-left: 1em;
+    text-indent: -1em;
+    overflow: hidden;
+}
+ul ul, ol ul {
+   list-style-type: circle;
+}
+ol ol, ul ol {
+   list-style-type: lower-latin;
+}
+ul, ol {
+	&.two-column {
+		@media (min-width: 500px) {
+			column-count: 2;
+			li {
+				-webkit-column-break-inside:avoid;
+			    -moz-column-break-inside:avoid;
+			    -o-column-break-inside:avoid;
+			    -ms-column-break-inside:avoid;
+			    column-break-inside:avoid;
+			}
+		}
+	}
+}
