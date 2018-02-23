@@ -33,13 +33,7 @@
                             </nav>
                         </div>
                         <div class="col-md-3 col-md-offset-1 instagram-column">
-                            <?php if ($instagram_heading) echo "<h3 class=\"footer-heading\">$instagram_heading</h3>"; ?>
-                            <?php if ($instagram_hashtag) echo "<a href=\"https://www.instagram.com/explore/tags/{$instagram_hashtag}/\" target=\"_blank\" class=\"instagram-link\">#{$instagram_hashtag}</a>"; ?>
-                            <div class="instagram-feed">
-                                <?php echo do_shortcode($instagram_sc_desktop); ?>
-                                <?php echo do_shortcode($instagram_sc_tablet); ?>
-                                <?php echo do_shortcode($instagram_sc_mobile); ?>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
