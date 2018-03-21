@@ -1,0 +1,179 @@
+@import 'inc/variables';
+@import 'vendor/bootstrap/bootstrap';
+
+.btn {
+  font-family: $headings-font-family;
+  text-transform: uppercase;
+}
+
+h2 {
+  small {
+    font-family: $font-family-base;
+    font-size: .5em;
+    font-style: italic;
+    opacity: 0.75;
+    display: block;
+    line-height: 1;
+  }
+}
+
+/** Header & Navigation **/
+.site-header {
+  padding-bottom: 0;
+  border-bottom: 1px solid $teal;
+  .navbar-brand,
+  .navbar-toggler {
+    margin-bottom: 0.5rem;
+  }
+  .nav-item {
+    .nav-link {
+      padding: .5rem 1rem 1rem;
+      font-family: $headings-font-family;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      letter-spacing: 0.0625rem;
+    }
+  }
+
+  @for $i from 1 through 12 {
+    .nav-item:nth-child(#{$i}) {
+      .nav-link {
+        &:hover {
+          background-color: darken($green, percentage(($i * 2) / 100));
+        }
+      }
+    }
+  }
+}
+
+/** Footer & Navigation **/
+.site-footer {
+  background-color: $dark-green;
+  border-top: 2px solid $teal;
+  padding-top: 2rem;
+  a {
+    color: $white;
+
+    &:hover {
+      color: $teal;
+      text-decoration: none;
+    }
+  }
+  .footer-nav {
+    ul {
+      column-count: 2;
+
+    }
+  }
+}
+
+/** Core **/
+#container {
+  min-height: 50vh;
+}
+
+/** Jumbotron  **/
+.jumbotron {
+  min-height: 50vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
+
+  text-shadow: 0 0 20px $black;
+
+  font-family: $headings-font-family;
+  text-transform: uppercase;
+}
+
+/** Nav Blocks **/
+.nav-blocks {
+  list-style-type: none;
+  padding: 0 .5rem;
+  li {
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+    padding: 0 .5rem;
+    a {
+      background-color: $blue;
+      position: relative;
+      text-decoration: none;
+      display: block;
+      font-size: 1.15rem;
+      line-height: 1.25rem;
+      text-align: center;
+      width: 100%; height: 0;
+      padding: 0 0 100%;
+      color: $white;
+      font-family: $headings-font-family;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px $black;
+      @include transition($btn-transition);
+
+      .content {
+        position: absolute;
+        top: 50%; left: .5rem; right: .5rem;
+        transform: translateY(-50%);
+      }
+
+      i {
+        display: block;
+        font-size: 2rem;
+        margin-top: 1.25rem;
+        margin-bottom: .5rem;
+      }
+      .text {
+        display: block;
+        height: 2.5rem;
+      }
+
+      &:hover {
+        background-color: darken($blue, 7.5%);
+      }
+    }
+
+    &:after {
+      width: 100%; height: 0;
+      padding: 0 0 100%; margin: 0;
+    }
+  }
+}
+
+.image-col {
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 0;
+  min-height: 100px;
+
+  img {
+    display: none;
+  }
+}
+
+.testimonials-carousel {
+  .carousel-item {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .carousel-control {
+    color: $blue;
+    font-size: 2rem;
+    line-height: 1;
+    .icon {
+      background-image: none;
+      width: 2rem; height: 2rem;
+    }
+  }
+
+  .carousel-indicators {
+    bottom: 0;
+
+    li {
+      background-color: rgba($blue, 0.5);
+      &.active {
+        background-color: $blue;
+      }
+    }
+  }
+}

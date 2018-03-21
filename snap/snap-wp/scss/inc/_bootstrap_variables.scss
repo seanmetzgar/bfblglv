@@ -1,0 +1,25 @@
+$blue:          #1A3281;
+$indigo:        #6610f2;
+$purple:        #6f42c1;
+$red:           #D8182A;
+$pink:          lighten($red, 16%);
+$orange:        #DE761C;
+$yellow:        #FCAF17;
+$green:         #008C5C;
+$dark-green:    #015c3c;
+$teal:          #8CC63F;
+$cyan:          #0088CB;
+$white:         #FFFFFF;
+$tan:           #F7ECD5;
+
+$primary:       $green;
+$secondary:     $blue;
+$success:       $teal;
+
+$body-bg:       $tan;
+
+$headings-font-family:              'BFBLGLV', Helvetica, Arial, sans-serif;
+
+$navbar-dark-color:                 $white;
+$navbar-dark-hover-color:           $white;
+$navbar-dark-active-color:          $white;
