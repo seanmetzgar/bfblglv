@@ -27,10 +27,10 @@ get_header(); ?>
     <ul class="row justify-content-center nav-blocks mb-4">
         <?php for ($nav_blocks_counter = 1; $nav_blocks_counter <= 4; $nav_blocks_counter++): ?>
         <li class="col-lg-2 col-sm-3 col-6">
-            <a href="<?php the_field('nav_blocks_url_{$nav_blocks_counter}'); ?>">
+            <a href="<?php the_field('nav_blocks_url_' . $nav_blocks_counter); ?>">
                 <div class="content">
-                    <i class="<?php the_field('nav_blocks_icon_{$nav_blocks_counter}'); ?>"></i>
-                    <span class="text"><?php the_field('nav_blocks_text_{$nav_blocks_counter}'); ?></span>
+                    <i class="<?php the_field('nav_blocks_icon_' . $nav_blocks_counter); ?>"></i>
+                    <span class="text"><?php the_field('nav_blocks_text_' . $nav_blocks_counter); ?></span>
                 </div>
             </a>
         </li>
