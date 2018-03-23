@@ -181,3 +181,23 @@ h2 {
     }
   }
 }
+
+article.faq {
+  header {
+    .entry-title {
+      a {
+        color: $green;
+        &:hover {
+          color: $green;
+          text-decoration: none;
+        }
+      }
+
+      span {
+        &:before {
+          content: 'Q: ';
+        }
+      }
+    }
+  }
+}
