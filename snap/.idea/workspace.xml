@@ -97,7 +97,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tag.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tag.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/snap-wp/tag.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="230">
@@ -107,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="front-page.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snap-wp/front-page.php">
+      <file leaf-file-name="archive.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/snap-wp/archive.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="107" column="10" lean-forward="false" selection-start-line="107" selection-start-column="10" selection-end-line="107" selection-end-column="10" />
+            <state relative-caret-position="161">
+              <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -186,7 +186,6 @@
         <option value="$PROJECT_DIR$/snap-wp/footer.php" />
         <option value="$PROJECT_DIR$/snap-wp/scss/styles.scss" />
         <option value="$PROJECT_DIR$/snap-wp/page.php" />
-        <option value="$PROJECT_DIR$/snap-wp/archive.php" />
         <option value="$PROJECT_DIR$/snap-wp/attachment.php" />
         <option value="$PROJECT_DIR$/snap-wp/author.php" />
         <option value="$PROJECT_DIR$/snap-wp/category.php" />
@@ -202,6 +201,7 @@
         <option value="$PROJECT_DIR$/snap-wp/sidebar.php" />
         <option value="$PROJECT_DIR$/snap-wp/single.php" />
         <option value="$PROJECT_DIR$/snap-wp/tag.php" />
+        <option value="$PROJECT_DIR$/snap-wp/archive.php" />
       </list>
     </option>
   </component>
@@ -321,12 +321,12 @@
       <updated>1521489313016</updated>
       <workItem from="1521489314791" duration="9985000" />
       <workItem from="1521560832141" duration="26154000" />
-      <workItem from="1521816466494" duration="654000" />
+      <workItem from="1521816466494" duration="736000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36793000" />
+    <option name="totallyTimeSpent" value="36875000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -579,14 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snap-wp/archive.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snap-wp/attachment.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="667">
@@ -741,6 +733,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snap-wp/archive.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           <folding />
         </state>
       </provider>
