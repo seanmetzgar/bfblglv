@@ -28,26 +28,6 @@
              'walker'          => new bs4navwalker()
            ]);
         ?>
-        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' =>'navbar-nav ml-auto', 'container' => false ) ); ?>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Locations</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">How it Works</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">FAQs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Resources</a>
-                </li>
-            </ul>
-        </div> -->
     </nav>
 
     <div id="container">
