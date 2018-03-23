@@ -19,15 +19,19 @@ h2 {
 
 /** Header & Navigation **/
 .site-header {
-  padding-bottom: 0;
+  // padding-bottom: 0;
   border-bottom: 1px solid $teal;
   .navbar-brand,
   .navbar-toggler {
-    margin-bottom: 0.5rem;
+    // margin-bottom: 0.5rem;
+  }
+  .navbar-brand {
+    img {
+      height: 70px;
+    }
   }
   .nav-item {
     .nav-link {
-      padding: .5rem 1rem 1rem;
       font-family: $headings-font-family;
       text-transform: uppercase;
       font-size: 1.2rem;
