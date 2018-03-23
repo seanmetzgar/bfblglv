@@ -96,13 +96,13 @@ wp_reset_postdata();
 
 <section class="page-section bg-primary container-fluid text-white">
     <div class="row">
-        <figure class="col-md-7 col-12 image-col" style="background-image:url('http://media.gettyimages.com/photos/vegetable-stall-in-farmer-market-including-celery-parsnips-and-picture-id931911032?s=170667a&w=1007');">
-            <img src="http://media.gettyimages.com/photos/vegetable-stall-in-farmer-market-including-celery-parsnips-and-picture-id931911032?s=170667a&w=1007">
+        <figure class="col-md-7 col-12 image-col" style="background-image:url('<?php the_field('callout_image_url'); ?>');">
+            <img src="<?php the_field('callout_image_url'); ?>">
         </figure>
         <div class="col-md-5 col-12 text-center">
-            <h2 class="mt-4">History</h2>
-            <p>It all started with 5 farmers and a bunch of crops.</p>
-            <p class="mb-4"><a href="#" class="btn btn-lg btn-outline-light">Learn More</a></p>
+            <h2 class="mt-4"><?php the_field('callout_heading'); ?></h2>
+            <p><?php the_field('callout_text'); ?></p>
+            <p class="mb-4"><a href="<?php the_field('callout_button_url'); ?>" class="btn btn-lg btn-outline-light"><?php the_field('callout_button_text'); ?></a></p>
         </div>
     </div>
 </section>
