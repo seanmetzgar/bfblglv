@@ -96,8 +96,8 @@ wp_reset_postdata();
 
 <section class="page-section bg-primary container-fluid text-white">
     <div class="row">
-        <figure class="col-md-7 col-12 image-col" style="background-image:url('<?php the_field('callout_image_url'); ?>');">
-            <img src="<?php the_field('callout_image_url'); ?>">
+        <figure class="col-md-7 col-12 image-col" style="background-image:url('<?php the_field('callout_image'); ?>');">
+            <img src="<?php the_field('callout_image'); ?>">
         </figure>
         <div class="col-md-5 col-12 text-center">
             <h2 class="mt-4"><?php the_field('callout_heading'); ?></h2>
