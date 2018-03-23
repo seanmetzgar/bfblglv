@@ -15,10 +15,22 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <?php
+           wp_nav_menu([
+             'theme_location'  => 'main-menu',
+             'container'       => 'div',
+             'container_id'    => 'bs4navbar',
+             'container_class' => 'collapse navbar-collapse',
+             'menu_id'         => false,
+             'menu_class'      => 'navbar-nav ml-auto',
+             'depth'           => 2,
+             'fallback_cb'     => 'bs4navwalker::fallback',
+             'walker'          => new bs4navwalker()
+           ]);
+        ?>
+        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' =>'navbar-nav ml-auto', 'container' => false ) ); ?>
-            <!-- <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Locations</a>
                 </li>
@@ -34,8 +46,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Resources</a>
                 </li>
-            </ul> -->
-        </div>
+            </ul>
+        </div> -->
     </nav>
 
     <div id="container">
