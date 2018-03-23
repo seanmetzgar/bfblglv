@@ -25,38 +25,16 @@ get_header(); ?>
 
     </div>
     <ul class="row justify-content-center nav-blocks mb-4">
+        <?php for ($nav_blocks_counter = 1; $nav_blocks_counter <= 3; $nav_blocks_counter++): ?>
         <li class="col-lg-2 col-sm-3 col-6">
-            <a href="#">
+            <a href="<?php the_field('nav_blocks_url_{$nav_blocks_counter}'); ?>">
                 <div class="content">
-                    <i class="ti-map-alt"></i>
-                    <span class="text">Locations</span>
+                    <i class="<?php the_field('nav_blocks_icon_{$nav_blocks_counter}'); ?>"></i>
+                    <span class="text"><?php the_field('nav_blocks_text_{$nav_blocks_counter}'); ?></span>
                 </div>
             </a>
         </li>
-        <li class="col-lg-2 col-sm-3 col-6">
-            <a href="#">
-                <div class="content">
-                    <i class="ti-info-alt"></i>
-                    <span class="text">How it Works</span>
-                </div>
-            </a>
-        </li>
-        <li class="col-lg-2 col-sm-3 col-6">
-            <a href="#">
-                <div class="content">
-                    <i class="ti-help-alt"></i>
-                    <span class="text">FAQs</span>
-                </div>
-            </a>
-        </li>
-        <li class="col-lg-2 col-sm-3 col-6">
-            <a href="#">
-                <div class="content">
-                    <i class="ti-archive"></i>
-                    <span class="text">Resources</span>
-                </div>
-            </a>
-        </li>
+        <?php endfor; ?>
     </ul>
 </div>
 
