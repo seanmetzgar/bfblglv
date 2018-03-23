@@ -55,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/snap-wp/entry-faq.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="46">
-              <caret line="2" column="222" lean-forward="false" selection-start-line="2" selection-start-column="222" selection-end-line="2" selection-end-column="222" />
+              <caret line="2" column="206" lean-forward="false" selection-start-line="2" selection-start-column="206" selection-end-line="2" selection-end-column="206" />
               <folding />
             </state>
           </provider>
@@ -319,12 +319,12 @@
       <updated>1521489313016</updated>
       <workItem from="1521489314791" duration="9985000" />
       <workItem from="1521560832141" duration="26154000" />
-      <workItem from="1521816466494" duration="2134000" />
+      <workItem from="1521816466494" duration="2225000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38273000" />
+    <option name="totallyTimeSpent" value="38364000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -744,7 +744,7 @@
     <entry file="file://$PROJECT_DIR$/snap-wp/entry-faq.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
-          <caret line="2" column="222" lean-forward="false" selection-start-line="2" selection-start-column="222" selection-end-line="2" selection-end-column="222" />
+          <caret line="2" column="206" lean-forward="false" selection-start-line="2" selection-start-column="206" selection-end-line="2" selection-end-column="206" />
           <folding />
         </state>
       </provider>
