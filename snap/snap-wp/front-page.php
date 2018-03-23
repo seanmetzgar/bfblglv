@@ -4,7 +4,7 @@
  * @since snap-wp 0.0.1
  */
 get_header(); ?>
-<div class="d-flex align-items-center jumbotron jumbotron-fluid text-white" style="background-image:url('<?php the_field('header_image_url'); ?>');">
+<div class="d-flex align-items-center jumbotron jumbotron-fluid text-white" style="background-image:url('<?php the_field('header_image'); ?>');">
     <div class="container-fluid text-md-right text-xs-left">
         <div class="row">
             <p class="ml-auto h1 col-lg-6 col-md-8"><?php the_field('header_text'); ?></p>
