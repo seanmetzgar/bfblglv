@@ -194,10 +194,27 @@ article.faq {
       }
 
       span {
+        display: inline-block;
+        padding-left: 2rem;
         &:before {
-          content: 'Q: ';
+          content: 'Q:';
+          display: inline-block;
+          margin-right: -2rem;
         }
       }
+    }
+  }
+
+  .entry-content {
+    position: relative;
+    padding-left: 2rem;
+    &:before {
+      content: 'A:';
+      display: block;
+      position: absolute;
+      top: 0; left: 0;
+      font-size: 2rem;
+      font-weight: bold;
     }
   }
 }
