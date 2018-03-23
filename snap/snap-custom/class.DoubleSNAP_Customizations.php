@@ -57,7 +57,7 @@ class DoubleSNAP_Customizations {
 			"hierarchical"			=> false,
 			"menu_position"			=> 6,
 			"menu_icon"				=> "dashicons-star-filled",
-			"supports"				=> array( "title", "thumbnail", "revisions" )
+			"supports"				=> array( "title", "editor", "excerpt", "thumbnail", "revisions" )
 		);
 
 		$faq_type_name =			self::$faq_type_name;
@@ -93,7 +93,7 @@ class DoubleSNAP_Customizations {
 			"hierarchical"			=> false,
 			"menu_position"			=> 6,
 			"menu_icon"				=> "dashicons-cart",
-			"supports"				=> array( "title", "thumbnail", "revisions" )
+			"supports"				=> array( "title", "editor", "excerpt", "revisions" )
 		);
 
         $testimonials_type_name =   self::$testimonials_type_name;
