@@ -195,11 +195,13 @@ article.faq {
 
       span {
         display: inline-block;
-        padding-left: 2rem;
+        padding-left: 2.25rem;
+        position: relative;
         &:before {
           content: 'Q:';
-          display: inline-block;
-          margin-right: -2rem;
+          display: block;
+          position: absolute;
+          top: 0; left: 0;
         }
       }
     }
@@ -207,13 +209,12 @@ article.faq {
 
   .entry-content {
     position: relative;
-    padding-left: 2rem;
+    padding-left: 2.25rem;
     &:before {
       content: 'A:';
       display: block;
       position: absolute;
       top: 0; left: 0;
-      font-size: 2rem;
       font-weight: bold;
     }
   }
