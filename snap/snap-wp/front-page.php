@@ -4,14 +4,14 @@
  * @since snap-wp 0.0.1
  */
 get_header(); ?>
-<div class="d-flex align-items-center jumbotron jumbotron-fluid text-white" style="background-image:url('http://media.gettyimages.com/photos/friendly-woman-tending-an-organic-vegetable-stall-at-a-farmer-picture-id526709144?s=170667a&w=1007');">
+<div class="d-flex align-items-center jumbotron jumbotron-fluid text-white" style="background-image:url('<?php the_field('header_image_url'); ?>');">
     <div class="container-fluid text-md-right text-xs-left">
         <div class="row">
-            <p class="ml-auto h1 col-lg-6 col-md-8">Get Free Fresh and Local Produce with LV Fresh Food Bucks</p>
+            <p class="ml-auto h1 col-lg-6 col-md-8"><?php the_field('header_text'); ?></p>
         </div>
         <div class="row">
             <p class="ml-auto col-lg-6 col-md-8 my-0">
-                <a href="#" class="btn btn-secondary btn-lg">Find Locations</a>
+                <a href="#" class="btn btn-secondary btn-lg"><?php the_field('header_button_text'); ?></a>
             </p>
         </div>
     </div>
