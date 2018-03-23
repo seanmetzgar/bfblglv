@@ -20,7 +20,7 @@ get_header(); ?>
 <div class="page-section container-fluid">
     <div class="row justify-content-center">
         <div class="col-8 text-center">
-            <h2 class="text-primary">SNAP food dollars helps low-income families eat more fruits &amp; vegetables while supporting American farms and growing the local food economy.</h2>
+            <h2 class="text-primary"><?php the_field('nav_blocks_text'); ?></h2>
         </div>
 
     </div>
