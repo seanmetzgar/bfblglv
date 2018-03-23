@@ -57,7 +57,7 @@
             <state relative-caret-position="115">
               <caret line="5" column="47" lean-forward="false" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
               <folding>
-                <marker date="1521816846687" expanded="true" signature="479:710" ph="..." />
+                <marker date="1521816896697" expanded="true" signature="489:720" ph="..." />
               </folding>
             </state>
           </provider>
@@ -300,12 +300,12 @@
       <updated>1521489313016</updated>
       <workItem from="1521489314791" duration="9985000" />
       <workItem from="1521560832141" duration="26154000" />
-      <workItem from="1521816466494" duration="351000" />
+      <workItem from="1521816466494" duration="406000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36490000" />
+    <option name="totallyTimeSpent" value="36545000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -673,7 +673,7 @@
         <state relative-caret-position="115">
           <caret line="5" column="47" lean-forward="false" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
           <folding>
-            <marker date="1521816846687" expanded="true" signature="479:710" ph="..." />
+            <marker date="1521816896697" expanded="true" signature="489:720" ph="..." />
           </folding>
         </state>
       </provider>
