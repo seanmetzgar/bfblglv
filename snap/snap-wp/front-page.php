@@ -25,7 +25,7 @@ get_header(); ?>
 
     </div>
     <ul class="row justify-content-center nav-blocks mb-4">
-        <?php for ($nav_blocks_counter = 1; $nav_blocks_counter <= 3; $nav_blocks_counter++): ?>
+        <?php for ($nav_blocks_counter = 1; $nav_blocks_counter <= 4; $nav_blocks_counter++): ?>
         <li class="col-lg-2 col-sm-3 col-6">
             <a href="<?php the_field('nav_blocks_url_{$nav_blocks_counter}'); ?>">
                 <div class="content">
