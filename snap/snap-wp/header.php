@@ -17,7 +17,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' =>'navbar-nav ml-auto' ) ); ?>
+            <?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' =>'navbar-nav ml-auto', 'container' => false ) ); ?>
             <!-- <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Locations</a>
