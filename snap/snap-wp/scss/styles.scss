@@ -36,6 +36,11 @@ h2 {
       text-transform: uppercase;
       font-size: 1.2rem;
       letter-spacing: 0.0625rem;
+
+      &:hover,
+      &.active {
+        color: $teal;
+      }
     }
   }
 
