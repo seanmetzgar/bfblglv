@@ -15,7 +15,7 @@ get_header(); ?>
                     <?php the_content(); ?>
                     <?php if( have_rows('flowchart_steps') ): ?>
                     <div class="row justify-content-center">
-                        <ul class="flowchart col-lg-6 col-md-8 col-sm-10 col-12">
+                        <ul class="flowchart col-lg-7 col-md-8 col-sm-10 col-12">
                             <?php while ( have_rows('flowchart_steps') ) :
                                 the_row(); $flowchart_image = get_sub_field('image'); ?>
                                 <li class="media my-3">
