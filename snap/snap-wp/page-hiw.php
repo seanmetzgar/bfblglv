@@ -16,7 +16,7 @@ get_header(); ?>
                     <div class="row justify-content-center">
                         <ul class="flowchart col-lg-7 col-md-8 col-sm-10 col-12">
                             <?php while ( have_rows('flowchart_steps') ) :
-                                the_row(); $flowchart_image = get_sub_field('image'); ?>
+                                the_row(); $flowchart_image = get_sub_field('icon'); ?>
                                 <li class="media my-3">
                                     <?php if ($flowchart_image): ?>
                                         <img class="align-self-center mr-3" src="<?php echo $flowchart_image; ?>">
