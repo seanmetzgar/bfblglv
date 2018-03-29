@@ -13,6 +13,23 @@ get_header(); ?>
                 <section class="entry-content">
                     <?php if ( has_post_thumbnail() ) { the_post_thumbnail(); } ?>
                     <?php the_content(); ?>
+                    <?php if( have_rows('flowchart_steps') ): ?>
+                    <ul class="flowchart">
+                        <?php while ( have_rows('repeater_field_name') ) :
+                            the_row(); $flowchart_image = get_sub_field('image'); ?>
+                        <li class="media">
+                            <?php if ($flowchart_image): ?>
+                            <img class="mr-3" src="<?php echo $flowchart_image; ?>">
+                            <?php else: ?>
+                            <img class="mr-3" src="http://via.placeholder.com/100x100">
+                            <?php endif; ?>
+                            <div class="media-body">
+                                <?php the_sub_field('description'); ?>
+                            </div>
+                        </li>
+                        <?php endwhile; ?>
+                    </ul>
+                    <?php endif; ?>
                     <div class="entry-links"><?php wp_link_pages(); ?></div>
                 </section>
             </article>
