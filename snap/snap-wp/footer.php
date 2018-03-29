@@ -3,7 +3,10 @@
 
     <footer class="site-footer container-fluid" role="contentinfo">
         <div class="row">
-            <nav class="col-12 footer-nav">
+            <div class="col-2 footer-logo">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/logos/bucks_logo_footer.png" class="img-fluid">
+            </div>
+            <nav class="col-8 footer-nav">
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="#">Locations</a></li>
