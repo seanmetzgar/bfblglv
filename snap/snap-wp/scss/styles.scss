@@ -244,6 +244,14 @@ article.faq {
       margin-right: 1rem;
       display: block;
       float: left;
+      width: 3rem;
+      height: 3rem;
+      text-align: center;
+      line-height: 3rem;
+      background-color: $teal;
+      color: $white;
+      border-radius: 50%;
+
     }
   }
   .media-body {
