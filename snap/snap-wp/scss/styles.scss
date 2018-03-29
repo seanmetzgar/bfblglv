@@ -261,5 +261,12 @@ article.faq {
   .media-body {
     color: $primary;
     font-size: 1.2rem;
+
+    > *:first-child {
+      margin-top: 0;
+    }
+    > *:last-child {
+      margin-bottom: 0;
+    }
   }
 }
