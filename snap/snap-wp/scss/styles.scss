@@ -56,8 +56,10 @@ h2 {
 
       &:hover,
       &.active {
-        color: $secondary;
+        color: $gray-100;
       }
+
+      transition: all 0.15s ease-in-out;
     }
   }
 
