@@ -11,7 +11,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="styles.scss" pinned="false" current-in-tab="true">
+      <file leaf-file-name="styles.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/snap-wp/scss/styles.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
@@ -31,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page-hiw.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="page-hiw.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/snap-wp/page-hiw.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49">
-              <caret line="16" column="60" lean-forward="false" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
+            <state relative-caret-position="233">
+              <caret line="24" column="70" lean-forward="false" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -200,8 +200,8 @@
         <option value="$PROJECT_DIR$/snap-wp/entry-faq.php" />
         <option value="$PROJECT_DIR$/snap-wp/single.php" />
         <option value="$PROJECT_DIR$/snap-wp/footer.php" />
-        <option value="$PROJECT_DIR$/snap-wp/page-hiw.php" />
         <option value="$PROJECT_DIR$/snap-wp/scss/styles.scss" />
+        <option value="$PROJECT_DIR$/snap-wp/page-hiw.php" />
       </list>
     </option>
   </component>
@@ -321,12 +321,12 @@
       <updated>1521489313016</updated>
       <workItem from="1521489314791" duration="9985000" />
       <workItem from="1521560832141" duration="26154000" />
-      <workItem from="1521816466494" duration="7543000" />
+      <workItem from="1521816466494" duration="7636000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43682000" />
+    <option name="totallyTimeSpent" value="43775000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -768,18 +768,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snap-wp/page-hiw.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="16" column="60" lean-forward="false" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snap-wp/scss/styles.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="257" column="34" lean-forward="false" selection-start-line="257" selection-start-column="34" selection-end-line="257" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snap-wp/page-hiw.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="24" column="70" lean-forward="false" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
           <folding />
         </state>
       </provider>
