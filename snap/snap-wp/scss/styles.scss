@@ -1,6 +1,23 @@
 @import 'inc/variables';
 @import 'vendor/bootstrap/bootstrap';
 
+.entry-content {
+  img.alignright {
+    float: right;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+  }
+  img.alignleft {
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+  img.aligncenter {
+    float: none;
+    margin: 1rem auto;
+  }
+}
+
 .btn {
   font-family: $headings-font-family;
   text-transform: uppercase;
