@@ -75,7 +75,9 @@ h2 {
     font-family: $headings-font-family;
   }
   .footer-logo {
-
+    img {
+      max-width: 100px;
+    }
   }
   .footer-nav {
     ul {
