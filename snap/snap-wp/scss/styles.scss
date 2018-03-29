@@ -237,6 +237,11 @@ article.faq {
 .flowchart {
   counter-reset: flowchart;
   li {
+
+    img {
+      width: 100px;
+      height: auto;
+    }
     padding-left: 4rem;
     position: relative;
 
