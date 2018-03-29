@@ -19,9 +19,9 @@ get_header(); ?>
                             the_row(); $flowchart_image = get_sub_field('image'); ?>
                         <li class="media my-3">
                             <?php if ($flowchart_image): ?>
-                            <img class="mr-3 align-self-center" src="<?php echo $flowchart_image; ?>">
+                            <img class="mr-3" src="<?php echo $flowchart_image; ?>">
                             <?php else: ?>
-                            <img class="mr-3 align-self-center" src="http://via.placeholder.com/100x100">
+                            <img class="mr-3" src="http://via.placeholder.com/100x100">
                             <?php endif; ?>
                             <div class="media-body">
                                 <?php the_sub_field('description'); ?>
