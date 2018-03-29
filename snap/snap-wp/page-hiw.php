@@ -15,7 +15,7 @@ get_header(); ?>
                     <?php the_content(); ?>
                     <?php if( have_rows('flowchart_steps') ): ?>
                     <ul class="flowchart">
-                        <?php while ( have_rows('repeater_field_name') ) :
+                        <?php while ( have_rows('flowchart_steps') ) :
                             the_row(); $flowchart_image = get_sub_field('image'); ?>
                         <li class="media">
                             <?php if ($flowchart_image): ?>
