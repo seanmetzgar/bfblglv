@@ -7,7 +7,7 @@
                 <div class="col-md-2 col-12 footer-logo justify-content-center">
                     <img src="<?php echo get_template_directory_uri(); ?>/img/logos/bucks_logo_footer.png">
                 </div>
-                <nav class="col-md-6 col-12 footer-nav text-sm-center">
+                <nav class="col-md-6 col-12 footer-nav text-center text-md-left">
                     <h3>Navigate</h3>
                     <?php
                         wp_nav_menu([
@@ -17,7 +17,7 @@
                         ]);
                     ?>
                 </nav>
-                <div class="col-md-4 col-12 footer-newsletter text-sm-center">
+                <div class="col-md-4 col-12 footer-newsletter text-center text-md-right">
                     <h3>Connect with us</h3>
                     <p>[newsletter signup placeholder]</p>
                 </div>
