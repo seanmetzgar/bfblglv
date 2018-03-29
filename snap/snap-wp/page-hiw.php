@@ -17,7 +17,7 @@ get_header(); ?>
                     <ul class="flowchart">
                         <?php while ( have_rows('flowchart_steps') ) :
                             the_row(); $flowchart_image = get_sub_field('image'); ?>
-                        <li class="media">
+                        <li class="media my-3">
                             <?php if ($flowchart_image): ?>
                             <img class="mr-3" src="<?php echo $flowchart_image; ?>">
                             <?php else: ?>
