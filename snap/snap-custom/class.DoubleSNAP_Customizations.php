@@ -5,7 +5,7 @@ class DoubleSNAP_Customizations {
 	private static $resources_type_name = "resources";
 	private static $faq_type_name = "faq";
     private static $testimonials_type_name = "testimonials";
-    
+
     private static $resources_taxonomy_name = "resource_type";
 	private static $faq_taxonomy_name = "faq_type";
 

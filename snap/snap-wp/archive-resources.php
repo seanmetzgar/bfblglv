@@ -15,7 +15,7 @@
                     'posts_per_page'         => '-1',
                     'tax_query'              => array(
                     array(
-                    'taxonomy'         => 'sponsor_type',
+                    'taxonomy'         => 'resource_type',
                     'terms'            => 'community-partners',
                     'field'            => 'slug',
                     ),
@@ -46,7 +46,7 @@
                         'posts_per_page'         => '-1',
                         'tax_query'              => array(
                             array(
-                                'taxonomy'         => 'sponsor_type',
+                                'taxonomy'         => 'resource_type',
                                 'terms'            => 'vendors',
                                 'field'            => 'slug',
                             ),
