@@ -332,3 +332,19 @@ article.faq {
     }
   }
 }
+
+/** Resources **/
+.resource-list {
+  .list-group-item {
+    padding-right: 3rem;
+    position: relative;
+
+    i {
+      position: absolute;
+      right: .5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $primary;
+    }
+  }
+}

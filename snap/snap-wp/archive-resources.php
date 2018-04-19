@@ -7,7 +7,7 @@
         <div class="row justify-content-center mb-4">
             <div class="col-lg-5 col-md-6">
                 <h5 class="text-center">Community Partners Resources</h5>
-                <div class="list-group">
+                <div class="list-group resource-list">
                 <?php
                     // WP_Query arguments
                     $args = array(
@@ -33,9 +33,15 @@
                             $file_type = is_array($file) ? "media" : (is_string($file) && strlen($file) > 0) ? "url" : false;
 
                             if ($file_type === "url"): ?>
-                            <a href="<?php echo $file; ?>" class="list-group-item list-group-item-action external" target="_blank"><?php the_title(); ?></a>
+                            <a href="<?php echo $file; ?>" class="list-group-item list-group-item-action external" target="_blank">
+                                <i class="ti-link"></i>
+                                <?php the_title(); ?>
+                            </a>
                             <?php elseif ($file_type === "media"): ?>
-                            <a href="<?php echo $file['url']; ?>" class="list-group-item list-group-item-action download" target="_blank"><?php the_title(); ?></a>
+                            <a href="<?php echo $file['url']; ?>" class="list-group-item list-group-item-action download" target="_blank">
+                                <i class="ti-download"></i>
+                                <?php the_title(); ?>
+                            </a>
                             <?php endif;
                         }
                     }
@@ -45,7 +51,7 @@
             </div>
             <div class="col-lg-5 col-md-6">
                 <h5 class="text-center">Vendor Resources</h5>
-                <div class="list-group">
+                <div class="list-group resource-list">
                     <?php
                     // WP_Query arguments
                     $args = array(
@@ -71,9 +77,15 @@
                             $file_type = is_array($file) ? "media" : (is_string($file) && strlen($file) > 0) ? "url" : false;
 
                             if ($file_type === "url"): ?>
-                                <a href="<?php echo $file; ?>" class="list-group-item list-group-item-action external" target="_blank"><?php the_title(); ?></a>
+                                <a href="<?php echo $file; ?>" class="list-group-item list-group-item-action external" target="_blank">
+                                    <i class="ti-link"></i>
+                                    <?php the_title(); ?>
+                                </a>
                             <?php elseif ($file_type === "media"): ?>
-                                <a href="<?php echo $file['url']; ?>" class="list-group-item list-group-item-action download" target="_blank"><?php the_title(); ?></a>
+                                <a href="<?php echo $file['url']; ?>" class="list-group-item list-group-item-action download" target="_blank">
+                                    <i class="ti-download"></i>
+                                    <?php the_title(); ?>
+                                </a>
                             <?php endif;
                         }
                     }
