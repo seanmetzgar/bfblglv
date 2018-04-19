@@ -4,7 +4,7 @@
             <h1 class="entry-title my-0">Resources</h1>
         </header>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mb-4">
             <div class="col-lg-5 col-md-6">
                 <h4>Community Partners Resources</h4>
                 <div class="list-group">
