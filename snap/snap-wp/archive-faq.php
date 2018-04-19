@@ -9,9 +9,9 @@
             <article class="card">
                 <div class="card-header" id="heading-<?php the_ID(); ?>">
                     <a href="#post-<?php the_ID(); ?>" class="collapsed accordion-link" data-toggle="collapse" data-target="#post-<?php the_ID(); ?>" aria-expanded="true" aria-controls="heading-<?php the_ID(); ?>">
-                        <h4>
+                        <h5 class="entry-title">
                             <?php the_title(); ?>
-                        </h4>
+                        </h5>
                     </a>
                 </div>
                 <div id="post-<?php the_ID(); ?>" class="collapse" aria-labelledby="#heading-<?php the_ID(); ?>" data-parent="#faq-accordion">

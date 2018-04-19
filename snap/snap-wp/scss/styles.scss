@@ -316,14 +316,16 @@ article.faq {
     border-bottom: 0;
 
     .card-header {
-      .entry-title {
-        margin: 0;
-      }
+
       a {
         text-decoration: none;
 
         &:hover {
           text-decoration: none;
+        }
+
+        .entry-title {
+          margin: 0;
         }
       }
     }
