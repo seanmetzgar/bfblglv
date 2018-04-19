@@ -57,7 +57,7 @@ class DoubleSNAP_Customizations {
 			"hierarchical"			=> false,
 			"menu_position"			=> 6,
 			"menu_icon"				=> "dashicons-star-filled",
-			"supports"				=> array( "title", "editor", "excerpt", "thumbnail", "revisions" )
+			"supports"				=> array( "title", "revisions" )
 		);
 
 		$faq_type_name =			self::$faq_type_name;
