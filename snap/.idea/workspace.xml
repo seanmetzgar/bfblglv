@@ -106,8 +106,8 @@
       <file leaf-file-name="class.DoubleSNAP_Customizations.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/snap-custom/class.DoubleSNAP_Customizations.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="221" column="46" lean-forward="false" selection-start-line="221" selection-start-column="46" selection-end-line="221" selection-end-column="46" />
+            <state relative-caret-position="719">
+              <caret line="220" column="99" lean-forward="false" selection-start-line="220" selection-start-column="99" selection-end-line="220" selection-end-column="99" />
               <folding />
             </state>
           </provider>
@@ -321,12 +321,12 @@
       <workItem from="1521489314791" duration="9985000" />
       <workItem from="1521560832141" duration="26154000" />
       <workItem from="1521816466494" duration="10109000" />
-      <workItem from="1524163354588" duration="5943000" />
+      <workItem from="1524163354588" duration="6006000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52191000" />
+    <option name="totallyTimeSpent" value="52254000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -727,8 +727,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/snap-custom/class.DoubleSNAP_Customizations.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="221" column="46" lean-forward="false" selection-start-line="221" selection-start-column="46" selection-end-line="221" selection-end-column="46" />
+        <state relative-caret-position="719">
+          <caret line="220" column="99" lean-forward="false" selection-start-line="220" selection-start-column="99" selection-end-line="220" selection-end-column="99" />
           <folding />
         </state>
       </provider>
