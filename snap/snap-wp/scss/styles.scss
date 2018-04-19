@@ -309,14 +309,10 @@ article.faq {
 /** FAQ **/
 .faq-accordion {
   border: 1px solid $border-color;
+  border-bottom: 0;
 
   .card {
     border: 0;
-
-    .card:nth-last-child {
-      &.collapsed {
-        border-bottom: 0;
-      }
-    }
+    border-bottom: 1px solid $border-color;
   }
 }
