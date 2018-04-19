@@ -314,5 +314,18 @@ article.faq {
   .card {
     border: 1px solid $border-color;
     border-bottom: 0;
+
+    .card-header {
+      .entry-title {
+        margin: 0;
+      }
+      a {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
   }
 }
