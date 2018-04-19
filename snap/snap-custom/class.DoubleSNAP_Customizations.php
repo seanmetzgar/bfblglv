@@ -5,8 +5,7 @@ class DoubleSNAP_Customizations {
 	private static $resources_type_name = "resources";
 	private static $faq_type_name = "faq";
     private static $testimonials_type_name = "testimonials";
-
-	private static $old_taxonomy_name = "sponsor_type";
+    
     private static $resources_taxonomy_name = "resource_type";
 	private static $faq_taxonomy_name = "faq_type";
 
@@ -170,28 +169,6 @@ class DoubleSNAP_Customizations {
         );
 
 		/** Taxonomy Lables **/
-	    $old_taxonomy_labels = array(
-	        "name"              => _x( "Resource Type", "taxonomy general name" ),
-	        "singular_name"     => _x( "Resource Type", "taxonomy singular name" ),
-	        "search_items"      => __( "Search Resource Types" ),
-	        "all_items"         => __( "All Resource Types" ),
-	        "parent_item"       => __( "Parent Resource Type" ),
-	        "parent_item_colon" => __( "Parent Resource Type:" ),
-	        "edit_item"         => __( "Edit Resource Type" ),
-	        "update_item"       => __( "Update Resource Type" ),
-	        "add_new_item"      => __( "Add New Resource Type" ),
-	        "new_item_name"     => __( "New Resource Type Name" ),
-	        "menu_name"         => __( "Resource Types" ),
-	    );
-
-	    $old_taxonomy_args = array(
-	        "hierarchical"      => true,
-	        "labels"            => $old_taxonomy_labels,
-	        "show_ui"           => true,
-	        "show_admin_column" => true,
-	        "query_var"         => true,
-	    );
-
         $resources_taxonomy_labels = array(
             "name"              => _x( "Resource Type", "taxonomy general name" ),
             "singular_name"     => _x( "Resource Type", "taxonomy singular name" ),
@@ -240,7 +217,6 @@ class DoubleSNAP_Customizations {
 		register_post_type( $faq_type_name, $faq_type_args );
         register_post_type( $testimonials_type_name, $testimonials_type_args );
 
-        register_taxonomy( self::$old_taxonomy_name, array( $resources_type_name ), $old_taxonomy_args );
 		register_taxonomy( self::$resources_taxonomy_name, array( $resources_type_name ), $resources_taxonomy_args );
 		register_taxonomy( self::$faq_taxonomy_name, array( $faq_type_name ), $faq_taxonomy_args );
 
