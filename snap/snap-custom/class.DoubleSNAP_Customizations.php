@@ -6,7 +6,8 @@ class DoubleSNAP_Customizations {
 	private static $faq_type_name = "faq";
     private static $testimonials_type_name = "testimonials";
 
-	private static $resources_taxonomy_name = "sponsor_type";
+	private static $old_taxonomy_name = "sponsor_type";
+    private static $resources_taxonomy_name = "resource_type";
 	private static $faq_taxonomy_name = "faq_type";
 
 	public static function init() {
@@ -113,7 +114,43 @@ class DoubleSNAP_Customizations {
             "not_found"				=> __( "No testimonials found.", "snap-cust" ),
             "not_found_in_trash"	=> __( "No testimonials found in trash.", "snap-cust" )
         );
-            $testimonials_type_args =   array(
+        $testimonials_type_args =   array(
+            "labels"				=> $testimonials_type_labels,
+            "exclude_from_search"	=> true,
+            "public"				=> true,
+            "publicly_queryable"	=> true,
+            "show_ui"				=> true,
+            "show_in_nav_menus"		=> true,
+            "show_in_menu"			=> true,
+            "show_in_admin_bar"		=> true,
+            "query_var"				=> true,
+            "rewrite"				=> array( "slug" => $testimonials_type_name ),
+            "capability_type"		=> "post",
+            "has_archive"			=> false,
+            "hierarchical"			=> false,
+            "menu_position"			=> 6,
+            "menu_icon"				=> "dashicons-cart",
+            "supports"				=> array( "title", "revisions" )
+        );
+
+        $testimonials_type_name =   self::$testimonials_type_name;
+        $testimonials_type_labels =	array(
+            "name"					=> _x( "Testimonials", "post type general name", "snap-cust" ),
+            "singular_name"			=> _x( "Testimonial", "post type singular name", "snap-cust" ),
+            "menu_name"				=> _x( "Testimonials", "admin menu", "snap-cust" ),
+            "name_admin_bar"		=> _x( "Testimonials", "add new on admin bar", "snap-cust" ),
+            "add_new"				=> _x( "Add Testimonial", "shop", "snap-cust" ),
+            "add_new_item"			=> __( "Add Testimonial", "snap-cust" ),
+            "new_item"				=> __( "New Testimonial", "snap-cust" ),
+            "edit_item"				=> __( "Edit Testimonial", "snap-cust" ),
+            "view_item"				=> __( "View Testimonial", "snap-cust" ),
+            "all_items"				=> __( "All Testimonials", "snap-cust" ),
+            "search_items"			=> __( "Search Testimonials", "snap-cust" ),
+            "parent_item_colon"		=> __( "Parent Testimonial:", "snap-cust" ),
+            "not_found"				=> __( "No testimonials found.", "snap-cust" ),
+            "not_found_in_trash"	=> __( "No testimonials found in trash.", "snap-cust" )
+        );
+        $testimonials_type_args =   array(
             "labels"				=> $testimonials_type_labels,
             "exclude_from_search"	=> true,
             "public"				=> true,
@@ -133,7 +170,7 @@ class DoubleSNAP_Customizations {
         );
 
 		/** Taxonomy Lables **/
-	    $resources_taxonomy_labels = array(
+	    $old_taxonomy_labels = array(
 	        "name"              => _x( "Resource Type", "taxonomy general name" ),
 	        "singular_name"     => _x( "Resource Type", "taxonomy singular name" ),
 	        "search_items"      => __( "Search Resource Types" ),
@@ -147,13 +184,35 @@ class DoubleSNAP_Customizations {
 	        "menu_name"         => __( "Resource Types" ),
 	    );
 
-	    $resources_taxonomy_args = array(
+	    $old_taxonomy_args = array(
 	        "hierarchical"      => true,
-	        "labels"            => $resources_taxonomy_labels,
+	        "labels"            => $old_taxonomy_labels,
 	        "show_ui"           => true,
 	        "show_admin_column" => true,
 	        "query_var"         => true,
 	    );
+
+        $resources_taxonomy_labels = array(
+            "name"              => _x( "Resource Type", "taxonomy general name" ),
+            "singular_name"     => _x( "Resource Type", "taxonomy singular name" ),
+            "search_items"      => __( "Search Resource Types" ),
+            "all_items"         => __( "All Resource Types" ),
+            "parent_item"       => __( "Parent Resource Type" ),
+            "parent_item_colon" => __( "Parent Resource Type:" ),
+            "edit_item"         => __( "Edit Resource Type" ),
+            "update_item"       => __( "Update Resource Type" ),
+            "add_new_item"      => __( "Add New Resource Type" ),
+            "new_item_name"     => __( "New Resource Type Name" ),
+            "menu_name"         => __( "Resource Types" ),
+        );
+
+        $resources_taxonomy_args = array(
+            "hierarchical"      => true,
+            "labels"            => $resources_taxonomy_labels,
+            "show_ui"           => true,
+            "show_admin_column" => true,
+            "query_var"         => true,
+        );
 
 	    $faq_taxonomy_labels = array(
 	        "name"              => _x( "FAQ Type", "taxonomy general name" ),
@@ -181,6 +240,7 @@ class DoubleSNAP_Customizations {
 		register_post_type( $faq_type_name, $faq_type_args );
         register_post_type( $testimonials_type_name, $testimonials_type_args );
 
+        register_taxonomy( self::$old_taxonomy_name, array( $resources_type_name ), $old_taxonomy_args );
 		register_taxonomy( self::$resources_taxonomy_name, array( $resources_type_name ), $resources_taxonomy_args );
 		register_taxonomy( self::$faq_taxonomy_name, array( $faq_type_name ), $faq_taxonomy_args );
 
