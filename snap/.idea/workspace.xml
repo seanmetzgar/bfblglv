@@ -61,19 +61,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="archive-faq.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="archive-faq.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/snap-wp/archive-faq.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="47" lean-forward="false" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+            <state relative-caret-position="187">
+              <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
               <folding>
-                <marker date="1524164688058" expanded="true" signature="492:531" ph="..." />
+                <marker date="1524165093973" expanded="true" signature="650:679" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/snap-wp/functions.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="810">
@@ -202,8 +202,8 @@
         <option value="$PROJECT_DIR$/snap-wp/footer.php" />
         <option value="$PROJECT_DIR$/snap-wp/scss/styles.scss" />
         <option value="$PROJECT_DIR$/snap-wp/entry-faq.php" />
-        <option value="$PROJECT_DIR$/snap-wp/archive-faq.php" />
         <option value="$PROJECT_DIR$/snap-wp/functions.php" />
+        <option value="$PROJECT_DIR$/snap-wp/archive-faq.php" />
       </list>
     </option>
   </component>
@@ -319,12 +319,12 @@
       <workItem from="1521489314791" duration="9985000" />
       <workItem from="1521560832141" duration="26154000" />
       <workItem from="1521816466494" duration="10109000" />
-      <workItem from="1524163354588" duration="1551000" />
+      <workItem from="1524163354588" duration="1741000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47799000" />
+    <option name="totallyTimeSpent" value="47989000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -686,16 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snap-wp/archive-faq.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="47" lean-forward="false" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-          <folding>
-            <marker date="1524164688058" expanded="true" signature="492:531" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snap-custom/class.DoubleSNAP_Customizations.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1615">
@@ -709,6 +699,16 @@
         <state relative-caret-position="810">
           <caret line="91" column="42" lean-forward="false" selection-start-line="91" selection-start-column="42" selection-end-line="91" selection-end-column="42" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snap-wp/archive-faq.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding>
+            <marker date="1524165093973" expanded="true" signature="650:679" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
