@@ -219,6 +219,7 @@ class DoubleSNAP_Customizations {
 
 		register_taxonomy( self::$resources_taxonomy_name, array( $resources_type_name ), $resources_taxonomy_args );
 		register_taxonomy( self::$faq_taxonomy_name, array( $faq_type_name ), $faq_taxonomy_args );
+        unregister_taxonomy( "sponsor_type" );
 
 		// Clear the permalinks after the post type has been registered
 		flush_rewrite_rules();
