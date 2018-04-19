@@ -6,7 +6,7 @@
 
         <div class="row justify-content-center mb-4">
             <div class="col-lg-5 col-md-6">
-                <h4 class="text-center">Community Partners Resources</h4>
+                <h5 class="text-center">Community Partners Resources</h5>
                 <div class="list-group">
                 <?php
                     // WP_Query arguments
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="col-lg-5 col-md-6">
-                <h4 class="text-center">Vendor Resources</h4>
+                <h5 class="text-center">Vendor Resources</h5>
                 <div class="list-group">
                     <?php
                     // WP_Query arguments
