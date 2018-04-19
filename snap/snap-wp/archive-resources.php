@@ -7,7 +7,7 @@
         <div class="row justify-content-center mb-4">
             <div class="col-lg-5 col-md-6">
                 <h5 class="text-center">Community Partners Resources</h5>
-                <div class="list-group resource-list">
+                <div class="list-group resource-list mb-3">
                 <?php
                     // WP_Query arguments
                     $args = array(
@@ -51,7 +51,7 @@
             </div>
             <div class="col-lg-5 col-md-6">
                 <h5 class="text-center">Vendor Resources</h5>
-                <div class="list-group resource-list">
+                <div class="list-group resource-list mb-3">
                     <?php
                     // WP_Query arguments
                     $args = array(
