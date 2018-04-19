@@ -28,9 +28,16 @@
                     // The Loop
                     if ( $query->have_posts() ) {
                         while ( $query->have_posts() ) {
-                            $query->the_post(); ?>
-                            <a href="<?php the_permalink(); ?>" class="list-group-item list-group-item-action"><?php the_title(); ?></a>
-                        <?php }
+                            $query->the_post();
+                            $file = get_field('resource_link');
+                            $file_type = is_array($file) ? "media" : (is_string($file) && strlen($file) > 0) ? "url" : false;
+
+                            if ($file_type === "url"): ?>
+                            <a href="<?php echo $file; ?>" class="list-group-item list-group-item-action external" target="_blank"><?php the_title(); ?></a>
+                            <?php elseif ($file_type === "media"): ?>
+                            <a href="<?php echo $file['url']; ?>" class="list-group-item list-group-item-action download" target="_blank"><?php the_title(); ?></a>
+                            <?php endif;
+                        }
                     }
                     wp_reset_postdata();
                 ?>
@@ -59,9 +66,16 @@
                     // The Loop
                     if ( $query->have_posts() ) {
                         while ( $query->have_posts() ) {
-                            $query->the_post(); ?>
-                            <a href="<?php the_permalink(); ?>" class="list-group-item list-group-item-action"><?php the_title(); ?></a>
-                        <?php }
+                            $query->the_post();
+                            $file = get_field('resource_link');
+                            $file_type = is_array($file) ? "media" : (is_string($file) && strlen($file) > 0) ? "url" : false;
+
+                            if ($file_type === "url"): ?>
+                                <a href="<?php echo $file; ?>" class="list-group-item list-group-item-action external" target="_blank"><?php the_title(); ?></a>
+                            <?php elseif ($file_type === "media"): ?>
+                                <a href="<?php echo $file['url']; ?>" class="list-group-item list-group-item-action download" target="_blank"><?php the_title(); ?></a>
+                            <?php endif;
+                        }
                     }
                     wp_reset_postdata();
                     ?>
