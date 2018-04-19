@@ -309,8 +309,10 @@ article.faq {
 /** FAQ **/
 .faq-accordion {
   border: 0;
+  border-bottom: 1px solid $border-color;
 
   .card {
     border: 1px solid $border-color;
+    border-bottom: 0;
   }
 }
