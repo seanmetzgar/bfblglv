@@ -280,7 +280,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="SearchEverywhereHistoryKey" value="header.php&#9;FILE&#9;file:///Users/sean/Documents/Git/snap/snap-wp/header.php" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bfblglv-wp" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -316,12 +316,12 @@
       <workItem from="1521560832141" duration="26154000" />
       <workItem from="1521816466494" duration="10109000" />
       <workItem from="1524163354588" duration="8684000" />
-      <workItem from="1524534021217" duration="234000" />
+      <workItem from="1524534021217" duration="1178000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55166000" />
+    <option name="totallyTimeSpent" value="56110000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
