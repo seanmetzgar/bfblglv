@@ -12,7 +12,10 @@ function snap_setup()
     global $content_width;
     if ( ! isset( $content_width ) ) $content_width = 640;
     register_nav_menus(
-        array( 'main-menu' => __( 'Main Menu', 'snap-wp' ) )
+        array(
+            'main-menu' => __( 'Main Menu', 'snap-wp' ),
+            'footer-menu' => __( 'Footer Menu', 'snap-wp' )
+        )
     );
 }
 add_action( 'wp_enqueue_scripts', 'snap_load_scripts' );
