@@ -11,7 +11,7 @@
                     <h3>Navigate</h3>
                     <?php
                         wp_nav_menu([
-                            'theme_location'  => 'main-menu',
+                            'theme_location'  => 'footer-menu',
                             'container'       => false,
                             'depth'           => 1
                         ]);
