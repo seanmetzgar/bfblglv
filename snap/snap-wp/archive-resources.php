@@ -33,12 +33,12 @@
                             $is_external = is_bool($is_external) ? $is_external : true;
                             $file = get_field('resource_link');
 
-                            if ($is_external): ?>
+                            if ($is_external && strlen($file)): ?>
                             <a href="<?php echo $file; ?>" class="list-group-item list-group-item-action external" target="_blank">
                                 <i class="ti-link"></i>
                                 <?php the_title(); ?>
                             </a>
-                            <?php else: ?>
+                            <?php elseif (!$is_external && is_array($file)): ?>
                             <a href="<?php echo $file['url']; ?>" class="list-group-item list-group-item-action download" target="_blank">
                                 <i class="ti-download"></i>
                                 <?php the_title(); ?>
