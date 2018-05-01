@@ -24,8 +24,8 @@
       <file leaf-file-name="page_find-local-food.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/page_find-local-food.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="199" column="30" lean-forward="true" selection-start-line="195" selection-start-column="20" selection-end-line="199" selection-end-column="30" />
+            <state relative-caret-position="663">
+              <caret line="198" column="47" lean-forward="false" selection-start-line="198" selection-start-column="47" selection-end-line="198" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -113,6 +113,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/inc/_inc_ajax_getPartners.php" />
+        <option value="$PROJECT_DIR$/page_find-local-food.php" />
       </list>
     </option>
   </component>
@@ -214,12 +215,12 @@
       <option name="presentableId" value="Default" />
       <updated>1524534599703</updated>
       <workItem from="1524534600816" duration="2543000" />
-      <workItem from="1525145359221" duration="3215000" />
+      <workItem from="1525145359221" duration="3867000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5758000" />
+    <option name="totallyTimeSpent" value="6410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="263" y="23" width="1400" height="1000" extended-state="0" />
@@ -330,8 +331,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/page_find-local-food.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="199" column="30" lean-forward="true" selection-start-line="195" selection-start-column="20" selection-end-line="199" selection-end-column="30" />
+        <state relative-caret-position="663">
+          <caret line="198" column="47" lean-forward="false" selection-start-line="198" selection-start-column="47" selection-end-line="198" selection-end-column="47" />
           <folding />
         </state>
       </provider>

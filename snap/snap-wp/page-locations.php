@@ -18,7 +18,7 @@ get_header(); ?>
                 <section class="entry-content">
                     <?php the_content(); ?>
                     <section class="finder-search-results page-block">
-                        <ul class="results-list"></ul><!-- end ul.results-list -->
+                        <ul class="results-list list-group list-group-flush"></ul><!-- end ul.results-list -->
                     </section>
                 </section>
             </article>
