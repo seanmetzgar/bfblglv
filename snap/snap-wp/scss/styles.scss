@@ -326,6 +326,7 @@ article.faq {
           margin: 0;
 
           &:before {
+            font-family: 'themify';
             content: "\e622";
             transform: rotate(90deg);
             transition: all 0.15s ease-in-out;
@@ -334,7 +335,7 @@ article.faq {
 
         &:hover, &.collapsed {
           text-decoration: none;
-          
+
           .entry-title {
             &:before {
               content: "\e61a";

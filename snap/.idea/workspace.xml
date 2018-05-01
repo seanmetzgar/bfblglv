@@ -14,8 +14,8 @@
       <file leaf-file-name="styles.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/snap-wp/scss/styles.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="336" column="10" lean-forward="false" selection-start-line="336" selection-start-column="10" selection-end-line="336" selection-end-column="10" />
+            <state relative-caret-position="631">
+              <caret line="328" column="33" lean-forward="false" selection-start-line="328" selection-start-column="26" selection-end-line="328" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -126,7 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>argv</find>
       <find>overwri</find>
       <find>doublesnap-custom</find>
       <find>../fonts/</find>
@@ -156,6 +155,7 @@
       <find>rounded</find>
       <find>border</find>
       <find>$testimonials_type</find>
+      <find>themify</find>
     </findStrings>
     <replaceStrings>
       <replace>'snap-wp'</replace>
@@ -329,7 +329,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57069000" />
+    <option name="totallyTimeSpent" value="57190000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -724,8 +724,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/snap-wp/scss/styles.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="336" column="10" lean-forward="false" selection-start-line="336" selection-start-column="10" selection-end-line="336" selection-end-column="10" />
+        <state relative-caret-position="631">
+          <caret line="328" column="33" lean-forward="false" selection-start-line="328" selection-start-column="26" selection-end-line="328" selection-end-column="33" />
           <folding />
         </state>
       </provider>
