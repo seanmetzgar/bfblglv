@@ -6,10 +6,14 @@ var $chips = null;
 jQuery(document).ready(function ($) {
     "use strict";
 
-    //Find Local Food Form
     var formObject = new Object();
-    formObject.doublesnap = "true";
-    formObject.action = "xhrGetPartners";
-    xhrGetPartners(formObject);
+
+    //Find Local Food Form
+    if ($('.acf-map').length) {
+
+        formObject.doublesnap = "true";
+        formObject.action = "xhrGetPartners";
+        xhrGetPartners(formObject);
+    }
 
 }); // end document ready
