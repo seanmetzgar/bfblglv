@@ -20,10 +20,10 @@
                 <div class="col-md-4 col-12 footer-newsletter text-center text-md-right">
                     <h3>Connect with us</h3>
                     <ul class="social-icons">
-                        <li><a href="https://www.facebook.com/BuyFreshBuyLocalGreaterLehighValley" target="_blank"><i class="ti-facebook"></i><span class="sr-only">Facebook</span></a></li>
-                        <li><a href="https://twitter.com/BFBLGLV" target="_blank"><i class="ti-twitter"></i><span class="sr-only">Twitter</span></a></li>
-                        <li><a href="https://www.youtube.com/user/BFBLGLV" target="_blank"><i class="ti-youtube"></i><span class="sr-only">YouTube</span></a></li>
-                        <li><a href="https://www.instagram.com/BFBLGLV" target="_blank"><i class="ti-instagram"></i><span class="sr-only">Instagram</span></a></li>
+                        <li class="mx-2 mx-sm-0 ml-sm-2"><a href="https://www.facebook.com/BuyFreshBuyLocalGreaterLehighValley" target="_blank"><i class="ti-facebook"></i><span class="sr-only">Facebook</span></a></li>
+                        <li class="mx-2 mx-sm-0 ml-sm-2"><a href="https://twitter.com/BFBLGLV" target="_blank"><i class="ti-twitter"></i><span class="sr-only">Twitter</span></a></li>
+                        <li class="mx-2 mx-sm-0 ml-sm-2"><a href="https://www.youtube.com/user/BFBLGLV" target="_blank"><i class="ti-youtube"></i><span class="sr-only">YouTube</span></a></li>
+                        <li class="mx-2 mx-sm-0 ml-sm-2"><a href="https://www.instagram.com/BFBLGLV" target="_blank"><i class="ti-instagram"></i><span class="sr-only">Instagram</span></a></li>
                     </ul>
                 </div>
             </div>
