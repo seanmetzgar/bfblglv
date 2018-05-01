@@ -24,8 +24,8 @@ get_header(); ?>
         <?php endwhile; endif; ?>
     </section>
     <section class="container-fluid px-0">
-        <section class="finder-search-results page-block my-3 justify-content-center">
-            <div class="results-list list-group list-group-flush col-lg-10"></div><!-- end ul.results-list -->
+        <section class="finder-search-results page-block my-3 row justify-content-center">
+            <div class="results-list list-group list-group-flush col-lg-8 col-md-10"></div><!-- end ul.results-list -->
         </section>
     </section>
 <?php get_footer(); ?>
