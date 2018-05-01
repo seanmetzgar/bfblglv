@@ -64,8 +64,8 @@
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="67" column="99" lean-forward="false" selection-start-line="67" selection-start-column="39" selection-end-line="67" selection-end-column="99" />
+            <state relative-caret-position="306">
+              <caret line="66" column="80" lean-forward="true" selection-start-line="66" selection-start-column="80" selection-end-line="67" selection-end-column="101" />
               <folding />
             </state>
           </provider>
@@ -214,12 +214,12 @@
       <option name="presentableId" value="Default" />
       <updated>1524534599703</updated>
       <workItem from="1524534600816" duration="2543000" />
-      <workItem from="1525145359221" duration="2238000" />
+      <workItem from="1525145359221" duration="2403000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4781000" />
+    <option name="totallyTimeSpent" value="4946000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="263" y="23" width="1400" height="1000" extended-state="0" />
@@ -330,8 +330,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="67" column="99" lean-forward="false" selection-start-line="67" selection-start-column="39" selection-end-line="67" selection-end-column="99" />
+        <state relative-caret-position="306">
+          <caret line="66" column="80" lean-forward="true" selection-start-line="66" selection-start-column="80" selection-end-line="67" selection-end-column="101" />
           <folding />
         </state>
       </provider>
