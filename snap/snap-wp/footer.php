@@ -24,7 +24,6 @@
                         <li><a href="https://twitter.com/BFBLGLV" target="_blank"><i class="ti-twitter"></i><span class="sr-only">Twitter</span></a></li>
                         <li><a href="https://www.youtube.com/user/BFBLGLV" target="_blank"><i class="ti-youtube"></i><span class="sr-only">YouTube</span></a></li>
                         <li><a href="https://www.instagram.com/BFBLGLV" target="_blank"><i class="ti-instagram"></i><span class="sr-only">Instagram</span></a></li>
-
                     </ul>
                 </div>
             </div>
