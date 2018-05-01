@@ -41,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="archive-faq.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="archive-faq.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/snap-wp/archive-faq.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="42" lean-forward="false" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+            <state relative-caret-position="153">
+              <caret line="9" column="52" lean-forward="false" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -81,7 +81,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page-locations.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="page-locations.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/snap-wp/page-locations.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
@@ -195,8 +195,8 @@
         <option value="$PROJECT_DIR$/snap-wp/js/src/plugins.js" />
         <option value="$PROJECT_DIR$/snap-wp/fonts/fonts.css" />
         <option value="$PROJECT_DIR$/snap-wp/scss/styles.scss" />
-        <option value="$PROJECT_DIR$/snap-wp/archive-faq.php" />
         <option value="$PROJECT_DIR$/snap-wp/page-locations.php" />
+        <option value="$PROJECT_DIR$/snap-wp/archive-faq.php" />
       </list>
     </option>
   </component>
@@ -340,7 +340,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64904000" />
+    <option name="totallyTimeSpent" value="65014000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -744,18 +744,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snap-wp/archive-faq.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="42" lean-forward="false" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snap-wp/page-locations.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="83" lean-forward="false" selection-start-line="27" selection-start-column="83" selection-end-line="27" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snap-wp/archive-faq.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="52" lean-forward="false" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
           <folding />
         </state>
       </provider>
