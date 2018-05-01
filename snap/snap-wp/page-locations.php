@@ -24,7 +24,7 @@ get_header(); ?>
         <?php endwhile; endif; ?>
     </section>
     <section class="container-fluid px-0">
-        <section class="row finder-search-results page-block my-3">
+        <section class="finder-search-results page-block my-3">
             <div class="results-list list-group list-group-flush"></div><!-- end ul.results-list -->
         </section>
     </section>
