@@ -66,7 +66,7 @@ function xhrGetPartnersHandler(mainData) {
             tempHTML = "";
         }
         if (tempName && tempURL) {
-            tempResultHTML = "<a class=\"list-group-item list-group-item-action\" href=\"" + tempURL + "\" target=\"_blank\">" + tempName + tempCity + "</a>";
+            tempResultHTML = "<a class=\"list-group-item\" href=\"" + tempURL + "\" target=\"_blank\">" + tempName + tempCity + "</a>";
             resultsHTML = resultsHTML + tempResultHTML;
         }
     });
