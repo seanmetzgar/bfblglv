@@ -107,7 +107,7 @@ function xhrGetPartners(formObject) {
     $currentXhrGetPartners = $.ajax({
         type: "post",
         dataType: "json",
-        url: SnapAJAX.ajaxUrl,
+        url: SnapAJAX.remoteURL,
         data: formObject,
         success: xhrGetPartnersHandler,
         error: xhrGetPartnersError,

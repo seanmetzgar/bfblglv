@@ -29,7 +29,7 @@ function snap_load_scripts()
     wp_register_style('snap-fonts', "$template_path/fonts/fonts.css");
     wp_register_style('snap-css', "$template_path/css/dist/all.css");
 
-    wp_localize_script("snap-js", "SnapAJAX", array( "ajaxUrl" => admin_url("admin-ajax.php")));
+    wp_localize_script("snap-js", "SnapAJAX", array( "remoteURL" => "http://www.buylocalglv.org/wp-admin/admin-ajax.php"));
 
 
     wp_enqueue_script("snap-acf-gmaps");
