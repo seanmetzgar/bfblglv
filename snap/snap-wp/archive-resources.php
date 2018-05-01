@@ -29,15 +29,16 @@
                     if ( $query->have_posts() ) {
                         while ( $query->have_posts() ) {
                             $query->the_post();
+                            $is_external = get_field('external_link');
+                            $is_external = is_bool($is_external) ? $is_external : true;
                             $file = get_field('resource_link');
-                            $file_type = is_array($file) ? "media" : (is_string($file) && strlen($file) > 0) ? "url" : false;
 
-                            if ($file_type === "url"): ?>
+                            if ($is_external): ?>
                             <a href="<?php echo $file; ?>" class="list-group-item list-group-item-action external" target="_blank">
                                 <i class="ti-link"></i>
                                 <?php the_title(); ?>
                             </a>
-                            <?php elseif ($file_type === "media"): ?>
+                            <?php else: ?>
                             <a href="<?php echo $file['url']; ?>" class="list-group-item list-group-item-action download" target="_blank">
                                 <i class="ti-download"></i>
                                 <?php the_title(); ?>
