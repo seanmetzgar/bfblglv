@@ -177,6 +177,7 @@ function getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism) {
 }
 
 function xhrGetPartners() {
+    header('Access-Control-Allow-Origin: *');
 	header('Content-Type: application/json');
 	//Setup Location Boundry Variables
 	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;

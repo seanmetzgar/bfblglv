@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_inc_ajax_getPartners.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_inc_ajax_getPartners.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inc/_inc_ajax_getPartners.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="961">
-              <caret line="271" column="35" lean-forward="false" selection-start-line="271" selection-start-column="22" selection-end-line="271" selection-end-column="35" />
+            <state relative-caret-position="98">
+              <caret line="179" column="45" lean-forward="false" selection-start-line="179" selection-start-column="45" selection-end-line="179" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -61,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="66" column="80" lean-forward="true" selection-start-line="66" selection-start-column="80" selection-end-line="67" selection-end-column="101" />
+              <caret line="66" column="80" lean-forward="false" selection-start-line="66" selection-start-column="80" selection-end-line="67" selection-end-column="101" />
               <folding />
             </state>
           </provider>
@@ -214,12 +214,12 @@
       <option name="presentableId" value="Default" />
       <updated>1524534599703</updated>
       <workItem from="1524534600816" duration="2543000" />
-      <workItem from="1525145359221" duration="2574000" />
+      <workItem from="1525145359221" duration="2932000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5117000" />
+    <option name="totallyTimeSpent" value="5475000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="263" y="23" width="1400" height="1000" extended-state="0" />
@@ -320,18 +320,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/_inc_ajax_getPartners.php">
+    <entry file="file://$PROJECT_DIR$/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="961">
-          <caret line="271" column="35" lean-forward="false" selection-start-line="271" selection-start-column="22" selection-end-line="271" selection-end-column="35" />
+        <state relative-caret-position="306">
+          <caret line="66" column="80" lean-forward="false" selection-start-line="66" selection-start-column="80" selection-end-line="67" selection-end-column="101" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functions.php">
+    <entry file="file://$PROJECT_DIR$/inc/_inc_ajax_getPartners.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="66" column="80" lean-forward="true" selection-start-line="66" selection-start-column="80" selection-end-line="67" selection-end-column="101" />
+        <state relative-caret-position="98">
+          <caret line="179" column="45" lean-forward="false" selection-start-line="179" selection-start-column="45" selection-end-line="179" selection-end-column="45" />
           <folding />
         </state>
       </provider>

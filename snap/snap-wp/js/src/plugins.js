@@ -39,10 +39,6 @@ function xhrGetPartnersHandler(mainData) {
             data = mainData.partners;
             resultsTotal = data.length;
         }
-
-        if (typeof mainData.specific === "object") {
-            specificData = mainData.specific;
-        }
     }
 
     resultsTotal = (isNaN(resultsTotal)) ? 0 : resultsTotal;
