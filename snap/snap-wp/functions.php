@@ -32,7 +32,7 @@ function snap_load_scripts()
 
     wp_enqueue_script("snap-acf-gmaps");
     wp_enqueue_script('jquery');
-    wp_enqueue_script('snap-js');
+    wp_enqueue_script('snap-js', "SnapAJAX", array( "ajaxUrl" => admin_url("admin-ajax.php")));
 
     wp_enqueue_style('snap-fonts');
     wp_enqueue_style('snap-css');

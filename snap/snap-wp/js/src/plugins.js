@@ -33,8 +33,6 @@ function xhrGetPartnersHandler(mainData) {
     var resultsTotal = 0;
     var data = [];
     var specificData = [];
-    var specificDataOptions = "";
-    var $specificProductsSelect = $(".chosen-specific-products");
 
     if (typeof mainData === "object") {
         if (typeof mainData.partners === "object") {
@@ -48,28 +46,6 @@ function xhrGetPartnersHandler(mainData) {
     }
 
     resultsTotal = (isNaN(resultsTotal)) ? 0 : resultsTotal;
-
-    // $specificProductsSelect.empty();
-    // $(specificData).each(function () {
-    //     var optionHtml = false;
-    //     var optionName = this.name;
-    //     var optionSelected = this.selected;
-    //     if (optionName.length > 0) {
-    //         optionHtml = "<option value=\"";
-    //         optionHtml += optionName;
-    //         optionHtml += "\"";
-    //         optionHtml += (optionSelected) ? " selected>" : ">";
-    //         optionHtml += optionName;
-    //         optionHtml += "</option>";
-    //     }
-    //     if (optionHtml !== false) {
-    //         $specificProductsSelect.append(optionHtml);
-    //     }
-    // });
-    // $specificProductsSelect.chosen("destroy");
-    // $specificProductsSelect.chosen({
-    //     "placeholder_text_multiple": "Select Products"
-    // });
 
     $(data).each(function () {
         var tempName = false;
@@ -131,7 +107,7 @@ function xhrGetPartners(formObject) {
     $currentXhrGetPartners = $.ajax({
         type: "post",
         dataType: "json",
-        url: KuduAJAX.ajaxUrl,
+        url: SnapAJAX.ajaxUrl,
         data: formObject,
         success: xhrGetPartnersHandler,
         error: xhrGetPartnersError,

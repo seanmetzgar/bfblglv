@@ -14,8 +14,8 @@
       <file leaf-file-name="_inc_ajax_getPartners.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/_inc_ajax_getPartners.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="226" column="60" lean-forward="false" selection-start-line="226" selection-start-column="60" selection-end-line="226" selection-end-column="60" />
+            <state relative-caret-position="961">
+              <caret line="271" column="35" lean-forward="false" selection-start-line="271" selection-start-column="22" selection-end-line="271" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -55,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/scripts/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+              <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -64,8 +64,18 @@
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="96" column="36" lean-forward="false" selection-start-line="96" selection-start-column="36" selection-end-line="96" selection-end-column="36" />
+            <state relative-caret-position="323">
+              <caret line="67" column="99" lean-forward="false" selection-start-line="67" selection-start-column="39" selection-end-line="67" selection-end-column="99" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_inc_ajax.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inc/_inc_ajax.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="286" column="25" lean-forward="false" selection-start-line="286" selection-start-column="25" selection-end-line="286" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -96,6 +106,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>acf-map</find>
+      <find>doublesnap</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -110,6 +121,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
@@ -200,12 +214,12 @@
       <option name="presentableId" value="Default" />
       <updated>1524534599703</updated>
       <workItem from="1524534600816" duration="2543000" />
-      <workItem from="1525145359221" duration="1268000" />
+      <workItem from="1525145359221" duration="2131000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3811000" />
+    <option name="totallyTimeSpent" value="4674000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="263" y="23" width="1400" height="1000" extended-state="0" />
@@ -246,14 +260,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/_inc_ajax_getPartners.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="226" column="60" lean-forward="false" selection-start-line="226" selection-start-column="60" selection-end-line="226" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -301,15 +307,31 @@
     <entry file="file://$PROJECT_DIR$/scripts/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/_inc_ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="286" column="25" lean-forward="false" selection-start-line="286" selection-start-column="25" selection-end-line="286" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/_inc_ajax_getPartners.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="961">
+          <caret line="271" column="35" lean-forward="false" selection-start-line="271" selection-start-column="22" selection-end-line="271" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="96" column="36" lean-forward="false" selection-start-line="96" selection-start-column="36" selection-end-line="96" selection-end-column="36" />
+        <state relative-caret-position="323">
+          <caret line="67" column="99" lean-forward="false" selection-start-line="67" selection-start-column="39" selection-end-line="67" selection-end-column="99" />
           <folding />
         </state>
       </provider>
