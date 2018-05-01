@@ -14,28 +14,28 @@
       <file leaf-file-name="_inc_ajax_getPartners.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/_inc_ajax_getPartners.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
+            <state relative-caret-position="3043">
               <caret line="179" column="45" lean-forward="false" selection-start-line="179" selection-start-column="45" selection-end-line="179" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page_find-local-food.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="page_find-local-food.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page_find-local-food.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="198" column="47" lean-forward="false" selection-start-line="198" selection-start-column="47" selection-end-line="198" selection-end-column="47" />
+            <state relative-caret-position="153">
+              <caret line="168" column="67" lean-forward="false" selection-start-line="168" selection-start-column="67" selection-end-line="168" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="2634" column="8" lean-forward="false" selection-start-line="2634" selection-start-column="1" selection-end-line="2634" selection-end-column="8" />
+            <state relative-caret-position="510">
+              <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="87" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -64,7 +64,7 @@
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="1122">
               <caret line="66" column="80" lean-forward="false" selection-start-line="66" selection-start-column="80" selection-end-line="67" selection-end-column="101" />
               <folding />
             </state>
@@ -74,7 +74,7 @@
       <file leaf-file-name="_inc_ajax.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/_inc_ajax.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
+            <state relative-caret-position="4862">
               <caret line="286" column="25" lean-forward="false" selection-start-line="286" selection-start-column="25" selection-end-line="286" selection-end-column="25" />
               <folding />
             </state>
@@ -107,6 +107,7 @@
     <findStrings>
       <find>acf-map</find>
       <find>doublesnap</find>
+      <find>.xhrAler</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -128,9 +129,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="263" />
-    <option name="y" value="23" />
-    <option name="width" value="1400" />
+    <option name="x" value="852" />
+    <option name="y" value="32" />
+    <option name="width" value="1066" />
     <option name="height" value="1000" />
   </component>
   <component name="ProjectView">
@@ -159,6 +160,11 @@
               <item name="bfblglv-wp" type="b2602c69:ProjectViewProjectNode" />
               <item name="bfblglv-wp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="bfblglv-wp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bfblglv-wp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="fonts" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="bfblglv-wp" type="b2602c69:ProjectViewProjectNode" />
@@ -216,17 +222,18 @@
       <updated>1524534599703</updated>
       <workItem from="1524534600816" duration="2543000" />
       <workItem from="1525145359221" duration="3867000" />
+      <workItem from="1525151488773" duration="802000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6410000" />
+    <option name="totallyTimeSpent" value="7212000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="263" y="23" width="1400" height="1000" extended-state="0" />
+    <frame x="852" y="32" width="1066" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25333333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -259,6 +266,78 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/inc/_inc_ajax_getPartners.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3043">
+          <caret line="179" column="45" lean-forward="false" selection-start-line="179" selection-start-column="45" selection-end-line="179" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44778">
+          <caret line="2634" column="8" lean-forward="false" selection-start-line="2634" selection-start-column="1" selection-end-line="2634" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/plugins.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="606" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="66" column="80" lean-forward="false" selection-start-line="66" selection-start-column="80" selection-end-line="67" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/_inc_ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4862">
+          <caret line="286" column="25" lean-forward="false" selection-start-line="286" selection-start-column="25" selection-end-line="286" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entry-parent-header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entry-partner-header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_find-local-food.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3366">
+          <caret line="198" column="47" lean-forward="false" selection-start-line="198" selection-start-column="47" selection-end-line="198" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/_inc_ajax_getPartners.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
@@ -281,14 +360,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="2634" column="8" lean-forward="false" selection-start-line="2634" selection-start-column="1" selection-end-line="2634" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/plugins.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -307,7 +378,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/_inc_ajax.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="4862">
           <caret line="286" column="25" lean-forward="false" selection-start-line="286" selection-start-column="25" selection-end-line="286" selection-end-column="25" />
           <folding />
         </state>
@@ -315,7 +386,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="1122">
           <caret line="66" column="80" lean-forward="false" selection-start-line="66" selection-start-column="80" selection-end-line="67" selection-end-column="101" />
           <folding />
         </state>
@@ -323,7 +394,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/_inc_ajax_getPartners.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
+        <state relative-caret-position="3043">
           <caret line="179" column="45" lean-forward="false" selection-start-line="179" selection-start-column="45" selection-end-line="179" selection-end-column="45" />
           <folding />
         </state>
@@ -331,8 +402,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/page_find-local-food.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="198" column="47" lean-forward="false" selection-start-line="198" selection-start-column="47" selection-end-line="198" selection-end-column="47" />
+        <state relative-caret-position="153">
+          <caret line="168" column="67" lean-forward="false" selection-start-line="168" selection-start-column="67" selection-end-line="168" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="87" selection-end-column="5" />
           <folding />
         </state>
       </provider>

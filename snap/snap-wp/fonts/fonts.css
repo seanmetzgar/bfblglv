@@ -35,6 +35,17 @@
 }
 
 @font-face {
+    font-family: 'bfbl-errors';
+    src: url('fontello/bfbl-errors.eot?53376286');
+    src: url('fontello/bfbl-errors.eot?53376286#iefix') format('embedded-opentype'),
+    url('fontello/bfbl-errors.woff?53376286') format('woff'),
+    url('fontello/bfbl-errors.ttf?53376286') format('truetype'),
+    url('fontello/bfbl-errors.svg?53376286#bfbl-errors') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'themify';
     src:url('themify/themify.eot?-fvbane');
     src:url('themify/themify.eot?#iefix-fvbane') format('embedded-opentype'),

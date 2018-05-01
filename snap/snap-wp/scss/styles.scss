@@ -390,3 +390,52 @@ article.faq {
     background-color: transparent;
   }
 }
+
+/** XHR Alerts */
+.xhrAlert, .xhrError {
+  display: inline-block;
+  white-space: nowrap;
+  background-color: #eee;
+  position: fixed;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 15px;
+  line-height: 17px;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: right;
+  font-weight: bold;
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+
+  &:before {
+    display: block;
+    width: 17px; height: 17px;
+    font-size: 15px; line-height: 17px;
+    float: left;
+    margin-right: 10px;
+    font-family: 'bfbl-errors';
+  }
+  &.active {
+    top: 75px;
+    opacity: 1;
+  }
+}
+.xhrAlert {
+  border-top: 3px solid #fcaf17;
+
+  &:before {
+    content: '\e831';
+  }
+}
+.xhrError {
+  border-top: 3px solid red;
+
+  &:before {
+    content: "\e800";
+  }
+}
