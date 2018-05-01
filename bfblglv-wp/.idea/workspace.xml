@@ -11,7 +11,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_inc_ajax_getPartners.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_inc_ajax_getPartners.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/_inc_ajax_getPartners.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="98">
@@ -21,11 +21,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page_find-local-food.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="page_find-local-food.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/page_find-local-food.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="83" column="47" lean-forward="false" selection-start-line="81" selection-start-column="12" selection-end-line="83" selection-end-column="47" />
+            <state relative-caret-position="680">
+              <caret line="199" column="30" lean-forward="true" selection-start-line="195" selection-start-column="20" selection-end-line="199" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -214,12 +214,12 @@
       <option name="presentableId" value="Default" />
       <updated>1524534599703</updated>
       <workItem from="1524534600816" duration="2543000" />
-      <workItem from="1525145359221" duration="2932000" />
+      <workItem from="1525145359221" duration="3215000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5475000" />
+    <option name="totallyTimeSpent" value="5758000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="263" y="23" width="1400" height="1000" extended-state="0" />
@@ -280,14 +280,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page_find-local-food.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="83" column="47" lean-forward="false" selection-start-line="81" selection-start-column="12" selection-end-line="83" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -332,6 +324,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
           <caret line="179" column="45" lean-forward="false" selection-start-line="179" selection-start-column="45" selection-end-line="179" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page_find-local-food.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="199" column="30" lean-forward="true" selection-start-line="195" selection-start-column="20" selection-end-line="199" selection-end-column="30" />
           <folding />
         </state>
       </provider>
