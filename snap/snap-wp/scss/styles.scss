@@ -328,8 +328,7 @@ article.faq {
           &:before {
             font-family: 'themify';
             content: "\e622";
-            transform: rotate(90deg);
-            transition: all 0.15s ease-in-out;
+            font-size: .75em;
           }
         }
 
@@ -339,7 +338,6 @@ article.faq {
           .entry-title {
             &:before {
               content: "\e61a";
-              transform: rotate(0deg);
             }
           }
         }
