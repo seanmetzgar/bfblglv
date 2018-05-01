@@ -328,6 +328,10 @@ article.faq {
 
         .entry-title {
           margin: 0;
+
+          &:before {
+            content: '+';
+          }
         }
       }
     }
