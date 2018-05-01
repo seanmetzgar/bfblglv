@@ -23,11 +23,14 @@ function snap_load_scripts()
 {
     $template_path = relative_template_path();
     wp_deregister_script( 'jquery' );
+    wp_register_script("snap-acf-gmaps", "//maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAC4IsuvpukJDywrNfJCTH9d-cLN9MAkgg");
     wp_register_script('jquery', "$template_path/js/vendor/jquery/jquery.min.js", array());
     wp_register_script('snap-js', "$template_path/js/dist/all.js", array('jquery'), false, true);
     wp_register_style('snap-fonts', "$template_path/fonts/fonts.css");
     wp_register_style('snap-css', "$template_path/css/dist/all.css");
 
+
+    wp_enqueue_script("snap-acf-gmaps");
     wp_enqueue_script('jquery');
     wp_enqueue_script('snap-js');
 
