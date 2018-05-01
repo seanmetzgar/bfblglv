@@ -332,9 +332,11 @@ article.faq {
           }
         }
 
-        &:hover, &.collapsed {
+        &:hover {
           text-decoration: none;
+        }
 
+        &.collapse {
           .entry-title {
             &:before {
               content: "\e61a";
