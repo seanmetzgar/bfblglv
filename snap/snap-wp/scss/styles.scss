@@ -421,8 +421,9 @@ article.faq {
     font-family: 'bfbl-errors';
   }
   &.active {
-    top: 75px;
+    top: 50%;
     opacity: 1;
+    transform: translateY(-50%);
   }
 }
 .xhrAlert {
