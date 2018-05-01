@@ -14,25 +14,15 @@
       <file leaf-file-name="styles.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/snap-wp/scss/styles.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="654">
-              <caret line="338" column="19" lean-forward="false" selection-start-line="338" selection-start-column="19" selection-end-line="338" selection-end-column="19" />
+            <state relative-caret-position="688">
+              <caret line="383" column="14" lean-forward="false" selection-start-line="383" selection-start-column="14" selection-end-line="383" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snap-wp/page.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="22" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="12" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_breakpoints.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snap-wp/scss/vendor/bootstrap/mixins/_breakpoints.scss">
+      <file leaf-file-name="all.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snap-wp/js/all.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -41,14 +31,52 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="archive-faq.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snap-wp/archive-faq.php">
+      <file leaf-file-name="plugins.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snap-wp/js/src/plugins.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="46" lean-forward="false" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-              <folding>
-                <marker date="1524536706293" expanded="true" signature="682:710" ph="..." />
-              </folding>
+            <state relative-caret-position="1992">
+              <caret line="606" column="3" lean-forward="false" selection-start-line="606" selection-start-column="3" selection-end-line="606" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snap-wp/js/src/scripts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="819">
+              <caret line="262" column="25" lean-forward="false" selection-start-line="262" selection-start-column="25" selection-end-line="262" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snap-wp/gulpfile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="103" column="30" lean-forward="false" selection-start-line="103" selection-start-column="30" selection-end-line="103" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page-hiw.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snap-wp/page-hiw.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="81" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="40" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page-locations.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snap-wp/page-locations.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -83,50 +111,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="entry-resources.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snap-wp/entry-resources.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="61" lean-forward="false" selection-start-line="0" selection-start-column="61" selection-end-line="0" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="single-resources.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snap-wp/single-resources.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="class.DoubleSNAP_Customizations.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snap-custom/class.DoubleSNAP_Customizations.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="59" column="54" lean-forward="false" selection-start-line="59" selection-start-column="54" selection-end-line="59" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="SCSS File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>overwri</find>
       <find>doublesnap-custom</find>
       <find>../fonts/</find>
       <find>font-size</find>
@@ -156,6 +153,7 @@
       <find>border</find>
       <find>$testimonials_type</find>
       <find>themify</find>
+      <find>media</find>
     </findStrings>
     <replaceStrings>
       <replace>'snap-wp'</replace>
@@ -174,7 +172,6 @@
         <option value="$PROJECT_DIR$/snap-wp/inc/_inc_helpers.php" />
         <option value="$PROJECT_DIR$/snap-wp/scss/inc/_variables.scss" />
         <option value="$PROJECT_DIR$/snap-custom/snap-custom.php" />
-        <option value="$PROJECT_DIR$/snap-wp/gulpfile.js" />
         <option value="$PROJECT_DIR$/snap-wp/fonts/fonts.css" />
         <option value="$PROJECT_DIR$/snap-wp/header.php" />
         <option value="$PROJECT_DIR$/snap-wp/front-page.php" />
@@ -205,6 +202,10 @@
         <option value="$PROJECT_DIR$/snap-wp/archive-resources.php" />
         <option value="$PROJECT_DIR$/snap-wp/functions.php" />
         <option value="$PROJECT_DIR$/snap-wp/footer.php" />
+        <option value="$PROJECT_DIR$/snap-wp/page-locations.php" />
+        <option value="$PROJECT_DIR$/snap-wp/js/src/plugins.js" />
+        <option value="$PROJECT_DIR$/snap-wp/js/src/scripts.js" />
+        <option value="$PROJECT_DIR$/snap-wp/gulpfile.js" />
         <option value="$PROJECT_DIR$/snap-wp/scss/styles.scss" />
       </list>
     </option>
@@ -259,6 +260,19 @@
               <item name="snap" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="snap-wp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="fonts" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snap" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snap" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="snap-wp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="snap" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snap" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="snap-wp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="snap" type="b2602c69:ProjectViewProjectNode" />
@@ -329,7 +343,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57590000" />
+    <option name="totallyTimeSpent" value="58710000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -373,32 +387,18 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/snap-wp/page-locations.php</url>
+          <line>15</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/snap-wp/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snap-wp/node_modules/jquery/dist/jquery.js" />
-    <entry file="file://$PROJECT_DIR$/snap-wp/inc/_inc_helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="48" column="4" lean-forward="false" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snap-wp/js/src/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snap-wp/scss/vendor/bootstrap/bootstrap.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -441,13 +441,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51817">
           <caret line="2297" column="36" lean-forward="false" selection-start-line="2297" selection-start-column="22" selection-end-line="2297" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snap-wp/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
-          <caret line="48" column="34" lean-forward="false" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -598,13 +591,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snap-wp/page-hiw.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="81" lean-forward="false" selection-start-line="18" selection-start-column="81" selection-end-line="18" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snap-wp/scss/inc/_variables.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -722,10 +708,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/snap-wp/page-hiw.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="81" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="40" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snap-wp/page-locations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snap-wp/js/all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snap-wp/js/src/plugins.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1992">
+          <caret line="606" column="3" lean-forward="false" selection-start-line="606" selection-start-column="3" selection-end-line="606" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snap-wp/js/src/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="819">
+          <caret line="262" column="25" lean-forward="false" selection-start-line="262" selection-start-column="25" selection-end-line="262" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snap-wp/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="103" column="30" lean-forward="false" selection-start-line="103" selection-start-column="30" selection-end-line="103" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/snap-wp/scss/styles.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
-          <caret line="338" column="19" lean-forward="false" selection-start-line="338" selection-start-column="19" selection-end-line="338" selection-end-column="19" />
+        <state relative-caret-position="688">
+          <caret line="383" column="14" lean-forward="false" selection-start-line="383" selection-start-column="14" selection-end-line="383" selection-end-column="14" />
           <folding />
         </state>
       </provider>

@@ -363,3 +363,25 @@ article.faq {
     }
   }
 }
+
+
+/** Locations **/
+.acf-map-wrap {
+  background-color: transparent;
+  padding: 0;
+
+  .acf-map {
+    width: auto;
+    height: 250px;
+
+    img {
+      max-width: inherit !important;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    .acf-map {
+      height: 320px;
+    }
+  }
+}
