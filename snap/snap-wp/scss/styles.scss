@@ -322,15 +322,24 @@ article.faq {
       a {
         text-decoration: none;
 
-        &:hover {
-          text-decoration: none;
-        }
-
         .entry-title {
           margin: 0;
 
           &:before {
-            content: '+';
+            content: "\e622";
+            transform: rotate(90deg);
+            transition: all 0.15s ease-in-out;
+          }
+        }
+
+        &:hover, &.collapsed {
+          text-decoration: none;
+          
+          .entry-title {
+            &:before {
+              content: "\e61a";
+              transform: rotate(0deg);
+            }
           }
         }
       }
