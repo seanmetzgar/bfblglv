@@ -110,6 +110,14 @@ h2 {
 
     }
   }
+
+  .social-icons {
+    li {
+      display: inline-block;
+      font-size: 20px;
+      margin-left: 1em
+    }
+  }
 }
 
 /** Core **/
@@ -303,5 +311,139 @@ article.faq {
     > *:last-child {
       margin-bottom: 0;
     }
+  }
+}
+
+/** FAQ **/
+.faq-accordion {
+  border: 0;
+  margin-bottom: 2rem;
+
+  .card {
+    border: 0;
+    border-bottom: 1px solid $border-color;
+    background-color: transparent;
+
+    .card-header {
+      border: 0;
+      background-color: transparent;
+      a {
+        text-decoration: none;
+
+        .entry-title {
+          margin: 0;
+
+          &:before {
+            font-family: 'themify';
+            content: "\e622";
+            font-size: .75em;
+          }
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        &.collapsed {
+          .entry-title {
+            &:before {
+              content: "\e61a";
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/** Resources **/
+.resource-list {
+  .list-group-item {
+    padding-right: 3rem;
+    position: relative;
+
+    i {
+      position: absolute;
+      right: .5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $primary;
+    }
+  }
+}
+
+
+/** Locations **/
+.acf-map-wrap {
+  background-color: transparent;
+  padding: 0;
+
+  .acf-map {
+    width: auto;
+    height: 250px;
+
+    img {
+      max-width: inherit !important;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    .acf-map {
+      height: 320px;
+    }
+  }
+}
+.results-list {
+  .list-group-item {
+    background-color: transparent;
+  }
+}
+
+/** XHR Alerts */
+.xhrAlert, .xhrError {
+  display: inline-block;
+  white-space: nowrap;
+  background-color: #eee;
+  position: fixed;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 15px;
+  line-height: 17px;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: right;
+  font-weight: bold;
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+
+  &:before {
+    display: block;
+    width: 17px; height: 17px;
+    font-size: 15px; line-height: 17px;
+    float: left;
+    margin-right: 10px;
+    font-family: 'bfbl-errors';
+  }
+  &.active {
+    top: 120px;
+    opacity: 1;
+  }
+}
+.xhrAlert {
+  border-top: 3px solid #fcaf17;
+
+  &:before {
+    content: '\e831';
+  }
+}
+.xhrError {
+  border-top: 3px solid red;
+
+  &:before {
+    content: "\e800";
   }
 }

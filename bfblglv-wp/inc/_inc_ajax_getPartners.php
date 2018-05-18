@@ -177,6 +177,7 @@ function getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism) {
 }
 
 function xhrGetPartners() {
+    header('Access-Control-Allow-Origin: *');
 	header('Content-Type: application/json');
 	//Setup Location Boundry Variables
 	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;
@@ -219,6 +220,10 @@ function xhrGetPartners() {
 							? $_REQUEST["specific_products"] : false;
 
 	//Other Checkboxes ($_REQUEST)
+    $doublesnap =       (isset($_REQUEST["doublesnap"]) &&
+                        ($_REQUEST["doublesnap"] == "true" ||
+                        $_REQUEST["doublesnap"] == "1"))
+                            ? true : false;
 	$wholesale = 		(isset($_REQUEST["wholesale"]) &&
 						($_REQUEST["wholesale"] == "true" ||
 						$_REQUEST["wholesale"] == "1"))
@@ -254,6 +259,7 @@ function xhrGetPartners() {
 	// 	} else { $productTypes = array("agritourism"); }
 	// }
 
+
 	//Wholesaler Meta Query
 	$wholesalerMetaQuery = ($wholesale) ?
 		array(
@@ -262,14 +268,25 @@ function xhrGetPartners() {
 			"compare" => "="
 		) : false;
 
+	$doublesnapMetaQuery = ($doublesnap) ?
+        array(
+            "key" => "is_doublesnap",
+            "value" => "1",
+            "compare" => "="
+        ) : false;
+
 	//Build Full Meta Query
-	if ($wholesalerMetaQuery || $pseudoLocationTypeMetaQuery) {
+	if ($wholesalerMetaQuery || $doublesnapMetaQuery || $pseudoLocationTypeMetaQuery) {
 		$metaQuery = array("relation" => "AND");
 		$pseudoMetaQuery = array("relation" => "AND");
 		if ($wholesalerMetaQuery) {
 			array_push($metaQuery, $wholesalerMetaQuery);
 			array_push($pseudoMetaQuery, $wholesalerMetaQuery);
 		}
+		if ($doublesnapMetaQuery) {
+            array_push($metaQuery, $doublesnapMetaQuery);
+            array_push($pseudoMetaQuery, $doublesnapMetaQuery);
+        }
 		if ($pseudoLocationTypeMetaQuery) {
 			array_push($pseudoMetaQuery, $pseudoLocationTypeMetaQuery);
 		}

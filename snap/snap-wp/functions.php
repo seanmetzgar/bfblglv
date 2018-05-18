@@ -12,7 +12,10 @@ function snap_setup()
     global $content_width;
     if ( ! isset( $content_width ) ) $content_width = 640;
     register_nav_menus(
-        array( 'main-menu' => __( 'Main Menu', 'snap-wp' ) )
+        array(
+            'main-menu' => __( 'Main Menu', 'snap-wp' ),
+            'footer-menu' => __( 'Footer Menu', 'snap-wp' )
+        )
     );
 }
 add_action( 'wp_enqueue_scripts', 'snap_load_scripts' );
@@ -20,11 +23,16 @@ function snap_load_scripts()
 {
     $template_path = relative_template_path();
     wp_deregister_script( 'jquery' );
+    wp_register_script("snap-acf-gmaps", "//maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAC4IsuvpukJDywrNfJCTH9d-cLN9MAkgg");
     wp_register_script('jquery', "$template_path/js/vendor/jquery/jquery.min.js", array());
     wp_register_script('snap-js', "$template_path/js/dist/all.js", array('jquery'), false, true);
     wp_register_style('snap-fonts', "$template_path/fonts/fonts.css");
     wp_register_style('snap-css', "$template_path/css/dist/all.css");
 
+    wp_localize_script("snap-js", "SnapAJAX", array( "remoteURL" => "http://www.buylocalglv.org/wp-admin/admin-ajax.php"));
+
+
+    wp_enqueue_script("snap-acf-gmaps");
     wp_enqueue_script('jquery');
     wp_enqueue_script('snap-js');
 
@@ -84,4 +92,11 @@ add_filter( "show_admin_bar", "hide_admin_bar_from_front_end" );
 function hide_admin_bar_from_front_end(){
     $rVal = (is_blog_admin()) ? true : false;
     return $rVal;
+}
+
+add_action( 'pre_get_posts', 'set_posts_per_page_for_towns_cpt' );
+function set_posts_per_page_for_towns_cpt( $query ) {
+    if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'faq' ) ) {
+        $query->set( 'posts_per_page', '-1' );
+    }
 }

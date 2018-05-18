@@ -49,6 +49,7 @@ var paths = {
             './js/vendor/bootstrap/bootstrap.bundle.js'
         ],
         src:[
+            './js/src/plugins.js',
             './js/src/scripts.js'
         ]
     },
