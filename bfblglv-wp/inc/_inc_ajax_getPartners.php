@@ -365,7 +365,6 @@ function xhrGetPartners() {
 	$partners = array_merge($partners1, $partners2);
 	$partners = createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale);
 	$partners = sortPartners($partners);
-	
 
 	$updatedSpecificProductsList = get_specific_products($productTypes, $wholesale);
 	$updatedSpecificProductsList = array_values(array_unique($updatedSpecificProductsList, SORT_REGULAR));
@@ -398,6 +397,8 @@ function sortPartners($partners) {
 	usort($partners, function($a, $b) {
 	    return strnatcmp($a->name, $b->name);
 	});
+
+	return $partners;
 }
 
 function super_unique($array) {
