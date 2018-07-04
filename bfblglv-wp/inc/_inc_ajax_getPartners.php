@@ -364,10 +364,8 @@ function xhrGetPartners() {
 	}
 	$partners = array_merge($partners1, $partners2);
 	$partners = createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale);
-	$partners = array_unique($partners, SORT_REGULAR);
-	usort($partners, function($a, $b) {
-	    return strnatcmp($a->name, $b->name);
-	});
+	$partners = sortPartners($partners);
+	
 
 	$updatedSpecificProductsList = get_specific_products($productTypes, $wholesale);
 	$updatedSpecificProductsList = array_values(array_unique($updatedSpecificProductsList, SORT_REGULAR));
@@ -390,4 +388,28 @@ function xhrGetPartners() {
 	echo $result;
 
  	die();
+}
+
+function sortPartners($partners) {
+	if (is_array($partners)) {
+		$partners = super_unique($partners);
+	}
+
+	usort($partners, function($a, $b) {
+	    return strnatcmp($a->name, $b->name);
+	});
+}
+
+function super_unique($array) {
+  $result = array_map("unserialize", array_unique(array_map("serialize", $array)));
+
+  foreach ($result as $key => $value)
+  {
+    if ( is_array($value) )
+    {
+      $result[$key] = super_unique($value);
+    }
+  }
+
+  return $result;
 }
