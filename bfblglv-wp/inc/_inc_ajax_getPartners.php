@@ -394,16 +394,15 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 
 					if (checkPartnerLocation($tempObj, $zipBounds, $county)) {
 						$additionalLocations[]=$tempObj;
-
-						print_r($tempObj);
 					}
 
 					$tempObj = null;
 				}
 			}
 		}
-		// print_r($additionalLocations);
-		// $partners = array_merge($partners, $additionalLocations);
 	}
+	$partners = array_merge($partners, $additionalLocations);
+
+	print_r($additionalLocations);
 	return $partners;
 }
