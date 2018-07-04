@@ -40,8 +40,8 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 					$tempObj->url = get_author_posts_url($id);
 
 					//BEGIN: Additional Locations Logic
-					if (have_rows("additional_locations"), $acf_id) {
-						while(have_rows("additional_locations"), $acf_id) {
+					if (have_rows("additional_locations", $acf_id)) {
+						while(have_rows("additional_locations", $acf_id)) {
 							the_row();
 							$tempObj2 = $tempObj;
 							$tempCity2 = get_sub_field("city");
