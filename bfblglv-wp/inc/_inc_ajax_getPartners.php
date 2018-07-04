@@ -370,6 +370,11 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 			if (have_rows("additional_locations", $acf_id)) {
 				while(have_rows("additional_locations", $acf_id)) {
 					the_row();
+					$tempObj = null;
+					$tempCity = null;
+					$tempCounty = null;
+					$tempMap = null;
+
 					$tempObj = $partner;
 					$tempCity = get_sub_field("city");
 					$tempCounty = get_sub_field("location_county");
@@ -393,9 +398,6 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 					}
 
 					$tempObj = null;
-					$tempCity = null;
-					$tempCounty = null;
-					$tempMap = null;
 				}
 			}
 		}
