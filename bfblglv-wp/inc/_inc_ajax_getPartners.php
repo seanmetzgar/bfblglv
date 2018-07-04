@@ -370,6 +370,7 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 			if (have_rows("additional_locations", $acf_id)) {
 				while(have_rows("additional_locations", $acf_id)) {
 					the_row();
+
 					$tempObj = null;
 					$tempCity = null;
 					$tempCounty = null;
@@ -397,7 +398,7 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 						print_r($tempObj);
 						echo "</pre>";
 
-						$additionalLocations[] = $tempObj;
+						array_push($additionalLocations, $tempObj);
 					}
 
 					$tempObj = null;
