@@ -375,10 +375,14 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 					$tempCounty = get_sub_field("location_county");
 					$tempMap = get_sub_field("location_map");
 
+					$tempObj->lat = false;
+					$tempObj->lng = false;
+
 					if (!empty($tempMap)) {
 						$tempObj->lat = $tempMap["lat"];
 						$tempObj->lng = $tempMap["lng"];
 					}
+					
 					$tempObj->city = $tempCity;
 					$tempObj->county = $tempCounty;
 
