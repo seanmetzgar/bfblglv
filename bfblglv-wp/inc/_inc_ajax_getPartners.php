@@ -365,37 +365,35 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 	if (is_array($partners)) {
 		foreach ($partners as $partner) {
 
-			$acf_id = $partner->id;
+			$acf_id = "user_" . $partner->id;
 
-			print_r($acf_id);;
-			// if (have_rows("field_56b22685f4f6e", $acf_id)) {
-			// 	echo "{$acf_id}|";
-			// 	while(have_rows("field_56b22685f4f6e", $acf_id)) {
-			// 		the_row();
-			// 		$tempObj = $partner;
-			// 		$tempCity = get_sub_field("city");
-			// 		$tempCounty = get_sub_field("location_county");
-			// 		$tempMap = get_sub_field("location_map");
+			if (have_rows("additional_locations", $acf_id)) {
+				while(have_rows("additional_locations", $acf_id)) {
+					the_row();
+					$tempObj = $partner;
+					$tempCity = get_sub_field("city");
+					$tempCounty = get_sub_field("location_county");
+					$tempMap = get_sub_field("location_map");
 
-			// 		if (!empty($tempMap)) {
-			// 			$tempObj->lat = $tempMap["lat"];
-			// 			$tempObj->lng = $tempMap["lng"];
-			// 		}
-			// 		$tempObj->city = $tempCity;
-			// 		$tempObj->county = $tempCounty;
+					if (!empty($tempMap)) {
+						$tempObj->lat = $tempMap["lat"];
+						$tempObj->lng = $tempMap["lng"];
+					}
+					$tempObj->city = $tempCity;
+					$tempObj->county = $tempCounty;
 
-			// 		if (checkPartnerLocation($tempObj, $zipBounds, $county)) {
-			// 			$additionalLocations[]=$tempObj;
-			// 		}
+					if (checkPartnerLocation($tempObj, $zipBounds, $county)) {
+						$additionalLocations[]=$tempObj;
+					}
 
-			// 		$tempObj = null;
-			// 		$tempCity = null;
-			// 		$tempCounty = null;
-			// 		$tempMap = null;
-			// 	}
-			// }
+					$tempObj = null;
+					$tempCity = null;
+					$tempCounty = null;
+					$tempMap = null;
+				}
+			}
 		}
 		$partners = array_merge($partners, $additionalLocations);
 	}
-	return $partners;
+	return $additionalLocations;
 }
