@@ -623,7 +623,7 @@ get_header(); ?>
 												if ($tempAltAddress) {
 													echo "<p>$tempAltAddress</p>";
 												}
-											} ?>
+											endwhile; ?>
 										</div><!-- end div.partner-hours -->
 										<?php endif; ?>
 
