@@ -601,7 +601,7 @@ get_header(); ?>
 
 										<?php if ($partner_additional_locations): ?>
 										<div class="partner-detail partner-additional-locations">
-											<h4>Additional Locations</h4>
+											<h4>Additional<br>Locations</h4>
 											<?php while (have_rows("additional_locations", $acf_partner_id)):
 												the_row();
 												$tempAltStreet1 = get_sub_field("location_street_1");
