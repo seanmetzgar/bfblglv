@@ -384,7 +384,7 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 					$tempObj->lat = false;
 					$tempObj->lng = false;
 
-					if (!empty($tempMap) && is_object($tempMap)) {
+					if (!empty($tempMap) && is_array($tempMap)) {
 						print_r($tempMap);
 						$tempObj->lat = $tempMap["lat"];
 						$tempObj->lng = $tempMap["lng"];
