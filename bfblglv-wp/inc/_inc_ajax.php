@@ -53,7 +53,6 @@ class MapPartner {
 	public $lng = false;
 	public $city = false;
 	public $county = false;
-	public $locationIndex = 0;
 }
 class Hours {
 	public $day = false;
