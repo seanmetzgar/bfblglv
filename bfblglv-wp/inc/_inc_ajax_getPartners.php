@@ -34,34 +34,56 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 					$tempName = get_field("partner_name", $acf_id);
 					$tempCity = get_field("partner_city", $acf_id);
 					$tempCounty = get_field("partner_county", $acf_id);
-					$tempObj->name = strlen($tempName) > 0 ? $tempName : get_author_name($id);
 					$tempMap = get_field("partner_map", $acf_id);
+
+					$tempObj->name = strlen($tempName) > 0 ? $tempName : get_author_name($id);
+					$tempObj->url = get_author_posts_url($id);
+
+					//BEGIN: Additional Locations Logic
+					if (have_rows("additional_locations"), $acf_id) {
+						while(have_rows("additional_locations"), $acf_id) {
+							the_row();
+							$tempObj2 = $tempObj;
+							$tempCity2 = get_sub_field("city");
+							$tempCounty2 = get_sub_field("location_county");
+							$tempMap2 = get_sub_field("location_map");
+
+							if (!empty($tempMap2)) {
+								$tempObj2->lat = $tempMap2["lat"];
+								$tempObj2->lng = $tempMap2["lng"];
+							}
+							$tempObj2->city = $tempCity2;
+							$tempObj2->county = $tempCounty2;
+
+							if (checkPartnerLocation($tempObj2, $zipBounds, $county)) {
+								$mapPartners[]=$tempObj2;
+							}
+						}
+
+						$tempObj2 = null;
+						$tempCity2 = null;
+						$tempCounty2 = null;
+						$tempMap2 = null;
+					}
+					//END: Additional Locations Logic
 
 					if (!empty($tempMap)) {
 						$tempObj->lat = $tempMap["lat"];
 						$tempObj->lng = $tempMap["lng"];
 					}
-
-					$tempObj->url = get_author_posts_url($id);
 					$tempObj->city = $tempCity;
+					$tempObj->county = $tempCounty;
 
-					if (is_object($zipBounds) && !empty($tempMap)) {
-						if ($tempMap["lat"] < $zipBounds->maxLat && $tempMap["lat"] > $zipBounds->minLat &&
-							$tempMap["lng"] < $zipBounds->maxLng && $tempMap["lng"] > $zipBounds->minLng) {
-							$mapPartners[] = $tempObj;
-						}
-					} elseif ($county) {
-						if ($county == $tempCounty) {
-							$mapPartners[] = $tempObj;
-						}
-					} else {
-						$mapPartners[] = $tempObj;
+					if (checkPartnerLocation($tempObj, $zipBounds, $county)) {
+						$mapPartners[]=$tempObj;
 					}
 
 					//Reset temp variables
 					$tempObj = null;
+					$tempObj2 = null;
 					$tempName = null;
 					$tempCity = null;
+					$tempCounty = null;
 					$tempMap = null;
 					$tempDisabled = false;
 				}
@@ -69,6 +91,26 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 		}
 	}
 	return $mapPartners;
+}
+
+function checkPartnerLocation($obj, $zipBounds, $county) {
+	$rVal = false;
+	if (is_object($obj)) {
+		if (is_object($zipBounds) && ($obj->lat && $obj->lng)) {
+			if ($obj->lat < $zipBounds->maxLat && $obj->lat > $zipBounds->minLat &&
+				$obj->lng < $zipBounds->maxLng && $obj->lng > $zipBounds->minLng) {
+				$rVal = true;
+			}
+		} elseif ($county && $obj->county) {
+			if ($county == $obj->county) {
+				$rVal = true;
+			}
+		} else {
+			$rVal = true;
+		}
+	}
+
+	return $rVal;
 }
 
 function checkPartnerProducts($id, $productTypes, $specificProducts, $wholesale) {
