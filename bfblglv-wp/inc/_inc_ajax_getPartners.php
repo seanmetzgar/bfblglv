@@ -41,6 +41,7 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 
 					//BEGIN: Additional Locations Logic
 					if (have_rows("additional_locations", $acf_id)) {
+						$tempLocationIndex = 0;
 						while(have_rows("additional_locations", $acf_id)) {
 							the_row();
 							$tempObj2 = $tempObj;
@@ -56,6 +57,8 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 							$tempObj2->county = $tempCounty2;
 
 							if (checkPartnerLocation($tempObj2, $zipBounds, $county)) {
+								$tempLocationIndex++;
+								$tempObj2->locationIndex = $tempLocationIndex;
 								$mapPartners[]=$tempObj2;
 							}
 						}
@@ -64,6 +67,7 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 						$tempCity2 = null;
 						$tempCounty2 = null;
 						$tempMap2 = null;
+						$tempLocationIndex = null;
 					}
 					//END: Additional Locations Logic
 
