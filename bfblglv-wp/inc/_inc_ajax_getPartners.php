@@ -367,7 +367,7 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 
 			$acf_id = $partner->id;
 
-			print_r(get_field("additional_locations", $acf_id));
+			print_r(get_field_object("additional_locations", $acf_id));
 			// if (have_rows("field_56b22685f4f6e", $acf_id)) {
 			// 	echo "{$acf_id}|";
 			// 	while(have_rows("field_56b22685f4f6e", $acf_id)) {
