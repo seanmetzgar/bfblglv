@@ -61,6 +61,8 @@ get_header(); ?>
 
 					$partner_address = (strlen($partner_address) > 0) ? $partner_address : false;
 
+					$partner_additional_locations = have_rows("additional_locations", $acf_partner_id);
+
 					$partner_phone = get_field("partner_phone", $acf_partner_id);
 					$partner_phone = strlen($partner_phone) > 0 ? $partner_phone : false;
 					$partner_email = get_field("partner_email", $acf_partner_id);
@@ -594,6 +596,34 @@ get_header(); ?>
 												echo "<li>$partner_hours_day</li>\n";
 											} ?>
 											</ul>
+										</div><!-- end div.partner-hours -->
+										<?php endif; ?>
+
+										<?php if ($partner_additional_locations): ?>
+										<div class="partner-detail partner-additional-locations">
+											<h4>Additional Locations</h4>
+											<?php while (have_rows("additional_locations", $acf_partner_id)):
+												the_row();
+												$tempAltStreet1 = get_sub_field("location_street_1");
+												$tempAltStreet2 = get_sub_field("location_street_2");
+												$tempAltCity = get_sub_field("city");
+												$tempAltState = get_sub_field("location_state");
+												$tempAltZip = get_sub_field("location_zip");
+
+												$tempAltAddress = "";
+												$tempAltAddress .= $tempAltStreet1 ? "$tempAltStreet1<br>" : "";
+												$tempAltAddress .= $tempAltStreet2 ? "$tempAltStreet2<br>" : "";
+												$tempAltAddress .= $tempAltCity ? "$tempAltCity" : "";
+												$tempAltAddress .= ($tempAltCity && $tempAltState) ? ", $tempAltState" : "";
+												$tempAltAddress .= (!$tempAltCity && $tempAltState) ? "$tempAltState" : "";
+												$tempAltAddress .= ($tempAltZip && ($tempAltCity || $tempAltState)) ? " $tempAltZip" : "";
+												$tempAltAddress .= ($tempAltZip && !$tempAltCity && !$tempAltState) ? $tempAltZip : "";
+
+												$tempAltAddress = (strlen($tempAltAddress) > 0) ? $tempAltAddress : false;
+												if ($tempAltAddress) {
+													echo "<p>$tempAltAddress</p>";
+												}
+											} ?>
 										</div><!-- end div.partner-hours -->
 										<?php endif; ?>
 
