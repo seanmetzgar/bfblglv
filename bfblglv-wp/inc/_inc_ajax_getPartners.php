@@ -366,9 +366,9 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 		foreach ($partners as $partner) {
 
 			$acf_id = $partner->id;
-			echo "{$acf_id}|";
 
 			if (have_rows("additional_locations", $acf_id)) {
+				echo "{$acf_id}|";
 				while(have_rows("additional_locations", $acf_id)) {
 					the_row();
 					$tempObj = $partner;
