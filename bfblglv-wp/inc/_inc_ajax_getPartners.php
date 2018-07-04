@@ -191,7 +191,7 @@ function getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism) {
 
 function xhrGetPartners() {
     header('Access-Control-Allow-Origin: *');
-	header('Content-Type: application/json');
+	// header('Content-Type: application/json');
 	//Setup Location Boundry Variables
 	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;
 	$zip = ($zip && strlen($zip) >= 5) ? substr($zip, 0, 5) : false;
@@ -348,11 +348,11 @@ function xhrGetPartners() {
 	$updatedSpecificProductsList = $fixedSpecificProductsList;
 	$fixedSpecificProductsList = null;
 
-	$result = array("specific" => $updatedSpecificProductsList, "partners" => $partners);
+	// $result = array("specific" => $updatedSpecificProductsList, "partners" => $partners);
 
-	// echo "<pre>";
-	// print_r($result);
-	// echo "</pre>";
+	echo "<pre>";
+	print_r($result);
+	echo "</pre>";
 
 	$result = json_encode($result);
 	echo $result;
@@ -375,6 +375,8 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 					$tempCounty = get_sub_field("location_county");
 					$tempMap = get_sub_field("location_map");
 
+					print_r($tempMap);
+
 					$tempObj->lat = false;
 					$tempObj->lng = false;
 
@@ -382,7 +384,7 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 						$tempObj->lat = $tempMap["lat"];
 						$tempObj->lng = $tempMap["lng"];
 					}
-					
+
 					$tempObj->city = $tempCity;
 					$tempObj->county = $tempCounty;
 
