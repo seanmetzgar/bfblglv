@@ -385,7 +385,6 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 					$tempObj->lng = false;
 
 					if (!empty($tempMap) && is_array($tempMap)) {
-						print_r($tempMap);
 						$tempObj->lat = $tempMap["lat"];
 						$tempObj->lng = $tempMap["lng"];
 					}
@@ -401,7 +400,8 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 				}
 			}
 		}
-		$partners = array_merge($partners, $additionalLocations);
+		print_r($additionalLocations);
+		// $partners = array_merge($partners, $additionalLocations);
 	}
 	return $partners;
 }
