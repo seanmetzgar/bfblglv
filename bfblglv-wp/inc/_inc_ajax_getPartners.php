@@ -393,7 +393,11 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 					$tempObj->county = $tempCounty;
 
 					if (checkPartnerLocation($tempObj, $zipBounds, $county)) {
-						$additionalLocations[]=$tempObj;
+						echo "<pre>";
+						print_r($tempObj);
+						echo "</pre>";
+
+						$additionalLocations[] = $tempObj;
 					}
 
 					$tempObj = null;
@@ -401,8 +405,12 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 			}
 		}
 	}
+	echo "<pre>";
+	print_r($additionalLocations);
+	echo "</pre>";
+
 	$partners = array_merge($partners, $additionalLocations);
 
-	print_r($additionalLocations);
+	
 	return $partners;
 }
