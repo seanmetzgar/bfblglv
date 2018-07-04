@@ -39,38 +39,6 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 					$tempObj->name = strlen($tempName) > 0 ? $tempName : get_author_name($id);
 					$tempObj->url = get_author_posts_url($id);
 
-					//BEGIN: Additional Locations Logic
-					if (have_rows("additional_locations", $acf_id)) {
-						$tempLocationIndex = 0;
-						while(have_rows("additional_locations", $acf_id)) {
-							the_row();
-							$tempObj2 = $tempObj;
-							$tempCity2 = get_sub_field("city");
-							$tempCounty2 = get_sub_field("location_county");
-							$tempMap2 = get_sub_field("location_map");
-
-							if (!empty($tempMap2)) {
-								$tempObj2->lat = $tempMap2["lat"];
-								$tempObj2->lng = $tempMap2["lng"];
-							}
-							$tempObj2->city = $tempCity2;
-							$tempObj2->county = $tempCounty2;
-
-							if (checkPartnerLocation($tempObj2, $zipBounds, $county)) {
-								$tempLocationIndex++;
-								$tempObj2->locationIndex = $tempLocationIndex;
-								$mapPartners[]=$tempObj2;
-							}
-						}
-
-						$tempObj2 = null;
-						$tempCity2 = null;
-						$tempCounty2 = null;
-						$tempMap2 = null;
-						$tempLocationIndex = null;
-					}
-					//END: Additional Locations Logic
-
 					if (!empty($tempMap)) {
 						$tempObj->lat = $tempMap["lat"];
 						$tempObj->lng = $tempMap["lng"];
@@ -84,7 +52,6 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 
 					//Reset temp variables
 					$tempObj = null;
-					$tempObj2 = null;
 					$tempName = null;
 					$tempCity = null;
 					$tempCounty = null;
@@ -364,7 +331,11 @@ function xhrGetPartners() {
 	}
 	$partners = array_merge($partners1, $partners2);
 	$partners = createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale);
-	$partners = sortPartners($partners);
+	$partners = array_unique($partners, SORT_REGULAR);
+	$partners = addAdditionalLocations($partners, $zipBounds, $county);
+	usort($partners, function($a, $b) {
+	    return strnatcmp($a->name, $b->name);
+	});
 
 	$updatedSpecificProductsList = get_specific_products($productTypes, $wholesale);
 	$updatedSpecificProductsList = array_values(array_unique($updatedSpecificProductsList, SORT_REGULAR));
@@ -389,28 +360,39 @@ function xhrGetPartners() {
  	die();
 }
 
-function sortPartners($partners) {
+function addAdditionalLocations($partners, $zipBounds, $county) {
+	$additionalLocations = [];
 	if (is_array($partners)) {
-		$partners = super_unique($partners);
+		foreach ($partners as $partner) {
+			$acf_id = $partner->id;
+
+			if (have_rows("additional_locations", $acf_id)) {
+				while(have_rows("additional_locations", $acf_id)) {
+					the_row();
+					$tempObj = $partner;
+					$tempCity = get_sub_field("city");
+					$tempCounty = get_sub_field("location_county");
+					$tempMap = get_sub_field("location_map");
+
+					if (!empty($tempMap)) {
+						$tempObj->lat = $tempMap["lat"];
+						$tempObj->lng = $tempMap["lng"];
+					}
+					$tempObj->city = $tempCity;
+					$tempObj->county = $tempCounty;
+
+					if (checkPartnerLocation($tempObj, $zipBounds, $county)) {
+						$additionalLocations[]=$tempObj;
+					}
+
+					$tempObj = null;
+					$tempCity = null;
+					$tempCounty = null;
+					$tempMap = null;
+				}
+			}
+		}
+		$partners = array_merge($partners, $additionalLocations);
 	}
-
-	usort($partners, function($a, $b) {
-	    return strnatcmp($a->name, $b->name);
-	});
-
 	return $partners;
-}
-
-function super_unique($array) {
-  $result = array_map("unserialize", array_unique(array_map("serialize", $array)));
-
-  foreach ($result as $key => $value)
-  {
-    if ( is_array($value) )
-    {
-      $result[$key] = super_unique($value);
-    }
-  }
-
-  return $result;
 }
