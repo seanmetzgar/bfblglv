@@ -191,7 +191,7 @@ function getPseudoLocationTypeMetaQuery($csa, $farmShare, $agritourism) {
 
 function xhrGetPartners() {
     header('Access-Control-Allow-Origin: *');
-	header('Content-Type: application/json');
+	// header('Content-Type: application/json');
 	//Setup Location Boundry Variables
 	$zip = (isset($_REQUEST["zip"])) ? "".$_REQUEST["zip"] : false;
 	$zip = ($zip && strlen($zip) >= 5) ? substr($zip, 0, 5) : false;
@@ -332,7 +332,7 @@ function xhrGetPartners() {
 	$partners = array_merge($partners1, $partners2);
 	$partners = createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale);
 	$partners = array_unique($partners, SORT_REGULAR);
-	$partners = addAdditionalLocations($partners, $zipBounds, $county);
+	$additionalLocations = addAdditionalLocations($partners, $zipBounds, $county);
 	usort($partners, function($a, $b) {
 	    return strnatcmp($a->name, $b->name);
 	});
@@ -348,14 +348,14 @@ function xhrGetPartners() {
 	$updatedSpecificProductsList = $fixedSpecificProductsList;
 	$fixedSpecificProductsList = null;
 
-	$result = array("specific" => $updatedSpecificProductsList, "partners" => $partners);
+	$result = array("specific" => $updatedSpecificProductsList, "partners" => $partners, "additional" => $additionalLocations);
 
-	// echo "<pre>";
-	// print_r($result);
-	// echo "</pre>";
+	echo "<pre>";
+	print_r($result);
+	echo "</pre>";
 
-	$result = json_encode($result);
-	echo $result;
+	// $result = json_encode($result);
+	// echo $result;
 
  	die();
 }
@@ -394,5 +394,5 @@ function addAdditionalLocations($partners, $zipBounds, $county) {
 		}
 		$partners = array_merge($partners, $additionalLocations);
 	}
-	return $partners;
+	return $additionalLocations;
 }
