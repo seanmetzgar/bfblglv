@@ -332,7 +332,7 @@ function xhrGetPartners() {
 	$partners = array_merge($partners1, $partners2);
 	$partners = createMapPartners($partners, $zipBounds, $county, $productTypes, $specificProducts, $wholesale);
 	$partners = array_unique($partners, SORT_REGULAR);
-	$additionalLocations = addAdditionalLocations($partners, $zipBounds, $county);
+	$partners = addAdditionalLocations($partners, $zipBounds, $county);
 	usort($partners, function($a, $b) {
 	    return strnatcmp($a->name, $b->name);
 	});
