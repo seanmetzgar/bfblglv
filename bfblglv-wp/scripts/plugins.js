@@ -47,31 +47,6 @@ function xhrGetPartnersHandler(mainData) {
         }
     }
 
-    resultsTotal = (isNaN(resultsTotal)) ? 0 : resultsTotal;
-
-    // $specificProductsSelect.empty();
-    // $(specificData).each(function () {
-    //     var optionHtml = false;
-    //     var optionName = this.name;
-    //     var optionSelected = this.selected;
-    //     if (optionName.length > 0) {
-    //         optionHtml = "<option value=\"";
-    //         optionHtml += optionName;
-    //         optionHtml += "\"";
-    //         optionHtml += (optionSelected) ? " selected>" : ">";
-    //         optionHtml += optionName;
-    //         optionHtml += "</option>";
-    //     }
-    //     if (optionHtml !== false) {
-    //         $specificProductsSelect.append(optionHtml);
-    //     }
-    // });
-    // $specificProductsSelect.chosen("destroy");
-    // $specificProductsSelect.chosen({
-    //     "placeholder_text_multiple": "Select Products"
-    // });
-
-    var tempPrevName = false;
     $(data).each(function () {
         var tempName = false;
         var tempURL = false;

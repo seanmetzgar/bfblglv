@@ -41,8 +41,6 @@ function xhrGetPartnersHandler(mainData) {
         }
     }
 
-    resultsTotal = (isNaN(resultsTotal)) ? 0 : resultsTotal;
-
     $(data).each(function () {
         var tempName = false;
         var tempURL = false;
@@ -65,17 +63,30 @@ function xhrGetPartnersHandler(mainData) {
             mapHTML = mapHTML + tempHTML;
             tempHTML = "";
         }
+
         if (tempName && tempURL) {
-            tempResultHTML = "<a class=\"list-group-item\" href=\"" + tempURL + "\" target=\"_blank\">" + tempName + tempCity + "</a>";
-            resultsHTML = resultsHTML + tempResultHTML;
+            if (resultsHTML.indexOf("target=\"_blank\">" + tempName) === -1) {
+                tempResultHTML = "<li><a href=\"" + tempURL + "\" target=\"_blank\">" + tempName + tempCity + "</a></li>";
+                resultsHTML = resultsHTML + tempResultHTML;
+            }
         }
     });
 
     $(".acf-map").empty().html(mapHTML).each(function () {
         $(this).trigger("re-render");
     });
-    $(".finder-search-results").find(".results-list").empty().html(resultsHTML);
-    $(".finder-search-results").find(".results-total .count").empty().html(resultsTotal);
+
+    resultsTotal = $(".finder-search-results")
+        .find(".results-list")
+        .empty()
+        .html(resultsHTML)
+        .find("li")
+        .length;
+    
+    $(".finder-search-results")
+        .find(".results-total .count")
+        .empty()
+        .html(resultsTotal);
 
     if ($currentXhrAlert.length > 0 && $currentXhrError.length > 0) {
         $currentXhrAlert.removeClass("active");
