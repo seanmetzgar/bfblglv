@@ -66,7 +66,7 @@ function xhrGetPartnersHandler(mainData) {
 
         if (tempName && tempURL) {
             if (resultsHTML.indexOf("target=\"_blank\">" + tempName) === -1) {
-                tempResultHTML = "<li><a href=\"" + tempURL + "\" target=\"_blank\">" + tempName + tempCity + "</a></li>";
+                tempResultHTML = "<a class=\"list-group-item\" href=\"" + tempURL + "\" target=\"_blank\">" + tempName + tempCity + "</a>";
                 resultsHTML = resultsHTML + tempResultHTML;
             }
         }
@@ -82,7 +82,7 @@ function xhrGetPartnersHandler(mainData) {
         .html(resultsHTML)
         .find("li")
         .length;
-    
+
     $(".finder-search-results")
         .find(".results-total .count")
         .empty()
