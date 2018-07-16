@@ -96,7 +96,7 @@ function xhrGetPartnersHandler(mainData) {
         }
 
         if (tempName && tempURL) {
-            if (!resultsHTML.search("target=\"_blank\">" + tempName)) {
+            if (resultsHTML.indexOf("target=\"_blank\">" + tempName) !== -1) {
                 tempResultHTML = "<li><a href=\"" + tempURL + "\" target=\"_blank\">" + tempName + tempCity + "</a></li>";
                 resultsHTML = resultsHTML + tempResultHTML;
             }
