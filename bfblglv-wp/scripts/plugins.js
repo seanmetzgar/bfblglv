@@ -107,17 +107,17 @@ function xhrGetPartnersHandler(mainData) {
         $(this).trigger("re-render");
     });
 
+    resultsTotal = $(".finder-search-results")
+        .find(".results-list")
+        .empty()
+        .html(resultsHTML)
+        .find("li")
+        .length;
+    
     $(".finder-search-results")
         .find(".results-total .count")
         .empty()
-        .html(
-            $(".finder-search-results")
-                .find(".results-list")
-                .empty()
-                .html(resultsHTML)
-                .find("li")
-                .length
-        );
+        .html(resultsTotal);
 
     if ($currentXhrAlert.length > 0 && $currentXhrError.length > 0) {
         $currentXhrAlert.removeClass("active");
