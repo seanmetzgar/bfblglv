@@ -54,6 +54,8 @@ class MapPartner {
 	public $city = false;
 	public $county = false;
 	public $renewedUntil = false;
+    public $renewalYear = false;
+    public $renewalShutdown = false;
 }
 class Hours {
 	public $day = false;

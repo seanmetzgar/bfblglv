@@ -48,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_inc_ajax_getPartners.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_inc_ajax_getPartners.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax_getPartners.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="47" column="63" lean-forward="false" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
+            <state relative-caret-position="18">
+              <caret line="47" column="63" lean-forward="true" selection-start-line="47" selection-start-column="63" selection-end-line="49" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -83,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_inc_ajax.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_inc_ajax.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="55" column="33" lean-forward="false" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
+            <state relative-caret-position="387">
+              <caret line="57" column="36" lean-forward="false" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -112,9 +112,9 @@
       <find>xhrGetRenewal</find>
       <find>getRenewalYeargetRenewalYear</find>
       <find>createMapPartners</find>
-      <find>createMap</find>
       <find>getRene</find>
       <find>getRenewalYear</find>
+      <find>createMap</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -126,8 +126,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php" />
         <option value="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax_getPartners.php" />
+        <option value="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php" />
       </list>
     </option>
   </component>
@@ -225,12 +225,12 @@
       <workItem from="1525720287685" duration="549000" />
       <workItem from="1525792040418" duration="512000" />
       <workItem from="1526006564900" duration="593000" />
-      <workItem from="1539620623898" duration="648000" />
+      <workItem from="1539620623898" duration="865000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3998000" />
+    <option name="totallyTimeSpent" value="4215000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -476,18 +476,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
+    <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax_getPartners.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="55" column="33" lean-forward="false" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
+        <state relative-caret-position="18">
+          <caret line="47" column="63" lean-forward="true" selection-start-line="47" selection-start-column="63" selection-end-line="49" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax_getPartners.php">
+    <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="47" column="63" lean-forward="false" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
+        <state relative-caret-position="387">
+          <caret line="57" column="36" lean-forward="false" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
           <folding />
         </state>
       </provider>
