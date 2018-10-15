@@ -45,6 +45,7 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 					}
 					$tempObj->city = $tempCity;
 					$tempObj->county = $tempCounty;
+					$tempObj->renewedUntil = $tempRenewedUntil;
 
 					if (checkPartnerLocation($tempObj, $zipBounds, $county)) {
 						$mapPartners[]=$tempObj;
