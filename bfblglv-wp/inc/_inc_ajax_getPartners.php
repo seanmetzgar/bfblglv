@@ -19,7 +19,9 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 			// }
 
 			if (is_numeric($tempRenewedUntil)) {
-				if (($tempRenewedUntil < $renewalYear) && (time() >= $renewalShutDownTime)) {
+			    if ($tempRenewedUntil < $renewalYear - 1) {
+                    update_user_meta($id, "ja_disable_user", 1 );
+                } elseif (($tempRenewedUntil < $renewalYear) && (time() >= $renewalShutDownTime)) {
 					update_user_meta($id, "ja_disable_user", 1 );
 				} elseif (($tempRenewedUntil < $renewalYear) && (time() < $renewalShutDownTime)) {
 					update_user_meta($id, "ja_disable_user", 0 );
@@ -45,9 +47,6 @@ function createMapPartners($partners, $zipBounds, $county, $productTypes, $speci
 					}
 					$tempObj->city = $tempCity;
 					$tempObj->county = $tempCounty;
-					$tempObj->renewedUntil = $tempRenewedUntil;
-					$tempObj->renewalYear = $renewalYear;
-					$tempObj->renewalShutdown = $renewalShutDownTime;
 
 					if (checkPartnerLocation($tempObj, $zipBounds, $county)) {
 						$mapPartners[]=$tempObj;

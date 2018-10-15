@@ -48,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_inc_ajax_getPartners.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_inc_ajax_getPartners.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax_getPartners.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="47" column="63" lean-forward="true" selection-start-line="47" selection-start-column="63" selection-end-line="49" selection-end-column="69" />
+            <state relative-caret-position="282">
+              <caret line="48" column="51" lean-forward="false" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -61,7 +61,7 @@
       <file leaf-file-name="_inc_helpers.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_helpers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2205">
+            <state relative-caret-position="496">
               <caret line="117" column="21" lean-forward="false" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
               <folding />
             </state>
@@ -83,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_inc_ajax.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_inc_ajax.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="57" column="36" lean-forward="false" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
+            <state relative-caret-position="318">
+              <caret line="54" column="27" lean-forward="false" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -112,9 +112,9 @@
       <find>xhrGetRenewal</find>
       <find>getRenewalYeargetRenewalYear</find>
       <find>createMapPartners</find>
-      <find>getRene</find>
-      <find>getRenewalYear</find>
       <find>createMap</find>
+      <find>getRenewalYear</find>
+      <find>getRene</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -126,8 +126,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax_getPartners.php" />
         <option value="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php" />
+        <option value="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax_getPartners.php" />
       </list>
     </option>
   </component>
@@ -225,12 +225,12 @@
       <workItem from="1525720287685" duration="549000" />
       <workItem from="1525792040418" duration="512000" />
       <workItem from="1526006564900" duration="593000" />
-      <workItem from="1539620623898" duration="865000" />
+      <workItem from="1539620623898" duration="1096000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4215000" />
+    <option name="totallyTimeSpent" value="4446000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -455,6 +455,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="54" column="27" lean-forward="false" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -470,7 +478,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_helpers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2205">
+        <state relative-caret-position="496">
           <caret line="117" column="21" lean-forward="false" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
           <folding />
         </state>
@@ -478,16 +486,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax_getPartners.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="47" column="63" lean-forward="true" selection-start-line="47" selection-start-column="63" selection-end-line="49" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="57" column="36" lean-forward="false" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
+        <state relative-caret-position="282">
+          <caret line="48" column="51" lean-forward="false" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
           <folding />
         </state>
       </provider>
