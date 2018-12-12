@@ -1274,31 +1274,32 @@ function xhrUpdateRenewalPartnerEmail() {
 }
 
 function xhrAddPFBRegistration() {
-	$user_id = (int)$_REQUEST["id"];
-	$renewal_uuid = $_REQUEST["uuid"];
-
-	$user_id = (is_int($user_id)) ? $user_id : false;
-	$renewal_uuid = (UUID::is_valid($renewal_uuid)) ? $renewal_uuid : false;
-
-	$status = false;
-
-	if ($user_id > 0 && $renewal_uuid && $renewalPartner = get_user_by("id", $user_id)) {
-		$partner_id = $renewalPartner->ID;
-		$partner_renewal_uuid = get_user_meta($partner_id, "partner_renewal_uuid", true);
-
-		if ($partner_renewal_uuid === $renewal_uuid) {
-            update_user_meta( $partner_id, "register_pfb", true);
-            $status = true;
-		}
-	}
-
-	$data = new XHRStatus;
-	$data->status = $status;
-	$data = json_encode($data);
-
-	header('Content-Type: application/json');
-	echo $data;
-   	die();
+//	$user_id = (int)$_REQUEST["id"];
+//	$renewal_uuid = $_REQUEST["uuid"];
+//
+//	$user_id = (is_int($user_id)) ? $user_id : false;
+//	$renewal_uuid = (UUID::is_valid($renewal_uuid)) ? $renewal_uuid : false;
+//
+//	$status = false;
+//
+//	if ($user_id > 0 && $renewal_uuid && $renewalPartner = get_user_by("id", $user_id)) {
+//		$partner_id = $renewalPartner->ID;
+//		$partner_renewal_uuid = get_user_meta($partner_id, "partner_renewal_uuid", true);
+//
+//		if ($partner_renewal_uuid === $renewal_uuid) {
+//            update_user_meta( $partner_id, "register_pfb", true);
+//            $status = true;
+//		}
+//	}
+//
+//	$data = new XHRStatus;
+//	$data->status = $status;
+//	$data = json_encode($data);
+//
+//	header('Content-Type: application/json');
+//	echo $data;
+//   	die();
+    echo "hi";
 }
 
 function xhrMarkRenewalPaid() {
