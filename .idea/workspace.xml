@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb784e9d-4f73-48a2-983a-f9de7e4022be" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php" afterPath="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php" />
-    </list>
+    <list default="true" id="bb784e9d-4f73-48a2-983a-f9de7e4022be" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -265,12 +263,12 @@
       <workItem from="1526006564900" duration="593000" />
       <workItem from="1539620623898" duration="1271000" />
       <workItem from="1544642042467" duration="3026000" />
-      <workItem from="1544645263727" duration="3798000" />
+      <workItem from="1544645263727" duration="3909000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11445000" />
+    <option name="totallyTimeSpent" value="11556000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
