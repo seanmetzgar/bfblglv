@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bb784e9d-4f73-48a2-983a-f9de7e4022be" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/bfblglv-partners/renewal.php" afterPath="$PROJECT_DIR$/bfblglv-partners/renewal.php" />
-      <change beforePath="$PROJECT_DIR$/bfblglv-partners/scripts/scripts.js" afterPath="$PROJECT_DIR$/bfblglv-partners/scripts/scripts.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="renewal.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="renewal.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bfblglv-partners/renewal.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+            <state relative-caret-position="371">
+              <caret line="79" column="52" lean-forward="false" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -69,7 +68,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bfblglv-partners/scripts/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="347">
@@ -94,8 +93,8 @@
       <find>getRenewalYear</find>
       <find>getRene</find>
       <find>createMap</find>
-      <find>paymentForm</find>
       <find>Accept</find>
+      <find>paymentForm</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -118,8 +117,8 @@
         <option value="$PROJECT_DIR$/bfblglv-partners/emails/renewal/farm-email3.txt" />
         <option value="$PROJECT_DIR$/bfblglv-partners/emails/renewal/farm-email4.txt" />
         <option value="$PROJECT_DIR$/bfblglv-partners/renewalMailer.php" />
-        <option value="$PROJECT_DIR$/bfblglv-partners/renewal.php" />
         <option value="$PROJECT_DIR$/bfblglv-partners/scripts/scripts.js" />
+        <option value="$PROJECT_DIR$/bfblglv-partners/renewal.php" />
       </list>
     </option>
   </component>
@@ -232,12 +231,12 @@
       <workItem from="1525792040418" duration="512000" />
       <workItem from="1526006564900" duration="593000" />
       <workItem from="1539620623898" duration="1271000" />
-      <workItem from="1544642042467" duration="2799000" />
+      <workItem from="1544642042467" duration="2983000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7420000" />
+    <option name="totallyTimeSpent" value="7604000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -810,6 +809,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-partners/scripts/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="316" column="53" lean-forward="true" selection-start-line="316" selection-start-column="53" selection-end-line="316" selection-end-column="53" />
+          <folding>
+            <marker date="1544644934187" expanded="true" signature="14531:14574" ph="..." />
+            <marker date="1544644934187" expanded="true" signature="14577:14583" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bfblglv-partners/sendRenewalEmail.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-41">
@@ -820,20 +830,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bfblglv-partners/renewal.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+        <state relative-caret-position="371">
+          <caret line="79" column="52" lean-forward="false" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-partners/scripts/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="316" column="53" lean-forward="true" selection-start-line="316" selection-start-column="53" selection-end-line="316" selection-end-column="53" />
-          <folding>
-            <marker date="1544644934187" expanded="true" signature="14531:14574" ph="..." />
-            <marker date="1544644934187" expanded="true" signature="14577:14583" ph=" " />
-          </folding>
         </state>
       </provider>
     </entry>

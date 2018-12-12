@@ -63,7 +63,7 @@
                     <?php if ($renewedStatus !== 1): ?>
 
                     <p>Thank you for your interest in renewing your partnership with Buy Fresh Buy Local Greater Lehigh Valley. In order to complete your renewal, please view and agree to the Membership Agreement below. After you have agreed, a payment button will appear for you to continue to PayPal to complete the transaction.</p>
-                    <?php if ($partner["category"] == "farm"): ?>
+                    <?php if ($partner->category == "farm"): ?>
                     <p>No farm will be refused because of an inability to pay.  If you need to pay less than the full amount, please contact Lynn Prior (<a href="mailto:lynn@nurturenaturecenter.org">Lynn@NurtureNatureCenter.org</a> 610-703-6954) to make arrangements.</p>
                     <?php endif; ?>
 
@@ -77,7 +77,7 @@
                             <th>Amount Due:</th>
                             <td><span class="amount-owed"><?php echo money_format('%.2n', $amount_owed); ?></span></td>
                         </tr>
-                        <?php if ($partner["category"] == "farm"): ?>
+                        <?php if ($partner->category == "farm"): ?>
                         <tr>
                             <th><label for="register-pfb"><strong>I'd like to register as a Pennsylvania Farm Bureau member!</strong></label></th>
                             <td><input type="checkbox" id="register-pfb" name="register-pfb" value="1"></td>
