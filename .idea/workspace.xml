@@ -31,10 +31,10 @@
       <file leaf-file-name="_inc_ajax.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="1301" column="14" lean-forward="false" selection-start-line="1301" selection-start-column="14" selection-end-line="1301" selection-end-column="14" />
+            <state relative-caret-position="151">
+              <caret line="1276" column="0" lean-forward="false" selection-start-line="1276" selection-start-column="0" selection-end-line="1300" selection-end-column="10" />
               <folding>
-                <marker date="1544649017364" expanded="true" signature="53187:53956" ph="..." />
+                <marker date="1544649114291" expanded="true" signature="53185:53906" ph="..." />
               </folding>
             </state>
           </provider>
@@ -265,12 +265,12 @@
       <workItem from="1526006564900" duration="593000" />
       <workItem from="1539620623898" duration="1271000" />
       <workItem from="1544642042467" duration="3026000" />
-      <workItem from="1544645263727" duration="3708000" />
+      <workItem from="1544645263727" duration="3798000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11355000" />
+    <option name="totallyTimeSpent" value="11445000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -403,7 +403,7 @@
         <state relative-caret-position="1242">
           <caret line="54" column="27" lean-forward="false" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
           <folding>
-            <marker date="1544649017364" expanded="true" signature="53187:53956" ph="..." />
+            <marker date="1544649114291" expanded="true" signature="53185:53906" ph="..." />
           </folding>
         </state>
       </provider>
@@ -670,10 +670,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="1301" column="14" lean-forward="false" selection-start-line="1301" selection-start-column="14" selection-end-line="1301" selection-end-column="14" />
+        <state relative-caret-position="151">
+          <caret line="1276" column="0" lean-forward="false" selection-start-line="1276" selection-start-column="0" selection-end-line="1300" selection-end-column="10" />
           <folding>
-            <marker date="1544649017364" expanded="true" signature="53187:53956" ph="..." />
+            <marker date="1544649114291" expanded="true" signature="53185:53906" ph="..." />
           </folding>
         </state>
       </provider>
