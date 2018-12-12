@@ -1289,7 +1289,7 @@ function xhrAddPFBRegistration() {
 		if ($partner_renewal_uuid === $renewal_uuid) {
 			$acf_partner_id = "user_{$partner_id}";
             update_user_meta( $partner->ID, "register_pfb", 1 );
-            $status = true;
+            $status = true; 
 		}
 	}
 
