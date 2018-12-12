@@ -1298,8 +1298,8 @@ function xhrAddPHBRegistration() {
 	$data = json_encode($data);
 
 	header('Content-Type: application/json');
-	echo $data;
-
+//	echo $data;
+echo true;
    	die();
 }
 
