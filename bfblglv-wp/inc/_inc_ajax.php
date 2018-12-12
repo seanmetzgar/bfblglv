@@ -299,8 +299,8 @@ add_action("wp_ajax_nopriv_xhrGetRenewalYear", "xhrGetRenewalYear");
 add_action("wp_ajax_xhrGetRenewalYear", "xhrGetRenewalYear");
 add_action("wp_ajax_nopriv_xhrGetRenewalPartner", "xhrGetRenewalPartner");
 add_action("wp_ajax_xhrGetRenewalPartner", "xhrGetRenewalPartner");
-add_action("wp_ajax_nopriv_xhrAddPHPRegistration", "xhrAddPHPRegistration");
-add_action("wp_ajax_xhrAddPHPRegistration", "xhrAddPHPRegistration");
+add_action("wp_ajax_nopriv_xhrAddPFbRegistration", "xhrAddPFbRegistration");
+add_action("wp_ajax_xhrAddPFBRegistration", "xhrAddPFbRegistration");
 add_action("wp_ajax_nopriv_xhrMarkRenewalPaid", "xhrMarkRenewalPaid");
 add_action("wp_ajax_xhrMarkRenewalPaid", "xhrMarkRenewalPaid");
 add_action("wp_ajax_nopriv_xhrUpdateRenewalPartnerEmail", "xhrUpdateRenewalPartnerEmail");
@@ -1273,7 +1273,7 @@ function xhrUpdateRenewalPartnerEmail() {
    	die();
 }
 
-function xhrAddPHBRegistration() {
+function xhrAddPFBRegistration() {
 	$user_id = (int)$_REQUEST["id"];
 	$renewal_uuid = $_REQUEST["uuid"];
 
@@ -1298,8 +1298,7 @@ function xhrAddPHBRegistration() {
 	$data = json_encode($data);
 
 	header('Content-Type: application/json');
-//	echo $data;
-echo true;
+	echo $data;
    	die();
 }
 

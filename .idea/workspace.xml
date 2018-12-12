@@ -31,8 +31,8 @@
       <file leaf-file-name="_inc_ajax.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="564">
-              <caret line="1301" column="10" lean-forward="false" selection-start-line="1301" selection-start-column="10" selection-end-line="1301" selection-end-column="10" />
+            <state relative-caret-position="411">
+              <caret line="1300" column="15" lean-forward="false" selection-start-line="1300" selection-start-column="15" selection-end-line="1300" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -140,6 +140,7 @@
       <find>xhrAdd</find>
       <find>xhrAddPHPRegistration</find>
       <find>xhrMark</find>
+      <find>xhrAddPFbRegistration</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -261,12 +262,12 @@
       <workItem from="1526006564900" duration="593000" />
       <workItem from="1539620623898" duration="1271000" />
       <workItem from="1544642042467" duration="3026000" />
-      <workItem from="1544645263727" duration="2957000" />
+      <workItem from="1544645263727" duration="3029000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10604000" />
+    <option name="totallyTimeSpent" value="10676000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -664,8 +665,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="1301" column="10" lean-forward="false" selection-start-line="1301" selection-start-column="10" selection-end-line="1301" selection-end-column="10" />
+        <state relative-caret-position="411">
+          <caret line="1300" column="15" lean-forward="false" selection-start-line="1300" selection-start-column="15" selection-end-line="1300" selection-end-column="15" />
           <folding />
         </state>
       </provider>
