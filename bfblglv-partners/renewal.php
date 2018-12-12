@@ -64,7 +64,7 @@
 
                     <p>Thank you for your interest in renewing your partnership with Buy Fresh Buy Local Greater Lehigh Valley. In order to complete your renewal, please view and agree to the Membership Agreement below. After you have agreed, a payment button will appear for you to continue to PayPal to complete the transaction.</p>
                     <?php if ($partnerData->category == "farm"): ?>
-                    <p>No farm will be refused because of an inability to pay.  If you need to pay less than the full amount, please contact Lynn Prior (<a href="mailto:lynn@nurturenaturecenter.org">Lynn@NurtureNatureCenter.org</a> 610-703-6954) to make arrangements.</p>
+                    <p>No farm will be refused because of an inability to pay.  If you need to pay less than the full amount, please contact BFBL-GLV (<a href="mailto:bfbl@nurturenaturecenter.org">bfbl@nurturenaturecenter.org</a> or 610-253-4190) to make arrangements.</p>
                     <?php endif; ?>
 
                     <?php if ($renewedStatus === 9): ?>
