@@ -96,7 +96,7 @@
                         <input type="hidden" name="item_name" value="Buy Fresh Buy Local Greater Lehigh Valley: Renewal Dues">
                         <input type="hidden" name="no_note" value="1">
                         <input type="hidden" name="no_shipping" value="1">
-                        <input type="hidden" name="amount" value="<?php echo $amount_owed; ?>">
+                        <input type="hidden" name="amount" data-default="<?php echo $amount_owed; ?>" value="<?php echo $amount_owed; ?>">
                         <input type="hidden" name="currency_code" value="USD">
                         <input type="hidden" name="custom" value="<?php echo "{$id}|{$uuid}"; ?>">
                         <input type="hidden" name="return" value="<?php echo $return_url; ?>">
