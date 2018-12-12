@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb784e9d-4f73-48a2-983a-f9de7e4022be" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php" afterPath="$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php" />
       <change beforePath="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php" afterPath="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,23 +17,23 @@
       <file leaf-file-name="_inc_helpers.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="409" column="31" lean-forward="false" selection-start-line="409" selection-start-column="13" selection-end-line="409" selection-end-column="31" />
+            <state relative-caret-position="90">
+              <caret line="410" column="24" lean-forward="false" selection-start-line="410" selection-start-column="24" selection-end-line="410" selection-end-column="24" />
               <folding>
-                <marker date="1544645942423" expanded="true" signature="5484:5490" ph=" " />
-                <marker date="1544645942423" expanded="true" signature="5490:5496" ph=" " />
-                <marker date="1544645942423" expanded="true" signature="6182:6188" ph=" " />
-                <marker date="1544645942423" expanded="true" signature="6190:6196" ph=" " />
+                <marker date="1544648777926" expanded="true" signature="5484:5490" ph=" " />
+                <marker date="1544648777926" expanded="true" signature="5490:5496" ph=" " />
+                <marker date="1544648777926" expanded="true" signature="6182:6188" ph=" " />
+                <marker date="1544648777926" expanded="true" signature="6190:6196" ph=" " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_inc_ajax.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_inc_ajax.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="1291" column="28" lean-forward="false" selection-start-line="1291" selection-start-column="28" selection-end-line="1291" selection-end-column="28" />
+            <state relative-caret-position="245">
+              <caret line="1275" column="30" lean-forward="false" selection-start-line="1275" selection-start-column="9" selection-end-line="1275" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -62,14 +62,14 @@
       <file leaf-file-name="renewalProcess.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bfblglv-partners/ipn/renewalProcess.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="61" column="30" lean-forward="false" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="30" />
+            <state relative-caret-position="551">
+              <caret line="61" column="30" lean-forward="false" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="markRenewalPaid.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="markRenewalPaid.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bfblglv-partners/markRenewalPaid.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="511">
@@ -142,6 +142,7 @@
       <find>xhrAddPHPRegistration</find>
       <find>xhrMark</find>
       <find>xhrAddPFbRegistration</find>
+      <find>xhrAddPFBRegistration</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -163,12 +164,12 @@
         <option value="$PROJECT_DIR$/bfblglv-partners/emails/renewal/farm-email3.txt" />
         <option value="$PROJECT_DIR$/bfblglv-partners/emails/renewal/farm-email4.txt" />
         <option value="$PROJECT_DIR$/bfblglv-partners/renewalMailer.php" />
-        <option value="$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php" />
         <option value="$PROJECT_DIR$/bfblglv-partners/markRenewalPaid.php" />
         <option value="$PROJECT_DIR$/bfblglv-partners/scripts/scripts.js" />
         <option value="$PROJECT_DIR$/bfblglv-partners/ipn/renewalProcess.php" />
         <option value="$PROJECT_DIR$/bfblglv-partners/renewal.php" />
         <option value="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php" />
+        <option value="$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php" />
       </list>
     </option>
   </component>
@@ -263,12 +264,12 @@
       <workItem from="1526006564900" duration="593000" />
       <workItem from="1539620623898" duration="1271000" />
       <workItem from="1544642042467" duration="3026000" />
-      <workItem from="1544645263727" duration="3180000" />
+      <workItem from="1544645263727" duration="3477000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10827000" />
+    <option name="totallyTimeSpent" value="11124000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -310,10 +311,10 @@
         <state relative-caret-position="8832">
           <caret line="384" column="124" lean-forward="false" selection-start-line="384" selection-start-column="25" selection-end-line="384" selection-end-column="124" />
           <folding>
-            <marker date="1544645942423" expanded="true" signature="5484:5490" ph=" " />
-            <marker date="1544645942423" expanded="true" signature="5490:5496" ph=" " />
-            <marker date="1544645942423" expanded="true" signature="6182:6188" ph=" " />
-            <marker date="1544645942423" expanded="true" signature="6190:6196" ph=" " />
+            <marker date="1544648777926" expanded="true" signature="5484:5490" ph=" " />
+            <marker date="1544648777926" expanded="true" signature="5490:5496" ph=" " />
+            <marker date="1544648777926" expanded="true" signature="6182:6188" ph=" " />
+            <marker date="1544648777926" expanded="true" signature="6190:6196" ph=" " />
           </folding>
         </state>
       </provider>
@@ -388,10 +389,10 @@
         <state relative-caret-position="8234">
           <caret line="358" column="13" lean-forward="false" selection-start-line="358" selection-start-column="13" selection-end-line="358" selection-end-column="13" />
           <folding>
-            <marker date="1544645942423" expanded="true" signature="5484:5490" ph=" " />
-            <marker date="1544645942423" expanded="true" signature="5490:5496" ph=" " />
-            <marker date="1544645942423" expanded="true" signature="6182:6188" ph=" " />
-            <marker date="1544645942423" expanded="true" signature="6190:6196" ph=" " />
+            <marker date="1544648777926" expanded="true" signature="5484:5490" ph=" " />
+            <marker date="1544648777926" expanded="true" signature="5490:5496" ph=" " />
+            <marker date="1544648777926" expanded="true" signature="6182:6188" ph=" " />
+            <marker date="1544648777926" expanded="true" signature="6190:6196" ph=" " />
           </folding>
         </state>
       </provider>
@@ -627,35 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="409" column="31" lean-forward="false" selection-start-line="409" selection-start-column="13" selection-end-line="409" selection-end-column="31" />
-          <folding>
-            <marker date="1544645942423" expanded="true" signature="5484:5490" ph=" " />
-            <marker date="1544645942423" expanded="true" signature="5490:5496" ph=" " />
-            <marker date="1544645942423" expanded="true" signature="6182:6188" ph=" " />
-            <marker date="1544645942423" expanded="true" signature="6190:6196" ph=" " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-partners/ipn/renewalProcess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="61" column="30" lean-forward="false" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-partners/markRenewalPaid.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bfblglv-partners/renewal.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
@@ -666,8 +638,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="1291" column="28" lean-forward="false" selection-start-line="1291" selection-start-column="28" selection-end-line="1291" selection-end-column="28" />
+        <state relative-caret-position="245">
+          <caret line="1275" column="30" lean-forward="false" selection-start-line="1275" selection-start-column="9" selection-end-line="1275" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="410" column="24" lean-forward="false" selection-start-line="410" selection-start-column="24" selection-end-line="410" selection-end-column="24" />
+          <folding>
+            <marker date="1544648777926" expanded="true" signature="5484:5490" ph=" " />
+            <marker date="1544648777926" expanded="true" signature="5490:5496" ph=" " />
+            <marker date="1544648777926" expanded="true" signature="6182:6188" ph=" " />
+            <marker date="1544648777926" expanded="true" signature="6190:6196" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-partners/ipn/renewalProcess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="61" column="30" lean-forward="false" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-partners/markRenewalPaid.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
           <folding />
         </state>
       </provider>

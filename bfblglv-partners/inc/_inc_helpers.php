@@ -408,7 +408,7 @@
 	}
 
     function addPFBRegistration($id, $uuid, $server_name = false) {
-        if (is_int($id) && is_int($renewalYear) && UUID::is_valid($uuid)) {
+        if (is_int($id) && UUID::is_valid($uuid)) {
             $server_name = (is_string($server_name) && strlen($server_name) > 0) ? $server_name : $_SERVER["SERVER_NAME"];
             $ajax_url_server = ($server_name === "partner.buylocalglv.org") ? "www.buylocalglv.org" : "dev.buylocalglv.org";
             $ajax_url = "http://{$ajax_url_server}/wp-admin/admin-ajax.php?action=xhrAddPFBRegistration&id={$id}&uuid={$uuid}";
