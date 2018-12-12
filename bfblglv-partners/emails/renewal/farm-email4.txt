@@ -1,0 +1,27 @@
+Dear %%POC_NAME%%:
+
+Your Buy Fresh Buy Local of the Greater Lehigh Valley
+partnership has not been renewed for %%RENEWAL_YEAR%%.
+If you would like to continue your partnership with us,
+please follow the link below to renew today.
+
+Partners who sign up to become new Pennsylvania Farm Bureau
+members can save $30 this year on their PFB membership!
+Sign on to be a new member through your
+Buy Fresh Buy Local-GLV partnership and
+pay just $50 in PFB dues for 2019
+(regularly $80 per year).
+
+%%RENEWAL_LINK%%
+
+If we have not heard from you by March 7th,
+we will assume that you are no longer interested in
+receiving BFBLGLV benefits.
+If payment is an issue, please contact us.
+
+Sincerely,
+Buy Fresh Buy Local of the Greater Lehigh Valley
+A Program of the Nurture Nature Center
+610-253-4190
+BFBL@NurtureNatureCenter.org
+http://www.buylocalglv.org
