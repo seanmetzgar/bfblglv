@@ -21,7 +21,7 @@
     $return_url = "http://$server_name/renewalSuccess.php?id=$id&uuid=$uuid";
     $cancel_url = "http://$server_name/renewalCancel.php?id=$id&uuid=$uuid";
     $paypal_url = ($server_name == "partner.buylocalglv.org") ? "https://www.paypal.com/cgi-bin/webscr" : "https://www.sandbox.paypal.com/cgi-bin/webscr";
-    $paypal_business = ($server_name == "partner.buylocalglv.org") ? "info@BuyLocalGreaterLehighValley.org" : "sean.metzgar-facilitator@wearekudu.com";
+    $paypal_business = ($server_name == "partner.buylocalglv.org") ? "info@BuyLocalGreaterLehighValley.org" : "sean.metzgar-facilitator@gmail.com";
     $renewal_year = getRenewalYear();
     $partnerData = getRenewalPartner($id, $uuid);
 
