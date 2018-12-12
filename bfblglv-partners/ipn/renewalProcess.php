@@ -20,10 +20,17 @@
 
     $custom = isset($_POST["custom"]) ? $_POST["custom"] : false;
     $custom_parts = explode("|", $custom);
-    if (is_array($custom_parts) && count($custom_parts) === 2) {
+    $register_pfb = false;
+    if (is_array($custom_parts) && count($custom_parts) >= 2) {
         $uuid = (UUID::is_valid($custom_parts[1])) ? $custom_parts[1] : false;
         $id = (int)$custom_parts[0];
         $id = is_int($id) ? $id : false;
+        if (array_key_exists(2, $custom_parts)) {
+            switch($custom_parts[2]) {
+                case "pfb:true":
+                    $register_pfb = true;
+            }
+        }
     }
 
     $paypal_address = $server_name == "partner.buylocalglv.org" ?
@@ -51,6 +58,9 @@
 
     if ($valid_partner && $verified_payment && $txn_id) {
         markRenewalPaid($id, $uuid, $renewal_year);
+        if ($register_pfb) {
+            addPFBRegistration($id, $uuid);
+        }
         $exec_str = "/usr/bin/php {$cwd}/renewalMailer.php id={$partner_id} uuid={$partner_uuid} email=RT server_name={$server_name}";
         $checker = shell_exec($exec_str);
     } else $messages[] = "PART-01";

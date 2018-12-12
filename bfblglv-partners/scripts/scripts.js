@@ -313,14 +313,20 @@ $(function () {
             pfbDifference = 50,
             $amountOwedText = $("span.amount-owed"),
             $amountOwedField = $("input[name=amount]"),
+            $paypalCustom = $("input[name=custom]"),
             amountOwedDefault = $amountOwedField.data('default'),
-            amountOwedValue = $amountOwedField.val();
+            paypalCustomDefault = $paypalCustom.data('default'),
+            amountOwedValue = $amountOwedField.val(),
+            paypalCustomValue = $paypalCustom.val();
         if ($this.is(":checked")) {
             amountOwedValue = amountOwedDefault + pfbDifference;
+            paypalCustomValue = paypalCustomDefault + "|pfb:true";
         } else {
             amountOwedValue = amountOwedDefault;
+            paypalCustomValue = paypalCustomDefault;
         }
         $amountOwedField.val(amountOwedValue);
+        $paypalCustom.val(paypalCustomValue);
         $amountOwedText.text("$" + parseFloat(amountOwedValue).toFixed(2));
     }).trigger("blur");
 
