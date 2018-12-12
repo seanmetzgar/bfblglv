@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb784e9d-4f73-48a2-983a-f9de7e4022be" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php" afterPath="$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php" />
       <change beforePath="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php" afterPath="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_inc_ajax.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_inc_ajax.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="1275" column="30" lean-forward="false" selection-start-line="1275" selection-start-column="9" selection-end-line="1275" selection-end-column="30" />
+            <state relative-caret-position="126">
+              <caret line="1289" column="41" lean-forward="false" selection-start-line="1289" selection-start-column="41" selection-end-line="1289" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -69,7 +68,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="markRenewalPaid.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="markRenewalPaid.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bfblglv-partners/markRenewalPaid.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="511">
@@ -168,8 +167,8 @@
         <option value="$PROJECT_DIR$/bfblglv-partners/scripts/scripts.js" />
         <option value="$PROJECT_DIR$/bfblglv-partners/ipn/renewalProcess.php" />
         <option value="$PROJECT_DIR$/bfblglv-partners/renewal.php" />
-        <option value="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php" />
         <option value="$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php" />
+        <option value="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php" />
       </list>
     </option>
   </component>
@@ -264,12 +263,12 @@
       <workItem from="1526006564900" duration="593000" />
       <workItem from="1539620623898" duration="1271000" />
       <workItem from="1544642042467" duration="3026000" />
-      <workItem from="1544645263727" duration="3477000" />
+      <workItem from="1544645263727" duration="3632000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11124000" />
+    <option name="totallyTimeSpent" value="11279000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -636,14 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="1275" column="30" lean-forward="false" selection-start-line="1275" selection-start-column="9" selection-end-line="1275" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -669,6 +660,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="511">
           <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="1289" column="41" lean-forward="false" selection-start-line="1289" selection-start-column="41" selection-end-line="1289" selection-end-column="41" />
           <folding />
         </state>
       </provider>

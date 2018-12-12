@@ -1287,7 +1287,7 @@ function xhrAddPFBRegistration() {
 		$partner_renewal_uuid = get_user_meta($partner_id, "partner_renewal_uuid", true);
 
 		if ($partner_renewal_uuid === $renewal_uuid) {
-            update_user_meta( $partner->ID, "register_pfb", true);
+            update_user_meta( $partner_id, "register_pfb", true);
             $status = true;
 		}
 	}
