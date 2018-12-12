@@ -299,6 +299,8 @@ add_action("wp_ajax_nopriv_xhrGetRenewalYear", "xhrGetRenewalYear");
 add_action("wp_ajax_xhrGetRenewalYear", "xhrGetRenewalYear");
 add_action("wp_ajax_nopriv_xhrGetRenewalPartner", "xhrGetRenewalPartner");
 add_action("wp_ajax_xhrGetRenewalPartner", "xhrGetRenewalPartner");
+add_action("wp_ajax_nopriv_xhrAddPHPRegistration", "xhrAddPHPRegistration");
+add_action("wp_ajax_xhrAddPHPRegistration", "xhrAddPHPRegistration");
 add_action("wp_ajax_nopriv_xhrMarkRenewalPaid", "xhrMarkRenewalPaid");
 add_action("wp_ajax_xhrMarkRenewalPaid", "xhrMarkRenewalPaid");
 add_action("wp_ajax_nopriv_xhrUpdateRenewalPartnerEmail", "xhrUpdateRenewalPartnerEmail");
@@ -1271,28 +1273,23 @@ function xhrUpdateRenewalPartnerEmail() {
    	die();
 }
 
-function xhrMarkRenewalPaid() {
+function xhrAddPHBRegistration() {
 	$user_id = (int)$_REQUEST["id"];
 	$renewal_uuid = $_REQUEST["uuid"];
-	$renewed_until = (int)$_REQUEST["year"];
 
 	$user_id = (is_int($user_id)) ? $user_id : false;
 	$renewal_uuid = (UUID::is_valid($renewal_uuid)) ? $renewal_uuid : false;
-	$renewed_until = (is_int($renewed_until)) ? $renewed_until : false;
-	$renewal_date = date("Y-m-d H:i:s");
 
 	$status = false;
 
-	if ($user_id > 0 && $renewal_uuid && $renewed_until && $renewalPartner = get_user_by("id", $user_id)) {
+	if ($user_id > 0 && $renewal_uuid && $renewalPartner = get_user_by("id", $user_id)) {
 		$partner_id = $renewalPartner->ID;
 		$partner_renewal_uuid = get_user_meta($partner_id, "partner_renewal_uuid", true);
 
 		if ($partner_renewal_uuid === $renewal_uuid) {
 			$acf_partner_id = "user_{$partner_id}";
-			if (update_field("partner_renewed_date", $renewal_date, $acf_partner_id) && update_field("partner_renewed_until", $renewed_until, $acf_partner_id)) {
-				update_user_meta( $partner->ID, "ja_disable_user", 0 );
-				$status = true;
-			}
+            update_user_meta( $partner->ID, "register_pfb", 1 );
+            $status = true;
 		}
 	}
 
@@ -1304,6 +1301,41 @@ function xhrMarkRenewalPaid() {
 	echo $data;
 
    	die();
+}
+
+function xhrMarkRenewalPaid() {
+    $user_id = (int)$_REQUEST["id"];
+    $renewal_uuid = $_REQUEST["uuid"];
+    $renewed_until = (int)$_REQUEST["year"];
+
+    $user_id = (is_int($user_id)) ? $user_id : false;
+    $renewal_uuid = (UUID::is_valid($renewal_uuid)) ? $renewal_uuid : false;
+    $renewed_until = (is_int($renewed_until)) ? $renewed_until : false;
+    $renewal_date = date("Y-m-d H:i:s");
+
+    $status = false;
+
+    if ($user_id > 0 && $renewal_uuid && $renewed_until && $renewalPartner = get_user_by("id", $user_id)) {
+        $partner_id = $renewalPartner->ID;
+        $partner_renewal_uuid = get_user_meta($partner_id, "partner_renewal_uuid", true);
+
+        if ($partner_renewal_uuid === $renewal_uuid) {
+            $acf_partner_id = "user_{$partner_id}";
+            if (update_field("partner_renewed_date", $renewal_date, $acf_partner_id) && update_field("partner_renewed_until", $renewed_until, $acf_partner_id)) {
+                update_user_meta( $partner->ID, "ja_disable_user", 0 );
+                $status = true;
+            }
+        }
+    }
+
+    $data = new XHRStatus;
+    $data->status = $status;
+    $data = json_encode($data);
+
+    header('Content-Type: application/json');
+    echo $data;
+
+    die();
 }
 
 function xhrAddPartner() {
