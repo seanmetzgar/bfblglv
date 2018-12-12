@@ -75,8 +75,14 @@
                     <table class="table table-striped table-bordered" width="100%">
                         <tr>
                             <th>Amount Due:</th>
-                            <td><?php echo money_format('%.2n', $amount_owed); ?></td>
+                            <td><span class="amount-owed"><?php echo money_format('%.2n', $amount_owed); ?></span></td>
                         </tr>
+                        <?php if ($partner["category"] == "farm"): ?>
+                        <tr>
+                            <th><label for="register-pfb"><strong>I'd like to register as a Pennsylvania Farm Bureau member!</strong></label></th>
+                            <td><input type="checkbox" id="register-pfb" name="register-pfb" value="1"></td>
+                        </tr>
+                        <?php endif; ?>
                         <tr>
                             <th><label for="agree-terms">Accept the <a href="/documents/BFBLGLV_Membership_Agreement.pdf" target="_blank">Membership Agreement</a>?</label></th>
                             <td><input type="checkbox" id="agree-terms" name="agree-terms" value="1"></td>

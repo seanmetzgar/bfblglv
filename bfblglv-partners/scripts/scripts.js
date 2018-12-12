@@ -308,6 +308,22 @@ $(function () {
         }
     }).trigger("blur");
 
+    $("#register-pfb").on("change blur", function () {
+        var $this = $(this),
+            pfbDifference = 50,
+            $amountOwedText = $("span.amount-owed"),
+            $amountOwedField = $("input[name=amount]"),
+            amountOwedDefault = $amountOwedField.data('default'),
+            amountOwedValue = $amountOwedField.val();
+        if ($this.is(":checked")) {
+            amountOwedValue = amountOwedDefault + pfbDifference;
+        } else {
+            amountOwedValue = amountOwedDefault;
+        }
+        $amountOwedField.val(amountOwedValue);
+        $amountOwedText.text("$" + parseFloat(amountOwedValue).toFixed(2));
+    }).trigger("blur");
+
     $(".pseudo-select").each(function () {
         $(this).find("a").eq(0).trigger("click");
     });
