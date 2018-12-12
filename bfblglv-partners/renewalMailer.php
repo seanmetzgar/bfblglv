@@ -98,7 +98,7 @@
 		// $to_address = $server_name == "partner.buylocalglv.org" ? "sean.metzgar@wearekudu.com" : "sean.metzgar@gmail.com";
 		$from_address =	"no-reply@buylocalglv.org";
 
-		if ($partner->category === "farm") {
+		if ($partnerData->category === "farm") {
             $h_message = file_get_contents($email_farm_h_file);
         } else {
             $h_message = file_get_contents($email_h_file);
@@ -109,7 +109,7 @@
 	    $h_message = str_replace("%%POC_NAME%%", $partner_contact_name, $h_message);
 	    $h_message = str_replace("%%RENEWAL_YEAR%%", $renewal_year, $h_message);
 
-        if ($partner->category === "farm") {
+        if ($partnerData->category === "farm") {
             $t_message = file_get_contents($email_farm_t_file);
         } else {
             $t_message = file_get_contents($email_t_file);
