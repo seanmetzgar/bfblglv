@@ -223,3 +223,9 @@ function bfblExtractName($url) {
 function showIt($string) {
 	echo "<h1>$string</h1>";
 } // end showIt()
+
+function bfblglv_acf_gmaps_api( $api ){
+    $api['key'] = 'AIzaSyAC4IsuvpukJDywrNfJCTH9d-cLN9MAkgg';
+    return $api;
+}
+add_filter('acf/fields/google_map/api', 'bfblglv_acf_gmaps_api');

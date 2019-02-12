@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb784e9d-4f73-48a2-983a-f9de7e4022be" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/bfblglv-wp/scripts/plugins.js" afterPath="$PROJECT_DIR$/bfblglv-wp/scripts/plugins.js" />
+      <change beforePath="$PROJECT_DIR$/bfblglv-wp/functions.php" afterPath="$PROJECT_DIR$/bfblglv-wp/functions.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bfblglv-wp/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1334">
-              <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="32" />
+            <state relative-caret-position="507">
+              <caret line="227" column="58" lean-forward="false" selection-start-line="227" selection-start-column="58" selection-end-line="227" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -43,7 +43,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plugins.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="plugins.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bfblglv-wp/scripts/plugins.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="331">
@@ -138,6 +138,7 @@
       <find>relative_file</find>
       <find>acf_op</find>
       <find>xhrGetPartners</find>
+      <find>maps</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -166,6 +167,7 @@
         <option value="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php" />
         <option value="$PROJECT_DIR$/bfblglv-partners/renewal.php" />
         <option value="$PROJECT_DIR$/bfblglv-wp/scripts/plugins.js" />
+        <option value="$PROJECT_DIR$/bfblglv-wp/functions.php" />
       </list>
     </option>
   </component>
@@ -289,12 +291,12 @@
       <workItem from="1544714719597" duration="25000" />
       <workItem from="1545328978796" duration="616000" />
       <workItem from="1545420132556" duration="5073000" />
-      <workItem from="1549989234224" duration="454000" />
+      <workItem from="1549989234224" duration="719000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18361000" />
+    <option name="totallyTimeSpent" value="18626000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
@@ -639,14 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-wp/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1334">
-          <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bfblglv-custom/bfblglv-custom.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -699,6 +693,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
           <caret line="62" column="57" lean-forward="false" selection-start-line="62" selection-start-column="57" selection-end-line="62" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-wp/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="227" column="58" lean-forward="false" selection-start-line="227" selection-start-column="58" selection-end-line="227" selection-end-column="58" />
           <folding />
         </state>
       </provider>
