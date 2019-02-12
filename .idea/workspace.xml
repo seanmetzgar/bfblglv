@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb784e9d-4f73-48a2-983a-f9de7e4022be" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/bfblglv-partners/renewal.php" afterPath="$PROJECT_DIR$/bfblglv-partners/renewal.php" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/bfblglv-wp/scripts/plugins.js" afterPath="$PROJECT_DIR$/bfblglv-wp/scripts/plugins.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,35 +14,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_inc_helpers.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php">
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bfblglv-wp/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="410" column="24" lean-forward="false" selection-start-line="410" selection-start-column="24" selection-end-line="410" selection-end-column="24" />
-              <folding>
-                <marker date="1544649263560" expanded="true" signature="5484:5490" ph=" " />
-                <marker date="1544649263560" expanded="true" signature="5490:5496" ph=" " />
-                <marker date="1544649263560" expanded="true" signature="6182:6188" ph=" " />
-                <marker date="1544649263560" expanded="true" signature="6190:6196" ph=" " />
-              </folding>
+            <state relative-caret-position="1334">
+              <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_inc_ajax.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="830">
-              <caret line="1245" column="22" lean-forward="false" selection-start-line="1245" selection-start-column="22" selection-end-line="1245" selection-end-column="22" />
-              <folding>
-                <marker date="1544649263569" expanded="true" signature="53185:53906" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sendRenewalEmail.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bfblglv-partners/sendRenewalEmail.php">
+      <file leaf-file-name="bfblglv-custom.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bfblglv-custom/bfblglv-custom.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -50,60 +34,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="renewal.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bfblglv-partners/renewal.php">
+      <file leaf-file-name="class.BFBL_GLV_Customizations.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bfblglv-custom/class.BFBL_GLV_Customizations.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="66" column="233" lean-forward="false" selection-start-line="66" selection-start-column="233" selection-end-line="66" selection-end-column="233" />
+            <state relative-caret-position="431">
+              <caret line="249" column="122" lean-forward="false" selection-start-line="249" selection-start-column="8" selection-end-line="249" selection-end-column="122" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="renewalProcess.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bfblglv-partners/ipn/renewalProcess.php">
+      <file leaf-file-name="plugins.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bfblglv-wp/scripts/plugins.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="61" column="30" lean-forward="false" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="markRenewalPaid.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bfblglv-partners/markRenewalPaid.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="24" column="51" lean-forward="false" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="paymentSuccess.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bfblglv-partners/paymentSuccess.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-125">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1507142611000" expanded="true" signature="442:506" ph="SELECT id, p... registrations" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="renewalSuccess.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bfblglv-partners/renewalSuccess.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-72">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="310">
+              <caret line="70" column="26" lean-forward="false" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="scripts.min.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bfblglv-partners/scripts/scripts.min.js">
+        <entry file="file://$PROJECT_DIR$/bfblglv-wp/scripts/scripts.min.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -113,13 +65,52 @@
         </entry>
       </file>
       <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bfblglv-partners/scripts/scripts.js">
+        <entry file="file://$PROJECT_DIR$/bfblglv-wp/scripts/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="328" column="45" lean-forward="false" selection-start-line="328" selection-start-column="45" selection-end-line="328" selection-end-column="45" />
+            <state relative-caret-position="238">
+              <caret line="209" column="43" lean-forward="false" selection-start-line="209" selection-start-column="29" selection-end-line="209" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="front-page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bfblglv-wp/front-page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="14" column="98" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="98" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="single-events.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bfblglv-wp/single-events.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bfblglv-wp/page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bfblglv-wp/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1544649263565" expanded="true" signature="14868:14911" ph="..." />
-                <marker date="1544649263565" expanded="true" signature="14914:14920" ph=" " />
+                <marker date="1507142612000" expanded="true" signature="3185:3194" ph="..." />
               </folding>
             </state>
           </provider>
@@ -145,6 +136,9 @@
       <find>xhrAddPFbRegistration</find>
       <find>xhrAddPFBRegistration</find>
       <find>hi&quot;</find>
+      <find>relative_file</find>
+      <find>acf_op</find>
+      <find>xhrGetPartners</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -172,6 +166,7 @@
         <option value="$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php" />
         <option value="$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php" />
         <option value="$PROJECT_DIR$/bfblglv-partners/renewal.php" />
+        <option value="$PROJECT_DIR$/bfblglv-wp/scripts/plugins.js" />
       </list>
     </option>
   </component>
@@ -208,7 +203,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -219,12 +213,38 @@
             <path>
               <item name="bfblglv" type="b2602c69:ProjectViewProjectNode" />
               <item name="bfblglv" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="bfblglv-custom" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="bfblglv" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bfblglv" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="bfblglv-wp" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="bfblglv" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bfblglv" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="bfblglv-wp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="scripts" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="bfblglv" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bfblglv" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="bfblglv-wp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="scripts" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="plugins.js" type="620a8d5e:NestingTreeNode" />
+            </path>
+            <path>
+              <item name="bfblglv" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bfblglv" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="bfblglv-wp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="scripts" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="scripts.js" type="620a8d5e:NestingTreeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -266,15 +286,19 @@
       <workItem from="1526006564900" duration="593000" />
       <workItem from="1539620623898" duration="1271000" />
       <workItem from="1544642042467" duration="3026000" />
-      <workItem from="1544645263727" duration="4269000" />
+      <workItem from="1544645263727" duration="4546000" />
+      <workItem from="1544714719597" duration="25000" />
+      <workItem from="1545328978796" duration="616000" />
+      <workItem from="1545420132556" duration="5073000" />
+      <workItem from="1549989234224" duration="244000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11916000" />
+    <option name="totallyTimeSpent" value="18151000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -282,12 +306,12 @@
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -308,62 +332,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8832">
-          <caret line="384" column="124" lean-forward="false" selection-start-line="384" selection-start-column="25" selection-end-line="384" selection-end-column="124" />
-          <folding>
-            <marker date="1544649263560" expanded="true" signature="5484:5490" ph=" " />
-            <marker date="1544649263560" expanded="true" signature="5490:5496" ph=" " />
-            <marker date="1544649263560" expanded="true" signature="6182:6188" ph=" " />
-            <marker date="1544649263560" expanded="true" signature="6190:6196" ph=" " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-partners/sendRenewalEmail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-partners/renewalMailer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2300">
-          <caret line="100" column="24" lean-forward="false" selection-start-line="100" selection-start-column="24" selection-end-line="100" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-partners/scripts/scripts.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-partners/scripts/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7268">
-          <caret line="316" column="53" lean-forward="true" selection-start-line="316" selection-start-column="53" selection-end-line="316" selection-end-column="53" />
-          <folding>
-            <marker date="1544649263565" expanded="true" signature="14868:14911" ph="..." />
-            <marker date="1544649263565" expanded="true" signature="14914:14920" ph=" " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-partners/renewal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1817">
-          <caret line="79" column="52" lean-forward="false" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tastelv-custom/class.TasteLV_Customizations.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -382,7 +350,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2691">
           <caret line="117" column="21" lean-forward="false" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -390,12 +357,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8234">
           <caret line="358" column="13" lean-forward="false" selection-start-line="358" selection-start-column="13" selection-end-line="358" selection-end-column="13" />
-          <folding>
-            <marker date="1544649263560" expanded="true" signature="5484:5490" ph=" " />
-            <marker date="1544649263560" expanded="true" signature="5490:5496" ph=" " />
-            <marker date="1544649263560" expanded="true" signature="6182:6188" ph=" " />
-            <marker date="1544649263560" expanded="true" signature="6190:6196" ph=" " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -403,9 +364,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1242">
           <caret line="54" column="27" lean-forward="false" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
-          <folding>
-            <marker date="1544649263569" expanded="true" signature="53185:53906" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -413,7 +371,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
           <caret line="24" column="20" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -512,7 +469,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2691">
           <caret line="117" column="21" lean-forward="false" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -583,41 +539,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2300">
           <caret line="100" column="24" lean-forward="false" selection-start-line="100" selection-start-column="24" selection-end-line="100" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-partners/scripts/scripts.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-partners/sendRenewalEmail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bfblglv-partners/paymentSuccess.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-125">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1507142611000" expanded="true" signature="442:506" ph="SELECT id, p... registrations" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bfblglv-partners/renewalSuccess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-72">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -625,23 +553,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
           <caret line="328" column="45" lean-forward="false" selection-start-line="328" selection-start-column="45" selection-end-line="328" selection-end-column="45" />
-          <folding>
-            <marker date="1544649263565" expanded="true" signature="14868:14911" ph="..." />
-            <marker date="1544649263565" expanded="true" signature="14914:14920" ph=" " />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bfblglv-partners/inc/_inc_helpers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="0">
           <caret line="410" column="24" lean-forward="false" selection-start-line="410" selection-start-column="24" selection-end-line="410" selection-end-column="24" />
-          <folding>
-            <marker date="1544649263560" expanded="true" signature="5484:5490" ph=" " />
-            <marker date="1544649263560" expanded="true" signature="5490:5496" ph=" " />
-            <marker date="1544649263560" expanded="true" signature="6182:6188" ph=" " />
-            <marker date="1544649263560" expanded="true" signature="6190:6196" ph=" " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -649,7 +567,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
           <caret line="61" column="30" lean-forward="false" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -657,24 +574,132 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="511">
           <caret line="24" column="51" lean-forward="false" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bfblglv-wp/inc/_inc_ajax.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="830">
+        <state relative-caret-position="23">
           <caret line="1245" column="22" lean-forward="false" selection-start-line="1245" selection-start-column="22" selection-end-line="1245" selection-end-column="22" />
-          <folding>
-            <marker date="1544649263569" expanded="true" signature="53185:53906" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bfblglv-partners/renewal.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
+        <state relative-caret-position="334">
           <caret line="66" column="233" lean-forward="false" selection-start-line="66" selection-start-column="233" selection-end-line="66" selection-end-column="233" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-partners/sendRenewalEmail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-partners/renewalSuccess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-partners/scripts/scripts.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-wp/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1507142612000" expanded="true" signature="6865:6871" ph="©" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-wp/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1507142612000" expanded="true" signature="3185:3194" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-wp/page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-wp/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1334">
+          <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-custom/bfblglv-custom.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-wp/front-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="98" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-wp/single-events.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-custom/class.BFBL_GLV_Customizations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="249" column="122" lean-forward="false" selection-start-line="249" selection-start-column="8" selection-end-line="249" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-wp/scripts/scripts.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-wp/scripts/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="209" column="43" lean-forward="false" selection-start-line="209" selection-start-column="29" selection-end-line="209" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bfblglv-wp/scripts/plugins.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="70" column="26" lean-forward="false" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
           <folding />
         </state>
       </provider>

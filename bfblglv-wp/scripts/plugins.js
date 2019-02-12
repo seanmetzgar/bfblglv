@@ -63,12 +63,13 @@ function xhrGetPartnersHandler(mainData) {
         tempLng = !isNaN(this.lng) ? "" + this.lng : false;
 
         if (tempName && tempURL && tempLat && tempLng) {
+            console.log('yes');
             tempHTML = "<div class=\"marker\" data-lat=\"" + tempLat + "\" data-lng=\"" + tempLng + "\">";
             tempHTML = tempHTML + "<h4><a href=\"" + tempURL + "\">" + tempName + "</a></h4>";
             tempHTML = tempHTML + "</div>";
             mapHTML = mapHTML + tempHTML;
             tempHTML = "";
-        }
+        } else { console.log("no"); }
 
         if (tempName && tempURL) {
             if (resultsHTML.indexOf("target=\"_blank\">" + tempName) === -1) {
