@@ -59,8 +59,8 @@ function xhrGetPartnersHandler(mainData) {
         tempName = (this.name.length > 0) ? this.name : false;
         tempCity = (this.city.length > 0) ? ", " + this.city : "";
         tempURL = (this.url.length > 0) ? this.url : false;
-        tempLat = !isNaN(this.lat) ? "" + this.lat : false;
-        tempLng = !isNaN(this.lng) ? "" + this.lng : false;
+        tempLat = (!isNaN(this.lat) && this.lat != false) ? "" + this.lat : false;
+        tempLng = (!isNaN(this.lng) && this.lng != false) ? "" + this.lng : false;
 
         if (tempName && tempURL && tempLat && tempLng) {
             console.log('yes');
