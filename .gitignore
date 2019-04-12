@@ -42,3 +42,4 @@ template/src/js/scripts.js
 template/src/js/scripts.min.js
 template/build/
 template/dist/
+.idea/
