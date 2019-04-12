@@ -776,6 +776,7 @@ input.search-field:-ms-input-placeholder {
 	content: '\e80a';
 	font-size: 20px; font-size: 1.25rem;
 	margin-top: -16px; margin-top: -1rem;
+	margin-left: 3px;
 }
 
 #loginLB p.login-username label,
@@ -805,6 +806,10 @@ input.search-field:-ms-input-placeholder {
 	font-family: 'Clear Sans';
 	color: #ffffff;
 }
+#newsletterLB div.nlName input {
+	width: 80%;
+}
+
 
 #loginLB input::-webkit-input-placeholder {
 	color: #008c5c !important;
