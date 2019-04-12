@@ -244,49 +244,48 @@
 							<form action="https://buylocalglv.us19.list-manage.com/subscribe/post?u=386c91afa5f36c7d7fc05dfd7&amp;id=f1f6d8056f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 								<div id="mc_embed_signup_scroll">
 
-									<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
 									<div class="mc-field-group">
-										<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
-										</label>
-										<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+										<input type="email" value="" name="EMAIL" class="required email text" id="mce-EMAIL" placeholder="Email Address*">
 									</div>
 									<div class="mc-field-group">
-										<label for="mce-FNAME">First Name </label>
-										<input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+										<input type="text" value="" name="FNAME" class="text" id="mce-FNAME" placeholder="First Name">
 									</div>
 									<div class="mc-field-group">
-										<label for="mce-LNAME">Last Name </label>
-										<input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+										<input type="text" value="" name="LNAME" class="text" id="mce-LNAME" placeholder="Last Name">
 									</div>
+
 									<div id="mce-responses" class="clear">
 										<div class="response" id="mce-error-response" style="display:none"></div>
 										<div class="response" id="mce-success-response" style="display:none"></div>
 									</div>
+
 									<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_386c91afa5f36c7d7fc05dfd7_f1f6d8056f" tabindex="-1" value=""></div>
 									<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
 								</div>
 							</form>
 						</div>
-						<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-						<script type='text/javascript'>
-							(function($) {
-								window.fnames = new Array();
-								window.ftypes = new Array();
-
-								fnames[0]='EMAIL';
-								ftypes[0]='email';
-
-								fnames[1]='FNAME';
-								ftypes[1]='text';
-
-								fnames[2]='LNAME';
-								ftypes[2]='text';
-							}(jQuery));
-							var $mcj = jQuery.noConflict(true);
-						</script>
 						<!-- END: Mailchimp Signup Form -->
         	</div><!-- end div#newsletterLB -->
         </div><!-- end div.bfblLightboxes -->
         <?php wp_footer(); ?>
+				<!-- START: Mailchimp JS -->
+				<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+				<script type='text/javascript'>
+					(function($) {
+						window.fnames = new Array();
+						window.ftypes = new Array();
+
+						fnames[0]='EMAIL';
+						ftypes[0]='email';
+
+						fnames[1]='FNAME';
+						ftypes[1]='text';
+
+						fnames[2]='LNAME';
+						ftypes[2]='text';
+					}(jQuery));
+					var $mcj = jQuery.noConflict(true);
+				</script>
+				<!-- END: Mailchimp JS -->
     </body>
 </html>
