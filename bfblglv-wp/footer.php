@@ -256,7 +256,7 @@
 													<input type="text" value="" name="FNAME" class="text" id="mce-FNAME" placeholder="First Name">
 												</div>
 											</div>
-											<div class="mc-field-group nlName">
+											<div class="mc-field-group">
 												<div class="nlName">
 													<input type="text" value="" name="LNAME" class="text" id="mce-LNAME" placeholder="Last Name">
 												</div>
