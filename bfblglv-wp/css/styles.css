@@ -726,7 +726,7 @@ input.search-field:-ms-input-placeholder {
 	overflow: hidden;
 }
 
-#newsletterLB div.nlSideBySide .mce-field-group {
+#newsletterLB div.nlSideBySide .mc-field-group {
 	width: 50%;
 	float: left;
 }
