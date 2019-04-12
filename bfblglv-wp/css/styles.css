@@ -726,11 +726,14 @@ input.search-field:-ms-input-placeholder {
 #newsletterLB div.nlSideBySide {
 	overflow: hidden;
 }
+#newsletterLB div.nlName {
+	overflow: hidden;
+	margin-top: 18px; margin-top: 1rem;
+}
 
 #newsletterLB div.nlSideBySide .mc-field-group {
 	width: 50%;
 	float: left;
-	margin-top: 1rem;
 }
 #newsletterLB div.mc-field-group div.mce_inline_error {
 	margin-top: -1.75em;
