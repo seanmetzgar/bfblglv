@@ -731,6 +731,14 @@ input.search-field:-ms-input-placeholder {
 	margin-top: 0;
 	margin-bottom: 9pm; margin-bottom: .5rem;
 }
+#newsletterLB div.mce-error-response,
+#newsletterLB div.mce-success-response {
+	text-align: center;
+	padding: 9px;
+	font-weight: bold;
+	font-style: italic;
+	font-size: .9em;
+}
 
 #newsletterLB div.nlSideBySide .mc-field-group {
 	width: 50%;
