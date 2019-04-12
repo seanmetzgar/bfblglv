@@ -722,6 +722,15 @@ input.search-field:-ms-input-placeholder {
 /*	padding-left: 11.5%; */
 }
 
+#newsletterLB div.nlSideBySide {
+	overflow: hidden;
+}
+
+#newsletterLB div.nlSideBySide .mce-field-group {
+	width: 50%;
+	float: left;
+}
+
 #loginLB p.login-password {
 	margin-bottom: 28px; margin-bottom: 1.75rem;
 }

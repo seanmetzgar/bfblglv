@@ -245,14 +245,22 @@
 								<div id="mc_embed_signup_scroll">
 									<fieldset class="input">
 
-										<div class="mc-field-group nlEmail">
-											<input type="email" value="" name="EMAIL" class="required email text" id="mce-EMAIL" placeholder="Email Address*">
+										<div class="mc-field-group">
+											<div class="nlEmail">
+												<input type="email" value="" name="EMAIL" class="required email text" id="mce-EMAIL" placeholder="Email Address*">
+											</div>
 										</div>
-										<div class="mc-field-group nlName">
-											<input type="text" value="" name="FNAME" class="text" id="mce-FNAME" placeholder="First Name">
-										</div>
-										<div class="mc-field-group nlName">
-											<input type="text" value="" name="LNAME" class="text" id="mce-LNAME" placeholder="Last Name">
+										<div class="nlSideBySide">
+											<div class="mc-field-group">
+												<div class="nlName">
+													<input type="text" value="" name="FNAME" class="text" id="mce-FNAME" placeholder="First Name">
+												</div>
+											</div>
+											<div class="mc-field-group nlName">
+												<div class="nlName">
+													<input type="text" value="" name="LNAME" class="text" id="mce-LNAME" placeholder="Last Name">
+												</div>
+											</div>
 										</div>
 
 										<div id="mce-responses" class="clear">
