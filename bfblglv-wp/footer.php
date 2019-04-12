@@ -269,7 +269,7 @@
 										</div>
 
 										<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_386c91afa5f36c7d7fc05dfd7_f1f6d8056f" tabindex="-1" value=""></div>
-										<div class="clear nlSubmit"><input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+										<div class="clear nlSubmit"><input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button bfblButtonLink"></div>
 									</fieldset>
 								</div>
 							</form>
