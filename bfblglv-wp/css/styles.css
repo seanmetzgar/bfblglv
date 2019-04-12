@@ -712,7 +712,8 @@ input.search-field:-ms-input-placeholder {
 
 #loginLB p.login-username,
 #loginLB p.login-password,
-#newsletterLB div.nlEmail {
+#newsletterLB div.nlEmail,
+#newsletterLB div.nlName {
 	display: block;
 	margin: 36px 12px; margin: 2rem 0.75rem;
 	border: 1px solid #008c5c;
@@ -730,6 +731,11 @@ input.search-field:-ms-input-placeholder {
 	width: 50%;
 	float: left;
 }
+#newsletterLB div.mc-field-group div.mce_inline_error {
+	margin-top: -1.75em;
+	text-align: center;
+	font-size: .9;
+}
 
 #loginLB p.login-password {
 	margin-bottom: 28px; margin-bottom: 1.75rem;
@@ -737,7 +743,8 @@ input.search-field:-ms-input-placeholder {
 
 #loginLB p.login-username::before,
 #loginLB p.login-password::before,
-#newsletterLB div.nlEmail::before {
+#newsletterLB div.nlEmail::before,
+#newsletterLB div.nlName::before {
 	font-family: 'fontello';
 	display: block;
 	position: absolute;
@@ -762,6 +769,11 @@ input.search-field:-ms-input-placeholder {
 
 #newsletterLB div.nlEmail::before {
 	content: '\e810';
+	font-size: 20px; font-size: 1.25rem;
+	margin-top: -16px; margin-top: -1rem;
+}
+#newsletterLB div.nlName::before {
+	content: '\e80a';
 	font-size: 20px; font-size: 1.25rem;
 	margin-top: -16px; margin-top: -1rem;
 }
