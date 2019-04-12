@@ -243,24 +243,26 @@
 						<div id="mc_embed_signup">
 							<form action="https://buylocalglv.us19.list-manage.com/subscribe/post?u=386c91afa5f36c7d7fc05dfd7&amp;id=f1f6d8056f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 								<div id="mc_embed_signup_scroll">
+									<fieldset class="input">
 
-									<div class="mc-field-group">
-										<input type="email" value="" name="EMAIL" class="required email text" id="mce-EMAIL" placeholder="Email Address*">
-									</div>
-									<div class="mc-field-group">
-										<input type="text" value="" name="FNAME" class="text" id="mce-FNAME" placeholder="First Name">
-									</div>
-									<div class="mc-field-group">
-										<input type="text" value="" name="LNAME" class="text" id="mce-LNAME" placeholder="Last Name">
-									</div>
+										<div class="mc-field-group nlEmail">
+											<input type="email" value="" name="EMAIL" class="required email text" id="mce-EMAIL" placeholder="Email Address*">
+										</div>
+										<div class="mc-field-group nlName">
+											<input type="text" value="" name="FNAME" class="text" id="mce-FNAME" placeholder="First Name">
+										</div>
+										<div class="mc-field-group nlName">
+											<input type="text" value="" name="LNAME" class="text" id="mce-LNAME" placeholder="Last Name">
+										</div>
 
-									<div id="mce-responses" class="clear">
-										<div class="response" id="mce-error-response" style="display:none"></div>
-										<div class="response" id="mce-success-response" style="display:none"></div>
-									</div>
+										<div id="mce-responses" class="clear">
+											<div class="response" id="mce-error-response" style="display:none"></div>
+											<div class="response" id="mce-success-response" style="display:none"></div>
+										</div>
 
-									<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_386c91afa5f36c7d7fc05dfd7_f1f6d8056f" tabindex="-1" value=""></div>
-									<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+										<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_386c91afa5f36c7d7fc05dfd7_f1f6d8056f" tabindex="-1" value=""></div>
+										<div class="clear nlSubmit"><input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+									</fieldset>
 								</div>
 							</form>
 						</div>
