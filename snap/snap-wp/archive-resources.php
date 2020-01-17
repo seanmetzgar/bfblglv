@@ -1,12 +1,12 @@
 <?php get_header(); ?>
     <section class="container" role="main">
         <header class="header text-center text-secondary mt-4 mb-3">
-            <h1 class="entry-title my-0">Resources</h1>
+            <h1 class="entry-title my-0"><?php _e("Resources"); ?></h1>
         </header>
 
         <div class="row justify-content-center mb-4">
             <div class="col-lg-5 col-md-6">
-                <h5 class="text-center">Community Partners Resources</h5>
+                <h5 class="text-center"><?php _e("Community Partners Resources"); ?></h5>
                 <div class="list-group resource-list mb-3">
                 <?php
                     // WP_Query arguments
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="col-lg-5 col-md-6">
-                <h5 class="text-center">Vendor Resources</h5>
+                <h5 class="text-center"><?php _e("Vendor Resources"); ?></h5>
                 <div class="list-group resource-list mb-3">
                     <?php
                     // WP_Query arguments

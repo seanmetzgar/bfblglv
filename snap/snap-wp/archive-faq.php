@@ -1,7 +1,7 @@
 <?php get_header(); ?>
     <section class="container" role="main">
         <header class="header text-center text-secondary mt-4 mb-3">
-            <h1 class="entry-title my-0">Frequently Asked Questions</h1>
+            <h1 class="entry-title my-0"><?php _e("Frequently Asked Questions"); ?></h1>
         </header>
     </section>
     <section class="container-fluid px-0">

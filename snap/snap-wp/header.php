@@ -9,7 +9,7 @@
 <body <?php body_class(); ?>>
 <div id="wrapper" class="hfeed">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary site-header">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="<?php echo home_url(); ?>">
             <img src="<?php echo get_template_directory_uri(); ?>/img/logos/bucks_logo.png">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs4navbar" aria-controls="bs4navbar" aria-expanded="false" aria-label="Toggle navigation">

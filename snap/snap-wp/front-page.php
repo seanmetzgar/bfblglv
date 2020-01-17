@@ -54,7 +54,7 @@ if ( $query->have_posts() ) {
     $testimonial_counter = 0;
 ?>
 <section class="page-section bg-white container-fluid py-4">
-    <h2 class="text-center text-secondary">Testimonials</h2>
+    <h2 class="text-center text-secondary"><?php _e("Testimonials"); ?></h2>
     <div id="carouselExampleIndicators" class="testimonials-carousel carousel slide" data-ride="carousel">
         <div class="carousel-inner">
 <?php
@@ -76,11 +76,11 @@ if ( $query->have_posts() ) {
         </div>
         <a class="carousel-control-prev carousel-control" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon icon" aria-hidden="true"><i class="ti-angle-left"></i></span>
-            <span class="sr-only">Previous</span>
+            <span class="sr-only"><?php _e("Previous"); ?></span>
         </a>
         <a class="carousel-control-next carousel-control" href="#carouselExampleIndicators" role="button" data-slide="next">
             <span class="carousel-control-next-icon icon" aria-hidden="true"><i class="ti-angle-right"></i></span>
-            <span class="sr-only">Next</span>
+            <span class="sr-only"><?php _e("Next"); ?></span>
         </a>
         <ol class="carousel-indicators">
 <?php for ($testimonial_counter = 0; $testimonial_counter < $testimonial_count; $testimonial_counter++) { ?>
@@ -110,8 +110,8 @@ wp_reset_postdata();
 <section class="page-section bg-secondary container-fluid text-white py-4">
     <div class="row justify-content-center">
         <h2 class="text-center">
-            <small>Have any questions?</small>
-            Contact Us
+            <small><?php _e("Have any questions?"); ?></small>
+            <?php _e("Contact Us"); ?>
         </h2>
     </div>
     <?php echo do_shortcode('[contact-form-7 id="6"]'); ?>
