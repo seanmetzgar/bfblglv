@@ -2,7 +2,7 @@
     <section id="content" role="main">
         <?php if ( have_posts() ) : ?>
             <header class="header">
-                <h1 class="entry-title"><?php printf( __( 'Search Results for: %s', 'snap-wp' ), get_search_query() ); ?></h1>
+                <h1 class="entry-title"><?php printf( pll__( 'Search Results for: %s' ), get_search_query() ); ?></h1>
             </header>
             <?php while ( have_posts() ) : the_post(); ?>
                 <?php get_template_part( 'entry' ); ?>
@@ -11,10 +11,10 @@
         <?php else : ?>
             <article id="post-0" class="post no-results not-found">
                 <header class="header">
-                    <h2 class="entry-title"><?php _e( 'Nothing Found', 'snap-wp' ); ?></h2>
+                    <h2 class="entry-title"><?php pll_e( 'Nothing Found' ); ?></h2>
                 </header>
                 <section class="entry-content">
-                    <p><?php _e( 'Sorry, nothing matched your search. Please try again.', 'snap-wp' ); ?></p>
+                    <p><?php pll_e( 'Sorry, nothing matched your search. Please try again.' ); ?></p>
                     <?php get_search_form(); ?>
                 </section>
             </article>

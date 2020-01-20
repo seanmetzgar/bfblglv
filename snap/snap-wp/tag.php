@@ -1,7 +1,7 @@
 <?php get_header(); ?>
     <section id="content" role="main">
         <header class="header">
-            <h1 class="entry-title"><?php _e( 'Tag Archives: ', 'snap-wp' ); ?><?php single_tag_title(); ?></h1>
+            <h1 class="entry-title"><?php pll_e( 'Tag Archives: ' ); ?><?php single_tag_title(); ?></h1>
         </header>
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
             <?php get_template_part( 'entry' ); ?>

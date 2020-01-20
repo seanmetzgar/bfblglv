@@ -1,6 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . "/inc/bs4Navwalker.php");
 require_once(dirname(__FILE__) . "/inc/_inc_helpers.php");
+require_once(dirname(__FILE__) . "/inc/_inc_pll_strings.php");
 
 add_action( 'after_setup_theme', 'snap_setup' );
 function snap_setup()
