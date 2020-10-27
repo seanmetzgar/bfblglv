@@ -61,20 +61,6 @@ get_header();
 	$partners_query = new WP_User_Query($partners_args);
 	$partners = $partners_query->get_results();
 	$possible_products = false;
-	if ($landing_type == "agritourism") {
-		$possible_products = array();
-		foreach ($partners as $temp) {
-			$tempProducts = get_field("products_agritourism", "user_{$temp->ID}");
-			if (is_array($tempProducts)) {
-				$possible_products = array_merge($possible_products, $tempProducts);
-			}
-		}
-		$possible_products = array_values(array_unique($possible_products, SORT_REGULAR));
-		if(($key = array_search("Other", $possible_products)) !== false) {
-		    unset($possible_products[$key]);
-		}
-		$possible_products = array_values($possible_products);
-	}
 ?>
 			<section class="main-content" role="main">
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
@@ -152,20 +138,7 @@ get_header();
 												 ($partner_owner_photo) ? $partner_owner_photo : false ));
 
 								$partner_products_attribute = false;
-								if ($landing_type == "agritourism") {
-									$partner_products = get_field("products_agritourism", $acf_partner_id);
-									if (is_array($partner_products)) {
-										$partner_products = array_unique($partner_products, SORT_REGULAR);
-										$partner_products_attribute = array();
-										foreach ($partner_products as $partner_product) {
-											$tempProductKey = array_search($partner_product, $possible_products);
-											if ($tempProductKey !== false) {
-												$partner_products_attribute[] = $tempProductKey;
-											}
-										}
-										$partner_products_attribute = implode(",", $partner_products_attribute);
-									}
-								}
+								
 								$partner_products_attribute = ($partner_products_attribute) ? " data-products=\"[{$partner_products_attribute}]\"" : "";
 							?>
 							<li class="col-md-3 col-sm-4 col-xs-6"<?php echo $partner_products_attribute; ?>><a href="<?php echo $partner_url; ?>" title="<?php echo $partner_name; ?>">

@@ -53,6 +53,7 @@ class MapPartner {
 	public $lng = false;
 	public $city = false;
 	public $county = false;
+	public $image = false;
 }
 class Hours {
 	public $day = false;
@@ -290,6 +291,8 @@ class DownloadPartner {
 //XHR Definitions
 add_action("wp_ajax_xhrGetPartners", "xhrGetPartners");
 add_action("wp_ajax_nopriv_xhrGetPartners", "xhrGetPartners");
+add_action("wp_ajax_xhrGetAgritourismPartners", "xhrGetAgritourismPartners");
+add_action("wp_ajax_nopriv_xhrGetAgritourismPartners", "xhrGetAgritourismPartners");
 add_action("wp_ajax_xhrAddPartner", "xhrAddPartner");
 add_action("wp_ajax_nopriv_xhrAddPartner", "xhrAddPartner");
 add_action("wp_ajax_xhrGetPartnersDownload", "xhrGetPartnersDownload");

@@ -297,5 +297,89 @@
 					var $mcj = jQuery.noConflict(true);
 				</script>
 				<!-- END: Mailchimp JS -->
+
+<script>
+	function xhrGetAgritourismPartnersHandler(mainData) {
+		console.log(mainData);
+		if ($currentXhrAlert.length > 0 && $currentXhrError.length > 0) {
+			$currentXhrAlert.removeClass("active");
+			$currentXhrError.removeClass("active");
+		}
+		if (typeof mainData === 'object' && mainData.hasOwnProperty('partners')) {
+			$partnersBlocks = $("ul.agritourism-blocks").empty();
+
+			$.each(mainData.partners, function() {
+				var $tempBlock = $("<li></li>").addClass("col-md-3 col-sm-4 col-xs-6");
+				var $tempLink = $("<a></a>")
+					.attr('href', this.url)
+					.attr('title', this.name)
+					.attr('target', '_blank')
+					.appendTo($tempBlock);
+				var $tempOverlay = $("<div></div>")
+					.addClass('overlay')
+					.appendTo($tempLink);
+				var $tempTitle = $("<span></span>")
+					.text(this.name)
+					.appendTo($tempOverlay);
+				var $tempCity = $("<em></em>")
+					.text(this.city)
+					.appendTo($tempTitle);
+				if (this.hasOwnProperty('image') && typeof this.image === 'object') {
+					var $tempFigure = $("<figure></figure>")
+						.addClass('image')
+						.addClass(this.image.fill)
+						.css({backgroundImage: 'url("' +  this.image.src + '")'})
+						.prependTo($tempLink);
+				}
+				$tempBlock.appendTo($partnersBlocks);
+			});
+		}
+	}
+
+	function xhrGetAgritourismPartnersError() {
+		if ($currentXhrAlert.length > 0 && $currentXhrError.length > 0) {
+			$currentXhrAlert.removeClass("active");
+			$currentXhrError.addClass("active").delay(5).removeClass("active");
+		}
+	}
+	function xhrGetAgritourismPartners(formObject) {
+		if ($currentXhrGetPartners && $currentXhrGetPartners.readyState !== 4){
+			$currentXhrGetPartners.abort();
+		}
+
+		if ($currentXhrAlert.length > 0 && $currentXhrError.length > 0) {
+			$currentXhrError.removeClass("active");
+			$currentXhrAlert.addClass("active");
+		}
+
+		console.log(formObject);
+
+		$currentXhrGetPartners = $.ajax({
+			type: "post",
+			dataType: "json",
+			url: KuduAJAX.ajaxUrl,
+			data: formObject,
+			success: xhrGetAgritourismPartnersHandler,
+			error: xhrGetAgritourismPartnersError,
+			timeout: 60000
+		});
+	}
+
+	//Find Local Food Form
+	$findAgritourismForm = $("#find-agritourism-form").eq(0);
+    $findAgritourismForm.on("blur change", "input, textarea, select", function () {
+		var formObject = false;
+        formObject = $findAgritourismForm.serializeObject();
+        formObject.action = "xhrGetAgritourismPartners";
+
+        xhrGetAgritourismPartners(formObject);
+    }).find("input").eq(0).trigger("blur");
+    $findAgritourismForm.on("submit", function(e) {
+        e.preventDefault();
+        $findAgritourismForm.find("input").eq(0).trigger("blur");
+        return false;
+    });
+</script>
+
     </body>
 </html>

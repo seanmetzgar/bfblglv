@@ -520,7 +520,14 @@ get_header(); ?>
 						$agritourism_photo = get_field("agritourism_photo", $acf_partner_id);
 						$agritourism_products = get_field("products_agritourism", $acf_partner_id);
 						$agritourism_products = (is_array($agritourism_products) && count($agritourism_products) > 0) ? $agritourism_products : false;
-						$agritourism_products_string = $agritourism_products ? implode(", ", $agritourism_products) : "";
+						
+						$agritourism_products_string = array();
+						if ($agritourism_products) {
+							foreach ($agritourism_products as $agritourism_product) {
+								array_push($agritourism_products_string, $agritourism_product['label']);
+							}
+						}
+						$agritourism_products_string = implode(", ", $agritourism_products_string);
 
 						$agritourism_event_class = ($agritourism_photo) ? "col-sm-6" : "col-sm-4";
 						$agritourism_event_class .= " agritourism-event";

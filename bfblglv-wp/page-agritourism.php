@@ -129,6 +129,7 @@ get_header();
 									</a></li>
 								<?php endif; endforeach; ?>
 								</ul>
+								<div class="clearfix"></div>
 							</div>
 						</div>
 					</section>

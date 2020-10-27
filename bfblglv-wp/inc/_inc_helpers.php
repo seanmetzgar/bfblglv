@@ -255,7 +255,6 @@ function get_specific_products($productTypes = array(), $wholesale = null) {
             "poultry",
             "eggs",
             "mushrooms",
-            "agritourism",
             "fibers",
             "artisinal",
             "liquids",
@@ -382,4 +381,25 @@ function isDisabledVendor($vendor) {
         $rVal = ($disabled) ? true : false;
     }
     return $rVal;
+}
+
+function getEnvironment() {
+    $currentDirectory = getcwd();
+    return (strpos($currentDirectory, "/bfblglv/production/")) ? "production" : "development";
+}
+
+function videoAutoplay($video) {
+    // Use preg_match to find iframe src.
+    preg_match('/src="(.+?)"/', $video, $matches);
+    $src = $matches[1];
+
+    // Add extra parameters to src and replcae HTML.
+    $params = array(
+        'autoplay'  => 1,
+        'mute'      => 1
+    );
+    $new_src = add_query_arg($params, $src);
+    $video = str_replace($src, $new_src, $video);
+
+    return $video;
 }

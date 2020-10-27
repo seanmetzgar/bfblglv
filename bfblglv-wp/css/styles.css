@@ -20,7 +20,7 @@
  * 'fontello'
  */
 
-@font-face {
+ @font-face {
 	font-family: 'blue_highway_regular';
 	src: url('../fonts/blue_highway/bluehigh-webfont.eot');
 	src: url('../fonts/blue_highway/bluehigh-webfont.eot?#iefix') format('embedded-opentype'),
@@ -1109,6 +1109,20 @@ header.page-header.has-image .entry-title {
 	z-index: 10;
 	text-shadow: 0 0 10px #000000;
 }
+header.page-header.has-image .entry-title .title {
+	font-size: .95em;
+	line-height: .9;
+	margin: 0; padding: 0;
+	text-align: center;
+}
+header.page-header.has-image .entry-title .subtitle {
+	font-size: .85rem;
+	line-height: 1.2;
+	text-align: center;
+	font-family: 'Clear Sans', Helvetica, Arial, sans-serif;
+	margin: 0; padding: 0;
+}
+
 
 header.page-header.has-image img {
 	/* hide this, because we're using background image */
@@ -1131,6 +1145,17 @@ header.page-header.no-image .entry-title {
 	text-align: left;
 	text-transform: uppercase;
 	margin: 0;
+}
+header.page-header.no-image .entry-title .title {
+	font-size: 1em;
+	color: #1a3281;
+	margin: 0; padding: 0;
+}
+header.page-header.no-image .entry-title .subtitle {
+	font-size: .9rem;
+	line-height: 1.2;
+	font-family: 'Clear Sans', Helvetica, Arial, sans-serif;
+	margin: 0; padding: 0;
 }
 header.page-header.no-image .entry-title br {
 	content: ' ';
@@ -1566,6 +1591,23 @@ body.page-template-page_why-buy-local .page-block.tan-shadow .content {
 	background-color: transparent;
 }
 
+.page-block.light-green {
+	background-color:#8cc63f;
+}
+
+.page-block.light-green .content {
+	color: #1a3281;
+}
+.page-block.light-green .content a {
+	color: #1a3281;
+	text-decoration: underline;
+	border-bottom: none;
+}
+.page-block.light-green .content a:hover {
+	color: #1a3281;
+	background-color: transparent;
+}
+
 .page-block h2,
 .partner-profile .page-block h1,
 .partner-profile .page-block h2,
@@ -1590,6 +1632,12 @@ body.page-template-page_why-buy-local .page-block.tan-shadow .content {
 	border-top: 1px solid #8cc63f;
 	width: 86%;
 	margin: 0 auto;
+}
+
+.page-block.light-green h2 {
+	color: #1a3281;
+	font-size: 24px;
+	text-align: center;
 }
 
 .page-block p {
@@ -1832,6 +1880,10 @@ body.page-template-page_why-buy-local .page-block {
 	font-size: 20px; font-size: 1.25rem;
 	color: #ffffff!important;
 	background: #008c5c;
+}
+
+.greenHeader.centered {
+	text-align: center;
 }
 
 .parentArrow::before,
@@ -3821,6 +3873,13 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		min-width: 33.33%;
 		padding-right: 42px; padding-right: 2.625rem;
 	}
+	header.page-header.has-image .entry-title .title {
+		font-size: .95em;
+	}
+	header.page-header.has-image .entry-title .subtitle {
+		font-size: 1.1rem;
+		font-weight: 300;
+	}
 
 	header.page-header.no-image {
 		padding: 32px 42px; padding: 2rem 2.625rem; /* matches padding on .page-block */
@@ -3860,6 +3919,13 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 		margin-left: 32px; margin-left: 2rem;
 		margin-right: 0;
 		max-width: none;
+	}
+
+	.entry-content .video.agritourism-video {
+		float: none;
+		clear: both;
+		width: 50%;
+		margin: 0 auto;
 	}
 
 	.alignleft {
@@ -5621,6 +5687,127 @@ p.not-found-btn .bfblButtonLink.btnBlue:hover {
 .partners-blocks li a:hover .overlay {
 	opacity: 1;
 }
+
+
+/*Agritourism Blocks (Agritourism/CSA page) */
+.agritourism-blocks {
+	overflow: hidden;
+}
+.agritourism-blocks li {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.agritourism-blocks li a {
+	position: relative;
+	display: block;
+	padding: 0 0 100%;
+	width: 100%; height: 0;
+	box-sizing: content-box;
+	border: 1px solid #8cc63f;
+	cursor: pointer;
+}
+.agritourism-blocks .image {
+	position: absolute;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+	z-index: 1;
+}
+.agritourism-blocks .image {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+.agritourism-blocks .image.cover {
+	background-size: cover;
+}
+.agritourism-blocks .image.contain {
+	background-size: contain;
+}
+.agritourism-blocks .image span {
+	visibility: hidden;
+}
+.agritourism-blocks .overlay {
+	position: absolute;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+	background-color: rgba(1,92,60,0.65);
+	transition: all 0.1s ease-in-out;
+	z-index: 2;
+}
+
+.agritourism-blocks .overlay span {
+	font-size: 1.25rem;
+	text-transform: uppercase;
+	font-weight: 300;
+	text-align: center;
+	display: block;
+	position: absolute;
+	top: 50%; left: 15px; right: 15px;
+	text-decoration: none;
+	transform: translateY(-50%);
+	z-index: 1;
+	color: #fff;
+	text-shadow: 0 0 25px #000;
+}
+.agritourism-blocks .overlay em {
+	display: block;
+	font-size: 0.9rem;
+	font-style: normal;
+	font-weight: 700;
+	color: #8cc63f;
+}
+
+.agritourism-blocks li a:hover .overlay {
+	background-color: rgba(222, 118, 28, 0.76)
+}
+
+.agritourims-downloads-blodk h2 {
+	font-size: 40px; font-size: 2.5rem;
+}
+
+.agritourism-downloads {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.agritourism-download {
+	max-width: 240px;
+	min-width: 100px;
+	display: block;
+	margin: 1rem;
+
+	width: auto;
+	color: #1a3281;
+}
+.agritourism-download .image {
+	display: block;
+	max-width: 270px;
+	width: auto;
+	margin: 0 auto .5rem;
+}
+.agritourism-download .image img {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: 0;
+}
+.agritourism-download .filename {
+	display: block;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.agritourism-download:hover {
+	text-decoration: #015c3c;
+}
+
+
 .partners-section {
+	overflow: hidden;
+}
+
+.flex-break {
+	flex-basis: 100%;
+	height: 0; margin: 0; padding: 0;
 	overflow: hidden;
 }
